@@ -276,7 +276,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .tier { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; }
 
 /* then answer, you, the herd, the chart and the fact */
-.later { display: flex; flex-direction: column; gap: 16px; }
 .later:not(.shown) { display: none; }
 .later.shown > * { animation: rise .4s ease-out both; }
 .later.shown > *:nth-child(2) { animation-delay: .12s; }

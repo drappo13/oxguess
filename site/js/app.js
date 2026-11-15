@@ -450,8 +450,9 @@ function reveal(i, { animate = false } = {}) {
           <div class="tier-row ${animate ? "is-hidden" : ""}" id="tier">${rosette(t.key, p, 44)}<span class="tier">${t.name}</span></div>
         </div>
       </div>
-      <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
-      <div class="later ${animate ? "" : "shown"}">
+    </section>
+    <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
+    <section class="card later ${animate ? "" : "shown"}">
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
           <div class="nums">
@@ -463,7 +464,6 @@ function reveal(i, { animate = false } = {}) {
           <p class="herd-line">${v.beat >= 50 ? `You beat <b>${v.beat}%</b> of the herd.` : `<b>${100 - v.beat}%</b> of the herd got closer than you.`} ${v.pulled ? "Your guess pulled the herd's middle closer to the answer. 🐂" : ""}</p>
         </div>
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">📖 Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
-      </div>
     </section>`, q.cat);
 
   const puck = document.getElementById("puck"), fill = document.getElementById("fill");
