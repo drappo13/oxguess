@@ -236,7 +236,8 @@ function story(page = 0) {
      <p class="story-text">Some said under 1,000 lb. Some said over 1,400. Nobody was sure.</p>`,
     `${storyScale(true)}
      <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's middle guess</small><b>1,207 lb</b></div><div class="truth"><small>The ox</small><b>1,198 lb</b></div></div>
-     <h1 class="story-title">Out by 9 lb. Together, the crowd knew.</h1>`,
+     <h1 class="story-title">Together, the crowd knew.</h1>
+     <p class="story-text">The middle guess was just 9 lb out, less than 1% off the ox's real weight.</p>`,
     `<div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
      <h1 class="story-title">OxGuess is that fair, every day.</h1>
      <p class="story-text">Five numbers nobody knows off by heart. You'll be out on some. The herd, all of us guessing together, usually gets surprisingly close.</p>
