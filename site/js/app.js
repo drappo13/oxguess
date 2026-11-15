@@ -84,7 +84,10 @@ function load() {
   today = { key: k, ...roundFor(k) };
   state = store.get(dayStateKey(k), { answers: [], done: false });
   // If today's questions changed since this device played (a content update), start today afresh.
-  if (state.v !== ROUNDS.version && state.answers.length) state = { answers: [], done: false };
+  if (state.v !== ROUNDS.version && state.answers.length) {
+    state = { answers: [], done: false, v: ROUNDS.version };
+    store.set(dayStateKey(k), state);
+  }
   state.v = ROUNDS.version;
   // Earlier guesses from today are already in the stored herd, so nothing is re-added here.
   herdsReady = loadHerds(k, today.questions).then((h) => { herds = h; });
@@ -176,7 +179,7 @@ function home() {
         : ""}
       <ol class="todays stagger">
         ${qs.map((q, i) => {
-          const answered = i < state.answers.length && !(state.revealing && i === state.answers.length - 1 && false);
+          const answered = i < state.answers.length;
           const p = answered ? ptsAt(i) : null;
           return `<li style="--cat:${CATS[q.cat].color}; --i:${i}" class="${answered ? "is-done" : ""}">
             <span class="dot">${catIcon(q)}</span><span>${catLabel(q)}</span>
