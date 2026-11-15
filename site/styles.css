@@ -67,7 +67,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--b
 .wrap { max-width: 480px; margin: 0 auto; padding-block: max(12px, env(safe-area-inset-top, 0px)) 40px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .screen { display: flex; flex-direction: column; gap: 16px; }
-h1, h2 { font-family: var(--display); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.005em; }
+h1, h2 { font-family: var(--display); font-weight: 600; margin: 0; text-wrap: pretty; letter-spacing: -0.005em; }
 h1 { font-size: 27px; line-height: 1.15; }
 h2 { font-size: 19px; }
 p { margin: 0; }
@@ -391,7 +391,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 
 .score-line { display: inline-flex; align-items: baseline; gap: 2px; }
 .score-line small { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--muted); }
-.results-sub { text-align: center; font-family: var(--display); font-weight: 500; font-size: 18px; color: var(--ink); text-wrap: balance; }
+.results-sub { text-align: center; font-family: var(--display); font-weight: 500; font-size: 18px; color: var(--ink); text-wrap: pretty; }
 .sample-note.center { text-align: center; }
 
 /* results: the answer as a little flag on each track, and a centred answer line */
