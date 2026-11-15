@@ -165,9 +165,9 @@ function home() {
       <div class="hero-ox">${oxHead({ size: 104 })}</div>
       <p class="eyebrow">${prettyDate(today.key)} · Round ${today.number}</p>
       <h1>${done ? "All five judged" : started ? "Carry on guessing" : "Five numbers. How close can you get?"}</h1>
-      <p class="lede">${done
-        ? `You scored <b>${total()}</b> out of ${MAX()}. New guesses in <b id="cd"></b>.`
-        : "Nobody knows these off by heart. Guess on the slider, win points for getting close, then see how the whole herd guessed."}</p>
+      ${done
+        ? `<div class="home-score"><span class="label">You scored</span><span class="score-line"><span class="big-num">${total()}</span><small>/${MAX()}</small></span></div>`
+        : `<p class="lede">Nobody knows these off by heart. Guess on the slider, win points for getting close, then see how the whole herd guessed.</p>`}
       <ol class="todays stagger">
         ${qs.map((q, i) => {
           const answered = i < state.answers.length && !(state.revealing && i === state.answers.length - 1 && false);
@@ -179,6 +179,7 @@ function home() {
         }).join("")}
       </ol>
       <button class="btn primary big" data-go="${done ? "results" : "play"}">${done ? "See today's results" : started ? "Carry on" : "Start guessing"}</button>
+      ${done ? `<p class="next-round">New guesses in <b id="cd"></b></p>` : ""}
     </section>
     <section class="card week-card">
       <div class="week-head"><h2>Your week at the fair</h2></div>
