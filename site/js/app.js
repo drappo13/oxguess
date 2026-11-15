@@ -174,7 +174,7 @@ function home() {
           const p = answered ? ptsAt(i) : null;
           return `<li style="--cat:${CATS[q.cat].color}; --i:${i}" class="${answered ? "is-done" : ""}">
             <span class="dot">${catIcon(q)}</span><span>${catLabel(q)}</span>
-            <span class="res">${answered ? rosette(tierFor(p).key, p, 42) : `<span class="ring"></span>`}</span>
+            <span class="res">${answered ? `<span class="pts">${p}</span>${rosette(tierFor(p).key, "", 34)}` : `<span class="ring"></span>`}</span>
           </li>`;
         }).join("")}
       </ol>
