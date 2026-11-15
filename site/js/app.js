@@ -139,7 +139,7 @@ function weekTickets(k, { stampToday = false } = {}) {
     const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}`;
     const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<span class="play-label">Play</span>` : "";
     return isToday && !played
-      ? `<button class="${cls}" data-go="play" aria-label="Play today's round">${letters[i]}${mark}</button>`
+      ? `<button class="${cls}" data-go="play" aria-label="Play today's round"><b>${letters[i]}</b>${mark}</button>`
       : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : ""}"><b>${letters[i]}</b>${mark}</span>`;
   }).join("")}</div>`;
 }

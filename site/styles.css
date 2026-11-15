@@ -487,3 +487,13 @@ button.ticket.today:focus-visible { outline: 3px solid var(--stamp); outline-off
 .ticket { min-width: 0; width: 100%; box-sizing: border-box; }
 button.ticket { padding: 6px 0 7px; margin: 0; font: inherit; font-family: var(--display); font-weight: 700; appearance: none; }
 .ticket.today:not(.played) { border: 2px solid var(--stamp); }
+
+/* Week tiles: identical size and layout for every state. */
+.tickets { grid-auto-rows: 58px; align-items: stretch; }
+.ticket, button.ticket { aspect-ratio: auto; height: 58px; padding: 6px 0; display: grid; grid-template-rows: 16px 1fr; justify-items: center; align-items: center; font-family: var(--display); }
+.ticket b, button.ticket b { font: 700 13px/16px var(--display); }
+.ticket .stamp { width: 24px; height: 24px; }
+.ticket .miss-mark { width: 12px; margin: 0; }
+.ticket.today .play-label { margin: 0; font-size: 9.5px; }
+.ticket.missed { background: color-mix(in srgb, var(--muted) 14%, var(--card)); }
+.ticket, button.ticket { grid-template-columns: 1fr; justify-content: stretch; }
