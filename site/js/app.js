@@ -137,7 +137,7 @@ function weekTickets(k, { stampToday = false } = {}) {
   return `<div class="tickets" aria-label="Your week">${weekOf(k).map((d, i) => {
     const played = playedOn(d), isToday = d === k, future = d > k, missed = !played && !future && !isToday;
     const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}`;
-    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<span class="play-label">Play</span>` : "";
+    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M10 7.5 L16.5 12 L10 16.5 Z"/></svg>` : "";
     return isToday && !played
       ? `<button class="${cls}" data-go="play" aria-label="Play today's round"><b>${letters[i]}</b>${mark}</button>`
       : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : ""}"><b>${letters[i]}</b>${mark}</span>`;
