@@ -147,7 +147,8 @@ function streakLine() {
   const s = streak(), best = bestStreak(), playedToday = playedOn(today.key);
   if (!s) return "Play today to start a streak.";
   if (!playedToday) return `🔥 ${s}-day streak. Play today to keep it going.`;
-  return `🔥 <b>${s}-day streak</b>${best > s ? ` · best ${best}` : s > 1 && s === best ? " · your best yet" : ""}`;
+  const sub = best > s ? `Your best is ${best} days` : s > 1 ? "Your best yet" : "";
+  return `<span class="streak-main">🔥 <b>${s}-day streak</b></span>${sub ? `<span class="streak-sub">${sub}</span>` : ""}`;
 }
 function countdown(el) {
   const tick = () => {
@@ -551,9 +552,9 @@ function results({ celebrate = false } = {}) {
     <section class="card results">
       <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
       <div class="versus">
-        <div class="side you"><span class="who">${fairgoer({ size: 22 })} You</span><span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span></div>
+        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span></div>
         <span class="vs">vs</span>
-        <div class="side"><span class="who">${oxHead({ size: 22 })} The herd</span><span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span></div>
+        <div class="side">${oxHead({ size: 46 })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
       </div>
       <p class="results-sub">${sub}</p>
       <div class="complete" id="complete">

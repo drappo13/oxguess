@@ -524,3 +524,12 @@ button.ticket.today:hover .play-icon { transform: scale(1.08); }
 /* Play button: reddy-orange outlines only. */
 .play-icon circle { fill: none; stroke: var(--c-big); stroke-width: 2; }
 .play-icon path { fill: none; stroke: var(--c-big); stroke-width: 2; stroke-linejoin: round; }
+
+.streak-line { display: flex; flex-direction: column; gap: 1px; }
+.streak-sub { font-size: 14px; color: var(--muted); }
+.versus { align-items: center; }
+.versus .side { gap: 2px; }
+.versus .side > svg { margin-bottom: 2px; }
+.versus .who { font-size: 14px; }
+.versus .vs { padding-bottom: 0; }
+.versus .vs { margin-top: 22px; }
