@@ -410,3 +410,5 @@ svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at
 .ticket b { opacity: .8; }
 .ticket.future { opacity: 1; background: color-mix(in srgb, var(--ticket) 45%, var(--card)); border-color: color-mix(in srgb, var(--ticket) 40%, var(--line)); }
 .ticket.future b { color: color-mix(in srgb, var(--ink) 78%, transparent); opacity: 1; }
+
+.todays .res .rosette { margin: -10px 0 -14px; }
