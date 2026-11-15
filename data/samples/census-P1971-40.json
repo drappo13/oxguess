@@ -1,0 +1,195 @@
+{
+ "prop": "P1971",
+ "min_sitelinks": 40,
+ "items": 12,
+ "clean": 12,
+ "disputed": 0,
+ "top_types": [
+  [
+   "human biblical figure",
+   6
+  ],
+  [
+   "fictional humanoid extraterrestrial",
+   1
+  ],
+  [
+   "Hindu deity",
+   1
+  ],
+  [
+   "literary character",
+   1
+  ],
+  [
+   "mythological Greek character",
+   1
+  ],
+  [
+   "art deity",
+   1
+  ],
+  [
+   "household deity",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q37122",
+   "label": "Athena",
+   "sl": 126,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "Greek deity",
+    "Olympian god",
+    "art deity",
+    "deity of crafts",
+    "deity of wisdom",
+    "goddess",
+    "war deity"
+   ]
+  },
+  {
+   "qid": "Q1579",
+   "label": "Ganesha",
+   "sl": 100,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "Hindu deity"
+   ]
+  },
+  {
+   "qid": "Q41419",
+   "label": "Hestia",
+   "sl": 96,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "Greek deity",
+    "Olympian god",
+    "household deity"
+   ]
+  },
+  {
+   "qid": "Q12206942",
+   "label": "Darth Vader",
+   "sl": 85,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "animated character",
+    "character from Star Wars",
+    "comics character",
+    "cyborg in a work of fiction",
+    "fictional human",
+    "fictional humanoid extraterrestrial",
+    "film character",
+    "literary character",
+    "television character",
+    "video game character"
+   ]
+  },
+  {
+   "qid": "Q194808",
+   "label": "Sarah",
+   "sl": 83,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q213633",
+   "label": "Deborah",
+   "sl": 60,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q205372",
+   "label": "Absalom",
+   "sl": 55,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q22878",
+   "label": "Laocoön",
+   "sl": 52,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "mythological Greek character"
+   ]
+  },
+  {
+   "qid": "Q1774982",
+   "label": "Ruth",
+   "sl": 50,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q45090",
+   "label": "Jesse",
+   "sl": 49,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q176125",
+   "label": "Gideon",
+   "sl": 46,
+   "values": [
+    "70 1"
+   ],
+   "types": [
+    "human biblical figure"
+   ]
+  },
+  {
+   "qid": "Q16276",
+   "label": "Jean-Luc Picard",
+   "sl": 41,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "Star Trek character",
+    "fictional human",
+    "film character",
+    "human from Star Trek",
+    "literary character",
+    "television character",
+    "video game character",
+    "xB"
+   ]
+  }
+ ]
+}

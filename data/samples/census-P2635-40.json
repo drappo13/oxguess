@@ -1,0 +1,2418 @@
+{
+ "prop": "P2635",
+ "min_sitelinks": 40,
+ "items": 245,
+ "clean": 208,
+ "disputed": 37,
+ "top_types": [
+  [
+   "album",
+   97
+  ],
+  [
+   "literary work",
+   29
+  ],
+  [
+   "dramatico-musical work",
+   24
+  ],
+  [
+   "manga series",
+   20
+  ],
+  [
+   "dramatic work",
+   7
+  ],
+  [
+   "film",
+   5
+  ],
+  [
+   "musical work/composition",
+   3
+  ],
+  [
+   "animated film",
+   3
+  ],
+  [
+   "serialized fiction",
+   2
+  ],
+  [
+   "comic book album",
+   1
+  ],
+  [
+   "archives",
+   1
+  ],
+  [
+   "document",
+   1
+  ],
+  [
+   "album chart",
+   1
+  ],
+  [
+   "ballet",
+   1
+  ],
+  [
+   "illuminated manuscript",
+   1
+  ],
+  [
+   "single",
+   1
+  ],
+  [
+   "universal encyclopedia",
+   1
+  ],
+  [
+   "music competition",
+   1
+  ],
+  [
+   "light novel series",
+   1
+  ],
+  [
+   "magazine",
+   1
+  ],
+  [
+   "written work",
+   1
+  ],
+  [
+   "epic poem",
+   1
+  ],
+  [
+   "daily newspaper",
+   1
+  ],
+  [
+   "book series",
+   1
+  ],
+  [
+   "book of the Bible",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q9184",
+   "label": "Book of Genesis",
+   "sl": 178,
+   "values": [
+    "50 1"
+   ],
+   "types": [
+    "book of the Bible",
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q35160",
+   "label": "Odyssey",
+   "sl": 159,
+   "values": [
+    "12109 verse"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q276",
+   "label": "Eurovision Song Contest",
+   "sl": 143,
+   "values": [
+    "70 1"
+   ],
+   "types": [
+    "music competition",
+    "television franchise"
+   ]
+  },
+  {
+   "qid": "Q41567",
+   "label": "Hamlet",
+   "sl": 143,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q83186",
+   "label": "Romeo and Juliet",
+   "sl": 141,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q26971382",
+   "label": "Naruto",
+   "sl": 122,
+   "values": [
+    "72 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q455",
+   "label": "Encyclopædia Britannica",
+   "sl": 116,
+   "values": [
+    "22 volume"
+   ],
+   "types": [
+    "written work"
+   ]
+  },
+  {
+   "qid": "Q60220",
+   "label": "Aeneid",
+   "sl": 116,
+   "values": [
+    "12 book"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q235311",
+   "label": "Doraemon",
+   "sl": 115,
+   "values": [
+    "45 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q130283",
+   "label": "Macbeth",
+   "sl": 107,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q43361",
+   "label": "Harry Potter and the Philosopher's Stone",
+   "sl": 105,
+   "values": [
+    "17 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q28667972",
+   "label": "One Piece",
+   "sl": 102,
+   "values": [
+    "111 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q48328",
+   "label": "Beowulf",
+   "sl": 99,
+   "values": [
+    "3182 verse"
+   ],
+   "types": [
+    "epic poem"
+   ]
+  },
+  {
+   "qid": "Q161531",
+   "label": "War and Peace",
+   "sl": 97,
+   "values": [
+    "4 volume"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q744536",
+   "label": "The Adventures of Tintin",
+   "sl": 97,
+   "values": [
+    "24 issue"
+   ],
+   "types": [
+    "book series",
+    "comic book series"
+   ]
+  },
+  {
+   "qid": "Q181598",
+   "label": "King Lear",
+   "sl": 94,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q26833",
+   "label": "Othello",
+   "sl": 94,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q1834",
+   "label": "Death Note",
+   "sl": 93,
+   "values": [
+    "12 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q26505",
+   "label": "The Old Man and the Sea",
+   "sl": 91,
+   "values": [
+    "26805 word",
+    "27000 word"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q6511",
+   "label": "Ulysses",
+   "sl": 84,
+   "values": [
+    "18 episode"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q943192",
+   "label": "Fantasia",
+   "sl": 83,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "animated film"
+   ]
+  },
+  {
+   "qid": "Q169226",
+   "label": "Sgt. Pepper's Lonely Hearts Club Band",
+   "sl": 81,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q188538",
+   "label": "The Master and Margarita",
+   "sl": 79,
+   "values": [
+    "32 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q70784",
+   "label": "Journey to the West",
+   "sl": 79,
+   "values": [
+    "100 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q157506",
+   "label": "Ninety-five Theses",
+   "sl": 76,
+   "values": [
+    "95 argument"
+   ],
+   "types": [
+    "document",
+    "text"
+   ]
+  },
+  {
+   "qid": "Q185968",
+   "label": "Carmen",
+   "sl": 75,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q191949",
+   "label": "Brave New World",
+   "sl": 74,
+   "values": [
+    "18 1"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q842306",
+   "label": "Saludos Amigos",
+   "sl": 74,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "film"
+   ]
+  },
+  {
+   "qid": "Q33511",
+   "label": "Rolling Stone",
+   "sl": 72,
+   "values": [
+    "1326 issue"
+   ],
+   "types": [
+    "magazine",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q736731",
+   "label": "The Three Caballeros",
+   "sl": 71,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "film"
+   ]
+  },
+  {
+   "qid": "Q50948",
+   "label": "Eugene Onegin",
+   "sl": 70,
+   "values": [
+    "8 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q219552",
+   "label": "Great Expectations",
+   "sl": 69,
+   "values": [
+    "17 1"
+   ],
+   "types": [
+    "literary work",
+    "serialized fiction"
+   ]
+  },
+  {
+   "qid": "Q5064",
+   "label": "The Magic Flute",
+   "sl": 68,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q173643",
+   "label": "Abbey Road",
+   "sl": 67,
+   "values": [
+    "17 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q11989",
+   "label": "Symphony No. 9",
+   "sl": 66,
+   "values": [
+    "4 movement"
+   ],
+   "types": [
+    "musical work/composition"
+   ]
+  },
+  {
+   "qid": "Q44320",
+   "label": "Thriller",
+   "sl": 66,
+   "values": [
+    "9 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q853718",
+   "label": "Fun and Fancy Free",
+   "sl": 66,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "film"
+   ]
+  },
+  {
+   "qid": "Q863963",
+   "label": "The Adventures of Ichabod and Mr. Toad",
+   "sl": 66,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "animated film"
+   ]
+  },
+  {
+   "qid": "Q150901",
+   "label": "The Dark Side of the Moon",
+   "sl": 65,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q188819",
+   "label": "Billboard 200",
+   "sl": 65,
+   "values": [
+    "200 album"
+   ],
+   "types": [
+    "Enumeration of 200",
+    "album chart"
+   ]
+  },
+  {
+   "qid": "Q213019",
+   "label": "The War of the Worlds",
+   "sl": 65,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q24862683",
+   "label": "Demon Slayer: Kimetsu no Yaiba",
+   "sl": 65,
+   "values": [
+    "23 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q199786",
+   "label": "Swan Lake",
+   "sl": 64,
+   "values": [
+    "29 number"
+   ],
+   "types": [
+    "ballet",
+    "choreographic work",
+    "dramatico-musical work",
+    "musical work/composition"
+   ]
+  },
+  {
+   "qid": "Q171277",
+   "label": "Aida",
+   "sl": 63,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q376346",
+   "label": "web color",
+   "sl": 63,
+   "values": [
+    "141 1"
+   ],
+   "types": []
+  },
+  {
+   "qid": "Q192039",
+   "label": "Don Giovanni",
+   "sl": 62,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q201873",
+   "label": "The Marriage of Figaro",
+   "sl": 62,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q754736",
+   "label": "Make Mine Music",
+   "sl": 62,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "animated film"
+   ]
+  },
+  {
+   "qid": "Q869741",
+   "label": "Melody Time",
+   "sl": 62,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "film"
+   ]
+  },
+  {
+   "qid": "Q131182",
+   "label": "The Fame",
+   "sl": 61,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q192941",
+   "label": "Tosca",
+   "sl": 61,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q647379",
+   "label": "Dead Souls",
+   "sl": 61,
+   "values": [
+    "2 volume"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q181826",
+   "label": "Please Please Me",
+   "sl": 60,
+   "values": [
+    "7 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q217352",
+   "label": "Strange Case of Dr Jekyll and Mr Hyde",
+   "sl": 60,
+   "values": [
+    "10 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q3295515",
+   "label": "The Beatles",
+   "sl": 60,
+   "values": [
+    "30 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q182056",
+   "label": "Inuyasha",
+   "sl": 59,
+   "values": [
+    "56 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q199585",
+   "label": "Let It Be",
+   "sl": 59,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q182518",
+   "label": "A Hard Day's Night",
+   "sl": 58,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q185121",
+   "label": "Revolver",
+   "sl": 58,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q189234",
+   "label": "Rigoletto",
+   "sl": 58,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q182389",
+   "label": "With the Beatles",
+   "sl": 57,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q193490",
+   "label": "Queen",
+   "sl": 57,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q627333",
+   "label": "The Time Machine",
+   "sl": 57,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "literary work",
+    "serialized fiction"
+   ]
+  },
+  {
+   "qid": "Q201816",
+   "label": "Help!",
+   "sl": 56,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q79218",
+   "label": "triptych",
+   "sl": 56,
+   "values": [
+    "3 pannel"
+   ],
+   "types": []
+  },
+  {
+   "qid": "Q17444",
+   "label": "Nevermind",
+   "sl": 55,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q190237",
+   "label": "Der Ring des Nibelungen",
+   "sl": 55,
+   "values": [
+    "4 opera"
+   ],
+   "types": [
+    "dramatico-musical work",
+    "opera cycle",
+    "tetralogy"
+   ]
+  },
+  {
+   "qid": "Q164621",
+   "label": "The Fame Monster",
+   "sl": 54,
+   "values": [
+    "8 audio track"
+   ],
+   "types": [
+    "album",
+    "extended play"
+   ]
+  },
+  {
+   "qid": "Q164646",
+   "label": "Born This Way",
+   "sl": 54,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q190640",
+   "label": "Rubber Soul",
+   "sl": 54,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q206097",
+   "label": "Yellow Submarine",
+   "sl": 54,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q131919251",
+   "label": "Mayhem",
+   "sl": 53,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q156315",
+   "label": "Voyager Golden Record",
+   "sl": 53,
+   "values": [
+    "55 greeting"
+   ],
+   "types": [
+    "active SETI",
+    "analog video recording",
+    "archives",
+    "phonograph record",
+    "time capsule"
+   ]
+  },
+  {
+   "qid": "Q182826",
+   "label": "Kill 'Em All",
+   "sl": 53,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q200872",
+   "label": "Wish You Were Here",
+   "sl": 53,
+   "values": [
+    "5 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q204221",
+   "label": "Book of Kells",
+   "sl": 53,
+   "values": [
+    "340 folio"
+   ],
+   "types": [
+    "codex",
+    "illuminated manuscript"
+   ]
+  },
+  {
+   "qid": "Q214132",
+   "label": "And Then There Were None",
+   "sl": 53,
+   "values": [
+    "16 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q1324254",
+   "label": "Tristan und Isolde",
+   "sl": 52,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q151114",
+   "label": "The Wall",
+   "sl": 52,
+   "values": [
+    "28 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q187507",
+   "label": "Master of Puppets",
+   "sl": 52,
+   "values": [
+    "8 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q210048",
+   "label": "Innuendo",
+   "sl": 52,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q27863",
+   "label": "Sword Art Online",
+   "sl": 52,
+   "values": [
+    "29 volume"
+   ],
+   "types": [
+    "light novel series"
+   ]
+  },
+  {
+   "qid": "Q523076",
+   "label": "Little Women",
+   "sl": 52,
+   "values": [
+    "47 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q19862",
+   "label": "Hybrid Theory",
+   "sl": 51,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q207336",
+   "label": "Beatles for Sale",
+   "sl": 51,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q50009",
+   "label": "El País",
+   "sl": 51,
+   "values": [
+    "15270 issue"
+   ],
+   "types": [
+    "daily newspaper"
+   ]
+  },
+  {
+   "qid": "Q120300",
+   "label": "Crayon Shin-chan",
+   "sl": 50,
+   "values": [
+    "50 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q19858",
+   "label": "Meteora",
+   "sl": 50,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q208659",
+   "label": "The Barber of Seville",
+   "sl": 50,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q223181",
+   "label": "Queen II",
+   "sl": 50,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q309021",
+   "label": "News of the World",
+   "sl": 50,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q483778",
+   "label": "Hard Candy",
+   "sl": 50,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q18047903",
+   "label": "My Hero Academia",
+   "sl": 49,
+   "values": [
+    "42 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q188621",
+   "label": "La bohème",
+   "sl": 49,
+   "values": [
+    "4 tableau"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q214771",
+   "label": "Elfen Lied",
+   "sl": 49,
+   "values": [
+    "12 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q18796",
+   "label": "Fairy Tail",
+   "sl": 48,
+   "values": [
+    "63 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q193778",
+   "label": "Fidelio",
+   "sl": 48,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q207410",
+   "label": "Così fan tutte",
+   "sl": 48,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q211405",
+   "label": "The Game",
+   "sl": 48,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q220756",
+   "label": "A Day at the Races",
+   "sl": 48,
+   "values": [
+    "5 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q471066",
+   "label": "The Government Inspector",
+   "sl": 48,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q486387",
+   "label": "The Arockalypse",
+   "sl": 48,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q103411",
+   "label": "V for Vendetta",
+   "sl": 47,
+   "values": [
+    "10 issue"
+   ],
+   "types": [
+    "comic book album",
+    "limited series"
+   ]
+  },
+  {
+   "qid": "Q11102941",
+   "label": "Tokyo Ghoul",
+   "sl": 47,
+   "values": [
+    "14 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q18558978",
+   "label": "Berserk",
+   "sl": 47,
+   "values": [
+    "41 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q19855",
+   "label": "Minutes to Midnight",
+   "sl": 47,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q201940",
+   "label": "Led Zeppelin IV",
+   "sl": 47,
+   "values": [
+    "4 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q218513",
+   "label": "Bleach",
+   "sl": 47,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q240828",
+   "label": "Deadache",
+   "sl": 47,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q270083",
+   "label": "Jazz",
+   "sl": 47,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q29424",
+   "label": "Fathers and Sons",
+   "sl": 47,
+   "values": [
+    "28 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q487626",
+   "label": "The Monsterican Dream",
+   "sl": 47,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q1155892",
+   "label": "History of Rome",
+   "sl": 46,
+   "values": [
+    "142 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q13171",
+   "label": "A Thousand Suns",
+   "sl": 46,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q193950",
+   "label": "B'Day",
+   "sl": 46,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q209539",
+   "label": "Led Zeppelin II",
+   "sl": 46,
+   "values": [
+    "9 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q213516",
+   "label": "Metallica",
+   "sl": 46,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q224641",
+   "label": "The Works",
+   "sl": 46,
+   "values": [
+    "9 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q248644",
+   "label": "Pagliacci",
+   "sl": 46,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q253716",
+   "label": "Carmina Burana",
+   "sl": 46,
+   "values": [
+    "25 1"
+   ],
+   "types": [
+    "musical work/composition"
+   ]
+  },
+  {
+   "qid": "Q272015",
+   "label": "Ranma ½",
+   "sl": 46,
+   "values": [
+    "38 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q44142",
+   "label": "Bad",
+   "sl": 46,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q127503",
+   "label": "Dangerously in Love",
+   "sl": 45,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q172324",
+   "label": "Otello",
+   "sl": 45,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q202996",
+   "label": "OK Computer",
+   "sl": 45,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q212863",
+   "label": "Pet Sounds",
+   "sl": 45,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q220340",
+   "label": "Parsifal",
+   "sl": 45,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q2743297",
+   "label": "Artpop",
+   "sl": 45,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q275828",
+   "label": "Hot Space",
+   "sl": 45,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q300447",
+   "label": "A Kind of Magic",
+   "sl": 45,
+   "values": [
+    "9 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q44104",
+   "label": "Dangerous",
+   "sl": 45,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q478381",
+   "label": "The Cherry Orchard",
+   "sl": 45,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q55522899",
+   "label": "Jujutsu Kaisen",
+   "sl": 45,
+   "values": [
+    "30 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q125469",
+   "label": "Ruhnama",
+   "sl": 44,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q1345004",
+   "label": "The Heart of a Dog",
+   "sl": 44,
+   "values": [
+    "9 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q144569",
+   "label": "The Captain's Daughter",
+   "sl": 44,
+   "values": [
+    "15 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q155715",
+   "label": "Back in Black",
+   "sl": 44,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q186188",
+   "label": "Teenage Dream",
+   "sl": 44,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q207438",
+   "label": "Led Zeppelin III",
+   "sl": 44,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q215806",
+   "label": "Heimskringla",
+   "sl": 44,
+   "values": [
+    "16 kings' saga"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q463108",
+   "label": "The Neverending Story",
+   "sl": 44,
+   "values": [
+    "27 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q49182",
+   "label": "Cardcaptor Sakura",
+   "sl": 44,
+   "values": [
+    "12 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q664873",
+   "label": "LOL <(^^,)>",
+   "sl": 44,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q842214",
+   "label": "Fearless",
+   "sl": 44,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q1250822",
+   "label": "Taras Bulba",
+   "sl": 43,
+   "values": [
+    "12 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q151714",
+   "label": "American Idiot",
+   "sl": 43,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q17544553",
+   "label": "1989",
+   "sl": 43,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q208521",
+   "label": "The Division Bell",
+   "sl": 43,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q210809",
+   "label": "Physical Graffiti",
+   "sl": 43,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q212451",
+   "label": "La forza del destino",
+   "sl": 43,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q212665",
+   "label": "Strange Days",
+   "sl": 43,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q222001",
+   "label": "In Utero",
+   "sl": 43,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q270690",
+   "label": "Appetite for Destruction",
+   "sl": 43,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q37814092",
+   "label": "Reputation",
+   "sl": 43,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q44289",
+   "label": "Off the Wall",
+   "sl": 43,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q605249",
+   "label": "Do Androids Dream of Electric Sheep?",
+   "sl": 43,
+   "values": [
+    "22 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q845783",
+   "label": "Taylor Swift",
+   "sl": 43,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q109214",
+   "label": "A Momentary Lapse of Reason",
+   "sl": 42,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q155169",
+   "label": "21",
+   "sl": 42,
+   "values": [
+    "11 song"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q190911",
+   "label": "…Baby One More Time",
+   "sl": 42,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q19345",
+   "label": "Circus",
+   "sl": 42,
+   "values": [
+    "13 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q207502",
+   "label": "21st Century Breakdown",
+   "sl": 42,
+   "values": [
+    "18 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q210122",
+   "label": "Atom Heart Mother",
+   "sl": 42,
+   "values": [
+    "5 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q210218",
+   "label": "Beat It",
+   "sl": 42,
+   "values": [
+    "2 audio track"
+   ],
+   "types": [
+    "single"
+   ]
+  },
+  {
+   "qid": "Q214134",
+   "label": "Waiting for the Sun",
+   "sl": 42,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q217203",
+   "label": "The Soft Parade",
+   "sl": 42,
+   "values": [
+    "9 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q221757",
+   "label": "Un ballo in maschera",
+   "sl": 42,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q223155",
+   "label": "Hellsing",
+   "sl": 42,
+   "values": [
+    "10 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q26898358",
+   "label": "Joanne",
+   "sl": 42,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q275834",
+   "label": "Flash Gordon – Original Soundtrack Music by Queen",
+   "sl": 42,
+   "values": [
+    "18 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q275956",
+   "label": "Saint Seiya",
+   "sl": 42,
+   "values": [
+    "28 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q385122",
+   "label": "Speak Now",
+   "sl": 42,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q650063",
+   "label": "The Seagull",
+   "sl": 42,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatic work"
+   ]
+  },
+  {
+   "qid": "Q749783",
+   "label": "The Man in the High Castle",
+   "sl": 42,
+   "values": [
+    "15 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q75840",
+   "label": "And Quiet Flows the Don",
+   "sl": 42,
+   "values": [
+    "4 volume"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q827436",
+   "label": "Giselle",
+   "sl": 42,
+   "values": [
+    "2 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q858750",
+   "label": "Red",
+   "sl": 42,
+   "values": [
+    "16 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q114640",
+   "label": "The Flying Dutchman",
+   "sl": 41,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q13172",
+   "label": "Living Things",
+   "sl": 41,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q152873",
+   "label": "The Joshua Tree",
+   "sl": 41,
+   "values": [
+    "11 song"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q156435",
+   "label": "Der Freischütz",
+   "sl": 41,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q16672466",
+   "label": "Wild Tales",
+   "sl": 41,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "film"
+   ]
+  },
+  {
+   "qid": "Q19060",
+   "label": "Got to Be There",
+   "sl": 41,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q211292",
+   "label": "Dookie",
+   "sl": 41,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q212846",
+   "label": "L.A. Woman",
+   "sl": 41,
+   "values": [
+    "10 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q214139",
+   "label": "Morrison Hotel",
+   "sl": 41,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q324319",
+   "label": "Die Walküre",
+   "sl": 41,
+   "values": [
+    "3 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q44347",
+   "label": "HIStory: Past, Present and Future, Book I",
+   "sl": 41,
+   "values": [
+    "15 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q65231576",
+   "label": "Spy × Family",
+   "sl": 41,
+   "values": [
+    "18 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q86919359",
+   "label": "Chromatica",
+   "sl": 41,
+   "values": [
+    "16 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q97620733",
+   "label": "Folklore",
+   "sl": 41,
+   "values": [
+    "16 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q151880",
+   "label": "Confessions on a Dance Floor",
+   "sl": 40,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q156710",
+   "label": "Fever",
+   "sl": 40,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q177943",
+   "label": "Madonna",
+   "sl": 40,
+   "values": [
+    "8 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q192755",
+   "label": "Blackout",
+   "sl": 40,
+   "values": [
+    "12 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q206334",
+   "label": "Goodbye Lullaby",
+   "sl": 40,
+   "values": [
+    "14 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q208340",
+   "label": "Loud",
+   "sl": 40,
+   "values": [
+    "11 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q213728",
+   "label": "Goldberg Variations",
+   "sl": 40,
+   "values": [
+    "32 movement"
+   ],
+   "types": [
+    "musical work/composition"
+   ]
+  },
+  {
+   "qid": "Q223858",
+   "label": "The Number of the Beast",
+   "sl": 40,
+   "values": [
+    "8 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q2634919",
+   "label": "Azerbaijani Soviet Encyclopedia",
+   "sl": 40,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "national encyclopedia",
+    "universal encyclopedia",
+    "written work"
+   ]
+  },
+  {
+   "qid": "Q271787",
+   "label": "Paranoid",
+   "sl": 40,
+   "values": [
+    "8 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q328482",
+   "label": "Black Sabbath",
+   "sl": 40,
+   "values": [
+    "7 audio track"
+   ],
+   "types": [
+    "album"
+   ]
+  },
+  {
+   "qid": "Q459341",
+   "label": "Manon Lescaut",
+   "sl": 40,
+   "values": [
+    "4 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q647486",
+   "label": "Captain Tsubasa",
+   "sl": 40,
+   "values": [
+    "37 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q745951",
+   "label": "Faust",
+   "sl": 40,
+   "values": [
+    "5 act"
+   ],
+   "types": [
+    "dramatico-musical work"
+   ]
+  },
+  {
+   "qid": "Q753535",
+   "label": "Jin Ping Mei",
+   "sl": 40,
+   "values": [
+    "100 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q80873",
+   "label": "Azumanga Daioh",
+   "sl": 40,
+   "values": [
+    "4 volume"
+   ],
+   "types": [
+    "manga series"
+   ]
+  },
+  {
+   "qid": "Q899334",
+   "label": "The Tin Drum",
+   "sl": 40,
+   "values": [
+    "46 chapter"
+   ],
+   "types": [
+    "literary work"
+   ]
+  }
+ ]
+}

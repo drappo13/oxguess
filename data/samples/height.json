@@ -1,0 +1,3202 @@
+[
+ {
+  "item": "Q76",
+  "itemLabel": "Barack Obama",
+  "amount": "1.85",
+  "unitLabel": "metre",
+  "sl": "342",
+  "type": "human"
+ },
+ {
+  "item": "Q76",
+  "itemLabel": "Barack Obama",
+  "amount": "187.0",
+  "unitLabel": "centimetre",
+  "sl": "342",
+  "type": "human"
+ },
+ {
+  "item": "Q22686",
+  "itemLabel": "Donald J. Trump",
+  "amount": "190.0",
+  "unitLabel": "centimetre",
+  "sl": "338",
+  "type": "human"
+ },
+ {
+  "item": "Q22686",
+  "itemLabel": "Donald J. Trump",
+  "amount": "1.9",
+  "unitLabel": "metre",
+  "sl": "338",
+  "type": "human"
+ },
+ {
+  "item": "Q22686",
+  "itemLabel": "Donald J. Trump",
+  "amount": "75.0",
+  "unitLabel": "inch",
+  "sl": "338",
+  "type": "human"
+ },
+ {
+  "item": "Q22686",
+  "itemLabel": "Donald J. Trump",
+  "amount": "180.33",
+  "unitLabel": "centimetre",
+  "sl": "338",
+  "type": "human"
+ },
+ {
+  "item": "Q22686",
+  "itemLabel": "Donald J. Trump",
+  "amount": "74.0",
+  "unitLabel": "inch",
+  "sl": "338",
+  "type": "human"
+ },
+ {
+  "item": "Q352",
+  "itemLabel": "Adolf Hitler",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "329",
+  "type": "human"
+ },
+ {
+  "item": "Q352",
+  "itemLabel": "Adolf Hitler",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "329",
+  "type": "human"
+ },
+ {
+  "item": "Q2831",
+  "itemLabel": "Michael Jackson",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "324",
+  "type": "human"
+ },
+ {
+  "item": "Q7747",
+  "itemLabel": "Vladimir Putin",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "317",
+  "type": "human"
+ },
+ {
+  "item": "Q7747",
+  "itemLabel": "Vladimir Putin",
+  "amount": "157.0",
+  "unitLabel": "centimetre",
+  "sl": "317",
+  "type": "human"
+ },
+ {
+  "item": "Q9960",
+  "itemLabel": "Ronald Reagan",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "306",
+  "type": "human"
+ },
+ {
+  "item": "Q9960",
+  "itemLabel": "Ronald Reagan",
+  "amount": "71.0",
+  "unitLabel": "inch",
+  "sl": "306",
+  "type": "human"
+ },
+ {
+  "item": "Q1394",
+  "itemLabel": "Vladimir Lenin",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "297",
+  "type": "human"
+ },
+ {
+  "item": "Q91",
+  "itemLabel": "Abraham Lincoln",
+  "amount": "204.0",
+  "unitLabel": "centimetre",
+  "sl": "297",
+  "type": "human"
+ },
+ {
+  "item": "Q517",
+  "itemLabel": "Napoleon",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "288",
+  "type": "human"
+ },
+ {
+  "item": "Q1001",
+  "itemLabel": "Mahatma Gandhi",
+  "amount": "164.0",
+  "unitLabel": "centimetre",
+  "sl": "287",
+  "type": "human"
+ },
+ {
+  "item": "Q207",
+  "itemLabel": "George W. Bush",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "282",
+  "type": "human"
+ },
+ {
+  "item": "Q207",
+  "itemLabel": "George W. Bush",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "282",
+  "type": "human"
+ },
+ {
+  "item": "Q855",
+  "itemLabel": "Joseph Stalin",
+  "amount": "1.68",
+  "unitLabel": "metre",
+  "sl": "281",
+  "type": "human"
+ },
+ {
+  "item": "Q855",
+  "itemLabel": "Joseph Stalin",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "281",
+  "type": "human"
+ },
+ {
+  "item": "Q6279",
+  "itemLabel": "Joe Biden",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "278",
+  "type": "human"
+ },
+ {
+  "item": "Q6279",
+  "itemLabel": "Joe Biden",
+  "amount": "1.83",
+  "unitLabel": "metre",
+  "sl": "278",
+  "type": "human"
+ },
+ {
+  "item": "Q254",
+  "itemLabel": "Wolfgang Amadeus Mozart",
+  "amount": "1.63",
+  "unitLabel": "metre",
+  "sl": "275",
+  "type": "human"
+ },
+ {
+  "item": "Q23",
+  "itemLabel": "George Washington",
+  "amount": "74.0",
+  "unitLabel": "inch",
+  "sl": "275",
+  "type": "human"
+ },
+ {
+  "item": "Q23",
+  "itemLabel": "George Washington",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "275",
+  "type": "human"
+ },
+ {
+  "item": "Q23",
+  "itemLabel": "George Washington",
+  "amount": "187.0",
+  "unitLabel": "centimetre",
+  "sl": "275",
+  "type": "human"
+ },
+ {
+  "item": "Q882",
+  "itemLabel": "Charlie Chaplin",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "264",
+  "type": "human"
+ },
+ {
+  "item": "Q882",
+  "itemLabel": "Charlie Chaplin",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "261",
+  "type": "human"
+ },
+ {
+  "item": "Q9682",
+  "itemLabel": "Elizabeth II",
+  "amount": "64.0",
+  "unitLabel": "inch",
+  "sl": "256",
+  "type": "human"
+ },
+ {
+  "item": "Q5152",
+  "itemLabel": "Mustafa Kemal Atatürk",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "253",
+  "type": "human"
+ },
+ {
+  "item": "Q9696",
+  "itemLabel": "John F. Kennedy",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "252",
+  "type": "human"
+ },
+ {
+  "item": "Q8027",
+  "itemLabel": "Martin Luther King Jr.",
+  "amount": "176.5",
+  "unitLabel": "centimetre",
+  "sl": "252",
+  "type": "human"
+ },
+ {
+  "item": "Q8007",
+  "itemLabel": "Franklin Delano Roosevelt",
+  "amount": "189.0",
+  "unitLabel": "centimetre",
+  "sl": "249",
+  "type": "human"
+ },
+ {
+  "item": "Q8007",
+  "itemLabel": "Franklin Delano Roosevelt",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "249",
+  "type": "human"
+ },
+ {
+  "item": "Q5284",
+  "itemLabel": "Bill Gates",
+  "amount": "1.77",
+  "unitLabel": "metre",
+  "sl": "245",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "244",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "166.0",
+  "unitLabel": "centimetre",
+  "sl": "244",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "65.5",
+  "unitLabel": "inch",
+  "sl": "244",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "240",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "166.0",
+  "unitLabel": "centimetre",
+  "sl": "240",
+  "type": "human"
+ },
+ {
+  "item": "Q4616",
+  "itemLabel": "Marilyn Monroe",
+  "amount": "65.5",
+  "unitLabel": "inch",
+  "sl": "240",
+  "type": "human"
+ },
+ {
+  "item": "Q5816",
+  "itemLabel": "Mao Zedong",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "236",
+  "type": "human"
+ },
+ {
+  "item": "Q615",
+  "itemLabel": "Lionel Messi",
+  "amount": "169.0",
+  "unitLabel": "centimetre",
+  "sl": "228",
+  "type": "human"
+ },
+ {
+  "item": "Q5809",
+  "itemLabel": "Che Guevara",
+  "amount": "176.0",
+  "unitLabel": "centimetre",
+  "sl": "227",
+  "type": "human"
+ },
+ {
+  "item": "Q1124",
+  "itemLabel": "Bill Clinton",
+  "amount": "189.0",
+  "unitLabel": "centimetre",
+  "sl": "225",
+  "type": "human"
+ },
+ {
+  "item": "Q11812",
+  "itemLabel": "Thomas Jefferson",
+  "amount": "1.89",
+  "unitLabel": "metre",
+  "sl": "225",
+  "type": "human"
+ },
+ {
+  "item": "Q11812",
+  "itemLabel": "Thomas Jefferson",
+  "amount": "189.0",
+  "unitLabel": "centimetre",
+  "sl": "225",
+  "type": "human"
+ },
+ {
+  "item": "Q7378",
+  "itemLabel": "elephant",
+  "amount": "4.0",
+  "unitLabel": "metre",
+  "sl": "223",
+  "type": "taxon"
+ },
+ {
+  "item": "Q567",
+  "itemLabel": "Angela Merkel",
+  "amount": "1.67",
+  "unitLabel": "metre",
+  "sl": "222",
+  "type": "human"
+ },
+ {
+  "item": "Q567",
+  "itemLabel": "Angela Merkel",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "222",
+  "type": "human"
+ },
+ {
+  "item": "Q157",
+  "itemLabel": "François Hollande",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "217",
+  "type": "human"
+ },
+ {
+  "item": "Q157",
+  "itemLabel": "François Hollande",
+  "amount": "1.74",
+  "unitLabel": "metre",
+  "sl": "217",
+  "type": "human"
+ },
+ {
+  "item": "Q3874799",
+  "itemLabel": "Volodymyr Zelenskyy",
+  "amount": "167.0",
+  "unitLabel": "centimetre",
+  "sl": "215",
+  "type": "human"
+ },
+ {
+  "item": "Q3335",
+  "itemLabel": "George Orwell",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "213",
+  "type": "human"
+ },
+ {
+  "item": "Q7416",
+  "itemLabel": "Margaret Thatcher",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "210",
+  "type": "human"
+ },
+ {
+  "item": "Q7416",
+  "itemLabel": "Margaret Thatcher",
+  "amount": "1.66",
+  "unitLabel": "metre",
+  "sl": "210",
+  "type": "human"
+ },
+ {
+  "item": "Q6882",
+  "itemLabel": "James Joyce",
+  "amount": "71.0",
+  "unitLabel": "inch",
+  "sl": "209",
+  "type": "human"
+ },
+ {
+  "item": "Q7327",
+  "itemLabel": "Yuri Gagarin",
+  "amount": "1.58",
+  "unitLabel": "metre",
+  "sl": "206",
+  "type": "human"
+ },
+ {
+  "item": "Q7327",
+  "itemLabel": "Yuri Gagarin",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "206",
+  "type": "human"
+ },
+ {
+  "item": "Q4612",
+  "itemLabel": "Marlene Dietrich",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "204",
+  "type": "human"
+ },
+ {
+  "item": "Q3052772",
+  "itemLabel": "Emmanuel Macron",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "203",
+  "type": "human"
+ },
+ {
+  "item": "Q11613",
+  "itemLabel": "Harry S. Truman",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "200",
+  "type": "human"
+ },
+ {
+  "item": "Q23685",
+  "itemLabel": "Jimmy Carter",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "200",
+  "type": "human"
+ },
+ {
+  "item": "Q23505",
+  "itemLabel": "George H. W. Bush",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "198",
+  "type": "human"
+ },
+ {
+  "item": "Q33866",
+  "itemLabel": "Theodore Roosevelt",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "196",
+  "type": "human"
+ },
+ {
+  "item": "Q33866",
+  "itemLabel": "Theodore Roosevelt",
+  "amount": "179.0",
+  "unitLabel": "centimetre",
+  "sl": "196",
+  "type": "human"
+ },
+ {
+  "item": "Q12501",
+  "itemLabel": "Great Wall of China",
+  "amount": "5.14159265359",
+  "unitLabel": "metre",
+  "sl": "195",
+  "type": "cordon"
+ },
+ {
+  "item": "Q12501",
+  "itemLabel": "Great Wall of China",
+  "amount": "8.0",
+  "unitLabel": "metre",
+  "sl": "195",
+  "type": "cordon"
+ },
+ {
+  "item": "Q1744",
+  "itemLabel": "Madonna",
+  "amount": "164.0",
+  "unitLabel": "centimetre",
+  "sl": "195",
+  "type": "human"
+ },
+ {
+  "item": "Q12501",
+  "itemLabel": "Great Wall of China",
+  "amount": "7.0",
+  "unitLabel": "metre",
+  "sl": "195",
+  "type": "cordon"
+ },
+ {
+  "item": "Q28425",
+  "itemLabel": "Chiroptera",
+  "amount": "1.0",
+  "unitLabel": "foot",
+  "sl": "194",
+  "type": "taxon"
+ },
+ {
+  "item": "Q28425",
+  "itemLabel": "Chiroptera",
+  "amount": "1.0",
+  "unitLabel": "inch",
+  "sl": "194",
+  "type": "taxon"
+ },
+ {
+  "item": "Q9588",
+  "itemLabel": "Richard Nixon",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "193",
+  "type": "human"
+ },
+ {
+  "item": "Q9916",
+  "itemLabel": "Dwight D. Eisenhower",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "192",
+  "type": "human"
+ },
+ {
+  "item": "Q9916",
+  "itemLabel": "Dwight D. Eisenhower",
+  "amount": "179.0",
+  "unitLabel": "centimetre",
+  "sl": "192",
+  "type": "human"
+ },
+ {
+  "item": "Q243",
+  "itemLabel": "Eiffel Tower",
+  "amount": "324.0",
+  "unitLabel": "metre",
+  "sl": "191",
+  "type": "observation tower"
+ },
+ {
+  "item": "Q243",
+  "itemLabel": "Eiffel Tower",
+  "amount": "300.0",
+  "unitLabel": "metre",
+  "sl": "191",
+  "type": "observation tower"
+ },
+ {
+  "item": "Q243",
+  "itemLabel": "Eiffel Tower",
+  "amount": "330.0",
+  "unitLabel": "metre",
+  "sl": "191",
+  "type": "observation tower"
+ },
+ {
+  "item": "Q34296",
+  "itemLabel": "Woodrow Wilson",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "191",
+  "type": "human"
+ },
+ {
+  "item": "Q7374",
+  "itemLabel": "Alfred Hitchcock",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "189",
+  "type": "human"
+ },
+ {
+  "item": "Q11806",
+  "itemLabel": "John Adams",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "188",
+  "type": "human"
+ },
+ {
+  "item": "Q8440",
+  "itemLabel": "Hugo Chávez",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "187",
+  "type": "human"
+ },
+ {
+  "item": "Q33391",
+  "itemLabel": "Leon Trotsky",
+  "amount": "176.0",
+  "unitLabel": "centimetre",
+  "sl": "187",
+  "type": "human"
+ },
+ {
+  "item": "Q19878",
+  "itemLabel": "Muammar Gaddafi",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "186",
+  "type": "human"
+ },
+ {
+  "item": "Q39259",
+  "itemLabel": "Recep Tayyip Erdoğan",
+  "amount": "1.85",
+  "unitLabel": "metre",
+  "sl": "186",
+  "type": "human"
+ },
+ {
+  "item": "Q9141",
+  "itemLabel": "Taj Mahal",
+  "amount": "73.0",
+  "unitLabel": "metre",
+  "sl": "186",
+  "type": "tomb"
+ },
+ {
+  "item": "Q36107",
+  "itemLabel": "Muhammad Ali",
+  "amount": "191.0",
+  "unitLabel": "centimetre",
+  "sl": "185",
+  "type": "human"
+ },
+ {
+  "item": "Q12897",
+  "itemLabel": "Pelé",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "185",
+  "type": "human"
+ },
+ {
+  "item": "Q26876",
+  "itemLabel": "Taylor Swift",
+  "amount": "1.8",
+  "unitLabel": "metre",
+  "sl": "180",
+  "type": "human"
+ },
+ {
+  "item": "Q26876",
+  "itemLabel": "Taylor Swift",
+  "amount": "70.0",
+  "unitLabel": "inch",
+  "sl": "180",
+  "type": "human"
+ },
+ {
+  "item": "Q1317",
+  "itemLabel": "Osama bin Laden",
+  "amount": "195.0",
+  "unitLabel": "centimetre",
+  "sl": "178",
+  "type": "human"
+ },
+ {
+  "item": "Q11813",
+  "itemLabel": "James Madison",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q9439",
+  "itemLabel": "Victoria",
+  "amount": "142.24",
+  "unitLabel": "centimetre",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q56226",
+  "itemLabel": "Kim Jong-un",
+  "amount": "67.0",
+  "unitLabel": "inch",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q56226",
+  "itemLabel": "Kim Jong-un",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q11813",
+  "itemLabel": "James Madison",
+  "amount": "1.63",
+  "unitLabel": "metre",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q43274",
+  "itemLabel": "Charles III",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "177",
+  "type": "human"
+ },
+ {
+  "item": "Q9640",
+  "itemLabel": "Lyndon B. Johnson",
+  "amount": "192.0",
+  "unitLabel": "centimetre",
+  "sl": "176",
+  "type": "human"
+ },
+ {
+  "item": "Q8006",
+  "itemLabel": "Akira Kurosawa",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "176",
+  "type": "human"
+ },
+ {
+  "item": "Q17515",
+  "itemLabel": "Diego Maradona",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "176",
+  "type": "human"
+ },
+ {
+  "item": "Q9582",
+  "itemLabel": "Gerald Ford",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "175",
+  "type": "human"
+ },
+ {
+  "item": "Q1058",
+  "itemLabel": "Narendra Modi",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "174",
+  "type": "human"
+ },
+ {
+  "item": "Q1058",
+  "itemLabel": "Narendra Modi",
+  "amount": "5.7",
+  "unitLabel": "foot",
+  "sl": "174",
+  "type": "human"
+ },
+ {
+  "item": "Q9671",
+  "itemLabel": "Michael Schumacher",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "172",
+  "type": "human"
+ },
+ {
+  "item": "Q8877",
+  "itemLabel": "Steven Spielberg",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "171",
+  "type": "human"
+ },
+ {
+  "item": "Q36215",
+  "itemLabel": "Mark Zuckerberg",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "170",
+  "type": "human"
+ },
+ {
+  "item": "Q23530",
+  "itemLabel": "Dmitry Medvedev",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "170",
+  "type": "human"
+ },
+ {
+  "item": "Q16397",
+  "itemLabel": "Bruce Lee",
+  "amount": "1.72",
+  "unitLabel": "metre",
+  "sl": "169",
+  "type": "human"
+ },
+ {
+  "item": "Q11816",
+  "itemLabel": "John Quincy Adams",
+  "amount": "171.0",
+  "unitLabel": "centimetre",
+  "sl": "166",
+  "type": "human"
+ },
+ {
+  "item": "Q11817",
+  "itemLabel": "Andrew Jackson",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "165",
+  "type": "human"
+ },
+ {
+  "item": "Q35236",
+  "itemLabel": "Herbert Hoover",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "164",
+  "type": "human"
+ },
+ {
+  "item": "Q132345",
+  "itemLabel": "Shinzō Abe",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "164",
+  "type": "human"
+ },
+ {
+  "item": "Q5105",
+  "itemLabel": "Céline Dion",
+  "amount": "1.71",
+  "unitLabel": "metre",
+  "sl": "163",
+  "type": "human"
+ },
+ {
+  "item": "Q36970",
+  "itemLabel": "Jackie Chan",
+  "amount": "1.74",
+  "unitLabel": "metre",
+  "sl": "163",
+  "type": "human"
+ },
+ {
+  "item": "Q181383",
+  "itemLabel": "Mahathir Mohamad",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "162",
+  "type": "human"
+ },
+ {
+  "item": "Q34453",
+  "itemLabel": "Boris Yeltsin",
+  "amount": "187.0",
+  "unitLabel": "centimetre",
+  "sl": "162",
+  "type": "human"
+ },
+ {
+  "item": "Q37150",
+  "itemLabel": "Lana Del Rey",
+  "amount": "1.7",
+  "unitLabel": "metre",
+  "sl": "161",
+  "type": "human"
+ },
+ {
+  "item": "Q34286",
+  "itemLabel": "Alexander Graham Bell",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "161",
+  "type": "human"
+ },
+ {
+  "item": "Q34836",
+  "itemLabel": "Ulysses S. Grant",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "161",
+  "type": "human"
+ },
+ {
+  "item": "Q36023",
+  "itemLabel": "Calvin Coolidge",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "161",
+  "type": "human"
+ },
+ {
+  "item": "Q34836",
+  "itemLabel": "Ulysses S. Grant",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "161",
+  "type": "human"
+ },
+ {
+  "item": "Q8462",
+  "itemLabel": "Timur",
+  "amount": "1.72",
+  "unitLabel": "metre",
+  "sl": "160",
+  "type": "human"
+ },
+ {
+  "item": "Q25173",
+  "itemLabel": "Titanic",
+  "amount": "53.3",
+  "unitLabel": "metre",
+  "sl": "160",
+  "type": "four funnel liner"
+ },
+ {
+  "item": "Q142794",
+  "itemLabel": "Neymar",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "160",
+  "type": "human"
+ },
+ {
+  "item": "Q25173",
+  "itemLabel": "Titanic",
+  "amount": "32.0",
+  "unitLabel": "metre",
+  "sl": "160",
+  "type": "shipwreck"
+ },
+ {
+  "item": "Q9202",
+  "itemLabel": "Statue of Liberty",
+  "amount": "47.0",
+  "unitLabel": "metre",
+  "sl": "159",
+  "type": "colossal statue"
+ },
+ {
+  "item": "Q9202",
+  "itemLabel": "Statue of Liberty",
+  "amount": "46.0",
+  "unitLabel": "metre",
+  "sl": "159",
+  "type": "part of UNESCO World Heritage Site"
+ },
+ {
+  "item": "Q2001",
+  "itemLabel": "Stanley Kubrick",
+  "amount": "169.0",
+  "unitLabel": "centimetre",
+  "sl": "159",
+  "type": "human"
+ },
+ {
+  "item": "Q36844",
+  "itemLabel": "Rihanna",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "159",
+  "type": "human"
+ },
+ {
+  "item": "Q34012",
+  "itemLabel": "Marlon Brando",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "159",
+  "type": "human"
+ },
+ {
+  "item": "Q8332",
+  "itemLabel": "red fox",
+  "amount": "0.425",
+  "unitLabel": "metre",
+  "sl": "158",
+  "type": "taxon"
+ },
+ {
+  "item": "Q34436",
+  "itemLabel": "Scarlett Johansson",
+  "amount": "160.0",
+  "unitLabel": "centimetre",
+  "sl": "158",
+  "type": "human"
+ },
+ {
+  "item": "Q11815",
+  "itemLabel": "James Monroe",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "158",
+  "type": "human"
+ },
+ {
+  "item": "Q2866",
+  "itemLabel": "Alexander Lukashenka",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "158",
+  "type": "human"
+ },
+ {
+  "item": "Q11815",
+  "itemLabel": "James Monroe",
+  "amount": "1.82",
+  "unitLabel": "metre",
+  "sl": "158",
+  "type": "human"
+ },
+ {
+  "item": "Q34479",
+  "itemLabel": "Hirohito",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "157",
+  "type": "human"
+ },
+ {
+  "item": "Q25089",
+  "itemLabel": "Woody Allen",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "157",
+  "type": "human"
+ },
+ {
+  "item": "Q9545",
+  "itemLabel": "Tony Blair",
+  "amount": "1.83",
+  "unitLabel": "metre",
+  "sl": "156",
+  "type": "human"
+ },
+ {
+  "item": "Q10132",
+  "itemLabel": "Rafael Nadal",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "156",
+  "type": "human"
+ },
+ {
+  "item": "Q2685",
+  "itemLabel": "Arnold Schwarzenegger",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "155",
+  "type": "human"
+ },
+ {
+  "item": "Q42786",
+  "itemLabel": "Audrey Hepburn",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "154",
+  "type": "human"
+ },
+ {
+  "item": "Q11637",
+  "itemLabel": "Judy Garland",
+  "amount": "1.51",
+  "unitLabel": "metre",
+  "sl": "153",
+  "type": "human"
+ },
+ {
+  "item": "Q192",
+  "itemLabel": "David Cameron",
+  "amount": "1.86",
+  "unitLabel": "metre",
+  "sl": "153",
+  "type": "human"
+ },
+ {
+  "item": "Q12506",
+  "itemLabel": "Hagia Sophia",
+  "amount": "55.0",
+  "unitLabel": "metre",
+  "sl": "152",
+  "type": "museum"
+ },
+ {
+  "item": "Q37181",
+  "itemLabel": "Luiz Inácio Lula da Silva",
+  "amount": "1.68",
+  "unitLabel": "metre",
+  "sl": "151",
+  "type": "human"
+ },
+ {
+  "item": "Q221310",
+  "itemLabel": "Anggun",
+  "amount": "1.63",
+  "unitLabel": "metre",
+  "sl": "151",
+  "type": "human"
+ },
+ {
+  "item": "Q10304982",
+  "itemLabel": "Jair Bolsonaro",
+  "amount": "1.85",
+  "unitLabel": "metre",
+  "sl": "150",
+  "type": "human"
+ },
+ {
+  "item": "Q37175",
+  "itemLabel": "Johnny Depp",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "149",
+  "type": "human"
+ },
+ {
+  "item": "Q1362169",
+  "itemLabel": "Agnez Mo",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "149",
+  "type": "human"
+ },
+ {
+  "item": "Q11975",
+  "itemLabel": "Britney Spears",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "148",
+  "type": "human"
+ },
+ {
+  "item": "Q35332",
+  "itemLabel": "Brad Pitt",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "148",
+  "type": "human"
+ },
+ {
+  "item": "Q10285",
+  "itemLabel": "Colosseum",
+  "amount": "48.0",
+  "unitLabel": "metre",
+  "sl": "148",
+  "type": "Roman amphitheatre"
+ },
+ {
+  "item": "Q35648",
+  "itemLabel": "William Howard Taft",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "148",
+  "type": "human"
+ },
+ {
+  "item": "Q34597",
+  "itemLabel": "James A. Garfield",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "148",
+  "type": "human"
+ },
+ {
+  "item": "Q264766",
+  "itemLabel": "Theresa May",
+  "amount": "172.72",
+  "unitLabel": "centimetre",
+  "sl": "147",
+  "type": "human"
+ },
+ {
+  "item": "Q34851",
+  "itemLabel": "Elizabeth Taylor",
+  "amount": "160.0",
+  "unitLabel": "centimetre",
+  "sl": "147",
+  "type": "human"
+ },
+ {
+  "item": "Q1835",
+  "itemLabel": "Zinedine Zidane",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "147",
+  "type": "human"
+ },
+ {
+  "item": "Q39476",
+  "itemLabel": "Emma Watson",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "146",
+  "type": "human"
+ },
+ {
+  "item": "Q4573",
+  "itemLabel": "Sean Connery",
+  "amount": "1.89",
+  "unitLabel": "metre",
+  "sl": "146",
+  "type": "human"
+ },
+ {
+  "item": "Q12418",
+  "itemLabel": "Mona Lisa",
+  "amount": "79.4",
+  "unitLabel": "centimetre",
+  "sl": "146",
+  "type": "painting"
+ },
+ {
+  "item": "Q1631",
+  "itemLabel": "Édith Piaf",
+  "amount": "147.0",
+  "unitLabel": "centimetre",
+  "sl": "146",
+  "type": "human"
+ },
+ {
+  "item": "Q35171",
+  "itemLabel": "Grover Cleveland",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "146",
+  "type": "human"
+ },
+ {
+  "item": "Q11820",
+  "itemLabel": "Martin Van Buren",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "146",
+  "type": "human"
+ },
+ {
+  "item": "Q8612",
+  "itemLabel": "Andrew Johnson",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "145",
+  "type": "human"
+ },
+ {
+  "item": "Q11891",
+  "itemLabel": "James K. Polk",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "145",
+  "type": "human"
+ },
+ {
+  "item": "Q151892",
+  "itemLabel": "Ariana Grande",
+  "amount": "153.0",
+  "unitLabel": "centimetre",
+  "sl": "144",
+  "type": "human"
+ },
+ {
+  "item": "Q855252",
+  "itemLabel": "Bhumibol Adulyadej",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "144",
+  "type": "human"
+ },
+ {
+  "item": "Q66107",
+  "itemLabel": "Henry Kissinger",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "144",
+  "type": "human"
+ },
+ {
+  "item": "Q11896",
+  "itemLabel": "Zachary Taylor",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "144",
+  "type": "human"
+ },
+ {
+  "item": "Q12325",
+  "itemLabel": "James Buchanan",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "144",
+  "type": "human"
+ },
+ {
+  "item": "Q11881",
+  "itemLabel": "John Tyler",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "143",
+  "type": "human"
+ },
+ {
+  "item": "Q11881",
+  "itemLabel": "John Tyler",
+  "amount": "6.0",
+  "unitLabel": "foot",
+  "sl": "143",
+  "type": "human"
+ },
+ {
+  "item": "Q35525",
+  "itemLabel": "White House",
+  "amount": "21.33",
+  "unitLabel": "metre",
+  "sl": "143",
+  "type": "civic building"
+ },
+ {
+  "item": "Q35286",
+  "itemLabel": "Warren G. Harding",
+  "amount": "6.0",
+  "unitLabel": "foot",
+  "sl": "142",
+  "type": "human"
+ },
+ {
+  "item": "Q35286",
+  "itemLabel": "Warren G. Harding",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "142",
+  "type": "human"
+ },
+ {
+  "item": "Q35041",
+  "itemLabel": "William McKinley",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "142",
+  "type": "human"
+ },
+ {
+  "item": "Q3099714",
+  "itemLabel": "Justin Trudeau",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "141",
+  "type": "human"
+ },
+ {
+  "item": "Q40912",
+  "itemLabel": "Frank Sinatra",
+  "amount": "172.0",
+  "unitLabel": "centimetre",
+  "sl": "141",
+  "type": "human"
+ },
+ {
+  "item": "Q36949",
+  "itemLabel": "Robert De Niro",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "141",
+  "type": "human"
+ },
+ {
+  "item": "Q12306",
+  "itemLabel": "Millard Fillmore",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "141",
+  "type": "human"
+ },
+ {
+  "item": "Q5086",
+  "itemLabel": "Berlin Wall",
+  "amount": "3.6",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "defense line"
+ },
+ {
+  "item": "Q41749",
+  "itemLabel": "Joseph Goebbels",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "human"
+ },
+ {
+  "item": "Q11869",
+  "itemLabel": "William Henry Harrison",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "140",
+  "type": "human"
+ },
+ {
+  "item": "Q12495",
+  "itemLabel": "Burj Khalifa",
+  "amount": "829.8",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "architectural landmark"
+ },
+ {
+  "item": "Q106529",
+  "itemLabel": "Alain Delon",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "140",
+  "type": "human"
+ },
+ {
+  "item": "Q35686",
+  "itemLabel": "Rutherford B. Hayes",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "140",
+  "type": "human"
+ },
+ {
+  "item": "Q10520",
+  "itemLabel": "David Beckham",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "140",
+  "type": "human"
+ },
+ {
+  "item": "Q12495",
+  "itemLabel": "Burj Khalifa",
+  "amount": "584.5",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "skyscraper"
+ },
+ {
+  "item": "Q12495",
+  "itemLabel": "Burj Khalifa",
+  "amount": "828.0",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "skyscraper"
+ },
+ {
+  "item": "Q15083",
+  "itemLabel": "northern giraffe",
+  "amount": "5.5",
+  "unitLabel": "metre",
+  "sl": "140",
+  "type": "taxon"
+ },
+ {
+  "item": "Q12312",
+  "itemLabel": "Franklin Pierce",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "139",
+  "type": "human"
+ },
+ {
+  "item": "Q13133",
+  "itemLabel": "Michelle Obama",
+  "amount": "180.34",
+  "unitLabel": "centimetre",
+  "sl": "139",
+  "type": "human"
+ },
+ {
+  "item": "Q10288",
+  "itemLabel": "Parthenon",
+  "amount": "13.72",
+  "unitLabel": "metre",
+  "sl": "139",
+  "type": "ancient Greek temple"
+ },
+ {
+  "item": "Q10707",
+  "itemLabel": "Robert Mugabe",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "139",
+  "type": "human"
+ },
+ {
+  "item": "Q42493",
+  "itemLabel": "Katy Perry",
+  "amount": "171.0",
+  "unitLabel": "centimetre",
+  "sl": "139",
+  "type": "human"
+ },
+ {
+  "item": "Q37876",
+  "itemLabel": "Natalie Portman",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "138",
+  "type": "human"
+ },
+ {
+  "item": "Q2263",
+  "itemLabel": "Tom Hanks",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "137",
+  "type": "human"
+ },
+ {
+  "item": "Q40096",
+  "itemLabel": "Will Smith",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "137",
+  "type": "human"
+ },
+ {
+  "item": "Q1189",
+  "itemLabel": "Usain Bolt",
+  "amount": "196.0",
+  "unitLabel": "centimetre",
+  "sl": "137",
+  "type": "human"
+ },
+ {
+  "item": "Q35678",
+  "itemLabel": "Benjamin Harrison",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "137",
+  "type": "human"
+ },
+ {
+  "item": "Q5928",
+  "itemLabel": "Jimi Hendrix",
+  "amount": "70.0",
+  "unitLabel": "inch",
+  "sl": "136",
+  "type": "human"
+ },
+ {
+  "item": "Q19673",
+  "itemLabel": "Al Gore",
+  "amount": "1.89",
+  "unitLabel": "metre",
+  "sl": "136",
+  "type": "human"
+ },
+ {
+  "item": "Q29466",
+  "itemLabel": "Kaaba",
+  "amount": "12.95",
+  "unitLabel": "metre",
+  "sl": "135",
+  "type": "sacred place"
+ },
+ {
+  "item": "Q41163",
+  "itemLabel": "Al Pacino",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "135",
+  "type": "human"
+ },
+ {
+  "item": "Q34221",
+  "itemLabel": "Niagara Falls",
+  "amount": "57.0",
+  "unitLabel": "metre",
+  "sl": "135",
+  "type": "waterfall"
+ },
+ {
+  "item": "Q34221",
+  "itemLabel": "Niagara Falls",
+  "amount": "51.0",
+  "unitLabel": "metre",
+  "sl": "135",
+  "type": "waterfall"
+ },
+ {
+  "item": "Q21621995",
+  "itemLabel": "Kylian Mbappé",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q41173",
+  "itemLabel": "Demi Lovato",
+  "amount": "161.0",
+  "unitLabel": "centimetre",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q38222",
+  "itemLabel": "George Lucas",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q37459",
+  "itemLabel": "Nicole Kidman",
+  "amount": "1.8",
+  "unitLabel": "metre",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q202765",
+  "itemLabel": "Kate Winslet",
+  "amount": "66.0",
+  "unitLabel": "inch",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q29179",
+  "itemLabel": "Francisco Franco",
+  "amount": "1.63",
+  "unitLabel": "metre",
+  "sl": "134",
+  "type": "human"
+ },
+ {
+  "item": "Q35498",
+  "itemLabel": "Chester A. Arthur",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "133",
+  "type": "human"
+ },
+ {
+  "item": "Q43252",
+  "itemLabel": "Sophia Loren",
+  "amount": "1.74",
+  "unitLabel": "metre",
+  "sl": "133",
+  "type": "human"
+ },
+ {
+  "item": "Q12512",
+  "itemLabel": "St. Peter's Basilica",
+  "amount": "136.6",
+  "unitLabel": "metre",
+  "sl": "133",
+  "type": "architectural landmark"
+ },
+ {
+  "item": "Q34460",
+  "itemLabel": "Gwyneth Paltrow",
+  "amount": "1.75",
+  "unitLabel": "metre",
+  "sl": "132",
+  "type": "human"
+ },
+ {
+  "item": "Q10390",
+  "itemLabel": "John McCain",
+  "amount": "172.7",
+  "unitLabel": "centimetre",
+  "sl": "132",
+  "type": "human"
+ },
+ {
+  "item": "Q56016",
+  "itemLabel": "Katharine Hepburn",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "132",
+  "type": "human"
+ },
+ {
+  "item": "Q40523",
+  "itemLabel": "Julia Roberts",
+  "amount": "1.75",
+  "unitLabel": "metre",
+  "sl": "132",
+  "type": "human"
+ },
+ {
+  "item": "Q41611",
+  "itemLabel": "Coriandrum sativum",
+  "amount": "140.0",
+  "unitLabel": "centimetre",
+  "sl": "131",
+  "type": "taxon"
+ },
+ {
+  "item": "Q15897",
+  "itemLabel": "Amy Winehouse",
+  "amount": "1.59",
+  "unitLabel": "metre",
+  "sl": "131",
+  "type": "human"
+ },
+ {
+  "item": "Q41594",
+  "itemLabel": "Christina Aguilera",
+  "amount": "1.57",
+  "unitLabel": "metre",
+  "sl": "131",
+  "type": "human"
+ },
+ {
+  "item": "Q41611",
+  "itemLabel": "Coriandrum sativum",
+  "amount": "20.0",
+  "unitLabel": "centimetre",
+  "sl": "131",
+  "type": "taxon"
+ },
+ {
+  "item": "Q15897",
+  "itemLabel": "Amy Winehouse",
+  "amount": "1.6",
+  "unitLabel": "metre",
+  "sl": "131",
+  "type": "human"
+ },
+ {
+  "item": "Q1276",
+  "itemLabel": "Leonard Cohen",
+  "amount": "1.75",
+  "unitLabel": "metre",
+  "sl": "131",
+  "type": "human"
+ },
+ {
+  "item": "Q39792",
+  "itemLabel": "Jack Nicholson",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "130",
+  "type": "human"
+ },
+ {
+  "item": "Q37979",
+  "itemLabel": "Akihito",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "130",
+  "type": "human"
+ },
+ {
+  "item": "Q57371",
+  "itemLabel": "Ilham Aliyev",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "130",
+  "type": "human"
+ },
+ {
+  "item": "Q2518",
+  "itemLabel": "Helmut Kohl",
+  "amount": "195.0",
+  "unitLabel": "centimetre",
+  "sl": "129",
+  "type": "human"
+ },
+ {
+  "item": "Q40791",
+  "itemLabel": "Sandra Bullock",
+  "amount": "171.0",
+  "unitLabel": "centimetre",
+  "sl": "129",
+  "type": "human"
+ },
+ {
+  "item": "Q37079",
+  "itemLabel": "Tom Cruise",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "129",
+  "type": "human"
+ },
+ {
+  "item": "Q76127",
+  "itemLabel": "Sukarno",
+  "amount": "172.0",
+  "unitLabel": "centimetre",
+  "sl": "129",
+  "type": "human"
+ },
+ {
+  "item": "Q23844",
+  "itemLabel": "George Clooney",
+  "amount": "1.8",
+  "unitLabel": "metre",
+  "sl": "128",
+  "type": "human"
+ },
+ {
+  "item": "Q17163",
+  "itemLabel": "Johan Cruyff",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "128",
+  "type": "human"
+ },
+ {
+  "item": "Q48337",
+  "itemLabel": "Morgan Freeman",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "128",
+  "type": "human"
+ },
+ {
+  "item": "Q451791",
+  "itemLabel": "Giorgia Meloni",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "128",
+  "type": "human"
+ },
+ {
+  "item": "Q79037",
+  "itemLabel": "Spider-Man",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "128",
+  "type": "film character"
+ },
+ {
+  "item": "Q10648",
+  "itemLabel": "Gordon Brown",
+  "amount": "1.81",
+  "unitLabel": "metre",
+  "sl": "128",
+  "type": "human"
+ },
+ {
+  "item": "Q61053",
+  "itemLabel": "Olaf Scholz",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "127",
+  "type": "human"
+ },
+ {
+  "item": "Q11459",
+  "itemLabel": "Serena Williams",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "127",
+  "type": "human"
+ },
+ {
+  "item": "Q11459",
+  "itemLabel": "Serena Williams",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "127",
+  "type": "human"
+ },
+ {
+  "item": "Q503706",
+  "itemLabel": "Chris Pratt",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "127",
+  "type": "human"
+ },
+ {
+  "item": "Q19943",
+  "itemLabel": "Juan Carlos I of Spain",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "126",
+  "type": "human"
+ },
+ {
+  "item": "Q9570",
+  "itemLabel": "Amitabh Bachchan",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "126",
+  "type": "human"
+ },
+ {
+  "item": "Q37200",
+  "itemLabel": "Great Pyramid of Giza",
+  "amount": "146.7",
+  "unitLabel": "metre",
+  "sl": "126",
+  "type": "Egyptian pyramids"
+ },
+ {
+  "item": "Q20110",
+  "itemLabel": "Francesco Totti",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "126",
+  "type": "human"
+ },
+ {
+  "item": "Q40026",
+  "itemLabel": "Sylvester Stallone",
+  "amount": "1.77",
+  "unitLabel": "metre",
+  "sl": "126",
+  "type": "human"
+ },
+ {
+  "item": "Q37200",
+  "itemLabel": "Great Pyramid of Giza",
+  "amount": "137.5",
+  "unitLabel": "metre",
+  "sl": "126",
+  "type": "Wonder of the Ancient World"
+ },
+ {
+  "item": "Q9188",
+  "itemLabel": "Empire State Building",
+  "amount": "1500.0",
+  "unitLabel": "foot",
+  "sl": "125",
+  "type": "office building"
+ },
+ {
+  "item": "Q2981",
+  "itemLabel": "Notre-Dame de Paris",
+  "amount": "69.0",
+  "unitLabel": "metre",
+  "sl": "125",
+  "type": "Catholic cathedral"
+ },
+ {
+  "item": "Q529207",
+  "itemLabel": "Ronaldo",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "125",
+  "type": "human"
+ },
+ {
+  "item": "Q2981",
+  "itemLabel": "Notre-Dame de Paris",
+  "amount": "90.0",
+  "unitLabel": "metre",
+  "sl": "125",
+  "type": "minor basilica"
+ },
+ {
+  "item": "Q43247",
+  "itemLabel": "Ingrid Bergman",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "125",
+  "type": "human"
+ },
+ {
+  "item": "Q129817",
+  "itemLabel": "Russell Crowe",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "125",
+  "type": "human"
+ },
+ {
+  "item": "Q9188",
+  "itemLabel": "Empire State Building",
+  "amount": "453.0",
+  "unitLabel": "metre",
+  "sl": "125",
+  "type": "office building"
+ },
+ {
+  "item": "Q3772",
+  "itemLabel": "Quentin Tarantino",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "124",
+  "type": "human"
+ },
+ {
+  "item": "Q43416",
+  "itemLabel": "Keanu Reeves",
+  "amount": "1.86",
+  "unitLabel": "metre",
+  "sl": "124",
+  "type": "human"
+ },
+ {
+  "item": "Q36715",
+  "itemLabel": "Mammuthus",
+  "amount": "4.5",
+  "unitLabel": "metre",
+  "sl": "123",
+  "type": "fossil taxon"
+ },
+ {
+  "item": "Q72984",
+  "itemLabel": "Bing Crosby",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "123",
+  "type": "human"
+ },
+ {
+  "item": "Q93354",
+  "itemLabel": "F. Scott Fitzgerald",
+  "amount": "67.0",
+  "unitLabel": "inch",
+  "sl": "123",
+  "type": "human"
+ },
+ {
+  "item": "Q11998",
+  "itemLabel": "Kylie Minogue",
+  "amount": "1.52",
+  "unitLabel": "metre",
+  "sl": "123",
+  "type": "human"
+ },
+ {
+  "item": "Q49074",
+  "itemLabel": "Kurt Vonnegut",
+  "amount": "193.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q102124",
+  "itemLabel": "Sigourney Weaver",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q432473",
+  "itemLabel": "Melania Trump",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q40531",
+  "itemLabel": "John Wayne",
+  "amount": "193.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q189490",
+  "itemLabel": "Jennifer Lawrence",
+  "amount": "1.75",
+  "unitLabel": "metre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q65932",
+  "itemLabel": "Anthony Hopkins",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q3318231",
+  "itemLabel": "Joko Widodo",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q42410",
+  "itemLabel": "Evo Morales",
+  "amount": "1.75",
+  "unitLabel": "metre",
+  "sl": "122",
+  "type": "human"
+ },
+ {
+  "item": "Q272201",
+  "itemLabel": "Liz Truss",
+  "amount": "1.657",
+  "unitLabel": "metre",
+  "sl": "121",
+  "type": "human"
+ },
+ {
+  "item": "Q42869",
+  "itemLabel": "Nicolas Cage",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "121",
+  "type": "human"
+ },
+ {
+  "item": "Q43067",
+  "itemLabel": "Heinrich Himmler",
+  "amount": "1.76",
+  "unitLabel": "metre",
+  "sl": "121",
+  "type": "human"
+ },
+ {
+  "item": "Q2023710",
+  "itemLabel": "Tom Holland",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q191045",
+  "itemLabel": "Felipe VI of Spain",
+  "amount": "1.97",
+  "unitLabel": "metre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q3925",
+  "itemLabel": "Grace Kelly",
+  "amount": "169.0",
+  "unitLabel": "centimetre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q42574",
+  "itemLabel": "James Cameron",
+  "amount": "187.0",
+  "unitLabel": "centimetre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q46896",
+  "itemLabel": "Zlatan Ibrahimović",
+  "amount": "195.0",
+  "unitLabel": "centimetre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q39666",
+  "itemLabel": "Penélope Cruz",
+  "amount": "1.68",
+  "unitLabel": "metre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q60772",
+  "itemLabel": "Ursula von der Leyen",
+  "amount": "161.0",
+  "unitLabel": "centimetre",
+  "sl": "120",
+  "type": "human"
+ },
+ {
+  "item": "Q39054",
+  "itemLabel": "Leaning Tower of Pisa",
+  "amount": "58.36",
+  "unitLabel": "metre",
+  "sl": "119",
+  "type": "church tower"
+ },
+ {
+  "item": "Q16390",
+  "itemLabel": "Humphrey Bogart",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "119",
+  "type": "human"
+ },
+ {
+  "item": "Q80046",
+  "itemLabel": "Charlize Theron",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "119",
+  "type": "human"
+ },
+ {
+  "item": "Q44819",
+  "itemLabel": "Suharto",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "119",
+  "type": "human"
+ },
+ {
+  "item": "Q42775",
+  "itemLabel": "Johnny Cash",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "119",
+  "type": "human"
+ },
+ {
+  "item": "Q42229",
+  "itemLabel": "Mel Gibson",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "119",
+  "type": "human"
+ },
+ {
+  "item": "Q41351",
+  "itemLabel": "Jodie Foster",
+  "amount": "1.6",
+  "unitLabel": "metre",
+  "sl": "118",
+  "type": "human"
+ },
+ {
+  "item": "Q16390",
+  "itemLabel": "Humphrey Bogart",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "117",
+  "type": "human"
+ },
+ {
+  "item": "Q34007",
+  "itemLabel": "Cashew",
+  "amount": "14.0",
+  "unitLabel": "metre",
+  "sl": "117",
+  "type": "taxon"
+ },
+ {
+  "item": "Q9673",
+  "itemLabel": "Lewis Hamilton",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "117",
+  "type": "human"
+ },
+ {
+  "item": "Q43502",
+  "itemLabel": "Dodo",
+  "amount": "1.0",
+  "unitLabel": "metre",
+  "sl": "117",
+  "type": "extinct taxon"
+ },
+ {
+  "item": "Q81328",
+  "itemLabel": "Harrison Ford",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "117",
+  "type": "human"
+ },
+ {
+  "item": "Q10514",
+  "itemLabel": "Fernando Alonso",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "117",
+  "type": "human"
+ },
+ {
+  "item": "Q23466",
+  "itemLabel": "Chris Pine",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "117",
+  "type": "human"
+ },
+ {
+  "item": "Q47059",
+  "itemLabel": "Aishwarya Rai",
+  "amount": "167.0",
+  "unitLabel": "centimetre",
+  "sl": "116",
+  "type": "human"
+ },
+ {
+  "item": "Q4457",
+  "itemLabel": "Franz Beckenbauer",
+  "amount": "181.0",
+  "unitLabel": "centimetre",
+  "sl": "116",
+  "type": "human"
+ },
+ {
+  "item": "Q39444",
+  "itemLabel": "Ronaldinho",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "115",
+  "type": "human"
+ },
+ {
+  "item": "Q76658",
+  "itemLabel": "Frank-Walter Steinmeier",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "115",
+  "type": "human"
+ },
+ {
+  "item": "Q175535",
+  "itemLabel": "Matt Damon",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "115",
+  "type": "trademark"
+ },
+ {
+  "item": "Q24829",
+  "itemLabel": "Orson Welles",
+  "amount": "183.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q36159",
+  "itemLabel": "LeBron James",
+  "amount": "206.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q68060",
+  "itemLabel": "Gianluigi Buffon",
+  "amount": "192.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q23359",
+  "itemLabel": "Taylor Lautner",
+  "amount": "174.0",
+  "unitLabel": "1",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q44077",
+  "itemLabel": "Jessica Alba",
+  "amount": "1.76",
+  "unitLabel": "metre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q186304",
+  "itemLabel": "Kim Kardashian",
+  "amount": "159.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q165219",
+  "itemLabel": "Robert Downey Jr.",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q57394",
+  "itemLabel": "Nursultan Nazarbayev",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q41148",
+  "itemLabel": "Martin Scorsese",
+  "amount": "160.0",
+  "unitLabel": "centimetre",
+  "sl": "114",
+  "type": "human"
+ },
+ {
+  "item": "Q42101",
+  "itemLabel": "Denzel Washington",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q11666",
+  "itemLabel": "Maria Sharapova",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q44980",
+  "itemLabel": "Alex Ferguson",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q1220",
+  "itemLabel": "Giorgio Napolitano",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q1375057",
+  "itemLabel": "Kendall Jenner",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q180338",
+  "itemLabel": "Christopher Lee",
+  "amount": "194.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q483837",
+  "itemLabel": "Luka Modrić",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q26517",
+  "itemLabel": "Luis Suárez",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q36301",
+  "itemLabel": "Anne Hathaway",
+  "amount": "1.73",
+  "unitLabel": "metre",
+  "sl": "113",
+  "type": "human"
+ },
+ {
+  "item": "Q80069",
+  "itemLabel": "Megan Fox",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q47899",
+  "itemLabel": "Paris Hilton",
+  "amount": "172.0",
+  "unitLabel": "centimetre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q83359",
+  "itemLabel": "James Dean",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q36812",
+  "itemLabel": "William, Prince of Wales",
+  "amount": "1.91",
+  "unitLabel": "metre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q38119",
+  "itemLabel": "Daniel Radcliffe",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q79983",
+  "itemLabel": "José Mourinho",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q7542",
+  "itemLabel": "Prince",
+  "amount": "1.6",
+  "unitLabel": "metre",
+  "sl": "112",
+  "type": "human"
+ },
+ {
+  "item": "Q206",
+  "itemLabel": "Stephen Harper",
+  "amount": "1.88",
+  "unitLabel": "metre",
+  "sl": "111",
+  "type": "human"
+ },
+ {
+  "item": "Q134456",
+  "itemLabel": "Yukio Mishima",
+  "amount": "163.0",
+  "unitLabel": "centimetre",
+  "sl": "111",
+  "type": "human"
+ },
+ {
+  "item": "Q47906",
+  "itemLabel": "Hermann Göring",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "111",
+  "type": "human"
+ },
+ {
+  "item": "Q43278",
+  "itemLabel": "Victoria Falls",
+  "amount": "108.0",
+  "unitLabel": "metre",
+  "sl": "111",
+  "type": "waterfall"
+ },
+ {
+  "item": "Q51552",
+  "itemLabel": "Roman Polanski",
+  "amount": "160.0",
+  "unitLabel": "centimetre",
+  "sl": "111",
+  "type": "human"
+ },
+ {
+  "item": "Q44440",
+  "itemLabel": "Golden Gate Bridge",
+  "amount": "746.0",
+  "unitLabel": "foot",
+  "sl": "111",
+  "type": "toll bridge"
+ },
+ {
+  "item": "Q79031",
+  "itemLabel": "Mike Tyson",
+  "amount": "181.0",
+  "unitLabel": "centimetre",
+  "sl": "111",
+  "type": "human"
+ },
+ {
+  "item": "Q25345",
+  "itemLabel": "Mustela erminea",
+  "amount": "0.2475",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "taxon"
+ },
+ {
+  "item": "Q158957",
+  "itemLabel": "Priyanka Chopra",
+  "amount": "167.0",
+  "unitLabel": "centimetre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q42455",
+  "itemLabel": "Björk",
+  "amount": "1.63",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q106255",
+  "itemLabel": "Jean-Paul Belmondo",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q80344",
+  "itemLabel": "Mount Olympus",
+  "amount": "2917.727",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "biosphere reserve"
+ },
+ {
+  "item": "Q2673",
+  "itemLabel": "Chuck Norris",
+  "amount": "1.78",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q11930",
+  "itemLabel": "Kevin Costner",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q43874",
+  "itemLabel": "Eddie Murphy",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q127330",
+  "itemLabel": "Frank Zappa",
+  "amount": "1.83",
+  "unitLabel": "metre",
+  "sl": "110",
+  "type": "human"
+ },
+ {
+  "item": "Q83325",
+  "itemLabel": "Pamela Anderson",
+  "amount": "167.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q44380",
+  "itemLabel": "Cameron Diaz",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q10490",
+  "itemLabel": "Ayrton Senna",
+  "amount": "176.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q10479",
+  "itemLabel": "Catherine, Princess of Wales",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q41871",
+  "itemLabel": "Paul Newman",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q108941",
+  "itemLabel": "Carrie Fisher",
+  "amount": "1.55",
+  "unitLabel": "metre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q80048",
+  "itemLabel": "Al Capone",
+  "amount": "1.79",
+  "unitLabel": "metre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q39562",
+  "itemLabel": "Michael Phelps",
+  "amount": "193.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q428858",
+  "itemLabel": "Al-Masjid Al-Haram",
+  "amount": "137.5",
+  "unitLabel": "metre",
+  "sl": "109",
+  "type": "mosque"
+ },
+ {
+  "item": "Q81819",
+  "itemLabel": "Monica Bellucci",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "109",
+  "type": "human"
+ },
+ {
+  "item": "Q48435",
+  "itemLabel": "Basilica and Expiatory Church of the Holy Family",
+  "amount": "172.5",
+  "unitLabel": "metre",
+  "sl": "109",
+  "type": "minor basilica"
+ },
+ {
+  "item": "Q11235",
+  "itemLabel": "World Trade Center",
+  "amount": "417.0",
+  "unitLabel": "metre",
+  "sl": "109",
+  "type": "destroyed building or structure"
+ },
+ {
+  "item": "Q22316",
+  "itemLabel": "John Kerry",
+  "amount": "193.0",
+  "unitLabel": "centimetre",
+  "sl": "108",
+  "type": "human"
+ },
+ {
+  "item": "Q57287",
+  "itemLabel": "Harald V of Norway",
+  "amount": "186.0",
+  "unitLabel": "centimetre",
+  "sl": "108",
+  "type": "human"
+ },
+ {
+  "item": "Q1912",
+  "itemLabel": "Karim Benzema",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "108",
+  "type": "human"
+ },
+ {
+  "item": "Q49001",
+  "itemLabel": "Whoopi Goldberg",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "108",
+  "type": "human"
+ },
+ {
+  "item": "Q71243",
+  "itemLabel": "Clark Gable",
+  "amount": "184.0",
+  "unitLabel": "centimetre",
+  "sl": "108",
+  "type": "human"
+ },
+ {
+  "item": "Q83488",
+  "itemLabel": "Mesut Özil",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "107",
+  "type": "human"
+ },
+ {
+  "item": "Q1225",
+  "itemLabel": "Bruce Springsteen",
+  "amount": "1.77",
+  "unitLabel": "metre",
+  "sl": "107",
+  "type": "human"
+ },
+ {
+  "item": "Q178166",
+  "itemLabel": "Vin Diesel",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "106",
+  "type": "human"
+ },
+ {
+  "item": "Q12514",
+  "itemLabel": "Three Gorges Dam",
+  "amount": "181.0",
+  "unitLabel": "metre",
+  "sl": "106",
+  "type": "hydroelectric power station"
+ },
+ {
+  "item": "Q151269",
+  "itemLabel": "Robert Lewandowski",
+  "amount": "185.0",
+  "unitLabel": "centimetre",
+  "sl": "106",
+  "type": "human"
+ },
+ {
+  "item": "Q1354960",
+  "itemLabel": "Mohamed Salah",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "106",
+  "type": "human"
+ },
+ {
+  "item": "Q2071",
+  "itemLabel": "David Lynch",
+  "amount": "180.0",
+  "unitLabel": "centimetre",
+  "sl": "106",
+  "type": "human"
+ },
+ {
+  "item": "Q34584",
+  "itemLabel": "Anastacia",
+  "amount": "1.57",
+  "unitLabel": "metre",
+  "sl": "106",
+  "type": "human"
+ },
+ {
+  "item": "Q9559",
+  "itemLabel": "John Major",
+  "amount": "1.83",
+  "unitLabel": "metre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q189489",
+  "itemLabel": "Zendaya",
+  "amount": "178.0",
+  "unitLabel": "centimetre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q42745",
+  "itemLabel": "Rita Hayworth",
+  "amount": "168.0",
+  "unitLabel": "centimetre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q1523",
+  "itemLabel": "Ramesses II",
+  "amount": "1.9",
+  "unitLabel": "metre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q43729",
+  "itemLabel": "Andrés Iniesta",
+  "amount": "171.0",
+  "unitLabel": "centimetre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q150651",
+  "itemLabel": "George Carlin",
+  "amount": "175.0",
+  "unitLabel": "centimetre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q548733",
+  "itemLabel": "Rama X of Thailand",
+  "amount": "170.0",
+  "unitLabel": "centimetre",
+  "sl": "105",
+  "type": "human"
+ },
+ {
+  "item": "Q190523",
+  "itemLabel": "Christopher Plummer",
+  "amount": "70.0",
+  "unitLabel": "inch",
+  "sl": "104",
+  "type": "human"
+ },
+ {
+  "item": "Q133050",
+  "itemLabel": "Susan Sarandon",
+  "amount": "165.0",
+  "unitLabel": "centimetre",
+  "sl": "104",
+  "type": "human"
+ },
+ {
+  "item": "Q41533",
+  "itemLabel": "Frank Lampard",
+  "amount": "184.0",
+  "unitLabel": "centimetre",
+  "sl": "104",
+  "type": "human"
+ },
+ {
+  "item": "Q4261",
+  "itemLabel": "Michel Platini",
+  "amount": "179.0",
+  "unitLabel": "centimetre",
+  "sl": "104",
+  "type": "human"
+ },
+ {
+  "item": "Q125017",
+  "itemLabel": "Uma Thurman",
+  "amount": "181.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q45901",
+  "itemLabel": "Thierry Henry",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q83492",
+  "itemLabel": "Gary Oldman",
+  "amount": "174.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q48806",
+  "itemLabel": "Space Shuttle",
+  "amount": "2209.0",
+  "unitLabel": "inch",
+  "sl": "103",
+  "type": "spacecraft model"
+ },
+ {
+  "item": "Q126599",
+  "itemLabel": "Kristen Stewart",
+  "amount": "1.65",
+  "unitLabel": "metre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q104000",
+  "itemLabel": "Lauren Bacall",
+  "amount": "173.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q48806",
+  "itemLabel": "Space Shuttle",
+  "amount": "56.1",
+  "unitLabel": "metre",
+  "sl": "103",
+  "type": "spacecraft model"
+ },
+ {
+  "item": "Q56094",
+  "itemLabel": "Francis Ford Coppola",
+  "amount": "182.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q100937",
+  "itemLabel": "Fred Astaire",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q12192963",
+  "itemLabel": "Al-Aqsa Mosque",
+  "amount": "37.0",
+  "unitLabel": "metre",
+  "sl": "103",
+  "type": "sacred place"
+ },
+ {
+  "item": "Q103876",
+  "itemLabel": "Peter O'Toole",
+  "amount": "188.0",
+  "unitLabel": "centimetre",
+  "sl": "103",
+  "type": "human"
+ },
+ {
+  "item": "Q106508",
+  "itemLabel": "Gérard Depardieu",
+  "amount": "1.8",
+  "unitLabel": "metre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q42311",
+  "itemLabel": "Sebastian Vettel",
+  "amount": "176.0",
+  "unitLabel": "centimetre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q6070218",
+  "itemLabel": "Pedro Sánchez",
+  "amount": "1.9",
+  "unitLabel": "metre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q566257",
+  "itemLabel": "Friedrich Merz",
+  "amount": "198.0",
+  "unitLabel": "centimetre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q11208",
+  "itemLabel": "The Pentagon",
+  "amount": "21.6",
+  "unitLabel": "metre",
+  "sl": "102",
+  "type": "government building"
+ },
+ {
+  "item": "Q2172",
+  "itemLabel": "Lance Armstrong",
+  "amount": "177.0",
+  "unitLabel": "centimetre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q12237722",
+  "itemLabel": "Layal Abboud",
+  "amount": "162.0",
+  "unitLabel": "centimetre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q159778",
+  "itemLabel": "Michelle Pfeiffer",
+  "amount": "1.71",
+  "unitLabel": "metre",
+  "sl": "102",
+  "type": "human"
+ },
+ {
+  "item": "Q5830",
+  "itemLabel": "Airbus A380",
+  "amount": "24.1",
+  "unitLabel": "metre",
+  "sl": "102",
+  "type": "aircraft family"
+ },
+ {
+  "item": "Q266613",
+  "itemLabel": "Wayne Rooney",
+  "amount": "176.0",
+  "unitLabel": "centimetre",
+  "sl": "101",
+  "type": "human"
+ },
+ {
+  "item": "Q80471",
+  "itemLabel": "Miroslav Klose",
+  "amount": "184.0",
+  "unitLabel": "centimetre",
+  "sl": "101",
+  "type": "human"
+ },
+ {
+  "item": "Q101797",
+  "itemLabel": "Winona Ryder",
+  "amount": "1.58",
+  "unitLabel": "metre",
+  "sl": "101",
+  "type": "human"
+ }
+]

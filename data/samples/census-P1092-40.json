@@ -1,0 +1,3289 @@
+{
+ "prop": "P1092",
+ "min_sitelinks": 40,
+ "items": 297,
+ "clean": 282,
+ "disputed": 15,
+ "top_types": [
+  [
+   "aircraft family",
+   149
+  ],
+  [
+   "combat vehicle family",
+   22
+  ],
+  [
+   "firearm model",
+   16
+  ],
+  [
+   "aircraft model",
+   14
+  ],
+  [
+   "combat vehicle model",
+   13
+  ],
+  [
+   "car model",
+   9
+  ],
+  [
+   "weapon model",
+   5
+  ],
+  [
+   "weapon family",
+   4
+  ],
+  [
+   "ammunition model",
+   4
+  ],
+  [
+   "automobile manufacturer",
+   4
+  ],
+  [
+   "car model series",
+   3
+  ],
+  [
+   "missile model",
+   3
+  ],
+  [
+   "magazine",
+   3
+  ],
+  [
+   "daily newspaper",
+   2
+  ],
+  [
+   "product",
+   2
+  ],
+  [
+   "tabloid newspaper",
+   2
+  ],
+  [
+   "periodical",
+   2
+  ],
+  [
+   "news magazine",
+   2
+  ],
+  [
+   "firearm family",
+   2
+  ],
+  [
+   "postage stamp",
+   1
+  ],
+  [
+   "artillery model",
+   1
+  ],
+  [
+   "weekly newspaper",
+   1
+  ],
+  [
+   "economic simulation board game",
+   1
+  ],
+  [
+   "airline code",
+   1
+  ],
+  [
+   "public company",
+   1
+  ],
+  [
+   "cheese",
+   1
+  ],
+  [
+   "Jewish newspaper",
+   1
+  ],
+  [
+   "military vehicle model",
+   1
+  ],
+  [
+   "comic",
+   1
+  ],
+  [
+   "prototype aircraft model",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q897",
+   "label": "gold",
+   "sl": 277,
+   "values": [
+    "3300 tonne"
+   ],
+   "types": [
+    "chemical element",
+    "metallic material",
+    "precious metal"
+   ]
+  },
+  {
+   "qid": "Q21202",
+   "label": "Şalom",
+   "sl": 125,
+   "values": [
+    "5000 1"
+   ],
+   "types": [
+    "Jewish newspaper"
+   ]
+  },
+  {
+   "qid": "Q6686",
+   "label": "Renault",
+   "sl": 110,
+   "values": [
+    "2.52423e+06 1"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "organization"
+   ]
+  },
+  {
+   "qid": "Q5830",
+   "label": "Airbus A380",
+   "sl": 102,
+   "values": [
+    "251 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q43297",
+   "label": "Time",
+   "sl": 100,
+   "values": [
+    "3.37623e+06 1"
+   ],
+   "types": [
+    "magazine",
+    "news magazine",
+    "online magazine",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q40993",
+   "label": "Porsche",
+   "sl": 91,
+   "values": [
+    "301915 vehicle"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "public company",
+    "racecar constructor"
+   ]
+  },
+  {
+   "qid": "Q6387",
+   "label": "Boeing 737",
+   "sl": 89,
+   "values": [
+    "10510 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q179",
+   "label": "Boeing 747",
+   "sl": 88,
+   "values": [
+    "1574 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q100026",
+   "label": "General Dynamics F-16 Fighting Falcon",
+   "sl": 85,
+   "values": [
+    "4573 1",
+    "4604 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q133324",
+   "label": "Lockheed Martin F-22 Raptor",
+   "sl": 83,
+   "values": [
+    "195 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q181642",
+   "label": "Suzuki Motor Corporation",
+   "sl": 83,
+   "values": [
+    "2.96666e+06 1"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "business",
+    "motorcycle manufacturer",
+    "public company"
+   ]
+  },
+  {
+   "qid": "Q17243",
+   "label": "Monopoly",
+   "sl": 81,
+   "values": [
+    "2.75e+08 1"
+   ],
+   "types": [
+    "board game",
+    "economic simulation board game"
+   ]
+  },
+  {
+   "qid": "Q6425",
+   "label": "Boeing 777",
+   "sl": 79,
+   "values": [
+    "1662 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q180285",
+   "label": "Northrop B-2 Spirit",
+   "sl": 75,
+   "values": [
+    "33 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q130681",
+   "label": "Mikoyan MiG-29",
+   "sl": 73,
+   "values": [
+    "1600 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q172233",
+   "label": "T-34",
+   "sl": 73,
+   "values": [
+    "84170 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q6394",
+   "label": "Boeing 707",
+   "sl": 72,
+   "values": [
+    "1010 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q170318",
+   "label": "M16 rifle",
+   "sl": 71,
+   "values": [
+    "8e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q178351",
+   "label": "Antonov An-225 Mriya",
+   "sl": 71,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q174534",
+   "label": "Boeing B-52 Stratofortress",
+   "sl": 70,
+   "values": [
+    "744 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q182027",
+   "label": "Lockheed C-130 Hercules",
+   "sl": 70,
+   "values": [
+    "2600 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q190973",
+   "label": "Dassault Rafale",
+   "sl": 70,
+   "values": [
+    "313 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6475",
+   "label": "Airbus A320 family",
+   "sl": 70,
+   "values": [
+    "9693 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q171468",
+   "label": "Hughes AH-64 Apache",
+   "sl": 69,
+   "values": [
+    "2000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q172957",
+   "label": "Tupolev Tu-154",
+   "sl": 69,
+   "values": [
+    "1026 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q173680",
+   "label": "Sukhoi Su-27",
+   "sl": 69,
+   "values": [
+    "809 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6409",
+   "label": "Boeing 727",
+   "sl": 69,
+   "values": [
+    "1832 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q155644",
+   "label": "Uzi",
+   "sl": 68,
+   "values": [
+    "1e+07 1"
+   ],
+   "types": [
+    "weapon family"
+   ]
+  },
+  {
+   "qid": "Q29251",
+   "label": "McDonnell Douglas F-15 Eagle",
+   "sl": 68,
+   "values": [
+    "1198 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q151384",
+   "label": "Eurofighter Typhoon",
+   "sl": 67,
+   "values": [
+    "926 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q183399",
+   "label": "Financial Times",
+   "sl": 67,
+   "values": [
+    "111898 1"
+   ],
+   "types": [
+    "daily newspaper"
+   ]
+  },
+  {
+   "qid": "Q81231",
+   "label": "Iron Dome",
+   "sl": 66,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "Counter Rocket, Artillery, and Mortar",
+    "product"
+   ]
+  },
+  {
+   "qid": "Q155651",
+   "label": "Mil Mi-24",
+   "sl": 65,
+   "values": [
+    "2300 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q172610",
+   "label": "Bugatti Veyron",
+   "sl": 65,
+   "values": [
+    "450 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q173684",
+   "label": "M1 Abrams",
+   "sl": 65,
+   "values": [
+    "10288 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q182323",
+   "label": "Ford Model T",
+   "sl": 65,
+   "values": [
+    "1.5e+07 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q185000",
+   "label": "Boeing B-17 Flying Fortress",
+   "sl": 65,
+   "values": [
+    "12731 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q46397",
+   "label": "McDonnell Douglas F/A-18 Hornet",
+   "sl": 65,
+   "values": [
+    "1480 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q5973845",
+   "label": "National Geographic",
+   "sl": 65,
+   "values": [
+    "4.33671e+06 1"
+   ],
+   "types": [
+    "scientific journal"
+   ]
+  },
+  {
+   "qid": "Q6423",
+   "label": "Boeing 767",
+   "sl": 65,
+   "values": [
+    "1326 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6478",
+   "label": "Airbus A330",
+   "sl": 65,
+   "values": [
+    "1378 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q152946",
+   "label": "Volkswagen Beetle",
+   "sl": 64,
+   "values": [
+    "2.15295e+07 1"
+   ],
+   "types": [
+    "car model",
+    "car model series"
+   ]
+  },
+  {
+   "qid": "Q155658",
+   "label": "T-72",
+   "sl": 64,
+   "values": [
+    "25000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q174640",
+   "label": "V-2 rocket",
+   "sl": 64,
+   "values": [
+    "6000 1"
+   ],
+   "types": [
+    "missile model"
+   ]
+  },
+  {
+   "qid": "Q188513",
+   "label": "Tupolev Tu-144",
+   "sl": 64,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q200038",
+   "label": "Dassault Mirage 2000",
+   "sl": 64,
+   "values": [
+    "601 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q184491",
+   "label": "Lockheed F-117 Nighthawk",
+   "sl": 63,
+   "values": [
+    "64 1"
+   ],
+   "types": [
+    "aircraft family",
+    "black project"
+   ]
+  },
+  {
+   "qid": "Q34945",
+   "label": "Grumman F-14 Tomcat",
+   "sl": 63,
+   "values": [
+    "712 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q179969",
+   "label": "Air Force One",
+   "sl": 62,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "airline code",
+    "call sign"
+   ]
+  },
+  {
+   "qid": "Q181013",
+   "label": "Little Boy",
+   "sl": 62,
+   "values": [
+    "36 1"
+   ],
+   "types": [
+    "ammunition model",
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q181815",
+   "label": "Tupolev Tu-95",
+   "sl": 62,
+   "values": [
+    "500 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6418",
+   "label": "Boeing 757",
+   "sl": 62,
+   "values": [
+    "1050 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6481",
+   "label": "Airbus A340",
+   "sl": 62,
+   "values": [
+    "377 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6484",
+   "label": "Airbus A350",
+   "sl": 62,
+   "values": [
+    "295 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q150088",
+   "label": "Saab JAS 39 Gripen",
+   "sl": 61,
+   "values": [
+    "264 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q151432",
+   "label": "McDonnell Douglas F-4 Phantom II",
+   "sl": 61,
+   "values": [
+    "5195 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q184870",
+   "label": "Boeing B-29 Superfortress",
+   "sl": 61,
+   "values": [
+    "3970 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q187377",
+   "label": "Mikoyan-Gurevich MiG-15",
+   "sl": 61,
+   "values": [
+    "15560 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q188596",
+   "label": "Tsar Bomba",
+   "sl": 61,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "ammunition model"
+   ]
+  },
+  {
+   "qid": "Q192757",
+   "label": "T-90",
+   "sl": 61,
+   "values": [
+    "2100 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q328272",
+   "label": "T-54/55",
+   "sl": 61,
+   "values": [
+    "86000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q36033",
+   "label": "Mitsubishi Motors",
+   "sl": 61,
+   "values": [
+    "1.02489e+06 1"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "public company"
+   ]
+  },
+  {
+   "qid": "Q151968",
+   "label": "Leopard 2",
+   "sl": 60,
+   "values": [
+    "3480 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q188163",
+   "label": "Fat Man",
+   "sl": 60,
+   "values": [
+    "121 1"
+   ],
+   "types": [
+    "ammunition model",
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q6437",
+   "label": "Airbus A300",
+   "sl": 60,
+   "values": [
+    "561 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q150050",
+   "label": "Mikoyan MiG-31",
+   "sl": 59,
+   "values": [
+    "519 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q189221",
+   "label": "Roquefort cheese",
+   "sl": 59,
+   "values": [
+    "18830 tonne"
+   ],
+   "types": [
+    "French cheese",
+    "cheese"
+   ]
+  },
+  {
+   "qid": "Q191111",
+   "label": "Tupolev Tu-160",
+   "sl": 59,
+   "values": [
+    "37 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q199570",
+   "label": "Mikoyan-Gurevich MiG-25",
+   "sl": 59,
+   "values": [
+    "1190 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q29190",
+   "label": "Supermarine Spitfire",
+   "sl": 59,
+   "values": [
+    "20351 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q155679",
+   "label": "Mikoyan-Gurevich MiG-23",
+   "sl": 58,
+   "values": [
+    "5047 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q192075",
+   "label": "North American P-51 Mustang",
+   "sl": 58,
+   "values": [
+    "16974 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q194455",
+   "label": "Sukhoi Su-57",
+   "sl": 58,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q210534",
+   "label": "Daily Mail",
+   "sl": 58,
+   "values": [
+    "770185 1"
+   ],
+   "types": [
+    "banned work",
+    "daily newspaper",
+    "newspaper",
+    "periodical",
+    "tabloid"
+   ]
+  },
+  {
+   "qid": "Q142549",
+   "label": "Ilyushin Il-76",
+   "sl": 57,
+   "values": [
+    "950 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q151221",
+   "label": "Tiger I",
+   "sl": 57,
+   "values": [
+    "1347 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q155635",
+   "label": "Mil Mi-8",
+   "sl": 57,
+   "values": [
+    "12000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q190211",
+   "label": "Douglas DC-3",
+   "sl": 57,
+   "values": [
+    "607 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q192137",
+   "label": "Sukhoi Su-25",
+   "sl": 56,
+   "values": [
+    "1320 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q217305",
+   "label": "The New Yorker",
+   "sl": 56,
+   "values": [
+    "1.22113e+06 1"
+   ],
+   "types": [
+    "magazine",
+    "news magazine",
+    "production team",
+    "publishing house",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q218636",
+   "label": "Rockwell B-1 Lancer",
+   "sl": 56,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q326015",
+   "label": "Citroën 2CV",
+   "sl": 56,
+   "values": [
+    "3.86793e+06 1"
+   ],
+   "types": [
+    "car model",
+    "car model series"
+   ]
+  },
+  {
+   "qid": "Q152976",
+   "label": "Mikoyan-Gurevich MiG-17",
+   "sl": 55,
+   "values": [
+    "10649 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q156229",
+   "label": "AK-74",
+   "sl": 55,
+   "values": [
+    "5e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q189064",
+   "label": "Lockheed U-2",
+   "sl": 55,
+   "values": [
+    "104 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q191643",
+   "label": "M4 Sherman",
+   "sl": 55,
+   "values": [
+    "49234 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q192443",
+   "label": "Fairchild Republic A-10 Thunderbolt II",
+   "sl": 55,
+   "values": [
+    "716 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q193487",
+   "label": "Antonov An-124 Ruslan",
+   "sl": 55,
+   "values": [
+    "55 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q237135",
+   "label": "T-80",
+   "sl": 55,
+   "values": [
+    "9500 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q40156",
+   "label": "Mitsubishi A6M Zero",
+   "sl": 55,
+   "values": [
+    "11000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q151044",
+   "label": "MP40",
+   "sl": 54,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q151960",
+   "label": "Panther",
+   "sl": 54,
+   "values": [
+    "6000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q153826",
+   "label": "North American F-86 Sabre",
+   "sl": 54,
+   "values": [
+    "8740 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q154321",
+   "label": "Mosin–Nagant",
+   "sl": 54,
+   "values": [
+    "3.7e+07 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q190986",
+   "label": "Merkava",
+   "sl": 54,
+   "values": [
+    "1979 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q194251",
+   "label": "Hawker Hurricane",
+   "sl": 54,
+   "values": [
+    "14532 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q204046",
+   "label": "M1 Garand",
+   "sl": 54,
+   "values": [
+    "6.25e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q309177",
+   "label": "Sukhoi Su-34",
+   "sl": 54,
+   "values": [
+    "143 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q6401",
+   "label": "Boeing 717",
+   "sl": 54,
+   "values": [
+    "156 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q12186",
+   "label": "Panzer IV",
+   "sl": 53,
+   "values": [
+    "8553 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q140254",
+   "label": "Messerschmitt Me 262",
+   "sl": 53,
+   "values": [
+    "1433 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q207089",
+   "label": "Republic P-47 Thunderbolt",
+   "sl": 53,
+   "values": [
+    "15686 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q207700",
+   "label": "Antonov An-2",
+   "sl": 53,
+   "values": [
+    "18000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q208875",
+   "label": "The Sun",
+   "sl": 53,
+   "values": [
+    "1.21092e+06 1"
+   ],
+   "types": [
+    "daily newspaper",
+    "tabloid newspaper"
+   ]
+  },
+  {
+   "qid": "Q219764",
+   "label": "ATR 72",
+   "sl": 53,
+   "values": [
+    "1500 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q26795",
+   "label": "Junkers Ju 87",
+   "sl": 53,
+   "values": [
+    "6500 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q339025",
+   "label": "MIM-104 Patriot",
+   "sl": 53,
+   "values": [
+    "1106 1"
+   ],
+   "types": [
+    "surface-to-air missile"
+   ]
+  },
+  {
+   "qid": "Q6471",
+   "label": "Airbus A310",
+   "sl": 53,
+   "values": [
+    "255 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q172913",
+   "label": "Lockheed P-38 Lightning",
+   "sl": 52,
+   "values": [
+    "10037 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q208008",
+   "label": "cocoa bean",
+   "sl": 52,
+   "values": [
+    "3.92e+06 1"
+   ],
+   "types": [
+    "commodity",
+    "good/s",
+    "product",
+    "raw material"
+   ]
+  },
+  {
+   "qid": "Q151950",
+   "label": "Tiger II",
+   "sl": 51,
+   "values": [
+    "489 1",
+    "493 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q153307",
+   "label": "Mikoyan-Gurevich MiG-19",
+   "sl": 51,
+   "values": [
+    "6500 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q155661",
+   "label": "Junkers Ju 88",
+   "sl": 51,
+   "values": [
+    "14882 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q189491",
+   "label": "Sikorsky UH-60 Black Hawk",
+   "sl": 51,
+   "values": [
+    "4000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q211369",
+   "label": "Boeing C-17 Globemaster III",
+   "sl": 51,
+   "values": [
+    "279 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q211443",
+   "label": "Ilyushin Il-2 Shturmovik",
+   "sl": 51,
+   "values": [
+    "36163 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q322660",
+   "label": "RPG-7",
+   "sl": 51,
+   "values": [
+    "9e+06 1"
+   ],
+   "types": [
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q50009",
+   "label": "El País",
+   "sl": 51,
+   "values": [
+    "164847 newspaper"
+   ],
+   "types": [
+    "daily newspaper"
+   ]
+  },
+  {
+   "qid": "Q151465",
+   "label": "Panzer I",
+   "sl": 50,
+   "values": [
+    "1493 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q154106",
+   "label": "Bell UH-1 Iroquois",
+   "sl": 50,
+   "values": [
+    "16000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q154532",
+   "label": "Heinkel He 111",
+   "sl": 50,
+   "values": [
+    "6508 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q159067",
+   "label": "Tupolev Tu-134",
+   "sl": 50,
+   "values": [
+    "854 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q220529",
+   "label": "Mikoyan MiG-35",
+   "sl": 50,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q244479",
+   "label": "Cessna 172 Skyhawk",
+   "sl": 50,
+   "values": [
+    "44000 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q270697",
+   "label": "T-64",
+   "sl": 50,
+   "values": [
+    "8000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q271446",
+   "label": "Mikoyan-Gurevich MiG-3",
+   "sl": 50,
+   "values": [
+    "3172 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q6486",
+   "label": "Airbus A300-600ST Beluga",
+   "sl": 50,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q107701",
+   "label": "Penny Black",
+   "sl": 49,
+   "values": [
+    "6.8808e+07 1"
+   ],
+   "types": [
+    "philatelic term",
+    "postage stamp",
+    "stamp edition"
+   ]
+  },
+  {
+   "qid": "Q153348",
+   "label": "V-1",
+   "sl": 49,
+   "values": [
+    "30000 1"
+   ],
+   "types": [
+    "missile model"
+   ]
+  },
+  {
+   "qid": "Q182012",
+   "label": "Lockheed C-5 Galaxy",
+   "sl": 49,
+   "values": [
+    "131 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q203622",
+   "label": "Avro Lancaster",
+   "sl": 49,
+   "values": [
+    "7377 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q206409",
+   "label": "Curtiss P-40 Warhawk",
+   "sl": 49,
+   "values": [
+    "13738 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q209613",
+   "label": "Boeing CH-47 Chinook",
+   "sl": 49,
+   "values": [
+    "1200 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q211374",
+   "label": "New York Post",
+   "sl": 49,
+   "values": [
+    "146649 average"
+   ],
+   "types": [
+    "daily newspaper",
+    "newspaper",
+    "tabloid newspaper",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q220015",
+   "label": "Weekly Shōnen Jump",
+   "sl": 49,
+   "values": [
+    "1.29042e+06 1"
+   ],
+   "types": [
+    "comic",
+    "manga",
+    "manga magazine"
+   ]
+  },
+  {
+   "qid": "Q221344",
+   "label": "de Havilland Mosquito",
+   "sl": 49,
+   "values": [
+    "7781 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q242806",
+   "label": "Mil Mi-28",
+   "sl": 49,
+   "values": [
+    "126 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q269593",
+   "label": "Thompson submachine gun",
+   "sl": 49,
+   "values": [
+    "1.75e+06 1"
+   ],
+   "types": [
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q333644",
+   "label": "Cosmopolitan",
+   "sl": 49,
+   "values": [
+    "3.03221e+06 1"
+   ],
+   "types": [
+    "magazine",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q151068",
+   "label": "Panzer II",
+   "sl": 48,
+   "values": [
+    "1856 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q151877",
+   "label": "StG 44",
+   "sl": 48,
+   "values": [
+    "425977 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q153596",
+   "label": "MG 42",
+   "sl": 48,
+   "values": [
+    "400000 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q172295",
+   "label": "Heckler & Koch G36",
+   "sl": 48,
+   "values": [
+    "260000 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q201419",
+   "label": "Colt M1911",
+   "sl": 48,
+   "values": [
+    "2.7e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q207618",
+   "label": "T-62",
+   "sl": 48,
+   "values": [
+    "22700 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q208075",
+   "label": "McDonnell Douglas DC-10",
+   "sl": 48,
+   "values": [
+    "446 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q217046",
+   "label": "Humvee",
+   "sl": 48,
+   "values": [
+    "281000 1"
+   ],
+   "types": [
+    "military vehicle model"
+   ]
+  },
+  {
+   "qid": "Q426074",
+   "label": "Airbus A220",
+   "sl": 48,
+   "values": [
+    "455 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6496",
+   "label": "Airbus A400M Atlas",
+   "sl": 48,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q844500",
+   "label": "McDonnell Douglas F-15E Strike Eagle",
+   "sl": 48,
+   "values": [
+    "470 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q152200",
+   "label": "Panavia Tornado",
+   "sl": 47,
+   "values": [
+    "992 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q217935",
+   "label": "Bell/Boeing V-22 Osprey",
+   "sl": 47,
+   "values": [
+    "400 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q218932",
+   "label": "M2 Browning",
+   "sl": 47,
+   "values": [
+    "3e+06 1"
+   ],
+   "types": [
+    "firearm family"
+   ]
+  },
+  {
+   "qid": "Q223315",
+   "label": "Douglas DC-8",
+   "sl": 47,
+   "values": [
+    "556 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q234069",
+   "label": "Mikoyan MiG-27",
+   "sl": 47,
+   "values": [
+    "1075 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q237177",
+   "label": "T-26",
+   "sl": 47,
+   "values": [
+    "10300 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q239364",
+   "label": "A7V",
+   "sl": 47,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q371820",
+   "label": "Reader's Digest",
+   "sl": 47,
+   "values": [
+    "5.65344e+06 1"
+   ],
+   "types": [
+    "magazine",
+    "website"
+   ]
+  },
+  {
+   "qid": "Q465806",
+   "label": "Vought F4U Corsair",
+   "sl": 47,
+   "values": [
+    "12618 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q151475",
+   "label": "Panzer III",
+   "sl": 46,
+   "values": [
+    "5774 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q159601",
+   "label": "Tiger",
+   "sl": 46,
+   "values": [
+    "206 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q159881",
+   "label": "Lockheed F-104 Starfighter",
+   "sl": 46,
+   "values": [
+    "2578 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q182575",
+   "label": "Ilyushin Il-62",
+   "sl": 46,
+   "values": [
+    "292 1"
+   ],
+   "types": [
+    "aircraft family",
+    "aircraft type"
+   ]
+  },
+  {
+   "qid": "Q198024",
+   "label": "Predator",
+   "sl": 46,
+   "values": [
+    "360 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q221269",
+   "label": "X-15",
+   "sl": 46,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q271559",
+   "label": "Antonov An-12",
+   "sl": 46,
+   "values": [
+    "1248 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q336150",
+   "label": "Mi-26",
+   "sl": 46,
+   "values": [
+    "318 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q35935",
+   "label": "Lotus Cars",
+   "sl": 46,
+   "values": [
+    "1556 1"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "car brand"
+   ]
+  },
+  {
+   "qid": "Q465903",
+   "label": "Grumman F6F Hellcat",
+   "sl": 46,
+   "values": [
+    "12275 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q494249",
+   "label": "Tokarev",
+   "sl": 46,
+   "values": [
+    "1.7e+06 1"
+   ],
+   "types": [
+    "firearm family"
+   ]
+  },
+  {
+   "qid": "Q60134",
+   "label": "Karabiner 98k",
+   "sl": 46,
+   "values": [
+    "1.40488e+07 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q62156",
+   "label": "Antonov An-26",
+   "sl": 46,
+   "values": [
+    "1403 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q153932",
+   "label": "PPSh-41",
+   "sl": 45,
+   "values": [
+    "6e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q155494",
+   "label": "BMP-1",
+   "sl": 45,
+   "values": [
+    "20000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q155642",
+   "label": "Messerschmitt Bf 110",
+   "sl": 45,
+   "values": [
+    "6170 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q192779",
+   "label": "Tupolev Tu-16",
+   "sl": 45,
+   "values": [
+    "1509 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q204944",
+   "label": "Tupolev Tu-22M",
+   "sl": 45,
+   "values": [
+    "497 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q207734",
+   "label": "Renault FT",
+   "sl": 45,
+   "values": [
+    "3814 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q220759",
+   "label": "Consolidated B-24 Liberator",
+   "sl": 45,
+   "values": [
+    "18482 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q234676",
+   "label": "Challenger 2",
+   "sl": 45,
+   "values": [
+    "447 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q242398",
+   "label": "Leclerc",
+   "sl": 45,
+   "values": [
+    "862 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q34775",
+   "label": "Focke-Wulf Fw 190",
+   "sl": 45,
+   "values": [
+    "19500 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q477818",
+   "label": "BTR-80",
+   "sl": 45,
+   "values": [
+    "4300 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q59187",
+   "label": "Vauxhall",
+   "sl": 45,
+   "values": [
+    "118182 1"
+   ],
+   "types": [
+    "automobile manufacturer",
+    "car brand",
+    "historical motorcycle manufacturer",
+    "public company",
+    "subsidiary company"
+   ]
+  },
+  {
+   "qid": "Q723346",
+   "label": "Lee-Enfield",
+   "sl": 45,
+   "values": [
+    "1.7e+07 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q183146",
+   "label": "Sukhoi Su-17",
+   "sl": 44,
+   "values": [
+    "2867 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q211782",
+   "label": "Sten",
+   "sl": 44,
+   "values": [
+    "4.6e+06 1"
+   ],
+   "types": [
+    "weapon family"
+   ]
+  },
+  {
+   "qid": "Q216757",
+   "label": "Lamborghini Murciélago",
+   "sl": 44,
+   "values": [
+    "4099 1"
+   ],
+   "types": [
+    "car model",
+    "car model series"
+   ]
+  },
+  {
+   "qid": "Q26066",
+   "label": "Junkers Ju 52",
+   "sl": 44,
+   "values": [
+    "4845 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q261384",
+   "label": "Boeing E-3 Sentry",
+   "sl": 44,
+   "values": [
+    "68 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q272571",
+   "label": "Iljushin IL-96",
+   "sl": 44,
+   "values": [
+    "30 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q272975",
+   "label": "Gatling gun",
+   "sl": 44,
+   "values": [
+    "1300 1"
+   ],
+   "types": [
+    "weapon family"
+   ]
+  },
+  {
+   "qid": "Q329844",
+   "label": "FAL",
+   "sl": 44,
+   "values": [
+    "2e+06 1"
+   ],
+   "types": [
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q382421",
+   "label": "M60",
+   "sl": 44,
+   "values": [
+    "15000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q431231",
+   "label": "AC-130",
+   "sl": 44,
+   "values": [
+    "47 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q464247",
+   "label": "Mikoyan-Gurevich MiG-1",
+   "sl": 44,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q466590",
+   "label": "Tupolev Tu-204",
+   "sl": 44,
+   "values": [
+    "76 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q502117",
+   "label": "North American B-25 Mitchell",
+   "sl": 44,
+   "values": [
+    "9984 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q579939",
+   "label": "Antonov An-32",
+   "sl": 44,
+   "values": [
+    "361 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q62161",
+   "label": "McDonnell Douglas MD-11",
+   "sl": 44,
+   "values": [
+    "200 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q62167",
+   "label": "Iljushin Il-86",
+   "sl": 44,
+   "values": [
+    "106 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q688605",
+   "label": "Flyer I",
+   "sl": 44,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "Flyer",
+    "airplane"
+   ]
+  },
+  {
+   "qid": "Q863952",
+   "label": "GBU-43/B Massive Ordnance Air Blast bomb",
+   "sl": 44,
+   "values": [
+    "17 1"
+   ],
+   "types": [
+    "ammunition model"
+   ]
+  },
+  {
+   "qid": "Q152917",
+   "label": "Lamborghini Gallardo",
+   "sl": 43,
+   "values": [
+    "14022 1"
+   ],
+   "types": [
+    "car model",
+    "car model series"
+   ]
+  },
+  {
+   "qid": "Q170199",
+   "label": "Sukhoi Su-7",
+   "sl": 43,
+   "values": [
+    "1874 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q210893",
+   "label": "Tesla Roadster",
+   "sl": 43,
+   "values": [
+    "2450 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q217623",
+   "label": "Daily Mirror",
+   "sl": 43,
+   "values": [
+    "267133 1"
+   ],
+   "types": [
+    "daily newspaper",
+    "newspaper",
+    "periodical"
+   ]
+  },
+  {
+   "qid": "Q234371",
+   "label": "Dassault Mirage III",
+   "sl": 43,
+   "values": [
+    "1422 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q270839",
+   "label": "Mikoyan-Gurevich MiG-9",
+   "sl": 43,
+   "values": [
+    "598 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q326248",
+   "label": "Benz Patent-Motorwagen",
+   "sl": 43,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "car model",
+    "patent"
+   ]
+  },
+  {
+   "qid": "Q3552325",
+   "label": "Maxim",
+   "sl": 43,
+   "values": [
+    "2.53044e+06 1"
+   ],
+   "types": [
+    "magazine"
+   ]
+  },
+  {
+   "qid": "Q505663",
+   "label": "Yakovlev Yak-40",
+   "sl": 43,
+   "values": [
+    "1011 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q520154",
+   "label": "Wired",
+   "sl": 43,
+   "values": [
+    "870101 1"
+   ],
+   "types": [
+    "bimonthly magazine",
+    "news website"
+   ]
+  },
+  {
+   "qid": "Q607444",
+   "label": "Antonov An-22",
+   "sl": 43,
+   "values": [
+    "68 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q634188",
+   "label": "FGM-148 Javelin",
+   "sl": 43,
+   "values": [
+    "50000 1"
+   ],
+   "types": [
+    "missile model"
+   ]
+  },
+  {
+   "qid": "Q852",
+   "label": "Lockheed L-1011 TriStar",
+   "sl": 43,
+   "values": [
+    "250 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q911323",
+   "label": "Nissan Leaf",
+   "sl": 43,
+   "values": [
+    "577000 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q15082",
+   "label": "M14",
+   "sl": 42,
+   "values": [
+    "1.5e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q155490",
+   "label": "Lockheed P-3 Orion",
+   "sl": 42,
+   "values": [
+    "757 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q157586",
+   "label": "Walther P38",
+   "sl": 42,
+   "values": [
+    "1.2e+06 1"
+   ],
+   "types": [
+    "weapon family"
+   ]
+  },
+  {
+   "qid": "Q160357",
+   "label": "BMP-2",
+   "sl": 42,
+   "values": [
+    "11130 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q207400",
+   "label": "McDonnell Douglas MD-80/MD-90 family",
+   "sl": 42,
+   "values": [
+    "1191 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q218931",
+   "label": "Avro Vulcan",
+   "sl": 42,
+   "values": [
+    "136 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q221414",
+   "label": "Douglas DC-9",
+   "sl": 42,
+   "values": [
+    "976 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q223184",
+   "label": "M3 Lee",
+   "sl": 42,
+   "values": [
+    "6258 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q248874",
+   "label": "Browning Hi-Power",
+   "sl": 42,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q26159",
+   "label": "De Havilland Comet",
+   "sl": 42,
+   "values": [
+    "114 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q269250",
+   "label": "Kamov Ka-50 Black Shark",
+   "sl": 42,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q270990",
+   "label": "General Dynamics F-111 Aardvark",
+   "sl": 42,
+   "values": [
+    "563 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q319361",
+   "label": "Dassault Mirage F1",
+   "sl": 42,
+   "values": [
+    "730 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q334612",
+   "label": "Grumman F4F Wildcat",
+   "sl": 42,
+   "values": [
+    "7885 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q337467",
+   "label": "Antonov An-24",
+   "sl": 42,
+   "values": [
+    "1367 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q368729",
+   "label": "M26 Pershing",
+   "sl": 42,
+   "values": [
+    "2212 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q373788",
+   "label": "T-84",
+   "sl": 42,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q461651",
+   "label": "Sukhoi Su-15",
+   "sl": 42,
+   "values": [
+    "1300 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q502034",
+   "label": "Handley Page Halifax",
+   "sl": 42,
+   "values": [
+    "6178 1"
+   ],
+   "types": [
+    "aircraft type"
+   ]
+  },
+  {
+   "qid": "Q562475",
+   "label": "Yakovlev Yak-9",
+   "sl": 42,
+   "values": [
+    "16769 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6488",
+   "label": "Airbus A320neo family",
+   "sl": 42,
+   "values": [
+    "474 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q648864",
+   "label": "Consolidated PBY Catalina",
+   "sl": 42,
+   "values": [
+    "3305 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q118070",
+   "label": "Douglas SBD Dauntless",
+   "sl": 41,
+   "values": [
+    "5936 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q139289",
+   "label": "Boeing 737 MAX",
+   "sl": 41,
+   "values": [
+    "370 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q157142",
+   "label": "Die Zeit",
+   "sl": 41,
+   "values": [
+    "505010 1"
+   ],
+   "types": [
+    "weekly newspaper"
+   ]
+  },
+  {
+   "qid": "Q159142",
+   "label": "Panzerfaust",
+   "sl": 41,
+   "values": [
+    "6e+06 1"
+   ],
+   "types": [
+    "weapon model"
+   ]
+  },
+  {
+   "qid": "Q213342",
+   "label": "Tupolev Tu-22",
+   "sl": 41,
+   "values": [
+    "311 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q215218",
+   "label": "Peugeot 205",
+   "sl": 41,
+   "values": [
+    "5.2783e+06 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q219629",
+   "label": "Bell AH-1 Cobra",
+   "sl": 41,
+   "values": [
+    "1116 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q309336",
+   "label": "Nimitz-class aircraft carrier",
+   "sl": 41,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "ship class"
+   ]
+  },
+  {
+   "qid": "Q330417",
+   "label": "Bristol Blenheim",
+   "sl": 41,
+   "values": [
+    "4422 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q38782",
+   "label": "guide dog",
+   "sl": 41,
+   "values": [
+    "233 1"
+   ],
+   "types": []
+  },
+  {
+   "qid": "Q462223",
+   "label": "Lamborghini Diablo",
+   "sl": 41,
+   "values": [
+    "2903 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q462407",
+   "label": "M113",
+   "sl": 41,
+   "values": [
+    "80000 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q477863",
+   "label": "DShK",
+   "sl": 41,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q505649",
+   "label": "Yakovlev Yak-42",
+   "sl": 41,
+   "values": [
+    "183 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q506736",
+   "label": "Fokker F27 Friendship",
+   "sl": 41,
+   "values": [
+    "793 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q641977",
+   "label": "Polikarpov I-16",
+   "sl": 41,
+   "values": [
+    "8644 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q645845",
+   "label": "Type 99 tank",
+   "sl": 41,
+   "values": [
+    "500 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q667443",
+   "label": "Hughes H-4 Hercules",
+   "sl": 41,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "proposed aircraft model",
+    "prototype"
+   ]
+  },
+  {
+   "qid": "Q714326",
+   "label": "Douglas C-47",
+   "sl": 41,
+   "values": [
+    "10174 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q734103",
+   "label": "Grumman Avenger",
+   "sl": 41,
+   "values": [
+    "9839 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q8791",
+   "label": "Boeing 747-8",
+   "sl": 41,
+   "values": [
+    "110 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q140318",
+   "label": "Gloster Meteor",
+   "sl": 40,
+   "values": [
+    "3947 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q154137",
+   "label": "8.8 cm Flak 18/36/37/41",
+   "sl": 40,
+   "values": [
+    "20754 1"
+   ],
+   "types": [
+    "artillery model"
+   ]
+  },
+  {
+   "qid": "Q156742",
+   "label": "Dornier Do 17",
+   "sl": 40,
+   "values": [
+    "2139 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q157335",
+   "label": "Arado Ar 234",
+   "sl": 40,
+   "values": [
+    "244 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q219757",
+   "label": "FAMAS",
+   "sl": 40,
+   "values": [
+    "400000 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q223237",
+   "label": "SEPECAT Jaguar",
+   "sl": 40,
+   "values": [
+    "543 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q239909",
+   "label": "T-28",
+   "sl": 40,
+   "values": [
+    "503 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q270880",
+   "label": "Sukhoi Su-47 Berkut",
+   "sl": 40,
+   "values": [
+    "67 1"
+   ],
+   "types": [
+    "prototype aircraft model"
+   ]
+  },
+  {
+   "qid": "Q275031",
+   "label": "Ilyushin Il-14",
+   "sl": 40,
+   "values": [
+    "1348 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q334759",
+   "label": "Douglas A-4 Skyhawk",
+   "sl": 40,
+   "values": [
+    "2960 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q3495319",
+   "label": "E-Jet",
+   "sl": 40,
+   "values": [
+    "1544 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q385778",
+   "label": "Bell P-39 Airacobra",
+   "sl": 40,
+   "values": [
+    "9584 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q463627",
+   "label": "Ferrari F40",
+   "sl": 40,
+   "values": [
+    "1337 1"
+   ],
+   "types": [
+    "car model"
+   ]
+  },
+  {
+   "qid": "Q499185",
+   "label": "Beriev A-50",
+   "sl": 40,
+   "values": [
+    "40 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q504320",
+   "label": "Centurion",
+   "sl": 40,
+   "values": [
+    "4423 1"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q505673",
+   "label": "Yakovlev Yak-1",
+   "sl": 40,
+   "values": [
+    "8734 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q60642",
+   "label": "M1918 Browning automatic rifle",
+   "sl": 40,
+   "values": [
+    "100000 1"
+   ],
+   "types": [
+    "firearm model"
+   ]
+  },
+  {
+   "qid": "Q607355",
+   "label": "Antonov An-148",
+   "sl": 40,
+   "values": [
+    "49 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q635779",
+   "label": "Chengdu J-10",
+   "sl": 40,
+   "values": [
+    "468 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q641764",
+   "label": "PT-76",
+   "sl": 40,
+   "values": [
+    "12000 1"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q744253",
+   "label": "CAC/PAC JF-17 Thunder",
+   "sl": 40,
+   "values": [
+    "86 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q746313",
+   "label": "Sukhoi Su-9",
+   "sl": 40,
+   "values": [
+    "1150 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  }
+ ]
+}

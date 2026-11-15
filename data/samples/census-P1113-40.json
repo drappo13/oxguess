@@ -1,0 +1,3791 @@
+{
+ "prop": "P1113",
+ "min_sitelinks": 40,
+ "items": 336,
+ "clean": 332,
+ "disputed": 4,
+ "top_types": [
+  [
+   "television series",
+   231
+  ],
+  [
+   "animated television series",
+   66
+  ],
+  [
+   "anime television series",
+   8
+  ],
+  [
+   "miniseries",
+   4
+  ],
+  [
+   "book of the Bible",
+   4
+  ],
+  [
+   "television program",
+   3
+  ],
+  [
+   "spin-off",
+   2
+  ],
+  [
+   "media franchise",
+   1
+  ],
+  [
+   "web series",
+   1
+  ],
+  [
+   "animated short film series",
+   1
+  ],
+  [
+   "comic book series",
+   1
+  ],
+  [
+   "Teenage Mutant Ninja Turtles television series",
+   1
+  ],
+  [
+   "religious text",
+   1
+  ],
+  [
+   "animated web series",
+   1
+  ],
+  [
+   "film duology",
+   1
+  ],
+  [
+   "animated short film",
+   1
+  ],
+  [
+   "singing competition",
+   1
+  ],
+  [
+   "Doctor Who spin-offs",
+   1
+  ],
+  [
+   "book series",
+   1
+  ],
+  [
+   "anthropomorphic woodpecker",
+   1
+  ],
+  [
+   "film",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q886",
+   "label": "The Simpsons",
+   "sl": 186,
+   "values": [
+    "814 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q104750296",
+   "label": "Go, Dog. Go!",
+   "sl": 162,
+   "values": [
+    "40 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q83279",
+   "label": "SpongeBob SquarePants",
+   "sl": 162,
+   "values": [
+    "330 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q9190",
+   "label": "Exodus",
+   "sl": 152,
+   "values": [
+    "40 1"
+   ],
+   "types": [
+    "book of the Bible",
+    "literary work"
+   ]
+  },
+  {
+   "qid": "Q23572",
+   "label": "Game of Thrones",
+   "sl": 139,
+   "values": [
+    "73 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q41490",
+   "label": "Leviticus",
+   "sl": 134,
+   "values": [
+    "27 1"
+   ],
+   "types": [
+    "book of the Bible",
+    "literary work",
+    "religious text"
+   ]
+  },
+  {
+   "qid": "Q43099",
+   "label": "Book of Numbers",
+   "sl": 128,
+   "values": [
+    "36 1"
+   ],
+   "types": [
+    "book of the Bible",
+    "religious text"
+   ]
+  },
+  {
+   "qid": "Q16538",
+   "label": "South Park",
+   "sl": 126,
+   "values": [
+    "344 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q8172269",
+   "label": "Liv and Maddie",
+   "sl": 118,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q47680",
+   "label": "Joshua",
+   "sl": 117,
+   "values": [
+    "24 1"
+   ],
+   "types": [
+    "book of the Bible",
+    "religious text"
+   ]
+  },
+  {
+   "qid": "Q8539",
+   "label": "The Big Bang Theory",
+   "sl": 113,
+   "values": [
+    "279 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q131144",
+   "label": "Tom and Jerry",
+   "sl": 112,
+   "values": [
+    "164 1"
+   ],
+   "types": [
+    "animated short film series",
+    "media franchise"
+   ]
+  },
+  {
+   "qid": "Q106582931",
+   "label": "Squid Game",
+   "sl": 110,
+   "values": [
+    "22 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q79784",
+   "label": "Friends",
+   "sl": 110,
+   "values": [
+    "236 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q1092",
+   "label": "Star Trek",
+   "sl": 108,
+   "values": [
+    "733 1"
+   ],
+   "types": [
+    "media franchise"
+   ]
+  },
+  {
+   "qid": "Q16494556",
+   "label": "As Aventuras de Gui & Estopa",
+   "sl": 107,
+   "values": [
+    "89 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q41403",
+   "label": "Teletubbies",
+   "sl": 107,
+   "values": [
+    "425 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q1079",
+   "label": "Breaking Bad",
+   "sl": 102,
+   "values": [
+    "62 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q5930",
+   "label": "Family Guy",
+   "sl": 95,
+   "values": [
+    "461 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q155629",
+   "label": "Sesame Street",
+   "sl": 92,
+   "values": [
+    "4744 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23558",
+   "label": "House M.D.",
+   "sl": 92,
+   "values": [
+    "177 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23567",
+   "label": "Lost",
+   "sl": 90,
+   "values": [
+    "121 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2744",
+   "label": "The X-Files",
+   "sl": 90,
+   "values": [
+    "218 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q147235",
+   "label": "How I Met Your Mother",
+   "sl": 89,
+   "values": [
+    "208 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q80044",
+   "label": "Prison Break",
+   "sl": 89,
+   "values": [
+    "90 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q232737",
+   "label": "The Walking Dead",
+   "sl": 86,
+   "values": [
+    "177 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q501663",
+   "label": "Thomas & Friends",
+   "sl": 85,
+   "values": [
+    "584 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q23831",
+   "label": "The Office",
+   "sl": 84,
+   "values": [
+    "204 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q484020",
+   "label": "Mr. Bean",
+   "sl": 83,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q38497",
+   "label": "Xena: Warrior Princess",
+   "sl": 82,
+   "values": [
+    "134 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q73622",
+   "label": "Futurama",
+   "sl": 79,
+   "values": [
+    "151 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q11572",
+   "label": "Avatar: The Last Airbender",
+   "sl": 78,
+   "values": [
+    "61 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q19798734",
+   "label": "Stranger Things",
+   "sl": 78,
+   "values": [
+    "42 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q438406",
+   "label": "Grey's Anatomy",
+   "sl": 77,
+   "values": [
+    "469 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q130585",
+   "label": "Supernatural",
+   "sl": 76,
+   "values": [
+    "327 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q131758",
+   "label": "Desperate Housewives",
+   "sl": 76,
+   "values": [
+    "180 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q15659308",
+   "label": "Rick and Morty",
+   "sl": 76,
+   "values": [
+    "71 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q192837",
+   "label": "Sherlock",
+   "sl": 76,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "miniseries",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23628",
+   "label": "The Sopranos",
+   "sl": 75,
+   "values": [
+    "86 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q938985",
+   "label": "Peppa Pig",
+   "sl": 75,
+   "values": [
+    "394 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q53093",
+   "label": "Adventure Time",
+   "sl": 73,
+   "values": [
+    "278 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q662",
+   "label": "Neon Genesis Evangelion",
+   "sl": 73,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q28537",
+   "label": "The Vampire Diaries",
+   "sl": 72,
+   "values": [
+    "171 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q477916",
+   "label": "Dragon Ball Z",
+   "sl": 71,
+   "values": [
+    "291 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q323335",
+   "label": "The Penguins of Madagascar",
+   "sl": 70,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q126631",
+   "label": "Hannah Montana",
+   "sl": 69,
+   "values": [
+    "98 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q56194",
+   "label": "24",
+   "sl": 69,
+   "values": [
+    "192 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q83401",
+   "label": "Heroes",
+   "sl": 69,
+   "values": [
+    "77 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q152178",
+   "label": "Glee",
+   "sl": 68,
+   "values": [
+    "121 1"
+   ],
+   "types": [
+    "media franchise",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23577",
+   "label": "Dexter",
+   "sl": 68,
+   "values": [
+    "96 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q550555",
+   "label": "Gravity Falls",
+   "sl": 68,
+   "values": [
+    "40 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q103665",
+   "label": "Junior Eurovision Song Contest",
+   "sl": 67,
+   "values": [
+    "24 1"
+   ],
+   "types": [
+    "annual music competition",
+    "television program"
+   ]
+  },
+  {
+   "qid": "Q2667119",
+   "label": "Masha and the Bear",
+   "sl": 67,
+   "values": [
+    "200 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q35791",
+   "label": "Sex and the City",
+   "sl": 67,
+   "values": [
+    "94 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q181620",
+   "label": "Books of Samuel",
+   "sl": 66,
+   "values": [
+    "55 1"
+   ],
+   "types": [
+    "religious text"
+   ]
+  },
+  {
+   "qid": "Q217679",
+   "label": "Phineas and Ferb",
+   "sl": 66,
+   "values": [
+    "255 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q4533",
+   "label": "Victorious",
+   "sl": 66,
+   "values": [
+    "60 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q189267",
+   "label": "Two and a Half Men",
+   "sl": 65,
+   "values": [
+    "262 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q558112",
+   "label": "Black Mirror",
+   "sl": 65,
+   "values": [
+    "34 1"
+   ],
+   "types": [
+    "miniseries",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q14944179",
+   "label": "Peaky Blinders",
+   "sl": 64,
+   "values": [
+    "36 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q201358",
+   "label": "The Flintstones",
+   "sl": 64,
+   "values": [
+    "166 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q53922",
+   "label": "American Horror Story",
+   "sl": 64,
+   "values": [
+    "132 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q16756",
+   "label": "Modern Family",
+   "sl": 63,
+   "values": [
+    "250 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q180228",
+   "label": "Smallville",
+   "sl": 63,
+   "values": [
+    "217 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q202141",
+   "label": "Criminal Minds",
+   "sl": 63,
+   "values": [
+    "365 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q3013",
+   "label": "iCarly",
+   "sl": 63,
+   "values": [
+    "97 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q39071378",
+   "label": "Bluey",
+   "sl": 63,
+   "values": [
+    "154 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q838588",
+   "label": "The Adventures of Jimmy Neutron, Boy Genius",
+   "sl": 63,
+   "values": [
+    "64 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q87131973",
+   "label": "The Last of Us",
+   "sl": 62,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q105553568",
+   "label": "Wednesday",
+   "sl": 61,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q117396",
+   "label": "CSI: Crime Scene Investigation",
+   "sl": 61,
+   "values": [
+    "337 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q162371",
+   "label": "Charmed",
+   "sl": 61,
+   "values": [
+    "178 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q187462",
+   "label": "Stargate SG-1",
+   "sl": 61,
+   "values": [
+    "213 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2085",
+   "label": "Twin Peaks",
+   "sl": 61,
+   "values": [
+    "48 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q331031",
+   "label": "Dora the Explorer",
+   "sl": 61,
+   "values": [
+    "172 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q39037",
+   "label": "The Fairly OddParents",
+   "sl": 61,
+   "values": [
+    "172 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q5415",
+   "label": "My Little Pony: Friendship Is Magic",
+   "sl": 61,
+   "values": [
+    "222 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q183513",
+   "label": "Buffy the Vampire Slayer",
+   "sl": 60,
+   "values": [
+    "144 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q72930269",
+   "label": "House of the Dragon",
+   "sl": 60,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "prequel",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q7615342",
+   "label": "Steven Universe",
+   "sl": 60,
+   "values": [
+    "108 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q204228",
+   "label": "The Mentalist",
+   "sl": 59,
+   "values": [
+    "151 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q4525",
+   "label": "NCIS",
+   "sl": 59,
+   "values": [
+    "507 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q48741246",
+   "label": "Chernobyl",
+   "sl": 59,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "miniseries"
+   ]
+  },
+  {
+   "qid": "Q82617",
+   "label": "Regular Show",
+   "sl": 59,
+   "values": [
+    "261 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q13979",
+   "label": "Saturday Night Live",
+   "sl": 58,
+   "values": [
+    "1010 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q14925221",
+   "label": "Better Call Saul",
+   "sl": 58,
+   "values": [
+    "63 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q199853",
+   "label": "Gossip Girl",
+   "sl": 58,
+   "values": [
+    "121 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q207746",
+   "label": "Ben 10",
+   "sl": 58,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q65258113",
+   "label": "Crash Landing on You",
+   "sl": 58,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q77522",
+   "label": "Winx Club",
+   "sl": 58,
+   "values": [
+    "208 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q1236206",
+   "label": "The Powerpuff Girls",
+   "sl": 57,
+   "values": [
+    "78 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q13417244",
+   "label": "Brooklyn Nine-Nine",
+   "sl": 57,
+   "values": [
+    "153 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q137475",
+   "label": "Lucky Luke",
+   "sl": 57,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "comic book series"
+   ]
+  },
+  {
+   "qid": "Q15106029",
+   "label": "Paw Patrol",
+   "sl": 57,
+   "values": [
+    "254 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q189068",
+   "label": "Monk",
+   "sl": 57,
+   "values": [
+    "125 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q206959",
+   "label": "Sanremo Music Festival",
+   "sl": 57,
+   "values": [
+    "72 1"
+   ],
+   "types": [
+    "Eurovision Song Contest selection event",
+    "annual music competition",
+    "music festival",
+    "singing competition",
+    "television program"
+   ]
+  },
+  {
+   "qid": "Q20707362",
+   "label": "The Crown",
+   "sl": 57,
+   "values": [
+    "60 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q207375",
+   "label": "ER",
+   "sl": 57,
+   "values": [
+    "331 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23733",
+   "label": "Seinfeld",
+   "sl": 57,
+   "values": [
+    "180 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2668662",
+   "label": "Father of the Pride",
+   "sl": 57,
+   "values": [
+    "15 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q3330940",
+   "label": "House of Cards",
+   "sl": 57,
+   "values": [
+    "73 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q552314",
+   "label": "Arrow",
+   "sl": 57,
+   "values": [
+    "170 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q55632932",
+   "label": "Sex Education",
+   "sl": 57,
+   "values": [
+    "32 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q65272745",
+   "label": "True Beauty",
+   "sl": 57,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q85987403",
+   "label": "The Penthouse: War in Life",
+   "sl": 57,
+   "values": [
+    "48 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q906186",
+   "label": "The Amazing World of Gumball",
+   "sl": 57,
+   "values": [
+    "240 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q1077",
+   "label": "Star Trek: The Original Series",
+   "sl": 56,
+   "values": [
+    "79 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q16290",
+   "label": "Star Trek: The Next Generation",
+   "sl": 56,
+   "values": [
+    "178 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q17572811",
+   "label": "Westworld",
+   "sl": 56,
+   "values": [
+    "36 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q370185",
+   "label": "Suits",
+   "sl": 56,
+   "values": [
+    "134 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q485668",
+   "label": "Scrubs",
+   "sl": 56,
+   "values": [
+    "187 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q888360",
+   "label": "Bob the Builder",
+   "sl": 56,
+   "values": [
+    "298 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q101244908",
+   "label": "Cowboy Bebop",
+   "sl": 55,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q116957085",
+   "label": "Terra e paixão",
+   "sl": 55,
+   "values": [
+    "221 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q176615",
+   "label": "Magnificent Century",
+   "sl": 55,
+   "values": [
+    "139 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q193462",
+   "label": "Gilmore Girls",
+   "sl": 55,
+   "values": [
+    "153 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q208048",
+   "label": "Band of Brothers",
+   "sl": 55,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "miniseries"
+   ]
+  },
+  {
+   "qid": "Q216843",
+   "label": "Oggy and the Cockroaches",
+   "sl": 55,
+   "values": [
+    "501 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q24859151",
+   "label": "Guardian: The Lonely and Great God",
+   "sl": 55,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q56876444",
+   "label": "The Mandalorian",
+   "sl": 55,
+   "values": [
+    "24 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q15711398",
+   "label": "The Flash",
+   "sl": 54,
+   "values": [
+    "184 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q184342",
+   "label": "Wizards of Waverly Place",
+   "sl": 54,
+   "values": [
+    "106 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q21546165",
+   "label": "Servant of the People",
+   "sl": 54,
+   "values": [
+    "51 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2579463",
+   "label": "Vikings",
+   "sl": 54,
+   "values": [
+    "89 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q386880",
+   "label": "Castle",
+   "sl": 54,
+   "values": [
+    "173 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q83071",
+   "label": "Downton Abbey",
+   "sl": 54,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q1176076",
+   "label": "Merlin",
+   "sl": 53,
+   "values": [
+    "65 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q18652415",
+   "label": "Descendants of the Sun",
+   "sl": 53,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q20642692",
+   "label": "The Loud House",
+   "sl": 53,
+   "values": [
+    "268 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q207803",
+   "label": "Bones",
+   "sl": 53,
+   "values": [
+    "246 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q208072",
+   "label": "That '70s Show",
+   "sl": 53,
+   "values": [
+    "200 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q210311",
+   "label": "American Dad!",
+   "sl": 53,
+   "values": [
+    "399 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q32450",
+   "label": "Pretty Little Liars",
+   "sl": 53,
+   "values": [
+    "160 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q477959",
+   "label": "Shaun the Sheep",
+   "sl": 53,
+   "values": [
+    "188 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q64349029",
+   "label": "Loki",
+   "sl": 53,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q65980217",
+   "label": "WandaVision",
+   "sl": 53,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "miniseries",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q79997183",
+   "label": "It's Okay to Not Be Okay",
+   "sl": 53,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q1323981",
+   "label": "El Chavo del 8",
+   "sl": 52,
+   "values": [
+    "290 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q156329",
+   "label": "Star Trek: Voyager",
+   "sl": 52,
+   "values": [
+    "172 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q18844729",
+   "label": "Mr. Robot",
+   "sl": 52,
+   "values": [
+    "45 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q20642206",
+   "label": "Narcos",
+   "sl": 52,
+   "values": [
+    "30 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q207627",
+   "label": "Happy Tree Friends",
+   "sl": 52,
+   "values": [
+    "93 1"
+   ],
+   "types": [
+    "animated television series",
+    "animated web series"
+   ]
+  },
+  {
+   "qid": "Q223977",
+   "label": "Mad Men",
+   "sl": 52,
+   "values": [
+    "92 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23001951",
+   "label": "Riverdale",
+   "sl": 52,
+   "values": [
+    "137 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q264221",
+   "label": "ALF",
+   "sl": 52,
+   "values": [
+    "102 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q3815",
+   "label": "Fringe",
+   "sl": 52,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q486844",
+   "label": "MythBusters",
+   "sl": 52,
+   "values": [
+    "173 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q13098946",
+   "label": "The 100",
+   "sl": 51,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q186219",
+   "label": "True Blood",
+   "sl": 51,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q203707",
+   "label": "Kim Possible",
+   "sl": 51,
+   "values": [
+    "87 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q213588",
+   "label": "Barney & Friends",
+   "sl": 51,
+   "values": [
+    "268 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q218524",
+   "label": "Totally Spies!",
+   "sl": 51,
+   "values": [
+    "208 1"
+   ],
+   "types": [
+    "animated television series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q333637",
+   "label": "Well, Just You Wait!",
+   "sl": 51,
+   "values": [
+    "22 1"
+   ],
+   "types": [
+    "animated short film",
+    "animated short film series"
+   ]
+  },
+  {
+   "qid": "Q49019",
+   "label": "Blackadder",
+   "sl": 51,
+   "values": [
+    "27 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q58884",
+   "label": "Melodifestivalen",
+   "sl": 51,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "Eurovision Song Contest selection event",
+    "television program"
+   ]
+  },
+  {
+   "qid": "Q6470744",
+   "label": "Miraculous: Tales of Ladybug & Cat Noir",
+   "sl": 51,
+   "values": [
+    "183 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q85808226",
+   "label": "The Queen's Gambit",
+   "sl": 51,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "miniseries"
+   ]
+  },
+  {
+   "qid": "Q904733",
+   "label": "Dexter's Laboratory",
+   "sl": 51,
+   "values": [
+    "78 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q16977365",
+   "label": "Daredevil",
+   "sl": 50,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q18464203",
+   "label": "13 Reasons Why",
+   "sl": 50,
+   "values": [
+    "49 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q192259",
+   "label": "CSI: NY",
+   "sl": 50,
+   "values": [
+    "197 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q19881740",
+   "label": "We Bare Bears",
+   "sl": 50,
+   "values": [
+    "140 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q201052",
+   "label": "American Idol",
+   "sl": 50,
+   "values": [
+    "555 1"
+   ],
+   "types": [
+    "television franchise",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q203385",
+   "label": "One Tree Hill",
+   "sl": 50,
+   "values": [
+    "187 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23673",
+   "label": "Once Upon a Time",
+   "sl": 50,
+   "values": [
+    "155 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2940339",
+   "label": "Carrossel",
+   "sl": 50,
+   "values": [
+    "310 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q47500433",
+   "label": "The Witcher",
+   "sl": 50,
+   "values": [
+    "32 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q482653",
+   "label": "Boys Over Flowers",
+   "sl": 50,
+   "values": [
+    "25 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q48796994",
+   "label": "The Boys",
+   "sl": 50,
+   "values": [
+    "40 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q101252455",
+   "label": "Vincenzo",
+   "sl": 49,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q117590",
+   "label": "Beverly Hills, 90210",
+   "sl": 49,
+   "values": [
+    "293 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q210146",
+   "label": "Babylon 5",
+   "sl": 49,
+   "values": [
+    "110 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q30014613",
+   "label": "Young Sheldon",
+   "sl": 49,
+   "values": [
+    "141 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q304290",
+   "label": "Rugrats",
+   "sl": 49,
+   "values": [
+    "172 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q478360",
+   "label": "The Wire",
+   "sl": 49,
+   "values": [
+    "60 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q694101",
+   "label": "Samurai Jack",
+   "sl": 49,
+   "values": [
+    "62 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q72100361",
+   "label": "Enfermeras",
+   "sl": 49,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q7847400",
+   "label": "True Detective",
+   "sl": 49,
+   "values": [
+    "30 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q836393",
+   "label": "Teen Wolf",
+   "sl": 49,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q100605045",
+   "label": "Mr. Queen",
+   "sl": 48,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q108774",
+   "label": "Star Trek: Deep Space Nine",
+   "sl": 48,
+   "values": [
+    "176 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q189411",
+   "label": "CSI: Miami",
+   "sl": 48,
+   "values": [
+    "232 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q194427",
+   "label": "The O.C.",
+   "sl": 48,
+   "values": [
+    "92 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q208647",
+   "label": "Married... with Children",
+   "sl": 48,
+   "values": [
+    "259 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q212135",
+   "label": "Will & Grace",
+   "sl": 48,
+   "values": [
+    "246 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q214107",
+   "label": "DuckTales",
+   "sl": 48,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q23599",
+   "label": "Shameless",
+   "sl": 48,
+   "values": [
+    "134 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q242596",
+   "label": "Malcolm in the Middle",
+   "sl": 48,
+   "values": [
+    "151 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2572813",
+   "label": "Fireman Sam",
+   "sl": 48,
+   "values": [
+    "304 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q35622",
+   "label": "WWE SmackDown",
+   "sl": 48,
+   "values": [
+    "1397 1"
+   ],
+   "types": [
+    "WWE programs",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q371207",
+   "label": "Columbo",
+   "sl": 48,
+   "values": [
+    "69 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q641486",
+   "label": "Courage the Cowardly Dog",
+   "sl": 48,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q98791700",
+   "label": "Snowdrop",
+   "sl": 48,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q125867196",
+   "label": "Papás por conveniencia",
+   "sl": 47,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q13148212",
+   "label": "The Blacklist",
+   "sl": 47,
+   "values": [
+    "218 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q15726959",
+   "label": "Gotham",
+   "sl": 47,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q171254",
+   "label": "Sons of Anarchy",
+   "sl": 47,
+   "values": [
+    "92 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q18790",
+   "label": "The Legend of Korra",
+   "sl": 47,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q210257",
+   "label": "MacGyver",
+   "sl": 47,
+   "values": [
+    "139 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q33162",
+   "label": "Top Gear",
+   "sl": 47,
+   "values": [
+    "235 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q537911",
+   "label": "Agents of S.H.I.E.L.D.",
+   "sl": 47,
+   "values": [
+    "136 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q56275505",
+   "label": "Euphoria",
+   "sl": 47,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q7099650",
+   "label": "Orange Is the New Black",
+   "sl": 47,
+   "values": [
+    "91 1"
+   ],
+   "types": [
+    "television series",
+    "web series"
+   ]
+  },
+  {
+   "qid": "Q1143800",
+   "label": "Postman Pat",
+   "sl": 46,
+   "values": [
+    "196 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q209282",
+   "label": "Frasier",
+   "sl": 46,
+   "values": [
+    "264 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q215287",
+   "label": "Stargate Atlantis",
+   "sl": 46,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q223320",
+   "label": "Baywatch",
+   "sl": 46,
+   "values": [
+    "242 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q239937",
+   "label": "Pokémon",
+   "sl": 46,
+   "values": [
+    "1115 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q28443710",
+   "label": "Dark",
+   "sl": 46,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q380519",
+   "label": "Star Trek: Enterprise",
+   "sl": 46,
+   "values": [
+    "98 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q547744",
+   "label": "Animaniacs",
+   "sl": 46,
+   "values": [
+    "99 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q65979734",
+   "label": "The Falcon and the Winter Soldier",
+   "sl": 46,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q913426",
+   "label": "The Irony of Fate",
+   "sl": 46,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "Christmas tradition",
+    "film"
+   ]
+  },
+  {
+   "qid": "Q18754",
+   "label": "WWE Raw",
+   "sl": 45,
+   "values": [
+    "1723 1"
+   ],
+   "types": [
+    "WWE programs",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q216991",
+   "label": "Johnny Bravo",
+   "sl": 45,
+   "values": [
+    "65 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q217246",
+   "label": "The Suite Life of Zack & Cody",
+   "sl": 45,
+   "values": [
+    "87 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q25207350",
+   "label": "The Handmaid's Tale",
+   "sl": 45,
+   "values": [
+    "66 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q326143",
+   "label": "Californication",
+   "sl": 45,
+   "values": [
+    "84 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q39082126",
+   "label": "You",
+   "sl": 45,
+   "values": [
+    "50 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q511726",
+   "label": "Beavis and Butt-Head",
+   "sl": 45,
+   "values": [
+    "202 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q59149852",
+   "label": "The Lord of the Rings: The Rings of Power",
+   "sl": 45,
+   "values": [
+    "24 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q632672",
+   "label": "Star Wars: The Clone Wars",
+   "sl": 45,
+   "values": [
+    "133 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q85518571",
+   "label": "Arcane",
+   "sl": 45,
+   "values": [
+    "18 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q1065443",
+   "label": "Marimar",
+   "sl": 44,
+   "values": [
+    "149 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q121368207",
+   "label": "Skibidi Toilet",
+   "sl": 44,
+   "values": [
+    "79 1"
+   ],
+   "types": [
+    "internet meme",
+    "web series"
+   ]
+  },
+  {
+   "qid": "Q158869",
+   "label": "Teenage Mutant Ninja Turtles",
+   "sl": 44,
+   "values": [
+    "155 1"
+   ],
+   "types": [
+    "Teenage Mutant Ninja Turtles television series",
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q15931555",
+   "label": "Fargo",
+   "sl": 44,
+   "values": [
+    "51 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q15987281",
+   "label": "Clarence",
+   "sl": 44,
+   "values": [
+    "130 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q18844732",
+   "label": "Supergirl",
+   "sl": 44,
+   "values": [
+    "126 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q19863968",
+   "label": "Legends of Tomorrow",
+   "sl": 44,
+   "values": [
+    "110 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2293",
+   "label": "Chuck",
+   "sl": 44,
+   "values": [
+    "91 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q237072",
+   "label": "Battlestar Galactica",
+   "sl": 44,
+   "values": [
+    "75 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q244803",
+   "label": "Ally McBeal",
+   "sl": 44,
+   "values": [
+    "112 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q326180",
+   "label": "Skins",
+   "sl": 44,
+   "values": [
+    "61 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q6084",
+   "label": "NCIS: Los Angeles",
+   "sl": 44,
+   "values": [
+    "323 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q61981835",
+   "label": "Hotel del Luna",
+   "sl": 44,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q640403",
+   "label": "LazyTown",
+   "sl": 44,
+   "values": [
+    "79 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q844059",
+   "label": "New Girl",
+   "sl": 44,
+   "values": [
+    "146 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q13409848",
+   "label": "The Heirs",
+   "sl": 43,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q16401",
+   "label": "Monty Python's Flying Circus",
+   "sl": 43,
+   "values": [
+    "45 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q168708",
+   "label": "Dallas",
+   "sl": 43,
+   "values": [
+    "357 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q17733404",
+   "label": "BoJack Horseman",
+   "sl": 43,
+   "values": [
+    "77 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q19520525",
+   "label": "Lucifer",
+   "sl": 43,
+   "values": [
+    "93 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q209878",
+   "label": "Rome",
+   "sl": 43,
+   "values": [
+    "22 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2120540",
+   "label": "The Muppet Show",
+   "sl": 43,
+   "values": [
+    "120 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q30599007",
+   "label": "Succession",
+   "sl": 43,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q3109770",
+   "label": "Zoboomafoo",
+   "sl": 43,
+   "values": [
+    "65 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q318649",
+   "label": "Ghost Whisperer",
+   "sl": 43,
+   "values": [
+    "107 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q321423",
+   "label": "Law & Order",
+   "sl": 43,
+   "values": [
+    "523 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q32488",
+   "label": "2 Broke Girls",
+   "sl": 43,
+   "values": [
+    "138 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q391101",
+   "label": "Agatha Christie's Poirot",
+   "sl": 43,
+   "values": [
+    "70 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q585758",
+   "label": "Boardwalk Empire",
+   "sl": 43,
+   "values": [
+    "56 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q598499",
+   "label": "The Pacific",
+   "sl": 43,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "miniseries",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q659653",
+   "label": "Jessie",
+   "sl": 43,
+   "values": [
+    "98 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q685225",
+   "label": "Pingu",
+   "sl": 43,
+   "values": [
+    "157 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q79997161",
+   "label": "The World of the Married",
+   "sl": 43,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q79997521",
+   "label": "Start-Up",
+   "sl": 43,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q84712802",
+   "label": "Moon Knight",
+   "sl": 43,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q84712806",
+   "label": "She-Hulk: Attorney at Law",
+   "sl": 43,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q908345",
+   "label": "Rubí",
+   "sl": 43,
+   "values": [
+    "115 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q96414952",
+   "label": "All of Us Are Dead",
+   "sl": 43,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q136813219",
+   "label": "Heated Rivalry",
+   "sl": 42,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q139849",
+   "label": "The Suite Life on Deck",
+   "sl": 42,
+   "values": [
+    "71 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q14655473",
+   "label": "My Love from the Star",
+   "sl": 42,
+   "values": [
+    "21 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q150529",
+   "label": "CatDog",
+   "sl": 42,
+   "values": [
+    "66 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q19570",
+   "label": "The Good Wife",
+   "sl": 42,
+   "values": [
+    "156 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q208568",
+   "label": "Everybody Loves Raymond",
+   "sl": 42,
+   "values": [
+    "210 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q212156",
+   "label": "Angel",
+   "sl": 42,
+   "values": [
+    "110 1"
+   ],
+   "types": [
+    "spin-off",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q212807",
+   "label": "Alias",
+   "sl": 42,
+   "values": [
+    "105 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q216919",
+   "label": "Six Feet Under",
+   "sl": 42,
+   "values": [
+    "63 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q221230",
+   "label": "Nip/Tuck",
+   "sl": 42,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23829",
+   "label": "The Office",
+   "sl": 42,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q25182",
+   "label": "Lie to Me",
+   "sl": 42,
+   "values": [
+    "48 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q29908604",
+   "label": "The Good Doctor",
+   "sl": 42,
+   "values": [
+    "126 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q326731",
+   "label": "The Tudors",
+   "sl": 42,
+   "values": [
+    "38 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q33393380",
+   "label": "Disenchantment",
+   "sl": 42,
+   "values": [
+    "50 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q34397",
+   "label": "The Cleveland Show",
+   "sl": 42,
+   "values": [
+    "88 1"
+   ],
+   "types": [
+    "animated television series",
+    "spin-off"
+   ]
+  },
+  {
+   "qid": "Q3809524",
+   "label": "Teen Titans Go!",
+   "sl": 42,
+   "values": [
+    "441 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q464123",
+   "label": "The A-Team",
+   "sl": 42,
+   "values": [
+    "98 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q65980843",
+   "label": "Hawkeye",
+   "sl": 42,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "miniseries",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q728443",
+   "label": "Hawaii Five-0",
+   "sl": 42,
+   "values": [
+    "240 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q732063",
+   "label": "Cheers",
+   "sl": 42,
+   "values": [
+    "275 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q757148",
+   "label": "Rocko's Modern Life",
+   "sl": 42,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q11622",
+   "label": "Firefly",
+   "sl": 41,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q16862534",
+   "label": "How to Get Away with Murder",
+   "sl": 41,
+   "values": [
+    "90 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q189350",
+   "label": "30 Rock",
+   "sl": 41,
+   "values": [
+    "138 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q19839121",
+   "label": "Dragon Ball Super",
+   "sl": 41,
+   "values": [
+    "131 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q21296543",
+   "label": "Star Trek: Discovery",
+   "sl": 41,
+   "values": [
+    "65 1"
+   ],
+   "types": [
+    "Star Trek series",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q21980662",
+   "label": "Moon Lovers: Scarlet Heart Ryeo",
+   "sl": 41,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23594",
+   "label": "Homeland",
+   "sl": 41,
+   "values": [
+    "96 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23770993",
+   "label": "Skam",
+   "sl": 41,
+   "values": [
+    "43 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q247643",
+   "label": "Elementary",
+   "sl": 41,
+   "values": [
+    "154 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q24841899",
+   "label": "Super Wings",
+   "sl": 41,
+   "values": [
+    "424 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q28787",
+   "label": "Star Wars Rebels",
+   "sl": 41,
+   "values": [
+    "75 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q308700",
+   "label": "Shake It Up",
+   "sl": 41,
+   "values": [
+    "75 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q390120",
+   "label": "Torchwood",
+   "sl": 41,
+   "values": [
+    "41 1"
+   ],
+   "types": [
+    "Doctor Who spin-offs",
+    "anagram",
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q428130",
+   "label": "Sonic X",
+   "sl": 41,
+   "values": [
+    "78 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q4307100",
+   "label": "The Originals",
+   "sl": 41,
+   "values": [
+    "92 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q64584978",
+   "label": "Emily in Paris",
+   "sl": 41,
+   "values": [
+    "50 1"
+   ],
+   "types": [
+    "television series",
+    "web series"
+   ]
+  },
+  {
+   "qid": "Q728553",
+   "label": "Community",
+   "sl": 41,
+   "values": [
+    "110 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q741321",
+   "label": "Woody Woodpecker",
+   "sl": 41,
+   "values": [
+    "196 1"
+   ],
+   "types": [
+    "animated character",
+    "anthropomorphic woodpecker"
+   ]
+  },
+  {
+   "qid": "Q108441863",
+   "label": "Secret Invasion",
+   "sl": 40,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q1131225",
+   "label": "It",
+   "sl": 40,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "miniseries",
+    "television film broadcast in two parts"
+   ]
+  },
+  {
+   "qid": "Q1135966",
+   "label": "King of the Hill",
+   "sl": 40,
+   "values": [
+    "259 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q1361124",
+   "label": "The Ren & Stimpy Show",
+   "sl": 40,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q15072906",
+   "label": "Outlander",
+   "sl": 40,
+   "values": [
+    "101 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q16942035",
+   "label": "Mi corazón es tuyo",
+   "sl": 40,
+   "values": [
+    "177 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q18605540",
+   "label": "Jessica Jones",
+   "sl": 40,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q20189",
+   "label": "KikoRiki",
+   "sl": 40,
+   "values": [
+    "218 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q212731",
+   "label": "Fawlty Towers",
+   "sl": 40,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q218035",
+   "label": "Parks and Recreation",
+   "sl": 40,
+   "values": [
+    "125 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q218567",
+   "label": "Law & Order: Special Victims Unit",
+   "sl": 40,
+   "values": [
+    "594 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q223132",
+   "label": "Kill Bill",
+   "sl": 40,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "film duology"
+   ]
+  },
+  {
+   "qid": "Q22908690",
+   "label": "The Good Place",
+   "sl": 40,
+   "values": [
+    "53 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q23619",
+   "label": "Queer as Folk",
+   "sl": 40,
+   "values": [
+    "83 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q25205293",
+   "label": "Ozark",
+   "sl": 40,
+   "values": [
+    "44 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q2947967",
+   "label": "Under the Dome",
+   "sl": 40,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q37276325",
+   "label": "Eurovision Asia Song Contest",
+   "sl": 40,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "singing competition",
+    "television program"
+   ]
+  },
+  {
+   "qid": "Q464009",
+   "label": "Knight Rider",
+   "sl": 40,
+   "values": [
+    "90 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q5174583",
+   "label": "Cosmos: A Spacetime Odyssey",
+   "sl": 40,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q559321",
+   "label": "Miami Vice",
+   "sl": 40,
+   "values": [
+    "112 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q617274",
+   "label": "Charlie's Angels",
+   "sl": 40,
+   "values": [
+    "115 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q623222",
+   "label": "Sam & Cat",
+   "sl": 40,
+   "values": [
+    "36 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q637190",
+   "label": "Code Lyoko",
+   "sl": 40,
+   "values": [
+    "97 1"
+   ],
+   "types": [
+    "animated television series",
+    "book series"
+   ]
+  },
+  {
+   "qid": "Q65064444",
+   "label": "Monsters at Work",
+   "sl": 40,
+   "values": [
+    "20 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q65980671",
+   "label": "What If...?",
+   "sl": 40,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q689114",
+   "label": "Digimon Adventure",
+   "sl": 40,
+   "values": [
+    "54 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q719856",
+   "label": "Ed, Edd n Eddy",
+   "sl": 40,
+   "values": [
+    "69 1"
+   ],
+   "types": [
+    "animated television series"
+   ]
+  },
+  {
+   "qid": "Q82729",
+   "label": "The Bold and the Beautiful",
+   "sl": 40,
+   "values": [
+    "9898 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q858387",
+   "label": "Serial Experiments Lain",
+   "sl": 40,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "anime television series"
+   ]
+  },
+  {
+   "qid": "Q888841",
+   "label": "Hannibal",
+   "sl": 40,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  },
+  {
+   "qid": "Q945030",
+   "label": "Coronation Street",
+   "sl": 40,
+   "values": [
+    "12040 1"
+   ],
+   "types": [
+    "television series"
+   ]
+  }
+ ]
+}

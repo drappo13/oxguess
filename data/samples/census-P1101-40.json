@@ -1,0 +1,1055 @@
+{
+ "prop": "P1101",
+ "min_sitelinks": 40,
+ "items": 81,
+ "clean": 76,
+ "disputed": 5,
+ "top_types": [
+  [
+   "skyscraper",
+   24
+  ],
+  [
+   "office building",
+   5
+  ],
+  [
+   "architectural landmark",
+   5
+  ],
+  [
+   "television tower",
+   4
+  ],
+  [
+   "hotel",
+   4
+  ],
+  [
+   "mosque",
+   2
+  ],
+  [
+   "multi-purpose stadium",
+   2
+  ],
+  [
+   "building complex",
+   2
+  ],
+  [
+   "multifamily residential",
+   2
+  ],
+  [
+   "palace",
+   2
+  ],
+  [
+   "vertical campus building",
+   1
+  ],
+  [
+   "parliament building",
+   1
+  ],
+  [
+   "minaret",
+   1
+  ],
+  [
+   "city palace",
+   1
+  ],
+  [
+   "tomb",
+   1
+  ],
+  [
+   "museum of a public entity",
+   1
+  ],
+  [
+   "stadium",
+   1
+  ],
+  [
+   "apartment building",
+   1
+  ],
+  [
+   "tower block",
+   1
+  ],
+  [
+   "religious museum",
+   1
+  ],
+  [
+   "civic building",
+   1
+  ],
+  [
+   "commercial gallery",
+   1
+  ],
+  [
+   "observation tower",
+   1
+  ],
+  [
+   "capitol building",
+   1
+  ],
+  [
+   "group of structures or buildings",
+   1
+  ],
+  [
+   "landmark",
+   1
+  ],
+  [
+   "former warehouse",
+   1
+  ],
+  [
+   "official residence",
+   1
+  ],
+  [
+   "S-Bahn station",
+   1
+  ],
+  [
+   "cultural property",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q243",
+   "label": "Eiffel Tower",
+   "sl": 191,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "lattice tower",
+    "observation tower"
+   ]
+  },
+  {
+   "qid": "Q35525",
+   "label": "White House",
+   "sl": 143,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "civic building",
+    "mansion",
+    "presidential palace"
+   ]
+  },
+  {
+   "qid": "Q12495",
+   "label": "Burj Khalifa",
+   "sl": 140,
+   "values": [
+    "163 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q11208",
+   "label": "The Pentagon",
+   "sl": 102,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "government building",
+    "groundscraper",
+    "headquarters",
+    "office building"
+   ]
+  },
+  {
+   "qid": "Q83063",
+   "label": "Petronas Towers",
+   "sl": 90,
+   "values": [
+    "88 1"
+   ],
+   "types": [
+    "skyscraper",
+    "twin towers"
+   ]
+  },
+  {
+   "qid": "Q83101",
+   "label": "Taipei 101",
+   "sl": 85,
+   "values": [
+    "101 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q1030463",
+   "label": "Mode Gakuen Cocoon Tower",
+   "sl": 83,
+   "values": [
+    "50 1"
+   ],
+   "types": [
+    "skyscraper",
+    "vertical campus building"
+   ]
+  },
+  {
+   "qid": "Q134883",
+   "label": "CN Tower",
+   "sl": 80,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "observation tower",
+    "television tower"
+   ]
+  },
+  {
+   "qid": "Q62939",
+   "label": "Burj al-Arab",
+   "sl": 78,
+   "values": [
+    "56 1"
+   ],
+   "types": [
+    "hotel",
+    "tower block"
+   ]
+  },
+  {
+   "qid": "Q54109",
+   "label": "United States Capitol",
+   "sl": 77,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "capitol building"
+   ]
+  },
+  {
+   "qid": "Q11274",
+   "label": "Chrysler Building",
+   "sl": 75,
+   "values": [
+    "77 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q187635",
+   "label": "Qutb Minar",
+   "sl": 73,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "minaret"
+   ]
+  },
+  {
+   "qid": "Q57965",
+   "label": "Tokyo Skytree",
+   "sl": 72,
+   "values": [
+    "29 1"
+   ],
+   "types": [
+    "communication tower",
+    "observation tower",
+    "television tower",
+    "transmitter mast"
+   ]
+  },
+  {
+   "qid": "Q189648",
+   "label": "Humayun's Tomb",
+   "sl": 70,
+   "values": [
+    "2 1",
+    "2 floor"
+   ],
+   "types": [
+    "tomb"
+   ]
+  },
+  {
+   "qid": "Q183536",
+   "label": "Tokyo Tower",
+   "sl": 69,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "lattice tower",
+    "observation tower",
+    "transmitter mast"
+   ]
+  },
+  {
+   "qid": "Q16318627",
+   "label": "Abeno Harukas",
+   "sl": 67,
+   "values": [
+    "60 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q188190",
+   "label": "Élysée Palace",
+   "sl": 66,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "city palace",
+    "official residence"
+   ]
+  },
+  {
+   "qid": "Q191414",
+   "label": "Lenin's Mausoleum",
+   "sl": 62,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "mausoleum"
+   ]
+  },
+  {
+   "qid": "Q80852",
+   "label": "Shanghai World Financial Center",
+   "sl": 61,
+   "values": [
+    "101 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q189476",
+   "label": "Abraj Al Bait",
+   "sl": 60,
+   "values": [
+    "120 1"
+   ],
+   "types": [
+    "building complex",
+    "clock tower",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q189883",
+   "label": "Doge's Palace",
+   "sl": 60,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "art museum",
+    "museum of a public entity",
+    "palace"
+   ]
+  },
+  {
+   "qid": "Q836531",
+   "label": "Hawa Mahal",
+   "sl": 60,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "palace"
+   ]
+  },
+  {
+   "qid": "Q151356",
+   "label": "Fernsehturm Berlin",
+   "sl": 58,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "historic site",
+    "observation tower",
+    "television tower"
+   ]
+  },
+  {
+   "qid": "Q18547",
+   "label": "Shanghai Tower",
+   "sl": 58,
+   "values": [
+    "128 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q29272",
+   "label": "Ryugyong Hotel",
+   "sl": 58,
+   "values": [
+    "105 1"
+   ],
+   "types": [
+    "hotel",
+    "mixed-use development",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q91274",
+   "label": "Galata Tower",
+   "sl": 58,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "museum",
+    "tower"
+   ]
+  },
+  {
+   "qid": "Q327983",
+   "label": "Palace of Caserta",
+   "sl": 54,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "Istituto museale ad autonomia speciale",
+    "Italian national museum",
+    "Museum of the Italian Ministry of Culture",
+    "art museum",
+    "cultural property",
+    "mountain park",
+    "museum of modern art",
+    "national museum",
+    "religious museum",
+    "residenz",
+    "royal palace"
+   ]
+  },
+  {
+   "qid": "Q168400",
+   "label": "Canton Tower",
+   "sl": 53,
+   "values": [
+    "37 1"
+   ],
+   "types": [
+    "hyperboloid structure",
+    "observation tower",
+    "television tower"
+   ]
+  },
+  {
+   "qid": "Q204496",
+   "label": "Millennium Stadium",
+   "sl": 52,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby league venue",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q207870",
+   "label": "Casa Milà",
+   "sl": 52,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "multifamily residential"
+   ]
+  },
+  {
+   "qid": "Q80813",
+   "label": "Jin Mao Tower",
+   "sl": 52,
+   "values": [
+    "88 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q167566",
+   "label": "Palace of Culture and Science",
+   "sl": 51,
+   "values": [
+    "42 1"
+   ],
+   "types": [
+    "architectural heritage monument",
+    "architectural landmark",
+    "house of culture",
+    "palace",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q461371",
+   "label": "Casa Batlló",
+   "sl": 51,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "multifamily residential",
+    "residential building"
+   ]
+  },
+  {
+   "qid": "Q622796",
+   "label": "Milad Tower",
+   "sl": 51,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "communication tower",
+    "landmark",
+    "observation tower"
+   ]
+  },
+  {
+   "qid": "Q732489",
+   "label": "Mariinskyi Palace",
+   "sl": 51,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "architectural heritage monument",
+    "palace"
+   ]
+  },
+  {
+   "qid": "Q220728",
+   "label": "Flatiron Building",
+   "sl": 50,
+   "values": [
+    "22 1"
+   ],
+   "types": [
+    "office building"
+   ]
+  },
+  {
+   "qid": "Q677555",
+   "label": "Rashtrapati Bhavan",
+   "sl": 50,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "official residence"
+   ]
+  },
+  {
+   "qid": "Q191161",
+   "label": "30 St Mary Axe",
+   "sl": 49,
+   "values": [
+    "41 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q323767",
+   "label": "Montparnasse Tower",
+   "sl": 48,
+   "values": [
+    "59 1"
+   ],
+   "types": [
+    "office building",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q842822",
+   "label": "Maiden Tower",
+   "sl": 48,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "monument",
+    "tower"
+   ]
+  },
+  {
+   "qid": "Q208811",
+   "label": "Panathenaic Stadium",
+   "sl": 47,
+   "values": [
+    "47 1"
+   ],
+   "types": [
+    "Ancient Greek stadium",
+    "Olympic stadium",
+    "all-seater stadium",
+    "monument",
+    "multi-purpose stadium",
+    "pitch"
+   ]
+  },
+  {
+   "qid": "Q317034",
+   "label": "International Commerce Centre",
+   "sl": 47,
+   "values": [
+    "108 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q868772",
+   "label": "Trump Tower",
+   "sl": 47,
+   "values": [
+    "58 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q19104",
+   "label": "Taj Mahal Palace Hotel",
+   "sl": 46,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "hotel"
+   ]
+  },
+  {
+   "qid": "Q270066",
+   "label": "7 World Trade Center",
+   "sl": 46,
+   "values": [
+    "52 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q1255269",
+   "label": "Great Mosque of Kairouan",
+   "sl": 45,
+   "values": [
+    "3 metre"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q164150",
+   "label": "Palace of the Parliament",
+   "sl": 45,
+   "values": [
+    "18 1"
+   ],
+   "types": [
+    "convention center",
+    "palace",
+    "parliament building",
+    "theatre building"
+   ]
+  },
+  {
+   "qid": "Q217652",
+   "label": "Woolworth Building",
+   "sl": 45,
+   "values": [
+    "58 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q5317",
+   "label": "Space Needle",
+   "sl": 45,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "observation tower"
+   ]
+  },
+  {
+   "qid": "Q750444",
+   "label": "Stockholm Palace",
+   "sl": 45,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "architectural ensemble",
+    "cultural property",
+    "museum",
+    "royal palace"
+   ]
+  },
+  {
+   "qid": "Q206435",
+   "label": "Turning Torso",
+   "sl": 44,
+   "values": [
+    "54 1"
+   ],
+   "types": [
+    "apartment building",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q151765",
+   "label": "Commerzbank Tower",
+   "sl": 43,
+   "values": [
+    "56 1"
+   ],
+   "types": [
+    "office building",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q4255374",
+   "label": "Lakhta Centre",
+   "sl": 43,
+   "values": [
+    "87 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q745016",
+   "label": "Kuala Lumpur Tower",
+   "sl": 43,
+   "values": [
+    "15 1"
+   ],
+   "types": [
+    "moonsighting location in Malaysia",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q1137533",
+   "label": "Koutoubia Mosque",
+   "sl": 42,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q125846",
+   "label": "Q1 Tower",
+   "sl": 42,
+   "values": [
+    "78 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q18640924",
+   "label": "Landmark 81",
+   "sl": 42,
+   "values": [
+    "81 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q245246",
+   "label": "CITIC Plaza",
+   "sl": 42,
+   "values": [
+    "80 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q328505",
+   "label": "Bank of America Tower",
+   "sl": 42,
+   "values": [
+    "54 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q51112",
+   "label": "Galleria Vittorio Emanuele II",
+   "sl": 42,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "architectural ensemble",
+    "commercial gallery"
+   ]
+  },
+  {
+   "qid": "Q656743",
+   "label": "Kingdom Centre",
+   "sl": 42,
+   "values": [
+    "41 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q94193",
+   "label": "Federation Tower",
+   "sl": 42,
+   "values": [
+    "95 1"
+   ],
+   "types": [
+    "building complex"
+   ]
+  },
+  {
+   "qid": "Q14862239",
+   "label": "Japan National Stadium",
+   "sl": 41,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "multi-purpose stadium",
+    "national stadium"
+   ]
+  },
+  {
+   "qid": "Q236201",
+   "label": "Shun Hing Square",
+   "sl": 41,
+   "values": [
+    "69 1"
+   ],
+   "types": [
+    "skyscraper",
+    "tower block"
+   ]
+  },
+  {
+   "qid": "Q382121",
+   "label": "Zifeng Tower",
+   "sl": 41,
+   "values": [
+    "66 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q59483",
+   "label": "Mercury City Tower",
+   "sl": 41,
+   "values": [
+    "75 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q673223",
+   "label": "Elbphilharmonie",
+   "sl": 41,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "concert hall",
+    "former warehouse",
+    "hotel"
+   ]
+  },
+  {
+   "qid": "Q156198",
+   "label": "Messeturm",
+   "sl": 40,
+   "values": [
+    "63 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q271695",
+   "label": "Aon Center",
+   "sl": 40,
+   "values": [
+    "83 1"
+   ],
+   "types": [
+    "office building",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q336246",
+   "label": "Torre Glòries",
+   "sl": 40,
+   "values": [
+    "34 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q546221",
+   "label": "Trump International Hotel and Tower",
+   "sl": 40,
+   "values": [
+    "98 1"
+   ],
+   "types": [
+    "hotel",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q57900",
+   "label": "U.S. Bank Tower",
+   "sl": 40,
+   "values": [
+    "73 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q581641",
+   "label": "Divriği Great Mosque and Hospital",
+   "sl": 40,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "community health center",
+    "former hospital",
+    "group of structures or buildings",
+    "historic site",
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q747541",
+   "label": "Paris-Gare-de-Lyon",
+   "sl": 40,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "S-Bahn station",
+    "dead-end railway station",
+    "railway station",
+    "station located on surface",
+    "underground railway station"
+   ]
+  },
+  {
+   "qid": "Q7969454",
+   "label": "Merdeka 118",
+   "sl": 40,
+   "values": [
+    "118 1"
+   ],
+   "types": [
+    "skyscraper",
+    "supertall building"
+   ]
+  },
+  {
+   "qid": "Q838780",
+   "label": "Almas Tower",
+   "sl": 40,
+   "values": [
+    "68 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  }
+ ]
+}

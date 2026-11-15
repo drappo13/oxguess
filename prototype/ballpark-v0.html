@@ -1,0 +1,336 @@
+<title>Ballpark</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow column, one question at a time, tape-measure slider as the hero control */
+:root {
+  --bg: #12151c;
+  --panel: #1b202a;
+  --line: #2b3240;
+  --fg: #eef1f6;
+  --muted: #8f99ab;
+  --good: #3ddc84;
+  --bad: #ff6b5b;
+  --c-when: #ffb347;
+  --c-big: #5ec8ff;
+  --c-far: #b48cff;
+  --c-many: #ff7eb6;
+  --c-wild: #7ef0c8;
+  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); }
+body { font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 460px; margin: 0 auto; padding-block: 20px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: -0.02em; }
+.logo span { color: var(--c-when); }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.progress { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.progress div { height: 6px; border-radius: 3px; background: var(--line); }
+.progress div.done { background: var(--cat); }
+.progress div.now { background: var(--cat); opacity: .45; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.chip { align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--bg); background: var(--cat); padding: 4px 10px; border-radius: 99px; }
+h1, h2 { font-family: var(--display); font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+h1 { font-size: 24px; line-height: 1.2; }
+h2 { font-size: 20px; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.readout { display: flex; align-items: baseline; justify-content: center; gap: 8px; }
+.readout input { font-family: var(--mono); font-weight: 700; font-size: 44px; width: 100%; max-width: 280px; text-align: right; background: transparent; border: none; border-bottom: 2px dashed var(--line); color: var(--fg); padding: 0 2px; font-variant-numeric: tabular-nums; }
+.readout input:focus { outline: none; border-bottom-color: var(--cat); }
+.readout .unit { font-family: var(--mono); font-size: 18px; color: var(--muted); min-width: 0; }
+.tape { position: relative; padding-top: 4px; }
+.ticks { height: 16px; background-image: repeating-linear-gradient(90deg, var(--muted) 0 1px, transparent 1px 10%), repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 2%); background-size: 100% 16px, 100% 8px; background-repeat: no-repeat; background-position: 0 0, 0 0; opacity: .7; margin: 0 11px; }
+.ends { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 4px; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; background: transparent; margin: 0; }
+input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--line), var(--cat)); }
+input[type=range]::-moz-range-track { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--line), var(--cat)); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--fg); border: 4px solid var(--cat); margin-top: -9px; box-shadow: 0 2px 8px rgba(0,0,0,.4); }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--fg); border: 4px solid var(--cat); }
+input[type=range]:focus-visible { outline: 2px solid var(--cat); outline-offset: 4px; border-radius: 6px; }
+.nudge { display: flex; justify-content: center; gap: 10px; }
+button { font-family: var(--body); font-weight: 600; font-size: 15px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--fg); padding: 10px 16px; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--cat, var(--fg)); outline-offset: 2px; }
+.nudge button { width: 52px; font-family: var(--mono); font-size: 18px; padding: 6px 0; }
+.primary { background: var(--cat, var(--fg)); color: var(--bg); border-color: transparent; font-size: 16px; padding: 14px 18px; }
+.primary:hover { filter: brightness(1.08); }
+.reveal-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.stat { background: var(--bg); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+.stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.stat .v { font-family: var(--mono); font-weight: 700; font-size: 20px; overflow-wrap: anywhere; }
+.stat .s { font-size: 12px; color: var(--muted); }
+.points { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.points .big { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: 1; }
+.points .big small { font-size: 18px; color: var(--muted); font-weight: 500; }
+.verdict { font-family: var(--display); font-weight: 800; font-size: 18px; }
+.hist svg { width: 100%; height: auto; display: block; }
+.hist .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: -1px; margin-right: 5px; }
+.fact { border-left: 3px solid var(--cat); padding-left: 12px; color: var(--fg); }
+.cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.cats span { font-size: 13px; border: 1px solid var(--line); border-radius: 99px; padding: 5px 11px; display: flex; gap: 6px; align-items: center; }
+.rows { display: flex; flex-direction: column; gap: 8px; }
+.row { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.row .q { min-width: 0; }
+.row .q b { display: block; font-weight: 600; }
+.row .q span { color: var(--muted); font-size: 12px; }
+.row .p { font-family: var(--mono); font-weight: 700; }
+.grid-share { font-size: 28px; letter-spacing: 4px; text-align: center; }
+.total { text-align: center; }
+.total .big { font-family: var(--display); font-weight: 800; font-size: 64px; line-height: 1; }
+.btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btns > * { flex: 1 1 160px; }
+.note { font-size: 12px; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .card { animation: rise .25s ease-out; }
+  @keyframes rise { from { transform: translateY(6px); opacity: .6; } to { transform: none; opacity: 1; } }
+}
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const CATS = {
+  when: { label: "When", icon: "📅", color: "var(--c-when)" },
+  big:  { label: "How big", icon: "📏", color: "var(--c-big)" },
+  far:  { label: "How far", icon: "🧭", color: "var(--c-far)" },
+  many: { label: "How many", icon: "🔢", color: "var(--c-many)" },
+  hot:  { label: "How hot", icon: "🌡️", color: "var(--c-wild)" },
+  pct:  { label: "What share", icon: "%", color: "var(--c-wild)" },
+};
+
+// scale: "year" | "log" | "lin"
+const SETS = [
+  { name: "Today", date: "Sun 15 Nov", qs: [
+    { cat: "when", q: "In what year was the first email sent?", a: 1971, min: 1900, max: 2020, scale: "year", unit: "",
+      fact: "Ray Tomlinson sent it between two computers sitting side by side. He doesn't remember what it said, probably something like QWERTYUIOP." },
+    { cat: "big", q: "How tall is the Statue of Liberty, from the ground to the tip of the torch?", a: 93, min: 10, max: 1000, scale: "log", unit: "m", alt: "305 ft",
+      fact: "Just over half of that is the pedestal and foundation. Lady Liberty herself is 46 m." },
+    { cat: "far", q: "How far is it from London to Sydney, as the crow flies?", a: 16990, min: 1000, max: 40000, scale: "log", unit: "km", alt: "10,560 mi",
+      fact: "That's about 42% of the way round the planet." },
+    { cat: "many", q: "How many countries are there in Africa?", a: 54, min: 5, max: 300, scale: "log", unit: "",
+      fact: "54 UN member states. Nigeria has the most people, Algeria the most land." },
+    { cat: "hot", q: "What's the average surface temperature on Venus?", a: 464, min: -100, max: 1500, scale: "lin", unit: "°C", alt: "867 °F",
+      fact: "Hot enough to melt lead, and hotter than Mercury despite being nearly twice as far from the Sun." },
+  ]},
+  { name: "Bonus set", date: "Practice", qs: [
+    { cat: "when", q: "In what year did the Eiffel Tower open?", a: 1889, min: 1800, max: 2000, scale: "year", unit: "",
+      fact: "Built for the 1889 World's Fair, 100 years after the French Revolution. It was only meant to stand for 20 years." },
+    { cat: "big", q: "How long is the Great Barrier Reef?", a: 2300, min: 50, max: 20000, scale: "log", unit: "km", alt: "1,430 mi",
+      fact: "It's the largest structure built by living things." },
+    { cat: "far", q: "How far away is the Moon, on average?", a: 384400, min: 10000, max: 5000000, scale: "log", unit: "km", alt: "238,900 mi",
+      fact: "Every other planet in the solar system would fit in the gap between Earth and the Moon." },
+    { cat: "many", q: "How many episodes of Friends were made?", a: 236, min: 20, max: 2000, scale: "log", unit: "",
+      fact: "Ten seasons, 1994 to 2004. The finale drew 52.5 million US viewers." },
+    { cat: "pct", q: "What percentage of the Earth's surface is covered by water?", a: 71, min: 0, max: 100, scale: "lin", unit: "%",
+      fact: "About 97% of all that water is salty ocean." },
+  ]},
+];
+
+const STEPS = 1000;
+const app = document.getElementById("app");
+let setIdx = 0, qi = 0, results = [], pos = 500, phase = "intro";
+
+// --- maths ---
+const toVal = (q, t) => {
+  const f = t / STEPS;
+  if (q.scale === "log") return niceRound(q.min * Math.pow(q.max / q.min, f));
+  return Math.round(q.min + (q.max - q.min) * f);
+};
+const toPos = (q, v) => {
+  let f = q.scale === "log" ? Math.log(v / q.min) / Math.log(q.max / q.min) : (v - q.min) / (q.max - q.min);
+  return Math.round(Math.max(0, Math.min(1, f)) * STEPS);
+};
+function niceRound(v) {
+  if (v < 100) return Math.round(v);
+  const p = Math.pow(10, Math.floor(Math.log10(v)) - 2);
+  return Math.round(v / p) * p;
+}
+function score(q, g) {
+  if (q.scale === "log") {
+    if (g <= 0) return 0;
+    const err = Math.abs(Math.log10(g / q.a));
+    if (err <= Math.log10(1.02)) return 100;
+    return Math.max(0, Math.round(100 * (1 - err / 0.6)));
+  }
+  if (q.scale === "year") {
+    const d = Math.abs(g - q.a);
+    return d === 0 ? 100 : Math.max(0, 100 - d * 3);
+  }
+  const frac = Math.abs(g - q.a) / (q.max - q.min);
+  if (frac <= 0.01) return 100;
+  return Math.max(0, Math.round(100 * (1 - frac * 4)));
+}
+const fmt = (q, v) => q.scale === "year" ? String(v) : v.toLocaleString("en-GB");
+const unitHtml = (q) => q.unit ? q.unit : "";
+function emoji(s) { return s === 100 ? "🎯" : s >= 75 ? "🟩" : s >= 50 ? "🟨" : s >= 25 ? "🟧" : "🟥"; }
+function verdict(s) { return s === 100 ? "Bullseye." : s >= 85 ? "So close." : s >= 65 ? "Right ballpark." : s >= 40 ? "Same postcode." : s >= 15 ? "Wrong ballpark." : "Different planet."; }
+function offBy(q, g) {
+  if (q.scale === "year") { const d = g - q.a; return d === 0 ? "Exact" : `${Math.abs(d)} yr ${d > 0 ? "late" : "early"}`; }
+  if (q.scale === "log") {
+    const r = g / q.a;
+    if (Math.abs(r - 1) < 0.005) return "Exact";
+    return r >= 1 ? (r < 2 ? `${Math.round((r - 1) * 100)}% too high` : `${r.toFixed(1)}× too high`) : (r > 0.5 ? `${Math.round((1 - r) * 100)}% too low` : `${(1 / r).toFixed(1)}× too low`);
+  }
+  const d = g - q.a; return d === 0 ? "Exact" : `${Math.abs(d).toLocaleString("en-GB")}${q.unit} too ${d > 0 ? "high" : "low"}`;
+}
+
+// --- fake crowd (seeded) ---
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function crowd(q, seed) {
+  const r = rng(seed), out = [], pa = toPos(q, q.a) / STEPS, bias = (r() - 0.5) * 0.12;
+  for (let i = 0; i < 600; i++) {
+    const n = Math.sqrt(-2 * Math.log(r() + 1e-9)) * Math.cos(2 * Math.PI * r());
+    const p = Math.max(0, Math.min(1, pa + bias + n * 0.13));
+    out.push(Math.round(p * STEPS));
+  }
+  return out;
+}
+
+function histogram(q, guessPos, cpos) {
+  const B = 24, bins = new Array(B).fill(0);
+  cpos.forEach(p => bins[Math.min(B - 1, Math.floor(p / STEPS * B))]++);
+  const mx = Math.max(...bins), W = 320, H = 96, bw = W / B;
+  const ax = toPos(q, q.a) / STEPS * W, gx = guessPos / STEPS * W;
+  let bars = bins.map((c, i) => `<rect x="${(i * bw + 1).toFixed(1)}" y="${(H - 6 - c / mx * (H - 22)).toFixed(1)}" width="${(bw - 2).toFixed(1)}" height="${(c / mx * (H - 22)).toFixed(1)}" rx="2" fill="${CATS[q.cat].color}" opacity=".35"/>`).join("");
+  return `<svg viewBox="-6 0 ${W + 12} ${H + 4}" role="img" aria-label="Spread of everyone's guesses">
+    ${bars}
+    <line x1="0" x2="${W}" y1="${H - 5}" y2="${H - 5}" stroke="var(--line)" stroke-width="1"/>
+    <line x1="${ax}" x2="${ax}" y1="8" y2="${H - 5}" stroke="var(--good)" stroke-width="2.5"/>
+    <line x1="${gx}" x2="${gx}" y1="14" y2="${H - 5}" stroke="var(--fg)" stroke-width="2" stroke-dasharray="3 3"/>
+    <circle cx="${gx}" cy="12" r="5" fill="var(--fg)"/>
+  </svg>`;
+}
+
+// --- screens ---
+function setCat(cat) { app.style.setProperty("--cat", CATS[cat].color); }
+function progressBar() {
+  return `<div class="progress">${SETS[setIdx].qs.map((q, i) => `<div class="${i < qi || (i === qi && phase === "reveal") ? "done" : i === qi ? "now" : ""}" style="--cat:${CATS[q.cat].color}"></div>`).join("")}</div>`;
+}
+function head() {
+  const s = SETS[setIdx];
+  return `<header><div class="logo">Ball<span>park</span></div><div class="meta">${s.date}<br>${phase === "intro" || phase === "end" ? "5 questions" : `Question ${qi + 1} of 5`}</div></header>`;
+}
+
+function intro() {
+  phase = "intro"; app.style.removeProperty("--cat");
+  const s = SETS[setIdx];
+  app.innerHTML = head() + `
+  <div class="card" style="--cat:var(--c-when)">
+    <h1>Five numbers. Get as close as you can.</h1>
+    <p class="muted">No need to know the answer. Close guesses score points, and a guess within 2% is a bullseye.</p>
+    <div class="cats">${s.qs.map(q => `<span>${CATS[q.cat].icon} ${CATS[q.cat].label}</span>`).join("")}</div>
+    <button class="primary" id="go">Start</button>
+  </div>
+  <p class="note">Prototype: the crowd is simulated.</p>`;
+  document.getElementById("go").onclick = () => { qi = 0; results = []; ask(); };
+}
+
+function ask() {
+  phase = "ask";
+  const q = SETS[setIdx].qs[qi]; setCat(q.cat);
+  pos = Math.round(STEPS / 2);
+  app.innerHTML = head() + progressBar() + `
+  <div class="card">
+    <span class="chip">${CATS[q.cat].icon} ${CATS[q.cat].label}</span>
+    <h1>${q.q}</h1>
+    <div class="readout"><input id="num" inputmode="${q.min < 0 ? "text" : "numeric"}" aria-label="Your guess" autocomplete="off"><span class="unit">${unitHtml(q)}</span></div>
+    <div class="tape">
+      <input type="range" id="slide" min="0" max="${STEPS}" value="${pos}" aria-label="Guess slider">
+      <div class="ticks"></div>
+      <div class="ends"><span>${fmt(q, q.min)}${q.unit}</span><span>${fmt(q, q.max)}${q.unit}</span></div>
+    </div>
+    <div class="nudge"><button id="minus" aria-label="Lower">−</button><button id="plus" aria-label="Higher">+</button></div>
+    <button class="primary" id="lock">Lock it in</button>
+  </div>`;
+  const slide = document.getElementById("slide"), num = document.getElementById("num");
+  let typed = null;
+  const sync = () => { num.value = fmt(q, toVal(q, pos)); slide.value = pos; typed = null; };
+  sync();
+  slide.oninput = () => { pos = +slide.value; sync(); };
+  const step = (d) => {
+    if (q.scale === "log") { const v = toVal(q, pos); let t = pos; while (t > 0 && t < STEPS && toVal(q, t) === v) t += d; pos = t; }
+    else pos = Math.max(0, Math.min(STEPS, toPos(q, toVal(q, pos) + d)));
+    if (q.scale !== "log") { pos = Math.max(0, Math.min(STEPS, pos)); const v = toVal(q, pos) ; }
+    sync();
+  };
+  // linear steps: nudge by 1 unit
+  document.getElementById("minus").onclick = () => q.scale === "log" ? step(-1) : (typed = Math.max(q.min, currentGuess() - 1), setTyped());
+  document.getElementById("plus").onclick = () => q.scale === "log" ? step(1) : (typed = Math.min(q.max, currentGuess() + 1), setTyped());
+  function setTyped() { pos = toPos(q, typed); slide.value = pos; num.value = fmt(q, typed); }
+  function currentGuess() { return typed ?? toVal(q, pos); }
+  num.oninput = () => {
+    const v = parseFloat(num.value.replace(/[^\d.\-]/g, ""));
+    if (!isNaN(v)) { typed = v; pos = toPos(q, Math.max(q.min, Math.min(q.max, v))); slide.value = pos; }
+  };
+  num.onblur = () => { if (typed != null) { typed = Math.max(q.min, Math.min(q.max, typed)); num.value = fmt(q, typed); } };
+  num.onkeydown = (e) => { if (e.key === "Enter") document.getElementById("lock").click(); };
+  document.getElementById("lock").onclick = () => {
+    const g = Math.max(q.min, Math.min(q.max, currentGuess()));
+    reveal(q, g);
+  };
+}
+
+function reveal(q, g) {
+  phase = "reveal";
+  const s = score(q, g); results.push({ q, g, s });
+  const cp = crowd(q, setIdx * 100 + qi + 7);
+  const gp = toPos(q, g);
+  const beat = Math.round(cp.filter(p => score(q, toVal(q, p)) < s).length / cp.length * 100);
+  const last = qi === 4;
+  app.innerHTML = head() + progressBar() + `
+  <div class="card">
+    <span class="chip">${CATS[q.cat].icon} ${CATS[q.cat].label}</span>
+    <p class="muted">${q.q}</p>
+    <div class="points"><div class="big">${s}<small> / 100</small></div><div class="verdict">${emoji(s)} ${verdict(s)}</div></div>
+    <div class="reveal-nums">
+      <div class="stat"><div class="k">Answer</div><div class="v" style="color:var(--good)">${fmt(q, q.a)}${q.unit ? " " + q.unit : ""}</div>${q.alt ? `<div class="s">${q.alt}</div>` : ""}</div>
+      <div class="stat"><div class="k">You</div><div class="v">${fmt(q, g)}${q.unit ? " " + q.unit : ""}</div><div class="s">${offBy(q, g)}</div></div>
+    </div>
+    <div class="hist">
+      ${histogram(q, gp, cp)}
+      <div class="legend"><span><i class="dot" style="background:var(--good)"></i>Answer</span><span><i class="dot" style="background:var(--fg)"></i>You</span><span><i class="dot" style="background:${CATS[q.cat].color};opacity:.5"></i>Everyone</span><span>You beat ${beat}% of players</span></div>
+    </div>
+    <p class="fact">${q.fact}</p>
+    <button class="primary" id="next">${last ? "See your score" : "Next question"}</button>
+  </div>`;
+  document.getElementById("next").onclick = () => { if (last) end(); else { qi++; ask(); } };
+  document.getElementById("next").focus();
+}
+
+function end() {
+  phase = "end"; app.style.removeProperty("--cat");
+  const total = results.reduce((a, r) => a + r.s, 0);
+  const grid = results.map(r => emoji(r.s)).join("");
+  const shareText = `Ballpark · ${SETS[setIdx].date}\n${grid}\n${total}/500`;
+  const other = (setIdx + 1) % SETS.length;
+  app.innerHTML = head() + `
+  <div class="card" style="--cat:var(--c-when)">
+    <div class="total"><div class="big">${total}</div><div class="muted">out of 500</div></div>
+    <div class="grid-share">${grid}</div>
+    <div class="rows">${results.map(r => `
+      <div class="row"><span>${CATS[r.q.cat].icon}</span><div class="q"><b>${CATS[r.q.cat].label}</b><span>You ${fmt(r.q, r.g)}${r.q.unit} · Answer ${fmt(r.q, r.q.a)}${r.q.unit}</span></div><span class="p" style="color:${CATS[r.q.cat].color}">${r.s}</span></div>`).join("")}
+    </div>
+    <div class="btns">
+      <button class="primary" id="share">Copy result</button>
+      <button id="again">Play ${SETS[other].name.toLowerCase()}</button>
+    </div>
+    <p class="note" id="copied" hidden>Copied</p>
+    <pre id="sharetext" hidden style="white-space:pre-wrap;font-family:var(--mono);font-size:13px;margin:0">${shareText}</pre>
+  </div>`;
+  document.getElementById("share").onclick = () => {
+    navigator.clipboard?.writeText(shareText).then(() => { document.getElementById("copied").hidden = false; })
+      .catch(() => { document.getElementById("sharetext").hidden = false; });
+    if (!navigator.clipboard) document.getElementById("sharetext").hidden = false;
+  };
+  document.getElementById("again").onclick = () => { setIdx = other; intro(); };
+}
+
+intro();
+</script>

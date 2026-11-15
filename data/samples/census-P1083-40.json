@@ -1,0 +1,3131 @@
+{
+ "prop": "P1083",
+ "min_sitelinks": 40,
+ "items": 288,
+ "clean": 256,
+ "disputed": 32,
+ "top_types": [
+  [
+   "stadium",
+   63
+  ],
+  [
+   "association football venue",
+   52
+  ],
+  [
+   "aircraft family",
+   13
+  ],
+  [
+   "Olympic stadium",
+   11
+  ],
+  [
+   "multi-purpose stadium",
+   11
+  ],
+  [
+   "rugby union venue",
+   11
+  ],
+  [
+   "mosque",
+   8
+  ],
+  [
+   "opera house",
+   7
+  ],
+  [
+   "association football pitch",
+   5
+  ],
+  [
+   "minor basilica",
+   5
+  ],
+  [
+   "defunct sports venue",
+   4
+  ],
+  [
+   "space laboratory",
+   4
+  ],
+  [
+   "rugby league venue",
+   3
+  ],
+  [
+   "cultural property",
+   3
+  ],
+  [
+   "American football venue",
+   2
+  ],
+  [
+   "multi-purpose hall",
+   2
+  ],
+  [
+   "sports venue",
+   2
+  ],
+  [
+   "organization",
+   2
+  ],
+  [
+   "skyscraper",
+   2
+  ],
+  [
+   "all-seater stadium",
+   2
+  ],
+  [
+   "theatre building",
+   2
+  ],
+  [
+   "cruise ship",
+   2
+  ],
+  [
+   "human spaceflight",
+   2
+  ],
+  [
+   "cultural heritage",
+   2
+  ],
+  [
+   "cricket field",
+   2
+  ],
+  [
+   "roman ruins",
+   1
+  ],
+  [
+   "music venue",
+   1
+  ],
+  [
+   "musalla",
+   1
+  ],
+  [
+   "type of machine",
+   1
+  ],
+  [
+   "secularized church",
+   1
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q1420",
+   "label": "car",
+   "sl": 246,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "type of machine",
+    "type of vehicle"
+   ]
+  },
+  {
+   "qid": "Q10285",
+   "label": "Colosseum",
+   "sl": 148,
+   "values": [
+    "65000 1"
+   ],
+   "types": [
+    "Italian national museum",
+    "Museum of the Italian Ministry of Culture",
+    "Roman amphitheatre",
+    "archaeological artifact museum",
+    "archaeological site",
+    "historical civil building museum",
+    "roman ruins",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q25271",
+   "label": "International Space Station",
+   "sl": 136,
+   "values": [
+    "7 passenger"
+   ],
+   "types": [
+    "artificial satellite of the Earth",
+    "international space station",
+    "space laboratory"
+   ]
+  },
+  {
+   "qid": "Q2981",
+   "label": "Notre-Dame de Paris",
+   "sl": 125,
+   "values": [
+    "9000 1"
+   ],
+   "types": [
+    "Catholic cathedral",
+    "minor basilica"
+   ]
+  },
+  {
+   "qid": "Q428858",
+   "label": "Al-Masjid Al-Haram",
+   "sl": 109,
+   "values": [
+    "820000 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "congregational mosque",
+    "educational institution",
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q48435",
+   "label": "Basilica and Expiatory Church of the Holy Family",
+   "sl": 109,
+   "values": [
+    "9000 human"
+   ],
+   "types": [
+    "expiatory temple",
+    "minor basilica"
+   ]
+  },
+  {
+   "qid": "Q12192963",
+   "label": "Al-Aqsa Mosque",
+   "sl": 103,
+   "values": [
+    "5000 1"
+   ],
+   "types": [
+    "congregational mosque",
+    "mosque",
+    "musalla",
+    "sacred place"
+   ]
+  },
+  {
+   "qid": "Q45178",
+   "label": "Sydney Opera House",
+   "sl": 99,
+   "values": [
+    "5738 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "historical cultural heritage site",
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q155174",
+   "label": "Maracanã Stadium",
+   "sl": 89,
+   "values": [
+    "78838 1"
+   ],
+   "types": [
+    "all-seater stadium",
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q80541",
+   "label": "Sultan Ahmed Mosque",
+   "sl": 89,
+   "values": [
+    "10000 1"
+   ],
+   "types": [
+    "historic building",
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q48604",
+   "label": "Mir",
+   "sl": 87,
+   "values": [
+    "3 passenger"
+   ],
+   "types": [
+    "artificial satellite of the Earth",
+    "former entity",
+    "international space station",
+    "space laboratory",
+    "space station"
+   ]
+  },
+  {
+   "qid": "Q486080",
+   "label": "Prophet's Mosque",
+   "sl": 86,
+   "values": [
+    "600000 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "congregational mosque"
+   ]
+  },
+  {
+   "qid": "Q83457",
+   "label": "Old Trafford",
+   "sl": 85,
+   "values": [
+    "75731 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q189236",
+   "label": "Velletri",
+   "sl": 82,
+   "values": [
+    "400 1"
+   ],
+   "types": [
+    "comune of Italy"
+   ]
+  },
+  {
+   "qid": "Q133566",
+   "label": "Giuseppe Meazza Stadium",
+   "sl": 81,
+   "values": [
+    "75817 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q164027",
+   "label": "Bernabéu",
+   "sl": 81,
+   "values": [
+    "83186 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q128468",
+   "label": "Wembley Stadium",
+   "sl": 78,
+   "values": [
+    "90000 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q45671",
+   "label": "Anfield",
+   "sl": 78,
+   "values": [
+    "61276 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q138908",
+   "label": "Bolshoi Theatre",
+   "sl": 76,
+   "values": [
+    "1740 1"
+   ],
+   "types": [
+    "organization",
+    "theatre building",
+    "theatre company"
+   ]
+  },
+  {
+   "qid": "Q163995",
+   "label": "Emirates Stadium",
+   "sl": 76,
+   "values": [
+    "60338 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q171458",
+   "label": "Stamford Bridge",
+   "sl": 76,
+   "values": [
+    "41875 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q187702",
+   "label": "Church of the Holy Sepulchre",
+   "sl": 76,
+   "values": [
+    "8000 1"
+   ],
+   "types": [
+    "architectural heritage monument",
+    "cathedral",
+    "church building",
+    "heritage site",
+    "minor basilica",
+    "patriarchal basilica",
+    "sanctuary"
+   ]
+  },
+  {
+   "qid": "Q159884",
+   "label": "Stadio Olimpico",
+   "sl": 73,
+   "values": [
+    "70634 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "association football venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q151374",
+   "label": "Berlin Olympic Stadium",
+   "sl": 72,
+   "values": [
+    "74475 1"
+   ],
+   "types": [
+    "Olympic stadium"
+   ]
+  },
+  {
+   "qid": "Q81492",
+   "label": "Rams Park",
+   "sl": 71,
+   "values": [
+    "52652 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q172190",
+   "label": "London Stadium",
+   "sl": 70,
+   "values": [
+    "62500 1"
+   ],
+   "types": [
+    "association football venue",
+    "baseball venue",
+    "rugby league venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q190776",
+   "label": "Skylab",
+   "sl": 70,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "space laboratory",
+    "space station"
+   ]
+  },
+  {
+   "qid": "Q193431",
+   "label": "Parc des Princes",
+   "sl": 70,
+   "values": [
+    "47930 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q330872",
+   "label": "Badshahi Mosque",
+   "sl": 68,
+   "values": [
+    "100000 1"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q202163",
+   "label": "Luzhniki Stadium",
+   "sl": 67,
+   "values": [
+    "78360 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "association football venue",
+    "pitch"
+   ]
+  },
+  {
+   "qid": "Q205136",
+   "label": "Cathedral of Santiago de Compostela",
+   "sl": 65,
+   "values": [
+    "1200 1"
+   ],
+   "types": [
+    "Catholic cathedral",
+    "Catholic pilgrimage church",
+    "architectural heritage monument",
+    "church building",
+    "minor basilica"
+   ]
+  },
+  {
+   "qid": "Q133525",
+   "label": "Beijing National Stadium",
+   "sl": 64,
+   "values": [
+    "80000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q184491",
+   "label": "Lockheed F-117 Nighthawk",
+   "sl": 63,
+   "values": [
+    "1 human"
+   ],
+   "types": [
+    "aircraft family",
+    "black project"
+   ]
+  },
+  {
+   "qid": "Q187840",
+   "label": "Palais Garnier",
+   "sl": 63,
+   "values": [
+    "1900 1"
+   ],
+   "types": [
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q175339",
+   "label": "Villa Park",
+   "sl": 62,
+   "values": [
+    "42640 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q1149601",
+   "label": "Fisht Olympic Stadium",
+   "sl": 61,
+   "values": [
+    "25000 1"
+   ],
+   "types": [
+    "Olympic stadium"
+   ]
+  },
+  {
+   "qid": "Q1190634",
+   "label": "Lukoil Arena",
+   "sl": 61,
+   "values": [
+    "45360 1"
+   ],
+   "types": [
+    "association football venue",
+    "music venue"
+   ]
+  },
+  {
+   "qid": "Q150928",
+   "label": "Westfalenstadion",
+   "sl": 61,
+   "values": [
+    "81359 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q163521",
+   "label": "FNB Stadium",
+   "sl": 61,
+   "values": [
+    "94736 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q233678",
+   "label": "Jama Masjid, Delhi",
+   "sl": 61,
+   "values": [
+    "25 seat"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q328272",
+   "label": "T-54/55",
+   "sl": 61,
+   "values": [
+    "4 crew member"
+   ],
+   "types": [
+    "combat vehicle family"
+   ]
+  },
+  {
+   "qid": "Q191774",
+   "label": "St James’ Park",
+   "sl": 60,
+   "values": [
+    "52305 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q968420",
+   "label": "Goodison Park",
+   "sl": 60,
+   "values": [
+    "40157 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q320454",
+   "label": "Estadio Azteca",
+   "sl": 59,
+   "values": [
+    "115000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q33993",
+   "label": "Ak Bars Arena",
+   "sl": 59,
+   "values": [
+    "45105 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q150961",
+   "label": "Arena AufSchalke",
+   "sl": 58,
+   "values": [
+    "62271 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q151221",
+   "label": "Tiger I",
+   "sl": 57,
+   "values": [
+    "5 human"
+   ],
+   "types": [
+    "combat vehicle model"
+   ]
+  },
+  {
+   "qid": "Q186425",
+   "label": "White Hart Lane",
+   "sl": 57,
+   "values": [
+    "36284 1"
+   ],
+   "types": [
+    "association football venue",
+    "defunct sports venue"
+   ]
+  },
+  {
+   "qid": "Q193651",
+   "label": "Hampden Park",
+   "sl": 57,
+   "values": [
+    "51866 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q910370",
+   "label": "Mineirão",
+   "sl": 57,
+   "values": [
+    "66658 1"
+   ],
+   "types": [
+    "historic site",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1186333",
+   "label": "Lusail Stadium",
+   "sl": 56,
+   "values": [
+    "88966 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q131610",
+   "label": "Munich Olympic Stadium",
+   "sl": 56,
+   "values": [
+    "63118 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "association football venue",
+    "pitch",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q190114",
+   "label": "Lockheed SR-71 Blackbird",
+   "sl": 56,
+   "values": [
+    "2 human"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q191746",
+   "label": "Apollo 10",
+   "sl": 56,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "human spaceflight"
+   ]
+  },
+  {
+   "qid": "Q202150",
+   "label": "Stade Vélodrome",
+   "sl": 56,
+   "values": [
+    "67394 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue",
+    "sports venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q4439101",
+   "label": "Rostov Arena",
+   "sl": 56,
+   "values": [
+    "45000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q55018",
+   "label": "Royal Opera House",
+   "sl": 56,
+   "values": [
+    "2255 1"
+   ],
+   "types": [
+    "opera house",
+    "performing arts center",
+    "theatre building"
+   ]
+  },
+  {
+   "qid": "Q620031",
+   "label": "Leicester City Stadium",
+   "sl": 56,
+   "values": [
+    "32261 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q187425",
+   "label": "RMS Lusitania",
+   "sl": 55,
+   "values": [
+    "3125 passenger"
+   ],
+   "types": [
+    "four funnel liner"
+   ]
+  },
+  {
+   "qid": "Q4533552",
+   "label": "Mordovia Arena",
+   "sl": 55,
+   "values": [
+    "45015 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1362236",
+   "label": "Neo Química Arena",
+   "sl": 54,
+   "values": [
+    "47252 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q151030",
+   "label": "Moulin Rouge",
+   "sl": 54,
+   "values": [
+    "850 1"
+   ],
+   "types": [
+    "cabaret",
+    "music venue"
+   ]
+  },
+  {
+   "qid": "Q152349",
+   "label": "MHPArena",
+   "sl": 54,
+   "values": [
+    "60058 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q157273",
+   "label": "Waldstadion",
+   "sl": 54,
+   "values": [
+    "51500 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q173559",
+   "label": "Cape Town Stadium",
+   "sl": 54,
+   "values": [
+    "58309 1"
+   ],
+   "types": [
+    "association football venue",
+    "multi-purpose stadium",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q190779",
+   "label": "Central Stadium Yekaterinburg",
+   "sl": 54,
+   "values": [
+    "42500 human"
+   ],
+   "types": [
+    "architectural landmark",
+    "association football venue",
+    "organization"
+   ]
+  },
+  {
+   "qid": "Q207109",
+   "label": "Johan Cruyff Arena",
+   "sl": 54,
+   "values": [
+    "54990 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q4439098",
+   "label": "Rostec Arena",
+   "sl": 54,
+   "values": [
+    "45015 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q4439099",
+   "label": "Samara Arena",
+   "sl": 54,
+   "values": [
+    "44918 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q500983",
+   "label": "Faisal Mosque",
+   "sl": 54,
+   "values": [
+    "300000 1"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q62149",
+   "label": "Juventus Stadium",
+   "sl": 54,
+   "values": [
+    "41700 circa"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q6401",
+   "label": "Boeing 717",
+   "sl": 54,
+   "values": [
+    "117 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q1066373",
+   "label": "Selhurst Park",
+   "sl": 53,
+   "values": [
+    "26255 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q1327235",
+   "label": "Estádio Couto Pereira",
+   "sl": 53,
+   "values": [
+    "34872 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q151893",
+   "label": "RheinEnergie Stadion",
+   "sl": 53,
+   "values": [
+    "46195 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q175289",
+   "label": "Moses Mabhida Stadium",
+   "sl": 53,
+   "values": [
+    "62760 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q180615",
+   "label": "Dolby Theatre",
+   "sl": 53,
+   "values": [
+    "3332 1"
+   ],
+   "types": [
+    "concert hall",
+    "theatre building"
+   ]
+  },
+  {
+   "qid": "Q211618",
+   "label": "Rungrado 1st of May Stadium",
+   "sl": 53,
+   "values": [
+    "114000 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q219764",
+   "label": "ATR 72",
+   "sl": 53,
+   "values": [
+    "74 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q33003",
+   "label": "Parken Stadium",
+   "sl": 53,
+   "values": [
+    "38065 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q336088",
+   "label": "Estádio Nacional de Brasília",
+   "sl": 53,
+   "values": [
+    "69910 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q4366184",
+   "label": "Volgograd Arena",
+   "sl": 53,
+   "values": [
+    "45568 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q612227",
+   "label": "BC Place",
+   "sl": 53,
+   "values": [
+    "54500 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q6471",
+   "label": "Airbus A310",
+   "sl": 53,
+   "values": [
+    "280 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q772988",
+   "label": "Khalifa International Stadium",
+   "sl": 53,
+   "values": [
+    "50500 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q10862290",
+   "label": "MetLife Stadium",
+   "sl": 52,
+   "values": [
+    "82500 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q182081",
+   "label": "Ellis Park Stadium",
+   "sl": 52,
+   "values": [
+    "62567 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q185741",
+   "label": "Ernst-Happel-Stadion",
+   "sl": 52,
+   "values": [
+    "50000 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q189663",
+   "label": "Olympic Stadium in Athens",
+   "sl": 52,
+   "values": [
+    "69618 1"
+   ],
+   "types": [
+    "Olympic stadium"
+   ]
+  },
+  {
+   "qid": "Q19520501",
+   "label": "SoFi Stadium",
+   "sl": 52,
+   "values": [
+    "70240 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q204496",
+   "label": "Millennium Stadium",
+   "sl": 52,
+   "values": [
+    "73931 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby league venue",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q43282",
+   "label": "Alexander Nevsky Cathedral",
+   "sl": 52,
+   "values": [
+    "10000 1"
+   ],
+   "types": [
+    "cathedral",
+    "museum"
+   ]
+  },
+  {
+   "qid": "Q1369687",
+   "label": "Metropolitano Stadium",
+   "sl": 51,
+   "values": [
+    "70813 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q181439",
+   "label": "Free State Stadium",
+   "sl": 51,
+   "values": [
+    "45158 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q190542",
+   "label": "Costa Concordia",
+   "sl": 51,
+   "values": [
+    "3780 1"
+   ],
+   "types": [
+    "cruise ship",
+    "shipwreck"
+   ]
+  },
+  {
+   "qid": "Q5100935",
+   "label": "Tiangong space station",
+   "sl": 51,
+   "values": [
+    "6 passenger"
+   ],
+   "types": [
+    "artificial satellite of the Earth",
+    "space laboratory",
+    "space station"
+   ]
+  },
+  {
+   "qid": "Q623873",
+   "label": "Vostok programme",
+   "sl": 51,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "Soviet space program",
+    "human spaceflight program"
+   ]
+  },
+  {
+   "qid": "Q958185",
+   "label": "Castelão",
+   "sl": 51,
+   "values": [
+    "57876 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q181398",
+   "label": "Loftus Versfeld Stadium",
+   "sl": 50,
+   "values": [
+    "51762 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q182385",
+   "label": "Gdańsk Arena",
+   "sl": 50,
+   "values": [
+    "41620 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q187042",
+   "label": "Peter Mokaba Stadium",
+   "sl": 50,
+   "values": [
+    "41733 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q244479",
+   "label": "Cessna 172 Skyhawk",
+   "sl": 50,
+   "values": [
+    "3 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q275429",
+   "label": "Ramón Sánchez Pizjuán Stadium",
+   "sl": 50,
+   "values": [
+    "43751 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q31969",
+   "label": "Stadium of Light",
+   "sl": 50,
+   "values": [
+    "48339 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q478167",
+   "label": "FK Bodø/Glimt",
+   "sl": 50,
+   "values": [
+    "8200 1"
+   ],
+   "types": [
+    "association football club"
+   ]
+  },
+  {
+   "qid": "Q567339",
+   "label": "St Mary's Stadium",
+   "sl": 50,
+   "values": [
+    "32589 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q1134439",
+   "label": "Stadium 974",
+   "sl": 49,
+   "values": [
+    "45000 1"
+   ],
+   "types": [
+    "association football pitch",
+    "modular stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q181445",
+   "label": "Nelson Mandela Bay Stadium",
+   "sl": 49,
+   "values": [
+    "42486 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q190010",
+   "label": "St. Jakob-Park",
+   "sl": 49,
+   "values": [
+    "38512 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q202762",
+   "label": "Mestalla Stadium",
+   "sl": 49,
+   "values": [
+    "49430 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q210466",
+   "label": "Red Bull Arena",
+   "sl": 49,
+   "values": [
+    "42000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q210678",
+   "label": "Urnes Stave Church",
+   "sl": 49,
+   "values": [
+    "100 1"
+   ],
+   "types": [
+    "church building",
+    "cultural property",
+    "stave church"
+   ]
+  },
+  {
+   "qid": "Q4439075",
+   "label": "Nizhny Novgorod Stadium",
+   "sl": 49,
+   "values": [
+    "44899 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q7875112",
+   "label": "Estádio da Luz",
+   "sl": 49,
+   "values": [
+    "68100 1"
+   ],
+   "types": [
+    "association football venue",
+    "cultural heritage",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q8507",
+   "label": "Parc Olympique Lyonnais",
+   "sl": 49,
+   "values": [
+    "59286 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q861000",
+   "label": "Stade Geoffroy-Guichard",
+   "sl": 49,
+   "values": [
+    "41965 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q1048774",
+   "label": "Education City Stadium",
+   "sl": 48,
+   "values": [
+    "90000 1"
+   ],
+   "types": [
+    "association football pitch",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1050220",
+   "label": "Al Bayt Stadium",
+   "sl": 48,
+   "values": [
+    "68895 1"
+   ],
+   "types": [
+    "association football pitch",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1050224",
+   "label": "Estádio Beira-Rio",
+   "sl": 48,
+   "values": [
+    "49055 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q155743",
+   "label": "Centennial Hall",
+   "sl": 48,
+   "values": [
+    "7200 1"
+   ],
+   "types": [
+    "architectural heritage monument",
+    "hall",
+    "multi-purpose hall"
+   ]
+  },
+  {
+   "qid": "Q187087",
+   "label": "Mbombela Stadium",
+   "sl": 48,
+   "values": [
+    "43500 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q189337",
+   "label": "Royal Bafokeng Stadium",
+   "sl": 48,
+   "values": [
+    "42000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q191888",
+   "label": "Queen Mary 2",
+   "sl": 48,
+   "values": [
+    "2620 1"
+   ],
+   "types": [
+    "cruise ship",
+    "ocean liner"
+   ]
+  },
+  {
+   "qid": "Q207626",
+   "label": "Vicente Calderón Stadium",
+   "sl": 48,
+   "values": [
+    "54960 1"
+   ],
+   "types": [
+    "destroyed building or structure"
+   ]
+  },
+  {
+   "qid": "Q216037",
+   "label": "Celtic Park",
+   "sl": 48,
+   "values": [
+    "60355 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q218637",
+   "label": "ATR 42",
+   "sl": 48,
+   "values": [
+    "50 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q295886",
+   "label": "Accor Stadium",
+   "sl": 48,
+   "values": [
+    "83500 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q330136",
+   "label": "Melbourne Cricket Ground",
+   "sl": 48,
+   "values": [
+    "100024 1"
+   ],
+   "types": [
+    "Australian rules football playing field",
+    "cricket field",
+    "historical cultural heritage site",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q373355",
+   "label": "Gillette Stadium",
+   "sl": 48,
+   "values": [
+    "68756 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q380823",
+   "label": "Molineux Stadium",
+   "sl": 48,
+   "values": [
+    "30852 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q401643",
+   "label": "Ahmad bin Ali Stadium",
+   "sl": 48,
+   "values": [
+    "44740 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q43279",
+   "label": "Wembley Stadium",
+   "sl": 48,
+   "values": [
+    "82000 1"
+   ],
+   "types": [
+    "defunct sports venue",
+    "destroyed building or structure"
+   ]
+  },
+  {
+   "qid": "Q641527",
+   "label": "Arena Amazônia",
+   "sl": 48,
+   "values": [
+    "42924 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q6496",
+   "label": "Airbus A400M Atlas",
+   "sl": 48,
+   "values": [
+    "116 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q121198",
+   "label": "Qol Şärif Mosque",
+   "sl": 47,
+   "values": [
+    "6000 1"
+   ],
+   "types": [
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q1410402",
+   "label": "Pierre Mauroy Stadium",
+   "sl": 47,
+   "values": [
+    "50000 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "sports venue"
+   ]
+  },
+  {
+   "qid": "Q180479",
+   "label": "Donbass Arena",
+   "sl": 47,
+   "values": [
+    "52518 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q186080",
+   "label": "Crypto.com Arena",
+   "sl": 47,
+   "values": [
+    "19060 1"
+   ],
+   "types": [
+    "arena",
+    "ice hockey arena",
+    "multi-purpose hall"
+   ]
+  },
+  {
+   "qid": "Q188699",
+   "label": "Enea Stadion",
+   "sl": 47,
+   "values": [
+    "42873 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q214629",
+   "label": "Stadio Olimpico Grande Torino",
+   "sl": 47,
+   "values": [
+    "27958 1",
+    "28177 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q274924",
+   "label": "Admiral Kuznetsov",
+   "sl": 47,
+   "values": [
+    "1690 human"
+   ],
+   "types": [
+    "aircraft carrier",
+    "aircraft cruiser"
+   ]
+  },
+  {
+   "qid": "Q31678",
+   "label": "The Hawthorns",
+   "sl": 47,
+   "values": [
+    "26445 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q55074091",
+   "label": "Tottenham Hotspur Stadium",
+   "sl": 47,
+   "values": [
+    "62850 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q815584",
+   "label": "Basilica of Our Lady of Peace of Yamoussoukro",
+   "sl": 47,
+   "values": [
+    "18000 1"
+   ],
+   "types": [
+    "Catholic church building",
+    "minor basilica"
+   ]
+  },
+  {
+   "qid": "Q194479",
+   "label": "Stadion Wankdorf",
+   "sl": 46,
+   "values": [
+    "32000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q207933",
+   "label": "Salyut programme",
+   "sl": 46,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "space program"
+   ]
+  },
+  {
+   "qid": "Q208382",
+   "label": "Apollo Lunar Module",
+   "sl": 46,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "vehicle model"
+   ]
+  },
+  {
+   "qid": "Q222865",
+   "label": "Şükrü Saracoğlu Stadium",
+   "sl": 46,
+   "values": [
+    "50530 1"
+   ],
+   "types": [
+    "association football pitch",
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q244402",
+   "label": "Aviva Stadium",
+   "sl": 46,
+   "values": [
+    "51700 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q2612138",
+   "label": "Baku Olympic Stadium",
+   "sl": 46,
+   "values": [
+    "69870 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q330298",
+   "label": "De Kuip",
+   "sl": 46,
+   "values": [
+    "51577 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q478000",
+   "label": "Rajko Mitić Stadium",
+   "sl": 46,
+   "values": [
+    "55538 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q498245",
+   "label": "Estadio Centenario",
+   "sl": 46,
+   "values": [
+    "60235 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q500922",
+   "label": "Britannia Stadium",
+   "sl": 46,
+   "values": [
+    "27740 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q62156",
+   "label": "Antonov An-26",
+   "sl": 46,
+   "values": [
+    "5 human"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q6499360",
+   "label": "Arena Fonte Nova",
+   "sl": 46,
+   "values": [
+    "47915 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q723603",
+   "label": "Stadion Maksimir",
+   "sl": 46,
+   "values": [
+    "60000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q796351",
+   "label": "BMO Field",
+   "sl": 46,
+   "values": [
+    "21566 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1052370",
+   "label": "Lincoln Financial Field",
+   "sl": 45,
+   "values": [
+    "68532 1"
+   ],
+   "types": [
+    "American football venue"
+   ]
+  },
+  {
+   "qid": "Q1058864",
+   "label": "Reliant Stadium",
+   "sl": 45,
+   "values": [
+    "71054 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q188706",
+   "label": "Tarczyński Arena Wrocław",
+   "sl": 45,
+   "values": [
+    "42673 1",
+    "42771 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q205309",
+   "label": "Arsenal Stadium",
+   "sl": 45,
+   "values": [
+    "38419 1"
+   ],
+   "types": [
+    "association football venue",
+    "defunct sports venue"
+   ]
+  },
+  {
+   "qid": "Q252481",
+   "label": "Stade Atlantique",
+   "sl": 45,
+   "values": [
+    "42566 1"
+   ],
+   "types": [
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q318043",
+   "label": "Craven Cottage",
+   "sl": 45,
+   "values": [
+    "25700 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q338602",
+   "label": "National Arena",
+   "sl": 45,
+   "values": [
+    "55634 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "national stadium"
+   ]
+  },
+  {
+   "qid": "Q39049425",
+   "label": "Al Thumama Stadium",
+   "sl": 45,
+   "values": [
+    "40000 1"
+   ],
+   "types": [
+    "association football pitch",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q606803",
+   "label": "Arena da Baixada",
+   "sl": 45,
+   "values": [
+    "42372 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q641448",
+   "label": "Arena Pantaloneta",
+   "sl": 45,
+   "values": [
+    "42968 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q7007552",
+   "label": "Mercedes-Benz Stadium",
+   "sl": 45,
+   "values": [
+    "71000 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q746559",
+   "label": "Astana Arena",
+   "sl": 45,
+   "values": [
+    "30000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q854122",
+   "label": "Stade Bollaert-Delelis",
+   "sl": 45,
+   "values": [
+    "38058 1",
+    "38223 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue",
+    "sports venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q867902",
+   "label": "Cardiff City Stadium",
+   "sl": 45,
+   "values": [
+    "33260 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q127372",
+   "label": "Allianz Riviera",
+   "sl": 44,
+   "values": [
+    "36178 1"
+   ],
+   "types": [
+    "association football venue",
+    "sports venue"
+   ]
+  },
+  {
+   "qid": "Q1343986",
+   "label": "Arena das Dunas",
+   "sl": 44,
+   "values": [
+    "45000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1362211",
+   "label": "Arena Cidade da Copa",
+   "sl": 44,
+   "values": [
+    "45440 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q152633",
+   "label": "Niedersachsenstadion",
+   "sl": 44,
+   "values": [
+    "49000 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q17122887",
+   "label": "Dragon 2",
+   "sl": 44,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "spacecraft family"
+   ]
+  },
+  {
+   "qid": "Q207623",
+   "label": "Letzigrund",
+   "sl": 44,
+   "values": [
+    "25000 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q213508",
+   "label": "Karaiskakis Stadium",
+   "sl": 44,
+   "values": [
+    "33334 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q215399",
+   "label": "Arena Lviv",
+   "sl": 44,
+   "values": [
+    "34915 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q221122",
+   "label": "Atatürk Olympic Stadium",
+   "sl": 44,
+   "values": [
+    "80597 1"
+   ],
+   "types": [
+    "association football venue",
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q223942",
+   "label": "Teatro La Fenice",
+   "sl": 44,
+   "values": [
+    "1244 1"
+   ],
+   "types": [
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q271454",
+   "label": "Estádio do Dragão",
+   "sl": 44,
+   "values": [
+    "50033 1"
+   ],
+   "types": [
+    "cultural heritage",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q271568",
+   "label": "Stadio Luigi Ferraris",
+   "sl": 44,
+   "values": [
+    "33205 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q276354",
+   "label": "Monumental Stadium, Buenos Aires",
+   "sl": 44,
+   "values": [
+    "84567 1"
+   ],
+   "types": [
+    "association football venue",
+    "music venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q28500",
+   "label": "Stadio Renzo Barbera",
+   "sl": 44,
+   "values": [
+    "36365 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q286504",
+   "label": "Zamalek SC",
+   "sl": 44,
+   "values": [
+    "75000 1"
+   ],
+   "types": [
+    "association football club",
+    "multi-sports club"
+   ]
+  },
+  {
+   "qid": "Q432105",
+   "label": "TD Garden",
+   "sl": 44,
+   "values": [
+    "18624 1"
+   ],
+   "types": [
+    "built structure",
+    "music venue"
+   ]
+  },
+  {
+   "qid": "Q43280",
+   "label": "Oslo Opera House",
+   "sl": 44,
+   "values": [
+    "1964 1"
+   ],
+   "types": [
+    "concert hall",
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q464247",
+   "label": "Mikoyan-Gurevich MiG-1",
+   "sl": 44,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "aircraft model"
+   ]
+  },
+  {
+   "qid": "Q619505",
+   "label": "Elland Road",
+   "sl": 44,
+   "values": [
+    "37792 1",
+    "37890 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby league venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q683112",
+   "label": "Turf Moor",
+   "sl": 44,
+   "values": [
+    "22546 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q688605",
+   "label": "Flyer I",
+   "sl": 44,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "Flyer",
+    "airplane"
+   ]
+  },
+  {
+   "qid": "Q116601",
+   "label": "International Stadium Yokohama",
+   "sl": 43,
+   "values": [
+    "72327 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q151765",
+   "label": "Commerzbank Tower",
+   "sl": 43,
+   "values": [
+    "2800 1"
+   ],
+   "types": [
+    "office building",
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q152599",
+   "label": "Max-Morlock-Stadion",
+   "sl": 43,
+   "values": [
+    "50000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q211761",
+   "label": "Salyut 1",
+   "sl": 43,
+   "values": [
+    "3 passenger"
+   ],
+   "types": [
+    "space laboratory",
+    "space station"
+   ]
+  },
+  {
+   "qid": "Q270474",
+   "label": "Stadio Artemio Franchi",
+   "sl": 43,
+   "values": [
+    "43325 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q318851",
+   "label": "Stade Louis II",
+   "sl": 43,
+   "values": [
+    "18523 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q331613",
+   "label": "Lord's Cricket Ground",
+   "sl": 43,
+   "values": [
+    "31100 1"
+   ],
+   "types": [
+    "cricket field"
+   ]
+  },
+  {
+   "qid": "Q332219",
+   "label": "Helsinki Olympic Stadium",
+   "sl": 43,
+   "values": [
+    "42062 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "association football venue",
+    "pitch",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q3585",
+   "label": "Metalist Stadium",
+   "sl": 43,
+   "values": [
+    "40003 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q580480",
+   "label": "Liberty Stadium",
+   "sl": 43,
+   "values": [
+    "20750 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q738044",
+   "label": "Stadium Municipal",
+   "sl": 43,
+   "values": [
+    "33150 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby league venue",
+    "rugby union venue"
+   ]
+  },
+  {
+   "qid": "Q7419343",
+   "label": "Levi's Stadium",
+   "sl": 43,
+   "values": [
+    "68500 1"
+   ],
+   "types": [
+    "American football venue",
+    "association football venue",
+    "multi-purpose stadium"
+   ]
+  },
+  {
+   "qid": "Q810700",
+   "label": "Bataclan",
+   "sl": 43,
+   "values": [
+    "1694 1"
+   ],
+   "types": [
+    "music venue",
+    "theatre building"
+   ]
+  },
+  {
+   "qid": "Q123017",
+   "label": "Carrow Road",
+   "sl": 42,
+   "values": [
+    "27244 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q155014",
+   "label": "MV Wilhelm Gustloff",
+   "sl": 42,
+   "values": [
+    "1463 1"
+   ],
+   "types": [
+    "armed merchantman",
+    "hospital ship"
+   ]
+  },
+  {
+   "qid": "Q155603",
+   "label": "Volkswagen Arena",
+   "sl": 42,
+   "values": [
+    "30000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q172732",
+   "label": "Indianapolis Motor Speedway",
+   "sl": 42,
+   "values": [
+    "257325 1"
+   ],
+   "types": [
+    "motorsport racing track"
+   ]
+  },
+  {
+   "qid": "Q182864",
+   "label": "San Mamés Stadium",
+   "sl": 42,
+   "values": [
+    "53289 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q230360",
+   "label": "Parallel ATA",
+   "sl": 42,
+   "values": [
+    "2 drive"
+   ],
+   "types": []
+  },
+  {
+   "qid": "Q278923",
+   "label": "A. Le Coq Arena",
+   "sl": 42,
+   "values": [
+    "14336 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q281900",
+   "label": "Saint Petersburg Mosque",
+   "sl": 42,
+   "values": [
+    "5000 1"
+   ],
+   "types": [
+    "architectural landmark",
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q368737",
+   "label": "Estadio de La Cartuja",
+   "sl": 42,
+   "values": [
+    "71374 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q619409",
+   "label": "Brighton Community Stadium",
+   "sl": 42,
+   "values": [
+    "31800 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q642557",
+   "label": "Hillsborough Stadium",
+   "sl": 42,
+   "values": [
+    "39732 1"
+   ],
+   "types": [
+    "rugby league venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q648581",
+   "label": "Soyuz 11",
+   "sl": 42,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "Soyuz 7K-T",
+    "human spaceflight"
+   ]
+  },
+  {
+   "qid": "Q653535",
+   "label": "Azadi Stadium",
+   "sl": 42,
+   "values": [
+    "84000 1",
+    "84412 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q666183",
+   "label": "Estadio Akron",
+   "sl": 42,
+   "values": [
+    "50850 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q741157",
+   "label": "Estadio de la Cerámica",
+   "sl": 42,
+   "values": [
+    "24891 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q754502",
+   "label": "Yves du Manoir Stadium",
+   "sl": 42,
+   "values": [
+    "14000 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "sports venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1138684",
+   "label": "Strawberry Arena",
+   "sl": 41,
+   "values": [
+    "54329 1"
+   ],
+   "types": [
+    "multi-purpose hall",
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q139289",
+   "label": "Boeing 737 MAX",
+   "sl": 41,
+   "values": [
+    "172 individual seat"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q14862239",
+   "label": "Japan National Stadium",
+   "sl": 41,
+   "values": [
+    "68000 1"
+   ],
+   "types": [
+    "Olympic stadium",
+    "multi-purpose stadium",
+    "national stadium"
+   ]
+  },
+  {
+   "qid": "Q154475",
+   "label": "Weserstadion",
+   "sl": 41,
+   "values": [
+    "42500 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q156630",
+   "label": "BayArena",
+   "sl": 41,
+   "values": [
+    "30210 individual seat"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q206135",
+   "label": "Red Bull Arena",
+   "sl": 41,
+   "values": [
+    "31895 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q208709",
+   "label": "Ibrox Stadium",
+   "sl": 41,
+   "values": [
+    "51700 1"
+   ],
+   "types": [
+    "association football venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q215023",
+   "label": "Nidaros Cathedral",
+   "sl": 41,
+   "values": [
+    "1700 1"
+   ],
+   "types": [
+    "Lutheran cathedral",
+    "cathedral",
+    "church town of Sweden",
+    "cultural property"
+   ]
+  },
+  {
+   "qid": "Q275715",
+   "label": "Lluís Companys Olympic Stadium",
+   "sl": 41,
+   "values": [
+    "55926 1"
+   ],
+   "types": [
+    "Olympic stadium"
+   ]
+  },
+  {
+   "qid": "Q3058827",
+   "label": "Estadio Monterrey",
+   "sl": 41,
+   "values": [
+    "53500 human"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q312342",
+   "label": "Al-Azhar Mosque",
+   "sl": 41,
+   "values": [
+    "20000 1"
+   ],
+   "types": [
+    "educational institution",
+    "mosque"
+   ]
+  },
+  {
+   "qid": "Q506736",
+   "label": "Fokker F27 Friendship",
+   "sl": 41,
+   "values": [
+    "52 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q593446",
+   "label": "City Ground",
+   "sl": 41,
+   "values": [
+    "30404 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q619094",
+   "label": "Dean Court",
+   "sl": 41,
+   "values": [
+    "12000 1"
+   ],
+   "types": [
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q622671",
+   "label": "King Baudouin Stadium",
+   "sl": 41,
+   "values": [
+    "50024 1"
+   ],
+   "types": [
+    "multi-purpose stadium",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q638423",
+   "label": "Opéra Bastille",
+   "sl": 41,
+   "values": [
+    "2745 1"
+   ],
+   "types": [
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q641977",
+   "label": "Polikarpov I-16",
+   "sl": 41,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q727078",
+   "label": "Stockholm Olympic Stadium",
+   "sl": 41,
+   "values": [
+    "14500 1"
+   ],
+   "types": [
+    "architectural ensemble",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q897533",
+   "label": "Bramall Lane",
+   "sl": 41,
+   "values": [
+    "32702 1"
+   ],
+   "types": [
+    "association football venue",
+    "rugby league venue"
+   ]
+  },
+  {
+   "qid": "Q1164804",
+   "label": "Arena ”Philip II. of Macedonia / Toše Proeski / Todor”",
+   "sl": 40,
+   "values": [
+    "33460 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q1476251",
+   "label": "Saint Sophia Cathedral",
+   "sl": 40,
+   "values": [
+    "2500 1"
+   ],
+   "types": [
+    "cathedral",
+    "church building",
+    "mosque",
+    "secularized church"
+   ]
+  },
+  {
+   "qid": "Q156198",
+   "label": "Messeturm",
+   "sl": 40,
+   "values": [
+    "4000 1"
+   ],
+   "types": [
+    "skyscraper"
+   ]
+  },
+  {
+   "qid": "Q209725",
+   "label": "Twickenham Stadium",
+   "sl": 40,
+   "values": [
+    "82000 1"
+   ],
+   "types": [
+    "rugby union venue",
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q215295",
+   "label": "Stade de Genève",
+   "sl": 40,
+   "values": [
+    "30084 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q215493",
+   "label": "Stadio delle Alpi",
+   "sl": 40,
+   "values": [
+    "69295 1"
+   ],
+   "types": [
+    "defunct sports venue"
+   ]
+  },
+  {
+   "qid": "Q223240",
+   "label": "Capital One Arena",
+   "sl": 40,
+   "values": [
+    "20674 1"
+   ],
+   "types": [
+    "arena",
+    "ice hockey rink"
+   ]
+  },
+  {
+   "qid": "Q244877",
+   "label": "Beijing National Aquatics Center",
+   "sl": 40,
+   "values": [
+    "17000 1"
+   ],
+   "types": [
+    "sports venue"
+   ]
+  },
+  {
+   "qid": "Q275031",
+   "label": "Ilyushin Il-14",
+   "sl": 40,
+   "values": [
+    "36 passenger"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q36833",
+   "label": "Hungarian State Opera House",
+   "sl": 40,
+   "values": [
+    "1261 1"
+   ],
+   "types": [
+    "opera house"
+   ]
+  },
+  {
+   "qid": "Q406972",
+   "label": "Scotiabank Arena",
+   "sl": 40,
+   "values": [
+    "19800 1"
+   ],
+   "types": [
+    "arena"
+   ]
+  },
+  {
+   "qid": "Q499185",
+   "label": "Beriev A-50",
+   "sl": 40,
+   "values": [
+    "15 1"
+   ],
+   "types": [
+    "aircraft family"
+   ]
+  },
+  {
+   "qid": "Q619558",
+   "label": "Portman Road",
+   "sl": 40,
+   "values": [
+    "30311 1"
+   ],
+   "types": [
+    "all-seater stadium",
+    "association football venue"
+   ]
+  },
+  {
+   "qid": "Q639975",
+   "label": "United Center",
+   "sl": 40,
+   "values": [
+    "23500 1"
+   ],
+   "types": [
+    "stadium"
+   ]
+  },
+  {
+   "qid": "Q841384",
+   "label": "Stadion Poljud",
+   "sl": 40,
+   "values": [
+    "35000 1"
+   ],
+   "types": [
+    "association football venue",
+    "cultural property"
+   ]
+  }
+ ]
+}

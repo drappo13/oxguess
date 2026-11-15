@@ -1,0 +1,3003 @@
+{
+ "prop": "P1120",
+ "min_sitelinks": 40,
+ "items": 301,
+ "clean": 236,
+ "disputed": 65,
+ "top_types": [
+  [
+   "terrorist attack",
+   16
+  ],
+  [
+   "type of disease",
+   13
+  ],
+  [
+   "natural disaster",
+   9
+  ],
+  [
+   "aviation accident",
+   9
+  ],
+  [
+   "massacre",
+   8
+  ],
+  [
+   "earthquake",
+   8
+  ],
+  [
+   "Nazi concentration camp",
+   8
+  ],
+  [
+   "war",
+   7
+  ],
+  [
+   "battle",
+   6
+  ],
+  [
+   "revolution",
+   5
+  ],
+  [
+   "mass shooting",
+   5
+  ],
+  [
+   "civil war",
+   5
+  ],
+  [
+   "attempted coup d'état",
+   4
+  ],
+  [
+   "suicide attack",
+   4
+  ],
+  [
+   "genocide",
+   4
+  ],
+  [
+   "aircraft crash",
+   4
+  ],
+  [
+   "hurricane",
+   4
+  ],
+  [
+   "public health emergency of international concern",
+   3
+  ],
+  [
+   "assassination",
+   3
+  ],
+  [
+   "demonstration",
+   3
+  ],
+  [
+   "war crime",
+   3
+  ],
+  [
+   "protest",
+   3
+  ],
+  [
+   "mass murder",
+   3
+  ],
+  [
+   "vehicle-ramming attack",
+   3
+  ],
+  [
+   "shooting attack",
+   2
+  ],
+  [
+   "crowd crush",
+   2
+  ],
+  [
+   "military operation",
+   2
+  ],
+  [
+   "train collision",
+   2
+  ],
+  [
+   "conflagration",
+   2
+  ],
+  [
+   "civil disorder",
+   2
+  ]
+ ],
+ "clean_items": [
+  {
+   "qid": "Q142",
+   "label": "France",
+   "sl": 428,
+   "values": [
+    "593865 1"
+   ],
+   "types": [
+    "country",
+    "republic",
+    "sovereign state"
+   ]
+  },
+  {
+   "qid": "Q38",
+   "label": "Italy",
+   "sl": 409,
+   "values": [
+    "713499 1"
+   ],
+   "types": [
+    "country",
+    "sovereign state"
+   ]
+  },
+  {
+   "qid": "Q362",
+   "label": "World War II",
+   "sl": 291,
+   "values": [
+    "7.3e+07 1"
+   ],
+   "types": [
+    "historical period",
+    "world war"
+   ]
+  },
+  {
+   "qid": "Q361",
+   "label": "World War I",
+   "sl": 266,
+   "values": [
+    "1.7e+07 1"
+   ],
+   "types": [
+    "historical period",
+    "world war"
+   ]
+  },
+  {
+   "qid": "Q2763",
+   "label": "The Holocaust",
+   "sl": 204,
+   "values": [
+    "6e+06 1"
+   ],
+   "types": [
+    "crime against humanity",
+    "ethnic violence",
+    "genocide",
+    "hate crime",
+    "key event",
+    "racism",
+    "state crime"
+   ]
+  },
+  {
+   "qid": "Q12204",
+   "label": "tuberculosis",
+   "sl": 189,
+   "values": [
+    "1.7e+06 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q10806",
+   "label": "September 11 attacks",
+   "sl": 172,
+   "values": [
+    "2996 1"
+   ],
+   "types": [
+    "aircraft hijacking",
+    "mass murder",
+    "suicide attack"
+   ]
+  },
+  {
+   "qid": "Q42005",
+   "label": "Black Death",
+   "sl": 130,
+   "values": [
+    "7.5e+07 1"
+   ],
+   "types": [
+    "disease outbreak",
+    "pandemic"
+   ]
+  },
+  {
+   "qid": "Q7341",
+   "label": "Auschwitz",
+   "sl": 129,
+   "values": [
+    "1.1e+06 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "architectural ensemble",
+    "extermination camp",
+    "museum"
+   ]
+  },
+  {
+   "qid": "Q80034",
+   "label": "Armenian Genocide",
+   "sl": 125,
+   "values": [
+    "1.2e+06 1"
+   ],
+   "types": [
+    "ethnic violence",
+    "forced displacement",
+    "genocide"
+   ]
+  },
+  {
+   "qid": "Q133780",
+   "label": "plague",
+   "sl": 124,
+   "values": [
+    "58 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q122962941",
+   "label": "Gaza War",
+   "sl": 120,
+   "values": [
+    "67000 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q178810",
+   "label": "Syrian Civil War",
+   "sl": 118,
+   "values": [
+    "570000 1"
+   ],
+   "types": [
+    "civil war",
+    "communal violence",
+    "proxy war"
+   ]
+  },
+  {
+   "qid": "Q48143",
+   "label": "meningitis",
+   "sl": 108,
+   "values": [
+    "379000 1"
+   ],
+   "types": [
+    "symptom or sign",
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q134859",
+   "label": "pertussis",
+   "sl": 105,
+   "values": [
+    "58700 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q83319",
+   "label": "typhoid fever",
+   "sl": 104,
+   "values": [
+    "161000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q126065",
+   "label": "Iranian Revolution",
+   "sl": 103,
+   "values": [
+    "2781 1"
+   ],
+   "types": [
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q134649",
+   "label": "diphtheria",
+   "sl": 102,
+   "values": [
+    "2100 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q21479779",
+   "label": "November 2015 Paris attacks",
+   "sl": 101,
+   "values": [
+    "137 1"
+   ],
+   "types": [
+    "coordinated terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q6853",
+   "label": "hepatitis B",
+   "sl": 100,
+   "values": [
+    "887000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q47790",
+   "label": "tetanus",
+   "sl": 99,
+   "values": [
+    "38000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q36204",
+   "label": "2011 Tōhoku earthquake and tsunami",
+   "sl": 93,
+   "values": [
+    "19759 1"
+   ],
+   "types": [
+    "megathrust earthquake",
+    "multi-segment earthquake",
+    "off Sanriku earthquake",
+    "tsunami"
+   ]
+  },
+  {
+   "qid": "Q48249",
+   "label": "Falklands War",
+   "sl": 93,
+   "values": [
+    "891 1"
+   ],
+   "types": [
+    "undeclared war"
+   ]
+  },
+  {
+   "qid": "Q154874",
+   "label": "yellow fever",
+   "sl": 91,
+   "values": [
+    "60000 1"
+   ],
+   "types": [
+    "symptom or sign",
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q124086054",
+   "label": "Gaza genocide",
+   "sl": 90,
+   "values": [
+    "72991 1"
+   ],
+   "types": [
+    "crime against humanity",
+    "ethnic cleansing",
+    "genocide",
+    "humanitarian crisis",
+    "war crime"
+   ]
+  },
+  {
+   "qid": "Q131297",
+   "label": "1994 Genocide against Tutsi",
+   "sl": 89,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "conflict",
+    "genocide"
+   ]
+  },
+  {
+   "qid": "Q151622",
+   "label": "Israeli–Palestinian conflict",
+   "sl": 89,
+   "values": [
+    "44664 1"
+   ],
+   "types": [
+    "political conflict"
+   ]
+  },
+  {
+   "qid": "Q101534",
+   "label": "February Revolution",
+   "sl": 88,
+   "values": [
+    "1443 1"
+   ],
+   "types": [
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q52418",
+   "label": "Attack on Pearl Harbor",
+   "sl": 88,
+   "values": [
+    "2469 1"
+   ],
+   "types": [
+    "air offensive",
+    "battle",
+    "naval offensive",
+    "sneak attack"
+   ]
+  },
+  {
+   "qid": "Q79967",
+   "label": "2011 Norway attacks",
+   "sl": 88,
+   "values": [
+    "77 1"
+   ],
+   "types": [
+    "mass murder",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q130754",
+   "label": "2004 Indian Ocean earthquake",
+   "sl": 87,
+   "values": [
+    "227898 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster",
+    "tsunami"
+   ]
+  },
+  {
+   "qid": "Q620735",
+   "label": "Russo-Georgian War",
+   "sl": 84,
+   "values": [
+    "229 1"
+   ],
+   "types": [
+    "military operation",
+    "war"
+   ]
+  },
+  {
+   "qid": "Q98073118",
+   "label": "2020 Beirut explosions",
+   "sl": 84,
+   "values": [
+    "218 1"
+   ],
+   "types": [
+    "explosion",
+    "industrial disaster",
+    "industrial fire"
+   ]
+  },
+  {
+   "qid": "Q129053",
+   "label": "partition of India",
+   "sl": 83,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "partition"
+   ]
+  },
+  {
+   "qid": "Q43777",
+   "label": "2010 Haiti earthquake",
+   "sl": 83,
+   "values": [
+    "230000 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q125953",
+   "label": "Tunguska event",
+   "sl": 82,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "explosion"
+   ]
+  },
+  {
+   "qid": "Q154869",
+   "label": "hepatitis C",
+   "sl": 82,
+   "values": [
+    "399000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q15224558",
+   "label": "Euromaidan",
+   "sl": 77,
+   "values": [
+    "104 1"
+   ],
+   "types": [
+    "civil disorder",
+    "coup d'état",
+    "demonstration",
+    "protest"
+   ]
+  },
+  {
+   "qid": "Q25906338",
+   "label": "2016 Turkish coup d'état attempt",
+   "sl": 77,
+   "values": [
+    "290 1"
+   ],
+   "types": [
+    "attempted coup d'état"
+   ]
+  },
+  {
+   "qid": "Q62066211",
+   "label": "Christchurch mosque shootings",
+   "sl": 77,
+   "values": [
+    "51 1"
+   ],
+   "types": [
+    "livestreamed crime",
+    "mass murder",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q134301",
+   "label": "Katyn massacre",
+   "sl": 76,
+   "values": [
+    "21857 1"
+   ],
+   "types": [
+    "mass killings under communist regimes",
+    "mass murder",
+    "massacre",
+    "war crime"
+   ]
+  },
+  {
+   "qid": "Q16422",
+   "label": "Hurricane Katrina",
+   "sl": 76,
+   "values": [
+    "1833 1"
+   ],
+   "types": [
+    "hurricane"
+   ]
+  },
+  {
+   "qid": "Q6683",
+   "label": "Mexican-American War",
+   "sl": 76,
+   "values": [
+    "11733 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q104705419",
+   "label": "January 6 United States Capitol attack",
+   "sl": 75,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "attempted coup d'état",
+    "demonstration",
+    "insurgency",
+    "livestreamed crime",
+    "rebellion",
+    "storming"
+   ]
+  },
+  {
+   "qid": "Q15908324",
+   "label": "Malaysia Airlines Flight 370",
+   "sl": 75,
+   "values": [
+    "239 1"
+   ],
+   "types": [
+    "flight disappearance",
+    "scheduled flight"
+   ]
+  },
+  {
+   "qid": "Q170334",
+   "label": "Srebrenica massacre",
+   "sl": 75,
+   "values": [
+    "8372 1"
+   ],
+   "types": [
+    "crime against humanity",
+    "genocide",
+    "massacre",
+    "war crime"
+   ]
+  },
+  {
+   "qid": "Q18718876",
+   "label": "Charlie Hebdo shooting",
+   "sl": 75,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "mass shooting",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q19830062",
+   "label": "April 2015 Nepal earthquake",
+   "sl": 75,
+   "values": [
+    "8964 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q36756",
+   "label": "Kristallnacht",
+   "sl": 75,
+   "values": [
+    "91 1"
+   ],
+   "types": [
+    "pogrom"
+   ]
+  },
+  {
+   "qid": "Q154182",
+   "label": "Battle of Berlin",
+   "sl": 74,
+   "values": [
+    "200000 1"
+   ],
+   "types": [
+    "battle"
+   ]
+  },
+  {
+   "qid": "Q133574091",
+   "label": "2025 Myanmar earthquake",
+   "sl": 73,
+   "values": [
+    "5000 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q171178",
+   "label": "Fukushima Daiichi nuclear disaster",
+   "sl": 73,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "nuclear disaster"
+   ]
+  },
+  {
+   "qid": "Q187650",
+   "label": "Great Purge",
+   "sl": 73,
+   "values": [
+    "681692 1"
+   ],
+   "types": [
+    "process",
+    "purge"
+   ]
+  },
+  {
+   "qid": "Q192055",
+   "label": "Nanjing Massacre",
+   "sl": 73,
+   "values": [
+    "300000 1"
+   ],
+   "types": [
+    "Japanese war crimes",
+    "massacre",
+    "wartime sexual violence"
+   ]
+  },
+  {
+   "qid": "Q213467",
+   "label": "Perlis",
+   "sl": 73,
+   "values": [
+    "1663 1"
+   ],
+   "types": [
+    "state of Malaysia"
+   ]
+  },
+  {
+   "qid": "Q29198",
+   "label": "2011 Egyptian revolution",
+   "sl": 73,
+   "values": [
+    "1146 1"
+   ],
+   "types": [
+    "protest"
+   ]
+  },
+  {
+   "qid": "Q649558",
+   "label": "Chagas disease",
+   "sl": 73,
+   "values": [
+    "8000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q125092492",
+   "label": "Crocus City Hall attack",
+   "sl": 72,
+   "values": [
+    "144 1"
+   ],
+   "types": [
+    "conflagration",
+    "coordinated terrorist attack",
+    "mass murder",
+    "mass shooting"
+   ]
+  },
+  {
+   "qid": "Q164679",
+   "label": "Great Fire of London",
+   "sl": 72,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "city fire"
+   ]
+  },
+  {
+   "qid": "Q25893254",
+   "label": "2016 Nice attack",
+   "sl": 71,
+   "values": [
+    "87 1"
+   ],
+   "types": [
+    "mass murder",
+    "massacre",
+    "terrorist attack",
+    "vehicle-ramming attack"
+   ]
+  },
+  {
+   "qid": "Q101452",
+   "label": "2009 swine flu pandemic",
+   "sl": 69,
+   "values": [
+    "284000 1"
+   ],
+   "types": [
+    "disease outbreak",
+    "influenza pandemic",
+    "public health emergency of international concern"
+   ]
+  },
+  {
+   "qid": "Q119860532",
+   "label": "Wagner Group rebellion",
+   "sl": 69,
+   "values": [
+    "15 1"
+   ],
+   "types": [
+    "armed conflict",
+    "attempted coup d'état",
+    "marching",
+    "mutiny",
+    "rebellion"
+   ]
+  },
+  {
+   "qid": "Q58805164",
+   "label": "Yellow vests movement",
+   "sl": 69,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "demonstration",
+    "social movement"
+   ]
+  },
+  {
+   "qid": "Q95579249",
+   "label": "murder of George Floyd",
+   "sl": 69,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "deliberate murder",
+    "killing by law enforcement officers",
+    "police brutality in the United States"
+   ]
+  },
+  {
+   "qid": "Q130783",
+   "label": "Night of the Long Knives",
+   "sl": 68,
+   "values": [
+    "200 1"
+   ],
+   "types": [
+    "purge"
+   ]
+  },
+  {
+   "qid": "Q4661508",
+   "label": "Chelyabinsk meteor",
+   "sl": 68,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "meteor",
+    "near-Earth asteroid"
+   ]
+  },
+  {
+   "qid": "Q192408",
+   "label": "Taiping Rebellion",
+   "sl": 67,
+   "values": [
+    "6e+07 1"
+   ],
+   "types": [
+    "civil war",
+    "rebellion"
+   ]
+  },
+  {
+   "qid": "Q371394",
+   "label": "Bangladesh Liberation War",
+   "sl": 67,
+   "values": [
+    "3e+06 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q10818",
+   "label": "7 July 2005 London bombings",
+   "sl": 66,
+   "values": [
+    "56 1"
+   ],
+   "types": [
+    "suicide attack"
+   ]
+  },
+  {
+   "qid": "Q129029",
+   "label": "Bhopal disaster",
+   "sl": 66,
+   "values": [
+    "18000 1"
+   ],
+   "types": [
+    "chemical accident"
+   ]
+  },
+  {
+   "qid": "Q151198",
+   "label": "Dachau concentration camp",
+   "sl": 66,
+   "values": [
+    "41500 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "crime against humanity",
+    "state crime"
+   ]
+  },
+  {
+   "qid": "Q192050",
+   "label": "assassination of Archduke Franz Ferdinand",
+   "sl": 66,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "assassination",
+    "bomb attack",
+    "casus belli",
+    "fusillade",
+    "murder",
+    "political murder"
+   ]
+  },
+  {
+   "qid": "Q46959",
+   "label": "Tunisian revolution",
+   "sl": 66,
+   "values": [
+    "338 1"
+   ],
+   "types": [
+    "civil resistance"
+   ]
+  },
+  {
+   "qid": "Q193245",
+   "label": "Carnation Revolution",
+   "sl": 65,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "coup d'état",
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q193484",
+   "label": "assassination of John F. Kennedy",
+   "sl": 63,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "assassination",
+    "magnicide",
+    "political murder"
+   ]
+  },
+  {
+   "qid": "Q30015850",
+   "label": "Manchester Arena bombing",
+   "sl": 63,
+   "values": [
+    "23 1"
+   ],
+   "types": [
+    "mass murder",
+    "suicide bombing"
+   ]
+  },
+  {
+   "qid": "Q11086137",
+   "label": "Boston Marathon bombings",
+   "sl": 62,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "bomb attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q122976243",
+   "label": "October 7 attacks",
+   "sl": 62,
+   "values": [
+    "1200 1"
+   ],
+   "types": [
+    "border incident",
+    "coordinated terrorist attack",
+    "massacre",
+    "military raid",
+    "offensive"
+   ]
+  },
+  {
+   "qid": "Q152010",
+   "label": "Treblinka extermination camp",
+   "sl": 62,
+   "values": [
+    "800000 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "architectural heritage monument",
+    "extermination camp"
+   ]
+  },
+  {
+   "qid": "Q63167656",
+   "label": "2019 fire at Notre-Dame de Paris",
+   "sl": 62,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "structure fire"
+   ]
+  },
+  {
+   "qid": "Q815436",
+   "label": "The Troubles",
+   "sl": 62,
+   "values": [
+    "3532 1"
+   ],
+   "types": [
+    "ethnic conflict",
+    "sectarian violence"
+   ]
+  },
+  {
+   "qid": "Q119727363",
+   "label": "Titan submersible implosion",
+   "sl": 60,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "maritime accident",
+    "shipwrecking"
+   ]
+  },
+  {
+   "qid": "Q122351413",
+   "label": "2023 Marrakesh-Safi earthquake",
+   "sl": 60,
+   "values": [
+    "2945 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q1413732",
+   "label": "Kashmir conflict",
+   "sl": 60,
+   "values": [
+    "47000 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q152802",
+   "label": "Buchenwald concentration camp",
+   "sl": 60,
+   "values": [
+    "56000 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "concentration camp",
+    "museum"
+   ]
+  },
+  {
+   "qid": "Q15989108",
+   "label": "Western African Ebola virus epidemic",
+   "sl": 60,
+   "values": [
+    "11328 1"
+   ],
+   "types": [
+    "disease outbreak",
+    "epidemic",
+    "public health emergency of international concern"
+   ]
+  },
+  {
+   "qid": "Q58947",
+   "label": "Paraguayan War",
+   "sl": 60,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q141182413",
+   "label": "2026 Nepal floods",
+   "sl": 59,
+   "values": [
+    "1500 1"
+   ],
+   "types": [
+    "debris flow",
+    "flash flood",
+    "flood",
+    "glacier lake outburst flood",
+    "national level-II emergency response for disaster relief"
+   ]
+  },
+  {
+   "qid": "Q33933",
+   "label": "Entebbe raid",
+   "sl": 59,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "hostage-rescue mission"
+   ]
+  },
+  {
+   "qid": "Q378835",
+   "label": "Unit 731",
+   "sl": 59,
+   "values": [
+    "3000 1"
+   ],
+   "types": [
+    "military unit"
+   ]
+  },
+  {
+   "qid": "Q76421",
+   "label": "26/11 Mumbai attacks",
+   "sl": 59,
+   "values": [
+    "241 1"
+   ],
+   "types": [
+    "coordinated terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q105570",
+   "label": "20 July plot",
+   "sl": 58,
+   "values": [
+    "4 1"
+   ],
+   "types": [
+    "attempted coup d'état",
+    "attempted murder",
+    "conspiracy",
+    "decapitation strike"
+   ]
+  },
+  {
+   "qid": "Q130752136",
+   "label": "Novi Sad railway station canopy collapse",
+   "sl": 58,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "structural failure"
+   ]
+  },
+  {
+   "qid": "Q192660",
+   "label": "Battle of Okinawa",
+   "sl": 58,
+   "values": [
+    "200656 1"
+   ],
+   "types": [
+    "battle"
+   ]
+  },
+  {
+   "qid": "Q63245644",
+   "label": "2019 Sri Lanka bombings",
+   "sl": 58,
+   "values": [
+    "269 1"
+   ],
+   "types": [
+    "bomb attack",
+    "mass murder"
+   ]
+  },
+  {
+   "qid": "Q112967003",
+   "label": "assassination of Shinzō Abe",
+   "sl": 57,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "assassination",
+    "shooting attack"
+   ]
+  },
+  {
+   "qid": "Q906933",
+   "label": "Sandy Hook Elementary School shooting",
+   "sl": 57,
+   "values": [
+    "29 1"
+   ],
+   "types": [
+    "mass shooting",
+    "matricide",
+    "murder–suicide",
+    "pedicide",
+    "school shooting"
+   ]
+  },
+  {
+   "qid": "Q151835",
+   "label": "2010 Chile earthquake",
+   "sl": 56,
+   "values": [
+    "520 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster",
+    "tsunami"
+   ]
+  },
+  {
+   "qid": "Q18683047",
+   "label": "AirAsia Flight 8501",
+   "sl": 56,
+   "values": [
+    "162 1"
+   ],
+   "types": [
+    "aircraft crash"
+   ]
+  },
+  {
+   "qid": "Q218446",
+   "label": "Khojaly Massacre",
+   "sl": 56,
+   "values": [
+    "613 1"
+   ],
+   "types": [
+    "mass murder"
+   ]
+  },
+  {
+   "qid": "Q264",
+   "label": "Hurricane Sandy",
+   "sl": 56,
+   "values": [
+    "254 1"
+   ],
+   "types": [
+    "hurricane"
+   ]
+  },
+  {
+   "qid": "Q369560",
+   "label": "Siege of Baghdad",
+   "sl": 56,
+   "values": [
+    "800000 1"
+   ],
+   "types": [
+    "battle",
+    "sack",
+    "siege"
+   ]
+  },
+  {
+   "qid": "Q473845",
+   "label": "Columbine High School massacre",
+   "sl": 56,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "mass murder",
+    "mass shooting",
+    "murder–suicide",
+    "school shooting"
+   ]
+  },
+  {
+   "qid": "Q622774",
+   "label": "French Revolution of 1848",
+   "sl": 56,
+   "values": [
+    "350 1"
+   ],
+   "types": [
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q152033",
+   "label": "2008 Sichuan earthquake",
+   "sl": 55,
+   "values": [
+    "69227 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q213394",
+   "label": "Sri Lankan civil war",
+   "sl": 55,
+   "values": [
+    "100001 1"
+   ],
+   "types": [
+    "civil war"
+   ]
+  },
+  {
+   "qid": "Q140352499",
+   "label": "2026 Venezuela earthquakes",
+   "sl": 54,
+   "values": [
+    "6509 1"
+   ],
+   "types": [
+    "doublet earthquake"
+   ]
+  },
+  {
+   "qid": "Q193733",
+   "label": "Beslan school siege",
+   "sl": 54,
+   "values": [
+    "334 1"
+   ],
+   "types": [
+    "hostage taking",
+    "hostage-rescue mission",
+    "massacre",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q28036573",
+   "label": "2016 Berlin attack",
+   "sl": 54,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "mass murder",
+    "massacre",
+    "vehicle-ramming attack"
+   ]
+  },
+  {
+   "qid": "Q114065797",
+   "label": "Mahsa Amini protests",
+   "sl": 53,
+   "values": [
+    "522 1"
+   ],
+   "types": [
+    "demonstration",
+    "protest",
+    "rebellion"
+   ]
+  },
+  {
+   "qid": "Q210137",
+   "label": "2005 Kashmir earthquake",
+   "sl": 53,
+   "values": [
+    "73338 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q212618",
+   "label": "1960 Valdivia earthquake",
+   "sl": 53,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q219698",
+   "label": "Salem Witch Trials",
+   "sl": 53,
+   "values": [
+    "25 1"
+   ],
+   "types": [
+    "witch trial"
+   ]
+  },
+  {
+   "qid": "Q28094271",
+   "label": "2017 Istanbul nightclub attack",
+   "sl": 53,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "mass shooting",
+    "massacre",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q309184",
+   "label": "Boshin War",
+   "sl": 53,
+   "values": [
+    "8200 1"
+   ],
+   "types": [
+    "civil war"
+   ]
+  },
+  {
+   "qid": "Q152314",
+   "label": "Cyclone Nargis",
+   "sl": 52,
+   "values": [
+    "138373 1"
+   ],
+   "types": [
+    "cyclone"
+   ]
+  },
+  {
+   "qid": "Q2885072",
+   "label": "Cambodian genocide",
+   "sl": 52,
+   "values": [
+    "1.2e+06 1"
+   ],
+   "types": [
+    "autogenocide",
+    "mass murder"
+   ]
+  },
+  {
+   "qid": "Q329203",
+   "label": "First Boer War",
+   "sl": 52,
+   "values": [
+    "441 1"
+   ],
+   "types": [
+    "war"
+   ]
+  },
+  {
+   "qid": "Q41522095",
+   "label": "2017 Las Vegas shooting",
+   "sl": 52,
+   "values": [
+    "60 1"
+   ],
+   "types": [
+    "deliberate murder",
+    "mass murder",
+    "mass shooting",
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q462195",
+   "label": "1976 Tangshan earthquake",
+   "sl": 52,
+   "values": [
+    "242769 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q7332",
+   "label": "Bergen-Belsen concentration camp",
+   "sl": 52,
+   "values": [
+    "70000 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "concentration camp"
+   ]
+  },
+  {
+   "qid": "Q734004",
+   "label": "Black January",
+   "sl": 52,
+   "values": [
+    "131 1"
+   ],
+   "types": [
+    "battle",
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q858145",
+   "label": "Space Shuttle Challenger disaster",
+   "sl": 52,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "aviation accident",
+    "launch failure"
+   ]
+  },
+  {
+   "qid": "Q150939",
+   "label": "Operation Weserübung",
+   "sl": 51,
+   "values": [
+    "11752 1"
+   ],
+   "types": [
+    "code name",
+    "military campaign"
+   ]
+  },
+  {
+   "qid": "Q190819",
+   "label": "Bloody Sunday",
+   "sl": 51,
+   "values": [
+    "14 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q204213",
+   "label": "Romanian Revolution (1989)",
+   "sl": 51,
+   "values": [
+    "1104 1"
+   ],
+   "types": [
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q214148",
+   "label": "Haymarket affair",
+   "sl": 51,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "miscarriage of justice",
+    "rebellion"
+   ]
+  },
+  {
+   "qid": "Q223288",
+   "label": "Tenerife airport disaster",
+   "sl": 51,
+   "values": [
+    "583 1"
+   ],
+   "types": [
+    "aviation accident",
+    "ground collision"
+   ]
+  },
+  {
+   "qid": "Q274498",
+   "label": "1923 Great Kantō Earthquake",
+   "sl": 51,
+   "values": [
+    "105385 1"
+   ],
+   "types": [
+    "Kantō earthquakes"
+   ]
+  },
+  {
+   "qid": "Q108413",
+   "label": "Wounded Knee Massacre",
+   "sl": 50,
+   "values": [
+    "300 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q118979177",
+   "label": "2023 Odisha train collision",
+   "sl": 50,
+   "values": [
+    "292 1"
+   ],
+   "types": [
+    "train collision"
+   ]
+  },
+  {
+   "qid": "Q160135",
+   "label": "Lublin-Majdanek concentration camp",
+   "sl": 50,
+   "values": [
+    "360000 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "architectural heritage monument",
+    "extermination camp",
+    "military museum"
+   ]
+  },
+  {
+   "qid": "Q217528",
+   "label": "Oklahoma City bombing",
+   "sl": 50,
+   "values": [
+    "168 1"
+   ],
+   "types": [
+    "bomb attack",
+    "mass murder",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q25007917",
+   "label": "2016 Istanbul airport attack",
+   "sl": 50,
+   "values": [
+    "41 1"
+   ],
+   "types": [
+    "suicide bombing",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q25980145",
+   "label": "2016 Munich shooting",
+   "sl": 50,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "hate crime",
+    "mass shooting",
+    "murder–suicide",
+    "right-wing terrorism"
+   ]
+  },
+  {
+   "qid": "Q29113584",
+   "label": "2017 Saint Petersburg Metro attack",
+   "sl": 50,
+   "values": [
+    "15 1"
+   ],
+   "types": [
+    "bomb attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q213531",
+   "label": "2004 Madrid train bombings",
+   "sl": 49,
+   "values": [
+    "193 1"
+   ],
+   "types": [
+    "mass murder",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q251039",
+   "label": "US Airways Flight 1549",
+   "sl": 49,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "aviation accident",
+    "ditching",
+    "flight"
+   ]
+  },
+  {
+   "qid": "Q30119692",
+   "label": "June 2017 London attack",
+   "sl": 49,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "mass murder",
+    "stabbing attack",
+    "vehicle-ramming attack"
+   ]
+  },
+  {
+   "qid": "Q107529288",
+   "label": "2021 European floods",
+   "sl": 48,
+   "values": [
+    "242 1"
+   ],
+   "types": [
+    "disaster",
+    "flood",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q11694",
+   "label": "American Airlines Flight 11",
+   "sl": 48,
+   "values": [
+    "92 1"
+   ],
+   "types": [
+    "aircraft hijacking",
+    "flight",
+    "pilot suicide",
+    "suicide attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q121789683",
+   "label": "2023 Wagner Group plane crash",
+   "sl": 48,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "aircraft crash",
+    "suspicious death"
+   ]
+  },
+  {
+   "qid": "Q131552728",
+   "label": "Azerbaijan Airlines Flight 8243",
+   "sl": 48,
+   "values": [
+    "38 1"
+   ],
+   "types": [
+    "aircraft crash"
+   ]
+  },
+  {
+   "qid": "Q136160164",
+   "label": "2025 Nepalese Gen Z protests",
+   "sl": 48,
+   "values": [
+    "72 1"
+   ],
+   "types": [
+    "protest"
+   ]
+  },
+  {
+   "qid": "Q154494",
+   "label": "Aktion T4",
+   "sl": 48,
+   "values": [
+    "278000 1"
+   ],
+   "types": [
+    "project"
+   ]
+  },
+  {
+   "qid": "Q21540349",
+   "label": "2015 Russian Sukhoi Su-24 shootdown",
+   "sl": 48,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "aircraft shootdown"
+   ]
+  },
+  {
+   "qid": "Q77924746",
+   "label": "2019–20 Australian bushfire season",
+   "sl": 48,
+   "values": [
+    "479 1"
+   ],
+   "types": [
+    "Australian bushfire season",
+    "disaster",
+    "heat wave"
+   ]
+  },
+  {
+   "qid": "Q95965839",
+   "label": "George Floyd protests",
+   "sl": 48,
+   "values": [
+    "19 1"
+   ],
+   "types": [
+    "civil disorder",
+    "demonstration",
+    "ethnic riot",
+    "protest",
+    "vandalism"
+   ]
+  },
+  {
+   "qid": "Q139676879",
+   "label": "MV Hondius hantavirus outbreak",
+   "sl": 47,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "epidemic"
+   ]
+  },
+  {
+   "qid": "Q15733401",
+   "label": "Revolution of Dignity",
+   "sl": 47,
+   "values": [
+    "106 1"
+   ],
+   "types": [
+    "civil disorder",
+    "coup d'état",
+    "revolution"
+   ]
+  },
+  {
+   "qid": "Q159483",
+   "label": "Ravensbrück concentration camp",
+   "sl": 47,
+   "values": [
+    "90000 1"
+   ],
+   "types": [
+    "Nazi concentration camp"
+   ]
+  },
+  {
+   "qid": "Q2578778",
+   "label": "Circassian genocide",
+   "sl": 47,
+   "values": [
+    "1e+06 1"
+   ],
+   "types": [
+    "genocide"
+   ]
+  },
+  {
+   "qid": "Q26689701",
+   "label": "August 2016 Central Italy earthquake",
+   "sl": 47,
+   "values": [
+    "299 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q29065",
+   "label": "2011 England riots",
+   "sl": 47,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "arson",
+    "ethnic riot",
+    "looting",
+    "robbery"
+   ]
+  },
+  {
+   "qid": "Q2946372",
+   "label": "Mali War",
+   "sl": 47,
+   "values": [
+    "7000 1"
+   ],
+   "types": [
+    "civil war"
+   ]
+  },
+  {
+   "qid": "Q38685186",
+   "label": "Hurricane Irma",
+   "sl": 47,
+   "values": [
+    "133 1"
+   ],
+   "types": [
+    "hurricane"
+   ]
+  },
+  {
+   "qid": "Q522837",
+   "label": "Bengal famine of 1943",
+   "sl": 47,
+   "values": [
+    "2.5e+06 1"
+   ],
+   "types": [
+    "famine"
+   ]
+  },
+  {
+   "qid": "Q55301634",
+   "label": "Tham Luang cave rescue",
+   "sl": 47,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "caving incident",
+    "rescue operation"
+   ]
+  },
+  {
+   "qid": "Q81360866",
+   "label": "Ukraine International Airlines Flight 752",
+   "sl": 47,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "aircraft crash",
+    "airliner shootdown incident",
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q114051466",
+   "label": "death of Jina Mahsa Amini",
+   "sl": 46,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "death in police custody",
+    "killing",
+    "police brutality",
+    "suspicious death",
+    "torture"
+   ]
+  },
+  {
+   "qid": "Q1146739",
+   "label": "Tokyo subway sarin attack",
+   "sl": 46,
+   "values": [
+    "12 1"
+   ],
+   "types": [
+    "chemical terrorism",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q114912414",
+   "label": "Itaewon Halloween crowd crush",
+   "sl": 46,
+   "values": [
+    "160 1"
+   ],
+   "types": [
+    "crowd crush"
+   ]
+  },
+  {
+   "qid": "Q130314422",
+   "label": "2024 Lebanon electronic device attacks",
+   "sl": 46,
+   "values": [
+    "42 1"
+   ],
+   "types": [
+    "bomb attack",
+    "counter-terrorism",
+    "group",
+    "offensive",
+    "security breach",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q160143",
+   "label": "Belzec extermination camp",
+   "sl": 46,
+   "values": [
+    "434500 1"
+   ],
+   "types": [
+    "concentration camp",
+    "extermination camp"
+   ]
+  },
+  {
+   "qid": "Q182085",
+   "label": "2011 Lokomotiv Yaroslavl air disaster",
+   "sl": 46,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q2092950",
+   "label": "Hamidian massacres",
+   "sl": 46,
+   "values": [
+    "80000 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q21007721",
+   "label": "2015 Mina stampede",
+   "sl": 46,
+   "values": [
+    "2411 1"
+   ],
+   "types": [
+    "crowd crush"
+   ]
+  },
+  {
+   "qid": "Q326643",
+   "label": "hepatitis E",
+   "sl": 46,
+   "values": [
+    "44000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q62018034",
+   "label": "Ethiopian Airlines Flight 302",
+   "sl": 46,
+   "values": [
+    "157 1"
+   ],
+   "types": [
+    "aircraft crash"
+   ]
+  },
+  {
+   "qid": "Q738292",
+   "label": "Japanese encephalitis",
+   "sl": 46,
+   "values": [
+    "17000 1"
+   ],
+   "types": [
+    "type of disease"
+   ]
+  },
+  {
+   "qid": "Q913640",
+   "label": "Great Smog of London",
+   "sl": 46,
+   "values": [
+    "12000 1"
+   ],
+   "types": [
+    "disaster",
+    "smog"
+   ]
+  },
+  {
+   "qid": "Q1025404",
+   "label": "assassination of Abraham Lincoln",
+   "sl": 45,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "assassination",
+    "political murder"
+   ]
+  },
+  {
+   "qid": "Q122311648",
+   "label": "Storm Daniel",
+   "sl": 45,
+   "values": [
+    "5300 1"
+   ],
+   "types": [
+    "flood",
+    "mediterranean tropical cyclone"
+   ]
+  },
+  {
+   "qid": "Q1356047",
+   "label": "execution of the Romanov family",
+   "sl": 45,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "assassination",
+    "mass murder",
+    "political murder",
+    "regicide"
+   ]
+  },
+  {
+   "qid": "Q137652531",
+   "label": "2026 Crans-Montana bar fire",
+   "sl": 45,
+   "values": [
+    "41 1"
+   ],
+   "types": [
+    "conflagration",
+    "incident",
+    "manmade disaster"
+   ]
+  },
+  {
+   "qid": "Q170351",
+   "label": "Bombing of Guernica",
+   "sl": 45,
+   "values": [
+    "126 1"
+   ],
+   "types": [
+    "aerial bombing of a city"
+   ]
+  },
+  {
+   "qid": "Q188799",
+   "label": "Virginia Tech shooting",
+   "sl": 45,
+   "values": [
+    "33 1"
+   ],
+   "types": [
+    "mass murder",
+    "mass shooting",
+    "murder–suicide",
+    "university shooting"
+   ]
+  },
+  {
+   "qid": "Q323888",
+   "label": "Heysel Stadium disaster",
+   "sl": 45,
+   "values": [
+    "39 1"
+   ],
+   "types": [
+    "stadium disaster",
+    "stampede"
+   ]
+  },
+  {
+   "qid": "Q459447",
+   "label": "Siege of Yorktown",
+   "sl": 45,
+   "values": [
+    "397 1"
+   ],
+   "types": [
+    "battle",
+    "siege"
+   ]
+  },
+  {
+   "qid": "Q4735638",
+   "label": "Deepwater Horizon oil spill",
+   "sl": 45,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "environmental conflict",
+    "environmental disaster",
+    "oil spill"
+   ]
+  },
+  {
+   "qid": "Q814484",
+   "label": "Dyatlov Pass incident",
+   "sl": 45,
+   "values": [
+    "9 1"
+   ],
+   "types": [
+    "accident",
+    "incident"
+   ]
+  },
+  {
+   "qid": "Q815567",
+   "label": "1988 Spitak earthquake",
+   "sl": 45,
+   "values": [
+    "38000 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q131936357",
+   "label": "2025 Potomac River mid-air collision",
+   "sl": 44,
+   "values": [
+    "67 1"
+   ],
+   "types": [
+    "mid-air collision"
+   ]
+  },
+  {
+   "qid": "Q134044277",
+   "label": "2025 Pahalgam attack",
+   "sl": 44,
+   "values": [
+    "26 1"
+   ],
+   "types": [
+    "mass shooting",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q137383251",
+   "label": "2025 Bondi Beach shooting",
+   "sl": 44,
+   "values": [
+    "16 1"
+   ],
+   "types": [
+    "hate crime",
+    "mass murder",
+    "mass shooting",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q187621",
+   "label": "Hurricane Irene",
+   "sl": 44,
+   "values": [
+    "56 1"
+   ],
+   "types": [
+    "hurricane",
+    "tropical cyclone"
+   ]
+  },
+  {
+   "qid": "Q208199",
+   "label": "Sabra and Shatila massacre",
+   "sl": 44,
+   "values": [
+    "700 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q29001838",
+   "label": "2017 Westminster attack",
+   "sl": 44,
+   "values": [
+    "6 1"
+   ],
+   "types": [
+    "stabbing attack",
+    "vehicle-ramming attack"
+   ]
+  },
+  {
+   "qid": "Q518753",
+   "label": "Sharpeville massacre",
+   "sl": 44,
+   "values": [
+    "69 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q846876",
+   "label": "Stockholm Bloodbath",
+   "sl": 44,
+   "values": [
+    "82 1"
+   ],
+   "types": [
+    "execution",
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q214790",
+   "label": "2010 Copiapó mining accident",
+   "sl": 43,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "mining accident"
+   ]
+  },
+  {
+   "qid": "Q308923",
+   "label": "Munich air disaster",
+   "sl": 43,
+   "values": [
+    "23 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q638603",
+   "label": "United Airlines Flight 93",
+   "sl": 43,
+   "values": [
+    "44 1"
+   ],
+   "types": [
+    "aircraft hijacking",
+    "flight",
+    "suicide attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q112070734",
+   "label": "2022–2023 mpox outbreak",
+   "sl": 42,
+   "values": [
+    "8 1"
+   ],
+   "types": [
+    "disease outbreak",
+    "public health emergency of international concern"
+   ]
+  },
+  {
+   "qid": "Q116652301",
+   "label": "2023 Chinese balloon incident",
+   "sl": 42,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "Chinese intelligence activity abroad",
+    "airspace intrusion",
+    "high-altitude object event",
+    "international incident",
+    "military operation"
+   ]
+  },
+  {
+   "qid": "Q13410316",
+   "label": "Gezi Park protests",
+   "sl": 42,
+   "values": [
+    "11 1"
+   ],
+   "types": [
+    "civil disorder",
+    "protest"
+   ]
+  },
+  {
+   "qid": "Q16338015",
+   "label": "sinking of the MV Sewol",
+   "sl": 42,
+   "values": [
+    "304 1"
+   ],
+   "types": [
+    "accident",
+    "disaster",
+    "sinking"
+   ]
+  },
+  {
+   "qid": "Q234132",
+   "label": "Hillsborough disaster",
+   "sl": 42,
+   "values": [
+    "97 1"
+   ],
+   "types": [
+    "disaster",
+    "stampede"
+   ]
+  },
+  {
+   "qid": "Q30274958",
+   "label": "Grenfell Tower fire",
+   "sl": 42,
+   "values": [
+    "72 1"
+   ],
+   "types": [
+    "disaster",
+    "skyscraper fire"
+   ]
+  },
+  {
+   "qid": "Q648581",
+   "label": "Soyuz 11",
+   "sl": 42,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "Soyuz 7K-T",
+    "human spaceflight"
+   ]
+  },
+  {
+   "qid": "Q70520",
+   "label": "Great Chicago Fire",
+   "sl": 42,
+   "values": [
+    "300 1"
+   ],
+   "types": [
+    "city fire"
+   ]
+  },
+  {
+   "qid": "Q100437698",
+   "label": "murder of Samuel Paty",
+   "sl": 41,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "homicide",
+    "stabbing attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q1194400",
+   "label": "April 9 tragedy",
+   "sl": 41,
+   "values": [
+    "21 1"
+   ],
+   "types": [
+    "riot"
+   ]
+  },
+  {
+   "qid": "Q131692964",
+   "label": "2025 Tibet earthquake",
+   "sl": 41,
+   "values": [
+    "126 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q141898879",
+   "label": "2026 Toledo train collision",
+   "sl": 41,
+   "values": [
+    "69 1"
+   ],
+   "types": [
+    "railway accident",
+    "train collision"
+   ]
+  },
+  {
+   "qid": "Q14246267",
+   "label": "Santiago de Compostela derailment",
+   "sl": 41,
+   "values": [
+    "79 1"
+   ],
+   "types": [
+    "derailment",
+    "railway accident"
+   ]
+  },
+  {
+   "qid": "Q18951344",
+   "label": "TransAsia Airways Flight 235",
+   "sl": 41,
+   "values": [
+    "43 1"
+   ],
+   "types": [
+    "aircraft crash"
+   ]
+  },
+  {
+   "qid": "Q215687",
+   "label": "Boston Massacre",
+   "sl": 41,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q27925924",
+   "label": "LaMia Flight 2933",
+   "sl": 41,
+   "values": [
+    "71 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q28036166",
+   "label": "assassination of Andrei Karlov",
+   "sl": 41,
+   "values": [
+    "2 1"
+   ],
+   "types": [
+    "assassination"
+   ]
+  },
+  {
+   "qid": "Q313329",
+   "label": "Spartacist uprising",
+   "sl": 41,
+   "values": [
+    "200 1"
+   ],
+   "types": [
+    "general strike",
+    "revolt"
+   ]
+  },
+  {
+   "qid": "Q713516",
+   "label": "Doolittle Raid",
+   "sl": 41,
+   "values": [
+    "87 1"
+   ],
+   "types": [
+    "airstrike"
+   ]
+  },
+  {
+   "qid": "Q713529",
+   "label": "Battle of the River Plate",
+   "sl": 41,
+   "values": [
+    "108 1"
+   ],
+   "types": [
+    "naval battle"
+   ]
+  },
+  {
+   "qid": "Q719252",
+   "label": "Battle of Antietam",
+   "sl": 41,
+   "values": [
+    "23000 1"
+   ],
+   "types": [
+    "battle"
+   ]
+  },
+  {
+   "qid": "Q917048",
+   "label": "Great Plague of London",
+   "sl": 41,
+   "values": [
+    "75000 1"
+   ],
+   "types": [
+    "disease outbreak",
+    "plague epidemic"
+   ]
+  },
+  {
+   "qid": "Q101003145",
+   "label": "Aegean Sea earthquake of 2020",
+   "sl": 40,
+   "values": [
+    "116 1",
+    "117 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q104759345",
+   "label": "Sriwijaya Air Flight 182",
+   "sl": 40,
+   "values": [
+    "62 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q108285843",
+   "label": "2021 Kabul airport attack",
+   "sl": 40,
+   "values": [
+    "182 1"
+   ],
+   "types": [
+    "coordinated terrorist attack",
+    "mass shooting",
+    "suicide bombing"
+   ]
+  },
+  {
+   "qid": "Q136210698",
+   "label": "assassination of Charlie Kirk",
+   "sl": 40,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "assassination",
+    "political murder",
+    "shooting attack",
+    "university shooting"
+   ]
+  },
+  {
+   "qid": "Q13628966",
+   "label": "Asiana Airlines Flight 214",
+   "sl": 40,
+   "values": [
+    "3 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q138507700",
+   "label": "assassination of Ali Khamenei",
+   "sl": 40,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "airstrike",
+    "assassination",
+    "decapitation strike"
+   ]
+  },
+  {
+   "qid": "Q151850",
+   "label": "February 2011 Christchurch earthquake",
+   "sl": 40,
+   "values": [
+    "185 1"
+   ],
+   "types": [
+    "disaster",
+    "earthquake",
+    "natural disaster"
+   ]
+  },
+  {
+   "qid": "Q18641076",
+   "label": "2014 Peshawar school attack",
+   "sl": 40,
+   "values": [
+    "156 1"
+   ],
+   "types": [
+    "massacre"
+   ]
+  },
+  {
+   "qid": "Q207918",
+   "label": "2009 L'Aquila earthquake",
+   "sl": 40,
+   "values": [
+    "309 1"
+   ],
+   "types": [
+    "earthquake"
+   ]
+  },
+  {
+   "qid": "Q210005",
+   "label": "2011 Yemeni revolution",
+   "sl": 40,
+   "values": [
+    "2000 1"
+   ],
+   "types": [
+    "protest",
+    "rebellion"
+   ]
+  },
+  {
+   "qid": "Q25980",
+   "label": "Gleiwitz incident",
+   "sl": 40,
+   "values": [
+    "1 1"
+   ],
+   "types": [
+    "military operation"
+   ]
+  },
+  {
+   "qid": "Q269442",
+   "label": "2010 eruptions of Eyjafjallajökull",
+   "sl": 40,
+   "values": [
+    "0 1"
+   ],
+   "types": [
+    "volcanic eruption"
+   ]
+  },
+  {
+   "qid": "Q312492",
+   "label": "Herero and Nama genocide",
+   "sl": 40,
+   "values": [
+    "40000 1"
+   ],
+   "types": [
+    "genocide"
+   ]
+  },
+  {
+   "qid": "Q326193",
+   "label": "Stutthof concentration camp",
+   "sl": 40,
+   "values": [
+    "65000 1"
+   ],
+   "types": [
+    "Nazi concentration camp",
+    "concentration camp",
+    "crime scene",
+    "memorial",
+    "military museum"
+   ]
+  },
+  {
+   "qid": "Q463237",
+   "label": "American Airlines Flight 77",
+   "sl": 40,
+   "values": [
+    "189 1"
+   ],
+   "types": [
+    "aircraft hijacking",
+    "flight",
+    "pilot suicide",
+    "suicide attack",
+    "terrorist attack"
+   ]
+  },
+  {
+   "qid": "Q487163",
+   "label": "Nepalese royal massacre",
+   "sl": 40,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "avunculicide",
+    "familicide",
+    "fratricide",
+    "mass murder",
+    "mass shooting",
+    "massacre",
+    "matricide",
+    "murder–suicide",
+    "parricide",
+    "regicide",
+    "sororicide"
+   ]
+  },
+  {
+   "qid": "Q529723",
+   "label": "Anfal campaign",
+   "sl": 40,
+   "values": [
+    "50000 1"
+   ],
+   "types": [
+    "military campaign"
+   ]
+  },
+  {
+   "qid": "Q580867",
+   "label": "Space Shuttle Columbia disaster",
+   "sl": 40,
+   "values": [
+    "7 1"
+   ],
+   "types": [
+    "aviation accident"
+   ]
+  },
+  {
+   "qid": "Q80754846",
+   "label": "assassination of Qasem Soleimani",
+   "sl": 40,
+   "values": [
+    "10 1"
+   ],
+   "types": [
+    "assassination",
+    "drone warfare",
+    "missile strike",
+    "targeted killing"
+   ]
+  },
+  {
+   "qid": "Q934470",
+   "label": "Istanbul pogrom",
+   "sl": 40,
+   "values": [
+    "13 1"
+   ],
+   "types": [
+    "pogrom"
+   ]
+  },
+  {
+   "qid": "Q985684",
+   "label": "Jonestown",
+   "sl": 40,
+   "values": [
+    "5 1"
+   ],
+   "types": [
+    "human settlement",
+    "intentional community"
+   ]
+  }
+ ]
+}

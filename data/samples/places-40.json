@@ -1,0 +1,12654 @@
+[
+ {
+  "qid": "Q1010335",
+  "label": "Burkhan Khaldun",
+  "sl": 45,
+  "lon": 109.166667,
+  "lat": 48.783333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1012797",
+  "label": "Ostia",
+  "sl": 49,
+  "lon": 12.2875,
+  "lat": 41.754167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q101583",
+  "label": "Thebes",
+  "sl": 82,
+  "lon": 32.610278,
+  "lat": 25.720556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1018862",
+  "label": "Bárðarbunga",
+  "sl": 40,
+  "lon": -17.527778,
+  "lat": 64.640833,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1024",
+  "label": "Triglav",
+  "sl": 65,
+  "lon": 13.836667,
+  "lat": 46.378333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1025825",
+  "label": "Shahr-e Sukhteh",
+  "sl": 50,
+  "lon": 61.331944,
+  "lat": 30.595278,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q10285",
+  "label": "Colosseum",
+  "sl": 148,
+  "lon": 12.492222,
+  "lat": 41.890278,
+  "types": [
+   "archaeological site",
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1030463",
+  "label": "Mode Gakuen Cocoon Tower",
+  "sl": 83,
+  "lon": 139.696945,
+  "lat": 35.691667,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q1032254",
+  "label": "Pangong Tso",
+  "sl": 47,
+  "lon": 78.75,
+  "lat": 33.704722,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q1032440",
+  "label": "Jezercë",
+  "sl": 42,
+  "lon": 19.812778,
+  "lat": 42.442222,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1043277",
+  "label": "Tenzing-Hillary Airport",
+  "sl": 41,
+  "lon": 86.731389,
+  "lat": 27.6875,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q1043631",
+  "label": "Murtala Muhammed International Airport",
+  "sl": 40,
+  "lon": 3.321111,
+  "lat": 6.577222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1045888",
+  "label": "Puncak Jaya",
+  "sl": 77,
+  "lon": 137.183333,
+  "lat": -4.083333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q104674",
+  "label": "Ben Nevis",
+  "sl": 78,
+  "lon": -5.003675,
+  "lat": 56.796891,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1048694",
+  "label": "Russian State Library",
+  "sl": 61,
+  "lon": 37.608996,
+  "lat": 55.751732,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q1048774",
+  "label": "Education City Stadium",
+  "sl": 48,
+  "lon": 51.424274,
+  "lat": 25.310595,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1050220",
+  "label": "Al Bayt Stadium",
+  "sl": 48,
+  "lon": 51.487778,
+  "lat": 25.652222,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1050224",
+  "label": "Estádio Beira-Rio",
+  "sl": 48,
+  "lon": -51.236086,
+  "lat": -30.065614,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q105124",
+  "label": "Shishapangma",
+  "sl": 78,
+  "lon": 85.779722,
+  "lat": 28.352222,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q105261",
+  "label": "Mount Parnassus",
+  "sl": 66,
+  "lon": 22.6167,
+  "lat": 38.533,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1055311",
+  "label": "Livadia Palace",
+  "sl": 45,
+  "lon": 34.143611,
+  "lat": 44.467778,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q1055941",
+  "label": "Hostomel Airport",
+  "sl": 40,
+  "lon": 30.191944,
+  "lat": 50.603611,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q1058864",
+  "label": "Reliant Stadium",
+  "sl": 45,
+  "lon": -95.410833,
+  "lat": 29.684722,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1061846",
+  "label": "I Gusti Ngurah Rai International Airport",
+  "sl": 45,
+  "lon": 115.1675,
+  "lat": -8.748055,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1062",
+  "label": "Lake Ontario",
+  "sl": 108,
+  "lon": -78.106389,
+  "lat": 43.728889,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q1066",
+  "label": "Lake Superior",
+  "sl": 112,
+  "lon": -87.760022,
+  "lat": 47.528816,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q107635",
+  "label": "Baekdu Mountain",
+  "sl": 77,
+  "lon": 126.83,
+  "lat": 40.94,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q10862290",
+  "label": "MetLife Stadium",
+  "sl": 52,
+  "lon": -74.074445,
+  "lat": 40.813611,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1109558",
+  "label": "Ljubljana Jože Pučnik Airport",
+  "sl": 45,
+  "lon": 14.456111,
+  "lat": 46.224444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q111048",
+  "label": "Veliky Ustyug",
+  "sl": 61,
+  "lon": 46.303889,
+  "lat": 60.758889,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q11245",
+  "label": "One World Trade Center",
+  "sl": 74,
+  "lon": -74.0135,
+  "lat": 40.713,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q1124922",
+  "label": "Zvartnots International Airport",
+  "sl": 48,
+  "lon": 44.395833,
+  "lat": 40.147222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q11259",
+  "label": "Times Square",
+  "sl": 72,
+  "lon": -73.985833,
+  "lat": 40.7575,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q11274",
+  "label": "Chrysler Building",
+  "sl": 75,
+  "lon": -73.975719,
+  "lat": 40.75143,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q1128327",
+  "label": "Temple of Kukulcan",
+  "sl": 40,
+  "lon": -88.568611,
+  "lat": 20.682889,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q1132616",
+  "label": "Rome Ciampino Airport",
+  "sl": 44,
+  "lon": 12.5914,
+  "lat": 41.7995,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1133059",
+  "label": "Riga Cathedral",
+  "sl": 43,
+  "lon": 24.104444,
+  "lat": 56.949167,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q1133357",
+  "label": "Muscat International Airport",
+  "sl": 43,
+  "lon": 58.28692,
+  "lat": 23.60096,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1134439",
+  "label": "Stadium 974",
+  "sl": 49,
+  "lon": 51.566465,
+  "lat": 25.288695,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1136681",
+  "label": "Seleucia",
+  "sl": 44,
+  "lon": 44.52,
+  "lat": 33.1,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1137115",
+  "label": "Gothenburg-Landvetter Airport",
+  "sl": 41,
+  "lon": 12.291111,
+  "lat": 57.66,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1137644",
+  "label": "Pumori",
+  "sl": 43,
+  "lon": 86.828055,
+  "lat": 28.015556,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1138408",
+  "label": "Sochi International Airport",
+  "sl": 42,
+  "lon": 39.956667,
+  "lat": 43.45,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1138684",
+  "label": "Strawberry Arena",
+  "sl": 41,
+  "lon": 18.0,
+  "lat": 59.3725,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1139538",
+  "label": "Nuptse",
+  "sl": 40,
+  "lon": 86.89,
+  "lat": 27.966389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1139574",
+  "label": "Beijing Daxing International Airport",
+  "sl": 51,
+  "lon": 116.410556,
+  "lat": 39.511944,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1140026",
+  "label": "Azadi Tower",
+  "sl": 47,
+  "lon": 51.338055,
+  "lat": 35.699722,
+  "types": [
+   "architectural landmark",
+   "tower"
+  ]
+ },
+ {
+  "qid": "Q1140429",
+  "label": "State Historical Museum",
+  "sl": 40,
+  "lon": 37.618055,
+  "lat": 55.755,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q1140980",
+  "label": "Mount Song",
+  "sl": 40,
+  "lon": 112.960278,
+  "lat": 34.484722,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1141214",
+  "label": "Tunis–Carthage International Airport",
+  "sl": 41,
+  "lon": 10.227222,
+  "lat": 36.851111,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q1141858",
+  "label": "Ajloun",
+  "sl": 42,
+  "lon": 35.751667,
+  "lat": 32.3325,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1142389",
+  "label": "Skopje International Airport",
+  "sl": 43,
+  "lon": 21.626945,
+  "lat": 41.961111,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q1142817",
+  "label": "Mount Narodnaya",
+  "sl": 43,
+  "lon": 60.116667,
+  "lat": 65.033333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1143049",
+  "label": "Château de Montsoreau",
+  "sl": 100,
+  "lon": 0.0622,
+  "lat": 47.2156,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q1146939",
+  "label": "Manbij",
+  "sl": 49,
+  "lon": 37.95,
+  "lat": 36.533333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q115253",
+  "label": "Takht-e Soleyman",
+  "sl": 50,
+  "lon": 47.234167,
+  "lat": 36.604722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1160664",
+  "label": "Lyceum",
+  "sl": 43,
+  "lon": 23.74334,
+  "lat": 37.97402,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1164804",
+  "label": "Arena ”Philip II. of Macedonia / Toše Proeski / Todor”",
+  "sl": 40,
+  "lon": 21.425592,
+  "lat": 42.005733,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q116601",
+  "label": "International Stadium Yokohama",
+  "sl": 43,
+  "lon": 139.606247,
+  "lat": 35.510044,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q116685",
+  "label": "Lake Tana",
+  "sl": 77,
+  "lon": 37.25,
+  "lat": 12.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q1169",
+  "label": "Lake Michigan",
+  "sl": 107,
+  "lon": -86.756451,
+  "lat": 44.007874,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q117623",
+  "label": "Takht-i-Bahi",
+  "sl": 46,
+  "lon": 71.945833,
+  "lat": 34.320833,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1186333",
+  "label": "Lusail Stadium",
+  "sl": 56,
+  "lon": 51.490389,
+  "lat": 25.420861,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1190403",
+  "label": "Edessa",
+  "sl": 43,
+  "lon": 38.776111,
+  "lat": 37.176389,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1198791",
+  "label": "Hamad International Airport",
+  "sl": 51,
+  "lon": 51.608056,
+  "lat": 25.273056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q11993457",
+  "label": "Royal Spanish Academy",
+  "sl": 45,
+  "lon": -3.69091,
+  "lat": 40.41502,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q120306",
+  "label": "Mount Logan",
+  "sl": 75,
+  "lon": -140.405278,
+  "lat": 60.567222,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q120314",
+  "label": "Mount Wutai",
+  "sl": 49,
+  "lon": 113.566944,
+  "lat": 39.081389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q12061",
+  "label": "Tahrir Square",
+  "sl": 53,
+  "lon": 31.235833,
+  "lat": 30.044444,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q12193567",
+  "label": "Al Maghtas",
+  "sl": 41,
+  "lon": 35.550278,
+  "lat": 31.837222,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q123017",
+  "label": "Carrow Road",
+  "sl": 42,
+  "lon": 1.309167,
+  "lat": 52.622222,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q123782",
+  "label": "Fansipan",
+  "sl": 46,
+  "lon": 103.775315,
+  "lat": 22.303332,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q12495",
+  "label": "Burj Khalifa",
+  "sl": 140,
+  "lon": 55.274167,
+  "lat": 25.197222,
+  "types": [
+   "architectural landmark",
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q12506",
+  "label": "Hagia Sophia",
+  "sl": 152,
+  "lon": 28.98,
+  "lat": 41.008333,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q12512",
+  "label": "St. Peter's Basilica",
+  "sl": 133,
+  "lon": 12.453417,
+  "lat": 41.902222,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q125211",
+  "label": "Lake Edward",
+  "sl": 75,
+  "lon": 29.6,
+  "lat": -0.333333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q125309",
+  "label": "Lake Chad",
+  "sl": 105,
+  "lon": 14.533808,
+  "lat": 13.097886,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q125445",
+  "label": "Temple of Heaven",
+  "sl": 70,
+  "lon": 116.4066,
+  "lat": 39.8822,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q125846",
+  "label": "Q1 Tower",
+  "sl": 42,
+  "lon": 153.429444,
+  "lat": -28.006111,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q125888",
+  "label": "Lake Albert",
+  "sl": 89,
+  "lon": 30.916667,
+  "lat": 1.683333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q125912",
+  "label": "Lake Kivu",
+  "sl": 82,
+  "lon": 29.135278,
+  "lat": -1.853055,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q126804",
+  "label": "Mount Erciyes",
+  "sl": 49,
+  "lon": 35.45,
+  "lat": 38.531667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q127097",
+  "label": "Semperoper",
+  "sl": 40,
+  "lon": 13.735278,
+  "lat": 51.054444,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q127372",
+  "label": "Allianz Riviera",
+  "sl": 44,
+  "lon": 7.19262,
+  "lat": 43.70513,
+  "types": [
+   "sports venue"
+  ]
+ },
+ {
+  "qid": "Q127429",
+  "label": "Allianz Arena",
+  "sl": 80,
+  "lon": 11.624753,
+  "lat": 48.218775,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q127530",
+  "label": "Miami International Airport",
+  "sl": 49,
+  "lon": -80.290555,
+  "lat": 25.793333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q127671",
+  "label": "Arturo Merino Benítez International Airport",
+  "sl": 40,
+  "lon": -70.785555,
+  "lat": -33.392778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q127951",
+  "label": "Sofia Airport",
+  "sl": 47,
+  "lon": 23.408333,
+  "lat": 42.695,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q127955",
+  "label": "Belgrade Nikola Tesla Airport",
+  "sl": 56,
+  "lon": 20.306944,
+  "lat": 44.819444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q127958",
+  "label": "Thessaloniki Airport \"Makedonia\"",
+  "sl": 40,
+  "lon": 22.970917,
+  "lat": 40.519722,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q128016",
+  "label": "Zagreb Airport",
+  "sl": 47,
+  "lon": 16.068889,
+  "lat": 45.743056,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q128468",
+  "label": "Wembley Stadium",
+  "sl": 78,
+  "lon": -0.279444,
+  "lat": 51.555556,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1288751",
+  "label": "Mount Gerizim",
+  "sl": 43,
+  "lon": 35.272778,
+  "lat": 32.199444,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q129072",
+  "label": "Persepolis",
+  "sl": 103,
+  "lon": 52.89,
+  "lat": 29.935,
+  "types": [
+   "archaeological site",
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q129143",
+  "label": "Trafalgar Square",
+  "sl": 73,
+  "lon": -0.128056,
+  "lat": 51.508056,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q1294648",
+  "label": "Etchmiadzin Cathedral",
+  "sl": 49,
+  "lon": 44.291,
+  "lat": 40.161861,
+  "types": [
+   "cathedral",
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q129846",
+  "label": "St. Basil's Cathedral",
+  "sl": 79,
+  "lon": 37.623056,
+  "lat": 55.7525,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q130321",
+  "label": "Mount Athos",
+  "sl": 87,
+  "lon": 24.327222,
+  "lat": 40.158333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q130736",
+  "label": "Nanga Parbat",
+  "sl": 90,
+  "lon": 74.59,
+  "lat": 35.239167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q130958",
+  "label": "The Great Sphinx",
+  "sl": 85,
+  "lon": 31.13768,
+  "lat": 29.97527,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q131230",
+  "label": "Mauna Kea",
+  "sl": 87,
+  "lon": -155.468056,
+  "lat": 19.820556,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q131402",
+  "label": "Munich Airport",
+  "sl": 67,
+  "lon": 11.786086,
+  "lat": 48.353783,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1315012",
+  "label": "Snæfellsjökull",
+  "sl": 47,
+  "lon": -23.776228,
+  "lat": 64.80712,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q131610",
+  "label": "Munich Olympic Stadium",
+  "sl": 56,
+  "lon": 11.546667,
+  "lat": 48.173056,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q131615",
+  "label": "Lake Starnberg",
+  "sl": 49,
+  "lon": 11.307222,
+  "lat": 47.903889,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q131626",
+  "label": "Smithsonian Institution",
+  "sl": 70,
+  "lon": -77.026,
+  "lat": 38.888889,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q131631",
+  "label": "Nymphenburg Palace",
+  "sl": 52,
+  "lon": 11.503611,
+  "lat": 48.158056,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q13205",
+  "label": "Stade de France",
+  "sl": 72,
+  "lon": 2.36,
+  "lat": 48.924444,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q132783",
+  "label": "Hermitage Museum",
+  "sl": 86,
+  "lon": 30.313611,
+  "lat": 59.940556,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q1328849",
+  "label": "Tolmachevo Airport",
+  "sl": 40,
+  "lon": 82.650556,
+  "lat": 55.0125,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q133274",
+  "label": "Kremlin",
+  "sl": 99,
+  "lon": 37.617778,
+  "lat": 55.751667,
+  "types": [
+   "architectural landmark",
+   "historic district"
+  ]
+ },
+ {
+  "qid": "Q133423",
+  "label": "Valley of the Kings",
+  "sl": 89,
+  "lon": 32.602358,
+  "lat": 25.74025,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q133525",
+  "label": "Beijing National Stadium",
+  "sl": 64,
+  "lon": 116.390478,
+  "lat": 39.991544,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q133575",
+  "label": "Cave of Altamira",
+  "sl": 76,
+  "lon": -4.11667,
+  "lat": 43.38333,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q134140",
+  "label": "Abu Simbel",
+  "sl": 94,
+  "lon": 31.625556,
+  "lat": 22.336944,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1343986",
+  "label": "Arena das Dunas",
+  "sl": 44,
+  "lon": -35.21236,
+  "lat": -5.82681,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q134485",
+  "label": "Lake Balkhash",
+  "sl": 89,
+  "lon": 74.878889,
+  "lat": 46.540833,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q134821",
+  "label": "Western Wall",
+  "sl": 84,
+  "lon": 35.23425,
+  "lat": 31.776947,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1348234",
+  "label": "Eindhoven Airport",
+  "sl": 43,
+  "lon": 5.374167,
+  "lat": 51.450556,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q134883",
+  "label": "CN Tower",
+  "sl": 80,
+  "lon": -79.387147,
+  "lat": 43.642753,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q134927",
+  "label": "Mount Emei",
+  "sl": 55,
+  "lon": 103.3325,
+  "lat": 29.519722,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q135332",
+  "label": "Red Pyramid",
+  "sl": 43,
+  "lon": 31.205833,
+  "lat": 29.808333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q1362211",
+  "label": "Arena Cidade da Copa",
+  "sl": 44,
+  "lon": -35.008333,
+  "lat": -8.040556,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1365115",
+  "label": "Lake Naivasha",
+  "sl": 41,
+  "lon": 36.350645,
+  "lat": -0.768528,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q13700",
+  "label": "Lake Texcoco",
+  "sl": 41,
+  "lon": -98.99,
+  "lat": 19.5,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q1372",
+  "label": "Gran Paradiso",
+  "sl": 43,
+  "lon": 7.266667,
+  "lat": 45.533333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1373583",
+  "label": "Registan",
+  "sl": 57,
+  "lon": 66.975556,
+  "lat": 39.654722,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q1374",
+  "label": "Matterhorn",
+  "sl": 92,
+  "lon": 7.658611,
+  "lat": 45.976389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1383",
+  "label": "Lake Huron",
+  "sl": 100,
+  "lon": -82.756293,
+  "lat": 44.592584,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q138908",
+  "label": "Bolshoi Theatre",
+  "sl": 76,
+  "lon": 37.618611,
+  "lat": 55.760278,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q139921",
+  "label": "Keflavík Airport",
+  "sl": 48,
+  "lon": -22.605556,
+  "lat": 63.985,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q14052",
+  "label": "Sangay volcano",
+  "sl": 41,
+  "lon": -78.340833,
+  "lat": -2.0025,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q140712",
+  "label": "Lake Tai",
+  "sl": 51,
+  "lon": 120.15,
+  "lat": 31.166667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14081",
+  "label": "Chimborazo",
+  "sl": 84,
+  "lon": -78.8175,
+  "lat": -1.469167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1410402",
+  "label": "Pierre Mauroy Stadium",
+  "sl": 47,
+  "lon": 3.130631,
+  "lat": 50.611962,
+  "types": [
+   "sports venue"
+  ]
+ },
+ {
+  "qid": "Q141677",
+  "label": "Xi'an Xianyang International Airport",
+  "sl": 40,
+  "lon": 108.751389,
+  "lat": 34.446944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1423325",
+  "label": "Phu Quoc International Airport",
+  "sl": 65,
+  "lon": 103.991111,
+  "lat": 10.171667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q14295",
+  "label": "Seattle–Tacoma International Airport",
+  "sl": 48,
+  "lon": -122.309444,
+  "lat": 47.448889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1431012",
+  "label": "Brussels South Charleroi Airport",
+  "sl": 41,
+  "lon": 4.45382,
+  "lat": 50.4592,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q143463",
+  "label": "Palais des Papes",
+  "sl": 46,
+  "lon": 4.8075,
+  "lat": 43.9508,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q14375",
+  "label": "Lake Neuchâtel",
+  "sl": 56,
+  "lon": 6.85,
+  "lat": 46.9,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14379",
+  "label": "Lake Maggiore",
+  "sl": 81,
+  "lon": 8.714722,
+  "lat": 46.098056,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14381",
+  "label": "Lake Lucerne",
+  "sl": 60,
+  "lon": 8.4011,
+  "lat": 47.0194,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14407",
+  "label": "Lake Zurich",
+  "sl": 63,
+  "lon": 8.6775,
+  "lat": 47.2475,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14418",
+  "label": "Lake Lugano",
+  "sl": 64,
+  "lon": 9.0,
+  "lat": 46.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14426",
+  "label": "Lake Thun",
+  "sl": 44,
+  "lon": 7.716667,
+  "lat": 46.683333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14429",
+  "label": "Lake Biel",
+  "sl": 45,
+  "lon": 7.174167,
+  "lat": 47.085556,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14436",
+  "label": "Lake Zug",
+  "sl": 40,
+  "lon": 8.483333,
+  "lat": 47.116667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14442",
+  "label": "Lake Brienz",
+  "sl": 43,
+  "lon": 7.95,
+  "lat": 46.716667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q14448",
+  "label": "Lake Murten",
+  "sl": 41,
+  "lon": 7.075,
+  "lat": 46.933333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q145093",
+  "label": "Apostolic Palace",
+  "sl": 60,
+  "lon": 12.456389,
+  "lat": 41.903611,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q1451",
+  "label": "Pinatubo",
+  "sl": 70,
+  "lon": 120.35,
+  "lat": 15.13,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1476251",
+  "label": "Saint Sophia Cathedral",
+  "sl": 40,
+  "lon": 33.364444,
+  "lat": 35.176389,
+  "types": [
+   "cathedral",
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q147875",
+  "label": "Tsar Bell",
+  "sl": 43,
+  "lon": 37.618333,
+  "lat": 55.750833,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q147881",
+  "label": "Tsar Cannon",
+  "sl": 44,
+  "lon": 37.61793,
+  "lat": 55.75146,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q1484",
+  "label": "Mayon Volcano",
+  "sl": 71,
+  "lon": 123.685,
+  "lat": 13.256667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q148521",
+  "label": "Illimani",
+  "sl": 41,
+  "lon": -67.790833,
+  "lat": -16.633333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q150933",
+  "label": "Volksparkstadion",
+  "sl": 54,
+  "lon": 9.898611,
+  "lat": 53.586944,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q1509463",
+  "label": "Vaishali",
+  "sl": 44,
+  "lon": 85.125592,
+  "lat": 25.986594,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q150961",
+  "label": "Arena AufSchalke",
+  "sl": 58,
+  "lon": 7.067589,
+  "lat": 51.554503,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q15114",
+  "label": "Zurich Airport",
+  "sl": 65,
+  "lon": 8.548055,
+  "lat": 47.458056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q15117",
+  "label": "Dom",
+  "sl": 44,
+  "lon": 7.85886,
+  "lat": 46.09391,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q15122",
+  "label": "Weisshorn",
+  "sl": 40,
+  "lon": 7.716111,
+  "lat": 46.101667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q15124814",
+  "label": "Piazza di Spagna",
+  "sl": 40,
+  "lon": 12.482058,
+  "lat": 41.90595,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q15127",
+  "label": "Finsteraarhorn",
+  "sl": 42,
+  "lon": 8.126091,
+  "lat": 46.537355,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q15132",
+  "label": "Piz Bernina",
+  "sl": 42,
+  "lon": 9.908111,
+  "lat": 46.382389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q151330",
+  "label": "Sanssouci Palace",
+  "sl": 53,
+  "lon": 13.038626,
+  "lat": 52.403257,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q151356",
+  "label": "Fernsehturm Berlin",
+  "sl": 58,
+  "lon": 13.409444,
+  "lat": 52.520833,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q1514176",
+  "label": "Mount Yamantau",
+  "sl": 47,
+  "lon": 58.102,
+  "lat": 54.255,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q151545",
+  "label": "Wartburg",
+  "sl": 58,
+  "lon": 10.306389,
+  "lat": 50.966111,
+  "types": [
+   "building",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q151765",
+  "label": "Commerzbank Tower",
+  "sl": 43,
+  "lon": 8.67437,
+  "lat": 50.11116,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q151846",
+  "label": "Pleiku Airport",
+  "sl": 58,
+  "lon": 108.017222,
+  "lat": 14.004444,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q151952",
+  "label": "Venus de Milo",
+  "sl": 73,
+  "lon": 2.337288,
+  "lat": 48.859945,
+  "types": [
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q152252",
+  "label": "Potsdamer Platz",
+  "sl": 50,
+  "lon": 13.376333,
+  "lat": 52.508945,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q152349",
+  "label": "MHPArena",
+  "sl": 54,
+  "lon": 9.231944,
+  "lat": 48.792222,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q152633",
+  "label": "Niedersachsenstadion",
+  "sl": 44,
+  "lon": 9.731111,
+  "lat": 52.36,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q15265",
+  "label": "Mount Pilatus",
+  "sl": 45,
+  "lon": 8.241111,
+  "lat": 46.973889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q152783",
+  "label": "Alexanderplatz",
+  "sl": 49,
+  "lon": 13.413611,
+  "lat": 52.521667,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q152802",
+  "label": "Buchenwald concentration camp",
+  "sl": 60,
+  "lon": 11.248999,
+  "lat": 51.021198,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q15288",
+  "label": "Lake Ladoga",
+  "sl": 99,
+  "lon": 31.459722,
+  "lat": 60.842778,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q15312",
+  "label": "Jungfrau",
+  "sl": 56,
+  "lon": 7.9625,
+  "lat": 46.536944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q153426",
+  "label": "Eltz Castle",
+  "sl": 40,
+  "lon": 7.336667,
+  "lat": 50.205,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q153592",
+  "label": "King Abdulaziz International Airport",
+  "sl": 50,
+  "lon": 39.173028,
+  "lat": 21.661694,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q153951",
+  "label": "Kaiser-Wilhelm-Gedächtniskirche",
+  "sl": 43,
+  "lon": 13.335278,
+  "lat": 52.504722,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q154372",
+  "label": "Monte Cassino",
+  "sl": 43,
+  "lon": 13.813889,
+  "lat": 41.49,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q1547",
+  "label": "Lyon–Saint-Exupéry Airport",
+  "sl": 47,
+  "lon": 5.081111,
+  "lat": 45.725556,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q154996",
+  "label": "Charlottenburg Palace",
+  "sl": 49,
+  "lon": 13.295833,
+  "lat": 52.521111,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q155093",
+  "label": "Mannerheim Line",
+  "sl": 41,
+  "lon": 29.416667,
+  "lat": 60.5,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q155107",
+  "label": "Zwinger",
+  "sl": 42,
+  "lon": 13.733889,
+  "lat": 51.053056,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q155174",
+  "label": "Maracanã Stadium",
+  "sl": 89,
+  "lon": -43.230278,
+  "lat": -22.912222,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q155721",
+  "label": "Brocken",
+  "sl": 42,
+  "lon": 10.615637,
+  "lat": 51.799125,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q156093",
+  "label": "Taxila",
+  "sl": 74,
+  "lon": 72.815207,
+  "lat": 33.745685,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q156198",
+  "label": "Messeturm",
+  "sl": 40,
+  "lon": 8.652778,
+  "lat": 50.112222,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q156258",
+  "label": "Lake Ohrid",
+  "sl": 63,
+  "lon": 20.716667,
+  "lat": 41.033333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q156316",
+  "label": "Würzburg Residence",
+  "sl": 46,
+  "lon": 9.938889,
+  "lat": 49.792798,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q156457",
+  "label": "Hohenzollern Castle",
+  "sl": 47,
+  "lon": 8.9674,
+  "lat": 48.323561,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q15648",
+  "label": "Lake Iseo",
+  "sl": 51,
+  "lon": 10.071944,
+  "lat": 45.711667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q156591",
+  "label": "Yad Vashem",
+  "sl": 63,
+  "lon": 35.177248,
+  "lat": 31.774424,
+  "types": [
+   "memorial",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q156675",
+  "label": "Wieskirche",
+  "sl": 45,
+  "lon": 10.900445,
+  "lat": 47.6806,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q156715",
+  "label": "Königssee",
+  "sl": 48,
+  "lon": 12.975,
+  "lat": 47.55,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q156971",
+  "label": "EuroAirport Basel-Mulhouse-Freiburg",
+  "sl": 51,
+  "lon": 7.5316,
+  "lat": 47.599696,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q157229",
+  "label": "Church of Our Lady",
+  "sl": 48,
+  "lon": 13.741667,
+  "lat": 51.051944,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q157298",
+  "label": "Pergamon Museum",
+  "sl": 61,
+  "lon": 13.396,
+  "lat": 52.521,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q157316",
+  "label": "Neues Museum",
+  "sl": 47,
+  "lon": 13.3976,
+  "lat": 52.5202,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q157550",
+  "label": "Abbey and Altenmünster of Lorsch",
+  "sl": 44,
+  "lon": 8.56858,
+  "lat": 49.65369,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q157886",
+  "label": "Maulbronn Monastery",
+  "sl": 45,
+  "lon": 8.8129,
+  "lat": 49.0011,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q158077",
+  "label": "Dojran Lake",
+  "sl": 44,
+  "lon": 22.75,
+  "lat": 41.216667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q158470",
+  "label": "Mount Agung",
+  "sl": 58,
+  "lon": 115.507778,
+  "lat": -8.341944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q158526",
+  "label": "Monte Titano",
+  "sl": 53,
+  "lon": 12.452222,
+  "lat": 43.928333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q15903",
+  "label": "Postojna Cave",
+  "sl": 52,
+  "lon": 14.20366,
+  "lat": 45.78276,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q160094",
+  "label": "Phu Bai International Airport",
+  "sl": 56,
+  "lon": 107.702778,
+  "lat": 16.401667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1601986",
+  "label": "The Motherland Calls",
+  "sl": 54,
+  "lon": 44.537083,
+  "lat": 48.742278,
+  "types": [
+   "historic site",
+   "monument",
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q160659",
+  "label": "London Eye",
+  "sl": 78,
+  "lon": -0.119722,
+  "lat": 51.503333,
+  "types": [
+   "tourist attraction"
+  ]
+ },
+ {
+  "qid": "Q162052",
+  "label": "Linderhof Palace",
+  "sl": 41,
+  "lon": 10.960754,
+  "lat": 47.571619,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q16318627",
+  "label": "Abeno Harukas",
+  "sl": 67,
+  "lon": 135.514267,
+  "lat": 34.645947,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q163521",
+  "label": "FNB Stadium",
+  "sl": 61,
+  "lon": 27.982378,
+  "lat": -26.234806,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q163607",
+  "label": "Angkor",
+  "sl": 91,
+  "lon": 103.833333,
+  "lat": 13.433333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q164027",
+  "label": "Bernabéu",
+  "sl": 81,
+  "lon": -3.68835,
+  "lat": 40.45306,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q164055",
+  "label": "Tiananmen Square",
+  "sl": 78,
+  "lon": 116.391392,
+  "lat": 39.904567,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q164150",
+  "label": "Palace of the Parliament",
+  "sl": 45,
+  "lon": 26.0875,
+  "lat": 44.4275,
+  "types": [
+   "palace",
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q165146",
+  "label": "Lien Khuong Airport",
+  "sl": 55,
+  "lon": 108.373611,
+  "lat": 11.750556,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q16525",
+  "label": "Mönch",
+  "sl": 48,
+  "lon": 7.997222,
+  "lat": 46.558333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q165414",
+  "label": "Hedeby",
+  "sl": 43,
+  "lon": 9.565278,
+  "lat": 54.491111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q165440",
+  "label": "Dhaulagiri",
+  "sl": 90,
+  "lon": 83.49,
+  "lat": 28.696667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q166162",
+  "label": "Lake Onega",
+  "sl": 84,
+  "lon": 35.655555,
+  "lat": 61.690556,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q166276",
+  "label": "Madrid-Barajas Airport",
+  "sl": 74,
+  "lon": -3.560833,
+  "lat": 40.472222,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q16648",
+  "label": "Monte San Giorgio",
+  "sl": 47,
+  "lon": 8.95,
+  "lat": 45.916667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q167566",
+  "label": "Palace of Culture and Science",
+  "sl": 51,
+  "lon": 21.006389,
+  "lat": 52.231667,
+  "types": [
+   "architectural landmark",
+   "palace",
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q168518",
+  "label": "Uruk",
+  "sl": 75,
+  "lon": 45.6374,
+  "lat": 31.3259,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q168702",
+  "label": "Lhotse",
+  "sl": 86,
+  "lon": 86.933333,
+  "lat": 27.961667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q168713",
+  "label": "Aurora",
+  "sl": 58,
+  "lon": 30.33746,
+  "lat": 59.95566,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q168714",
+  "label": "Tambora",
+  "sl": 73,
+  "lon": 117.992778,
+  "lat": -8.245278,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q169420",
+  "label": "Edifício Altino Arantes",
+  "sl": 50,
+  "lon": -46.6341,
+  "lat": -23.545675,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q169460",
+  "label": "Miletus",
+  "sl": 73,
+  "lon": 27.278369,
+  "lat": 37.530233,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q169986",
+  "label": "Makalu",
+  "sl": 89,
+  "lon": 87.088611,
+  "lat": 27.889167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q170047",
+  "label": "Samarra",
+  "sl": 92,
+  "lon": 43.88568,
+  "lat": 34.1959,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q170070",
+  "label": "Manaslu",
+  "sl": 82,
+  "lon": 84.559722,
+  "lat": 28.55,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q170089",
+  "label": "Cho Oyu",
+  "sl": 84,
+  "lon": 86.660833,
+  "lat": 28.094167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q170343",
+  "label": "Can Tho International Airport",
+  "sl": 53,
+  "lon": 105.711944,
+  "lat": 10.085278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q170495",
+  "label": "Topkapı Palace",
+  "sl": 79,
+  "lon": 28.984,
+  "lat": 41.013,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q170610",
+  "label": "Edifício Itália",
+  "sl": 48,
+  "lon": -46.643611,
+  "lat": -23.545417,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q171517",
+  "label": "Royal Palace of Madrid",
+  "sl": 45,
+  "lon": -3.714312,
+  "lat": 40.417955,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q172070",
+  "label": "Mount Kenya",
+  "sl": 89,
+  "lon": 37.2,
+  "lat": -0.1,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q172613",
+  "label": "Teotihuacan",
+  "sl": 79,
+  "lon": -98.843889,
+  "lat": 19.6925,
+  "types": [
+   "archaeological site",
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q172988",
+  "label": "St Mark's Basilica",
+  "sl": 65,
+  "lon": 12.339722,
+  "lat": 45.434444,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q173532",
+  "label": "Byblos",
+  "sl": 83,
+  "lon": 35.65,
+  "lat": 34.116667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q173559",
+  "label": "Cape Town Stadium",
+  "sl": 54,
+  "lon": 18.411153,
+  "lat": -33.903461,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q173596",
+  "label": "Vänern",
+  "sl": 79,
+  "lon": 13.5,
+  "lat": 58.916667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q173862",
+  "label": "Lake Nicaragua",
+  "sl": 78,
+  "lon": -85.3563,
+  "lat": 11.5742,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q17581",
+  "label": "Sydney Airport",
+  "sl": 60,
+  "lon": 151.176111,
+  "lat": -33.948333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q17704",
+  "label": "Hong Kong International Airport",
+  "sl": 68,
+  "lon": 113.914444,
+  "lat": 22.308889,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q1771696",
+  "label": "Charminar",
+  "sl": 51,
+  "lon": 78.474657,
+  "lat": 17.361607,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q177174",
+  "label": "Icelandic Phallological Museum",
+  "sl": 41,
+  "lon": -21.93578,
+  "lat": 64.148497,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q177689",
+  "label": "Accra International Airport",
+  "sl": 40,
+  "lon": -0.167389,
+  "lat": 5.604667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q178021",
+  "label": "Dublin Airport",
+  "sl": 55,
+  "lon": -6.27,
+  "lat": 53.421389,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q178167",
+  "label": "Mount Kosciuszko",
+  "sl": 86,
+  "lon": 148.26351,
+  "lat": -36.45583,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q178813",
+  "label": "Herculaneum",
+  "sl": 72,
+  "lon": 14.3475,
+  "lat": 40.806111,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q178835",
+  "label": "Baalbek",
+  "sl": 87,
+  "lon": 36.208611,
+  "lat": 34.006111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q179199",
+  "label": "Guggenheim Museum Bilbao",
+  "sl": 68,
+  "lon": -2.934099,
+  "lat": 43.26883,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q179693",
+  "label": "Kazimierz Górski National Stadium",
+  "sl": 53,
+  "lon": 21.045556,
+  "lat": 52.239444,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q179900",
+  "label": "David",
+  "sl": 82,
+  "lon": 11.25945,
+  "lat": 43.776703,
+  "types": [
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q179970",
+  "label": "Kati Thanda–Lake Eyre",
+  "sl": 71,
+  "lon": 137.166667,
+  "lat": -28.666667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q180212",
+  "label": "Roman Forum",
+  "sl": 72,
+  "lon": 12.4852,
+  "lat": 41.8922,
+  "types": [
+   "archaeological site",
+   "square"
+  ]
+ },
+ {
+  "qid": "Q180376",
+  "label": "Hollywood Sign",
+  "sl": 43,
+  "lon": -118.321694,
+  "lat": 34.134103,
+  "types": [
+   "architectural landmark",
+   "tourist attraction"
+  ]
+ },
+ {
+  "qid": "Q180479",
+  "label": "Donbass Arena",
+  "sl": 47,
+  "lon": 37.809722,
+  "lat": 48.020833,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q180615",
+  "label": "Dolby Theatre",
+  "sl": 53,
+  "lon": -118.340278,
+  "lat": 34.102778,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q18068",
+  "label": "Milan Cathedral",
+  "sl": 78,
+  "lon": 9.190578,
+  "lat": 45.463968,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q180773",
+  "label": "Susa",
+  "sl": 79,
+  "lon": 48.256111,
+  "lat": 32.189444,
+  "types": [
+   "archaeological site",
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q180901",
+  "label": "Atomium",
+  "sl": 53,
+  "lon": 4.341389,
+  "lat": 50.895,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q180996",
+  "label": "Broad Peak",
+  "sl": 77,
+  "lon": 76.568055,
+  "lat": 35.810556,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q181007",
+  "label": "Hattusa",
+  "sl": 71,
+  "lon": 34.615278,
+  "lat": 40.019722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q181172",
+  "label": "Tikal",
+  "sl": 75,
+  "lon": -89.623614,
+  "lat": 17.222094,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q181324",
+  "label": "Ostankino Tower",
+  "sl": 61,
+  "lon": 37.611667,
+  "lat": 55.819722,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q181427",
+  "label": "Palenque",
+  "sl": 67,
+  "lon": -92.046389,
+  "lat": 17.484167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q181445",
+  "label": "Nelson Mandela Bay Stadium",
+  "sl": 49,
+  "lon": 25.598889,
+  "lat": -33.937778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q181476",
+  "label": "Cotopaxi volcano",
+  "sl": 65,
+  "lon": -78.42889,
+  "lat": -0.68917,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q181479",
+  "label": "Ben Gurion Airport",
+  "sl": 82,
+  "lon": 34.882778,
+  "lat": 32.009444,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q181932",
+  "label": "Lake Sevan",
+  "sl": 76,
+  "lon": 45.349167,
+  "lat": 40.310556,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q18201640",
+  "label": "Wikipedia Monument",
+  "sl": 58,
+  "lon": 14.560361,
+  "lat": 52.349306,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q182137",
+  "label": "Lake Maracaibo",
+  "sl": 72,
+  "lon": -71.556667,
+  "lat": 9.815833,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q182147",
+  "label": "Winter Palace",
+  "sl": 76,
+  "lon": 30.31456,
+  "lat": 59.939832,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q182913",
+  "label": "Grímsvötn",
+  "sl": 50,
+  "lon": -17.33,
+  "lat": 64.42,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q183334",
+  "label": "Tretyakov Gallery",
+  "sl": 60,
+  "lon": 37.620864,
+  "lat": 55.741389,
+  "types": [
+   "architectural landmark",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q183536",
+  "label": "Tokyo Tower",
+  "sl": 69,
+  "lon": 139.745556,
+  "lat": 35.658611,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q183562",
+  "label": "Umayyad Mosque",
+  "sl": 78,
+  "lon": 36.306667,
+  "lat": 33.511389,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q184427",
+  "label": "Ajanta Caves",
+  "sl": 83,
+  "lon": 75.700472,
+  "lat": 20.553417,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q184492",
+  "label": "Mälaren",
+  "sl": 64,
+  "lon": 17.2,
+  "lat": 59.5,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q18536",
+  "label": "The Shard",
+  "sl": 60,
+  "lon": -0.086667,
+  "lat": 51.504444,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q18547",
+  "label": "Shanghai Tower",
+  "sl": 58,
+  "lon": 121.501,
+  "lat": 31.2355,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q185562",
+  "label": "Harappa",
+  "sl": 77,
+  "lon": 72.866667,
+  "lat": 30.633333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q185741",
+  "label": "Ernst-Happel-Stadion",
+  "sl": 52,
+  "lon": 16.420833,
+  "lat": 48.207222,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q186312",
+  "label": "Masada",
+  "sl": 71,
+  "lon": 35.353889,
+  "lat": 31.315556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q18640924",
+  "label": "Landmark 81",
+  "sl": 42,
+  "lon": 106.721944,
+  "lat": 10.795,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q186614",
+  "label": "Domodedovo International Airport",
+  "sl": 81,
+  "lon": 37.906111,
+  "lat": 55.408611,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q186853",
+  "label": "Gasherbrum II",
+  "sl": 70,
+  "lon": 76.652778,
+  "lat": 35.7575,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q187042",
+  "label": "Peter Mokaba Stadium",
+  "sl": 50,
+  "lon": 29.468765,
+  "lat": -23.924689,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q187087",
+  "label": "Mbombela Stadium",
+  "sl": 48,
+  "lon": 30.929778,
+  "lat": -25.461889,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q187138",
+  "label": "Gasherbrum",
+  "sl": 71,
+  "lon": 76.696389,
+  "lat": 35.724444,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q187702",
+  "label": "Church of the Holy Sepulchre",
+  "sl": 76,
+  "lon": 35.22975,
+  "lat": 31.778444,
+  "types": [
+   "cathedral",
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q187840",
+  "label": "Palais Garnier",
+  "sl": 63,
+  "lon": 2.331667,
+  "lat": 48.871945,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q188112",
+  "label": "National Museum in Prague",
+  "sl": 41,
+  "lon": 14.430417,
+  "lat": 50.079843,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q188195",
+  "label": "Vättern",
+  "sl": 65,
+  "lon": 14.6,
+  "lat": 58.4,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q188258",
+  "label": "Fezzan",
+  "sl": 54,
+  "lon": 13.4253,
+  "lat": 26.3328,
+  "types": [
+   "landscape"
+  ]
+ },
+ {
+  "qid": "Q188395",
+  "label": "Nippur",
+  "sl": 69,
+  "lon": 45.230833,
+  "lat": 32.126111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q188487",
+  "label": "Lake Trasimeno",
+  "sl": 59,
+  "lon": 12.1,
+  "lat": 43.14,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q188528",
+  "label": "Stari Most",
+  "sl": 61,
+  "lon": 17.815028,
+  "lat": 43.337278,
+  "types": [
+   "bridge"
+  ]
+ },
+ {
+  "qid": "Q188740",
+  "label": "Museum of Modern Art",
+  "sl": 67,
+  "lon": -73.9775,
+  "lat": 40.761667,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q188856",
+  "label": "Panthéon",
+  "sl": 61,
+  "lon": 2.346105,
+  "lat": 48.846198,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q188982",
+  "label": "Mount Erebus",
+  "sl": 69,
+  "lon": 167.283333,
+  "lat": -77.533333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q189022",
+  "label": "Imperial College London",
+  "sl": 65,
+  "lon": -0.176882,
+  "lat": 51.498308,
+  "types": [
+   "building"
+  ]
+ },
+ {
+  "qid": "Q189113",
+  "label": "L'Anse aux Meadows",
+  "sl": 55,
+  "lon": -55.531222,
+  "lat": 51.595267,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q18927",
+  "label": "Lycia",
+  "sl": 61,
+  "lon": 29.9,
+  "lat": 36.733333,
+  "types": [
+   "landscape"
+  ]
+ },
+ {
+  "qid": "Q189337",
+  "label": "Royal Bafokeng Stadium",
+  "sl": 48,
+  "lon": 27.160833,
+  "lat": -25.578611,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q189358",
+  "label": "Kronborg Castle",
+  "sl": 55,
+  "lon": 12.621944,
+  "lat": 56.038611,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q189476",
+  "label": "Abraj Al Bait",
+  "sl": 60,
+  "lon": 39.826389,
+  "lat": 21.418889,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q189503",
+  "label": "place de la Concorde",
+  "sl": 62,
+  "lon": 2.321236,
+  "lat": 48.865633,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q189616",
+  "label": "Ellora Caves",
+  "sl": 76,
+  "lon": 75.179167,
+  "lat": 20.026389,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q189883",
+  "label": "Doge's Palace",
+  "sl": 60,
+  "lon": 12.340417,
+  "lat": 45.433667,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q190048",
+  "label": "Tassili n'Ajjer",
+  "sl": 70,
+  "lon": 9.0,
+  "lat": 25.666667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q19053",
+  "label": "Mystras",
+  "sl": 54,
+  "lon": 22.3673,
+  "lat": 37.074,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q190562",
+  "label": "Mount Cameroon",
+  "sl": 60,
+  "lon": 9.1725,
+  "lat": 4.216667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q190779",
+  "label": "Central Stadium Yekaterinburg",
+  "sl": 54,
+  "lon": 60.57358,
+  "lat": 56.83244,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q19101",
+  "label": "Roma Fiumicino Airport",
+  "sl": 66,
+  "lon": 12.2499,
+  "lat": 41.7956,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q191161",
+  "label": "30 St Mary Axe",
+  "sl": 49,
+  "lon": -0.080278,
+  "lat": 51.514444,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q191414",
+  "label": "Lenin's Mausoleum",
+  "sl": 62,
+  "lon": 37.619722,
+  "lat": 55.753611,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q191504",
+  "label": "Leptis Magna",
+  "sl": 69,
+  "lon": 14.290496,
+  "lat": 32.638332,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q191583",
+  "label": "Royal Swedish Academy of Sciences",
+  "sl": 63,
+  "lon": 18.051667,
+  "lat": 59.366389,
+  "types": [
+   "building"
+  ]
+ },
+ {
+  "qid": "Q191687",
+  "label": "Heliopolis",
+  "sl": 63,
+  "lon": 31.288889,
+  "lat": 30.129528,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q191739",
+  "label": "Florence Cathedral",
+  "sl": 71,
+  "lon": 11.256944,
+  "lat": 43.773056,
+  "types": [
+   "cathedral",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q192134",
+  "label": "Saqqara",
+  "sl": 66,
+  "lon": 31.233333,
+  "lat": 29.85,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q192268",
+  "label": "Abydos",
+  "sl": 57,
+  "lon": 31.918889,
+  "lat": 26.185167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q192418",
+  "label": "Pyramid of Djoser",
+  "sl": 56,
+  "lon": 31.216667,
+  "lat": 29.871111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q19253",
+  "label": "Lake Peipus",
+  "sl": 67,
+  "lon": 27.491667,
+  "lat": 58.676667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q192541",
+  "label": "Ctesiphon",
+  "sl": 75,
+  "lon": 44.580556,
+  "lat": 33.093611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q192680",
+  "label": "New York Times Building",
+  "sl": 45,
+  "lon": -73.99,
+  "lat": 40.756111,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q192733",
+  "label": "Sheremetyevo International Airport",
+  "sl": 78,
+  "lon": 37.414722,
+  "lat": 55.972778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q192770",
+  "label": "Saimaa",
+  "sl": 77,
+  "lon": 28.25,
+  "lat": 61.25,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q192784",
+  "label": "Trajan's Column",
+  "sl": 56,
+  "lon": 12.484167,
+  "lat": 41.895833,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q192981",
+  "label": "Minaret of Jam",
+  "sl": 75,
+  "lon": 64.515888,
+  "lat": 34.396386,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q192988",
+  "label": "Royal Observatory",
+  "sl": 61,
+  "lon": -0.001389,
+  "lat": 51.477833,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q193093",
+  "label": "Platonic Academy",
+  "sl": 69,
+  "lon": 23.708059,
+  "lat": 37.992359,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q193325",
+  "label": "Merv",
+  "sl": 70,
+  "lon": 62.1925,
+  "lat": 37.662778,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q193408",
+  "label": "Phu Cat Airport",
+  "sl": 46,
+  "lon": 109.042222,
+  "lat": 13.955,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q193439",
+  "label": "Dubai International Airport",
+  "sl": 77,
+  "lon": 55.364444,
+  "lat": 25.252778,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q193639",
+  "label": "Royal Albert Hall",
+  "sl": 52,
+  "lon": -0.17748,
+  "lat": 51.50105,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q193651",
+  "label": "Hampden Park",
+  "sl": 57,
+  "lon": -4.252003,
+  "lat": 55.825864,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q193682",
+  "label": "Kansai International Airport",
+  "sl": 70,
+  "lon": 135.230278,
+  "lat": 34.430556,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q193785",
+  "label": "Mount Tabor",
+  "sl": 58,
+  "lon": 35.392917,
+  "lat": 32.68625,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q194057",
+  "label": "Mount Rainier",
+  "sl": 69,
+  "lon": -121.760278,
+  "lat": 46.851667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q194316",
+  "label": "Suvarnabhumi Airport",
+  "sl": 67,
+  "lon": 100.747222,
+  "lat": 13.681111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q194450",
+  "label": "Thermopylae",
+  "sl": 58,
+  "lon": 22.536667,
+  "lat": 38.795556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q194479",
+  "label": "Stadion Wankdorf",
+  "sl": 46,
+  "lon": 7.465,
+  "lat": 46.962778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q19520501",
+  "label": "SoFi Stadium",
+  "sl": 52,
+  "lon": -118.338,
+  "lat": 33.9504,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q199938",
+  "label": "Tonle Sap",
+  "sl": 63,
+  "lon": 104.066667,
+  "lat": 12.883333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q200200",
+  "label": "Assur",
+  "sl": 79,
+  "lon": 43.2625,
+  "lat": 35.456667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q200642",
+  "label": "Palatine Hill",
+  "sl": 63,
+  "lon": 12.486944,
+  "lat": 41.888333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q200935",
+  "label": "Huascarán",
+  "sl": 49,
+  "lon": -77.6,
+  "lat": -9.116667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q201294",
+  "label": "Qinghai Lake",
+  "sl": 72,
+  "lon": 100.0,
+  "lat": 37.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q201428",
+  "label": "Palace of Fontainebleau",
+  "sl": 56,
+  "lon": 2.700555,
+  "lat": 48.402222,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q201785",
+  "label": "El Dorado International Airport",
+  "sl": 41,
+  "lon": -74.146944,
+  "lat": 4.701389,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q201843",
+  "label": "Khanka",
+  "sl": 58,
+  "lon": 132.416667,
+  "lat": 45.016667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q202150",
+  "label": "Stade Vélodrome",
+  "sl": 56,
+  "lon": 5.394907,
+  "lat": 43.269241,
+  "types": [
+   "sports venue",
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q202163",
+  "label": "Luzhniki Stadium",
+  "sl": 67,
+  "lon": 37.553611,
+  "lat": 55.715833,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q2027162",
+  "label": "Gateway Arch",
+  "sl": 40,
+  "lon": -90.184972,
+  "lat": 38.624611,
+  "types": [
+   "architectural landmark",
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q202762",
+  "label": "Mestalla Stadium",
+  "sl": 49,
+  "lon": -0.358333,
+  "lat": 39.474722,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q202902",
+  "label": "The Crystal Palace",
+  "sl": 52,
+  "lon": -0.075789,
+  "lat": 51.422294,
+  "types": [
+   "palace",
+   "sports venue"
+  ]
+ },
+ {
+  "qid": "Q202905",
+  "label": "Lake Okeechobee",
+  "sl": 40,
+  "lon": -80.8,
+  "lat": 26.95,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q203137",
+  "label": "Lake Inari",
+  "sl": 61,
+  "lon": 27.601707,
+  "lat": 68.959651,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q203462",
+  "label": "Ilmen",
+  "sl": 52,
+  "lon": 31.283333,
+  "lat": 58.266667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q2034869",
+  "label": "Zhengzhou Xinzheng International Airport",
+  "sl": 42,
+  "lon": 113.840833,
+  "lat": 34.519722,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q203568",
+  "label": "Mount Aragats",
+  "sl": 69,
+  "lon": 44.195278,
+  "lat": 40.523055,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q203811",
+  "label": "Lake Skadar",
+  "sl": 55,
+  "lon": 19.309,
+  "lat": 42.1814,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q203942",
+  "label": "Galdhøpiggen",
+  "sl": 52,
+  "lon": 8.3,
+  "lat": 61.633333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q204200",
+  "label": "Cavern of the Patriarchs",
+  "sl": 54,
+  "lon": 35.110758,
+  "lat": 31.524672,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q204392",
+  "label": "Lake Prespa",
+  "sl": 59,
+  "lon": 21.05,
+  "lat": 40.9,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q204496",
+  "label": "Millennium Stadium",
+  "sl": 52,
+  "lon": -3.1825,
+  "lat": 51.478056,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q2047700",
+  "label": "Lala Mustafa Pasha Mosque",
+  "sl": 44,
+  "lon": 33.942727,
+  "lat": 35.124889,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q204853",
+  "label": "Tokyo International Airport",
+  "sl": 73,
+  "lon": 139.781111,
+  "lat": 35.553333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q205131",
+  "label": "Leshan Giant Buddha",
+  "sl": 64,
+  "lon": 103.76925,
+  "lat": 29.546944,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q205136",
+  "label": "Cathedral of Santiago de Compostela",
+  "sl": 65,
+  "lon": -8.544445,
+  "lat": 42.880556,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q205666",
+  "label": "Hampton Court Palace",
+  "sl": 53,
+  "lon": -0.337499,
+  "lat": 51.4034,
+  "types": [
+   "historic house museum",
+   "palace",
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q205711",
+  "label": "Solovetsky Islands",
+  "sl": 58,
+  "lon": 35.710556,
+  "lat": 65.024444,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q205976",
+  "label": "Mount of Olives",
+  "sl": 67,
+  "lon": 35.245686,
+  "lat": 31.777946,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q206161",
+  "label": "Mount Herzl",
+  "sl": 49,
+  "lon": 35.180567,
+  "lat": 31.774117,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q206277",
+  "label": "Copenhagen Airport",
+  "sl": 62,
+  "lon": 12.656111,
+  "lat": 55.618056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q206349",
+  "label": "Jomo Kenyatta International Airport",
+  "sl": 52,
+  "lon": 36.9275,
+  "lat": -1.319167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q206435",
+  "label": "Turning Torso",
+  "sl": 44,
+  "lon": 12.976389,
+  "lat": 55.613333,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q206942",
+  "label": "Lough Neagh",
+  "sl": 52,
+  "lon": -6.395278,
+  "lat": 54.618333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q207028",
+  "label": "Mariinsky Theatre",
+  "sl": 53,
+  "lon": 30.296111,
+  "lat": 59.925556,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q207109",
+  "label": "Johan Cruyff Arena",
+  "sl": 54,
+  "lon": 4.941944,
+  "lat": 52.314167,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q207132",
+  "label": "Terich Mir",
+  "sl": 59,
+  "lon": 71.843889,
+  "lat": 36.245833,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q207323",
+  "label": "Vulcano",
+  "sl": 59,
+  "lon": 14.9658,
+  "lat": 38.4042,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q207385",
+  "label": "Kensington Palace",
+  "sl": 54,
+  "lon": -0.188333,
+  "lat": 51.505278,
+  "types": [
+   "historic house museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q207421",
+  "label": "Tungurahua volcano",
+  "sl": 47,
+  "lon": -78.441667,
+  "lat": -1.466944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q207623",
+  "label": "Letzigrund",
+  "sl": 44,
+  "lon": 8.503801,
+  "lat": 47.382791,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q207680",
+  "label": "Mount Kazbek",
+  "sl": 63,
+  "lon": 44.518889,
+  "lat": 42.696944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q207690",
+  "label": "Poyang Lake",
+  "sl": 66,
+  "lon": 116.383333,
+  "lat": 29.066667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q207808",
+  "label": "Circus Maximus",
+  "sl": 52,
+  "lon": 12.4857,
+  "lat": 41.8859,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q207917",
+  "label": "Mount Nemrut",
+  "sl": 61,
+  "lon": 38.74083,
+  "lat": 37.980739,
+  "types": [
+   "archaeological site",
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q208081",
+  "label": "Aneto",
+  "sl": 52,
+  "lon": 0.656686,
+  "lat": 42.630992,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q208175",
+  "label": "Novodevichy Cemetery",
+  "sl": 47,
+  "lon": 37.554167,
+  "lat": 55.724722,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q208177",
+  "label": "Birka",
+  "sl": 51,
+  "lon": 17.545,
+  "lat": 59.336667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q208181",
+  "label": "Blenheim Palace",
+  "sl": 53,
+  "lon": -1.360948,
+  "lat": 51.841363,
+  "types": [
+   "historic house museum"
+  ]
+ },
+ {
+  "qid": "Q208358",
+  "label": "Pyramid of Khafre",
+  "sl": 53,
+  "lon": 31.130972,
+  "lat": 29.976,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q208379",
+  "label": "Tel Megiddo",
+  "sl": 55,
+  "lon": 35.184445,
+  "lat": 32.585278,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q208559",
+  "label": "Drottningholm Palace",
+  "sl": 59,
+  "lon": 17.886383,
+  "lat": 59.321694,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q208709",
+  "label": "Ibrox Stadium",
+  "sl": 41,
+  "lon": -4.309167,
+  "lat": 55.853055,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q208811",
+  "label": "Panathenaic Stadium",
+  "sl": 47,
+  "lon": 23.741111,
+  "lat": 37.968333,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q208926",
+  "label": "Loch Lomond",
+  "sl": 54,
+  "lon": -4.6515,
+  "lat": 56.1482,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q208987",
+  "label": "Polesia",
+  "sl": 54,
+  "lon": 27.0,
+  "lat": 52.0,
+  "types": [
+   "landscape"
+  ]
+ },
+ {
+  "qid": "Q209064",
+  "label": "Mont Ventoux",
+  "sl": 50,
+  "lon": 5.283333,
+  "lat": 44.166667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q209217",
+  "label": "Great Zimbabwe",
+  "sl": 75,
+  "lon": 30.933,
+  "lat": -20.27,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q20932",
+  "label": "Incheon International Airport",
+  "sl": 64,
+  "lon": 126.439167,
+  "lat": 37.4625,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q209341",
+  "label": "Musala",
+  "sl": 55,
+  "lon": 23.585278,
+  "lat": 42.179167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q209349",
+  "label": "Nicomedia",
+  "sl": 46,
+  "lon": 29.9175,
+  "lat": 40.7625,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q209528",
+  "label": "Mulhacén",
+  "sl": 52,
+  "lon": -3.311389,
+  "lat": 37.053333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q209725",
+  "label": "Twickenham Stadium",
+  "sl": 40,
+  "lon": -0.341667,
+  "lat": 51.456111,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q209937",
+  "label": "Vienna State Opera house",
+  "sl": 55,
+  "lon": 16.369167,
+  "lat": 48.203333,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q210065",
+  "label": "Eridu",
+  "sl": 54,
+  "lon": 45.994627,
+  "lat": 30.82604,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q210252",
+  "label": "Klyuchevskaya Sopka",
+  "sl": 62,
+  "lon": 160.633333,
+  "lat": 56.066667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q210280",
+  "label": "Dettifoss",
+  "sl": 47,
+  "lon": -16.38817,
+  "lat": 65.821919,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q210559",
+  "label": "Oslo Airport",
+  "sl": 56,
+  "lon": 11.083889,
+  "lat": 60.202778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q210598",
+  "label": "Tanis",
+  "sl": 49,
+  "lon": 31.88,
+  "lat": 30.976945,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q210610",
+  "label": "Golestan Palace",
+  "sl": 59,
+  "lon": 51.420278,
+  "lat": 35.679722,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q210678",
+  "label": "Urnes Stave Church",
+  "sl": 49,
+  "lon": 7.3225,
+  "lat": 61.298055,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q210722",
+  "label": "Sugarloaf Mountain",
+  "sl": 57,
+  "lon": -43.156667,
+  "lat": -22.949444,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q211295",
+  "label": "Trajan's Forum",
+  "sl": 47,
+  "lon": 12.485869,
+  "lat": 41.895417,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q211425",
+  "label": "Hjälmaren",
+  "sl": 43,
+  "lon": 15.75,
+  "lat": 59.25,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q211516",
+  "label": "Võrtsjärv",
+  "sl": 50,
+  "lon": 26.033333,
+  "lat": 58.266667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q211529",
+  "label": "Khan Tengri",
+  "sl": 64,
+  "lon": 80.175,
+  "lat": 42.210833,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q211734",
+  "label": "Athens International Airport \"Eleftherios Venizelos\"",
+  "sl": 60,
+  "lon": 23.944445,
+  "lat": 37.936389,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q211818",
+  "label": "Belvedere",
+  "sl": 62,
+  "lon": 16.38052,
+  "lat": 48.1934,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q211962",
+  "label": "Trinity Lavra of St. Sergius",
+  "sl": 49,
+  "lon": 38.13065,
+  "lat": 56.31035,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q212051",
+  "label": "Mývatn",
+  "sl": 46,
+  "lon": -16.985,
+  "lat": 65.600278,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q212065",
+  "label": "Edinburgh Castle",
+  "sl": 58,
+  "lon": -3.20073,
+  "lat": 55.9487,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q212209",
+  "label": "Mjøsa",
+  "sl": 45,
+  "lon": 11.0,
+  "lat": 60.666667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q213232",
+  "label": "Uxmal",
+  "sl": 64,
+  "lon": -89.771389,
+  "lat": 20.359444,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q213262",
+  "label": "Nanda Devi",
+  "sl": 60,
+  "lon": 79.970833,
+  "lat": 30.373889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q213360",
+  "label": "Table Mountain",
+  "sl": 72,
+  "lon": 18.41352,
+  "lat": -33.96216,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q213559",
+  "label": "Lincoln Memorial",
+  "sl": 53,
+  "lon": -77.050139,
+  "lat": 38.889278,
+  "types": [
+   "memorial"
+  ]
+ },
+ {
+  "qid": "Q213679",
+  "label": "Pella",
+  "sl": 52,
+  "lon": 22.525642,
+  "lat": 40.760033,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q213704",
+  "label": "Pico Bolívar",
+  "sl": 47,
+  "lon": -71.0465,
+  "lat": 8.540861,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q213717",
+  "label": "O'Hare International Airport",
+  "sl": 67,
+  "lon": -87.904722,
+  "lat": 41.978611,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q213769",
+  "label": "Päijänne",
+  "sl": 44,
+  "lon": 25.379105,
+  "lat": 61.508119,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q214007",
+  "label": "Tsodilo",
+  "sl": 53,
+  "lon": 21.754167,
+  "lat": -18.771667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q214011",
+  "label": "Kebnekaise",
+  "sl": 56,
+  "lon": 18.528361,
+  "lat": 67.904639,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q214788",
+  "label": "London Paddington station",
+  "sl": 45,
+  "lon": -0.177222,
+  "lat": 51.516667,
+  "types": [
+   "railway station"
+  ]
+ },
+ {
+  "qid": "Q214827",
+  "label": "Copán",
+  "sl": 57,
+  "lon": -89.142442,
+  "lat": 14.837964,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q214855",
+  "label": "Bank of China Tower",
+  "sl": 45,
+  "lon": 114.161389,
+  "lat": 22.279167,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q214861",
+  "label": "Hartsfield–Jackson Atlanta International Airport",
+  "sl": 71,
+  "lon": -84.428056,
+  "lat": 33.636667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q214916",
+  "label": "Llullaillaco",
+  "sl": 56,
+  "lon": -68.536667,
+  "lat": -24.719722,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q214924",
+  "label": "Rhine Falls",
+  "sl": 48,
+  "lon": 8.615833,
+  "lat": 47.677222,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q215003",
+  "label": "Belém Tower",
+  "sl": 57,
+  "lon": -9.215833,
+  "lat": 38.691389,
+  "types": [
+   "tourist attraction"
+  ]
+ },
+ {
+  "qid": "Q215023",
+  "label": "Nidaros Cathedral",
+  "sl": 41,
+  "lon": 10.3969,
+  "lat": 63.4269,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q215138",
+  "label": "Mount Fitz Roy",
+  "sl": 44,
+  "lon": -73.043333,
+  "lat": -49.271389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q215295",
+  "label": "Stade de Genève",
+  "sl": 40,
+  "lon": 6.1275,
+  "lat": 46.177778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q215327",
+  "label": "Helsinki Airport",
+  "sl": 59,
+  "lon": 24.963333,
+  "lat": 60.317222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q215399",
+  "label": "Arena Lviv",
+  "sl": 44,
+  "lon": 24.027778,
+  "lat": 49.775278,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q215423",
+  "label": "Saint Isaac's Cathedral",
+  "sl": 56,
+  "lon": 30.30595,
+  "lat": 59.934047,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q215471",
+  "label": "Mount Hermon",
+  "sl": 66,
+  "lon": 35.85,
+  "lat": 33.4,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q215516",
+  "label": "Mount Helicon",
+  "sl": 42,
+  "lon": 22.825,
+  "lat": 38.352222,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q215539",
+  "label": "Moscow Conservatory",
+  "sl": 51,
+  "lon": 37.604331,
+  "lat": 55.756072,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q215662",
+  "label": "Monte Perdido",
+  "sl": 43,
+  "lon": 0.033333,
+  "lat": 42.673889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q216059",
+  "label": "Mount Tai",
+  "sl": 71,
+  "lon": 117.1,
+  "lat": 36.266667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q216083",
+  "label": "Dongting Lake",
+  "sl": 53,
+  "lon": 112.95,
+  "lat": 29.316667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q216185",
+  "label": "Charing Cross",
+  "sl": 45,
+  "lon": -0.12755,
+  "lat": 51.5073,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q216243",
+  "label": "Nalanda Mahavihara",
+  "sl": 72,
+  "lon": 85.443828,
+  "lat": 25.136797,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q216357",
+  "label": "Grande Arche",
+  "sl": 51,
+  "lon": 2.235831,
+  "lat": 48.8928,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q216402",
+  "label": "Winged Victory of Samothrace",
+  "sl": 54,
+  "lon": 25.5298,
+  "lat": 40.4998,
+  "types": [
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q216511",
+  "label": "Basilica Cistern",
+  "sl": 41,
+  "lon": 28.977921,
+  "lat": 41.008404,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q216621",
+  "label": "Lake Zaysan",
+  "sl": 47,
+  "lon": 84.0,
+  "lat": 48.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q216862",
+  "label": "Ġgantija",
+  "sl": 49,
+  "lon": 14.269095,
+  "lat": 36.047265,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q216894",
+  "label": "Mount Arafat",
+  "sl": 61,
+  "lon": 39.983886,
+  "lat": 21.354831,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q217109",
+  "label": "Teletskoye",
+  "sl": 46,
+  "lon": 87.714722,
+  "lat": 51.529167,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q217142",
+  "label": "Snowdon",
+  "sl": 50,
+  "lon": -4.075589,
+  "lat": 53.068864,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q217226",
+  "label": "Tirana International Airport Nënë Tereza",
+  "sl": 52,
+  "lon": 19.720555,
+  "lat": 41.414722,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q217379",
+  "label": "Tiryns",
+  "sl": 55,
+  "lon": 22.799814,
+  "lat": 37.596719,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q217457",
+  "label": "Shkhara",
+  "sl": 54,
+  "lon": 43.111667,
+  "lat": 42.999445,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q217527",
+  "label": "Piazza San Marco",
+  "sl": 54,
+  "lon": 12.338,
+  "lat": 45.434,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q217652",
+  "label": "Woolworth Building",
+  "sl": 45,
+  "lon": -74.00822,
+  "lat": 40.7124,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q217727",
+  "label": "875 North Michigan Avenue",
+  "sl": 40,
+  "lon": -87.623056,
+  "lat": 41.898889,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q2181",
+  "label": "Aysén Region",
+  "sl": 68,
+  "lon": -72.066111,
+  "lat": -45.57,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q219867",
+  "label": "London King's Cross railway station",
+  "sl": 47,
+  "lon": -0.123333,
+  "lat": 51.530972,
+  "types": [
+   "railway station"
+  ]
+ },
+ {
+  "qid": "Q219986",
+  "label": "Gangkhar Puensum",
+  "sl": 64,
+  "lon": 90.455,
+  "lat": 28.046944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q223207",
+  "label": "Oriental Pearl Tower",
+  "sl": 52,
+  "lon": 121.494717,
+  "lat": 31.241669,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q223399",
+  "label": "Qumran",
+  "sl": 51,
+  "lon": 35.459944,
+  "lat": 31.741901,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q223416",
+  "label": "Orly Airport",
+  "sl": 64,
+  "lon": 2.379444,
+  "lat": 48.723333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q223499",
+  "label": "Stockholm Arlanda Airport",
+  "sl": 54,
+  "lon": 17.918611,
+  "lat": 59.651944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q223649",
+  "label": "Tugela Falls",
+  "sl": 42,
+  "lon": 28.8941,
+  "lat": -28.7522,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q223665",
+  "label": "Angkor Thom",
+  "sl": 54,
+  "lon": 103.859682,
+  "lat": 13.443302,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q223942",
+  "label": "Teatro La Fenice",
+  "sl": 44,
+  "lon": 12.3339,
+  "lat": 45.4337,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q224124",
+  "label": "Van Gogh Museum",
+  "sl": 60,
+  "lon": 4.881111,
+  "lat": 52.358333,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q229107",
+  "label": "Mount Kailash",
+  "sl": 91,
+  "lon": 81.312778,
+  "lat": 31.066945,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q230025",
+  "label": "Pasargadae",
+  "sl": 66,
+  "lon": 53.179445,
+  "lat": 30.2,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q231140",
+  "label": "Hiroshima Peace Memorial",
+  "sl": 72,
+  "lon": 132.453611,
+  "lat": 34.395556,
+  "types": [
+   "memorial"
+  ]
+ },
+ {
+  "qid": "Q231620",
+  "label": "Parícutin",
+  "sl": 57,
+  "lon": -102.251,
+  "lat": 19.493,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q232615",
+  "label": "Sardis",
+  "sl": 59,
+  "lon": 28.040278,
+  "lat": 38.488333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q233576",
+  "label": "Epidaurus",
+  "sl": 60,
+  "lon": 23.160067,
+  "lat": 37.63328,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q233627",
+  "label": "Lake Manasarovar",
+  "sl": 62,
+  "lon": 81.5,
+  "lat": 30.666667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q233836",
+  "label": "Ojos del Salado",
+  "sl": 72,
+  "lon": -68.541389,
+  "lat": -27.109722,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q234364",
+  "label": "Tuileries Palace",
+  "sl": 59,
+  "lon": 2.331111,
+  "lat": 48.862222,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q235062",
+  "label": "Galeras",
+  "sl": 46,
+  "lon": -77.366667,
+  "lat": 1.216667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q235539",
+  "label": "Mount Whitney",
+  "sl": 61,
+  "lon": -118.291944,
+  "lat": 36.578611,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q236201",
+  "label": "Shun Hing Square",
+  "sl": 41,
+  "lon": 114.105556,
+  "lat": 22.545278,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q237128",
+  "label": "Mesa Verde National Park",
+  "sl": 60,
+  "lon": -108.494444,
+  "lat": 37.260375,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q237614",
+  "label": "Nimrud",
+  "sl": 61,
+  "lon": 43.328889,
+  "lat": 36.098056,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q238147",
+  "label": "Citlaltepetl",
+  "sl": 65,
+  "lon": -97.27,
+  "lat": 19.03,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q238623",
+  "label": "Pyramid of Menkaure",
+  "sl": 46,
+  "lon": 31.128333,
+  "lat": 29.9725,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q23868",
+  "label": "Brest Fortress",
+  "sl": 45,
+  "lon": 23.652778,
+  "lat": 52.083333,
+  "types": [
+   "architectural landmark",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q23894294",
+  "label": "Museum of Philistine Culture",
+  "sl": 58,
+  "lon": 34.642058,
+  "lat": 31.799369,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q239485",
+  "label": "Phou Bia",
+  "sl": 43,
+  "lon": 103.133333,
+  "lat": 18.983333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q239748",
+  "label": "Sammallahdenmäki",
+  "sl": 40,
+  "lon": 21.775169,
+  "lat": 61.117674,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q239935",
+  "label": "City of Arts and Sciences",
+  "sl": 40,
+  "lon": -0.350364,
+  "lat": 39.454528,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q242066",
+  "label": "Toronto Pearson International Airport",
+  "sl": 57,
+  "lon": -79.6306,
+  "lat": 43.6767,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q242148",
+  "label": "Mehrgarh",
+  "sl": 55,
+  "lon": 67.670833,
+  "lat": 29.2125,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q242741",
+  "label": "Erechtheion",
+  "sl": 50,
+  "lon": 23.726528,
+  "lat": 37.972083,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q243",
+  "label": "Eiffel Tower",
+  "sl": 191,
+  "lon": 2.294479,
+  "lat": 48.858296,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q243456",
+  "label": "Cumae",
+  "sl": 49,
+  "lon": 14.053611,
+  "lat": 40.848611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q244746",
+  "label": "Larsa",
+  "sl": 47,
+  "lon": 45.8498,
+  "lat": 31.2833,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q244762",
+  "label": "Mari",
+  "sl": 57,
+  "lon": 40.89,
+  "lat": 34.549444,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q244877",
+  "label": "Beijing National Aquatics Center",
+  "sl": 40,
+  "lon": 116.384167,
+  "lat": 39.991667,
+  "types": [
+   "sports venue"
+  ]
+ },
+ {
+  "qid": "Q244952",
+  "label": "Santa Maria delle Grazie",
+  "sl": 55,
+  "lon": 9.171111,
+  "lat": 45.465833,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q245151",
+  "label": "Tower of Hercules",
+  "sl": 53,
+  "lon": -8.406389,
+  "lat": 43.385833,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q245246",
+  "label": "CITIC Plaza",
+  "sl": 42,
+  "lon": 113.319444,
+  "lat": 23.144444,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q2486263",
+  "label": "Bolghar Gord",
+  "sl": 44,
+  "lon": 49.054257,
+  "lat": 54.977391,
+  "types": [
+   "archaeological site",
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q249480",
+  "label": "Herakleopolis Magna",
+  "sl": 41,
+  "lon": 30.934444,
+  "lat": 29.085556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q251538",
+  "label": "Salzburg Airport",
+  "sl": 41,
+  "lon": 13.003333,
+  "lat": 47.794445,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q25226",
+  "label": "Cam Ranh International Airport",
+  "sl": 102,
+  "lon": 109.219444,
+  "lat": 11.998056,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q252575",
+  "label": "York Minster",
+  "sl": 42,
+  "lon": -1.081944,
+  "lat": 53.961944,
+  "types": [
+   "cathedral",
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q252648",
+  "label": "Marienplatz",
+  "sl": 40,
+  "lon": 11.575278,
+  "lat": 48.137222,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q253208",
+  "label": "Dur-Sharrukin",
+  "sl": 47,
+  "lon": 43.22931,
+  "lat": 36.50953,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q255010",
+  "label": "Parinacota",
+  "sl": 42,
+  "lon": -69.141611,
+  "lat": -18.165753,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q257416",
+  "label": "Sarygamysh Lake",
+  "sl": 46,
+  "lon": 57.333333,
+  "lat": 42.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q257631",
+  "label": "Henri Coandă International Airport",
+  "sl": 49,
+  "lon": 26.082223,
+  "lat": 44.570731,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q260386",
+  "label": "Valley of the Queens",
+  "sl": 46,
+  "lon": 32.593055,
+  "lat": 25.7275,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2620036",
+  "label": "Nazca Lines",
+  "sl": 68,
+  "lon": -75.135,
+  "lat": -14.6975,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2635530",
+  "label": "Tomb of Cyrus the Great",
+  "sl": 43,
+  "lon": 53.167188,
+  "lat": 30.193921,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q265336",
+  "label": "Ammersee",
+  "sl": 41,
+  "lon": 11.116667,
+  "lat": 48.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q2664428",
+  "label": "National Museum of History of Azerbaijan",
+  "sl": 40,
+  "lon": 49.840122,
+  "lat": 40.369478,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q26732",
+  "label": "Hampi",
+  "sl": 70,
+  "lon": 76.462162,
+  "lat": 15.334547,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q270066",
+  "label": "7 World Trade Center",
+  "sl": 46,
+  "lon": -74.012,
+  "lat": 40.7133,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q270725",
+  "label": "Novodevichy Convent",
+  "sl": 47,
+  "lon": 37.556583,
+  "lat": 55.725972,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q271454",
+  "label": "Estádio do Dragão",
+  "sl": 44,
+  "lon": -8.583933,
+  "lat": 41.161758,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q271466",
+  "label": "Hallgrímskirkja",
+  "sl": 43,
+  "lon": -21.926945,
+  "lat": 64.141944,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q271568",
+  "label": "Stadio Luigi Ferraris",
+  "sl": 44,
+  "lon": 8.952428,
+  "lat": 44.416431,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q271695",
+  "label": "Aon Center",
+  "sl": 40,
+  "lon": -87.621389,
+  "lat": 41.885278,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q271700",
+  "label": "Noshaq",
+  "sl": 57,
+  "lon": 71.828333,
+  "lat": 36.431667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q271928",
+  "label": "Palazzo Vecchio",
+  "sl": 48,
+  "lon": 11.256111,
+  "lat": 43.769444,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q272380",
+  "label": "Lake Managua",
+  "sl": 50,
+  "lon": -86.416667,
+  "lat": 12.333333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q272434",
+  "label": "Globe Theatre",
+  "sl": 46,
+  "lon": -0.094722,
+  "lat": 51.506667,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q272463",
+  "label": "Lake Athabasca",
+  "sl": 58,
+  "lon": -109.45,
+  "lat": 59.266667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q272593",
+  "label": "Nevado Sajama",
+  "sl": 50,
+  "lon": -68.883055,
+  "lat": -18.108056,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q272680",
+  "label": "Bosra",
+  "sl": 62,
+  "lon": 36.483333,
+  "lat": 32.516667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2727469",
+  "label": "Zubarah",
+  "sl": 42,
+  "lon": 51.027219,
+  "lat": 25.983395,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q272771",
+  "label": "Calakmul",
+  "sl": 53,
+  "lon": -89.810555,
+  "lat": 18.105,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q272777",
+  "label": "Hadrian's Villa",
+  "sl": 52,
+  "lon": 12.775278,
+  "lat": 41.941944,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q273462",
+  "label": "Vnukovo International Airport",
+  "sl": 61,
+  "lon": 37.2675,
+  "lat": 55.596111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q27356",
+  "label": "Hegra",
+  "sl": 59,
+  "lon": 37.952778,
+  "lat": 26.791667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q273593",
+  "label": "Beaux-Arts de Paris",
+  "sl": 42,
+  "lon": 2.333278,
+  "lat": 48.856806,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q274141",
+  "label": "Dolmabahçe Palace",
+  "sl": 54,
+  "lon": 29.001667,
+  "lat": 41.039444,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q275435",
+  "label": "Ras Dashen",
+  "sl": 47,
+  "lon": 38.3725,
+  "lat": 13.236667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q275662",
+  "label": "Mount Hood",
+  "sl": 43,
+  "lon": -121.695833,
+  "lat": 45.373611,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q276354",
+  "label": "Monumental Stadium, Buenos Aires",
+  "sl": 44,
+  "lon": -58.449722,
+  "lat": -34.545278,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q276553",
+  "label": "Boyana Church",
+  "sl": 50,
+  "lon": 23.266172,
+  "lat": 42.644672,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q27706",
+  "label": "Hamburg Airport",
+  "sl": 52,
+  "lon": 9.988228,
+  "lat": 53.630389,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q277441",
+  "label": "Mount Wilhelm",
+  "sl": 42,
+  "lon": 145.029584,
+  "lat": -5.779999,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q277531",
+  "label": "Citadel of Salah Ed-Din",
+  "sl": 45,
+  "lon": 36.057222,
+  "lat": 35.595833,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q277540",
+  "label": "Chan Chan",
+  "sl": 52,
+  "lon": -79.075,
+  "lat": -8.110556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q278667",
+  "label": "Rajiv Gandhi International Airport",
+  "sl": 41,
+  "lon": 78.4294,
+  "lat": 17.2386,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q278988",
+  "label": "Nekhen",
+  "sl": 43,
+  "lon": 32.779445,
+  "lat": 25.097222,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q27985",
+  "label": "Joya de Cerén",
+  "sl": 46,
+  "lon": -89.356158,
+  "lat": 13.827494,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q281900",
+  "label": "Saint Petersburg Mosque",
+  "sl": 42,
+  "lon": 30.323889,
+  "lat": 59.955167,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q282275",
+  "label": "Stone spheres of Costa Rica",
+  "sl": 42,
+  "lon": -83.4775,
+  "lat": 8.911389,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q283680",
+  "label": "Carchemish",
+  "sl": 44,
+  "lon": 38.015,
+  "lat": 36.829722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2854543",
+  "label": "Catherine Palace",
+  "sl": 57,
+  "lon": 30.395556,
+  "lat": 59.716,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q285531",
+  "label": "Al Janoub Stadium",
+  "sl": 41,
+  "lon": 51.574083,
+  "lat": 25.159778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q28785",
+  "label": "Sacré-Cœur",
+  "sl": 60,
+  "lon": 2.34295,
+  "lat": 48.88665,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q28924",
+  "label": "Catacombs of Paris",
+  "sl": 46,
+  "lon": 2.33245,
+  "lat": 48.83397,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q28934",
+  "label": "Brussels Airport",
+  "sl": 68,
+  "lon": 4.484444,
+  "lat": 50.901389,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q28964",
+  "label": "Auditorio de Tenerife",
+  "sl": 52,
+  "lon": -16.251278,
+  "lat": 28.456067,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q289972",
+  "label": "Geneva International Airport",
+  "sl": 52,
+  "lon": 6.109444,
+  "lat": 46.238333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q29019",
+  "label": "Dendera",
+  "sl": 48,
+  "lon": 32.669722,
+  "lat": 26.142194,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2909160",
+  "label": "The Temple Institute",
+  "sl": 76,
+  "lon": 35.2331,
+  "lat": 31.775481,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q29238",
+  "label": "Pyramid of the Sun",
+  "sl": 50,
+  "lon": -98.8438,
+  "lat": 19.6925,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q29247",
+  "label": "Getty Center",
+  "sl": 42,
+  "lon": -118.475,
+  "lat": 34.0775,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q29272",
+  "label": "Ryugyong Hotel",
+  "sl": 58,
+  "lon": 125.730833,
+  "lat": 39.036667,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q29294",
+  "label": "Willis Tower",
+  "sl": 97,
+  "lon": -87.635833,
+  "lat": 41.878611,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q29317",
+  "label": "Bagan",
+  "sl": 79,
+  "lon": 94.86,
+  "lat": 21.1725,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q2946",
+  "label": "Palace of Versailles",
+  "sl": 109,
+  "lon": 2.120278,
+  "lat": 48.804722,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q29962",
+  "label": "Asyut",
+  "sl": 74,
+  "lon": 31.171389,
+  "lat": 27.186944,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q299973",
+  "label": "Heroes' Square",
+  "sl": 46,
+  "lon": 19.07806,
+  "lat": 47.51528,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q301815",
+  "label": "Thracian Tomb of Kazanlak",
+  "sl": 43,
+  "lon": 25.399167,
+  "lat": 42.625555,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q304037",
+  "label": "Austrian National Library",
+  "sl": 43,
+  "lon": 16.366267,
+  "lat": 48.206142,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q304438",
+  "label": "Baghdad International Airport",
+  "sl": 44,
+  "lon": 44.234444,
+  "lat": 33.2625,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q30603",
+  "label": "Hazrat Shahjalal International Airport",
+  "sl": 42,
+  "lon": 90.4005,
+  "lat": 23.845,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q306201",
+  "label": "Devils Tower",
+  "sl": 51,
+  "lon": -104.715278,
+  "lat": 44.590278,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q308720",
+  "label": "Burgtheater",
+  "sl": 43,
+  "lon": 16.361389,
+  "lat": 48.210278,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q308807",
+  "label": "Tadrart Acacus",
+  "sl": 55,
+  "lon": 10.333319,
+  "lat": 24.833429,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q309098",
+  "label": "Mount Meru",
+  "sl": 45,
+  "lon": 36.76025,
+  "lat": -3.246781,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q309282",
+  "label": "Avaris",
+  "sl": 40,
+  "lon": 31.82253,
+  "lat": 30.786228,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q309426",
+  "label": "Kasubi Tombs",
+  "sl": 57,
+  "lon": 32.553333,
+  "lat": 0.329167,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q311099",
+  "label": "Suwayda",
+  "sl": 54,
+  "lon": 36.566667,
+  "lat": 32.7,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q311124",
+  "label": "Lüneburg Heath",
+  "sl": 42,
+  "lon": 9.939722,
+  "lat": 53.168611,
+  "types": [
+   "landscape"
+  ]
+ },
+ {
+  "qid": "Q312818",
+  "label": "Mount Scopus",
+  "sl": 49,
+  "lon": 35.244167,
+  "lat": 31.7925,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q317034",
+  "label": "International Commerce Centre",
+  "sl": 47,
+  "lon": 114.160169,
+  "lat": 22.303392,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q318422",
+  "label": "Quiriguá",
+  "sl": 51,
+  "lon": -89.040278,
+  "lat": 15.269444,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q319654",
+  "label": "LaGuardia Airport",
+  "sl": 58,
+  "lon": -73.875,
+  "lat": 40.775,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q319841",
+  "label": "Luxor Temple",
+  "sl": 58,
+  "lon": 32.639167,
+  "lat": 25.7,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q321224",
+  "label": "Vancouver International Airport",
+  "sl": 53,
+  "lon": -123.184,
+  "lat": 49.1947,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q32159",
+  "label": "Singapore Changi Airport",
+  "sl": 75,
+  "lon": 103.989444,
+  "lat": 1.359167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q32190",
+  "label": "Beijing Capital International Airport",
+  "sl": 76,
+  "lon": 116.584444,
+  "lat": 40.08,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q322824",
+  "label": "Signal de Botrange",
+  "sl": 41,
+  "lon": 6.093056,
+  "lat": 50.501667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q323767",
+  "label": "Montparnasse Tower",
+  "sl": 48,
+  "lon": 2.32198,
+  "lat": 48.84211,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q325391",
+  "label": "Dal Lake",
+  "sl": 44,
+  "lon": 74.87,
+  "lat": 34.12,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q326193",
+  "label": "Stutthof concentration camp",
+  "sl": 40,
+  "lon": 19.153889,
+  "lat": 54.328889,
+  "types": [
+   "memorial"
+  ]
+ },
+ {
+  "qid": "Q326268",
+  "label": "Sharm el-Sheikh International Airport",
+  "sl": 44,
+  "lon": 34.394722,
+  "lat": 27.977222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q3272",
+  "label": "Lake Winnipeg",
+  "sl": 75,
+  "lon": -97.25,
+  "lat": 52.116667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q327265",
+  "label": "Heidelberg Castle",
+  "sl": 40,
+  "lon": 8.715833,
+  "lat": 49.410556,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q328505",
+  "label": "Bank of America Tower",
+  "sl": 42,
+  "lon": -73.984167,
+  "lat": 40.755278,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q329266",
+  "label": "Crater Lake",
+  "sl": 53,
+  "lon": -122.106667,
+  "lat": 42.943611,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q329852",
+  "label": "Luxembourg Palace",
+  "sl": 53,
+  "lon": 2.3375,
+  "lat": 48.848333,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q329967",
+  "label": "Paestum",
+  "sl": 57,
+  "lon": 15.005569,
+  "lat": 40.422631,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q32997",
+  "label": "Manas International Airport",
+  "sl": 40,
+  "lon": 74.477508,
+  "lat": 43.061272,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q32999",
+  "label": "Wien-Schwechat Airport",
+  "sl": 69,
+  "lon": 16.569722,
+  "lat": 48.110278,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q330015",
+  "label": "Denver International Airport",
+  "sl": 53,
+  "lon": -104.673056,
+  "lat": 39.861667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q33003",
+  "label": "Parken Stadium",
+  "sl": 53,
+  "lon": 12.572203,
+  "lat": 55.702469,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q330136",
+  "label": "Melbourne Cricket Ground",
+  "sl": 48,
+  "lon": 144.983447,
+  "lat": -37.819943,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q330564",
+  "label": "La Madeleine",
+  "sl": 47,
+  "lon": 2.324444,
+  "lat": 48.87,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q331603",
+  "label": "Bhimbetka rock shelters",
+  "sl": 59,
+  "lon": 77.61438,
+  "lat": 22.938633,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q332219",
+  "label": "Helsinki Olympic Stadium",
+  "sl": 43,
+  "lon": 24.926062,
+  "lat": 60.186894,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q332628",
+  "label": "Lake Nyos",
+  "sl": 49,
+  "lon": 10.298889,
+  "lat": 6.438056,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q332762",
+  "label": "Jengish Chokusu",
+  "sl": 56,
+  "lon": 80.128713,
+  "lat": 42.034662,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q333661",
+  "label": "Cahokia",
+  "sl": 54,
+  "lon": -90.064444,
+  "lat": 38.653889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q333906",
+  "label": "Capitoline Museums",
+  "sl": 46,
+  "lon": 12.482778,
+  "lat": 41.893056,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q334303",
+  "label": "St Augustine's Abbey",
+  "sl": 40,
+  "lon": 1.088206,
+  "lat": 51.278128,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q334761",
+  "label": "Lake Ülemiste",
+  "sl": 47,
+  "lon": 24.7689,
+  "lat": 59.3993,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q335432",
+  "label": "Þingvallavatn",
+  "sl": 41,
+  "lon": -21.157323,
+  "lat": 64.188519,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q336088",
+  "label": "Estádio Nacional de Brasília",
+  "sl": 53,
+  "lon": -47.899164,
+  "lat": -15.7835,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q336098",
+  "label": "Abusir",
+  "sl": 47,
+  "lon": 31.203611,
+  "lat": 29.896111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q336246",
+  "label": "Torre Glòries",
+  "sl": 40,
+  "lon": 2.189519,
+  "lat": 41.403489,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q3369",
+  "label": "Müritz",
+  "sl": 44,
+  "lon": 12.683333,
+  "lat": 53.416667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q337",
+  "label": "Lake Chaubunagungamaug",
+  "sl": 45,
+  "lon": -71.843333,
+  "lat": 42.0425,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q337179",
+  "label": "Freedom Monument",
+  "sl": 43,
+  "lon": 24.113222,
+  "lat": 56.951556,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q3375",
+  "label": "Zugspitze",
+  "sl": 75,
+  "lon": 10.986314,
+  "lat": 47.421217,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q3388",
+  "label": "Grossglockner",
+  "sl": 63,
+  "lon": 12.69385,
+  "lat": 47.074528,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q338889",
+  "label": "Palace of the Shirvanshahs",
+  "sl": 50,
+  "lon": 49.833333,
+  "lat": 40.366111,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q339489",
+  "label": "Brú na Bóinne",
+  "sl": 44,
+  "lon": -6.44932,
+  "lat": 53.69284,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q3403",
+  "label": "Dufourspitze",
+  "sl": 51,
+  "lon": 7.866757,
+  "lat": 45.936924,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q340572",
+  "label": "Akhmim",
+  "sl": 43,
+  "lon": 31.746111,
+  "lat": 26.564167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q34221",
+  "label": "Niagara Falls",
+  "sl": 135,
+  "lon": -79.071,
+  "lat": 43.08,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q34562",
+  "label": "Cathedral of La Laguna",
+  "sl": 41,
+  "lon": -16.316111,
+  "lat": 28.488889,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q35342",
+  "label": "Titicaca",
+  "sl": 132,
+  "lon": -69.325,
+  "lat": -15.825,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q3585",
+  "label": "Metalist Stadium",
+  "sl": 43,
+  "lon": 36.261703,
+  "lat": 49.980858,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q36332",
+  "label": "Iguaçu Falls",
+  "sl": 99,
+  "lon": -54.436667,
+  "lat": -25.695278,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q36420",
+  "label": "Shanghai Pudong International Airport",
+  "sl": 66,
+  "lon": 121.805278,
+  "lat": 31.143333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q36454",
+  "label": "Narita International Airport",
+  "sl": 67,
+  "lon": 140.38845,
+  "lat": 35.7649,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q36460",
+  "label": "Sir Seewoosagur Ramgoolam International Airport",
+  "sl": 40,
+  "lon": 57.683022,
+  "lat": -20.430028,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q3661908",
+  "label": "Istanbul Airport",
+  "sl": 63,
+  "lon": 28.742222,
+  "lat": 41.260833,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q36833",
+  "label": "Hungarian State Opera House",
+  "sl": 40,
+  "lon": 19.05833,
+  "lat": 47.50278,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q368628",
+  "label": "Sicyon",
+  "sl": 41,
+  "lon": 22.711145,
+  "lat": 37.984104,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q371471",
+  "label": "Vágar Airport",
+  "sl": 43,
+  "lon": -7.2772,
+  "lat": 62.0636,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q37200",
+  "label": "Great Pyramid of Giza",
+  "sl": 126,
+  "lon": 31.13422,
+  "lat": 29.97915,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q372615",
+  "label": "Toulouse-Blagnac",
+  "sl": 40,
+  "lon": 1.367781,
+  "lat": 43.635,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q373355",
+  "label": "Gillette Stadium",
+  "sl": 48,
+  "lon": -71.264344,
+  "lat": 42.090944,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q373909",
+  "label": "Deir el-Bahari",
+  "sl": 45,
+  "lon": 32.6075,
+  "lat": 25.7375,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q375685",
+  "label": "Eshnunna",
+  "sl": 41,
+  "lon": 44.75,
+  "lat": 33.75,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q377485",
+  "label": "Mount Sinai",
+  "sl": 88,
+  "lon": 33.9752,
+  "lat": 28.5384,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q377802",
+  "label": "Arwad",
+  "sl": 46,
+  "lon": 35.859448,
+  "lat": 34.858397,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q378943",
+  "label": "Vitosha",
+  "sl": 44,
+  "lon": 23.283333,
+  "lat": 42.566667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q379652",
+  "label": "Philippi",
+  "sl": 51,
+  "lon": 24.284576,
+  "lat": 41.012072,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q380384",
+  "label": "Pashupatinath Temple",
+  "sl": 45,
+  "lon": 85.348645,
+  "lat": 27.710495,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q381038",
+  "label": "Sais",
+  "sl": 50,
+  "lon": 30.768333,
+  "lat": 30.964722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q381677",
+  "label": "José Martí International Airport",
+  "sl": 40,
+  "lon": -82.408889,
+  "lat": 22.988889,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q382121",
+  "label": "Zifeng Tower",
+  "sl": 41,
+  "lon": 118.778055,
+  "lat": 32.062472,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q382500",
+  "label": "Nevsky Prospect",
+  "sl": 48,
+  "lon": 30.315,
+  "lat": 59.93667,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q38417",
+  "label": "Boyoma Falls",
+  "sl": 45,
+  "lon": 25.206389,
+  "lat": 0.491111,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q384788",
+  "label": "Ministro Pistarini International Airport",
+  "sl": 52,
+  "lon": -58.535833,
+  "lat": -34.822222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q384813",
+  "label": "Temple of Athena Nike",
+  "sl": 43,
+  "lon": 23.7249,
+  "lat": 37.9715,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q385086",
+  "label": "Khirokitia",
+  "sl": 49,
+  "lon": 33.343719,
+  "lat": 34.796725,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q38519",
+  "label": "Gullfoss",
+  "sl": 47,
+  "lon": -20.1194,
+  "lat": 64.32733,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q385191",
+  "label": "Hurghada International Airport",
+  "sl": 44,
+  "lon": 33.799167,
+  "lat": 27.178056,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q385406",
+  "label": "São Paulo-Guarulhos International Airport",
+  "sl": 46,
+  "lon": -46.473056,
+  "lat": -23.435556,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q38646",
+  "label": "Peter and Paul Fortress",
+  "sl": 53,
+  "lon": 30.316667,
+  "lat": 59.95,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q386864",
+  "label": "Heydar Aliyev International Airport",
+  "sl": 69,
+  "lon": 50.046667,
+  "lat": 40.4675,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q387256",
+  "label": "Śniardwy",
+  "sl": 45,
+  "lon": 21.716667,
+  "lat": 53.75,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q387560",
+  "label": "Chengdu Shuangliu International Airport",
+  "sl": 41,
+  "lon": 103.948333,
+  "lat": 30.58,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q388448",
+  "label": "Bargello National Museum",
+  "sl": 40,
+  "lon": 11.258008,
+  "lat": 43.770398,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q388535",
+  "label": "Netaji Subhas Chandra Bose International Airport",
+  "sl": 43,
+  "lon": 88.446667,
+  "lat": 22.653889,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q389241",
+  "label": "Bologna Guglielmo Marconi Airport",
+  "sl": 44,
+  "lon": 11.288667,
+  "lat": 44.535444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q38954",
+  "label": "Teide",
+  "sl": 105,
+  "lon": -16.643611,
+  "lat": 28.272639,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q390028",
+  "label": "Independence Hall",
+  "sl": 47,
+  "lon": -75.15,
+  "lat": 39.948889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q390243",
+  "label": "place Charles-de-Gaulle",
+  "sl": 42,
+  "lon": 2.294722,
+  "lat": 48.873889,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q39049425",
+  "label": "Al Thumama Stadium",
+  "sl": 45,
+  "lon": 51.532113,
+  "lat": 25.235052,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q3906600",
+  "label": "Temple in Jerusalem",
+  "sl": 78,
+  "lon": 35.235555,
+  "lat": 31.777778,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q391229",
+  "label": "Tournai Cathedral",
+  "sl": 49,
+  "lon": 3.388903,
+  "lat": 50.606502,
+  "types": [
+   "cathedral",
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q391406",
+  "label": "My Son Sanctuary",
+  "sl": 54,
+  "lon": 108.124446,
+  "lat": 15.76324,
+  "types": [
+   "archaeological site",
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q391620",
+  "label": "Palace of Whitehall",
+  "sl": 45,
+  "lon": -0.125556,
+  "lat": 51.504444,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q391973",
+  "label": "Šibenik Cathedral",
+  "sl": 40,
+  "lon": 15.889167,
+  "lat": 43.735555,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q39231",
+  "label": "Mount Fuji",
+  "sl": 146,
+  "lon": 138.7275,
+  "lat": 35.360555,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q392725",
+  "label": "Shuruppak",
+  "sl": 40,
+  "lon": 45.509761,
+  "lat": 31.777364,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q393841",
+  "label": "Dead Cities",
+  "sl": 47,
+  "lon": 36.844167,
+  "lat": 36.334167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q39671",
+  "label": "Stonehenge",
+  "sl": 136,
+  "lon": -1.826111,
+  "lat": 51.178889,
+  "types": [
+   "archaeological site",
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q401643",
+  "label": "Ahmad bin Ali Stadium",
+  "sl": 48,
+  "lon": 51.341279,
+  "lat": 25.330538,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q401700",
+  "label": "Sardar Vallabhbhai Patel International Airport",
+  "sl": 46,
+  "lon": 72.634722,
+  "lat": 23.077222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q403671",
+  "label": "Humberto Delgado Airport",
+  "sl": 50,
+  "lon": -9.134167,
+  "lat": 38.774167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q404571",
+  "label": "Kazan Cathedral",
+  "sl": 46,
+  "lon": 30.324594,
+  "lat": 59.934228,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q404728",
+  "label": "Aiguille du Midi",
+  "sl": 42,
+  "lon": 6.8875,
+  "lat": 45.878889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q40758",
+  "label": "Damavand",
+  "sl": 79,
+  "lon": 52.109167,
+  "lat": 35.955278,
+  "types": [
+   "architectural landmark",
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q408318",
+  "label": "Bulguksa",
+  "sl": 40,
+  "lon": 129.332222,
+  "lat": 35.79,
+  "types": [
+   "historic site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q408847",
+  "label": "Karlskirche",
+  "sl": 41,
+  "lon": 16.37188,
+  "lat": 48.198281,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q41116",
+  "label": "Red Square",
+  "sl": 102,
+  "lon": 37.62,
+  "lat": 55.754167,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q41150",
+  "label": "Way of Saint James",
+  "sl": 78,
+  "lon": -8.543889,
+  "lat": 42.880561,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q4120832",
+  "label": "Königsberg",
+  "sl": 54,
+  "lon": 20.509306,
+  "lat": 54.711472,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q4132",
+  "label": "Summer Palace",
+  "sl": 62,
+  "lon": 116.2689,
+  "lat": 39.9975,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q4138",
+  "label": "Chiemsee",
+  "sl": 58,
+  "lon": 12.47,
+  "lat": 47.89,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q41413",
+  "label": "Ismoil Somoni Peak",
+  "sl": 55,
+  "lon": 72.015347,
+  "lat": 38.942732,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q4141623",
+  "label": "Golconda",
+  "sl": 45,
+  "lon": 78.404169,
+  "lat": 17.383336,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q4152",
+  "label": "Neuschwanstein Castle",
+  "sl": 93,
+  "lon": 10.749442,
+  "lat": 47.557489,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q4156",
+  "label": "Dong Hoi Airport",
+  "sl": 172,
+  "lon": 106.590556,
+  "lat": 17.515,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q4168",
+  "label": "Loreley",
+  "sl": 48,
+  "lon": 7.72869,
+  "lat": 50.139287,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q42049",
+  "label": "Balmoral Castle",
+  "sl": 62,
+  "lon": -3.23016,
+  "lat": 57.0407,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q421678",
+  "label": "Old Town Square",
+  "sl": 40,
+  "lon": 14.421389,
+  "lat": 50.0875,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q421811",
+  "label": "Shanghai Hongqiao International Airport",
+  "sl": 47,
+  "lon": 121.336389,
+  "lat": 31.198056,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q42182",
+  "label": "Buckingham Palace",
+  "sl": 95,
+  "lon": -0.142,
+  "lat": 51.501,
+  "types": [
+   "historic house museum"
+  ]
+ },
+ {
+  "qid": "Q42191",
+  "label": "Issyk-Kul",
+  "sl": 88,
+  "lon": 77.25,
+  "lat": 42.416667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q42258",
+  "label": "Mirante do Vale",
+  "sl": 71,
+  "lon": -46.635422,
+  "lat": -23.5422,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q4255374",
+  "label": "Lakhta Centre",
+  "sl": 43,
+  "lon": 30.17814,
+  "lat": 59.98703,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q42646",
+  "label": "Windsor Castle",
+  "sl": 85,
+  "lon": -0.604444,
+  "lat": 51.483889,
+  "types": [
+   "historic house museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q42798",
+  "label": "Borobudur Temple",
+  "sl": 101,
+  "lon": 110.20384,
+  "lat": -7.60793,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q428858",
+  "label": "Al-Masjid Al-Haram",
+  "sl": 109,
+  "lon": 39.826111,
+  "lat": 21.4225,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q430490",
+  "label": "Ankara Esenboğa Airport",
+  "sl": 43,
+  "lon": 32.995,
+  "lat": 40.128056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q43105",
+  "label": "Mount Elbrus",
+  "sl": 113,
+  "lon": 42.437875,
+  "lat": 43.35254,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q43278",
+  "label": "Victoria Falls",
+  "sl": 111,
+  "lon": 25.858055,
+  "lat": -17.924778,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q43280",
+  "label": "Oslo Opera House",
+  "sl": 44,
+  "lon": 10.753611,
+  "lat": 59.906944,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q43282",
+  "label": "Alexander Nevsky Cathedral",
+  "sl": 52,
+  "lon": 23.33297,
+  "lat": 42.695839,
+  "types": [
+   "cathedral",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q43286",
+  "label": "Mogao Caves",
+  "sl": 65,
+  "lon": 94.804167,
+  "lat": 40.037222,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q43332",
+  "label": "Pompeii",
+  "sl": 122,
+  "lon": 14.489722,
+  "lat": 40.750556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q43473",
+  "label": "Angkor Wat",
+  "sl": 138,
+  "lon": 103.866667,
+  "lat": 13.4125,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q43512",
+  "label": "K2",
+  "sl": 111,
+  "lon": 76.513333,
+  "lat": 35.881111,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q435829",
+  "label": "Petäjävesi Old Church",
+  "sl": 42,
+  "lon": 25.183945,
+  "lat": 62.250137,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q4366184",
+  "label": "Volgograd Arena",
+  "sl": 53,
+  "lon": 44.5481,
+  "lat": 48.7346,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q4399",
+  "label": "Tabriz Bazaar",
+  "sl": 45,
+  "lon": 46.292286,
+  "lat": 38.080772,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q44112",
+  "label": "Cyrene",
+  "sl": 75,
+  "lon": 21.85,
+  "lat": 32.816667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q4425",
+  "label": "Eiger",
+  "sl": 58,
+  "lon": 8.005287,
+  "lat": 46.577608,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q4439075",
+  "label": "Nizhny Novgorod Stadium",
+  "sl": 49,
+  "lon": 43.963333,
+  "lat": 56.3375,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q4439098",
+  "label": "Rostec Arena",
+  "sl": 54,
+  "lon": 20.533889,
+  "lat": 54.698056,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q4439099",
+  "label": "Samara Arena",
+  "sl": 54,
+  "lon": 50.23769,
+  "lat": 53.277534,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q4439101",
+  "label": "Rostov Arena",
+  "sl": 56,
+  "lon": 39.7378,
+  "lat": 47.2094,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q44562",
+  "label": "Ulm Minster",
+  "sl": 51,
+  "lon": 9.9925,
+  "lat": 48.398611,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q44856",
+  "label": "Taoyuan International Airport",
+  "sl": 54,
+  "lon": 121.223889,
+  "lat": 25.076389,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q44868",
+  "label": "Guangzhou Baiyun International Airport",
+  "sl": 56,
+  "lon": 113.298786,
+  "lat": 23.392436,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q44877",
+  "label": "Paro Airport",
+  "sl": 51,
+  "lon": 89.42058,
+  "lat": 27.408819,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q44923",
+  "label": "Addis Ababa Bole International Airport",
+  "sl": 48,
+  "lon": 38.799444,
+  "lat": 8.977778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q451697",
+  "label": "Ama Dablam",
+  "sl": 41,
+  "lon": 86.861389,
+  "lat": 27.861111,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q45178",
+  "label": "Sydney Opera House",
+  "sl": 99,
+  "lon": 151.214897,
+  "lat": -33.857058,
+  "types": [
+   "architectural landmark",
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q4519",
+  "label": "Naqsh-e Jahan Square",
+  "sl": 67,
+  "lon": 51.677333,
+  "lat": 32.658222,
+  "types": [
+   "architectural landmark",
+   "square"
+  ]
+ },
+ {
+  "qid": "Q4523",
+  "label": "Chogha Zanbil",
+  "sl": 66,
+  "lon": 48.520833,
+  "lat": 32.008333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q4533552",
+  "label": "Mordovia Arena",
+  "sl": 55,
+  "lon": 45.2014,
+  "lat": 54.1828,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q45368",
+  "label": "Mausoleum at Halicarnassus",
+  "sl": 90,
+  "lon": 27.424097,
+  "lat": 37.037942,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q45523",
+  "label": "Brisbane Airport",
+  "sl": 41,
+  "lon": 153.118333,
+  "lat": -27.383333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q455963",
+  "label": "Mount Apo",
+  "sl": 56,
+  "lon": 125.270833,
+  "lat": 6.9875,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q456800",
+  "label": "Mini Israel",
+  "sl": 45,
+  "lon": 34.968367,
+  "lat": 31.842165,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q456817",
+  "label": "Amber Fort",
+  "sl": 45,
+  "lon": 75.8507,
+  "lat": 26.9859,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q457362",
+  "label": "Djemila",
+  "sl": 56,
+  "lon": 5.73667,
+  "lat": 36.32056,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q458167",
+  "label": "Ambohimanga",
+  "sl": 45,
+  "lon": 47.562778,
+  "lat": -18.759167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q459096",
+  "label": "Dallas/Fort Worth International Airport",
+  "sl": 55,
+  "lon": -97.038056,
+  "lat": 32.896944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q45935",
+  "label": "Perth Airport",
+  "sl": 43,
+  "lon": 115.965,
+  "lat": -31.94,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q45938",
+  "label": "Auckland Airport",
+  "sl": 42,
+  "lon": 174.791667,
+  "lat": -37.008056,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q45949",
+  "label": "Preah Vihear Temple",
+  "sl": 52,
+  "lon": 104.680278,
+  "lat": 14.390556,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q459608",
+  "label": "Bent Pyramid",
+  "sl": 42,
+  "lon": 31.209167,
+  "lat": 29.790278,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q459629",
+  "label": "Timgad",
+  "sl": 59,
+  "lon": 6.468666,
+  "lat": 35.484237,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q46033",
+  "label": "Frankfurt Airport",
+  "sl": 89,
+  "lon": 8.570456,
+  "lat": 50.033305,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q460889",
+  "label": "Museo Nacional Centro de Arte Reina Sofía",
+  "sl": 46,
+  "lon": -3.693996,
+  "lat": 40.408571,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q461793",
+  "label": "Cairo International Airport",
+  "sl": 56,
+  "lon": 31.405555,
+  "lat": 30.121944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q46242",
+  "label": "Hofburg Palace",
+  "sl": 55,
+  "lon": 16.365278,
+  "lat": 48.206389,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q46280",
+  "label": "Paris-Charles de Gaulle Airport",
+  "sl": 92,
+  "lon": 2.547778,
+  "lat": 49.009722,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q46313",
+  "label": "Buda Castle",
+  "sl": 48,
+  "lon": 19.039722,
+  "lat": 47.496111,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q463179",
+  "label": "Fallingwater",
+  "sl": 61,
+  "lon": -79.468055,
+  "lat": 39.906389,
+  "types": [
+   "historic house museum",
+   "single-family detached home"
+  ]
+ },
+ {
+  "qid": "Q463400",
+  "label": "Piazza Navona",
+  "sl": 47,
+  "lon": 12.47316,
+  "lat": 41.89871,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q464266",
+  "label": "Dura-Europos",
+  "sl": 42,
+  "lon": 40.73,
+  "lat": 34.747,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q464899",
+  "label": "Monte Albán",
+  "sl": 51,
+  "lon": -96.767778,
+  "lat": 17.043889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q464904",
+  "label": "Yinxu",
+  "sl": 48,
+  "lon": 114.318611,
+  "lat": 36.1225,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q464936",
+  "label": "Xanthos",
+  "sl": 43,
+  "lon": 29.327378,
+  "lat": 36.362742,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q464945",
+  "label": "Poopó Lake",
+  "sl": 53,
+  "lon": -67.024722,
+  "lat": -18.781944,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q465071",
+  "label": "Warsaw Chopin Airport",
+  "sl": 59,
+  "lon": 20.967222,
+  "lat": 52.165833,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q465811",
+  "label": "National Mall",
+  "sl": 48,
+  "lon": -77.023056,
+  "lat": 38.889445,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q466614",
+  "label": "Hatra",
+  "sl": 62,
+  "lon": 42.718333,
+  "lat": 35.588056,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q466786",
+  "label": "Newark Liberty International Airport",
+  "sl": 54,
+  "lon": -74.1686,
+  "lat": 40.6925,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q466835",
+  "label": "Washington Dulles International Airport",
+  "sl": 48,
+  "lon": -77.455833,
+  "lat": 38.944444,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q47151",
+  "label": "Kazan International Airport",
+  "sl": 43,
+  "lon": 49.281667,
+  "lat": 55.606667,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q47157",
+  "label": "King Khalid International Airport",
+  "sl": 46,
+  "lon": 46.698799,
+  "lat": 24.9576,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q471765",
+  "label": "Xanadu",
+  "sl": 48,
+  "lon": 116.185159,
+  "lat": 42.358021,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q47476",
+  "label": "Alhambra",
+  "sl": 96,
+  "lon": -3.58821,
+  "lat": 37.17634,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q476313",
+  "label": "Dykh-Tau",
+  "sl": 49,
+  "lon": 43.131667,
+  "lat": 43.0525,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q47672",
+  "label": "Terracotta Army",
+  "sl": 90,
+  "lon": 109.273055,
+  "lat": 34.385,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q477157",
+  "label": "Changdeokgung",
+  "sl": 51,
+  "lon": 126.991667,
+  "lat": 37.579444,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q47724",
+  "label": "Con Dao Airport",
+  "sl": 41,
+  "lon": 106.628889,
+  "lat": 8.7325,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q477677",
+  "label": "Boryspil International Airport",
+  "sl": 61,
+  "lon": 30.893333,
+  "lat": 50.344722,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q4777",
+  "label": "Mount Roraima",
+  "sl": 59,
+  "lon": -60.764167,
+  "lat": 5.141944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q478000",
+  "label": "Rajko Mitić Stadium",
+  "sl": 46,
+  "lon": 20.464722,
+  "lat": 44.783333,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q478595",
+  "label": "Tan Son Nhat International Airport",
+  "sl": 168,
+  "lon": 106.652,
+  "lat": 10.8188,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q482423",
+  "label": "Hwaseong Fortress",
+  "sl": 41,
+  "lon": 127.010203,
+  "lat": 37.280733,
+  "types": [
+   "historic site",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q482485",
+  "label": "Gyeongbokgung",
+  "sl": 46,
+  "lon": 126.9768,
+  "lat": 37.579884,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q484458",
+  "label": "Buddhas of Bamiyan",
+  "sl": 86,
+  "lon": 67.826803,
+  "lat": 34.832042,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q48472",
+  "label": "Köneürgenç",
+  "sl": 61,
+  "lon": 59.153071,
+  "lat": 42.326134,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q486080",
+  "label": "Prophet's Mosque",
+  "sl": 86,
+  "lon": 39.610833,
+  "lat": 24.468333,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q48623",
+  "label": "Azerbaijan State Academic Opera and Ballet Theater",
+  "sl": 40,
+  "lon": 49.845397,
+  "lat": 40.374701,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q486382",
+  "label": "Castel Sant'Angelo",
+  "sl": 58,
+  "lon": 12.466307,
+  "lat": 41.903044,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q4872",
+  "label": "Pushkin Museum of Fine Arts",
+  "sl": 48,
+  "lon": 37.606029,
+  "lat": 55.747029,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q48877",
+  "label": "Shiveluch",
+  "sl": 42,
+  "lon": 161.362967,
+  "lat": 56.653633,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q49133",
+  "label": "Museum of Fine Arts Boston",
+  "sl": 45,
+  "lon": -71.094167,
+  "lat": 42.339444,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q491677",
+  "label": "Yosemite Falls",
+  "sl": 40,
+  "lon": -119.597297,
+  "lat": 37.755018,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q491767",
+  "label": "Pyongyang International Airport",
+  "sl": 43,
+  "lon": 125.67,
+  "lat": 39.223889,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q495501",
+  "label": "Mount Kumgang",
+  "sl": 41,
+  "lon": 128.104903,
+  "lat": 38.656764,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q49650",
+  "label": "Loch Ness",
+  "sl": 80,
+  "lon": -4.45,
+  "lat": 57.3,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q498245",
+  "label": "Estadio Centenario",
+  "sl": 46,
+  "lon": -56.152778,
+  "lat": -34.894444,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q498261",
+  "label": "Reales Alcázares",
+  "sl": 46,
+  "lon": -5.991187,
+  "lat": 37.384426,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q498671",
+  "label": "Lake Hillier",
+  "sl": 40,
+  "lon": 123.202778,
+  "lat": -34.095833,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q499019",
+  "label": "Jebel Barkal",
+  "sl": 47,
+  "lon": 31.8276,
+  "lat": 18.5368,
+  "types": [
+   "archaeological site",
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q499285",
+  "label": "Geghard",
+  "sl": 52,
+  "lon": 44.818594,
+  "lat": 40.140468,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q500253",
+  "label": "Kuala Lumpur International Airport",
+  "sl": 67,
+  "lon": 101.709722,
+  "lat": 2.745556,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q500275",
+  "label": "Yushan Main Peak",
+  "sl": 52,
+  "lon": 120.957267,
+  "lat": 23.47,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q500367",
+  "label": "Qal'at Bani Hammad",
+  "sl": 51,
+  "lon": 4.793333,
+  "lat": 35.813889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q500945",
+  "label": "Budapest Ferenc Liszt International Airport",
+  "sl": 53,
+  "lon": 19.261945,
+  "lat": 47.439444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q501083",
+  "label": "Gibraltar International Airport",
+  "sl": 48,
+  "lon": -5.349722,
+  "lat": 36.151111,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q501259",
+  "label": "Isin",
+  "sl": 47,
+  "lon": 45.285207,
+  "lat": 31.933512,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q501773",
+  "label": "Bethsaida",
+  "sl": 49,
+  "lon": 35.630536,
+  "lat": 32.90995,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q502098",
+  "label": "Baths of Caracalla",
+  "sl": 43,
+  "lon": 12.492764,
+  "lat": 41.880264,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q502371",
+  "label": "West Lake",
+  "sl": 59,
+  "lon": 120.140833,
+  "lat": 30.2375,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q502670",
+  "label": "Chennai International Airport",
+  "sl": 45,
+  "lon": 80.163611,
+  "lat": 12.982222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q503364",
+  "label": "Kempegowda International Airport",
+  "sl": 49,
+  "lon": 77.705555,
+  "lat": 13.198889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q503368",
+  "label": "Carrauntoohil",
+  "sl": 48,
+  "lon": -9.742778,
+  "lat": 51.998889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q503387",
+  "label": "Rock-hewn Churches of Ivanovo",
+  "sl": 44,
+  "lon": 25.988055,
+  "lat": 43.695556,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q503433",
+  "label": "Jbel Toubkal",
+  "sl": 53,
+  "lon": -7.916111,
+  "lat": 31.061944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q503842",
+  "label": "Lake General Carrera/Buenos Aires",
+  "sl": 41,
+  "lon": -71.715,
+  "lat": -46.4375,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q504368",
+  "label": "Chhatrapati Shivaji Maharaj International Airport",
+  "sl": 53,
+  "lon": 72.868056,
+  "lat": 19.088611,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q504433",
+  "label": "Lake Mweru",
+  "sl": 68,
+  "lon": 28.5,
+  "lat": -9.166667,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q505421",
+  "label": "Riga International Airport",
+  "sl": 52,
+  "lon": 23.970833,
+  "lat": 56.920833,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q505617",
+  "label": "Villa Romana del Casale",
+  "sl": 48,
+  "lon": 14.334553,
+  "lat": 37.364723,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q5059",
+  "label": "Aoraki / Mount Cook",
+  "sl": 69,
+  "lon": 170.141944,
+  "lat": -43.595,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q505950",
+  "label": "Holyrood Palace",
+  "sl": 44,
+  "lon": -3.17229,
+  "lat": 55.9527,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q506938",
+  "label": "Corcovado",
+  "sl": 47,
+  "lon": -43.211667,
+  "lat": -22.9525,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q508815",
+  "label": "Carnuntum",
+  "sl": 43,
+  "lon": 16.861389,
+  "lat": 48.113333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q51177",
+  "label": "Basilica of Santa Croce",
+  "sl": 47,
+  "lon": 11.26274,
+  "lat": 43.76845,
+  "types": [
+   "church building",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q512128",
+  "label": "Philadelphia International Airport",
+  "sl": 43,
+  "lon": -75.241111,
+  "lat": 39.871944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q51252",
+  "label": "Uffizi Gallery",
+  "sl": 73,
+  "lon": 11.255278,
+  "lat": 43.768333,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q513",
+  "label": "Mount Everest",
+  "sl": 238,
+  "lon": 86.925,
+  "lat": 27.988056,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q513684",
+  "label": "Mehrabad International Airport",
+  "sl": 43,
+  "lon": 51.313611,
+  "lat": 35.689167,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q517873",
+  "label": "Bergamo-Il Caravaggio",
+  "sl": 51,
+  "lon": 9.69948,
+  "lat": 45.66547,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q522862",
+  "label": "Karnak Temple Complex",
+  "sl": 66,
+  "lon": 32.658333,
+  "lat": 25.718333,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q524",
+  "label": "Mount Vesuvius",
+  "sl": 136,
+  "lon": 14.42919,
+  "lat": 40.82261,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q524249",
+  "label": "National Museum of Anthropology",
+  "sl": 41,
+  "lon": -99.186111,
+  "lat": 19.426111,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q525811",
+  "label": "Generalife",
+  "sl": 47,
+  "lon": -3.585278,
+  "lat": 37.176944,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q526488",
+  "label": "Salt Lake City International Airport",
+  "sl": 40,
+  "lon": -111.977778,
+  "lat": 40.788333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q527157",
+  "label": "Kuwait International Airport",
+  "sl": 42,
+  "lon": 47.979972,
+  "lat": 29.226778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q528184",
+  "label": "Turin Airport",
+  "sl": 40,
+  "lon": 7.649595,
+  "lat": 45.201787,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q530129",
+  "label": "Royal Palace of Aranjuez",
+  "sl": 40,
+  "lon": -3.60818,
+  "lat": 40.036364,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q531178",
+  "label": "Daniel K. Inouye International Airport",
+  "sl": 40,
+  "lon": -157.9225,
+  "lat": 21.318611,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q537374",
+  "label": "Hulun Lake",
+  "sl": 42,
+  "lon": 117.435556,
+  "lat": 48.973056,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q538061",
+  "label": "Kerkouane",
+  "sl": 45,
+  "lon": 11.099167,
+  "lat": 36.946389,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q540273",
+  "label": "Catania-Fontanarossa Airport",
+  "sl": 41,
+  "lon": 15.063889,
+  "lat": 37.466667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q540520",
+  "label": "Meron",
+  "sl": 42,
+  "lon": 35.412222,
+  "lat": 32.9975,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q542070",
+  "label": "San Pietro in Vincoli",
+  "sl": 42,
+  "lon": 12.49307,
+  "lat": 41.893872,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q542854",
+  "label": "Gordion",
+  "sl": 40,
+  "lon": 31.978483,
+  "lat": 39.650479,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q543419",
+  "label": "iron pillar of Delhi",
+  "sl": 44,
+  "lon": 77.185069,
+  "lat": 28.524656,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q544553",
+  "label": "Arrowhead Stadium",
+  "sl": 46,
+  "lon": -94.483889,
+  "lat": 39.048889,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q546010",
+  "label": "Ani",
+  "sl": 59,
+  "lon": 43.572778,
+  "lat": 40.5075,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q546221",
+  "label": "Trump International Hotel and Tower",
+  "sl": 40,
+  "lon": -87.626672,
+  "lat": 41.8891,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q5471",
+  "label": "La Scala",
+  "sl": 74,
+  "lon": 9.1888,
+  "lat": 45.467336,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q5484",
+  "label": "Caspian Sea",
+  "sl": 207,
+  "lon": 50.5,
+  "lat": 42.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5492",
+  "label": "Lake Erie",
+  "sl": 102,
+  "lon": -80.999722,
+  "lat": 42.25,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q549498",
+  "label": "GUM",
+  "sl": 40,
+  "lon": 37.6215,
+  "lat": 55.754722,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q55018",
+  "label": "Royal Opera House",
+  "sl": 56,
+  "lon": -0.122778,
+  "lat": 51.513056,
+  "types": [
+   "opera house",
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q5505",
+  "label": "Lake Victoria",
+  "sl": 162,
+  "lon": 33.0,
+  "lat": -1.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q55074091",
+  "label": "Tottenham Hotspur Stadium",
+  "sl": 47,
+  "lon": -0.066389,
+  "lat": 51.604444,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q5511",
+  "label": "Lake Tanganyika",
+  "sl": 151,
+  "lon": 29.5,
+  "lat": -6.1,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5513",
+  "label": "Lake Baikal",
+  "sl": 185,
+  "lon": 108.004722,
+  "lat": 53.302778,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5525",
+  "label": "Great Bear Lake",
+  "sl": 74,
+  "lon": -121.0,
+  "lat": 66.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5532",
+  "label": "Lake Malawi",
+  "sl": 107,
+  "lon": 34.366667,
+  "lat": -12.183333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5582862",
+  "label": "Cusco",
+  "sl": 117,
+  "lon": -71.978611,
+  "lat": -13.516944,
+  "types": [
+   "historic district"
+  ]
+ },
+ {
+  "qid": "Q5680",
+  "label": "Nineveh",
+  "sl": 87,
+  "lon": 43.15,
+  "lat": 36.366667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q5684",
+  "label": "Babylon",
+  "sl": 127,
+  "lon": 44.42415,
+  "lat": 32.522907,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q569107",
+  "label": "Anshan Persia",
+  "sl": 40,
+  "lon": 52.407778,
+  "lat": 30.011667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q56973",
+  "label": "Josep Tarradellas Airport Barcelona-El Prat",
+  "sl": 56,
+  "lon": 2.078333,
+  "lat": 41.296944,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q5699",
+  "label": "Ur",
+  "sl": 86,
+  "lon": 46.104444,
+  "lat": 30.962222,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q570873",
+  "label": "Damascus International Airport",
+  "sl": 40,
+  "lon": 36.515558,
+  "lat": 33.411522,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q5724",
+  "label": "Anuradhapura",
+  "sl": 81,
+  "lon": 80.410833,
+  "lat": 8.335,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q5736",
+  "label": "Amarna",
+  "sl": 57,
+  "lon": 30.905555,
+  "lat": 27.661667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q573656",
+  "label": "Schwerin Castle",
+  "sl": 43,
+  "lon": 11.418889,
+  "lat": 53.624167,
+  "types": [
+   "architectural landmark",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q575679",
+  "label": "Lake Alaotra",
+  "sl": 41,
+  "lon": 48.5,
+  "lat": -17.5,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q5786",
+  "label": "Arch of Constantine",
+  "sl": 49,
+  "lon": 12.490605,
+  "lat": 41.889828,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q5788",
+  "label": "Petra",
+  "sl": 117,
+  "lon": 35.441944,
+  "lat": 30.328611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q578862",
+  "label": "Pico Cristóbal Colón",
+  "sl": 41,
+  "lon": -73.686667,
+  "lat": 10.838333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q57900",
+  "label": "U.S. Bank Tower",
+  "sl": 40,
+  "lon": -118.254353,
+  "lat": 34.050961,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q580480",
+  "label": "Liberty Stadium",
+  "sl": 43,
+  "lon": -3.9351,
+  "lat": 51.6422,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q581545",
+  "label": "John Paul II International Airport Kraków-Balice",
+  "sl": 44,
+  "lon": 19.784722,
+  "lat": 50.077778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q581641",
+  "label": "Divriği Great Mosque and Hospital",
+  "sl": 40,
+  "lon": 38.121583,
+  "lat": 39.371222,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q582128",
+  "label": "Gyachung Kang",
+  "sl": 42,
+  "lon": 86.742222,
+  "lat": 28.098055,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q58226",
+  "label": "Düsseldorf Airport",
+  "sl": 51,
+  "lon": 6.757311,
+  "lat": 51.280925,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q583",
+  "label": "Mont Blanc",
+  "sl": 127,
+  "lon": 6.865,
+  "lat": 45.832778,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q584125",
+  "label": "Ban Chiang",
+  "sl": 43,
+  "lon": 103.358333,
+  "lat": 17.548611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q5843680",
+  "label": "Halicarnassus",
+  "sl": 52,
+  "lon": 27.424167,
+  "lat": 37.037778,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q5859",
+  "label": "Chichen Itza",
+  "sl": 110,
+  "lon": -88.568611,
+  "lat": 20.683056,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q586065",
+  "label": "Entebbe International Airport",
+  "sl": 43,
+  "lon": 32.443056,
+  "lat": 0.044722,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q586212",
+  "label": "Monte Pissis",
+  "sl": 40,
+  "lon": -68.799167,
+  "lat": -27.755278,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q5908",
+  "label": "Aachen Cathedral",
+  "sl": 64,
+  "lon": 6.083922,
+  "lat": 50.77475,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q59174",
+  "label": "Capernaum",
+  "sl": 67,
+  "lon": 35.575,
+  "lat": 32.881111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q592172",
+  "label": "Cochin International Airport",
+  "sl": 41,
+  "lon": 76.401945,
+  "lat": 10.151944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q593115",
+  "label": "Great Mosque of Samarra",
+  "sl": 43,
+  "lon": 43.87985,
+  "lat": 34.206195,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q594387",
+  "label": "Mount Baker",
+  "sl": 40,
+  "lon": -121.813201,
+  "lat": 48.777343,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q59483",
+  "label": "Mercury City Tower",
+  "sl": 41,
+  "lon": 37.539445,
+  "lat": 55.750556,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q59669",
+  "label": "Tho Xuan Airport",
+  "sl": 53,
+  "lon": 105.467778,
+  "lat": 19.901667,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q597649",
+  "label": "Charlotte Douglas International Airport",
+  "sl": 43,
+  "lon": -80.943055,
+  "lat": 35.213889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q603622",
+  "label": "Qazan Kremlin",
+  "sl": 48,
+  "lon": 49.10724,
+  "lat": 55.797442,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q603841",
+  "label": "Bubastis",
+  "sl": 44,
+  "lon": 31.51,
+  "lat": 30.572778,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q606763",
+  "label": "Gonbad-e Qabus",
+  "sl": 40,
+  "lon": 55.168991,
+  "lat": 37.258121,
+  "types": [
+   "tower"
+  ]
+ },
+ {
+  "qid": "Q606803",
+  "label": "Arena da Baixada",
+  "sl": 45,
+  "lon": -49.276944,
+  "lat": -25.448333,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q60789",
+  "label": "Adam's Peak",
+  "sl": 54,
+  "lon": 80.499722,
+  "lat": 6.809444,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q60900",
+  "label": "Bandaranaike International Airport",
+  "sl": 43,
+  "lon": 79.883611,
+  "lat": 7.181111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q60910",
+  "label": "Milan–Malpensa \"Silvio Berlusconi\" Airport",
+  "sl": 57,
+  "lon": 8.723056,
+  "lat": 45.63,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q60967",
+  "label": "Mount Kinabalu",
+  "sl": 71,
+  "lon": 116.558611,
+  "lat": 6.075,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q61052",
+  "label": "Jinnah International Airport",
+  "sl": 41,
+  "lon": 67.160833,
+  "lat": 24.906667,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q61066",
+  "label": "Tribhuvan International Airport",
+  "sl": 48,
+  "lon": 85.357778,
+  "lat": 27.697222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q611206",
+  "label": "Bosten Lake",
+  "sl": 41,
+  "lon": 87.0,
+  "lat": 42.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q612227",
+  "label": "BC Place",
+  "sl": 53,
+  "lon": -123.111944,
+  "lat": 49.276667,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q612736",
+  "label": "Lumen Field",
+  "sl": 46,
+  "lon": -122.331667,
+  "lat": 47.595278,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q613037",
+  "label": "Temple of Edfu",
+  "sl": 46,
+  "lon": 32.873333,
+  "lat": 24.977778,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q615404",
+  "label": "Anıtkabir",
+  "sl": 53,
+  "lon": 32.836944,
+  "lat": 39.925,
+  "types": [
+   "memorial"
+  ]
+ },
+ {
+  "qid": "Q61750",
+  "label": "Tiwanaku",
+  "sl": 70,
+  "lon": -68.673333,
+  "lat": -16.554722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q617511",
+  "label": "Sněžka",
+  "sl": 58,
+  "lon": 15.740278,
+  "lat": 50.736111,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q617550",
+  "label": "Apamea",
+  "sl": 41,
+  "lon": 36.4,
+  "lat": 35.416667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q618495",
+  "label": "Aphrodisias",
+  "sl": 42,
+  "lon": 28.723611,
+  "lat": 37.708333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q619409",
+  "label": "Brighton Community Stadium",
+  "sl": 42,
+  "lon": -0.083278,
+  "lat": 50.861822,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q619707",
+  "label": "Sippar",
+  "sl": 46,
+  "lon": 44.25,
+  "lat": 33.06667,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q619845",
+  "label": "Bern Airport",
+  "sl": 41,
+  "lon": 7.499445,
+  "lat": 46.912222,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q622616",
+  "label": "Mount Lu",
+  "sl": 48,
+  "lon": 115.973333,
+  "lat": 29.5725,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q622671",
+  "label": "King Baudouin Stadium",
+  "sl": 41,
+  "lon": 4.334083,
+  "lat": 50.895706,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q623345",
+  "label": "Aquincum",
+  "sl": 43,
+  "lon": 19.049472,
+  "lat": 47.564139,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q623612",
+  "label": "Ara Pacis",
+  "sl": 41,
+  "lon": 12.475555,
+  "lat": 41.906389,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q62378",
+  "label": "Tower of London",
+  "sl": 88,
+  "lon": -0.076198,
+  "lat": 51.5082,
+  "types": [
+   "archaeological site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q62467",
+  "label": "Coma Pedrosa",
+  "sl": 42,
+  "lon": 1.443655,
+  "lat": 42.591806,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q625149",
+  "label": "Aurelian Walls",
+  "sl": 48,
+  "lon": 12.498955,
+  "lat": 41.873292,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q626031",
+  "label": "Esna",
+  "sl": 48,
+  "lon": 32.556389,
+  "lat": 25.293333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q62677",
+  "label": "Karakorum",
+  "sl": 57,
+  "lon": 102.82379,
+  "lat": 47.19753,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q627508",
+  "label": "Hoverla",
+  "sl": 59,
+  "lon": 24.5,
+  "lat": 48.160278,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q628491",
+  "label": "Teatro di San Carlo",
+  "sl": 44,
+  "lon": 14.249687,
+  "lat": 40.837388,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q630524",
+  "label": "Tallinn Airport",
+  "sl": 51,
+  "lon": 24.799167,
+  "lat": 59.416389,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q630579",
+  "label": "Muztagh Ata",
+  "sl": 43,
+  "lon": 75.115833,
+  "lat": 38.278333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q63141",
+  "label": "Lake Orta",
+  "sl": 40,
+  "lon": 8.3963,
+  "lat": 45.8098,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q632682",
+  "label": "Brooklyn Museum",
+  "sl": 48,
+  "lon": -73.963631,
+  "lat": 40.671206,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q635826",
+  "label": "Sharjah International Airport",
+  "sl": 46,
+  "lon": 55.517222,
+  "lat": 25.328611,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q6373",
+  "label": "British Museum",
+  "sl": 110,
+  "lon": -0.126944,
+  "lat": 51.519444,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q637639",
+  "label": "Bahrain International Airport",
+  "sl": 45,
+  "lon": 50.633611,
+  "lat": 26.270833,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q6383",
+  "label": "Lake Balaton",
+  "sl": 97,
+  "lon": 17.72,
+  "lat": 46.85,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q638423",
+  "label": "Opéra Bastille",
+  "sl": 41,
+  "lon": 2.370556,
+  "lat": 48.851944,
+  "types": [
+   "opera house"
+  ]
+ },
+ {
+  "qid": "Q638445",
+  "label": "Chersonesus",
+  "sl": 65,
+  "lon": 33.493302,
+  "lat": 44.611627,
+  "types": [
+   "archaeological site",
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q638519",
+  "label": "Wawel Cathedral",
+  "sl": 45,
+  "lon": 19.935417,
+  "lat": 50.054639,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q639161",
+  "label": "Madeira Cristiano-Ronaldo Airport",
+  "sl": 40,
+  "lon": -16.778055,
+  "lat": 32.694167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q639975",
+  "label": "United Center",
+  "sl": 40,
+  "lon": -87.674167,
+  "lat": 41.880555,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q6414",
+  "label": "Lake Garda",
+  "sl": 88,
+  "lon": 10.666667,
+  "lat": 45.633333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q641448",
+  "label": "Arena Pantaloneta",
+  "sl": 45,
+  "lon": -56.1216,
+  "lat": -15.604,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q641527",
+  "label": "Arena Amazônia",
+  "sl": 48,
+  "lon": -60.028056,
+  "lat": -3.083056,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q641556",
+  "label": "Verona Arena",
+  "sl": 44,
+  "lon": 10.994444,
+  "lat": 45.438889,
+  "types": [
+   "archaeological site",
+   "opera house",
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q641588",
+  "label": "Arenal Volcano",
+  "sl": 42,
+  "lon": -84.703333,
+  "lat": 10.4625,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q642557",
+  "label": "Hillsborough Stadium",
+  "sl": 42,
+  "lon": -1.500556,
+  "lat": 53.411389,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q643098",
+  "label": "Shah Mosque",
+  "sl": 49,
+  "lon": 51.677778,
+  "lat": 32.654806,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q643520",
+  "label": "Place Vendôme",
+  "sl": 42,
+  "lon": 2.329444,
+  "lat": 48.8675,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q643562",
+  "label": "Zayed International Airport",
+  "sl": 60,
+  "lon": 54.651111,
+  "lat": 24.433056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q643783",
+  "label": "Pristina International Airport Adem Jashari",
+  "sl": 47,
+  "lon": 21.035833,
+  "lat": 42.572778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q644677",
+  "label": "Şehzade Mosque",
+  "sl": 43,
+  "lon": 28.957175,
+  "lat": 41.013794,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q645105",
+  "label": "Euphrasian Basilica",
+  "sl": 40,
+  "lon": 13.593611,
+  "lat": 45.228611,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q645901",
+  "label": "Lake Manitoba",
+  "sl": 42,
+  "lon": -98.761889,
+  "lat": 50.996111,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q646334",
+  "label": "Lubyanka Building",
+  "sl": 40,
+  "lon": 37.628595,
+  "lat": 55.760216,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q646398",
+  "label": "Kongur Tagh",
+  "sl": 41,
+  "lon": 75.313333,
+  "lat": 38.593889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q648551",
+  "label": "Nevado del Huila",
+  "sl": 40,
+  "lon": -76.033333,
+  "lat": 2.933333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q648705",
+  "label": "Naqsh-e Rustam",
+  "sl": 50,
+  "lon": 52.874722,
+  "lat": 29.988889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q648902",
+  "label": "Lake Bled",
+  "sl": 55,
+  "lon": 14.094722,
+  "lat": 46.364444,
+  "types": [
+   "archaeological site",
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q6499360",
+  "label": "Arena Fonte Nova",
+  "sl": 46,
+  "lon": -38.504253,
+  "lat": -12.978819,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q6501000",
+  "label": "Chang'an",
+  "sl": 44,
+  "lon": 108.858333,
+  "lat": 34.308333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q650285",
+  "label": "Ufa International Airport",
+  "sl": 48,
+  "lon": 55.874167,
+  "lat": 54.5575,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q651190",
+  "label": "Marseille Provence Airport",
+  "sl": 45,
+  "lon": 5.215,
+  "lat": 43.436667,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q651278",
+  "label": "Dazu Rock Carvings",
+  "sl": 45,
+  "lon": 105.706945,
+  "lat": 29.713333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q651294",
+  "label": "Namtso",
+  "sl": 49,
+  "lon": 90.468055,
+  "lat": 30.720833,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q651392",
+  "label": "Melilla Airport",
+  "sl": 63,
+  "lon": -2.956389,
+  "lat": 35.279722,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q652024",
+  "label": "Myra",
+  "sl": 41,
+  "lon": 29.993638,
+  "lat": 36.250801,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q652464",
+  "label": "Kolomenskoye",
+  "sl": 44,
+  "lon": 37.66657,
+  "lat": 55.66767,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q654024",
+  "label": "Bayon",
+  "sl": 44,
+  "lon": 103.858738,
+  "lat": 13.441252,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q654636",
+  "label": "Larnaca International Airport",
+  "sl": 45,
+  "lon": 33.630278,
+  "lat": 34.878889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q656743",
+  "label": "Kingdom Centre",
+  "sl": 42,
+  "lon": 46.674444,
+  "lat": 24.711389,
+  "types": [
+   "architectural landmark",
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q656993",
+  "label": "Palma de Mallorca Airport",
+  "sl": 44,
+  "lon": 2.738808,
+  "lat": 39.551675,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q660082",
+  "label": "Melk Abbey",
+  "sl": 42,
+  "lon": 15.33123,
+  "lat": 48.22843,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q661855",
+  "label": "Avebury",
+  "sl": 44,
+  "lon": -1.854167,
+  "lat": 51.428611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q668329",
+  "label": "Beirut–Rafic Hariri International Airport",
+  "sl": 41,
+  "lon": 35.488333,
+  "lat": 33.821111,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q671475",
+  "label": "Logan International Airport",
+  "sl": 46,
+  "lon": -71.006389,
+  "lat": 42.363056,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q672241",
+  "label": "Jog Falls",
+  "sl": 41,
+  "lon": 74.812778,
+  "lat": 14.23,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q672289",
+  "label": "Malta International Airport",
+  "sl": 46,
+  "lon": 14.4775,
+  "lat": 35.8575,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q672936",
+  "label": "Rysy",
+  "sl": 57,
+  "lon": 20.088056,
+  "lat": 49.179444,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q673169",
+  "label": "Lake Bangweulu",
+  "sl": 46,
+  "lon": 29.75,
+  "lat": -11.083333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q674773",
+  "label": "Science Museum",
+  "sl": 47,
+  "lon": -0.174722,
+  "lat": 51.4975,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q676203",
+  "label": "Machu Picchu",
+  "sl": 151,
+  "lon": -72.545556,
+  "lat": -13.163333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q676576",
+  "label": "Ronald Reagan Washington National Airport",
+  "sl": 41,
+  "lon": -77.041961,
+  "lat": 38.854008,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q677659",
+  "label": "Maison Carrée",
+  "sl": 42,
+  "lon": 4.356111,
+  "lat": 43.838194,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q677935",
+  "label": "Veii",
+  "sl": 40,
+  "lon": 12.401389,
+  "lat": 42.023889,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q679292",
+  "label": "Hohensalzburg Fortress",
+  "sl": 40,
+  "lon": 13.0473,
+  "lat": 47.795,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q679345",
+  "label": "Chubu Centrair International Airport",
+  "sl": 46,
+  "lon": 136.805278,
+  "lat": 34.858333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q679590",
+  "label": "Mount Bromo",
+  "sl": 46,
+  "lon": 112.953889,
+  "lat": -7.943055,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q680161",
+  "label": "Mount Nebo",
+  "sl": 43,
+  "lon": 35.725555,
+  "lat": 31.767778,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q683100",
+  "label": "Lake Mai-Ndombe",
+  "sl": 41,
+  "lon": 18.33,
+  "lat": -2.0,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q683112",
+  "label": "Turf Moor",
+  "sl": 44,
+  "lon": -2.230225,
+  "lat": 53.789064,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q684072",
+  "label": "Garni Temple",
+  "sl": 42,
+  "lon": 44.729,
+  "lat": 40.112,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q68467",
+  "label": "Lake Champlain",
+  "sl": 47,
+  "lon": -73.33,
+  "lat": 44.53,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q685414",
+  "label": "Dahshur",
+  "sl": 49,
+  "lon": 31.233333,
+  "lat": 29.8,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q686841",
+  "label": "Hoher Dachstein",
+  "sl": 44,
+  "lon": 13.605735,
+  "lat": 47.475168,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q687629",
+  "label": "Batu Caves",
+  "sl": 42,
+  "lon": 101.683906,
+  "lat": 3.2374,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q690035",
+  "label": "Kadesh",
+  "sl": 48,
+  "lon": 36.52,
+  "lat": 34.5576,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q690122",
+  "label": "Pulkovo Airport",
+  "sl": 51,
+  "lon": 30.2625,
+  "lat": 59.800278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q690894",
+  "label": "Málaga-Costa del Sol",
+  "sl": 40,
+  "lon": -4.499167,
+  "lat": 36.675,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q692922",
+  "label": "Novarupta",
+  "sl": 40,
+  "lon": -155.156667,
+  "lat": 58.266667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q694434",
+  "label": "Innsbruck Airport",
+  "sl": 40,
+  "lon": 11.343889,
+  "lat": 47.260278,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q69513",
+  "label": "Pena Palace",
+  "sl": 41,
+  "lon": -9.390555,
+  "lat": 38.787778,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q695221",
+  "label": "Aburaj",
+  "sl": 54,
+  "lon": 72.708333,
+  "lat": 24.5925,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q695229",
+  "label": "Great Living Chola Temples",
+  "sl": 46,
+  "lon": 79.1325,
+  "lat": 10.783055,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q696193",
+  "label": "Ecbatana",
+  "sl": 50,
+  "lon": 48.516247,
+  "lat": 34.8065,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q7007552",
+  "label": "Mercedes-Benz Stadium",
+  "sl": 45,
+  "lon": -84.400833,
+  "lat": 33.755278,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q709169",
+  "label": "Pisa International Airport 'Galileo Galilei'",
+  "sl": 41,
+  "lon": 10.3925,
+  "lat": 43.683889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q71229",
+  "label": "Potala Palace",
+  "sl": 85,
+  "lon": 91.116945,
+  "lat": 29.657778,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q714023",
+  "label": "Heaven Lake",
+  "sl": 43,
+  "lon": 128.057,
+  "lat": 42.006,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q71719",
+  "label": "Hollywood Walk of Fame",
+  "sl": 76,
+  "lon": -118.344967,
+  "lat": 34.1014,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q719794",
+  "label": "Church of the Gesù",
+  "sl": 42,
+  "lon": 12.479722,
+  "lat": 41.895833,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q720015",
+  "label": "Karakul",
+  "sl": 42,
+  "lon": 73.42,
+  "lat": 39.04,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q720102",
+  "label": "St Pancras railway station",
+  "sl": 44,
+  "lon": -0.125278,
+  "lat": 51.53,
+  "types": [
+   "railway station"
+  ]
+ },
+ {
+  "qid": "Q721494",
+  "label": "Queen Alia International Airport",
+  "sl": 42,
+  "lon": 35.993333,
+  "lat": 31.7225,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q721817",
+  "label": "Basilica of San Vitale",
+  "sl": 51,
+  "lon": 12.196389,
+  "lat": 44.420556,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q72303",
+  "label": "Mount Ararat",
+  "sl": 112,
+  "lon": 44.298333,
+  "lat": 39.701944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q723325",
+  "label": "Princess Juliana International Airport",
+  "sl": 42,
+  "lon": -63.109444,
+  "lat": 18.040833,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q72356",
+  "label": "Poggiomarino",
+  "sl": 55,
+  "lon": 14.55,
+  "lat": 40.8,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q723603",
+  "label": "Stadion Maksimir",
+  "sl": 46,
+  "lon": 16.018078,
+  "lat": 45.818858,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q723622",
+  "label": "Istanbul Sabiha Gökçen International Airport",
+  "sl": 56,
+  "lon": 29.309167,
+  "lat": 40.898333,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q723887",
+  "label": "Arch of Titus",
+  "sl": 43,
+  "lon": 12.488585,
+  "lat": 41.890717,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q724367",
+  "label": "Belukha Mountain",
+  "sl": 52,
+  "lon": 86.589722,
+  "lat": 49.806944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q724484",
+  "label": "M'zab",
+  "sl": 47,
+  "lon": 3.681389,
+  "lat": 32.487222,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q725591",
+  "label": "Mount Bazardüzü",
+  "sl": 107,
+  "lon": 47.858342,
+  "lat": 41.220493,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q725883",
+  "label": "Maya Ruins of Tulum",
+  "sl": 46,
+  "lon": -87.428889,
+  "lat": 20.214722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q727078",
+  "label": "Stockholm Olympic Stadium",
+  "sl": 41,
+  "lon": 18.078889,
+  "lat": 59.345278,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q728226",
+  "label": "Ma'arrat Nu'man",
+  "sl": 44,
+  "lon": 36.668333,
+  "lat": 35.643333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q732115",
+  "label": "Montserrat",
+  "sl": 46,
+  "lon": 1.811495,
+  "lat": 41.605376,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q732489",
+  "label": "Mariinskyi Palace",
+  "sl": 51,
+  "lon": 30.5375,
+  "lat": 50.448333,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q732554",
+  "label": "Chavin de Huantar",
+  "sl": 43,
+  "lon": -77.178453,
+  "lat": -9.592775,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q732838",
+  "label": "Mount Elgon",
+  "sl": 44,
+  "lon": 34.5265,
+  "lat": 1.1185,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q732908",
+  "label": "Hermopolis",
+  "sl": 41,
+  "lon": 30.801111,
+  "lat": 27.774439,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q733610",
+  "label": "Erebuni Fortress",
+  "sl": 41,
+  "lon": 44.537949,
+  "lat": 40.140647,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q733738",
+  "label": "Melbourne Airport",
+  "sl": 49,
+  "lon": 144.843333,
+  "lat": -37.673333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q733998",
+  "label": "Rio de Janeiro/Galeão – Antonio Carlos Jobim International Airport",
+  "sl": 43,
+  "lon": -43.250556,
+  "lat": -22.81,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q7341",
+  "label": "Auschwitz",
+  "sl": 129,
+  "lon": 19.178333,
+  "lat": 50.035833,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q734729",
+  "label": "Tehran Imam Khomeini International Airport",
+  "sl": 48,
+  "lon": 51.152222,
+  "lat": 35.416111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q736072",
+  "label": "Taksim Square",
+  "sl": 50,
+  "lon": 28.985833,
+  "lat": 41.036944,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q736587",
+  "label": "Peter and Paul Cathedral",
+  "sl": 45,
+  "lon": 30.316667,
+  "lat": 59.950278,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q736627",
+  "label": "Montréal–Trudeau International Airport",
+  "sl": 45,
+  "lon": -73.7408,
+  "lat": 45.4706,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q736707",
+  "label": "Lake Saint Clair",
+  "sl": 43,
+  "lon": -82.67572,
+  "lat": 42.450265,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q737859",
+  "label": "Mount Karisimbi",
+  "sl": 42,
+  "lon": 29.45,
+  "lat": -1.5,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q738015",
+  "label": "Helsinki Cathedral",
+  "sl": 51,
+  "lon": 24.952124,
+  "lat": 60.170388,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q739484",
+  "label": "Pico da Neblina",
+  "sl": 43,
+  "lon": -66.005358,
+  "lat": 0.805494,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q740104",
+  "label": "Qal’at al Bahrain",
+  "sl": 50,
+  "lon": 50.520556,
+  "lat": 26.233611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q740138",
+  "label": "Tel Hazor",
+  "sl": 42,
+  "lon": 35.569167,
+  "lat": 33.018333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q740392",
+  "label": "Sarajevo International Airport (SJJ)",
+  "sl": 43,
+  "lon": 18.337427,
+  "lat": 43.826148,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q740804",
+  "label": "Maaloula",
+  "sl": 49,
+  "lon": 36.546667,
+  "lat": 33.844167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q740952",
+  "label": "Umma",
+  "sl": 44,
+  "lon": 45.8877,
+  "lat": 31.6674,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q741351",
+  "label": "Moscow Canal",
+  "sl": 42,
+  "lon": 37.45462,
+  "lat": 55.8719,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q7428276",
+  "label": "Hierapolis",
+  "sl": 54,
+  "lon": 29.125833,
+  "lat": 37.925,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q743282",
+  "label": "Napata",
+  "sl": 46,
+  "lon": 31.816667,
+  "lat": 18.533333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q743881",
+  "label": "Khan's Palace",
+  "sl": 41,
+  "lon": 33.882104,
+  "lat": 44.749009,
+  "types": [
+   "architectural landmark",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q744406",
+  "label": "Library of Celsus",
+  "sl": 43,
+  "lon": 27.34075,
+  "lat": 37.939139,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q744420",
+  "label": "Burgos Cathedral",
+  "sl": 55,
+  "lon": -3.704472,
+  "lat": 42.340806,
+  "types": [
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q744748",
+  "label": "George Bush Intercontinental Airport",
+  "sl": 45,
+  "lon": -95.341389,
+  "lat": 29.984444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q744802",
+  "label": "Kabul International Airport",
+  "sl": 52,
+  "lon": 69.212306,
+  "lat": 34.565861,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q745016",
+  "label": "Kuala Lumpur Tower",
+  "sl": 43,
+  "lon": 101.703749,
+  "lat": 3.152828,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q745942",
+  "label": "Gare de Paris-Nord",
+  "sl": 47,
+  "lon": 2.355278,
+  "lat": 48.881111,
+  "types": [
+   "railway station"
+  ]
+ },
+ {
+  "qid": "Q746524",
+  "label": "Moldoveanu Peak",
+  "sl": 48,
+  "lon": 24.736211,
+  "lat": 45.599439,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q746787",
+  "label": "Ol Doinyo Lengai",
+  "sl": 47,
+  "lon": 35.913333,
+  "lat": -2.761667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q746975",
+  "label": "Lake Chilwa",
+  "sl": 43,
+  "lon": 35.7,
+  "lat": -15.3,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q747541",
+  "label": "Paris-Gare-de-Lyon",
+  "sl": 40,
+  "lon": 2.373611,
+  "lat": 48.844722,
+  "types": [
+   "railway station"
+  ]
+ },
+ {
+  "qid": "Q748355",
+  "label": "Mount Shasta",
+  "sl": 43,
+  "lon": -122.194889,
+  "lat": 41.409197,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q748910",
+  "label": "Dormition Cathedral",
+  "sl": 42,
+  "lon": 37.617053,
+  "lat": 55.750926,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q749497",
+  "label": "Soekarno Hatta International Airport",
+  "sl": 60,
+  "lon": 106.653833,
+  "lat": -6.127361,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q749556",
+  "label": "Yasnaya Polyana",
+  "sl": 46,
+  "lon": 37.526385,
+  "lat": 54.075127,
+  "types": [
+   "historic site",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q750025",
+  "label": "Pool Malebo",
+  "sl": 44,
+  "lon": 15.488611,
+  "lat": -4.281944,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q750190",
+  "label": "Sulaiman-Too",
+  "sl": 46,
+  "lon": 72.783333,
+  "lat": 40.529445,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q750209",
+  "label": "Colossi of Memnon",
+  "sl": 44,
+  "lon": 32.610556,
+  "lat": 25.720556,
+  "types": [
+   "archaeological site",
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q750245",
+  "label": "Piazza del Duomo, Pisa",
+  "sl": 50,
+  "lon": 10.394778,
+  "lat": 43.723428,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q750444",
+  "label": "Stockholm Palace",
+  "sl": 45,
+  "lon": 18.071667,
+  "lat": 59.326667,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q752266",
+  "label": "Durham Castle",
+  "sl": 46,
+  "lon": -1.57558,
+  "lat": 54.7749,
+  "types": [
+   "historic house museum"
+  ]
+ },
+ {
+  "qid": "Q753383",
+  "label": "Megalithic Temples of Malta",
+  "sl": 46,
+  "lon": 14.269444,
+  "lat": 36.049167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q753791",
+  "label": "Temple of Vesta",
+  "sl": 40,
+  "lon": 12.486206,
+  "lat": 41.891707,
+  "types": [
+   "archaeological site",
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q753895",
+  "label": "Tajín Veracruz",
+  "sl": 41,
+  "lon": -97.378242,
+  "lat": 20.448058,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q753898",
+  "label": "Argentino Lake",
+  "sl": 44,
+  "lon": -72.766667,
+  "lat": -50.233333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q754502",
+  "label": "Yves du Manoir Stadium",
+  "sl": 42,
+  "lon": 2.24961,
+  "lat": 48.93145,
+  "types": [
+   "sports venue",
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q755514",
+  "label": "Hypogeum of Ħal Saflieni",
+  "sl": 47,
+  "lon": 14.506883,
+  "lat": 35.869558,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q756098",
+  "label": "Royal Castle in Warsaw",
+  "sl": 43,
+  "lon": 21.014167,
+  "lat": 52.247778,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q7604504",
+  "label": "Statue of Unity",
+  "sl": 71,
+  "lon": 73.7191,
+  "lat": 21.838,
+  "types": [
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q76309",
+  "label": "Mount Pelée",
+  "sl": 62,
+  "lon": -61.165556,
+  "lat": 14.813056,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q770496",
+  "label": "Mount Saint Elias",
+  "sl": 44,
+  "lon": -140.931389,
+  "lat": 60.292222,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q770847",
+  "label": "Mausoleum of Augustus",
+  "sl": 40,
+  "lon": 12.47639,
+  "lat": 41.90611,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q772988",
+  "label": "Khalifa International Stadium",
+  "sl": 53,
+  "lon": 51.448055,
+  "lat": 25.263611,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q773330",
+  "label": "Da Nang International Airport",
+  "sl": 116,
+  "lon": 108.199445,
+  "lat": 16.043889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q777855",
+  "label": "Minsk National Airport",
+  "sl": 51,
+  "lon": 28.0325,
+  "lat": 53.8825,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q777882",
+  "label": "Seljalandsfoss",
+  "sl": 41,
+  "lon": -19.992778,
+  "lat": 63.615833,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q778213",
+  "label": "Tbilisi International Airport",
+  "sl": 45,
+  "lon": 44.954722,
+  "lat": 41.669167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q778784",
+  "label": "Place de la Bastille",
+  "sl": 42,
+  "lon": 2.369111,
+  "lat": 48.853139,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q7875112",
+  "label": "Estádio da Luz",
+  "sl": 49,
+  "lon": -9.184722,
+  "lat": 38.752778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q790453",
+  "label": "Lake Baringo",
+  "sl": 41,
+  "lon": 36.083333,
+  "lat": 0.633333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q791652",
+  "label": "Avachinsky",
+  "sl": 46,
+  "lon": 158.833333,
+  "lat": 53.255556,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q796351",
+  "label": "BMO Field",
+  "sl": 46,
+  "lon": -79.418611,
+  "lat": 43.632778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q7969454",
+  "label": "Merdeka 118",
+  "sl": 40,
+  "lon": 101.700722,
+  "lat": 3.141667,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q797120",
+  "label": "Xochicalco",
+  "sl": 41,
+  "lon": -99.296639,
+  "lat": 18.804306,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q79961",
+  "label": "Christ the Redeemer",
+  "sl": 94,
+  "lon": -43.210464,
+  "lat": -22.951916,
+  "types": [
+   "monument",
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q80290",
+  "label": "Forbidden City",
+  "sl": 106,
+  "lon": 116.390833,
+  "lat": 39.915833,
+  "types": [
+   "museum",
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q80299",
+  "label": "Angel Falls",
+  "sl": 93,
+  "lon": -62.536222,
+  "lat": 5.970056,
+  "types": [
+   "waterfall"
+  ]
+ },
+ {
+  "qid": "Q80344",
+  "label": "Mount Olympus",
+  "sl": 110,
+  "lon": 22.35,
+  "lat": 40.083333,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q80813",
+  "label": "Jin Mao Tower",
+  "sl": 52,
+  "lon": 121.501389,
+  "lat": 31.237222,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q80852",
+  "label": "Shanghai World Financial Center",
+  "sl": 61,
+  "lon": 121.502778,
+  "lat": 31.236667,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q810700",
+  "label": "Bataclan",
+  "sl": 43,
+  "lon": 2.370833,
+  "lat": 48.863056,
+  "types": [
+   "theatre building"
+  ]
+ },
+ {
+  "qid": "Q81213",
+  "label": "Gerlachovský štít",
+  "sl": 56,
+  "lon": 20.133889,
+  "lat": 49.164167,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q816437",
+  "label": "Skara Brae",
+  "sl": 49,
+  "lon": -3.34175,
+  "lat": 59.048714,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q817250",
+  "label": "Pattadakal Group of Monuments",
+  "sl": 49,
+  "lon": 75.816667,
+  "lat": 15.948333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q819979",
+  "label": "Mount Olympus",
+  "sl": 43,
+  "lon": 32.863889,
+  "lat": 34.936667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q820002",
+  "label": "Mamayev Kurgan",
+  "sl": 41,
+  "lon": 44.535278,
+  "lat": 48.741389,
+  "types": [
+   "historic site"
+  ]
+ },
+ {
+  "qid": "Q82019",
+  "label": "Kanchenjunga",
+  "sl": 102,
+  "lon": 88.147353,
+  "lat": 27.703003,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q821275",
+  "label": "Indira Gandhi International Airport",
+  "sl": 66,
+  "lon": 77.0833,
+  "lat": 28.5574,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q821557",
+  "label": "Nice Côte d'Azur Airport",
+  "sl": 48,
+  "lon": 7.215,
+  "lat": 43.665278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q821750",
+  "label": "OR Tambo International Airport",
+  "sl": 48,
+  "lon": 28.246111,
+  "lat": -26.139167,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q822326",
+  "label": "Mount Tahat",
+  "sl": 41,
+  "lon": 5.533611,
+  "lat": 23.288889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q822842",
+  "label": "Umm ar-Rasas",
+  "sl": 40,
+  "lon": 35.919722,
+  "lat": 31.499722,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q82425",
+  "label": "Brandenburg Gate",
+  "sl": 86,
+  "lon": 13.377722,
+  "lat": 52.516272,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q825347",
+  "label": "Colima",
+  "sl": 45,
+  "lon": -103.618056,
+  "lat": 19.511389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q825709",
+  "label": "Gunnbjørn Fjeld",
+  "sl": 40,
+  "lon": -29.898533,
+  "lat": 68.9195,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q827480",
+  "label": "Antalya Airport",
+  "sl": 45,
+  "lon": 30.792778,
+  "lat": 36.900278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q828379",
+  "label": "M. R. Štefánik Airport",
+  "sl": 42,
+  "lon": 17.212778,
+  "lat": 48.17,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q828386",
+  "label": "Linate Airport",
+  "sl": 47,
+  "lon": 9.28,
+  "lat": 45.4609,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q830054",
+  "label": "Saint Sophia Cathedral",
+  "sl": 64,
+  "lon": 30.514444,
+  "lat": 50.452778,
+  "types": [
+   "church building"
+  ]
+ },
+ {
+  "qid": "Q83063",
+  "label": "Petronas Towers",
+  "sl": 90,
+  "lon": 101.711667,
+  "lat": 3.157778,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q83101",
+  "label": "Taipei 101",
+  "sl": 85,
+  "lon": 121.564722,
+  "lat": 25.033611,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q831903",
+  "label": "Lake Bohinj",
+  "sl": 42,
+  "lon": 13.858881,
+  "lat": 46.283377,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q833060",
+  "label": "Sirmium",
+  "sl": 45,
+  "lon": 19.610556,
+  "lat": 44.966111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q83425",
+  "label": "Saint Peter's Square",
+  "sl": 66,
+  "lon": 12.457239,
+  "lat": 41.902183,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q83497",
+  "label": "Mount Rushmore",
+  "sl": 96,
+  "lon": -103.459167,
+  "lat": 43.878889,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q836531",
+  "label": "Hawa Mahal",
+  "sl": 60,
+  "lon": 75.82672,
+  "lat": 26.924,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q83659",
+  "label": "Mount Ida",
+  "sl": 41,
+  "lon": 24.770714,
+  "lat": 35.226389,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q838359",
+  "label": "Imam Ali Mosque",
+  "sl": 52,
+  "lon": 44.314167,
+  "lat": 31.996111,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q838587",
+  "label": "Lenin Peak",
+  "sl": 46,
+  "lon": 72.877897,
+  "lat": 39.343677,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q838780",
+  "label": "Almas Tower",
+  "sl": 40,
+  "lon": 55.14113,
+  "lat": 25.06883,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q839456",
+  "label": "El-Fustat",
+  "sl": 42,
+  "lon": 31.2375,
+  "lat": 30.005,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q839607",
+  "label": "Casamance",
+  "sl": 42,
+  "lon": -15.31769,
+  "lat": 13.01526,
+  "types": [
+   "landscape"
+  ]
+ },
+ {
+  "qid": "Q841506",
+  "label": "Galleria Borghese",
+  "sl": 47,
+  "lon": 12.492144,
+  "lat": 41.91421,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q842297",
+  "label": "Shenzhen Bao'an International Airport",
+  "sl": 43,
+  "lon": 113.810833,
+  "lat": 22.639444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q842328",
+  "label": "Sangiran",
+  "sl": 41,
+  "lon": 110.85,
+  "lat": -7.45,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q842822",
+  "label": "Maiden Tower",
+  "sl": 48,
+  "lon": 49.83725,
+  "lat": 40.366167,
+  "types": [
+   "monument",
+   "tower"
+  ]
+ },
+ {
+  "qid": "Q844098",
+  "label": "Noi Bai International Airport",
+  "sl": 42,
+  "lon": 105.807222,
+  "lat": 21.221111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q844825",
+  "label": "Podgorica Airport",
+  "sl": 45,
+  "lon": 19.251944,
+  "lat": 42.359444,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q844951",
+  "label": "Chișinău International Airport",
+  "sl": 44,
+  "lon": 28.930833,
+  "lat": 46.927778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q845868",
+  "label": "Taymyr",
+  "sl": 47,
+  "lon": 101.633333,
+  "lat": 74.533333,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q845876",
+  "label": "Lake of the Woods",
+  "sl": 40,
+  "lon": -95.23938,
+  "lat": 49.09029,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q845924",
+  "label": "Pulkovo Observatory",
+  "sl": 40,
+  "lon": 30.326111,
+  "lat": 59.771667,
+  "types": [
+   "architectural landmark"
+  ]
+ },
+ {
+  "qid": "Q846967",
+  "label": "Nan Madol",
+  "sl": 53,
+  "lon": 158.332222,
+  "lat": 6.841944,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q847323",
+  "label": "Rinjani",
+  "sl": 46,
+  "lon": 116.466667,
+  "lat": -8.416667,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q847613",
+  "label": "Wenceslas Square",
+  "sl": 41,
+  "lon": 14.426141,
+  "lat": 50.082308,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q847711",
+  "label": "Vilnius Airport",
+  "sl": 52,
+  "lon": 25.287778,
+  "lat": 54.636944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q848397",
+  "label": "Maiden's Tower",
+  "sl": 45,
+  "lon": 29.004167,
+  "lat": 41.021111,
+  "types": [
+   "architectural landmark",
+   "monument"
+  ]
+ },
+ {
+  "qid": "Q848912",
+  "label": "Leicester Square",
+  "sl": 41,
+  "lon": -0.130278,
+  "lat": 51.510278,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q849314",
+  "label": "Alicante Airport",
+  "sl": 41,
+  "lon": -0.558056,
+  "lat": 38.282222,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q849347",
+  "label": "Venice Marco Polo Airport",
+  "sl": 51,
+  "lon": 12.351945,
+  "lat": 45.505278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q849383",
+  "label": "Naples International Airport",
+  "sl": 41,
+  "lon": 14.290833,
+  "lat": 40.884444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q849489",
+  "label": "Chora Church",
+  "sl": 45,
+  "lon": 28.939167,
+  "lat": 41.031111,
+  "types": [
+   "church building",
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q850268",
+  "label": "Tuol Sleng torture center",
+  "sl": 43,
+  "lon": 104.917778,
+  "lat": 11.549444,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q853886",
+  "label": "Harry Reid International Airport",
+  "sl": 46,
+  "lon": -115.150556,
+  "lat": 36.085278,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q854122",
+  "label": "Stade Bollaert-Delelis",
+  "sl": 45,
+  "lon": 2.81491,
+  "lat": 50.4329,
+  "types": [
+   "sports venue",
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q854130",
+  "label": "Cape Town International Airport",
+  "sl": 43,
+  "lon": 18.597222,
+  "lat": -33.969444,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q854295",
+  "label": "Masherbrum",
+  "sl": 40,
+  "lon": 76.310833,
+  "lat": 35.6425,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q854672",
+  "label": "Nisa",
+  "sl": 49,
+  "lon": 58.212408,
+  "lat": 37.951147,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q858844",
+  "label": "Almaty International Airport",
+  "sl": 43,
+  "lon": 77.040556,
+  "lat": 43.351944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q859376",
+  "label": "Volcán de Fuego",
+  "sl": 49,
+  "lon": -90.880833,
+  "lat": 14.474722,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q860559",
+  "label": "Aeropuerto Internacional Benito Juárez",
+  "sl": 49,
+  "lon": -99.071944,
+  "lat": 19.436111,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q860952",
+  "label": "Tashkent International Airport",
+  "sl": 47,
+  "lon": 69.281186,
+  "lat": 41.257861,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q864339",
+  "label": "Hard Rock Stadium",
+  "sl": 46,
+  "lon": -80.238889,
+  "lat": 25.958056,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q86446",
+  "label": "Ninoy Aquino International Airport",
+  "sl": 51,
+  "lon": 121.019444,
+  "lat": 14.508611,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q867586",
+  "label": "Salt",
+  "sl": 52,
+  "lon": 35.727222,
+  "lat": 32.039167,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q867902",
+  "label": "Cardiff City Stadium",
+  "sl": 45,
+  "lon": -3.203056,
+  "lat": 51.472778,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q8685",
+  "label": "John F. Kennedy International Airport",
+  "sl": 81,
+  "lon": -73.78,
+  "lat": 40.64,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q868772",
+  "label": "Trump Tower",
+  "sl": 47,
+  "lon": -73.974167,
+  "lat": 40.7625,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q8688",
+  "label": "San Francisco International Airport",
+  "sl": 59,
+  "lon": -122.375,
+  "lat": 37.618889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8691",
+  "label": "London Heathrow Airport",
+  "sl": 98,
+  "lon": -0.461389,
+  "lat": 51.4775,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8694",
+  "label": "Manchester Airport",
+  "sl": 55,
+  "lon": -2.275,
+  "lat": 53.353889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q870063",
+  "label": "Hkakabo Razi",
+  "sl": 42,
+  "lon": 97.466667,
+  "lat": 28.333056,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q870258",
+  "label": "Plain of Jars",
+  "sl": 48,
+  "lon": 103.1525,
+  "lat": 19.431111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q8703",
+  "label": "London Gatwick Airport",
+  "sl": 71,
+  "lon": -0.190278,
+  "lat": 51.147222,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8709",
+  "label": "London Stansted Airport",
+  "sl": 60,
+  "lon": 0.235,
+  "lat": 51.885,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8712",
+  "label": "London Luton Airport",
+  "sl": 56,
+  "lon": -0.368333,
+  "lat": 51.874722,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8716",
+  "label": "Edinburgh Airport",
+  "sl": 47,
+  "lon": -3.3725,
+  "lat": 55.95,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8719",
+  "label": "Birmingham Airport",
+  "sl": 47,
+  "lon": -1.748055,
+  "lat": 52.453889,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8721",
+  "label": "Glasgow Airport",
+  "sl": 47,
+  "lon": -4.433056,
+  "lat": 55.871944,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q872186",
+  "label": "Luxembourg Airport",
+  "sl": 44,
+  "lon": 6.204444,
+  "lat": 49.623333,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8725",
+  "label": "Bristol Airport",
+  "sl": 42,
+  "lon": -2.719167,
+  "lat": 51.382778,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8727",
+  "label": "Liverpool John Lennon Airport",
+  "sl": 41,
+  "lon": -2.849722,
+  "lat": 53.333611,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8731",
+  "label": "Los Angeles International Airport",
+  "sl": 68,
+  "lon": -118.408056,
+  "lat": 33.9425,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q873358",
+  "label": "Mount Sanqing",
+  "sl": 47,
+  "lon": 118.051944,
+  "lat": 28.951944,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q873769",
+  "label": "Grand Palace",
+  "sl": 48,
+  "lon": 100.492028,
+  "lat": 13.750139,
+  "types": [
+   "archaeological site",
+   "historic house museum"
+  ]
+ },
+ {
+  "qid": "Q875749",
+  "label": "Minneapolis–Saint Paul International Airport",
+  "sl": 40,
+  "lon": -93.221667,
+  "lat": 44.881944,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q886946",
+  "label": "Blue Lagoon",
+  "sl": 41,
+  "lon": -22.445523,
+  "lat": 63.879199,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q8979",
+  "label": "Belfast International Airport",
+  "sl": 41,
+  "lon": -6.215833,
+  "lat": 54.6575,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q8982",
+  "label": "London City Airport",
+  "sl": 55,
+  "lon": 0.055278,
+  "lat": 51.505278,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q898629",
+  "label": "place des Vosges",
+  "sl": 40,
+  "lon": 2.365556,
+  "lat": 48.855556,
+  "types": [
+   "square"
+  ]
+ },
+ {
+  "qid": "Q900492",
+  "label": "Cà Mau Airport",
+  "sl": 100,
+  "lon": 105.179444,
+  "lat": 9.175556,
+  "types": [
+   "airport"
+  ]
+ },
+ {
+  "qid": "Q907052",
+  "label": "Shuri Castle",
+  "sl": 40,
+  "lon": 127.719475,
+  "lat": 26.217031,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q909799",
+  "label": "Shanidar Cave",
+  "sl": 42,
+  "lon": 44.2433,
+  "lat": 36.8006,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q910370",
+  "label": "Mineirão",
+  "sl": 57,
+  "lon": -43.970833,
+  "lat": -19.865833,
+  "types": [
+   "historic site",
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q912579",
+  "label": "Korab",
+  "sl": 48,
+  "lon": 20.5467,
+  "lat": 41.7903,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q91274",
+  "label": "Galata Tower",
+  "sl": 58,
+  "lon": 28.974153,
+  "lat": 41.025632,
+  "types": [
+   "museum",
+   "tower"
+  ]
+ },
+ {
+  "qid": "Q912916",
+  "label": "Phoenix Sky Harbor International Airport",
+  "sl": 48,
+  "lon": -112.011667,
+  "lat": 33.434167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q917814",
+  "label": "Stari Ras",
+  "sl": 41,
+  "lon": 20.415669,
+  "lat": 43.128342,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q9188",
+  "label": "Empire State Building",
+  "sl": 125,
+  "lon": -73.985555,
+  "lat": 40.748333,
+  "types": [
+   "skyscraper"
+  ]
+ },
+ {
+  "qid": "Q9202",
+  "label": "Statue of Liberty",
+  "sl": 159,
+  "lon": -74.044425,
+  "lat": 40.689209,
+  "types": [
+   "statue"
+  ]
+ },
+ {
+  "qid": "Q9278",
+  "label": "Abu Mena",
+  "sl": 63,
+  "lon": 29.66349,
+  "lat": 30.84105,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q928681",
+  "label": "Mount Pico",
+  "sl": 42,
+  "lon": -28.399167,
+  "lat": 38.468611,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q929859",
+  "label": "Orlando International Airport",
+  "sl": 43,
+  "lon": -81.308889,
+  "lat": 28.429444,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q933778",
+  "label": "Rakaposhi",
+  "sl": 40,
+  "lon": 74.489167,
+  "lat": 36.1425,
+  "types": [
+   "mountain"
+  ]
+ },
+ {
+  "qid": "Q935116",
+  "label": "Sandringham House",
+  "sl": 40,
+  "lon": 0.513889,
+  "lat": 52.829722,
+  "types": [
+   "historic house museum"
+  ]
+ },
+ {
+  "qid": "Q936285",
+  "label": "Pannonhalma Archabbey",
+  "sl": 40,
+  "lon": 17.761111,
+  "lat": 47.552778,
+  "types": [
+   "cathedral"
+  ]
+ },
+ {
+  "qid": "Q936633",
+  "label": "Palais Bourbon",
+  "sl": 43,
+  "lon": 2.318681,
+  "lat": 48.862072,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q940733",
+  "label": "Christiansborg Palace",
+  "sl": 40,
+  "lon": 12.578889,
+  "lat": 55.675833,
+  "types": [
+   "palace"
+  ]
+ },
+ {
+  "qid": "Q940843",
+  "label": "Lotus Temple",
+  "sl": 56,
+  "lon": 77.2586,
+  "lat": 28.553325,
+  "types": [
+   "temple"
+  ]
+ },
+ {
+  "qid": "Q943327",
+  "label": "Tamgaly",
+  "sl": 43,
+  "lon": 75.535,
+  "lat": 43.803333,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q9443",
+  "label": "Lothal",
+  "sl": 49,
+  "lon": 72.249444,
+  "lat": 22.521389,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q946194",
+  "label": "Lake Ritsa",
+  "sl": 47,
+  "lon": 40.5415,
+  "lat": 43.4811,
+  "types": [
+   "lake"
+  ]
+ },
+ {
+  "qid": "Q9468",
+  "label": "Dholavira",
+  "sl": 47,
+  "lon": 70.216667,
+  "lat": 23.886111,
+  "types": [
+   "archaeological site"
+  ]
+ },
+ {
+  "qid": "Q94895",
+  "label": "Baltimore/Washington International Thurgood Marshall Airport",
+  "sl": 42,
+  "lon": -76.667542,
+  "lat": 39.178221,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q953021",
+  "label": "Neverland Ranch",
+  "sl": 48,
+  "lon": -120.088264,
+  "lat": 34.745421,
+  "types": [
+   "building"
+  ]
+ },
+ {
+  "qid": "Q955433",
+  "label": "Mohammed V International Airport",
+  "sl": 43,
+  "lon": -7.581667,
+  "lat": 33.364167,
+  "types": [
+   "airport",
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q95569",
+  "label": "Kunsthistorisches Museum",
+  "sl": 52,
+  "lon": 16.3616,
+  "lat": 48.203881,
+  "types": [
+   "museum"
+  ]
+ },
+ {
+  "qid": "Q958185",
+  "label": "Castelão",
+  "sl": 51,
+  "lon": -38.522481,
+  "lat": -3.807267,
+  "types": [
+   "stadium"
+  ]
+ },
+ {
+  "qid": "Q958769",
+  "label": "National Academy of Sciences of Ukraine",
+  "sl": 40,
+  "lon": 30.5125,
+  "lat": 50.445,
+  "types": [
+   "building"
+  ]
+ },
+ {
+  "qid": "Q9689",
+  "label": "Berlin Schönefeld Airport",
+  "sl": 45,
+  "lon": 13.520556,
+  "lat": 52.378611,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q9694",
+  "label": "Amsterdam Schiphol Airport",
+  "sl": 94,
+  "lon": 4.764169,
+  "lat": 52.3081,
+  "types": [
+   "international airport"
+  ]
+ },
+ {
+  "qid": "Q990262",
+  "label": "Idaho City",
+  "sl": 43,
+  "lon": -115.832222,
+  "lat": 43.828611,
+  "types": [
+   "historic district"
+  ]
+ },
+ {
+  "qid": "Q99172",
+  "label": "Václav Havel Airport Prague",
+  "sl": 56,
+  "lon": 14.26,
+  "lat": 50.100833,
+  "types": [
+   "international airport"
+  ]
+ }
+]
