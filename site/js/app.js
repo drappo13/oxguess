@@ -205,8 +205,8 @@ function storyScale(withAnswer) {
   // past 1,500. Seeded so everyone sees the same crowd.
   const R = (() => { let t = 1906; return () => ((t = (t * 16807) % 2147483647) / 2147483647); })();
   const lo = 940, hi = 1560, W = 300, x = (lb) => 10 + ((lb - lo) / (hi - lo)) * W;
-  const guesses = [992, 1004, 1532];
-  while (guesses.length < 70) {
+  const guesses = [992, 1004, 1532, 1038, 1056, 1062, 1071, 1083, 1088, 1094, 1408, 1414, 1421, 1436, 1452, 1478];
+  while (guesses.length < 76) {
     const g = 1207 + Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R()) * 78;
     if (g > 1030 && g < 1470) guesses.push(g);
   }
