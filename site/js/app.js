@@ -298,7 +298,7 @@ function progress(i, revealed) {
   return `<div class="progress" aria-label="Question ${i + 1} of ${today.questions.length}">${today.questions.map((q, j) => {
     const state = j < i || (j === i && revealed) ? "done" : "";
     return j === i
-      ? `<span class="current ${state}" style="--cat:${CATS[q.cat].color}">${catIcon(q)} ${catLabel(q)}</span>`
+      ? `<span class="current ${state}" style="--cat:${CATS[q.cat].color}">${catLabel(q)}</span>`
       : `<span class="${state}" style="--cat:${CATS[q.cat].color}"></span>`;
   }).join("")}</div>`;
 }
