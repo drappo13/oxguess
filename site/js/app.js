@@ -97,7 +97,7 @@ function render(html, cat) {
 }
 async function go(where) {
   if (where === "home") return home();
-  if (where === "story") return story();
+  if (where === "story") return story(0);
   if (where === "play" && !state.done && !state.revealing) return ask();
   await settle();
   if (where === "play") return state.done ? results() : reveal(state.answers.length - 1);
@@ -174,22 +174,83 @@ function home() {
   const cd = document.getElementById("cd"); if (cd) countdown(cd);
 }
 
-function story() {
+// The story as a short tap-through: one idea per page, each with its own little moment.
+const STORY_PAGES = 5;
+function storyScale(withAnswer) {
+  // 787 tickets, drawn as 70 dots. Seeded so everyone sees the same crowd.
+  const R = (() => { let t = 1906; return () => ((t = (t * 16807) % 2147483647) / 2147483647); })();
+  const lo = 950, hi = 1470, W = 300, x = (lb) => 10 + ((lb - lo) / (hi - lo)) * W;
+  const cols = {};
+  const dots = Array.from({ length: 70 }, () => {
+    const g = 1207 + Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R()) * 85;
+    const c = Math.round((Math.max(lo + 10, Math.min(hi - 10, g)) - lo) / 20);
+    const h = (cols[c] = (cols[c] ?? 0) + 1);
+    return { cx: x(lo + c * 20), cy: 118 - h * 9 };
+  });
+  const ticks = [1000, 1100, 1200, 1300, 1400].map((lb) => `<line x1="${x(lb)}" x2="${x(lb)}" y1="124" y2="130" stroke="var(--muted)" stroke-width="1.5"/><text x="${x(lb)}" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="var(--muted)" font-family="Nunito, sans-serif">${lb.toLocaleString("en-GB")}</text>`).join("");
+  return `<svg class="story-scale" viewBox="0 0 320 150" role="img" aria-label="787 guesses at the ox's weight, spread from under 1,000 lb to over 1,400 lb">
+    <line x1="10" x2="310" y1="124" y2="124" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>${ticks}
+    ${dots.map((d, k) => `<circle class="story-dot" style="--k:${k}" cx="${d.cx}" cy="${d.cy}" r="4" fill="var(--c-far)"/>`).join("")}
+    ${withAnswer ? `
+      <g class="story-mark crowd"><line x1="${x(1207)}" x2="${x(1207)}" y1="22" y2="124" stroke="var(--ox-dark)" stroke-width="2.5" stroke-dasharray="3 4"/>
+        <svg x="${x(1207) - 13}" y="0" width="26" height="26" viewBox="0 0 120 120">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>
+      <g class="story-mark truth"><line x1="${x(1198)}" x2="${x(1198)}" y1="12" y2="126" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${x(1198)} 12 l-12 5 l12 5 z" fill="var(--good)"/></g>` : ""}
+  </svg>`;
+}
+
+function story(page = 0) {
+  const cta = state.done ? "See today's results" : "Join the herd";
+  const pages = [
+    `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
+     <p class="eyebrow">Plymouth, 1906</p>
+     <h1 class="story-title">A prize ox. A country fair. Sixpence a guess.</h1>
+     <p class="story-text">The crowd had to guess what the ox would weigh once it was butchered.</p>`,
+    `<div class="story-box">${oxHead({ size: 64 })}<div class="story-count"><span id="story-n">0</span><small>tickets</small></div></div>
+     <h1 class="story-title">787 people had a go.</h1>
+     <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
+    `${storyScale(false)}
+     <h1 class="story-title">The guesses were all over the place.</h1>
+     <p class="story-text">Some said under 1,000 lb. Some said over 1,400. Nobody was sure.</p>`,
+    `${storyScale(true)}
+     <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's middle guess</small><b>1,207 lb</b></div><div class="truth"><small>The ox</small><b>1,198 lb</b></div></div>
+     <h1 class="story-title">Out by 9 lb. Together, the crowd knew.</h1>`,
+    `<div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
+     <h1 class="story-title">OxGuess is that fair, every day.</h1>
+     <p class="story-text">Five numbers nobody knows off by heart. You'll be out on some. The herd, all of us guessing together, usually gets surprisingly close.</p>
+     <p class="fine">From "Vox Populi", <i>Nature</i> 75, 450–451 (1907).</p>`,
+  ];
+  const last = page === STORY_PAGES - 1;
   render(`
-    <section class="card story">
-      <img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
-      <p class="eyebrow">Plymouth, 1906</p>
-      <h1>The ox that started it</h1>
-      <p>At the West of England Fat Stock and Poultry Exhibition, a prize ox stood in a pen and the crowd paid sixpence a ticket to guess its weight once it had been slaughtered and dressed.</p>
-      <p>Farmers and butchers had a go. So did plenty of people who had never weighed anything bigger than a sack of flour. The guesses were all over the place.</p>
-      <p>Afterwards someone gathered up the 787 tickets and lined them up. The middle guess was <b>1,207 lb</b>. The ox weighed <b>1,198 lb</b>.</p>
-      <p class="big-line">Out by nine pounds. Together, the crowd knew.</p>
-      <p>OxGuess is that fair, every day. Five numbers nobody knows off by heart. You'll be out on some of them. The herd, all of us guessing together, usually gets surprisingly close.</p>
-      <p class="fine">Source: "Vox Populi", <i>Nature</i> 75, 450–451 (1907).</p>
-      <button class="btn primary big" data-go="${state.done ? "results" : "play"}">${state.done ? "See today's results" : "Join the herd"}</button>
-    </section>
-  `);
+    <section class="card story" id="story">
+      <div class="story-page" data-page="${page}">${pages[page]}</div>
+      <div class="story-dots" aria-label="Page ${page + 1} of ${STORY_PAGES}">${pages.map((_, k) => `<i class="${k === page ? "on" : ""}"></i>`).join("")}</div>
+      <div class="story-nav">
+        ${page > 0 ? `<button class="btn" id="story-back">Back</button>` : `<button class="link" data-go="${state.done ? "results" : "home"}">Skip</button>`}
+        <button class="btn primary big" id="story-next" ${last ? `data-go="${state.done ? "results" : "play"}"` : ""}>${last ? cta : "Next"}</button>
+      </div>
+    </section>`);
   store.set("ox-seen-story", true);
+  const nextBtn = document.getElementById("story-next");
+  if (!last) nextBtn.onclick = () => { sfx.tick(); story(page + 1); };
+  const back = document.getElementById("story-back"); if (back) back.onclick = () => story(page - 1);
+  // Swipe left and right between pages.
+  const el = document.getElementById("story"); let x0 = null;
+  el.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
+  el.addEventListener("pointerup", (e) => {
+    if (x0 == null) return; const dx = e.clientX - x0; x0 = null;
+    if (dx < -50 && !last) story(page + 1); else if (dx > 50 && page > 0) story(page - 1);
+  });
+  // Each page's moment.
+  if (page === 1) {
+    const box = document.querySelector(".story-box");
+    countUp(document.getElementById("story-n"), 787, 1600, { sound: true, format: (v) => v.toLocaleString("en-GB") }).then(() => pop(document.querySelector(".story-count"), 1.15));
+    for (let k = 0; k < 9; k++) setTimeout(() => {
+      if (!document.body.contains(box)) return;
+      const t = document.createElement("span"); t.className = "story-ticket"; t.style.left = `${12 + Math.random() * 70}%`; box.appendChild(t);
+      t.animate([{ transform: "translateY(-60px) rotate(-20deg)", opacity: 0 }, { transform: "translateY(0) rotate(8deg)", opacity: 1, offset: 0.6 }, { transform: "translateY(26px) rotate(0) scale(.5)", opacity: 0 }], { duration: 700, easing: "ease-in" }).onfinish = () => t.remove();
+    }, k * 170);
+  }
+  if (page === 3) setTimeout(() => { sfx.chime(); pop(document.querySelector(".story-vs .truth"), 1.1); }, 1300);
 }
 
 function progress(i, revealed) {
@@ -455,12 +516,12 @@ function results({ celebrate = false } = {}) {
     <section class="card results">
       <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
       <div class="versus">
-        <div class="side you"><span class="who">${fairgoer({ size: 22 })} You</span><span class="big-num" id="you-n">${celebrate ? 0 : you}</span></div>
+        <div class="side you"><span class="who">${fairgoer({ size: 22 })} You</span><span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span></div>
         <span class="vs">vs</span>
-        <div class="side"><span class="who">${oxHead({ size: 22 })} The herd</span><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span></div>
+        <div class="side"><span class="who">${oxHead({ size: 22 })} The herd</span><span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span></div>
       </div>
-      <p class="center muted">out of ${max} · ${sub}</p>
-      ${qs.some((q) => herd(q).sample) ? `<p class="fine center">Some of today's herd is a sample until ${HERD_MIN} people have guessed each question.</p>` : ""}
+      <p class="results-sub">${sub}</p>
+      ${qs.some((q) => herd(q).sample) ? `<p class="sample-note center">Part of today's herd is a sample until ${HERD_MIN} people have guessed each question.</p>` : ""}
       <div class="complete" id="complete">
         ${stampTick(`big ${celebrate ? "pending" : ""}`)}
         <div><p class="complete-title">Round ${today.number} complete</p><p class="streak-line">${streakLine()}</p></div>
@@ -537,6 +598,6 @@ async function boot() {
   const savedUnits = store.get("ox-units");
   setSystem(savedUnits ?? (/^en-(US|LR|MM)$/i.test(navigator.language) ? "imperial" : "metric"));
   load();
-  if (!store.get("ox-seen-story") && !state.answers.length) story(); else home();
+  if (!store.get("ox-seen-story") && !state.answers.length) story(0); else home();
 }
 boot();
