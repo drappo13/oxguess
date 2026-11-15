@@ -151,7 +151,8 @@ function ask() {
 
   const slider = document.getElementById("slider"), input = document.getElementById("guess");
   const current = () => (typed ?? toValue(q, r, pos));
-  const show = () => { input.value = fmt(q, current()); slider.value = pos; };
+  const fit = () => { input.style.width = `${Math.max(2, input.value.length + 0.6)}ch`; };
+  const show = () => { input.value = fmt(q, current()); slider.value = pos; fit(); };
   show();
   slider.oninput = () => { pos = +slider.value; typed = null; show(); };
   const nudge = (d) => {
@@ -170,9 +171,10 @@ function ask() {
   document.getElementById("up").onclick = () => nudge(1);
   input.oninput = () => {
     let raw = input.value.trim().replace(/,/g, "");
-    const bc = /bc$/i.test(raw); raw = raw.replace(/\s*bc$/i, "");
+    const bc = /bc$/i.test(raw); raw = raw.replace(/\s*bc$/i, "").replace(/^ad\s*/i, "");
     let v = parseFloat(raw.replace(/[^\d.\-]/g, ""));
     if (!isNaN(v)) { if (bc) v = -v; typed = v; pos = toPos(q, r, Math.max(r.min, Math.min(r.max, v))); slider.value = pos; }
+    fit();
   };
   input.onfocus = () => input.select();
   input.onblur = () => { if (typed != null) { typed = Math.max(r.min, Math.min(r.max, typed)); show(); } };

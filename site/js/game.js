@@ -56,7 +56,7 @@ function friendlyCeil(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); re
 // --- slider position <-> value ---
 export function toValue(q, r, t) {
   const f = t / STEPS;
-  if (q.scale === "log") return niceRound(r.min * Math.pow(r.max / r.min, f));
+  if (q.scale === "log") return niceRound(r.min * Math.pow(r.max / r.min, f), Number.isInteger(q.answer));
   const v = r.min + (r.max - r.min) * f;
   return q.scale === "year" ? Math.round(v) : Math.round(v * stepDecimals(q)) / stepDecimals(q);
 }
@@ -65,11 +65,12 @@ export function toPos(q, r, v) {
   return Math.round(Math.max(0, Math.min(1, f)) * STEPS);
 }
 const stepDecimals = (q) => (Number.isInteger(q.answer) ? 1 : 10);
-function niceRound(v) {
-  if (v < 10) return Math.round(v * 10) / 10;
-  if (v < 100) return Math.round(v);
+// Three significant figures; whole numbers only when the answer is a whole number (bones, keys, years).
+function niceRound(v, wholeAnswer) {
   const p = Math.pow(10, Math.floor(Math.log10(v)) - 2);
-  return Math.round(v / p) * p;
+  const r = Math.round(v / p) * p;
+  const out = wholeAnswer ? Math.max(1, Math.round(r)) : r;
+  return Number(out.toPrecision(12));
 }
 
 // --- scoring (0–100 before the wildcard multiplier) ---
@@ -103,8 +104,8 @@ export const tierFor = (s) => TIERS.find((t) => s >= t.min);
 
 // --- formatting ---
 export function fmt(q, v) {
-  if (q.scale === "year") return v < 0 ? `${-v} BC` : String(v);
-  const opts = Number.isInteger(v) ? {} : { maximumFractionDigits: v < 10 ? 2 : 1 };
+  if (q.scale === "year") return v < 0 ? `${-v} BC` : v < 1000 ? `AD ${v}` : String(v);
+  const opts = Number.isInteger(v) ? {} : { maximumFractionDigits: 3 };
   return v.toLocaleString("en-GB", opts);
 }
 export const withUnit = (q, v) => `${fmt(q, v)}${q.unit ? (q.unit.startsWith("°") ? "" : " ") + q.unit : ""}`;
