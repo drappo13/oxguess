@@ -167,6 +167,25 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .num .k { font-size: 12px; font-weight: 800; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
 .num .v { font-family: var(--display); font-weight: 700; font-size: 24px; overflow-wrap: anywhere; line-height: 1.2; }
 .num.answer .v { color: var(--good); }
+.nums .num.wide { grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.num .v { font-size: 22px; }
+.num.wide .v { font-size: 28px; }
+.herd-num .k { color: var(--ox-dark); }
+.versus { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 8px; text-align: center; }
+.versus .side { display: flex; flex-direction: column; align-items: center; }
+.versus .who { font-weight: 800; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; }
+.versus .big-num { font-size: 56px; }
+.versus .side:not(.you) .big-num { color: var(--ox-dark); }
+.versus .vs { font-family: var(--display); color: var(--muted); padding-bottom: 14px; }
+.rows li { display: flex; flex-direction: column; gap: 4px; padding-bottom: 10px; border-bottom: 2px dashed var(--line); }
+.rows li:last-child { border-bottom: 0; }
+.row-top { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: center; }
+.strip { width: 100%; height: auto; display: block; }
+.row-nums { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--muted); }
+.row-nums span { white-space: nowrap; }
+.row-nums .ans { color: var(--good); font-weight: 800; }
+.k-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: 0; }
+.k-dot.you { background: var(--ink); } .k-dot.herd { background: var(--ox); } .k-dot.ans { background: var(--good); border-radius: 2px; }
 .num .s { font-size: 13px; color: var(--muted); }
 .herd { display: flex; flex-direction: column; gap: 8px; }
 .herd-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
@@ -185,7 +204,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .total { display: flex; flex-direction: column; align-items: center; }
 .big-num { font-family: var(--display); font-weight: 700; font-size: 72px; line-height: 1; }
 .rows { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.rows li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; }
+
 .row-q { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
 .row-q b { font-size: 15px; }
 .row-q span { overflow-wrap: anywhere; }

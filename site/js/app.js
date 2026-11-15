@@ -226,6 +226,20 @@ function histogram(q, h, g) {
   </svg>`;
 }
 
+// One question on its slider scale: the answer (flag), you (dot) and the herd's middle guess (ox).
+function strip(q, g, herdGuess) {
+  const r = rangeFor(q), W = 300, x = (v) => 10 + (toPos(q, r, v) / STEPS) * W;
+  const ax = x(q.answer), gx = x(g), hx = x(herdGuess);
+  return `<svg class="strip" viewBox="0 0 320 44" role="img" aria-label="Your guess, the herd's guess and the answer on the scale">
+    <rect x="10" y="27" width="${W}" height="6" rx="3" fill="color-mix(in srgb, var(--cat) 22%, var(--line))"/>
+    <line x1="${ax}" x2="${ax}" y1="8" y2="38" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M${ax} 6 l9 4.5 l-9 4.5 z" fill="var(--good)"/>
+    <svg x="${(hx - 11).toFixed(1)}" y="2" width="22" height="22" viewBox="0 0 120 120" overflow="visible">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>
+    <line x1="${hx}" x2="${hx}" y1="24" y2="36" stroke="var(--ox-dark)" stroke-width="2"/>
+    <circle cx="${gx}" cy="30" r="6.5" fill="var(--ink)" stroke="var(--card)" stroke-width="2"/>
+  </svg>`;
+}
+
 function reveal(i) {
   const q = today.questions[i], a = state.answers[i], h = herd(q), v = herdVerdict(q, h, a.g);
   const t = tierFor(a.s), m = multiplier(q), last = i === today.questions.length - 1;
@@ -239,8 +253,9 @@ function reveal(i) {
         <div><div class="tier">${t.name}</div><div class="muted">${a.s * m} point${a.s * m === 1 ? "" : "s"}${m > 1 ? ` (${a.s} × ${m})` : ""}</div></div>
       </div>
       <div class="nums">
-        <div class="num answer"><span class="k">Answer</span><span class="v">${withUnit(q, q.answer)}</span>${otherUnits(q, q.answer) ? `<span class="s">${otherUnits(q, q.answer)}</span>` : ""}</div>
-        <div class="num"><span class="k">You</span><span class="v">${withUnit(q, a.g)}</span><span class="s">${offBy(q, a.g)}</span></div>
+        <div class="num answer wide"><span class="k">Answer</span><span class="v">${withUnit(q, q.answer)}</span>${otherUnits(q, q.answer) ? `<span class="s">${otherUnits(q, q.answer)}</span>` : ""}</div>
+        <div class="num"><span class="k">You</span><span class="v">${withUnit(q, a.g)}</span><span class="s">${offBy(q, a.g)} · ${a.s * m} pts</span></div>
+        <div class="num herd-num"><span class="k">The herd</span><span class="v">${withUnit(q, h.median)}</span><span class="s">${offBy(q, h.median)} · ${v.them * m} pts</span></div>
       </div>
       <div class="herd">
         <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} players</span></div>
@@ -263,19 +278,25 @@ function results() {
   const you = total(), max = maxTotal();
   const grid = state.answers.map((a) => tierFor(a.s).short).join("");
   const share = `OxGuess · Round ${today.number} 🐂\n${grid}\n${you}/${max}\noxguess.com`;
-  const herdLine = you > herdTotal ? `You beat the herd today. Its middle guesses scored ${herdTotal}.`
-    : you === herdTotal ? `Dead level with the herd at ${herdTotal}.`
-    : `The herd's middle guesses scored ${herdTotal}. It knows things.`;
+  const herdLine = you > herdTotal ? "You beat the herd today." : you === herdTotal ? "Dead level with the herd." : "The herd wins today. It knows things.";
   render(`
     <section class="card results">
       <div class="hero-ox">${oxHead({ size: 96, mood: you >= herdTotal ? "happy" : "wow" })}</div>
       <p class="eyebrow">Round ${today.number} · ${prettyDate(today.key)}</p>
-      <div class="total"><span class="big-num">${you}</span><span class="muted">out of ${max}</span></div>
-      <p class="herd-line center">${herdLine}</p>
+      <div class="versus">
+        <div class="side you"><span class="who">You</span><span class="big-num">${you}</span></div>
+        <span class="vs">vs</span>
+        <div class="side"><span class="who">${oxHead({ size: 22 })} The herd</span><span class="big-num">${herdTotal}</span></div>
+      </div>
+      <p class="center muted">out of ${max} · ${herdLine}</p>
       <ul class="rows">
         ${state.answers.map((a, i) => {
-          const q = qs[i], m = multiplier(q);
-          return `<li style="--cat:${CATS[q.cat].color}">${rosette(tierFor(a.s).key, a.s * m, 34)}<div class="row-q"><b>${catLabel(q)}</b><span>${q.q}</span><span class="muted">You ${withUnit(q, a.g)} · Answer ${withUnit(q, q.answer)}</span></div></li>`;
+          const q = qs[i], m = multiplier(q), hm = herd(q).median, hs = score(q, hm) * m;
+          return `<li style="--cat:${CATS[q.cat].color}">
+            <div class="row-top">${rosette(tierFor(a.s).key, a.s * m, 30)}<div class="row-q"><b>${catLabel(q)}</b><span>${q.q}</span></div></div>
+            ${strip(q, a.g, hm)}
+            <div class="row-nums"><span><i class="k-dot you"></i>You ${withUnit(q, a.g)} · <b>${a.s * m}</b></span><span><i class="k-dot herd"></i>Herd ${withUnit(q, hm)} · <b>${hs}</b></span><span class="ans"><i class="k-dot ans"></i>${withUnit(q, q.answer)}</span></div>
+          </li>`;
         }).join("")}
       </ul>
       <div class="share-grid" aria-label="Your prizes">${grid}</div>
