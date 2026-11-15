@@ -18,7 +18,7 @@
 
   --sky: #dcecf4; --sun: #f6d977; --hill-far: #c4dcb2; --hill-near: #b2d29c;
   --tent-a: #f6efe0; --tent-b: #d2604a; --tent-door: #6a3a2c; --wood: #a77a4f; --board: #3c4a40; --chalk: #f4f1e6;
-  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a; --stamp: #b8432f; --ticket: #f7e7b4; --skin: #f3cfb0; --cap: #7a6650; --cap-dark: #574838; --tash: #7a4f2e;
+  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a; --art-ink: #26332b; --badge: transparent; --stamp: #b8432f; --ticket: #f7e7b4; --skin: #f3cfb0; --cap: #7a6650; --cap-dark: #574838; --tash: #7a4f2e;
   --coat-1: #6f7f9a; --coat-2: #9a6a56; --coat-3: #7d8f6a; --coat-4: #b08c5a; --coat-5: #8a6f8f;
   --ox: #b97a4b; --ox-dark: #8a5532; --ox-blaze: #f4e3cf; --muzzle: #f0c7a6; --horn: #f6ecd6; --horn-line: #e9dcbc; --cheek: #e98b78;
 
@@ -41,11 +41,11 @@
     --c-when: #f0bd45; --c-big: #e57a62; --c-far: #73a8ec; --c-many: #6cc07e; --c-wild: #b08ae6;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
     --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
+    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
     --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
   --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
+  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
   --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
   --ox: #c98a58; --ox-dark: #9c6440; --ox-blaze: #f1dfc8; --muzzle: #efc4a2; --horn: #f3e7cc; --horn-line: #8f8466;
     --r-entry: #59645b; --r-entry-dark: #445048;
@@ -401,3 +401,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .answer-head { display: flex; justify-content: center; align-items: center; gap: 6px; }
 .answer-head .who { min-width: 0; }
 .answer-head > span:empty { display: none; }
+
+/* The ox and the fairgoer keep their dark outlines in dark mode, sitting on a pale meadow-green badge. */
+svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at 50% 54%, var(--badge) 0 64%, transparent 65%); }

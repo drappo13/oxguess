@@ -2,12 +2,12 @@
 
 export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {}) {
   const mouth = mood === "wow"
-    ? `<ellipse cx="60" cy="98" rx="5" ry="4" fill="var(--ink)"/>`
+    ? `<ellipse cx="60" cy="98" rx="5" ry="4" fill="var(--art-ink)"/>`
     : mood === "meh"
-    ? `<path d="M53 98 h14" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" fill="none"/>`
-    : `<path d="M51 95 q9 8 18 0" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" fill="none"/>`;
+    ? `<path d="M53 98 h14" stroke="var(--art-ink)" stroke-width="3" stroke-linecap="round" fill="none"/>`
+    : `<path d="M51 95 q9 8 18 0" stroke="var(--art-ink)" stroke-width="3" stroke-linecap="round" fill="none"/>`;
   return `<svg class="ox" width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${title}">
-  <g stroke="var(--ink)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+  <g stroke="var(--art-ink)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
     <path d="M30 40 C14 38 8 26 12 14 C18 24 26 28 38 30 Z" fill="var(--horn)"/>
     <path d="M90 40 C106 38 112 26 108 14 C102 24 94 28 82 30 Z" fill="var(--horn)"/>
     <ellipse cx="20" cy="52" rx="14" ry="8" transform="rotate(-18 20 52)" fill="var(--ox-dark)"/>
@@ -17,10 +17,10 @@ export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {})
     <path d="M60 36 C52 44 52 60 56 70 L64 70 C68 60 68 44 60 36 Z" fill="var(--ox-blaze)" stroke="none"/>
     <path d="M28 82 C28 72 40 68 60 68 C80 68 92 72 92 82 C92 98 80 108 60 108 C40 108 28 98 28 82 Z" fill="var(--muzzle)"/>
   </g>
-  <ellipse cx="47" cy="84" rx="4.5" ry="3.2" fill="var(--ink)"/>
-  <ellipse cx="73" cy="84" rx="4.5" ry="3.2" fill="var(--ink)"/>
+  <ellipse cx="47" cy="84" rx="4.5" ry="3.2" fill="var(--art-ink)"/>
+  <ellipse cx="73" cy="84" rx="4.5" ry="3.2" fill="var(--art-ink)"/>
   ${mouth}
-  <circle cx="44" cy="54" r="5.5" fill="var(--ink)"/><circle cx="76" cy="54" r="5.5" fill="var(--ink)"/>
+  <circle cx="44" cy="54" r="5.5" fill="var(--art-ink)"/><circle cx="76" cy="54" r="5.5" fill="var(--art-ink)"/>
   <circle cx="45.8" cy="52.2" r="1.8" fill="#fff"/><circle cx="77.8" cy="52.2" r="1.8" fill="#fff"/>
   <ellipse cx="36" cy="66" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
   <ellipse cx="84" cy="66" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
@@ -45,7 +45,7 @@ export function rosette(tier, label, size = 56) {
 // "You": a 1906 fairgoer in a flat cap and a fine moustache, drawn to match the ox.
 export function fairgoer({ size = 24, title = "You" } = {}) {
   return `<svg class="fairgoer" width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${title}">
-  <g stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+  <g stroke="var(--art-ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
     <ellipse cx="27" cy="70" rx="8" ry="11" fill="var(--skin)"/>
     <ellipse cx="93" cy="70" rx="8" ry="11" fill="var(--skin)"/>
     <path d="M29 56 C29 36 91 36 91 56 L91 72 C91 96 77 110 60 110 C43 110 29 96 29 72 Z" fill="var(--skin)"/>
@@ -53,10 +53,10 @@ export function fairgoer({ size = 24, title = "You" } = {}) {
     <path d="M26 52 C42 44 78 44 94 52 C90 62 30 62 26 52 Z" fill="var(--cap-dark)"/>
     <path d="M42 86 C48 79 57 80 60 85 C63 80 72 79 78 86 C71 92 63 90 60 88 C57 90 49 92 42 86 Z" fill="var(--tash)"/>
   </g>
-  <circle cx="60" cy="24" r="3.5" fill="var(--ink)"/>
-  <circle cx="47" cy="70" r="5" fill="var(--ink)"/><circle cx="73" cy="70" r="5" fill="var(--ink)"/>
+  <circle cx="60" cy="24" r="3.5" fill="var(--art-ink)"/>
+  <circle cx="47" cy="70" r="5" fill="var(--art-ink)"/><circle cx="73" cy="70" r="5" fill="var(--art-ink)"/>
   <circle cx="48.6" cy="68.4" r="1.6" fill="#fff"/><circle cx="74.6" cy="68.4" r="1.6" fill="#fff"/>
   <ellipse cx="38" cy="82" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/><ellipse cx="82" cy="82" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
-  <path d="M53 98 q7 4 14 0" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M53 98 q7 4 14 0" stroke="var(--art-ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
 </svg>`;
 }
