@@ -1,0 +1,9 @@
+{ "version": 0, "placeholder": true, "days": [
+ { "day": 1, "questions": [
+  { "id": "p01-when", "cat": "when", "kind": null, "q": "In what year was the first email sent?", "answer": 1971, "unit": "", "alt": null, "scale": "year", "fact": "Placeholder question until the sourced rounds land.", "source": null },
+  { "id": "p01-big", "cat": "big", "kind": "height", "q": "How tall is the Statue of Liberty, from the ground to the tip of the torch?", "answer": 93, "unit": "m", "alt": "305 ft", "scale": "log", "fact": "Placeholder question until the sourced rounds land.", "source": null },
+  { "id": "p01-far", "cat": "far", "kind": null, "q": "How far is it from Wimbledon's Centre Court to Court Philippe-Chatrier at Roland Garros, as the crow flies?", "answer": 337, "unit": "km", "alt": "209 mi", "scale": "log", "fact": "Placeholder question until the sourced rounds land.", "source": { "name": "Wikidata coordinates", "url": "https://www.wikidata.org/wiki/Q2603183" } },
+  { "id": "p01-many", "cat": "many", "kind": null, "q": "How many Airbus A380s were built before production ended?", "answer": 251, "unit": "", "alt": null, "scale": "log", "fact": "Placeholder question until the sourced rounds land.", "source": null },
+  { "id": "p01-wild", "cat": "wild", "kind": "hot", "q": "At what temperature does gold melt?", "answer": 1064, "unit": "°C", "alt": "1,947 °F", "scale": "lin", "min": 200, "max": 2000, "fact": "Placeholder question until the sourced rounds land.", "source": null }
+ ]}
+]}

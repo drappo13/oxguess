@@ -12,6 +12,10 @@ beyond all argument; it must **not be clearly wrong under any reasonable reading
 **every answer must cite a real source** (Wikipedia, an official body, a rulebook, a record keeper), never
 just an LLM's memory. Each question stores its source URL, and the reveal can link to it.
 
+Sources don't have to be Wikidata. A handful of long, reliable lists covers most of what we need: Wikipedia
+"List of tallest statues", "List of heaviest bells", "List of most-produced aircraft", sports rulebooks,
+Guinness and record keepers, NASA fact sheets, official building sites.
+
 Scripts are in `scripts/explore/` (stdlib Python, queries the QLever Wikidata mirror, which answers in seconds
 where the main Wikidata service times out). Raw output is in `data/samples/`.
 
@@ -131,7 +135,9 @@ Double points for the wildcard works, because it'll often be the least familiar 
 4. **Auto-check**: the figure must also appear on the item's English Wikipedia page (or a named official
    source). Where they disagree, it goes to review with both figures shown. Example caught already: Wikidata
    gives the Mona Lisa as 79.4 cm tall; the Louvre and Wikipedia say 77 cm.
-5. **Human review**: a small admin page to approve, edit or bin. About 35 questions a week.
+5. **No human review (Freddy, 15 Nov).** Instead a Claude Code skill runs the whole factory on a schedule: one
+   agent drafts a batch from sources, a second independent agent re-fetches every source and checks each
+   answer, wording and fact, and anything that fails is dropped rather than queued for a person.
 6. **Schedule**: approved questions go into a frozen schedule months ahead, with variety rules (no two
    space questions in a week, a mix of eras and regions).
 
@@ -142,4 +148,5 @@ The LLM cost is tiny at this volume (a few thousand short calls a year).
 - Units: metric first with imperial underneath, or follow the player's locale?
 - Huge numbers (the weight of the Moon): log slider plus a friendlier display, or avoid?
 - Wildcard at double points: yes or no?
-- How much hand-curation is Freddy happy to do weekly vs fully automatic with spot checks?
+- ~~How much hand-curation?~~ None: fully automatic via a skill (see step 5). Launch content: 3 weeks written
+  and source-checked up front (`content/rounds-v1.json`) to test whether the game gets traction first.
