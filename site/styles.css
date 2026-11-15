@@ -195,7 +195,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .herd { display: flex; flex-direction: column; gap: 8px; }
 .herd-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .herd-head .muted { font-size: 13px; }
-.herd svg { width: 100%; height: auto; display: block; }
+.herd > svg { width: 100%; height: auto; display: block; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
 .legend i { display: inline-block; width: 12px; height: 4px; border-radius: 2px; margin-right: 6px; vertical-align: 3px; }
 .legend i.dash { width: 16px; background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px); }
@@ -425,3 +425,26 @@ svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at
 .ticket b { font-size: 12px; line-height: 1; }
 .ticket.played b { opacity: .8; }
 .ticket .stamp { inset: auto 0 6px 0; margin: 0 auto; width: 62%; }
+
+/* herd chart legend icons */
+.legend span { display: inline-flex; align-items: center; gap: 4px; }
+
+/* bunting on the last story page: a sagging string of flags, each swaying a little */
+.story-bunting { position: relative; display: flex; justify-content: space-between; padding: 0 4px; height: 44px; margin: -6px -4px 0;
+  background: radial-gradient(ellipse 52% 30px at 50% -6px, transparent 96%, color-mix(in srgb, var(--ink) 45%, transparent) 97%, transparent 100%) no-repeat; }
+.story-bunting i { width: 22px; height: 26px; background: var(--c); clip-path: polygon(0 0, 100% 0, 50% 100%); transform: translateY(var(--y)); transform-origin: 50% 0;
+  animation: sway 2.8s ease-in-out infinite; animation-delay: calc(var(--k) * -0.27s); box-shadow: inset 0 3px 0 rgba(0, 0, 0, .12); }
+@keyframes sway { 0%, 100% { transform: translateY(var(--y)) rotate(-5deg); } 50% { transform: translateY(var(--y)) rotate(5deg); } }
+@media (prefers-reduced-motion: reduce) { .story-bunting i { animation: none; } }
+
+/* the balance on story page 2: teeters, then settles level */
+.story-box .balance { width: 170px; height: auto; flex: none; overflow: visible; }
+.story-box { gap: 6px; }
+.story-box .story-count span { font-size: 56px; }
+.balance .beam { transform-origin: 105px 39.5px; transform-box: view-box; animation: teeter 2.6s cubic-bezier(.4, 0, .3, 1) both; }
+.balance .pan-l { animation: pan-l 2.6s cubic-bezier(.4, 0, .3, 1) both; }
+.balance .pan-r { animation: pan-r 2.6s cubic-bezier(.4, 0, .3, 1) both; }
+@keyframes teeter { 0% { transform: rotate(-9deg); } 30% { transform: rotate(6deg); } 55% { transform: rotate(-3deg); } 78% { transform: rotate(1.2deg); } 100% { transform: rotate(0); } }
+@keyframes pan-l { 0% { transform: translateY(8px); } 30% { transform: translateY(-5.2px); } 55% { transform: translateY(2.6px); } 78% { transform: translateY(-1px); } 100% { transform: none; } }
+@keyframes pan-r { 0% { transform: translateY(-8px); } 30% { transform: translateY(5.2px); } 55% { transform: translateY(-2.6px); } 78% { transform: translateY(1px); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .balance .beam, .balance .pan-l, .balance .pan-r { animation: none; } }

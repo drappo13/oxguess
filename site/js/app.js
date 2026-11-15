@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairgoer } from "./art.js";
+import { oxHead, rosette, fairgoer, balance } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
@@ -216,9 +216,9 @@ function storyScale(withAnswer) {
     <line x1="10" x2="310" y1="124" y2="124" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>${ticks}
     ${dots.map((d, k) => `<circle class="story-dot" style="--k:${k}" cx="${d.cx}" cy="${d.cy}" r="4" fill="var(--c-far)"/>`).join("")}
     ${withAnswer ? `
-      <g class="story-mark crowd"><line x1="${x(1207)}" x2="${x(1207)}" y1="22" y2="124" stroke="var(--ox-dark)" stroke-width="2.5" stroke-dasharray="3 4"/>
-        <svg x="${x(1207) - 13}" y="0" width="26" height="26" viewBox="0 0 120 120">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>
-      <g class="story-mark truth"><line x1="${x(1198)}" x2="${x(1198)}" y1="12" y2="126" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${x(1198)} 12 l-12 5 l12 5 z" fill="var(--good)"/></g>` : ""}
+      <g class="story-mark crowd"><line x1="${x(1207)}" x2="${x(1207)}" y1="30" y2="124" stroke="var(--ox-dark)" stroke-width="2.5" stroke-dasharray="3 4"/>
+        <svg x="${x(1207) + 4}" y="22" width="24" height="24" viewBox="0 0 120 120">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>
+      <g class="story-mark truth"><line x1="${x(1198)}" x2="${x(1198)}" y1="4" y2="126" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${x(1198) - 1.5} 4 l-14 6 l14 6 z" fill="var(--good)"/></g>` : ""}
   </svg>`;
 }
 
@@ -229,7 +229,7 @@ function story(page = 0) {
      <p class="eyebrow">Plymouth, 1906</p>
      <h1 class="story-title">A prize ox. A country fair. Sixpence a guess.</h1>
      <p class="story-text">The crowd had to guess what the ox would weigh once it was butchered.</p>`,
-    `<div class="story-box">${oxHead({ size: 64 })}<div class="story-count"><span id="story-n">0</span><small>tickets</small></div></div>
+    `<div class="story-box">${balance()}<div class="story-count"><span id="story-n">0</span><small>tickets</small></div></div>
      <h1 class="story-title">787 people had a go.</h1>
      <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
     `${storyScale(false)}
@@ -239,7 +239,8 @@ function story(page = 0) {
      <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's middle guess</small><b>1,207 lb</b></div><div class="truth"><small>The ox</small><b>1,198 lb</b></div></div>
      <h1 class="story-title">Together, the crowd knew.</h1>
      <p class="story-text">The middle guess was just 9 lb out, less than 1% off the ox's real weight.</p>`,
-    `<div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
+    `<div class="story-bunting" aria-hidden="true">${Array.from({ length: 11 }, (_, k) => `<i style="--k:${k}; --c:${["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"][k % 5]}; --y:${(Math.sin((k / 10) * Math.PI) * 14).toFixed(1)}px"></i>`).join("")}</div>
+     <div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
      <h1 class="story-title">OxGuess is that fair, every day.</h1>
      <p class="story-text">Five numbers nobody knows off by heart. You'll be out on some. The herd, all of us guessing together, usually gets surprisingly close.</p>
 `,
@@ -373,15 +374,17 @@ function histogram(q, h, g) {
     const bh = (c / mx) * (H - 34);
     return `<rect class="bar" style="--i:${i}" x="${(i * bw + 1.5).toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${(bw - 3).toFixed(1)}" height="${bh.toFixed(1)}" rx="3" fill="var(--cat)" opacity=".28"/>`;
   }).join("");
-  const ax = x(q.answer), gx = x(g), mx2 = x(h.median);
-  return `<svg viewBox="-8 0 ${W + 16} ${H + 4}" role="img" aria-label="How the herd guessed">
+  const ax = x(q.answer), gx = x(g), mx2 = x(h.median), top = 26;
+  const icon = (cx, svg) => `<svg x="${(cx - 11).toFixed(1)}" y="${top - 23}" width="22" height="22" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
+  return `<svg viewBox="-12 0 ${W + 24} ${H + 4}" role="img" aria-label="How the herd guessed">
     ${bars}
     <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
-    <line x1="${mx2}" x2="${mx2}" y1="22" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="2 4"/>
-    <line x1="${gx}" x2="${gx}" y1="16" y2="${base}" stroke="var(--ink)" stroke-width="2.5"/>
-    <circle cx="${gx}" cy="12" r="6" fill="var(--ink)"/>
-    <line x1="${ax}" x2="${ax}" y1="8" y2="${base}" stroke="var(--good)" stroke-width="3"/>
-    <path d="M${ax} 2 l7 5 l-7 5 z" fill="var(--good)"/>
+    <line x1="${mx2}" x2="${mx2}" y1="${top}" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="3 3"/>
+    ${icon(mx2, oxHead({ size: 120 }))}
+    <line x1="${gx}" x2="${gx}" y1="${top}" y2="${base}" stroke="var(--ink)" stroke-width="2.5"/>
+    ${icon(gx, fairgoer({ size: 120 }))}
+    <line x1="${ax}" x2="${ax}" y1="${top - 18}" y2="${base}" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M${ax + 1.5} ${top - 18} l11 4.5 l-11 4.5 z" fill="var(--good)"/>
   </svg>`;
 }
 
@@ -433,7 +436,7 @@ function reveal(i, { animate = false } = {}) {
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
           ${histogram(q, h, a.g)}
-          <div class="legend"><span><i style="background:var(--good)"></i>Answer</span><span><i style="background:var(--ink)"></i>You</span><span><i class="dash"></i>The herd's guess</span></div>
+          <div class="legend"><span><i style="background:var(--good)"></i>Answer</span><span>${fairgoer({ size: 14 })} You</span><span>${oxHead({ size: 14 })} The herd's guess</span></div>
           <p class="herd-line">${v.beat >= 50 ? `You beat <b>${v.beat}%</b> of the herd.` : `<b>${100 - v.beat}%</b> of the herd got closer than you.`} ${v.pulled ? "Your guess pulled the herd's middle closer to the answer. 🐂" : ""}</p>
         </div>
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a href="${q.source.url}" target="_blank" rel="noopener">Source: ${q.source.name}</a>` : ""}</div>
@@ -475,7 +478,7 @@ function reveal(i, { animate = false } = {}) {
         requestAnimationFrame(step);
       });
     }
-    pop(flag, 1.2);
+    pop(num, 1.2);
     await wait(120);
 
     // 2. The strength tester: up goes the puck, the points count with it.

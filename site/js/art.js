@@ -60,3 +60,20 @@ export function fairgoer({ size = 24, title = "You" } = {}) {
   <path d="M53 98 q7 4 14 0" stroke="var(--art-ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
 </svg>`;
 }
+
+// A fairground balance: the ox on one pan, a stack of mystery weights on the other. The beam teeters, then settles.
+export function balance() {
+  const ox = oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "");
+  const pan = (x) => `<path d="M${x - 26} 92 Q${x} 104 ${x + 26} 92 Z" fill="var(--wood)" stroke="var(--art-ink)" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M${x} 40 L${x - 22} 92 M${x} 40 L${x + 22} 92" stroke="var(--art-ink)" stroke-width="1.6" fill="none"/>`;
+  const weight = (y, w, label) => `<path d="M${155 - w / 2} ${y} h${w} l-3 -14 h${-w + 6} z" fill="#5b5f63" stroke="var(--art-ink)" stroke-width="2" stroke-linejoin="round"/>
+    <text x="155" y="${y - 3.5}" text-anchor="middle" font-family="Fredoka, Nunito, sans-serif" font-weight="700" font-size="9" fill="#fff">${label}</text>`;
+  return `<svg class="balance" viewBox="0 0 210 140" role="img" aria-label="The ox on a balance scale against a stack of unknown weights">
+    <path d="M86 136 L124 136 L114 124 L96 124 Z" fill="var(--wood)" stroke="var(--art-ink)" stroke-width="2.2" stroke-linejoin="round"/>
+    <rect x="102" y="40" width="6" height="86" rx="2" fill="var(--wood)" stroke="var(--art-ink)" stroke-width="2"/>
+    <g class="beam"><rect x="40" y="36" width="130" height="7" rx="3.5" fill="var(--c-when)" stroke="var(--art-ink)" stroke-width="2"/></g>
+    <circle cx="105" cy="39.5" r="5" fill="var(--c-big)" stroke="var(--art-ink)" stroke-width="2"/>
+    <g class="pan-l">${pan(55)}<svg x="31" y="44" width="48" height="48" viewBox="0 0 120 120">${ox}</svg></g>
+    <g class="pan-r">${pan(155)}${weight(91, 40, "?")}${weight(77, 32, "?")}${weight(63, 24, "?")}</g>
+  </svg>`;
+}
