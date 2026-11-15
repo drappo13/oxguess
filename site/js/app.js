@@ -1,7 +1,7 @@
 import { oxHead, rosette, fairgoer } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
-  withUnit, offBy, herd as makeHerd, herdVerdict, HERD_MIN,
+  withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp, otherUnits,
 } from "./game.js";
 import { loadHerds, recordGuess, recordPlay } from "./herd-store.js";
@@ -66,7 +66,7 @@ function addLocal(q, bin) {
   const h = (herds[q.id] ??= { n: 0, b: {} });
   h.n += 1; h.b[bin] = (h.b[bin] ?? 0) + 1;
 }
-const herd = (q) => makeHerd(q, herds[q.id]);
+const herd = (q) => makeHerd(q, herds[q.id], today.key);
 /** Wait for today's herd, but never more than 1.5s: the game must not hang on the network. */
 const settle = () => Promise.race([herdsReady, new Promise((r) => setTimeout(r, 1500))]);
 const save = () => store.set(dayStateKey(today.key), state);
@@ -169,7 +169,6 @@ function home() {
       </div>
       <button class="btn" data-go="story">Read the story</button>
     </section>
-    <p class="fine">Early days: until ${HERD_MIN} people have guessed a question, you'll see a sample herd for it.</p>
   `);
   const cd = document.getElementById("cd"); if (cd) countdown(cd);
 }
@@ -217,7 +216,7 @@ function story(page = 0) {
     `<div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
      <h1 class="story-title">OxGuess is that fair, every day.</h1>
      <p class="story-text">Five numbers nobody knows off by heart. You'll be out on some. The herd, all of us guessing together, usually gets surprisingly close.</p>
-     <p class="fine">From "Vox Populi", <i>Nature</i> 75, 450–451 (1907).</p>`,
+`,
   ];
   const last = page === STORY_PAGES - 1;
   render(`
@@ -325,7 +324,7 @@ function ask() {
     if (locked) return; locked = true;
     const g = Math.max(r.min, Math.min(r.max, current()));
     await settle();
-    const ticketNo = (herds[q.id]?.n ?? 0) + 1;
+    const ticketNo = SEED_GUESSES + (herds[q.id]?.n ?? 0) + 1;
     const bin = recordGuess(today.key, q, toPos(q, r, g), STEPS, g);
     addLocal(q, bin);
     state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo });
@@ -406,8 +405,7 @@ function reveal(i, { animate = false } = {}) {
           <div class="num herd-num"><span class="k">${oxHead({ size: 16 })} The herd</span><span class="v">${withUnit(q, h.median)}</span><span class="s">${v.them} pts</span></div>
         </div>
         <div class="herd">
-          <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.sample ? "Sample herd" : `${h.players.toLocaleString("en-GB")} guesses`}</span></div>
-          ${h.sample ? `<p class="sample-note">Only ${h.players === 1 ? "you have" : `${h.players} people have`} guessed this so far. Until ${HERD_MIN} have, here's a sample herd to show how it works.</p>` : ""}
+          <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
           ${histogram(q, h, a.g)}
           <div class="legend"><span><i style="background:var(--good)"></i>Answer</span><span><i style="background:var(--ink)"></i>You</span><span><i class="dash"></i>The herd's guess</span></div>
           <p class="herd-line">${v.beat >= 50 ? `You beat <b>${v.beat}%</b> of the herd.` : `<b>${100 - v.beat}%</b> of the herd got closer than you.`} ${v.pulled ? "Your guess pulled the herd's middle closer to the answer. 🐂" : ""}</p>
@@ -521,7 +519,6 @@ function results({ celebrate = false } = {}) {
         <div class="side"><span class="who">${oxHead({ size: 22 })} The herd</span><span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span></div>
       </div>
       <p class="results-sub">${sub}</p>
-      ${qs.some((q) => herd(q).sample) ? `<p class="sample-note center">Part of today's herd is a sample until ${HERD_MIN} people have guessed each question.</p>` : ""}
       <div class="complete" id="complete">
         ${stampTick(`big ${celebrate ? "pending" : ""}`)}
         <div><p class="complete-title">Round ${today.number} complete</p><p class="streak-line">${streakLine()}</p></div>

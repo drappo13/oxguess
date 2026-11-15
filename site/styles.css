@@ -393,3 +393,11 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .score-line small { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--muted); }
 .results-sub { text-align: center; font-family: var(--display); font-weight: 500; font-size: 18px; color: var(--ink); text-wrap: balance; }
 .sample-note.center { text-align: center; }
+
+/* results: the answer as a little flag on each track, and a centred answer line */
+.lane-track { margin-top: 12px; }
+.lane-track .ans { top: -14px; bottom: -3px; width: 2.5px; margin-left: -1.25px; }
+.lane-track .ans::after { content: ""; position: absolute; left: 2px; top: 0; border-left: 9px solid var(--good); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
+.answer-head { display: flex; justify-content: center; align-items: center; gap: 6px; }
+.answer-head .who { min-width: 0; }
+.answer-head > span:empty { display: none; }

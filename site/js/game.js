@@ -169,30 +169,38 @@ export function offBy(q, g) {
 }
 
 // --- the herd ---
-// A herd is 100 bins of guesses across the slider. Real herds come from Firestore; until a question has
-// HERD_MIN real guesses we show a clearly labelled sample herd instead.
-export const HERD_MIN = 10;
+// A herd is 100 bins of guesses across the slider: a starter crowd plus every real guess from Firestore.
+//
+// Every question starts with SEED_GUESSES made-up fairgoers who stay in for good, so the herd never jumps
+// when real players arrive. They're made in two steps, like a real crowd: first pick where this crowd's
+// hunch lands (sometimes close, sometimes well off), then scatter each guess around that hunch, with the
+// odd wild one. With only a handful of guesses the middle wobbles, so some days the herd is uncannily
+// close and some days it's miles out. Seeded by date and question, so everyone sees the same crowd.
+export const SEED_GUESSES = 15;
 const BINS = 100;
 const binValue = (q, k) => toValue(q, rangeFor(q), Math.round(((k + 0.5) / BINS) * STEPS));
 
-function sampleBins(q) {
-  const R = rng(hash(q.id + "herd")), bins = new Array(BINS).fill(0);
-  const pa = toPos(q, rangeFor(q), q.answer) / STEPS, bias = (R() - 0.5) * 0.24, spread = 0.12 + R() * 0.12;
-  for (let i = 0; i < 640; i++) {
-    const n = Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R());
-    bins[Math.min(BINS - 1, Math.floor(Math.max(0, Math.min(0.9999, pa + bias + n * spread)) * BINS))]++;
+function seedBins(q, day) {
+  const R = rng(hash(`${day}|${q.id}|crowd`)), bins = new Array(BINS).fill(0);
+  const normal = () => Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R());
+  const answerPos = toPos(q, rangeFor(q), q.answer) / STEPS;
+  const hunch = answerPos + normal() * 0.07;          // step 1: where this crowd's gut lands
+  const spread = 0.07 + R() * 0.1;                     // how much they disagree
+  for (let i = 0; i < SEED_GUESSES; i++) {
+    const p = R() < 0.12 ? R() : hunch + normal() * spread;   // step 2: each guess, plus the odd wild one
+    bins[Math.min(BINS - 1, Math.max(0, Math.floor(p * BINS)))]++;
   }
   return bins;
 }
 
 /** real: the Firestore summary { n, b: { bin: count } } or undefined. */
-export function herd(q, real) {
-  const realN = real?.n ?? 0, sample = realN < HERD_MIN;
-  const bins = sample ? sampleBins(q) : Array.from({ length: BINS }, (_, k) => real.b?.[k] ?? 0);
+export function herd(q, real, day) {
+  const bins = seedBins(q, day);
+  for (const [k, c] of Object.entries(real?.b ?? {})) if (bins[k] != null) bins[k] += c;
   const n = bins.reduce((a, b) => a + b, 0);
   let acc = 0, mid = 0;
   for (let k = 0; k < BINS; k++) { acc += bins[k]; if (acc >= n / 2) { mid = k; break; } }
-  return { bins, n, median: binValue(q, mid), players: sample ? realN : n, sample };
+  return { bins, n, median: binValue(q, mid), players: n };
 }
 
 export function herdVerdict(q, h, g) {
