@@ -97,8 +97,8 @@ export const TIERS = [
   { min: 85, key: "first", name: "First prize", short: "🥇" },
   { min: 65, key: "second", name: "Second prize", short: "🥈" },
   { min: 40, key: "third", name: "Third prize", short: "🥉" },
-  { min: 15, key: "hc", name: "Highly commended", short: "🟩" },
-  { min: 0, key: "entry", name: "Thanks for entering", short: "⬜" },
+  { min: 15, key: "hc", name: "Highly commended", short: "⚪" },
+  { min: 0, key: "entry", name: "Thanks for entering", short: "▫️" },
 ];
 export const tierFor = (s) => TIERS.find((t) => s >= t.min);
 
@@ -108,7 +108,49 @@ export function fmt(q, v) {
   const opts = Number.isInteger(v) ? {} : { maximumFractionDigits: 3 };
   return v.toLocaleString("en-GB", opts);
 }
-export const withUnit = (q, v) => `${fmt(q, v)}${q.unit ? (q.unit.startsWith("°") ? "" : " ") + q.unit : ""}`;
+// --- units: answers are stored metric; players can see and guess in imperial ---
+const UNITS = {
+  m: { to: "ft", f: 3.28084 },
+  cm: { to: "in", f: 0.393701 },
+  km: { to: "mi", f: 0.621371 },
+  "km/h": { to: "mph", f: 0.621371 },
+  kg: { to: "lb", f: 2.20462 },
+  t: { to: "lb", f: 2204.62 },
+  "°C": { to: "°F", conv: (c) => (c * 9) / 5 + 32, back: (f) => ((f - 32) * 5) / 9, delta: 9 / 5 },
+};
+let system = "metric";
+export const setSystem = (s) => { system = s === "imperial" ? "imperial" : "metric"; };
+export const getSystem = () => system;
+export const convertible = (q) => Boolean(UNITS[q.unit]);
+const imperial = (q, sys = system) => sys === "imperial" && convertible(q);
+export const dispUnit = (q, sys = system) => (imperial(q, sys) ? UNITS[q.unit].to : q.unit);
+export const unitPair = (q) => (convertible(q) ? [q.unit, UNITS[q.unit].to] : null);
+export function toDisp(q, v, sys = system) {
+  if (!imperial(q, sys)) return v;
+  const u = UNITS[q.unit];
+  return u.conv ? u.conv(v) : v * u.f;
+}
+export function fromDisp(q, d, sys = system) {
+  if (!imperial(q, sys)) return d;
+  const u = UNITS[q.unit];
+  return u.back ? u.back(d) : d / u.f;
+}
+const sig3 = (v) => (Math.abs(v) >= 100 ? Math.round(v) : Number(v.toPrecision(3)));
+/** A metric value as the player sees it, number only. */
+export function fmtDisp(q, v, sys = system) {
+  if (!imperial(q, sys)) return fmt(q, v);
+  return sig3(toDisp(q, v, sys)).toLocaleString("en-GB", { maximumFractionDigits: 2 });
+}
+const suffix = (u) => (u ? (u.startsWith("°") ? "" : " ") + u : "");
+export const withUnit = (q, v, sys = system) => `${fmtDisp(q, v, sys)}${suffix(dispUnit(q, sys))}`;
+/** The answer in the other system, for the small line under the big number. */
+export const otherUnits = (q, v) => (convertible(q) ? withUnit(q, v, system === "metric" ? "imperial" : "metric") : null);
+function withUnitDelta(q, d) {
+  const u = UNITS[q.unit];
+  if (!imperial(q)) return `${fmt(q, d)}${suffix(q.unit)}`;
+  const v = d * (u.delta ?? u.f);
+  return `${sig3(v).toLocaleString("en-GB", { maximumFractionDigits: 2 })}${suffix(u.to)}`;
+}
 
 export function offBy(q, g) {
   const a = q.answer;
@@ -120,7 +162,7 @@ export function offBy(q, g) {
     return r > 0.5 ? `${Math.round((1 - r) * 100)}% too low` : `${(1 / r).toFixed(1)}× too low`;
   }
   const d = Math.round((g - a) * 10) / 10;
-  return d === 0 ? "Spot on" : `${withUnit(q, Math.abs(d))} too ${d > 0 ? "high" : "low"}`;
+  return d === 0 ? "Spot on" : `${withUnitDelta(q, Math.abs(d))} too ${d > 0 ? "high" : "low"}`;
 }
 
 // --- the herd (simulated until there's a backend) ---

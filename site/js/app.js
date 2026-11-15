@@ -2,6 +2,7 @@ import { oxHead, rosette, fairScene } from "./art.js";
 import {
   STEPS, CATS, catLabel, catIcon, multiplier, rangeFor, toValue, toPos, score, tierFor, TIERS,
   fmt, withUnit, offBy, herd, herdVerdict,
+  setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp, otherUnits,
 } from "./game.js";
 
 const EPOCH = "2026-11-15"; // day 1
@@ -12,7 +13,8 @@ let ROUNDS = null;
 const pad = (n) => String(n).padStart(2, "0");
 const keyOf = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 function todayKey() {
-  const p = new URLSearchParams(location.search).get("day");
+  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+  const p = local ? new URLSearchParams(location.search).get("day") : null;
   return p && /^\d{4}-\d{2}-\d{2}$/.test(p) ? p : keyOf(new Date());
 }
 const parseKey = (k) => { const [y, m, d] = k.split("-").map(Number); return new Date(y, m - 1, d); };
@@ -138,12 +140,14 @@ function ask() {
       <h1 class="question">${q.q}</h1>
       <div class="readout">
         <input id="guess" inputmode="decimal" autocomplete="off" aria-label="Your guess">
-        ${q.unit ? `<span class="unit">${q.unit}</span>` : ""}
+        ${convertible(q)
+          ? `<button class="unit-toggle" id="units" aria-label="Switch units">${unitPair(q).map((u, k) => `<span data-sys="${k ? "imperial" : "metric"}">${u}</span>`).join("")}</button>`
+          : q.unit ? `<span class="unit">${q.unit}</span>` : ""}
       </div>
       <div class="tape">
         <input type="range" id="slider" min="0" max="${STEPS}" value="${pos}" aria-label="Guess slider">
         <div class="ticks" aria-hidden="true"></div>
-        <div class="ends"><span>${withUnit(q, r.min)}</span><span>${withUnit(q, r.max)}</span></div>
+        <div class="ends"><span id="end-min"></span><span id="end-max"></span></div>
       </div>
       <div class="nudge"><button class="btn round" id="down" aria-label="A bit lower">−</button><span class="hint">Drag, nudge or type</span><button class="btn round" id="up" aria-label="A bit higher">+</button></div>
       <button class="btn primary big" id="lock">Lock it in</button>
@@ -152,17 +156,30 @@ function ask() {
   const slider = document.getElementById("slider"), input = document.getElementById("guess");
   const current = () => (typed ?? toValue(q, r, pos));
   const fit = () => { input.style.width = `${Math.max(2, input.value.length + 0.6)}ch`; };
-  const show = () => { input.value = fmt(q, current()); slider.value = pos; fit(); };
+  const show = () => {
+    input.value = fmtDisp(q, current()); slider.value = pos; fit();
+    document.getElementById("end-min").textContent = withUnit(q, r.min);
+    document.getElementById("end-max").textContent = withUnit(q, r.max);
+    document.querySelectorAll("#units [data-sys]").forEach((el) => el.classList.toggle("on", el.dataset.sys === getSystem()));
+  };
   show();
+  const unitsBtn = document.getElementById("units");
+  if (unitsBtn) unitsBtn.onclick = () => {
+    setSystem(getSystem() === "metric" ? "imperial" : "metric");
+    store.set("ox-units", getSystem());
+    show();
+  };
   slider.oninput = () => { pos = +slider.value; typed = null; show(); };
   const nudge = (d) => {
     if (q.scale === "log") {
-      const v = current(); let t = toPos(q, r, v);
-      while (t > 0 && t < STEPS && toValue(q, r, t) === v) t += d;
+      const shown = fmtDisp(q, current()); let t = toPos(q, r, current());
+      while (t > 0 && t < STEPS && fmtDisp(q, toValue(q, r, t)) === shown) t += d;
       pos = t; typed = null;
     } else {
-      const step = Number.isInteger(q.answer) ? 1 : 0.1;
-      typed = Math.round(Math.max(r.min, Math.min(r.max, current() + d * step)) * 10) / 10;
+      // Linear scales (years, temperatures) step by one unit as the player sees it.
+      const step = q.scale === "year" || Number.isInteger(q.answer) || dispUnit(q) !== q.unit ? 1 : 0.1;
+      const dv = Math.round((toDisp(q, current()) + d * step) * 10) / 10;
+      typed = Math.max(r.min, Math.min(r.max, fromDisp(q, dv)));
       pos = toPos(q, r, typed);
     }
     show();
@@ -173,7 +190,7 @@ function ask() {
     let raw = input.value.trim().replace(/,/g, "");
     const bc = /bc$/i.test(raw); raw = raw.replace(/\s*bc$/i, "").replace(/^ad\s*/i, "");
     let v = parseFloat(raw.replace(/[^\d.\-]/g, ""));
-    if (!isNaN(v)) { if (bc) v = -v; typed = v; pos = toPos(q, r, Math.max(r.min, Math.min(r.max, v))); slider.value = pos; }
+    if (!isNaN(v)) { if (bc) v = -v; typed = fromDisp(q, v); pos = toPos(q, r, Math.max(r.min, Math.min(r.max, typed))); slider.value = pos; }
     fit();
   };
   input.onfocus = () => input.select();
@@ -222,7 +239,7 @@ function reveal(i) {
         <div><div class="tier">${t.name}</div><div class="muted">${a.s * m} point${a.s * m === 1 ? "" : "s"}${m > 1 ? ` (${a.s} × ${m})` : ""}</div></div>
       </div>
       <div class="nums">
-        <div class="num answer"><span class="k">Answer</span><span class="v">${withUnit(q, q.answer)}</span>${q.alt ? `<span class="s">${q.alt}</span>` : ""}</div>
+        <div class="num answer"><span class="k">Answer</span><span class="v">${withUnit(q, q.answer)}</span>${otherUnits(q, q.answer) ? `<span class="s">${otherUnits(q, q.answer)}</span>` : ""}</div>
         <div class="num"><span class="k">You</span><span class="v">${withUnit(q, a.g)}</span><span class="s">${offBy(q, a.g)}</span></div>
       </div>
       <div class="herd">
@@ -295,6 +312,8 @@ async function boot() {
     app.innerHTML = `<main class="screen"><section class="card"><h1>The ox is having a lie-down</h1><p>Today's questions didn't load. Check your connection and refresh.</p></section></main>`;
     return;
   }
+  const savedUnits = store.get("ox-units");
+  setSystem(savedUnits ?? (/^en-(US|LR|MM)$/i.test(navigator.language) ? "imperial" : "metric"));
   load();
   if (!store.get("ox-seen-story") && !state.answers.length) story(); else home();
 }

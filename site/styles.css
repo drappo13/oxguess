@@ -16,13 +16,17 @@
   --c-many: #4a9a5c;      /* field */
   --c-wild: #8a5cc2;      /* plum */
 
+  --sky: #dcecf4; --sun: #f6d977; --hill-far: #c4dcb2; --hill-near: #b2d29c;
+  --tent-a: #f6efe0; --tent-b: #d2604a; --tent-door: #6a3a2c; --wood: #a77a4f; --board: #3c4a40; --chalk: #f4f1e6;
+  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a;
+  --coat-1: #6f7f9a; --coat-2: #9a6a56; --coat-3: #7d8f6a; --coat-4: #b08c5a; --coat-5: #8a6f8f;
   --ox: #b97a4b; --ox-dark: #8a5532; --ox-blaze: #f4e3cf; --muzzle: #f0c7a6; --horn: #f6ecd6; --horn-line: #e9dcbc; --cheek: #e98b78;
 
   --r-best: #8a5cc2; --r-best-dark: #e3b12a;   /* purple and gold, the champion's rosette */
   --r-first: #e8b62c; --r-first-dark: #b9861a;  /* gold */
   --r-second: #b4bcc4; --r-second-dark: #848e98; /* silver */
   --r-third: #d08a4e; --r-third-dark: #a5642e;  /* bronze */
-  --r-hc: #5aa86b; --r-hc-dark: #3f8250;
+  --r-hc: #f1ece0; --r-hc-dark: #c9bfa6;  /* white rosette */
   --r-entry: #c9cfc4; --r-entry-dark: #a3ab9e;
 
   --display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
@@ -35,7 +39,15 @@
     --bg: #18211b; --card: #222d25; --card-soft: #1d2720; --ink: #eef3ea; --muted: #a2b2a5; --line: #34433a;
     --grass-soft: #2b3d2f; --good: #5fd08a;
     --c-when: #f0bd45; --c-big: #e57a62; --c-far: #73a8ec; --c-many: #6cc07e; --c-wild: #b08ae6;
-    --ox: #c98a58; --ox-dark: #9c6440; --ox-blaze: #f1dfc8; --muzzle: #efc4a2; --horn: #f3e7cc; --horn-line: #8f8466;
+    --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
+    --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
+    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62;
+    --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
+    --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
+  --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
+  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62;
+  --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
+  --ox: #c98a58; --ox-dark: #9c6440; --ox-blaze: #f1dfc8; --muzzle: #efc4a2; --horn: #f3e7cc; --horn-line: #8f8466;
     --r-entry: #59645b; --r-entry-dark: #445048;
     color-scheme: dark;
   }
@@ -122,6 +134,11 @@ a { color: inherit; }
 .readout input { text-align: center; }
 .readout input { font-family: var(--display); font-weight: 700; font-size: 48px; line-height: 1.1; max-width: 100%; min-width: 0; text-align: center; background: transparent; border: 0; border-bottom: 3px dotted var(--line); color: var(--ink); padding: 0 4px; font-variant-numeric: tabular-nums; }
 .readout input:focus { outline: none; border-bottom-color: var(--cat); }
+.unit-toggle { display: inline-flex; align-self: center; padding: 3px; gap: 2px; border-radius: 99px; border: 2px solid var(--line); background: var(--card-soft); cursor: pointer; font: 600 16px var(--display); }
+.unit-toggle span { padding: 3px 10px; border-radius: 99px; color: var(--muted); }
+.unit-toggle span.on { background: var(--cat); color: #fff; }
+[data-cat="when"] .unit-toggle span.on { color: #2b2410; }
+.unit-toggle:focus-visible { outline: 3px solid var(--cat); outline-offset: 2px; }
 .readout .unit { font-family: var(--display); font-size: 22px; color: var(--muted); font-weight: 600; }
 
 .tape { padding-top: 2px; }
