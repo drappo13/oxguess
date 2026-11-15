@@ -1,0 +1,60 @@
+rules_version = '2';
+// OxGuess Firestore rules. Paste into Firebase console → Firestore Database → Rules → Publish.
+// Players have no accounts yet, so the rules keep every write small and shaped: a herd summary can only
+// ever go up by exactly one guess in one bin, guesses and plays are write-only, and nothing else exists.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // herd/{date}_{questionId}: { n: total guesses, b: { "0".."99": count } }. Anyone can read.
+    match /herd/{herdId} {
+      allow read: if true;
+      allow create: if herdId.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]{1,24}$')
+        && request.resource.data.keys().hasOnly(['n', 'b'])
+        && request.resource.data.n == 1
+        && request.resource.data.b is map
+        && request.resource.data.b.size() == 1
+        && isBin(request.resource.data.b.keys()[0])
+        && request.resource.data.b.values()[0] == 1;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['n', 'b'])
+        && request.resource.data.n == resource.data.n + 1
+        && oneMoreInOneBin(resource.data.b, request.resource.data.b);
+    }
+
+    // guesses/{auto}: one row per guess, for checking the herd later. Write-only.
+    match /guesses/{id} {
+      allow read: if false;
+      allow create: if request.resource.data.keys().hasOnly(['day', 'qid', 'pos', 'value', 'player', 'at'])
+        && request.resource.data.day is string && request.resource.data.day.size() == 10
+        && request.resource.data.qid is string && request.resource.data.qid.size() <= 24
+        && request.resource.data.pos is int && request.resource.data.pos >= 0 && request.resource.data.pos <= 1000
+        && request.resource.data.value is number
+        && isPlayer(request.resource.data.player)
+        && request.resource.data.at == request.time;
+    }
+
+    // plays/{date}_{player}: a finished round. Write-only for now (streaks and stats later).
+    match /plays/{id} {
+      allow read: if false;
+      allow create, update: if id == request.resource.data.day + '_' + request.resource.data.player
+        && request.resource.data.keys().hasOnly(['day', 'round', 'player', 'pts', 'total', 'at'])
+        && request.resource.data.day is string && request.resource.data.day.size() == 10
+        && request.resource.data.round is int
+        && isPlayer(request.resource.data.player)
+        && request.resource.data.pts is list && request.resource.data.pts.size() == 5
+        && request.resource.data.total is int && request.resource.data.total >= 0 && request.resource.data.total <= 100
+        && request.resource.data.at == request.time;
+    }
+
+    function isBin(k) {
+      return k.matches('^[0-9]{1,2}$');
+    }
+    function isPlayer(p) {
+      return p is string && p.size() <= 48 && p.matches('^p-[A-Za-z0-9-]+$');
+    }
+    function oneMoreInOneBin(before, after) {
+      let changed = after.diff(before).affectedKeys();
+      let k = changed.toList()[0];
+      return changed.size() == 1 && isBin(k) && after[k] == before.get(k, 0) + 1;
+    }
+  }
+}

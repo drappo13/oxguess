@@ -164,7 +164,7 @@ export function dropTicket(fromEl, { number, value }) {
     const from = fromEl.getBoundingClientRect();
     const ticket = document.createElement("div");
     ticket.className = "fx-ticket";
-    ticket.innerHTML = `<small>TICKET No. ${String(number).padStart(4, "0")}</small><b>${value}</b>`;
+    ticket.innerHTML = `<span class="stub">No.<br>${number}</span><span class="main"><small>MY GUESS</small><b>${value}</b></span>`;
     document.body.appendChild(ticket);
     const tw = ticket.offsetWidth, th = ticket.offsetHeight;
     const sx = from.left + from.width / 2 - tw / 2, sy = from.top + from.height / 2 - th / 2;

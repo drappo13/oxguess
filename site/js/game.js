@@ -168,23 +168,37 @@ export function offBy(q, g) {
   return d === 0 ? "Spot on" : `${withUnitDelta(q, Math.abs(d))} too ${d > 0 ? "high" : "low"}`;
 }
 
-// --- the herd (simulated until there's a backend) ---
-export function herd(q) {
-  const r = rangeFor(q), R = rng(hash(q.id + "herd"));
-  const pa = toPos(q, r, q.answer) / STEPS, bias = (R() - 0.5) * 0.24, spread = 0.12 + R() * 0.12;
-  const guesses = [];
+// --- the herd ---
+// A herd is 100 bins of guesses across the slider. Real herds come from Firestore; until a question has
+// HERD_MIN real guesses we show a clearly labelled sample herd instead.
+export const HERD_MIN = 10;
+const BINS = 100;
+const binValue = (q, k) => toValue(q, rangeFor(q), Math.round(((k + 0.5) / BINS) * STEPS));
+
+function sampleBins(q) {
+  const R = rng(hash(q.id + "herd")), bins = new Array(BINS).fill(0);
+  const pa = toPos(q, rangeFor(q), q.answer) / STEPS, bias = (R() - 0.5) * 0.24, spread = 0.12 + R() * 0.12;
   for (let i = 0; i < 640; i++) {
     const n = Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R());
-    guesses.push(toValue(q, r, Math.round(Math.max(0, Math.min(1, pa + bias + n * spread)) * STEPS)));
+    bins[Math.min(BINS - 1, Math.floor(Math.max(0, Math.min(0.9999, pa + bias + n * spread)) * BINS))]++;
   }
-  const sorted = [...guesses].sort((a, b) => a - b);
-  const median = sorted[Math.floor(sorted.length / 2)];
-  return { guesses, median, players: guesses.length };
+  return bins;
+}
+
+/** real: the Firestore summary { n, b: { bin: count } } or undefined. */
+export function herd(q, real) {
+  const realN = real?.n ?? 0, sample = realN < HERD_MIN;
+  const bins = sample ? sampleBins(q) : Array.from({ length: BINS }, (_, k) => real.b?.[k] ?? 0);
+  const n = bins.reduce((a, b) => a + b, 0);
+  let acc = 0, mid = 0;
+  for (let k = 0; k < BINS; k++) { acc += bins[k]; if (acc >= n / 2) { mid = k; break; } }
+  return { bins, n, median: binValue(q, mid), players: sample ? realN : n, sample };
 }
 
 export function herdVerdict(q, h, g) {
   const you = points(q, g), them = points(q, h.median), raw = score(q, g);
-  const beat = Math.round((h.guesses.filter((x) => score(q, x) < raw).length / h.guesses.length) * 100);
+  const lower = h.bins.reduce((a, c, k) => a + (c && score(q, binValue(q, k)) < raw ? c : 0), 0);
+  const beat = h.n ? Math.round((lower / h.n) * 100) : 0;
   // Did this guess pull the herd's middle towards the answer?
   const pulled = (h.median > q.answer && g < h.median) || (h.median < q.answer && g > h.median);
   return { you, them, beat, pulled };

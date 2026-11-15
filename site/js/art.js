@@ -41,3 +41,22 @@ export function rosette(tier, label, size = 56) {
     <text x="32" y="35" text-anchor="middle" font-family="Fredoka, Nunito, sans-serif" font-weight="700" font-size="${String(label).length > 2 ? 12 : 15}" fill="var(--ink)">${label}</text>
   </svg>`;
 }
+
+// "You": a 1906 fairgoer in a flat cap and a fine moustache, drawn to match the ox.
+export function fairgoer({ size = 24, title = "You" } = {}) {
+  return `<svg class="fairgoer" width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${title}">
+  <g stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="27" cy="70" rx="8" ry="11" fill="var(--skin)"/>
+    <ellipse cx="93" cy="70" rx="8" ry="11" fill="var(--skin)"/>
+    <path d="M29 56 C29 36 91 36 91 56 L91 72 C91 96 77 110 60 110 C43 110 29 96 29 72 Z" fill="var(--skin)"/>
+    <path d="M22 52 C20 18 100 18 98 52 C80 45 40 45 22 52 Z" fill="var(--cap)"/>
+    <path d="M26 52 C42 44 78 44 94 52 C90 62 30 62 26 52 Z" fill="var(--cap-dark)"/>
+    <path d="M42 86 C48 79 57 80 60 85 C63 80 72 79 78 86 C71 92 63 90 60 88 C57 90 49 92 42 86 Z" fill="var(--tash)"/>
+  </g>
+  <circle cx="60" cy="24" r="3.5" fill="var(--ink)"/>
+  <circle cx="47" cy="70" r="5" fill="var(--ink)"/><circle cx="73" cy="70" r="5" fill="var(--ink)"/>
+  <circle cx="48.6" cy="68.4" r="1.6" fill="#fff"/><circle cx="74.6" cy="68.4" r="1.6" fill="#fff"/>
+  <ellipse cx="38" cy="82" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/><ellipse cx="82" cy="82" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
+  <path d="M53 98 q7 4 14 0" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>`;
+}
