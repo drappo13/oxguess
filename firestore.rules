@@ -5,19 +5,22 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // herd/{date}_{questionId}: { n: total guesses, b: { "0".."99": count } }. Anyone can read.
+    // herd/{date}_{questionId}: { n: total guesses, b: { "0".."99": count }, k: the bin the last guess went in }.
+    // Anyone can read. Each write must add exactly one guess, to bin k.
     match /herd/{herdId} {
       allow read: if true;
       allow create: if herdId.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]{1,24}$')
-        && request.resource.data.keys().hasOnly(['n', 'b'])
+        && request.resource.data.keys().hasOnly(['n', 'b', 'k'])
+        && isBin(request.resource.data.k)
         && request.resource.data.n == 1
         && request.resource.data.b is map
-        && request.resource.data.b.size() == 1
-        && isBin(request.resource.data.b.keys()[0])
-        && request.resource.data.b.values()[0] == 1;
-      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['n', 'b'])
+        && request.resource.data.b.keys().hasOnly([request.resource.data.k])
+        && request.resource.data.b[request.resource.data.k] == 1;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['n', 'b', 'k'])
+        && isBin(request.resource.data.k)
         && request.resource.data.n == resource.data.n + 1
-        && oneMoreInOneBin(resource.data.b, request.resource.data.b);
+        && request.resource.data.b.diff(resource.data.b).affectedKeys().hasOnly([request.resource.data.k])
+        && request.resource.data.b[request.resource.data.k] == resource.data.b.get(request.resource.data.k, 0) + 1;
     }
 
     // guesses/{auto}: one row per guess, for checking the herd later. Write-only.
@@ -46,15 +49,10 @@ service cloud.firestore {
     }
 
     function isBin(k) {
-      return k.matches('^[0-9]{1,2}$');
+      return k is string && k.matches('^[0-9]{1,2}$');
     }
     function isPlayer(p) {
       return p is string && p.size() <= 48 && p.matches('^p-[A-Za-z0-9-]+$');
-    }
-    function oneMoreInOneBin(before, after) {
-      let changed = after.diff(before).affectedKeys();
-      let k = changed.toList()[0];
-      return changed.size() == 1 && isBin(k) && after[k] == before.get(k, 0) + 1;
     }
   }
 }

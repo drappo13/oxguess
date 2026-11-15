@@ -55,7 +55,7 @@ export function recordGuess(day, q, pos, steps, value) {
   const bin = binOf(pos, steps);
   if (!db || testing) return bin;
   const player = playerId();
-  setDoc(doc(db, "herd", herdKey(day, q)), { n: increment(1), b: { [bin]: increment(1) } }, { merge: true })
+  setDoc(doc(db, "herd", herdKey(day, q)), { n: increment(1), b: { [bin]: increment(1) }, k: String(bin) }, { merge: true })
     .catch((e) => console.warn("Herd write failed", e.code ?? e));
   addDoc(collection(db, "guesses"), { day, qid: q.id, pos, value, player, at: serverTimestamp() })
     .catch((e) => console.warn("Guess write failed", e.code ?? e));
