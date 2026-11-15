@@ -135,9 +135,9 @@ const stampTick = (cls = "") => `<span class="stamp ${cls}" aria-hidden="true"><
 function weekTickets(k, { stampToday = false } = {}) {
   const letters = ["M", "T", "W", "T", "F", "S", "S"];
   return `<div class="tickets" aria-label="Your week">${weekOf(k).map((d, i) => {
-    const played = playedOn(d), isToday = d === k, future = d > k;
-    return `<span class="ticket ${played ? "played" : ""} ${isToday ? "today" : ""} ${future ? "future" : ""}" title="${prettyDate(d)}">
-      <b>${letters[i]}</b>${played ? stampTick(isToday && stampToday ? "pending" : "") : ""}
+    const played = playedOn(d), isToday = d === k, future = d > k, missed = !played && !future && !isToday;
+    return `<span class="ticket ${played ? "played" : ""} ${isToday ? "today" : ""} ${future ? "future" : ""} ${missed ? "missed" : ""}" title="${prettyDate(d)}${missed ? " · missed" : ""}">
+      <b>${letters[i]}</b>${played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : ""}
     </span>`;
   }).join("")}</div>`;
 }

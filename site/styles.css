@@ -18,7 +18,7 @@
 
   --sky: #dcecf4; --sun: #f6d977; --hill-far: #c4dcb2; --hill-near: #b2d29c;
   --tent-a: #f6efe0; --tent-b: #d2604a; --tent-door: #6a3a2c; --wood: #a77a4f; --board: #3c4a40; --chalk: #f4f1e6;
-  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a; --art-ink: #26332b; --badge: transparent; --stamp: #b8432f; --ticket: #f7e7b4; --skin: #f3cfb0; --cap: #7a6650; --cap-dark: #574838; --tash: #7a4f2e;
+  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a; --art-ink: #26332b; --badge: transparent; --stamp: #b8432f; --ticket: #f7e7b4; --ticket-gold: #f2cf6b; --skin: #f3cfb0; --cap: #7a6650; --cap-dark: #574838; --tash: #7a4f2e;
   --coat-1: #6f7f9a; --coat-2: #9a6a56; --coat-3: #7d8f6a; --coat-4: #b08c5a; --coat-5: #8a6f8f;
   --ox: #b97a4b; --ox-dark: #8a5532; --ox-blaze: #f4e3cf; --muzzle: #f0c7a6; --horn: #f6ecd6; --horn-line: #e9dcbc; --cheek: #e98b78;
 
@@ -41,11 +41,11 @@
     --c-when: #f0bd45; --c-big: #e57a62; --c-far: #73a8ec; --c-many: #6cc07e; --c-wild: #b08ae6;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
     --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
+    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --ticket-gold: #e8bf55; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
     --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
   --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
+  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --art-ink: #26332b; --badge: #dcebcf; --stamp: #f08a73; --ticket: #e9d595; --ticket-gold: #e8bf55; --skin: #efc9a8; --cap: #8c7860; --cap-dark: #66553f; --tash: #8f6140;
   --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
   --ox: #c98a58; --ox-dark: #9c6440; --ox-blaze: #f1dfc8; --muzzle: #efc4a2; --horn: #f3e7cc; --horn-line: #8f8466;
     --r-entry: #59645b; --r-entry-dark: #445048;
@@ -457,3 +457,11 @@ svg.ox, svg.fairgoer { overflow: visible; background: radial-gradient(circle at 
 .story-vs small { white-space: normal; align-items: flex-start; }
 .story-vs small > svg, .story-vs small > i { flex: none; margin-top: 1px; }
 .story-vs b { font-size: clamp(20px, 7vw, 26px); }
+
+/* Week tickets: played = warm gold, missed = faded with a faint dash, today = bright and dashed, future = quiet. */
+.ticket.played { background: var(--ticket-gold); border-color: color-mix(in srgb, var(--ticket-gold) 55%, var(--ink)); }
+.ticket.missed { background: color-mix(in srgb, var(--ticket) 35%, var(--card)); border-color: color-mix(in srgb, var(--ticket) 30%, var(--line)); transform: rotate(-2deg); }
+.ticket.missed b { color: color-mix(in srgb, var(--ink) 45%, transparent); }
+.ticket .miss-mark { position: absolute; left: 30%; right: 30%; bottom: 34%; height: 3px; border-radius: 2px; background: color-mix(in srgb, var(--ink) 30%, transparent); }
+.ticket.today:not(.played) { background: var(--ticket); border: 2px dashed color-mix(in srgb, var(--stamp) 70%, transparent); }
+.ticket.future { opacity: .55; }
