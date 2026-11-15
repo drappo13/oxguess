@@ -404,3 +404,9 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 
 /* The ox and the fairgoer keep their dark outlines in dark mode, sitting on a pale meadow-green badge. */
 svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at 50% 54%, var(--badge) 0 64%, transparent 65%); }
+
+/* Week tickets: letters always dark on the paper, and future days dimmed without losing the letter. */
+.ticket { color: #3b3320; }
+.ticket b { opacity: .8; }
+.ticket.future { opacity: 1; background: color-mix(in srgb, var(--ticket) 45%, var(--card)); border-color: color-mix(in srgb, var(--ticket) 40%, var(--line)); }
+.ticket.future b { color: color-mix(in srgb, var(--ink) 78%, transparent); opacity: 1; }
