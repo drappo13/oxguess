@@ -2,7 +2,7 @@
 
 export const STEPS = 1000;
 export const THIS_YEAR = 2026;
-export const WILD_MULTIPLIER = 2;
+export const PER_QUESTION = 20; // whole points per question, 100 for the round
 
 export const CATS = {
   when: { label: "When", icon: "📅", color: "var(--c-when)" },
@@ -15,7 +15,7 @@ const KIND_LABEL = { height: "How tall", weight: "How heavy", length: "How long"
 const KIND_ICON = { height: "📏", weight: "⚖️", length: "📐", hot: "🌡️", fast: "💨", old: "🎂", time: "⏱️" };
 export const catLabel = (q) => (q.kind && KIND_LABEL[q.kind]) || CATS[q.cat].label;
 export const catIcon = (q) => (q.kind && KIND_ICON[q.kind]) || CATS[q.cat].icon;
-export const multiplier = (q) => (q.cat === "wild" ? WILD_MULTIPLIER : 1);
+
 
 // --- seeded randomness so everyone gets the same range and the same herd ---
 export function hash(str) {
@@ -91,16 +91,19 @@ export function score(q, g) {
   return Math.max(0, Math.round(100 * (1 - frac * 4)));
 }
 
-// Prize tiers, county-fair style.
+/** Whole points out of 20 for a guess. */
+export const points = (q, g) => Math.round((score(q, g) * PER_QUESTION) / 100);
+
+// Prize tiers, county-fair style, by points out of 20.
 export const TIERS = [
-  { min: 100, key: "best", name: "Best in show", short: "🏆" },
-  { min: 85, key: "first", name: "First prize", short: "🥇" },
-  { min: 65, key: "second", name: "Second prize", short: "🥈" },
-  { min: 40, key: "third", name: "Third prize", short: "🥉" },
-  { min: 15, key: "hc", name: "Highly commended", short: "⚪" },
+  { min: 20, key: "best", name: "Best in show", short: "🏆" },
+  { min: 17, key: "first", name: "First prize", short: "🥇" },
+  { min: 13, key: "second", name: "Second prize", short: "🥈" },
+  { min: 8, key: "third", name: "Third prize", short: "🥉" },
+  { min: 3, key: "hc", name: "Highly commended", short: "⚪" },
   { min: 0, key: "entry", name: "Thanks for entering", short: "▫️" },
 ];
-export const tierFor = (s) => TIERS.find((t) => s >= t.min);
+export const tierFor = (pts) => TIERS.find((t) => pts >= t.min);
 
 // --- formatting ---
 export function fmt(q, v) {
@@ -168,7 +171,7 @@ export function offBy(q, g) {
 // --- the herd (simulated until there's a backend) ---
 export function herd(q) {
   const r = rangeFor(q), R = rng(hash(q.id + "herd"));
-  const pa = toPos(q, r, q.answer) / STEPS, bias = (R() - 0.5) * 0.14, spread = 0.09 + R() * 0.08;
+  const pa = toPos(q, r, q.answer) / STEPS, bias = (R() - 0.5) * 0.24, spread = 0.12 + R() * 0.12;
   const guesses = [];
   for (let i = 0; i < 640; i++) {
     const n = Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R());
@@ -180,8 +183,8 @@ export function herd(q) {
 }
 
 export function herdVerdict(q, h, g) {
-  const you = score(q, g), them = score(q, h.median);
-  const beat = Math.round((h.guesses.filter((x) => score(q, x) < you).length / h.guesses.length) * 100);
+  const you = points(q, g), them = points(q, h.median), raw = score(q, g);
+  const beat = Math.round((h.guesses.filter((x) => score(q, x) < raw).length / h.guesses.length) * 100);
   // Did this guess pull the herd's middle towards the answer?
   const pulled = (h.median > q.answer && g < h.median) || (h.median < q.answer && g > h.median);
   return { you, them, beat, pulled };

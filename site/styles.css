@@ -18,7 +18,7 @@
 
   --sky: #dcecf4; --sun: #f6d977; --hill-far: #c4dcb2; --hill-near: #b2d29c;
   --tent-a: #f6efe0; --tent-b: #d2604a; --tent-door: #6a3a2c; --wood: #a77a4f; --board: #3c4a40; --chalk: #f4f1e6;
-  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a;
+  --hat: #3b3430; --bonnet: #efe4cf; --straw: #e2c47a; --stamp: #b8432f; --ticket: #f7e7b4;
   --coat-1: #6f7f9a; --coat-2: #9a6a56; --coat-3: #7d8f6a; --coat-4: #b08c5a; --coat-5: #8a6f8f;
   --ox: #b97a4b; --ox-dark: #8a5532; --ox-blaze: #f4e3cf; --muzzle: #f0c7a6; --horn: #f6ecd6; --horn-line: #e9dcbc; --cheek: #e98b78;
 
@@ -41,11 +41,11 @@
     --c-when: #f0bd45; --c-big: #e57a62; --c-far: #73a8ec; --c-many: #6cc07e; --c-wild: #b08ae6;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
     --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62;
+    --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --stamp: #f08a73; --ticket: #e9d595;
     --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
     --sky: #2a3a4c; --sun: #e9d18a; --hill-far: #2c4232; --hill-near: #34503a;
   --tent-a: #d9cfbc; --tent-b: #b54e3b; --tent-door: #3a2019; --wood: #8a6440; --board: #26302a; --chalk: #e9e5d8;
-  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62;
+  --hat: #1d1916; --bonnet: #d9cdb6; --straw: #c8aa62; --stamp: #f08a73; --ticket: #e9d595;
   --coat-1: #56647c; --coat-2: #7d5646; --coat-3: #637356; --coat-4: #8f7148; --coat-5: #6f5a74;
   --ox: #c98a58; --ox-dark: #9c6440; --ox-blaze: #f1dfc8; --muzzle: #efc4a2; --horn: #f3e7cc; --horn-line: #8f8466;
     --r-entry: #59645b; --r-entry-dark: #445048;
@@ -224,3 +224,101 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
   .hero-ox .ox, .prize .rosette { animation: none; }
   .btn { transition: none; }
 }
+
+/* ---------- moments of joy ---------- */
+.is-hidden { visibility: hidden; }
+.icon-btn { background: none; border: 0; font-size: 18px; cursor: pointer; padding: 4px; line-height: 1; }
+.chip.quiet { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 700; }
+.streak-pill { animation: warm 2.4s ease-in-out infinite; }
+@keyframes warm { 0%, 100% { box-shadow: 0 0 0 0 rgba(232, 120, 40, 0); } 50% { box-shadow: 0 0 0 4px rgba(232, 120, 40, .14); } }
+
+/* staggered entrances */
+.stagger > * { animation: rise .42s cubic-bezier(.2, .9, .3, 1.15) both; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
+.enter { animation: rise .35s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+
+/* ink stamp */
+.stamp { display: inline-grid; width: 30px; height: 30px; color: var(--stamp); transform: rotate(-8deg); }
+.stamp svg { width: 100%; height: 100%; }
+.stamp.pending { opacity: 0; }
+.stamp.big { width: 54px; height: 54px; }
+.todays .res { display: inline-flex; align-items: center; gap: 6px; }
+.todays .ring { width: 26px; height: 26px; border-radius: 50%; border: 2px dashed var(--line); }
+.todays li.is-done { background: color-mix(in srgb, var(--cat) 9%, var(--card-soft)); }
+.todays .pts { font-family: var(--display); font-weight: 700; font-size: 18px; }
+
+/* week of fair tickets */
+.week-card { gap: 12px; }
+.tickets { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.ticket { position: relative; aspect-ratio: 3 / 4; border-radius: 6px; background: var(--ticket); border: 2px solid color-mix(in srgb, var(--ticket) 60%, var(--ink)); display: grid; place-items: center; font-family: var(--display); font-weight: 700; color: color-mix(in srgb, var(--ink) 75%, transparent);
+  -webkit-mask: radial-gradient(circle 4px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 4px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat; }
+.ticket b { font-size: 14px; }
+.ticket .stamp { position: absolute; inset: 0; margin: auto; width: 80%; height: auto; aspect-ratio: 1; }
+.ticket.played b { opacity: .25; }
+.ticket.future { opacity: .4; }
+.ticket.today:not(.played) { border-style: dashed; animation: nudge 2.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 85%, 100% { transform: none; } 90% { transform: rotate(-4deg); } 95% { transform: rotate(3deg); } }
+.streak-line { font-size: 15px; }
+
+/* the reveal rail */
+.rail-wrap { position: relative; height: 66px; margin: 4px 14px 0; }
+.rail { position: absolute; left: 0; right: 0; top: 44px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 22%, var(--line)); }
+.span-bar { position: absolute; top: 44px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 55%, transparent); }
+.you-pin { position: absolute; top: 38px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 12px; font-weight: 800; color: var(--muted); }
+.you-pin i { width: 18px; height: 18px; border-radius: 50%; background: var(--ink); border: 3px solid var(--card); }
+.flag { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; z-index: 1; }
+.flag span { font-family: var(--display); font-weight: 700; font-size: 15px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.flag i { width: 3px; height: 26px; background: var(--good); border-radius: 2px; }
+
+/* judging: strength tester + verdict */
+.judging { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
+.striker { width: 64px; height: auto; overflow: visible; }
+#bell { transform-origin: 24px 10px; transform-box: view-box; }
+.verdict { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.plus { font-family: var(--display); font-weight: 700; font-size: 52px; line-height: 1; color: var(--cat); font-variant-numeric: tabular-nums; }
+.plus small { font-size: 20px; color: var(--muted); }
+.tier-row { display: flex; align-items: center; gap: 8px; }
+.tier-row .tier { font-size: 22px; }
+.off { font-size: 14px; }
+.later { display: flex; flex-direction: column; gap: 16px; }
+.later:not(.shown) { display: none; }
+.later.shown > * { animation: rise .4s ease-out both; }
+.later.shown > *:nth-child(2) { animation-delay: .12s; }
+.later.shown > *:nth-child(3) { animation-delay: .24s; }
+.later.shown .bar { animation: grow .5s cubic-bezier(.2, .9, .3, 1.2) both; animation-delay: calc(var(--i) * 18ms + .15s); transform-origin: bottom; transform-box: fill-box; }
+@keyframes grow { from { transform: scaleY(0); } to { transform: none; } }
+.herd-num .k { display: inline-flex; align-items: center; gap: 4px; }
+
+/* results */
+.ribbon-wrap { display: flex; justify-content: center; }
+.ribbon { position: relative; font-family: var(--display); font-weight: 700; font-size: 20px; color: #fff; background: var(--c-far); padding: 8px 26px; text-align: center;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%, 12px 50%); }
+.ribbon.win { background: var(--c-big); }
+.complete { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 16px; background: color-mix(in srgb, var(--stamp) 8%, var(--card-soft)); }
+.complete-title { font-family: var(--display); font-weight: 700; font-size: 20px; }
+
+/* the ticket you drop in the judges' box */
+.fx-ticket { position: fixed; z-index: 60; pointer-events: none; padding: 8px 14px 8px 12px; background: var(--ticket); border: 2px solid color-mix(in srgb, var(--ticket) 55%, var(--ink)); border-radius: 6px; font-family: var(--display); color: var(--ink); box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .35); text-align: center; white-space: nowrap;
+  -webkit-mask: radial-gradient(circle 5px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 5px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat; }
+.fx-ticket small { display: block; font-family: var(--body); font-size: 10px; font-weight: 800; letter-spacing: .1em; color: var(--muted); }
+.fx-ticket b { font-size: 22px; }
+.fx-box { position: fixed; z-index: 59; pointer-events: none; width: 120px; }
+.fx-layer { position: fixed; inset: 0; pointer-events: none; z-index: 70; overflow: hidden; }
+.fx-flag { position: absolute; width: 12px; height: 14px; background: var(--c); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.fx-scrap { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+.fx-flash { position: fixed; inset: 0; pointer-events: none; z-index: 65; }
+.ask.submitting .readout input { opacity: 0; transition: opacity .1s; }
+.ask.submitting #lock { opacity: .5; }
+
+/* your five tickets at the end */
+.my-tickets { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.mini-ticket { position: relative; background: var(--ticket); border-top: 5px solid var(--cat); border-radius: 5px; padding: 6px 4px 22px; text-align: center; min-width: 0; box-shadow: 0 3px 8px -5px rgba(0, 0, 0, .4);
+  transform: rotate(calc((var(--i) - 2) * 2deg)); }
+.mini-ticket.pending { opacity: 0; }
+.mini-ticket small { display: block; font-size: 8.5px; font-weight: 800; letter-spacing: .04em; color: color-mix(in srgb, var(--ink) 60%, transparent); white-space: nowrap; overflow: hidden; }
+.mini-ticket b { display: block; font-family: var(--display); font-size: 12.5px; line-height: 1.15; color: #26332b; overflow-wrap: anywhere; margin-top: 2px; }
+.mini-ticket .judged { position: absolute; left: 50%; bottom: 3px; transform: translateX(-50%) rotate(-8deg); width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 11px var(--display); color: var(--stamp); border: 2px solid var(--stamp); background: color-mix(in srgb, var(--ticket) 80%, #fff); }
+.mini-ticket .judged.tier-best { color: #fff; background: var(--r-best); border-color: var(--r-best-dark); }
