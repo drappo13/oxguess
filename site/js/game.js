@@ -48,10 +48,14 @@ export function rangeFor(q) {
   // log: two orders of magnitude, ends rounded to a friendly figure
   const span = 2;
   const min = q.answer / Math.pow(10, span * f), max = q.answer * Math.pow(10, span * (1 - f));
-  return { min: friendlyFloor(min), max: friendlyCeil(max) };
+  // Tidy ends: 1, 2 or 5 followed by zeros (1–100, 2–500, 5,000–50,000), never below 1 for whole-number answers.
+  let lo = tidyDown(min), hi = tidyUp(max);
+  if (Number.isInteger(q.answer) && lo < 1) lo = 1;
+  return { min: lo, max: hi };
 }
-function friendlyFloor(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); return Math.max(p / 10, Math.floor(v / p) * p); }
-function friendlyCeil(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); return Math.ceil(v / p) * p; }
+const TIDY = [1, 2, 5, 10];
+function tidyDown(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const m = v / p; return Number(([...TIDY].reverse().find((t) => t <= m + 1e-9) * p).toPrecision(12)); }
+function tidyUp(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const m = v / p; return Number((TIDY.find((t) => t >= m - 1e-9) * p).toPrecision(12)); }
 
 // --- slider position <-> value ---
 export function toValue(q, r, t) {
