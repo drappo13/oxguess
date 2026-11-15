@@ -201,20 +201,25 @@ function home() {
 // The story as a short tap-through: one idea per page, each with its own little moment.
 const STORY_PAGES = 5;
 function storyScale(withAnswer) {
-  // 787 tickets, drawn as 70 dots. Seeded so everyone sees the same crowd.
+  // 787 tickets, drawn as 70 dots: a loose bell around the middle, two lonely guesses around 1,000 lb and one
+  // past 1,500. Seeded so everyone sees the same crowd.
   const R = (() => { let t = 1906; return () => ((t = (t * 16807) % 2147483647) / 2147483647); })();
-  const lo = 950, hi = 1470, W = 300, x = (lb) => 10 + ((lb - lo) / (hi - lo)) * W;
+  const lo = 940, hi = 1560, W = 300, x = (lb) => 10 + ((lb - lo) / (hi - lo)) * W;
+  const guesses = [992, 1004, 1532];
+  while (guesses.length < 70) {
+    const g = 1207 + Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R()) * 78;
+    if (g > 1030 && g < 1470) guesses.push(g);
+  }
   const cols = {};
-  const dots = Array.from({ length: 70 }, () => {
-    const g = 1207 + Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R()) * 85;
-    const c = Math.round((Math.max(lo + 10, Math.min(hi - 10, g)) - lo) / 20);
+  const dots = guesses.map((g) => {
+    const c = Math.round((g - lo) / 20);
     const h = (cols[c] = (cols[c] ?? 0) + 1);
-    return { cx: x(lo + c * 20), cy: 118 - h * 9 };
+    return { cx: x(lo + c * 20), cy: 120 - h * 7.4 };
   });
-  const ticks = [1000, 1100, 1200, 1300, 1400].map((lb) => `<line x1="${x(lb)}" x2="${x(lb)}" y1="124" y2="130" stroke="var(--muted)" stroke-width="1.5"/><text x="${x(lb)}" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="var(--muted)" font-family="Nunito, sans-serif">${lb.toLocaleString("en-GB")}</text>`).join("");
-  return `<svg class="story-scale" viewBox="0 0 320 150" role="img" aria-label="787 guesses at the ox's weight, spread from under 1,000 lb to over 1,400 lb">
+  const ticks = [1000, 1100, 1200, 1300, 1400, 1500].map((lb) => `<line x1="${x(lb)}" x2="${x(lb)}" y1="124" y2="130" stroke="var(--muted)" stroke-width="1.5"/><text x="${x(lb)}" y="143" text-anchor="middle" font-size="11" font-weight="700" fill="var(--muted)" font-family="Nunito, sans-serif">${lb.toLocaleString("en-GB")}</text>`).join("");
+  return `<svg class="story-scale" viewBox="0 0 320 150" role="img" aria-label="787 guesses at the ox's weight, spread from around 1,000 lb to over 1,500 lb">
     <line x1="10" x2="310" y1="124" y2="124" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>${ticks}
-    ${dots.map((d, k) => `<circle class="story-dot" style="--k:${k}" cx="${d.cx}" cy="${d.cy}" r="4" fill="var(--c-far)"/>`).join("")}
+    ${dots.map((d, k) => `<circle class="story-dot" style="--k:${k}" cx="${d.cx}" cy="${d.cy}" r="3.5" fill="var(--c-far)"/>`).join("")}
     ${withAnswer ? `
       <g class="story-mark crowd"><line x1="${x(1207)}" x2="${x(1207)}" y1="30" y2="124" stroke="var(--ox-dark)" stroke-width="2.5" stroke-dasharray="3 4"/>
         <svg x="${x(1207) + 4}" y="22" width="24" height="24" viewBox="0 0 120 120">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>
@@ -234,7 +239,7 @@ function story(page = 0) {
      <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
     `${storyScale(false)}
      <h1 class="story-title">The guesses were all over the place.</h1>
-     <p class="story-text">Some said under 1,000 lb. Some said over 1,400. Nobody was sure.</p>`,
+     <p class="story-text">Some said around 1,000 lb. Some said over 1,500. Nobody was sure.</p>`,
     `${storyScale(true)}
      <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's middle guess</small><b>1,207 lb</b></div><div class="truth"><small>The ox</small><b>1,198 lb</b></div></div>
      <h1 class="story-title">Together, the crowd knew.</h1>
