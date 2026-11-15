@@ -129,7 +129,7 @@ async function go(where) {
 }
 
 // A judge's ink stamp with a tick in it.
-const stampTick = (cls = "") => `<span class="stamp ${cls}" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="20" cy="20" r="12.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2.5"/><path d="M12.5 20.5 l5 5 l10 -11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+const stampTick = (cls = "") => `<span class="stamp ${cls}" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12.5 20.5 l5 5 l10 -11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
 
 // The week as a strip of fair tickets, stamped for each day played.
 function weekTickets(k, { stampToday = false } = {}) {
@@ -137,7 +137,7 @@ function weekTickets(k, { stampToday = false } = {}) {
   return `<div class="tickets" aria-label="Your week">${weekOf(k).map((d, i) => {
     const played = playedOn(d), isToday = d === k, future = d > k, missed = !played && !future && !isToday;
     const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}`;
-    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M10 7.5 L16.5 12 L10 16.5 Z"/></svg>` : "";
+    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8 L16 12 L10 16 Z"/></svg>` : "";
     return isToday && !played
       ? `<button class="${cls}" data-go="play" aria-label="Play today's round"><b>${letters[i]}</b>${mark}</button>`
       : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : ""}"><b>${letters[i]}</b>${mark}</span>`;

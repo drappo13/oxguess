@@ -520,3 +520,7 @@ button.ticket { padding: 6px 0 7px; margin: 0; font: inherit; font-family: var(-
 .play-icon path { fill: #fff; }
 button.ticket.today:hover .play-icon { transform: scale(1.08); }
 .ticket.today:not(.played) { filter: none; }
+
+/* Play button: reddy-orange outlines only. */
+.play-icon circle { fill: none; stroke: var(--c-big); stroke-width: 2; }
+.play-icon path { fill: none; stroke: var(--c-big); stroke-width: 2; stroke-linejoin: round; }
