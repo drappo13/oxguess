@@ -234,9 +234,9 @@ function story(page = 0) {
   const cta = state.done ? "See today's results" : "Join the herd";
   const pages = [
     `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
-     <p class="eyebrow">Plymouth, 1906</p>
+     <p class="eyebrow">Plymouth, England, 1906</p>
      <h1 class="story-title">A prize ox. A country fair. Sixpence a guess.</h1>
-     <p class="story-text">The crowd had to guess what the ox would weigh once it was butchered.</p>`,
+     <p class="story-text">${new Date().getFullYear() - 1906} years ago, the crowd had to guess what the ox would weigh once it was butchered.</p>`,
     `<div class="story-box">${balance()}<div class="story-count"><span id="story-n">0</span><small>tickets</small></div></div>
      <h1 class="story-title">787 people had a go.</h1>
      <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
