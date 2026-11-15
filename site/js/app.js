@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairScene } from "./art.js";
+import { oxHead, rosette } from "./art.js";
 import {
   STEPS, CATS, catLabel, catIcon, multiplier, rangeFor, toValue, toPos, score, tierFor, TIERS,
   fmt, withUnit, offBy, herd, herdVerdict,
@@ -97,6 +97,7 @@ function home() {
       <button class="btn primary big" data-go="${done ? "results" : "play"}">${done ? "See today's results" : started ? "Carry on" : "Start guessing"}</button>
     </section>
     <section class="card soft story-teaser">
+      <img loading="lazy" class="scene-img teaser-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
       <div>
         <h2>Why an ox?</h2>
         <p>In 1906, nearly 800 people at a country fair guessed the weight of an ox. The middle guess was out by less than 1%.</p>
@@ -110,7 +111,7 @@ function home() {
 function story() {
   render(`
     <section class="card story">
-      ${fairScene()}
+      <img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
       <p class="eyebrow">Plymouth, 1906</p>
       <h1>The ox that started it</h1>
       <p>At the West of England Fat Stock and Poultry Exhibition, a prize ox stood in a pen and the crowd paid sixpence a ticket to guess its weight once it had been slaughtered and dressed.</p>

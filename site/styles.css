@@ -110,11 +110,16 @@ a { color: inherit; }
 .todays .res { font-family: var(--display); font-weight: 600; }
 .x2 { font-style: normal; font-size: 12px; background: var(--c-wild); color: #fff; border-radius: 99px; padding: 1px 7px; margin-left: 4px; vertical-align: 1px; }
 .hero .btn { width: 100%; }
-.story-teaser { flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; }
+.story-teaser { flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; overflow: hidden; }
+.story-teaser .teaser-img { flex: 1 1 100%; }
 .story-teaser > div { flex: 1 1 220px; display: flex; flex-direction: column; gap: 4px; }
 .story-teaser p { color: var(--muted); font-size: 15px; }
 
 /* story */
+.scene-img { width: 100%; height: auto; display: block; border-radius: 16px; }
+.teaser-img { aspect-ratio: 16 / 7; object-fit: cover; object-position: 50% 45%; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .scene-img { filter: brightness(.88) saturate(.95); } }
+:root[data-theme="dark"] .scene-img { filter: brightness(.88) saturate(.95); }
 .story .scene { width: 100%; height: auto; }
 .story p { font-size: 17px; }
 .story .big-line { font-family: var(--display); font-weight: 600; font-size: 22px; color: var(--c-big); }
