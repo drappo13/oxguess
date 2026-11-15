@@ -165,11 +165,11 @@ function home() {
   render(`
     <section class="hero card">
       <div class="hero-ox">${oxHead({ size: 104 })}</div>
-      <p class="eyebrow">${prettyDate(today.key)} · Round ${today.number}</p>
+      <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
       <h1>${done ? "All five judged" : started ? "Carry on guessing" : "Five numbers. How close can you get?"}</h1>
       ${done
         ? `<div class="home-score"><span class="label">You scored</span><span class="score-line"><span class="big-num">${total()}</span><small>/${MAX()}</small></span></div>`
-        : `<p class="lede">Nobody knows these off by heart. Guess on the slider, win points for getting close, then see how the whole herd guessed.</p>`}
+        : ""}
       <ol class="todays stagger">
         ${qs.map((q, i) => {
           const answered = i < state.answers.length && !(state.revealing && i === state.answers.length - 1 && false);

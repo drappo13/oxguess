@@ -497,3 +497,7 @@ button.ticket { padding: 6px 0 7px; margin: 0; font: inherit; font-family: var(-
 .ticket.today .play-label { margin: 0; font-size: 9.5px; }
 .ticket.missed { background: color-mix(in srgb, var(--muted) 14%, var(--card)); }
 .ticket, button.ticket { grid-template-columns: 1fr; justify-content: stretch; }
+
+/* the day, fair-ticket style */
+.dayline { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--ink); }
+.round-badge { font: 800 11px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); border-radius: 6px; padding: 2px 7px; transform: rotate(-3deg); }
