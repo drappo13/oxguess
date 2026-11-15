@@ -150,8 +150,6 @@ export function fmtDisp(q, v, sys = system) {
 }
 const suffix = (u) => (u ? (u.startsWith("°") ? "" : " ") + u : "");
 export const withUnit = (q, v, sys = system) => `${fmtDisp(q, v, sys)}${suffix(dispUnit(q, sys))}`;
-/** The answer in the other system, for the small line under the big number. */
-export const otherUnits = (q, v) => (convertible(q) ? withUnit(q, v, system === "metric" ? "imperial" : "metric") : null);
 function withUnitDelta(q, d) {
   const u = UNITS[q.unit];
   if (!imperial(q)) return `${fmt(q, d)}${suffix(q.unit)}`;

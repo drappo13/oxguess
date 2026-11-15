@@ -260,8 +260,10 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .you-pin span { order: -1; display: flex; margin-bottom: 1px; }
 .you-pin i { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); border: 3px solid var(--card); }
 .flag { position: absolute; top: 0; z-index: 1; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
-.flag span { font-family: var(--display); font-weight: 700; font-size: 15px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.flag span { font-family: var(--display); font-weight: 700; font-size: 17px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .flag i { width: 3px; height: 26px; background: var(--good); border-radius: 2px; }
+
+.off-line { margin-top: -6px; text-align: center; font-weight: 700; font-size: 15px; color: var(--muted); }
 
 /* the strength tester and the judges' verdict */
 .judging { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
@@ -272,7 +274,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .plus small { font-size: 20px; color: var(--muted); }
 .tier-row { display: flex; align-items: center; gap: 8px; }
 .tier { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; }
-.off { font-size: 14px; }
 
 /* then answer, you, the herd, the chart and the fact */
 .later { display: flex; flex-direction: column; gap: 16px; }
@@ -286,10 +287,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .num .k { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 800; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
 .num .v { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.2; overflow-wrap: anywhere; }
 .num .s { font-size: 13px; color: var(--muted); }
-.num.wide { grid-column: 1 / -1; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 10px; }
-.num.wide .v { font-size: 34px; }
-.num.answer { background: var(--good-soft); border: 2px solid color-mix(in srgb, var(--good) 35%, transparent); }
-.num.answer .k, .num.answer .v { color: var(--good); }
 .herd-num .k { color: var(--ox-dark); }
 .herd { display: flex; flex-direction: column; gap: 8px; }
 .herd-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }

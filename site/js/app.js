@@ -2,7 +2,7 @@ import { oxHead, rosette, fairgoer, balance } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
-  setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp, otherUnits,
+  setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
 import { loadHerds, recordGuess, recordPlay, recordPlayer } from "./herd-store.js";
 import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
@@ -440,31 +440,30 @@ function reveal(i, { animate = false } = {}) {
         <div class="rail"></div>
         <div class="span-bar" id="span" style="left:${Math.min(gpos, apos) * 100}%; width:${Math.abs(apos - gpos) * 100}%"></div>
         <div class="you-pin" style="left:${gpos * 100}%"><i></i><span>${fairgoer({ size: 22 })}</span></div>
-        <div class="flag" id="flag" style="left:${apos * 100}%"><span id="flag-num">${fmtDisp(q, q.answer)}</span><i></i></div>
+        <div class="flag" id="flag" style="left:${apos * 100}%"><span id="flag-num">${withUnit(q, q.answer)}</span><i></i></div>
       </div>
+      <p class="off-line ${animate ? "is-hidden" : ""}" id="off">${offBy(q, a.g)}</p>
       <div class="judging">
         ${striker()}
         <div class="verdict">
           <div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION}</small></div>
           <div class="tier-row ${animate ? "is-hidden" : ""}" id="tier">${rosette(t.key, p, 44)}<span class="tier">${t.name}</span></div>
-          <p class="muted off">${offBy(q, a.g)}</p>
         </div>
       </div>
+      <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
       <div class="later ${animate ? "" : "shown"}">
-        <div class="nums">
-          <div class="num answer wide"><span class="k">Answer</span><span class="v">${withUnit(q, q.answer)}</span>${otherUnits(q, q.answer) ? `<span class="s">${otherUnits(q, q.answer)}</span>` : ""}</div>
-          <div class="num"><span class="k">${fairgoer({ size: 16 })} You</span><span class="v">${withUnit(q, a.g)}</span><span class="s">${p} pts</span></div>
-          <div class="num herd-num"><span class="k">${oxHead({ size: 16 })} The herd</span><span class="v">${withUnit(q, h.median)}</span><span class="s">${v.them} pts</span></div>
-        </div>
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
+          <div class="nums">
+            <div class="num"><span class="k">${fairgoer({ size: 16 })} You</span><span class="v">${withUnit(q, a.g)}</span><span class="s">${p} pts</span></div>
+            <div class="num herd-num"><span class="k">${oxHead({ size: 16 })} The herd</span><span class="v">${withUnit(q, h.median)}</span><span class="s">${v.them} pts</span></div>
+          </div>
           ${histogram(q, h, a.g)}
           <div class="legend"><span><i style="background:var(--good)"></i>Answer</span><span>${fairgoer({ size: 14 })} You</span><span>${oxHead({ size: 14 })} The herd's guess</span></div>
           <p class="herd-line">${v.beat >= 50 ? `You beat <b>${v.beat}%</b> of the herd.` : `<b>${100 - v.beat}%</b> of the herd got closer than you.`} ${v.pulled ? "Your guess pulled the herd's middle closer to the answer. 🐂" : ""}</p>
         </div>
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">📖 Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
       </div>
-      <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
     </section>`, q.cat);
 
   const puck = document.getElementById("puck"), fill = document.getElementById("fill");
@@ -495,14 +494,17 @@ function reveal(i, { animate = false } = {}) {
       await new Promise((done) => {
         const step = (now) => {
           const k = Math.min(1, (now - t0) / travel), e = 1 - (1 - k) ** 3;
-          num.textContent = k < 1 ? fmtDisp(q, toValue(q, r, Math.round(from + (to - from) * e))) : fmtDisp(q, q.answer);
+          num.textContent = withUnit(q, k < 1 ? toValue(q, r, Math.round(from + (to - from) * e)) : q.answer);
           if (k < 1) requestAnimationFrame(step); else done();
         };
         requestAnimationFrame(step);
       });
     }
     pop(num, 1.2);
-    await wait(120);
+    const off = document.getElementById("off");
+    off.classList.remove("is-hidden");
+    pop(off, 1.08);
+    await wait(200);
 
     // 2. The strength tester: up goes the puck, the points count with it.
     const climb = 250 + p * 28;
@@ -528,7 +530,7 @@ function reveal(i, { animate = false } = {}) {
     tierEl.querySelector(".rosette")?.animate([{ transform: "scale(.3) rotate(-30deg)", opacity: 0 }, { transform: "scale(1.15) rotate(6deg)", opacity: 1 }, { transform: "scale(1) rotate(0)" }], { duration: 480, easing: "cubic-bezier(.3,1.5,.5,1)" });
     pop(document.querySelector(".plus"), 1.18);
 
-    // 4. Then the rest of the story: you, the herd, the fact.
+    // 4. Then Next, with the herd and the fact underneath for anyone who scrolls.
     await wait(450);
     document.querySelector(".later").classList.add("shown");
     const next = document.getElementById("next");
