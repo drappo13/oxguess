@@ -403,7 +403,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .answer-head > span:empty { display: none; }
 
 /* The ox and the fairgoer keep their dark outlines in dark mode, sitting on a pale meadow-green badge. */
-svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at 50% 54%, var(--badge) 0 64%, transparent 65%); }
+svg.ox, svg.fairgoer { overflow: visible; background: radial-gradient(circle at 50% 54%, var(--badge) 0 64%, transparent 65%); }
 
 /* Week tickets: letters always dark on the paper, and future days dimmed without losing the letter. */
 .ticket { color: #3b3320; }
