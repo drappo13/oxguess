@@ -236,7 +236,7 @@ function story(page = 0) {
     `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
      <p class="eyebrow">Plymouth, England, 1906</p>
      <h1 class="story-title">A prize ox. A country fair. Sixpence a guess.</h1>
-     <p class="story-text">${new Date().getFullYear() - 1906} years ago, the crowd had to guess what the ox would weigh once it was butchered.</p>`,
+     <p class="story-text">${new Date().getFullYear() - 1906} years ago, the crowd had to guess what the ox weighed.</p>`,
     `<div class="story-box">${balance()}<div class="story-count"><span id="story-n">0</span><small>tickets</small></div></div>
      <h1 class="story-title">787 people had a go.</h1>
      <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
@@ -373,6 +373,15 @@ function ask() {
 }
 
 // ---------- the reveal ----------
+/** A friendly name for where an answer came from: "Wikipedia", "Wikidata", or the site's own name. */
+function sourceSite(url) {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    if (host.endsWith("wikipedia.org")) return "Wikipedia";
+    if (host.endsWith("wikidata.org")) return "Wikidata";
+    return host;
+  } catch { return "the source"; }
+}
 function histogram(q, h, g) {
   const r = rangeFor(q), B = 25, bins = new Array(B).fill(0);
   h.bins.forEach((c, k) => { bins[Math.floor((k * B) / h.bins.length)] += c; });
@@ -447,7 +456,7 @@ function reveal(i, { animate = false } = {}) {
           <div class="legend"><span><i style="background:var(--good)"></i>Answer</span><span>${fairgoer({ size: 14 })} You</span><span>${oxHead({ size: 14 })} The herd's guess</span></div>
           <p class="herd-line">${v.beat >= 50 ? `You beat <b>${v.beat}%</b> of the herd.` : `<b>${100 - v.beat}%</b> of the herd got closer than you.`} ${v.pulled ? "Your guess pulled the herd's middle closer to the answer. 🐂" : ""}</p>
         </div>
-        <div class="fact"><p>${q.fact}</p>${q.source ? `<a href="${q.source.url}" target="_blank" rel="noopener">Source: ${q.source.name}</a>` : ""}</div>
+        <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">📖 Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
       </div>
       <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
     </section>`, q.cat);
