@@ -293,9 +293,14 @@ function story(page = 0) {
   if (page === 3) setTimeout(() => { sfx.chime(); pop(document.querySelector(".story-vs .truth"), 1.1); }, 1300);
 }
 
+// Five segments; the current question's segment opens into a pill naming its category.
 function progress(i, revealed) {
-  return `<div class="progress" aria-label="Question ${i + 1} of ${today.questions.length}">${today.questions.map((q, j) =>
-    `<span class="${j < i || (j === i && revealed) ? "done" : j === i ? "now" : ""}" style="--cat:${CATS[q.cat].color}"></span>`).join("")}</div>`;
+  return `<div class="progress" aria-label="Question ${i + 1} of ${today.questions.length}">${today.questions.map((q, j) => {
+    const state = j < i || (j === i && revealed) ? "done" : "";
+    return j === i
+      ? `<span class="current ${state}" style="--cat:${CATS[q.cat].color}">${catIcon(q)} ${catLabel(q)}</span>`
+      : `<span class="${state}" style="--cat:${CATS[q.cat].color}"></span>`;
+  }).join("")}</div>`;
 }
 
 // ---------- asking ----------
@@ -305,7 +310,6 @@ function ask() {
   render(`
     ${progress(i, false)}
     <section class="card ask enter">
-      <div class="chip-row"><span class="chip">${catIcon(q)} ${catLabel(q)}</span><span class="chip quiet">${i + 1} of ${today.questions.length} · ${PER_QUESTION} points</span></div>
       <h1 class="question">${q.q}</h1>
       <div class="readout">
         <input id="guess" inputmode="decimal" autocomplete="off" aria-label="Your guess">
@@ -434,7 +438,6 @@ function reveal(i, { animate = false } = {}) {
   render(`
     ${progress(i, true)}
     <section class="card reveal">
-      <div class="chip-row"><span class="chip">${catIcon(q)} ${catLabel(q)}</span></div>
       <p class="muted q-small">${q.q}</p>
       <div class="rail-wrap" aria-hidden="true">
         <div class="rail"></div>

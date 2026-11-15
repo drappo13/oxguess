@@ -218,13 +218,11 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .story-hero .ox { animation: bob 3.2s ease-in-out infinite; }
 
 /* ---------- asking ---------- */
-.progress { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
-.progress span { height: 8px; border-radius: 4px; background: var(--line); }
+.progress { display: flex; align-items: center; gap: 6px; }
+.progress span { flex: 1; height: 8px; border-radius: 4px; background: var(--line); }
 .progress .done { background: var(--cat); }
-.progress .now { background: color-mix(in srgb, var(--cat) 45%, var(--line)); }
-.chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.chip { font-weight: 800; font-size: 13px; letter-spacing: .03em; background: color-mix(in srgb, var(--cat) 18%, var(--card)); color: var(--ink); border: 2px solid color-mix(in srgb, var(--cat) 55%, transparent); border-radius: 99px; padding: 3px 12px; }
-.chip.quiet { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 700; }
+.progress .current { flex: none; height: auto; padding: 3px 12px; border-radius: 99px; white-space: nowrap; font-weight: 800; font-size: 13px; letter-spacing: .03em; color: var(--ink);
+  background: color-mix(in srgb, var(--cat) 18%, var(--card)); border: 2px solid color-mix(in srgb, var(--cat) 55%, transparent); }
 .question { font-size: 25px; }
 .readout { display: flex; align-items: baseline; justify-content: center; gap: 8px; padding-top: 4px; }
 .readout input { font-family: var(--display); font-weight: 700; font-size: 48px; line-height: 1.1; max-width: 100%; min-width: 0; text-align: center; background: transparent; border: 0; border-bottom: 3px dotted var(--line); color: var(--ink); padding: 0 4px; font-variant-numeric: tabular-nums; }
