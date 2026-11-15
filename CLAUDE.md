@@ -45,7 +45,7 @@ prototype/            the first single-file mock
 ## Run, test, deploy
 
 - **Local preview:** `python3 -m http.server 4321 --directory site`, then `http://localhost:4321/?day=YYYY-MM-DD`.
-  `?day=` only works on localhost; on a test date the app reads the real herd but never writes to it.
+  `?day=` only works on localhost. Localhost reads the real herd but never writes to it (with or without `?day=`).
   The browser caches modules, so after edits reload with `fetch(url, {cache: 'reload'})` or a hard refresh.
 - **Checks:** `node scripts/check-rounds.mjs` (every answer inside its slider, scores 20, bullseye reachable,
   has a source). `python3 scripts/test-rules.py` exercises the live Firestore rules.

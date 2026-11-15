@@ -78,24 +78,49 @@ function roundFor(k) {
   const n = daysBetween(EPOCH, k), days = ROUNDS.days;
   return { number: n + 1, questions: days[((n % days.length) + days.length) % days.length].questions };
 }
-let today, state, herds = {}, herdsReady = Promise.resolve();
+let today, state, herds = {}, herdsReady = Promise.resolve(), herdsAt = 0, sinceRead = [], screen = null;
 function load() {
   const k = todayKey();
   today = { key: k, ...roundFor(k) };
   state = store.get(dayStateKey(k), { answers: [], done: false });
-  // If today's questions changed since this device played (a content update), start today afresh.
-  if (state.v !== ROUNDS.version && state.answers.length) {
+  // If today's questions changed while this device was part way through (a content update), start today afresh.
+  // A finished day is kept, so a content update never costs anyone their round or their streak.
+  if (state.v !== ROUNDS.version && state.answers.length && !state.done) {
     state = { answers: [], done: false, v: ROUNDS.version };
     store.set(dayStateKey(k), state);
   }
   state.v = ROUNDS.version;
-  // Earlier guesses from today are already in the stored herd, so nothing is re-added here.
-  herdsReady = loadHerds(k, today.questions).then((h) => { herds = h; });
+  herds = {};
+  fetchHerds();
+}
+/** Read today's herds. Guesses already sent are in the stored herd; guesses made while the read is out are
+ *  added on top when it lands. A question whose read fails keeps what we had. */
+function fetchHerds() {
+  const day = today.key;
+  sinceRead = []; herdsAt = Date.now();
+  herdsReady = loadHerds(day, today.questions).then((fresh) => {
+    if (day !== today.key) return;
+    Object.assign(herds, fresh);
+    for (const [q, bin] of sinceRead) if (fresh[q.id]) addLocal(q, bin);
+  });
 }
 function addLocal(q, bin) {
   const h = (herds[q.id] ??= { n: 0, b: {} });
   h.n += 1; h.b[bin] = (h.b[bin] ?? 0) + 1;
 }
+/** After midnight a tab left open moves on to the new day, unless a round is half played. */
+function newDay() {
+  if (todayKey() === today.key || (state.answers.length && !state.done)) return false;
+  load(); home(); return true;
+}
+// Coming back to an open tab: move on to a new day, or pick up the guesses the herd has made since.
+document.addEventListener("visibilitychange", async () => {
+  if (document.hidden || !today || newDay() || Date.now() - herdsAt < 60000) return;
+  const count = () => today.questions.map((q) => herds[q.id]?.n ?? 0).join();
+  const before = count();
+  fetchHerds(); await herdsReady;
+  if (screen === "results" && count() !== before) results();
+});
 const herd = (q) => makeHerd(q, herds[q.id], today.key);
 /** Wait for today's herd, but never more than 1.5s: the game must not hang on the network. */
 const settle = () => Promise.race([herdsReady, new Promise((r) => setTimeout(r, 1500))]);
@@ -159,6 +184,7 @@ function streakLine() {
 function countdown(el) {
   const tick = () => {
     if (!document.body.contains(el)) return clearInterval(t);
+    if (newDay()) return clearInterval(t);
     const now = new Date(), next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
     const s = Math.max(0, Math.floor((next - now) / 1000));
     el.textContent = `${Math.floor(s / 3600)}h ${pad(Math.floor((s % 3600) / 60))}m`;
@@ -168,6 +194,7 @@ function countdown(el) {
 
 // ---------- home ----------
 function home() {
+  screen = "home";
   const qs = today.questions, done = state.done, started = state.answers.length > 0;
   render(`
     <section class="hero card">
@@ -237,6 +264,7 @@ function storyScale(withAnswer) {
 }
 
 function story(page = 0) {
+  screen = "story";
   const cta = state.done ? "See today's results" : "Join the herd";
   const pages = [
     `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
@@ -305,6 +333,7 @@ function progress(i, revealed) {
 
 // ---------- asking ----------
 function ask() {
+  screen = "ask";
   const i = state.answers.length, q = today.questions[i], r = rangeFor(q);
   let pos = Math.round(STEPS / 2), typed = null;
   render(`
@@ -341,9 +370,10 @@ function ask() {
   slider.oninput = () => { pos = +slider.value; typed = null; show(); sfx.tick(); buzz(3); };
   const nudge = (d) => {
     if (q.scale === "log") {
+      // Step along until the shown number changes (several slider steps can round to the same figure).
       const shown = fmtDisp(q, current()); let t = toPos(q, r, current());
-      while (t > 0 && t < STEPS && fmtDisp(q, toValue(q, r, t)) === shown) t += d;
-      pos = t; typed = null;
+      do t += d; while (t > 0 && t < STEPS && fmtDisp(q, toValue(q, r, t)) === shown);
+      pos = Math.max(0, Math.min(STEPS, t)); typed = null;
     } else {
       const step = q.scale === "year" || Number.isInteger(q.answer) || dispUnit(q) !== q.unit ? 1 : 0.1;
       const dv = Math.round((toDisp(q, current()) + d * step) * 10) / 10;
@@ -352,8 +382,18 @@ function ask() {
     }
     show(); sfx.tick(); pop(input, 1.06);
   };
-  document.getElementById("down").onclick = () => nudge(-1);
-  document.getElementById("up").onclick = () => nudge(1);
+  // Tap to nudge once; hold to keep going, faster the longer you hold. Keyboard presses still click.
+  const holdable = (btn, d) => {
+    let timer = null;
+    const stop = () => { clearTimeout(timer); timer = null; };
+    const repeat = (ms) => { timer = setTimeout(() => { if (!btn.isConnected) return stop(); nudge(d); repeat(Math.max(30, Math.min(150, ms) * 0.9)); }, ms); };
+    btn.onpointerdown = (e) => { if (e.button) return; btn.setPointerCapture(e.pointerId); nudge(d); stop(); repeat(380); };
+    btn.onpointerup = btn.onpointercancel = btn.onlostpointercapture = stop;
+    btn.oncontextmenu = (e) => e.preventDefault();
+    btn.onclick = (e) => { if (e.detail === 0) nudge(d); };
+  };
+  holdable(document.getElementById("down"), -1);
+  holdable(document.getElementById("up"), 1);
   input.oninput = () => {
     let raw = input.value.trim().replace(/,/g, "");
     const bc = /bc$/i.test(raw); raw = raw.replace(/\s*bc$/i, "").replace(/^ad\s*/i, "");
@@ -367,18 +407,21 @@ function ask() {
   let locked = false;
   document.getElementById("lock").onclick = async () => {
     if (locked) return; locked = true;
-    const g = Math.max(r.min, Math.min(r.max, current()));
+    // Typed guesses are kept to the answer's precision: whole years, whole counts.
+    const clamped = Math.max(r.min, Math.min(r.max, current()));
+    const g = q.scale === "year" || Number.isInteger(q.answer) ? Math.round(clamped) : clamped;
     await settle();
     const ticketNo = SEED_GUESSES + (herds[q.id]?.n ?? 0) + 1;
     const bin = recordGuess(today.key, q, toPos(q, r, g), STEPS, g);
-    addLocal(q, bin);
+    addLocal(q, bin); sinceRead.push([q, bin]);
     state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo });
     state.revealing = true;
     save();
     // Your guess becomes a numbered fair ticket and drops into the judges' box.
     document.querySelector(".ask").classList.add("submitting");
     await dropTicket(document.querySelector(".readout"), { number: ticketNo, value: withUnit(q, g) });
-    reveal(i, { animate: true });
+    // If they tapped away mid-drop, the reveal waits for them under "Carry on".
+    if (screen === "ask") reveal(i, { animate: true });
   };
 }
 
@@ -432,6 +475,7 @@ function striker() {
 }
 
 function reveal(i, { animate = false } = {}) {
+  screen = "reveal";
   const q = today.questions[i], a = state.answers[i], h = herd(q), v = herdVerdict(q, h, a.g), r = rangeFor(q);
   const p = points(q, a.g), t = tierFor(p), last = i === today.questions.length - 1;
   const gpos = toPos(q, r, a.g) / STEPS, apos = toPos(q, r, q.answer) / STEPS;
@@ -561,6 +605,7 @@ function compare(q, g, herdGuess, yp, hp) {
 }
 
 function results({ celebrate = false } = {}) {
+  screen = "results";
   const qs = today.questions, you = total(), herdScore = herdTotal(), max = MAX();
   const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join("");
   const s = streak();

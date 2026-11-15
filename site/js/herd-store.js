@@ -22,9 +22,8 @@ const firebaseConfig = {
 let db = null;
 try { db = getFirestore(initializeApp(firebaseConfig)); } catch (e) { console.warn("Herd offline", e); }
 
-/** Local previews with ?day= are for testing: they read the herd but never add to it. */
-const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-const testing = local && new URLSearchParams(location.search).has("day");
+/** Local previews are for testing: they read the herd but never add to it (with or without ?day=). */
+const testing = ["localhost", "127.0.0.1"].includes(location.hostname);
 
 export function playerId() {
   try {
