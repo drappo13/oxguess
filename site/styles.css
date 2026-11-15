@@ -452,3 +452,8 @@ svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at
 .story-vs > div { justify-content: space-between; gap: 4px; }
 .story-vs small { white-space: nowrap; }
 .story-vs .ans-flag { margin: 0 8px 0 3px; height: 13px; }
+.story-vs { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.story-vs > div { min-width: 0; }
+.story-vs small { white-space: normal; align-items: flex-start; }
+.story-vs small > svg, .story-vs small > i { flex: none; margin-top: 1px; }
+.story-vs b { font-size: clamp(20px, 7vw, 26px); }
