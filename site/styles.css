@@ -533,3 +533,13 @@ button.ticket.today:hover .play-icon { transform: scale(1.08); }
 .versus .who { font-size: 14px; }
 .versus .vs { padding-bottom: 0; }
 .versus .vs { margin-top: 22px; }
+
+/* The answer gets its own soft green panel. */
+:root { --good-soft: #e3f1e4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --good-soft: #233a29; } }
+:root[data-theme="dark"] { --good-soft: #233a29; }
+.num.answer { background: var(--good-soft); border: 2px solid color-mix(in srgb, var(--good) 35%, transparent); }
+.num.answer .k { color: var(--good); }
+.num.wide .v { font-size: 34px; }
+.answer-head { align-self: center; background: var(--good-soft); border-radius: 99px; padding: 4px 14px; }
+.answer-head .val { font-size: 17px; }
