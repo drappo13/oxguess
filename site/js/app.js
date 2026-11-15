@@ -241,7 +241,7 @@ function story(page = 0) {
      <h1 class="story-title">The guesses were all over the place.</h1>
      <p class="story-text">Some said around 1,000 lb. Some said over 1,500. Nobody was sure.</p>`,
     `${storyScale(true)}
-     <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's middle guess</small><b>1,207 lb</b></div><div class="truth"><small>The ox</small><b>1,198 lb</b></div></div>
+     <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's guess</small><b>1,207 lb</b></div><div class="truth"><small><i class="ans-flag"></i>The ox's weight</small><b>1,198 lb</b></div></div>
      <h1 class="story-title">Together, the crowd knew.</h1>
      <p class="story-text">The middle guess was just 9 lb out, less than 1% off the ox's real weight.</p>`,
     `<div class="story-bunting" aria-hidden="true">${Array.from({ length: 11 }, (_, k) => `<i style="--k:${k}; --c:${["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"][k % 5]}; --y:${(Math.sin((k / 10) * Math.PI) * 14).toFixed(1)}px"></i>`).join("")}</div>

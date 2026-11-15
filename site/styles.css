@@ -448,3 +448,7 @@ svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at
 @keyframes pan-l { 0% { transform: translateY(8px); } 30% { transform: translateY(-5.2px); } 55% { transform: translateY(2.6px); } 78% { transform: translateY(-1px); } 100% { transform: none; } }
 @keyframes pan-r { 0% { transform: translateY(-8px); } 30% { transform: translateY(5.2px); } 55% { transform: translateY(-2.6px); } 78% { transform: translateY(1px); } 100% { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .balance .beam, .balance .pan-l, .balance .pan-r { animation: none; } }
+
+.story-vs > div { justify-content: space-between; gap: 4px; }
+.story-vs small { white-space: nowrap; }
+.story-vs .ans-flag { margin: 0 8px 0 3px; height: 13px; }
