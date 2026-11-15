@@ -261,7 +261,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .flag span { font-family: var(--display); font-weight: 700; font-size: 17px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .flag i { width: 3px; height: 26px; background: var(--good); border-radius: 2px; }
 
-.off-line { margin-top: -6px; text-align: center; font-weight: 700; font-size: 15px; color: var(--muted); }
+.off-line { margin-top: -6px; text-align: center; font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
 
 /* the strength tester and the judges' verdict */
 .judging { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }

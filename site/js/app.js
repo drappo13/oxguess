@@ -449,7 +449,7 @@ function reveal(i, { animate = false } = {}) {
       <div class="judging">
         ${striker()}
         <div class="verdict">
-          <div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION}</small></div>
+          <div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION} points</small></div>
           <div class="tier-row ${animate ? "is-hidden" : ""}" id="tier">${rosette(t.key, p, 44)}<span class="tier">${t.name}</span></div>
         </div>
       </div>
