@@ -136,9 +136,11 @@ function weekTickets(k, { stampToday = false } = {}) {
   const letters = ["M", "T", "W", "T", "F", "S", "S"];
   return `<div class="tickets" aria-label="Your week">${weekOf(k).map((d, i) => {
     const played = playedOn(d), isToday = d === k, future = d > k, missed = !played && !future && !isToday;
-    return `<span class="ticket ${played ? "played" : ""} ${isToday ? "today" : ""} ${future ? "future" : ""} ${missed ? "missed" : ""}" title="${prettyDate(d)}${missed ? " · missed" : ""}">
-      <b>${letters[i]}</b>${played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : ""}
-    </span>`;
+    const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}`;
+    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<span class="play-label">Play</span>` : "";
+    return isToday && !played
+      ? `<button class="${cls}" data-go="play" aria-label="Play today's round">${letters[i]}${mark}</button>`
+      : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : ""}"><b>${letters[i]}</b>${mark}</span>`;
   }).join("")}</div>`;
 }
 function streakLine() {
@@ -614,7 +616,7 @@ function results({ celebrate = false } = {}) {
     await wait(300);
     stampIn(document.querySelector(".complete .stamp"));
     await wait(350);
-    const t = document.querySelector(".ticket.today .stamp");
+    const t = document.querySelector(".ticket.is-today .stamp");
     if (t) { stampIn(t); buzz(20); }
   })();
 }

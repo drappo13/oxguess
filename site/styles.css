@@ -465,3 +465,25 @@ svg.ox, svg.fairgoer { overflow: visible; background: radial-gradient(circle clo
 .ticket .miss-mark { position: absolute; left: 30%; right: 30%; bottom: 34%; height: 3px; border-radius: 2px; background: color-mix(in srgb, var(--ink) 30%, transparent); }
 .ticket.today:not(.played) { background: var(--ticket); border: 2px dashed color-mix(in srgb, var(--stamp) 70%, transparent); }
 .ticket.future { opacity: .55; }
+
+/* Week tickets, simplified: flat tiles, letter on top, one clear mark per state. */
+.tickets { gap: 6px; }
+.ticket { -webkit-mask: none; mask: none; transform: none !important; animation: none !important; opacity: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between; aspect-ratio: 4 / 5; padding: 6px 0 7px;
+  border-radius: 10px; border: 2px solid transparent; font: 700 13px var(--display); color: var(--muted); background: var(--card-soft); }
+.ticket b { font-size: 13px; opacity: 1; color: inherit; }
+.ticket .stamp { position: static; inset: auto; margin: 0; width: 60%; height: auto; transform: none; color: #8a3a22; }
+.ticket.played { background: var(--ticket-gold); border-color: transparent; color: #4a3a12; }
+.ticket.played b { opacity: 1; }
+.ticket.missed { background: var(--card-soft); border-color: transparent; color: color-mix(in srgb, var(--muted) 70%, transparent); }
+.ticket.missed b { color: inherit; }
+.ticket .miss-mark { position: static; width: 34%; height: 3px; margin-bottom: 9px; border-radius: 2px; background: color-mix(in srgb, var(--muted) 45%, transparent); }
+.ticket.future { background: transparent; border: 2px solid var(--line); color: color-mix(in srgb, var(--muted) 60%, transparent); opacity: 1; }
+.ticket.future b { color: inherit; }
+.ticket.today { background: var(--ticket); border-color: var(--stamp); color: #4a3a12; cursor: pointer; }
+.ticket.today .play-label { font: 800 10px var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--stamp); margin-bottom: 4px; }
+button.ticket.today:hover { filter: brightness(1.04); }
+button.ticket.today:focus-visible { outline: 3px solid var(--stamp); outline-offset: 2px; }
+.ticket { min-width: 0; width: 100%; box-sizing: border-box; }
+button.ticket { padding: 6px 0 7px; margin: 0; font: inherit; font-family: var(--display); font-weight: 700; appearance: none; }
+.ticket.today:not(.played) { border: 2px solid var(--stamp); }
