@@ -83,6 +83,9 @@ function load() {
   const k = todayKey();
   today = { key: k, ...roundFor(k) };
   state = store.get(dayStateKey(k), { answers: [], done: false });
+  // If today's questions changed since this device played (a content update), start today afresh.
+  if (state.v !== ROUNDS.version && state.answers.length) state = { answers: [], done: false };
+  state.v = ROUNDS.version;
   // Earlier guesses from today are already in the stored herd, so nothing is re-added here.
   herdsReady = loadHerds(k, today.questions).then((h) => { herds = h; });
 }

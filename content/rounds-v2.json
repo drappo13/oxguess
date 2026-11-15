@@ -1,0 +1,1821 @@
+{
+  "version": 2,
+  "generated": "2026-11-15",
+  "note": "Reshuffled from rounds-v1; day 1 pins Lake Baikal and Isner-Mahut.",
+  "days": [
+    {
+      "day": 1,
+      "questions": [
+        {
+          "id": "d20-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did Japan's first Shinkansen (bullet train) line open?",
+          "answer": 1964,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Its opening was timed to coincide with the 1964 Summer Olympics in Tokyo.",
+          "source": {
+            "name": "Wikipedia: Tokaido Shinkansen",
+            "url": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen"
+          },
+          "evidence": "Opened in 1964 between Tōkyō and Shin-Ōsaka stations, it was the world's first high-speed rail line"
+        },
+        {
+          "id": "d15-wild",
+          "cat": "big",
+          "kind": null,
+          "q": "How deep is Siberia's Lake Baikal, the world's deepest lake, at its deepest point?",
+          "answer": 1642,
+          "unit": "m",
+          "alt": "5,387 ft",
+          "scale": "log",
+          "fact": "It holds around 22 to 23% of the world's fresh surface water, more than any other lake.",
+          "source": {
+            "name": "Wikipedia: Lake Baikal",
+            "url": "https://en.wikipedia.org/wiki/Lake_Baikal"
+          },
+          "evidence": "deepest lake, with a maximum depth of 1,642 metres (5,387 feet)"
+        },
+        {
+          "id": "d02-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Lord's Cricket Ground in London to the Melbourne Cricket Ground, as the crow flies?",
+          "answer": 16908,
+          "unit": "km",
+          "alt": "10,506 mi",
+          "scale": "log",
+          "fact": "The MCG can hold 100,024 people. It opened in 1853.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Lord's Cricket Ground and Melbourne Cricket Ground",
+            "url": "https://www.wikidata.org/wiki/Q331613",
+            "url2": "https://www.wikidata.org/wiki/Q330136"
+          },
+          "evidence": "Lord's Cricket Ground (Q331613): Point(-0.1727 51.5294); Melbourne Cricket Ground (Q330136): Point(144.983447 -37.819943). Great-circle (haversine, R = 6371.0088 km) = 16908 km"
+        },
+        {
+          "id": "d11-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many tiles are in a standard double-six set of dominoes?",
+          "answer": 28,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Domino tiles have lots of nicknames, including bones, rocks, stones and men.",
+          "source": {
+            "name": "Wikipedia: Dominoes",
+            "url": "https://en.wikipedia.org/wiki/Dominoes"
+          },
+          "evidence": "The traditional European domino set consists of 28 tiles"
+        },
+        {
+          "id": "d06-wild",
+          "cat": "wild",
+          "kind": "time",
+          "q": "How long did the longest tennis match in history, John Isner against Nicolas Mahut at Wimbledon in 2010, last in total?",
+          "answer": 665,
+          "unit": "min",
+          "alt": null,
+          "scale": "log",
+          "fact": "It was spread over three days. The final set alone ended 70–68.",
+          "source": {
+            "name": "Wikipedia: Isner–Mahut match at the 2010 Wimbledon Championships",
+            "url": "https://en.wikipedia.org/wiki/Isner–Mahut_match_at_the_2010_Wimbledon_Championships"
+          },
+          "evidence": "in 11 hours and 5 minutes over three days. It was the longest tennis match in professional history."
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "questions": [
+        {
+          "id": "d16-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the construction of Beijing's Forbidden City completed?",
+          "answer": 1420,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Legend says the palace has 9,999 rooms. Experts who counted them found 8,886.",
+          "source": {
+            "name": "Wikipedia: Forbidden City",
+            "url": "https://en.wikipedia.org/wiki/Forbidden_City"
+          },
+          "evidence": "Built | 1406–1420 (Ming dynasty)"
+        },
+        {
+          "id": "d13-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is India's Statue of Unity, not counting its base?",
+          "answer": 182,
+          "unit": "m",
+          "alt": "597 ft",
+          "scale": "log",
+          "fact": "The height of 182 metres was chosen to match the number of seats in the Gujarat Legislative Assembly.",
+          "source": {
+            "name": "Wikipedia: Statue of Unity",
+            "url": "https://en.wikipedia.org/wiki/Statue_of_Unity"
+          },
+          "evidence": "The total height of the structure is 240 m (790 ft), with a base of 58 m (190 ft) and the statue measuring 182 m (597 ft)."
+        },
+        {
+          "id": "d05-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Sydney Opera House to Uluru, as the crow flies?",
+          "answer": 2163,
+          "unit": "km",
+          "alt": "1,344 mi",
+          "scale": "log",
+          "fact": "Uluru stands 348 m high, but most of the giant sandstone rock lies hidden underground.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Sydney Opera House and Uluru",
+            "url": "https://www.wikidata.org/wiki/Q45178",
+            "url2": "https://www.wikidata.org/wiki/Q33910"
+          },
+          "evidence": "Sydney Opera House (Q45178): Point(151.214897 -33.857058); Uluru (Q33910): Point(131.036111 -25.345). Great-circle (haversine, R = 6371.0088 km) = 2163 km"
+        },
+        {
+          "id": "d05-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many Concorde aircraft were built in total?",
+          "answer": 20,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Eighteen of the twenty are preserved and on display in Europe and North America.",
+          "source": {
+            "name": "Wikipedia: Concorde",
+            "url": "https://en.wikipedia.org/wiki/Concorde"
+          },
+          "evidence": "Air France and British Airways remained the sole customers with seven airframes each, for a total production of twenty."
+        },
+        {
+          "id": "d13-wild",
+          "cat": "wild",
+          "kind": "old",
+          "q": "How old was Edmund Hillary when he and Tenzing Norgay reached the summit of Mount Everest?",
+          "answer": 33,
+          "unit": "years",
+          "alt": null,
+          "scale": "log",
+          "fact": "He and Tenzing Norgay were the first climbers confirmed to have reached the top, on 29 May 1953.",
+          "source": {
+            "name": "Wikipedia: Edmund Hillary",
+            "url": "https://en.wikipedia.org/wiki/Edmund_Hillary"
+          },
+          "evidence": "Sir Edmund Percival Hillary (20 July 1919 – 11 January 2008) … On 29 May 1953, he and Tenzing Norgay became the first climbers confirmed to have reached the summit of Mount Everest."
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "questions": [
+        {
+          "id": "d05-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did Tokyo Disneyland open?",
+          "answer": 1983,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It was the first Disney park built outside the United States. It is run by the Oriental Land Company rather than by Disney itself.",
+          "source": {
+            "name": "Wikipedia: Tokyo Disneyland",
+            "url": "https://en.wikipedia.org/wiki/Tokyo_Disneyland"
+          },
+          "evidence": "It was the first Disney park to be built outside the United States and it opened on April 15, 1983."
+        },
+        {
+          "id": "d10-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is Leonardo da Vinci's Mona Lisa painting?",
+          "answer": 77,
+          "unit": "cm",
+          "alt": "30 in",
+          "scale": "log",
+          "fact": "Part of its fame comes from its theft in 1911 by Vincenzo Peruggia, who believed it belonged in Italy.",
+          "source": {
+            "name": "Wikipedia: Mona Lisa",
+            "url": "https://en.wikipedia.org/wiki/Mona_Lisa"
+          },
+          "evidence": "Dimensions | 77 cm × 53 cm (30 in × 21 in)"
+        },
+        {
+          "id": "d01-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Abbey Road Studios in London to Graceland, Elvis Presley's home in Memphis, as the crow flies?",
+          "answer": 7027,
+          "unit": "km",
+          "alt": "4,366 mi",
+          "scale": "log",
+          "fact": "Elvis Presley lived at Graceland from 1957 until 1977. He is buried there too.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Abbey Road Studios and Graceland",
+            "url": "https://www.wikidata.org/wiki/Q209651",
+            "url2": "https://www.wikidata.org/wiki/Q545360"
+          },
+          "evidence": "Abbey Road Studios (Q209651): Point(-0.178333 51.531945); Graceland (Q545360): Point(-90.025833 35.046111). Great-circle (haversine, R = 6371.0088 km) = 7027 km"
+        },
+        {
+          "id": "d19-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many letters are in the modern official Hawaiian alphabet?",
+          "answer": 13,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "One letter is the ʻokina, which marks a glottal stop. It became an official letter in 1864.",
+          "source": {
+            "name": "Wikipedia: Hawaiian alphabet",
+            "url": "https://en.wikipedia.org/wiki/Hawaiian_alphabet"
+          },
+          "evidence": "The current official Hawaiian alphabet consists of 13 letters"
+        },
+        {
+          "id": "d11-wild",
+          "cat": "wild",
+          "kind": "time",
+          "q": "How long is Queen's \"Bohemian Rhapsody\", as released on the original 1975 single?",
+          "answer": 355,
+          "unit": "s",
+          "alt": null,
+          "scale": "log",
+          "fact": "It was the UK's Christmas number one in 1975 and stayed at the top for nine weeks.",
+          "source": {
+            "name": "Wikipedia: Bohemian Rhapsody",
+            "url": "https://en.wikipedia.org/wiki/Bohemian_Rhapsody"
+          },
+          "evidence": "Length | 5:55"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "questions": [
+        {
+          "id": "d17-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did Howard Carter's team discover Tutankhamun's tomb?",
+          "answer": 1922,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Unlike other tombs in the Valley of the Kings, it had not been stripped of its treasures in ancient times.",
+          "source": {
+            "name": "Wikipedia: Tomb of Tutankhamun",
+            "url": "https://en.wikipedia.org/wiki/Tomb_of_Tutankhamun"
+          },
+          "evidence": "Tutankhamun's tomb was discovered in 1922 by excavators led by Howard Carter and his patron, George Herbert, 5th Earl of Carnarvon."
+        },
+        {
+          "id": "d12-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is the Burj Khalifa in Dubai, to the top of its spire?",
+          "answer": 828,
+          "unit": "m",
+          "alt": "2,717 ft",
+          "scale": "log",
+          "fact": "The building has 57 elevators and 8 escalators.",
+          "source": {
+            "name": "Wikipedia: Burj Khalifa",
+            "url": "https://en.wikipedia.org/wiki/Burj_Khalifa"
+          },
+          "evidence": "Tallest skyscraper (to top of spire): 828 m (2,717 ft)"
+        },
+        {
+          "id": "d11-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Victoria Falls to Table Mountain in Cape Town, as the crow flies?",
+          "answer": 1931,
+          "unit": "km",
+          "alt": "1,200 mi",
+          "scale": "log",
+          "fact": "Table Mountain is famous for its flat top. Its Khoekhoe name means sea-emerging.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Victoria Falls and Table Mountain",
+            "url": "https://www.wikidata.org/wiki/Q43278",
+            "url2": "https://www.wikidata.org/wiki/Q213360"
+          },
+          "evidence": "Victoria Falls (Q43278): Point(25.858055 -17.924778); Table Mountain (Q213360): Point(18.41352 -33.96216). Great-circle (haversine, R = 6371.0088 km) = 1931 km"
+        },
+        {
+          "id": "d13-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many coloured stickers are on a classic Rubik's Cube?",
+          "answer": 54,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "A Rubik's Cube can be scrambled into about 43 quintillion different arrangements.",
+          "source": {
+            "name": "Wikipedia: Rubik's Cube",
+            "url": "https://en.wikipedia.org/wiki/Rubik's_Cube"
+          },
+          "evidence": "On the original, classic Rubik's Cube, each of the six faces was covered by nine stickers"
+        },
+        {
+          "id": "d03-wild",
+          "cat": "wild",
+          "kind": "old",
+          "q": "How old was Pelé when Brazil won the 1958 World Cup final?",
+          "answer": 17,
+          "unit": "years",
+          "alt": null,
+          "scale": "log",
+          "fact": "He scored twice in the final against Sweden. He remains the youngest player to win a World Cup.",
+          "source": {
+            "name": "Wikipedia: Pelé",
+            "url": "https://en.wikipedia.org/wiki/Pelé"
+          },
+          "evidence": "Edson Arantes do Nascimento (23 October 1940 – 29 December 2022) … On 29 June 1958, Pelé scored two goals as Brazil defeated Sweden 5–2 in the final."
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "questions": [
+        {
+          "id": "d11-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the first FIFA World Cup played?",
+          "answer": 1930,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Only 13 teams took part, all playing in Montevideo, Uruguay. Few European teams made the long trip during the Great Depression.",
+          "source": {
+            "name": "Wikipedia: 1930 FIFA World Cup",
+            "url": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"
+          },
+          "evidence": "The 1930 FIFA World Cup was the first FIFA World Cup"
+        },
+        {
+          "id": "d03-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "How long was the Titanic, from bow to stern?",
+          "answer": 269.1,
+          "unit": "m",
+          "alt": "883 ft",
+          "scale": "log",
+          "fact": "When she entered service she was the largest ship afloat.",
+          "source": {
+            "name": "Wikipedia: Titanic",
+            "url": "https://en.wikipedia.org/wiki/Titanic"
+          },
+          "evidence": "Length | 882 ft 9 in (269.1 m) overall … Titanic was 882 feet 9 inches (269.06 m) long"
+        },
+        {
+          "id": "d21-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the original Disneyland in California to the Magic Kingdom at Walt Disney World in Florida, as the crow flies?",
+          "answer": 3493,
+          "unit": "km",
+          "alt": "2,170 mi",
+          "scale": "log",
+          "fact": "Disneyland opened on 17 July 1955. It is the only Disney park built under Walt Disney's direct supervision.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Disneyland and Magic Kingdom",
+            "url": "https://www.wikidata.org/wiki/Q181185",
+            "url2": "https://www.wikidata.org/wiki/Q1324340"
+          },
+          "evidence": "Disneyland (Q181185): Point(-117.919 33.809); Magic Kingdom (Q1324340): Point(-81.581111 28.418611). Great-circle (haversine, R = 6371.0088 km) = 3493 km"
+        },
+        {
+          "id": "d17-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many original Volkswagen Beetles (Type 1) were made between 1938 and 2003?",
+          "answer": 21529464,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Its production run of 65 years is the longest of any single generation of car.",
+          "source": {
+            "name": "Wikipedia: Volkswagen Beetle",
+            "url": "https://en.wikipedia.org/wiki/Volkswagen_Beetle"
+          },
+          "evidence": "Production | 1938–2003 21,529,464 produced"
+        },
+        {
+          "id": "d16-wild",
+          "cat": "wild",
+          "kind": "time",
+          "q": "What is the theatrical running time of The Lord of the Rings: The Return of the King (2003)?",
+          "answer": 201,
+          "unit": "min",
+          "alt": null,
+          "scale": "log",
+          "fact": "It won all 11 Academy Awards it was nominated for, including Best Picture. That ties the record held by Ben-Hur and Titanic.",
+          "source": {
+            "name": "Wikipedia: The Lord of the Rings: The Return of the King",
+            "url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King"
+          },
+          "evidence": "Running time | 201 minutes"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "questions": [
+        {
+          "id": "d10-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the Hagia Sophia in Istanbul completed?",
+          "answer": 537,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It was the largest church in the world for more than 500 years.",
+          "source": {
+            "name": "Wikipedia: Hagia Sophia",
+            "url": "https://en.wikipedia.org/wiki/Hagia_Sophia"
+          },
+          "evidence": "it was completed in AD 537, becoming the world's largest interior space"
+        },
+        {
+          "id": "d09-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "How long is a basketball court under international (FIBA) rules?",
+          "answer": 28,
+          "unit": "m",
+          "alt": "91.9 ft",
+          "scale": "log",
+          "fact": "NBA courts are a little bigger, at 94 by 50 feet (28.7 by 15.2 m).",
+          "source": {
+            "name": "Wikipedia: Basketball court",
+            "url": "https://en.wikipedia.org/wiki/Basketball_court"
+          },
+          "evidence": "Under International Basketball Federation (FIBA) rules, the court is slightly smaller, measuring 28 by 15 meters (91.9 by 49.2 ft)."
+        },
+        {
+          "id": "d16-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Barcelona's Camp Nou to Real Madrid's Santiago Bernabéu Stadium, as the crow flies?",
+          "answer": 499,
+          "unit": "km",
+          "alt": "310 mi",
+          "scale": "log",
+          "fact": "After its renovation, Camp Nou is planned to hold 105,000 fans, the biggest stadium in Europe by seating.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Camp Nou and Bernabéu",
+            "url": "https://www.wikidata.org/wiki/Q159848",
+            "url2": "https://www.wikidata.org/wiki/Q164027"
+          },
+          "evidence": "Camp Nou (Q159848): Point(2.122778 41.380833); Bernabéu (Q164027): Point(-3.68835 40.45306). Great-circle (haversine, R = 6371.0088 km) = 499 km"
+        },
+        {
+          "id": "d10-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many episodes of The Muppet Show were made?",
+          "answer": 120,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The show ran from 1976 to 1981 and was made at ATV's studios in Elstree, England.",
+          "source": {
+            "name": "Wikipedia: The Muppet Show",
+            "url": "https://en.wikipedia.org/wiki/The_Muppet_Show"
+          },
+          "evidence": "Five seasons, totalling 120 episodes, were broadcast on ATV"
+        },
+        {
+          "id": "d07-wild",
+          "cat": "wild",
+          "kind": "hot",
+          "q": "What is the lowest natural temperature ever directly recorded on the ground on Earth?",
+          "answer": -89.2,
+          "unit": "°C",
+          "alt": "-128.6 °F",
+          "scale": "lin",
+          "min": -140,
+          "max": 20,
+          "fact": "It was measured at Vostok Station in Antarctica in 1983. The same station had already set the record in 1968.",
+          "source": {
+            "name": "Wikipedia: Lowest temperature recorded on Earth",
+            "url": "https://en.wikipedia.org/wiki/Lowest_temperature_recorded_on_Earth"
+          },
+          "evidence": "The lowest natural temperature ever directly recorded at ground level on Earth is −89.2 °C (−128.6 °F; 184.0 K) at the then-Soviet Vostok Station in Antarctica on 21 July 1983"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "questions": [
+        {
+          "id": "d21-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the word game Wordle first released to the public?",
+          "answer": 2021,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Josh Wardle built it as a game for himself and his partner. The New York Times bought it just a few months later, in January 2022.",
+          "source": {
+            "name": "Wikipedia: Wordle",
+            "url": "https://en.wikipedia.org/wiki/Wordle"
+          },
+          "evidence": "Originally developed as a personal project for Wardle and his partner, Wordle was publicly released in October 2021."
+        },
+        {
+          "id": "d14-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "In ten-pin bowling, how far is it from the foul line to the head pin?",
+          "answer": 18.29,
+          "unit": "m",
+          "alt": "60 ft",
+          "scale": "log",
+          "fact": "A lane is only 41.5 inches (1.05 m) wide and is made of 39 boards.",
+          "source": {
+            "name": "Wikipedia: Tenpin bowling",
+            "url": "https://en.wikipedia.org/wiki/Tenpin_bowling"
+          },
+          "evidence": "Tenpin bowling lanes are 60 feet (18.29 m) from the foul line to the center of the head pin (1-pin)"
+        },
+        {
+          "id": "d10-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Augusta National Golf Club, home of the Masters to the Old Course at St Andrews, as the crow flies?",
+          "answer": 6327,
+          "unit": "km",
+          "alt": "3,932 mi",
+          "scale": "log",
+          "fact": "The Old Course was established in 1552. Augusta National only opened in 1933.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Augusta National Golf Club and Old Course at St Andrews",
+            "url": "https://www.wikidata.org/wiki/Q765780",
+            "url2": "https://www.wikidata.org/wiki/Q167245"
+          },
+          "evidence": "Augusta National Golf Club (Q765780): Point(-82.02 33.5025); Old Course at St Andrews (Q167245): Point(-2.816147 56.351484). Great-circle (haversine, R = 6371.0088 km) = 6327 km"
+        },
+        {
+          "id": "d16-many",
+          "cat": "many",
+          "kind": null,
+          "q": "During NASA's Apollo program, how many astronauts walked on the Moon?",
+          "answer": 12,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The last Apollo Moon landing was Apollo 17, in December 1972.",
+          "source": {
+            "name": "Wikipedia: Apollo program",
+            "url": "https://en.wikipedia.org/wiki/Apollo_program"
+          },
+          "evidence": "In these six spaceflights, twelve people walked on the Moon."
+        },
+        {
+          "id": "d12-wild",
+          "cat": "wild",
+          "kind": "hot",
+          "q": "At what temperature does liquid nitrogen boil?",
+          "answer": -196,
+          "unit": "°C",
+          "alt": "-321 °F",
+          "scale": "lin",
+          "min": -260,
+          "max": 40,
+          "fact": "Put it in a vacuum chamber and it can be cooled further until it freezes solid at −210 °C.",
+          "source": {
+            "name": "Wikipedia: Liquid nitrogen",
+            "url": "https://en.wikipedia.org/wiki/Liquid_nitrogen"
+          },
+          "evidence": "It has a boiling point of about −196 °C (−321 °F; 77 K)."
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "questions": [
+        {
+          "id": "d04-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was Rome's Colosseum completed?",
+          "answer": 80,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It could hold an estimated 50,000 to 80,000 spectators. For a short time it even staged mock sea battles.",
+          "source": {
+            "name": "Wikipedia: Colosseum",
+            "url": "https://en.wikipedia.org/wiki/Colosseum"
+          },
+          "evidence": "Construction began under Emperor Vespasian (r. 69–79 AD) in 72 and was completed in AD 80 under his successor and heir, Titus"
+        },
+        {
+          "id": "d18-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "What was the wingspan of Howard Hughes's giant \"Spruce Goose\" flying boat?",
+          "answer": 97.51,
+          "unit": "m",
+          "alt": "320 ft",
+          "scale": "log",
+          "fact": "It flew only once, on 2 November 1947. Despite the nickname, it is made almost entirely of birch.",
+          "source": {
+            "name": "Wikipedia: Hughes H-4 Hercules",
+            "url": "https://en.wikipedia.org/wiki/Hughes_H-4_Hercules"
+          },
+          "evidence": "Wingspan: 319 ft 11 in (97.51 m)"
+        },
+        {
+          "id": "d04-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Times Square in New York to Shibuya Crossing in Tokyo, as the crow flies?",
+          "answer": 10848,
+          "unit": "km",
+          "alt": "6,741 mi",
+          "scale": "log",
+          "fact": "Times Square has hosted the New Year's Eve ball drop since 31 December 1907.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Times Square and Shibuya scramble crossing",
+            "url": "https://www.wikidata.org/wiki/Q11259",
+            "url2": "https://www.wikidata.org/wiki/Q21083961"
+          },
+          "evidence": "Times Square (Q11259): Point(-73.985833 40.7575); Shibuya scramble crossing (Q21083961): Point(139.700544 35.659503). Great-circle (haversine, R = 6371.0088 km) = 10848 km"
+        },
+        {
+          "id": "d18-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many episodes of Breaking Bad were made?",
+          "answer": 62,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Over its run the show won 110 industry awards.",
+          "source": {
+            "name": "Wikipedia: Breaking Bad",
+            "url": "https://en.wikipedia.org/wiki/Breaking_Bad"
+          },
+          "evidence": "concluded on September 29, 2013, after five seasons and 62 episodes"
+        },
+        {
+          "id": "d09-wild",
+          "cat": "wild",
+          "kind": "fast",
+          "q": "How fast did a French TGV train go when it set the world speed record for a train on steel wheels in 2007?",
+          "answer": 574.8,
+          "unit": "km/h",
+          "alt": "357.2 mph",
+          "scale": "log",
+          "fact": "The record run took place on 3 April 2007 on the brand new LGV Est line in eastern France.",
+          "source": {
+            "name": "Wikipedia: TGV world speed record",
+            "url": "https://en.wikipedia.org/wiki/TGV_world_speed_record"
+          },
+          "evidence": "The top speed of 574.8 km/h (159.7 m/s, 357.2 mph) was reached"
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "questions": [
+        {
+          "id": "d06-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the Beatles' debut single, \"Love Me Do\", first released?",
+          "answer": 1962,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Three versions of the song have been released, each with a different drummer: Pete Best, Ringo Starr and session player Andy White.",
+          "source": {
+            "name": "Wikipedia: Love Me Do",
+            "url": "https://en.wikipedia.org/wiki/Love_Me_Do"
+          },
+          "evidence": "When the single was originally released in the United Kingdom on 5 October 1962, it peaked at number 17."
+        },
+        {
+          "id": "d19-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "What is the wingspan of an Airbus A380?",
+          "answer": 79.75,
+          "unit": "m",
+          "alt": "261.8 ft",
+          "scale": "log",
+          "fact": "Airports agreed on an \"80-metre box\" for big jets, so the A380's wings had to stay just under 80 m.",
+          "source": {
+            "name": "Wikipedia: Airbus A380",
+            "url": "https://en.wikipedia.org/wiki/Airbus_A380"
+          },
+          "evidence": "79.75 m (261.8 ft) span, 33.5° sweep"
+        },
+        {
+          "id": "d08-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Wimbledon's Centre Court to Court Philippe-Chatrier at Roland Garros in Paris, as the crow flies?",
+          "answer": 337,
+          "unit": "km",
+          "alt": "209 mi",
+          "scale": "log",
+          "fact": "Centre Court seats 14,979 people and has a retractable roof over its grass.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Centre Court and Court Philippe-Chatrier",
+            "url": "https://www.wikidata.org/wiki/Q2603183",
+            "url2": "https://www.wikidata.org/wiki/Q3026397"
+          },
+          "evidence": "Centre Court (Q2603183): Point(-0.214056 51.433722); Court Philippe-Chatrier (Q3026397): Point(2.2492 48.84713). Great-circle (haversine, R = 6371.0088 km) = 337 km"
+        },
+        {
+          "id": "d03-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many Pokémon could you collect in the original Pokémon Red and Blue games?",
+          "answer": 151,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "You could not catch them all in one game. Players had to trade between Red and Blue using a Game Link Cable.",
+          "source": {
+            "name": "Wikipedia: Pokémon Red, Blue, and Yellow",
+            "url": "https://en.wikipedia.org/wiki/Pokémon_Red,_Blue,_and_Yellow"
+          },
+          "evidence": "players must trade between both games to obtain all of the original 151 Pokémon"
+        },
+        {
+          "id": "d08-wild",
+          "cat": "wild",
+          "kind": "old",
+          "q": "How old was Mary Shelley when her novel Frankenstein was first published?",
+          "answer": 20,
+          "unit": "years",
+          "alt": null,
+          "scale": "log",
+          "fact": "It was published anonymously, so many readers assumed her husband, the poet Percy Shelley, had written it.",
+          "source": {
+            "name": "Wikipedia: Mary Shelley",
+            "url": "https://en.wikipedia.org/wiki/Mary_Shelley"
+          },
+          "evidence": "Mary Wollstonecraft Shelley (née Godwin; 30 August 1797 – 1 February 1851) … Frankenstein; or, The Modern Prometheus, published on 1 January 1818"
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "questions": [
+        {
+          "id": "d07-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did the Panama Canal open?",
+          "answer": 1914,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "The shortcut lets ships skip the long and dangerous trip around the southern tip of South America.",
+          "source": {
+            "name": "Wikipedia: Panama Canal",
+            "url": "https://en.wikipedia.org/wiki/Panama_Canal"
+          },
+          "evidence": "The US took over the project in 1904 and opened the canal in 1914."
+        },
+        {
+          "id": "d05-big",
+          "cat": "big",
+          "kind": "weight",
+          "q": "How much does Big Ben, the Great Bell in London's Elizabeth Tower, weigh?",
+          "answer": 13.7,
+          "unit": "t",
+          "alt": "15.1 short tons",
+          "scale": "log",
+          "fact": "Its nickname is said to come from Sir Benjamin Hall, a tall man who oversaw its installation.",
+          "source": {
+            "name": "Wikipedia: Big Ben",
+            "url": "https://en.wikipedia.org/wiki/Big_Ben"
+          },
+          "evidence": "The Great Bell was cast by the Whitechapel Bell Foundry and weighs 13.5 long tons (13.7 tonnes; 15.1 short tons)."
+        },
+        {
+          "id": "d19-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Acropolis of Athens to the Hagia Sophia in Istanbul, as the crow flies?",
+          "answer": 563,
+          "unit": "km",
+          "alt": "350 mi",
+          "scale": "log",
+          "fact": "The word acropolis comes from the Greek for highest point. Its most famous building is the Parthenon.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Acropolis of Athens and Hagia Sophia",
+            "url": "https://www.wikidata.org/wiki/Q131013",
+            "url2": "https://www.wikidata.org/wiki/Q12506"
+          },
+          "evidence": "Acropolis of Athens (Q131013): Point(23.726111 37.971667); Hagia Sophia (Q12506): Point(28.98 41.008333). Great-circle (haversine, R = 6371.0088 km) = 563 km"
+        },
+        {
+          "id": "d01-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many bones are in the adult human body?",
+          "answer": 206,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Babies are born with around 270 bones. Some of them fuse together as we grow up.",
+          "source": {
+            "name": "Wikipedia: Human skeleton",
+            "url": "https://en.wikipedia.org/wiki/Human_skeleton"
+          },
+          "evidence": "It is composed of around 270 bones at birth – this total decreases to around 206 bones by adulthood after some bones fuse together"
+        },
+        {
+          "id": "d20-wild",
+          "cat": "wild",
+          "kind": "other",
+          "q": "How long is an official marathon race?",
+          "answer": 42.195,
+          "unit": "km",
+          "alt": "26.2 mi",
+          "scale": "log",
+          "fact": "The name comes from the legend of Pheidippides, a Greek messenger. The distance was only standardised in 1921.",
+          "source": {
+            "name": "Wikipedia: Marathon",
+            "url": "https://en.wikipedia.org/wiki/Marathon"
+          },
+          "evidence": "The marathon is a long-distance foot race with a distance of 42.195 kilometres (c. 26.22 mi)"
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "questions": [
+        {
+          "id": "d03-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did Alexander Fleming discover penicillin?",
+          "answer": 1928,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Fleming shared the 1945 Nobel Prize in Physiology or Medicine with Howard Florey and Ernst Chain, who purified the drug.",
+          "source": {
+            "name": "Wikipedia: Penicillin",
+            "url": "https://en.wikipedia.org/wiki/Penicillin"
+          },
+          "evidence": "Penicillin was discovered in 1928 by the Scottish physician Alexander Fleming"
+        },
+        {
+          "id": "d21-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is the Statue of Liberty, from the ground to the tip of her torch?",
+          "answer": 93,
+          "unit": "m",
+          "alt": "305 ft",
+          "scale": "log",
+          "fact": "Its metal framework was built by Gustave Eiffel, the man behind the Eiffel Tower.",
+          "source": {
+            "name": "Wikipedia: Statue of Liberty",
+            "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+          },
+          "evidence": "From ground level to torch: 305 feet 1 inch (93 meters)"
+        },
+        {
+          "id": "d09-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Leaning Tower of Pisa to the Sagrada Família in Barcelona, as the crow flies?",
+          "answer": 721,
+          "unit": "km",
+          "alt": "448 mi",
+          "scale": "log",
+          "fact": "The Sagrada Família has been under construction since 1882. Antoni Gaudí was one of its architects.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Leaning Tower of Pisa and Sagrada Família",
+            "url": "https://www.wikidata.org/wiki/Q39054",
+            "url2": "https://www.wikidata.org/wiki/Q2548808"
+          },
+          "evidence": "Leaning Tower of Pisa (Q39054): Point(10.396624 43.72301); Sagrada Família (Q2548808): Point(2.174492 41.404528). Great-circle (haversine, R = 6371.0088 km) = 721 km"
+        },
+        {
+          "id": "d15-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many cards are in a standard tarot deck?",
+          "answer": 78,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The deck has two parts: 22 trump cards called the Major Arcana, and the suit cards called the Minor Arcana.",
+          "source": {
+            "name": "Wikipedia: Tarot",
+            "url": "https://en.wikipedia.org/wiki/Tarot"
+          },
+          "evidence": "The 78-card tarot deck used by esotericists has two distinct parts"
+        },
+        {
+          "id": "d21-wild",
+          "cat": "wild",
+          "kind": "time",
+          "q": "What is Usain Bolt's 100 metres world record time, set in 2009?",
+          "answer": 9.58,
+          "unit": "s",
+          "alt": null,
+          "scale": "log",
+          "fact": "It was the biggest improvement in the record since electronic timing began.",
+          "source": {
+            "name": "Wikipedia: Usain Bolt",
+            "url": "https://en.wikipedia.org/wiki/Usain_Bolt"
+          },
+          "evidence": "Bolt improved upon his second 100 m world record of 9.69 with 9.58 seconds in 2009"
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "questions": [
+        {
+          "id": "d15-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year were the first modern Olympic Games held, in Athens?",
+          "answer": 1896,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "The big moment for the home crowd was Greek runner Spyridon Louis winning the marathon.",
+          "source": {
+            "name": "Wikipedia: 1896 Summer Olympics",
+            "url": "https://en.wikipedia.org/wiki/1896_Summer_Olympics"
+          },
+          "evidence": "were the first international Olympic Games held in modern history … Opening | Gregorian Calendar: 6 April 1896"
+        },
+        {
+          "id": "d07-big",
+          "cat": "big",
+          "kind": "weight",
+          "q": "Roughly how much does the Leaning Tower of Pisa weigh?",
+          "answer": 14500,
+          "unit": "t",
+          "alt": "16,000 short tons",
+          "scale": "log",
+          "fact": "It started to lean while it was still being built in the 12th century, because the soft ground could not support its weight.",
+          "source": {
+            "name": "Wikipedia: Leaning Tower of Pisa",
+            "url": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa"
+          },
+          "evidence": "Its weight is estimated at 14,500 tonnes (16,000 short tons)."
+        },
+        {
+          "id": "d07-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Machu Picchu in Peru to Chichen Itza in Mexico, as the crow flies?",
+          "answer": 4151,
+          "unit": "km",
+          "alt": "2,579 mi",
+          "scale": "log",
+          "fact": "Machu Picchu sits 2,430 m (7,970 ft) above sea level, high in the Andes.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Machu Picchu and Chichen Itza",
+            "url": "https://www.wikidata.org/wiki/Q676203",
+            "url2": "https://www.wikidata.org/wiki/Q5859"
+          },
+          "evidence": "Machu Picchu (Q676203): Point(-72.545556 -13.163333); Chichen Itza (Q5859): Point(-88.568611 20.683056). Great-circle (haversine, R = 6371.0088 km) = 4151 km"
+        },
+        {
+          "id": "d20-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many episodes of Friends were made, not counting the 2021 reunion special?",
+          "answer": 236,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The finale in 2004 was watched by around 52.5 million American viewers.",
+          "source": {
+            "name": "Wikipedia: Friends",
+            "url": "https://en.wikipedia.org/wiki/Friends"
+          },
+          "evidence": "No. of episodes | 236 (+ 1 special) … high-definition versions of all 236 Friends episodes were made available"
+        },
+        {
+          "id": "d18-wild",
+          "cat": "wild",
+          "kind": "old",
+          "q": "How old was Steve Jobs when he co-founded Apple?",
+          "answer": 21,
+          "unit": "years",
+          "alt": null,
+          "scale": "log",
+          "fact": "Apple started out in Jobs's bedroom at his parents' house before moving into the garage.",
+          "source": {
+            "name": "Wikipedia: Steve Jobs",
+            "url": "https://en.wikipedia.org/wiki/Steve_Jobs"
+          },
+          "evidence": "Steven Paul Jobs (February 24, 1955 – October 5, 2011) … as a business partnership in Jobs's parents' Crist Drive home on April 1, 1976."
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "questions": [
+        {
+          "id": "d14-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the original Star Wars film first released?",
+          "answer": 1977,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Few people expected it to do well, and it went $3 million over budget. It opened in only a small number of cinemas before becoming a smash hit.",
+          "source": {
+            "name": "Wikipedia: Star Wars (film)",
+            "url": "https://en.wikipedia.org/wiki/Star_Wars_(film)"
+          },
+          "evidence": "It was released in a small number of theaters in the United States on May 25, 1977, and quickly became a surprise blockbuster"
+        },
+        {
+          "id": "d01-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "How long is a tennis court, from baseline to baseline?",
+          "answer": 23.77,
+          "unit": "m",
+          "alt": "78 ft",
+          "scale": "log",
+          "fact": "Courts come in four main surfaces: clay, hard, grass and carpet. The size is fixed by the ITF's annual Rules of Tennis.",
+          "source": {
+            "name": "Wikipedia: Tennis court",
+            "url": "https://en.wikipedia.org/wiki/Tennis_court"
+          },
+          "evidence": "The court is 78 ft (23.77 m) long."
+        },
+        {
+          "id": "d14-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Neuschwanstein Castle in Bavaria to Disneyland Park near Paris, as the crow flies?",
+          "answer": 608,
+          "unit": "km",
+          "alt": "378 mi",
+          "scale": "log",
+          "fact": "Neuschwanstein was built for King Ludwig II of Bavaria. It is now a UNESCO World Heritage Site.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Neuschwanstein Castle and Disneyland Park",
+            "url": "https://www.wikidata.org/wiki/Q4152",
+            "url2": "https://www.wikidata.org/wiki/Q2313567"
+          },
+          "evidence": "Neuschwanstein Castle (Q4152): Point(10.749442 47.557489); Disneyland Park (Q2313567): Point(2.776747 48.872608). Great-circle (haversine, R = 6371.0088 km) = 608 km"
+        },
+        {
+          "id": "d02-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many keys does a standard modern piano have?",
+          "answer": 88,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The piano was invented by Bartolomeo Cristofori in Italy in the early 18th century.",
+          "source": {
+            "name": "Wikipedia: Piano",
+            "url": "https://en.wikipedia.org/wiki/Piano"
+          },
+          "evidence": "Modern pianos have a row of 88 black and white keys"
+        },
+        {
+          "id": "d04-wild",
+          "cat": "wild",
+          "kind": "fast",
+          "q": "What speed did the car ThrustSSC reach when it set the world land speed record in 1997?",
+          "answer": 1228,
+          "unit": "km/h",
+          "alt": "763 mph",
+          "scale": "log",
+          "fact": "It is the only land vehicle ever to officially break the sound barrier. It was driven by Andy Green.",
+          "source": {
+            "name": "Wikipedia: ThrustSSC",
+            "url": "https://en.wikipedia.org/wiki/ThrustSSC"
+          },
+          "evidence": "when it achieved a speed of 1,228 km/h (763 mph) and it became the first and only land vehicle to officially break the sound barrier"
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "questions": [
+        {
+          "id": "d18-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was Rio de Janeiro's Christ the Redeemer statue completed?",
+          "answer": 1931,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Its outer layer is soapstone, chosen because it lasts well and is easy to work with.",
+          "source": {
+            "name": "Wikipedia: Christ the Redeemer (statue)",
+            "url": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)"
+          },
+          "evidence": "Construction took nine years, from 1922 to 1931"
+        },
+        {
+          "id": "d06-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall was NASA's Saturn V Moon rocket?",
+          "answer": 111,
+          "unit": "m",
+          "alt": "363 ft",
+          "scale": "log",
+          "fact": "It was the first launch vehicle to carry humans beyond low Earth orbit.",
+          "source": {
+            "name": "Wikipedia: Saturn V",
+            "url": "https://en.wikipedia.org/wiki/Saturn_V"
+          },
+          "evidence": "Height | 111 m (363 ft)"
+        },
+        {
+          "id": "d06-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Taj Mahal to the summit of Mount Everest, as the crow flies?",
+          "answer": 880,
+          "unit": "km",
+          "alt": "547 mi",
+          "scale": "log",
+          "fact": "The Taj Mahal was built between 1631 and 1653 in Agra, for Mumtaz Mahal.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Taj Mahal and Mount Everest",
+            "url": "https://www.wikidata.org/wiki/Q9141",
+            "url2": "https://www.wikidata.org/wiki/Q513"
+          },
+          "evidence": "Taj Mahal (Q9141): Point(78.041944 27.175); Mount Everest (Q513): Point(86.925 27.988056). Great-circle (haversine, R = 6371.0088 km) = 880 km"
+        },
+        {
+          "id": "d04-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many matches were played at the 2022 FIFA World Cup in Qatar?",
+          "answer": 64,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "It ran from 20 November to 18 December, outside the usual World Cup months of May, June and July.",
+          "source": {
+            "name": "Wikipedia: 2022 FIFA World Cup",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup"
+          },
+          "evidence": "It was held over a reduced time frame of 29 days with 64 matches played in eight venues across five cities."
+        },
+        {
+          "id": "d10-wild",
+          "cat": "wild",
+          "kind": "other",
+          "q": "How much does an Oscar statuette weigh?",
+          "answer": 3.9,
+          "unit": "kg",
+          "alt": "8.5 lb",
+          "scale": "log",
+          "fact": "It is made of gold-plated bronze and shows a knight holding a sword, standing on a reel of film.",
+          "source": {
+            "name": "Wikipedia: Academy Awards",
+            "url": "https://en.wikipedia.org/wiki/Academy_Awards"
+          },
+          "evidence": "it is 13.5 in (34.3 cm) tall, weighs 8.5 lb (3.9 kg)"
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "questions": [
+        {
+          "id": "d12-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the first iPhone released?",
+          "answer": 2007,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "The original iPhone weighed 135 g and came with 4, 8 or 16 GB of storage.",
+          "source": {
+            "name": "Wikipedia: IPhone (1st generation)",
+            "url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+          },
+          "evidence": "it was officially announced on January 9, 2007, and was released in the United States on June 29, 2007."
+        },
+        {
+          "id": "d02-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall was the Great Pyramid of Giza when it was first built?",
+          "answer": 146.6,
+          "unit": "m",
+          "alt": "481 ft",
+          "scale": "log",
+          "fact": "It was the world's tallest human-made structure for more than 3,700 years. Builders used an estimated 2.3 million large blocks.",
+          "source": {
+            "name": "Wikipedia: Great Pyramid of Giza",
+            "url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
+          },
+          "evidence": "Initially standing at 146.6 metres (481 feet), the Great Pyramid was the world's tallest human-made structure for more than 3,700 years."
+        },
+        {
+          "id": "d20-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Golden Gate Bridge to Old Faithful geyser in Yellowstone, as the crow flies?",
+          "answer": 1222,
+          "unit": "km",
+          "alt": "759 mi",
+          "scale": "log",
+          "fact": "Old Faithful erupts every 44 to 120 minutes, shooting water 32 to 56 m into the air.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Golden Gate Bridge and Old Faithful",
+            "url": "https://www.wikidata.org/wiki/Q44440",
+            "url2": "https://www.wikidata.org/wiki/Q858794"
+          },
+          "evidence": "Golden Gate Bridge (Q44440): Point(-122.478611 37.819722); Old Faithful (Q858794): Point(-110.828139 44.460472). Great-circle (haversine, R = 6371.0088 km) = 1222 km"
+        },
+        {
+          "id": "d07-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many African countries are members of the United Nations?",
+          "answer": 54,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "All 54 are also members of the African Union.",
+          "source": {
+            "name": "Wikipedia: List of sovereign states and dependent territories in Africa",
+            "url": "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+          },
+          "evidence": "It lists 56 sovereign states (54 of which are member states of the United Nations)"
+        },
+        {
+          "id": "d14-wild",
+          "cat": "wild",
+          "kind": "fast",
+          "q": "What is the top speed of Formula Rossa, the record-breaking roller coaster at Ferrari World in Abu Dhabi?",
+          "answer": 240,
+          "unit": "km/h",
+          "alt": "149 mph",
+          "scale": "log",
+          "fact": "Riders reach top speed just 4.9 seconds after launch.",
+          "source": {
+            "name": "Wikipedia: Formula Rossa",
+            "url": "https://en.wikipedia.org/wiki/Formula_Rossa"
+          },
+          "evidence": "became the fastest roller coaster in the world upon opening with a maximum speed of 240 km/h (149.1 mph)"
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "questions": [
+        {
+          "id": "d19-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was China's Terracotta Army discovered?",
+          "answer": 1974,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It was found by farmers digging a well. The three pits are thought to hold more than 8,000 soldiers, plus chariots and horses.",
+          "source": {
+            "name": "Wikipedia: Terracotta Army",
+            "url": "https://en.wikipedia.org/wiki/Terracotta_Army"
+          },
+          "evidence": "The Terracotta Army was discovered on 29 March 1974 by a group of farmers"
+        },
+        {
+          "id": "d11-big",
+          "cat": "big",
+          "kind": "weight",
+          "q": "How much does the Tsar Cannon in Moscow's Kremlin weigh?",
+          "answer": 39.3,
+          "unit": "t",
+          "alt": "86,668 lb",
+          "scale": "log",
+          "fact": "The giant cannonballs in front of it were made in 1834 as decoration. They are too large to have been fired from it.",
+          "source": {
+            "name": "Wikipedia: Tsar Cannon",
+            "url": "https://en.wikipedia.org/wiki/Tsar_Cannon"
+          },
+          "evidence": "It is made of bronze, weighs 39,312 kilograms (86,668 lb) and has a length of 5.34 m (17.5 ft)."
+        },
+        {
+          "id": "d17-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Statue of Liberty to the Hollywood Sign, as the crow flies?",
+          "answer": 3936,
+          "unit": "km",
+          "alt": "2,445 mi",
+          "scale": "log",
+          "fact": "From 1923 to 1949 the sign read HOLLYWOODLAND.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Statue of Liberty and Hollywood Sign",
+            "url": "https://www.wikidata.org/wiki/Q9202",
+            "url2": "https://www.wikidata.org/wiki/Q180376"
+          },
+          "evidence": "Statue of Liberty (Q9202): Point(-74.044425 40.689209); Hollywood Sign (Q180376): Point(-118.321694 34.134103). Great-circle (haversine, R = 6371.0088 km) = 3936 km"
+        },
+        {
+          "id": "d12-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many spaces are there around a classic Monopoly board?",
+          "answer": 40,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "Twenty-eight of the spaces are properties: 22 streets, four railroads and two utilities.",
+          "source": {
+            "name": "Wikipedia: Monopoly (game)",
+            "url": "https://en.wikipedia.org/wiki/Monopoly_(game)"
+          },
+          "evidence": "The Monopoly game board consists of forty spaces containing twenty-eight properties"
+        },
+        {
+          "id": "d02-wild",
+          "cat": "wild",
+          "kind": "hot",
+          "q": "At what temperature does pure gold melt?",
+          "answer": 1064,
+          "unit": "°C",
+          "alt": "1,948 °F",
+          "scale": "lin",
+          "min": 0,
+          "max": 3000,
+          "fact": "Gold is the most malleable metal. It can be drawn into a wire just one atom wide.",
+          "source": {
+            "name": "Wikipedia: Gold",
+            "url": "https://en.wikipedia.org/wiki/Gold"
+          },
+          "evidence": "Melting point | 1337.33 K (1064.18 °C, 1947.52 °F)"
+        }
+      ]
+    },
+    {
+      "day": 17,
+      "questions": [
+        {
+          "id": "d13-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was Psy's \"Gangnam Style\" released?",
+          "answer": 2012,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "On 21 December 2012 it became the first YouTube video to reach a billion views.",
+          "source": {
+            "name": "Wikipedia: Gangnam Style",
+            "url": "https://en.wikipedia.org/wiki/Gangnam_Style"
+          },
+          "evidence": "is a K-pop song by South Korean singer Psy, released on July 15, 2012"
+        },
+        {
+          "id": "d15-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is each president's head carved into Mount Rushmore?",
+          "answer": 18,
+          "unit": "m",
+          "alt": "60 ft",
+          "scale": "log",
+          "fact": "About 410,000 tonnes of rock were blasted off the mountain to carve it.",
+          "source": {
+            "name": "Wikipedia: Mount Rushmore",
+            "url": "https://en.wikipedia.org/wiki/Mount_Rushmore"
+          },
+          "evidence": "The sculpture features 60-foot-tall (18 m) depictions of the heads of four United States presidents"
+        },
+        {
+          "id": "d13-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Stonehenge to the Great Pyramid of Giza, as the crow flies?",
+          "answer": 3596,
+          "unit": "km",
+          "alt": "2,234 mi",
+          "scale": "log",
+          "fact": "Each of Stonehenge's big outer standing stones is around 4 m high and weighs around 25 tons.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Stonehenge and Great Pyramid of Giza",
+            "url": "https://www.wikidata.org/wiki/Q39671",
+            "url2": "https://www.wikidata.org/wiki/Q37200"
+          },
+          "evidence": "Stonehenge (Q39671): Point(-1.826111 51.178889); Great Pyramid of Giza (Q37200): Point(31.13422 29.97915). Great-circle (haversine, R = 6371.0088 km) = 3596 km"
+        },
+        {
+          "id": "d09-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many squares are on a standard Scrabble board?",
+          "answer": 225,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "American architect Alfred Mosher Butts invented the game in 1931.",
+          "source": {
+            "name": "Wikipedia: Scrabble",
+            "url": "https://en.wikipedia.org/wiki/Scrabble"
+          },
+          "evidence": "Scrabble is played on a 15x15 board, containing 225 squares."
+        },
+        {
+          "id": "d16-big",
+          "cat": "wild",
+          "kind": "weight",
+          "q": "How much does the Tsar Bell in Moscow's Kremlin weigh?",
+          "answer": 202,
+          "unit": "t",
+          "alt": "445,166 lb",
+          "scale": "log",
+          "fact": "It is the largest bell in the world. It cracked in a fire soon after it was made and has never been rung.",
+          "source": {
+            "name": "Wikipedia: Tsar Bell",
+            "url": "https://en.wikipedia.org/wiki/Tsar_Bell"
+          },
+          "evidence": "The bell is the largest bell in the world, weighing 201,924 kilograms (445,166 lb)"
+        }
+      ]
+    },
+    {
+      "day": 18,
+      "questions": [
+        {
+          "id": "d02-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was Pixar's Toy Story first released?",
+          "answer": 1995,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It was the first feature film made entirely with computer animation. It was also Pixar's very first feature film.",
+          "source": {
+            "name": "Wikipedia: Toy Story",
+            "url": "https://en.wikipedia.org/wiki/Toy_Story"
+          },
+          "evidence": "Toy Story premiered at the El Capitan Theatre in Los Angeles on November 19, 1995"
+        },
+        {
+          "id": "d04-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is Angel Falls in Venezuela, the world's tallest uninterrupted waterfall?",
+          "answer": 979,
+          "unit": "m",
+          "alt": "3,212 ft",
+          "scale": "log",
+          "fact": "It is named after Jimmie Angel, an American pilot who was the first person to fly over the falls, in 1933.",
+          "source": {
+            "name": "Wikipedia: Angel Falls",
+            "url": "https://en.wikipedia.org/wiki/Angel_Falls"
+          },
+          "evidence": "It is the world's tallest uninterrupted waterfall, with a height of 979 metres (3,212 ft), and a plunge of 807 m (2,648 ft)."
+        },
+        {
+          "id": "d15-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from the Eiffel Tower to the Colosseum in Rome, as the crow flies?",
+          "answer": 1109,
+          "unit": "km",
+          "alt": "689 mi",
+          "scale": "log",
+          "fact": "More than 300 million people have visited the Eiffel Tower since it was completed in 1889.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Eiffel Tower and Colosseum",
+            "url": "https://www.wikidata.org/wiki/Q243",
+            "url2": "https://www.wikidata.org/wiki/Q10285"
+          },
+          "evidence": "Eiffel Tower (Q243): Point(2.294479 48.858296); Colosseum (Q10285): Point(12.492222 41.890278). Great-circle (haversine, R = 6371.0088 km) = 1109 km"
+        },
+        {
+          "id": "d21-many",
+          "cat": "many",
+          "kind": null,
+          "q": "As of 2026, how many chemical elements are on the periodic table?",
+          "answer": 118,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "In nature, only elements up to number 94 exist. All the heavier ones have to be made artificially.",
+          "source": {
+            "name": "Wikipedia: Periodic table",
+            "url": "https://en.wikipedia.org/wiki/Periodic_table"
+          },
+          "evidence": "By 2010, the first 118 elements were known, thereby completing the first seven rows of the table"
+        },
+        {
+          "id": "d17-wild",
+          "cat": "wild",
+          "kind": "hot",
+          "q": "What is the average surface temperature on Venus?",
+          "answer": 464,
+          "unit": "°C",
+          "alt": "867 °F",
+          "scale": "lin",
+          "min": 0,
+          "max": 600,
+          "fact": "Venus is the hottest planet in the Solar System. The air pressure at its surface is 92 times Earth's.",
+          "source": {
+            "name": "Wikipedia: Venus",
+            "url": "https://en.wikipedia.org/wiki/Venus"
+          },
+          "evidence": "the average surface temperature is 737 K (464 °C; 867 °F)"
+        }
+      ]
+    },
+    {
+      "day": 19,
+      "questions": [
+        {
+          "id": "d01-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the Eiffel Tower completed?",
+          "answer": 1889,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "It was the tallest human-made structure in the world for 41 years. The Chrysler Building in New York finally beat it in 1930.",
+          "source": {
+            "name": "Wikipedia: Eiffel Tower",
+            "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+          },
+          "evidence": "The Eiffel Tower was the world's tallest structure when completed in 1889"
+        },
+        {
+          "id": "d17-big",
+          "cat": "big",
+          "kind": "weight",
+          "q": "How much does the steelwork of the Sydney Harbour Bridge weigh, arch and approach spans included?",
+          "answer": 52800,
+          "unit": "t",
+          "alt": "58,200 short tons",
+          "scale": "log",
+          "fact": "Locals call it \"the Coathanger\" because of its arch.",
+          "source": {
+            "name": "Wikipedia: Sydney Harbour Bridge",
+            "url": "https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge"
+          },
+          "evidence": "The total weight of the steelwork of the bridge, including the arch and approach spans, is 52,800 tonnes (52,000 long tons; 58,200 short tons)"
+        },
+        {
+          "id": "d12-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from NASA's Kennedy Space Center in Florida to the Baikonur Cosmodrome in Kazakhstan, as the crow flies?",
+          "answer": 10970,
+          "unit": "km",
+          "alt": "6,816 mi",
+          "scale": "log",
+          "fact": "Baikonur's launchpad sent both Sputnik 1 and Yuri Gagarin's Vostok 1 into space. It is now called Gagarin's Start.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Kennedy Space Center and Baikonur Cosmodrome",
+            "url": "https://www.wikidata.org/wiki/Q48821",
+            "url2": "https://www.wikidata.org/wiki/Q177477"
+          },
+          "evidence": "Kennedy Space Center (Q48821): Point(-80.648611 28.524722); Baikonur Cosmodrome (Q177477): Point(63.3051 45.9648). Great-circle (haversine, R = 6371.0088 km) = 10970 km"
+        },
+        {
+          "id": "d14-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many lines does a traditional sonnet have?",
+          "answer": 14,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The word comes from the Italian sonetto, meaning \"little song\".",
+          "source": {
+            "name": "Wikipedia: Sonnet",
+            "url": "https://en.wikipedia.org/wiki/Sonnet"
+          },
+          "evidence": "A sonnet is a fixed poetic form with a structure traditionally consisting of fourteen lines adhering to a set rhyming scheme."
+        },
+        {
+          "id": "d19-wild",
+          "cat": "wild",
+          "kind": "fast",
+          "q": "What is the fastest recorded delivery in international cricket, bowled by Pakistan's Shoaib Akhtar?",
+          "answer": 161.3,
+          "unit": "km/h",
+          "alt": "100.2 mph",
+          "scale": "log",
+          "fact": "His nickname was the \"Rawalpindi Express\".",
+          "source": {
+            "name": "Wikipedia: Shoaib Akhtar",
+            "url": "https://en.wikipedia.org/wiki/Shoaib_Akhtar"
+          },
+          "evidence": "He achieved the record of the fastest recorded bowl to date at 161.3 km/h"
+        }
+      ]
+    },
+    {
+      "day": 20,
+      "questions": [
+        {
+          "id": "d08-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year was the arcade game Pac-Man first released?",
+          "answer": 1980,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "In Japan it was first called Puck Man. Its designer, Toru Iwatani, led a team of just nine people.",
+          "source": {
+            "name": "Wikipedia: Pac-Man",
+            "url": "https://en.wikipedia.org/wiki/Pac-Man"
+          },
+          "evidence": "Pac-Man, originally titled Puck Man in Japan, is a 1980 maze"
+        },
+        {
+          "id": "d08-big",
+          "cat": "big",
+          "kind": "length",
+          "q": "How long is a cricket pitch, from wicket to wicket?",
+          "answer": 20.12,
+          "unit": "m",
+          "alt": "22 yd",
+          "scale": "log",
+          "fact": "The length is exactly one chain, an old surveyor's measure introduced in 1620. It was already the rule in the first known Laws of Cricket in 1744.",
+          "source": {
+            "name": "Wikipedia: Cricket pitch",
+            "url": "https://en.wikipedia.org/wiki/Cricket_pitch"
+          },
+          "evidence": "It is 22 yd (20.12 m) long (1 chain) and 10 ft (3.05 m) wide"
+        },
+        {
+          "id": "d18-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Petra in Jordan to the Burj Khalifa in Dubai, as the crow flies?",
+          "answer": 2030,
+          "unit": "km",
+          "alt": "1,261 mi",
+          "scale": "log",
+          "fact": "Petra is nicknamed the Rose City because of the colour of the sandstone it is carved from.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Petra and Burj Khalifa",
+            "url": "https://www.wikidata.org/wiki/Q5788",
+            "url2": "https://www.wikidata.org/wiki/Q12495"
+          },
+          "evidence": "Petra (Q5788): Point(35.441944 30.328611); Burj Khalifa (Q12495): Point(55.274167 25.197222). Great-circle (haversine, R = 6371.0088 km) = 2030 km"
+        },
+        {
+          "id": "d06-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many Peanuts comic strips did Charles Schulz publish in total?",
+          "answer": 17897,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "It ran from 1950 to 2000 and has been called \"arguably the longest story ever told by one human being\".",
+          "source": {
+            "name": "Wikipedia: Peanuts",
+            "url": "https://en.wikipedia.org/wiki/Peanuts"
+          },
+          "evidence": "with 17,897 strips published in all"
+        },
+        {
+          "id": "d05-wild",
+          "cat": "wild",
+          "kind": "other",
+          "q": "How wide is the hole (the cup) on a golf green?",
+          "answer": 10.8,
+          "unit": "cm",
+          "alt": "4.25 in",
+          "scale": "log",
+          "fact": "The hole must also be at least 10 cm deep. Its position on the green is not fixed and is usually moved every day.",
+          "source": {
+            "name": "Wikipedia: Golf course",
+            "url": "https://en.wikipedia.org/wiki/Golf_course"
+          },
+          "evidence": "The hole, or cup, is always found within the green and must have a diameter of 108 millimeters (4.25 in) and a depth of at least 10 centimeters (3.94 in)."
+        }
+      ]
+    },
+    {
+      "day": 21,
+      "questions": [
+        {
+          "id": "d09-when",
+          "cat": "when",
+          "kind": null,
+          "q": "In what year did William Herschel discover the planet Uranus?",
+          "answer": 1781,
+          "unit": "",
+          "alt": null,
+          "scale": "year",
+          "fact": "Uranus can be seen with the naked eye. Ancient stargazers never spotted it as a planet because it is so dim and moves so slowly.",
+          "source": {
+            "name": "Wikipedia: Uranus",
+            "url": "https://en.wikipedia.org/wiki/Uranus"
+          },
+          "evidence": "Discovery date | 13 March 1781"
+        },
+        {
+          "id": "d20-big",
+          "cat": "big",
+          "kind": "height",
+          "q": "How tall is Toronto's CN Tower?",
+          "answer": 553.3,
+          "unit": "m",
+          "alt": "1,815 ft",
+          "scale": "log",
+          "fact": "A glass floor was added 342 m up in 1994.",
+          "source": {
+            "name": "Wikipedia: CN Tower",
+            "url": "https://en.wikipedia.org/wiki/CN_Tower"
+          },
+          "evidence": "The CN Tower (French: Tour CN) is a 553.3-metre-high (1,815.3 ft) communications and observation tower in Toronto, Ontario, Canada."
+        },
+        {
+          "id": "d03-far",
+          "cat": "far",
+          "kind": null,
+          "q": "How far is it from Angkor Wat in Cambodia to the Forbidden City in Beijing, as the crow flies?",
+          "answer": 3191,
+          "unit": "km",
+          "alt": "1,983 mi",
+          "scale": "log",
+          "fact": "Angkor Wat is the largest religious complex in the world. It was first built as a Hindu temple to Vishnu.",
+          "source": {
+            "name": "Wikidata coordinates (P625): Angkor Wat and Forbidden City",
+            "url": "https://www.wikidata.org/wiki/Q43473",
+            "url2": "https://www.wikidata.org/wiki/Q80290"
+          },
+          "evidence": "Angkor Wat (Q43473): Point(103.866667 13.4125); Forbidden City (Q80290): Point(116.390833 39.915833). Great-circle (haversine, R = 6371.0088 km) = 3191 km"
+        },
+        {
+          "id": "d08-many",
+          "cat": "many",
+          "kind": null,
+          "q": "How many Boeing 747 jumbo jets were built before production ended?",
+          "answer": 1574,
+          "unit": "",
+          "alt": null,
+          "scale": "log",
+          "fact": "The last one was delivered in January 2023, after a production run of 54 years.",
+          "source": {
+            "name": "Wikipedia: Boeing 747",
+            "url": "https://en.wikipedia.org/wiki/Boeing_747"
+          },
+          "evidence": "The final 747 was delivered to Atlas Air in January 2023 after a 54-year production run, with 1,574 aircraft built."
+        },
+        {
+          "id": "d01-wild",
+          "cat": "wild",
+          "kind": "time",
+          "q": "How long did the Wright brothers' first successful powered flight last, on 17 December 1903?",
+          "answer": 12,
+          "unit": "s",
+          "alt": null,
+          "scale": "log",
+          "fact": "Orville covered just 120 feet (37 m), less than the wingspan of a Boeing 747.",
+          "source": {
+            "name": "Wikipedia: Wright Flyer",
+            "url": "https://en.wikipedia.org/wiki/Wright_Flyer"
+          },
+          "evidence": "His flight, captured in a famous photograph, lasted 12 seconds for a total distance of 120 feet (37 m)"
+        }
+      ]
+    }
+  ]
+}
