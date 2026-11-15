@@ -419,3 +419,9 @@ svg.ox, svg.fairgoer { border-radius: 50%; background: radial-gradient(circle at
 .home-score .big-num { font-size: 72px; }
 .home-score .score-line small { font-size: 22px; }
 .next-round { margin-top: -4px; font-size: 14px; color: var(--muted); }
+
+/* Week tickets: day letter printed at the top, stamp below it, so they never overlap. */
+.ticket { place-items: start center; padding-top: 5px; }
+.ticket b { font-size: 12px; line-height: 1; }
+.ticket.played b { opacity: .8; }
+.ticket .stamp { inset: auto 0 6px 0; margin: 0 auto; width: 62%; }
