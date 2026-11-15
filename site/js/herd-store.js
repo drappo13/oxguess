@@ -69,3 +69,12 @@ export function recordPlay(day, round, pts) {
   setDoc(doc(db, "plays", `${day}_${player}`), { day, round, player, pts, total: pts.reduce((a, b) => a + b, 0), at: serverTimestamp() })
     .catch((e) => console.warn("Play write failed", e.code ?? e));
 }
+
+/** One record per player, rebuilt from the device's own history after each finished round.
+ *  Values are absolute (not increments), so replaying or retrying a write can never double-count. */
+export function recordPlayer(summary) {
+  if (!db || testing) return;
+  const player = playerId();
+  setDoc(doc(db, "players", player), { player, ...summary, updated: serverTimestamp() })
+    .catch((e) => console.warn("Player write failed", e.code ?? e));
+}

@@ -48,6 +48,24 @@ service cloud.firestore {
         && request.resource.data.at == request.time;
     }
 
+    // players/{id}: one summary per player, rebuilt by their device after each round. Write-only for now.
+    match /players/{id} {
+      allow read: if false;
+      allow create, update: if id == request.resource.data.player
+        && isPlayer(request.resource.data.player)
+        && request.resource.data.keys().hasOnly(['player', 'first', 'last', 'rounds', 'points', 'best', 'streak', 'bestStreak', 'updated'])
+        && isDay(request.resource.data.first) && isDay(request.resource.data.last)
+        && request.resource.data.rounds is int && request.resource.data.rounds >= 1 && request.resource.data.rounds <= 100000
+        && request.resource.data.points is int && request.resource.data.points >= 0 && request.resource.data.points <= request.resource.data.rounds * 100
+        && request.resource.data.best is int && request.resource.data.best >= 0 && request.resource.data.best <= 100
+        && request.resource.data.streak is int && request.resource.data.streak >= 0 && request.resource.data.streak <= request.resource.data.rounds
+        && request.resource.data.bestStreak is int && request.resource.data.bestStreak >= request.resource.data.streak && request.resource.data.bestStreak <= request.resource.data.rounds
+        && request.resource.data.updated == request.time;
+    }
+
+    function isDay(d) {
+      return d is string && d.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$');
+    }
     function isBin(k) {
       return k is string && k.matches('^[0-9]{1,2}$');
     }

@@ -26,6 +26,14 @@ check("cheat: add 5 at once", guess(n=5, b=42, by=5), False)
 check("cheat: count 1, stuff a bin with 3", guess(b=42, by=3), False)
 check("cheat: bin 150", guess(b=150), False)
 check("cheat: claim bin 10, add to bin 42", guess(b=42, k=10), False)
+def player(pid, rounds=3, points=180, best=72, streak=2, best_streak=3):
+    f = {"player": {"stringValue": pid}, "first": {"stringValue": "2099-01-01"}, "last": {"stringValue": "2099-01-03"},
+         "rounds": {"integerValue": str(rounds)}, "points": {"integerValue": str(points)}, "best": {"integerValue": str(best)},
+         "streak": {"integerValue": str(streak)}, "bestStreak": {"integerValue": str(best_streak)}}
+    return {"writes": [{"update": {"name": f"{P}/players/p-test", "fields": f}, "updateTransforms": [{"fieldPath": "updated", "setToServerValue": "REQUEST_TIME"}]}]}
+check("player record saved", player("p-test"), True)
+check("cheat: player record for someone else's id", player("p-other"), False)
+check("cheat: 3 rounds but 900 points", player("p-test", points=900), False)
 ok, d = call("GET", f"{P}/herd/{HID}")
 f = d["fields"]; print("      herd:", "n =", f["n"]["integerValue"], "bins =", {k: v["integerValue"] for k, v in f["b"]["mapValue"]["fields"].items()})
 print("ALL PASS" if all(res) else "SOME FAILED")

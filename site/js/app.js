@@ -4,7 +4,7 @@ import {
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp, otherUnits,
 } from "./game.js";
-import { loadHerds, recordGuess, recordPlay } from "./herd-store.js";
+import { loadHerds, recordGuess, recordPlay, recordPlayer } from "./herd-store.js";
 import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
 const EPOCH = "2026-11-15"; // day 1
@@ -46,6 +46,30 @@ function bestStreak() {
   for (const d of days) { run = prev && shift(prev, 1) === d ? run + 1 : 1; best = Math.max(best, run); prev = d; }
   return best;
 }
+/** Every finished day on this device, with its total, for the player record. */
+function history() {
+  const days = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const m = localStorage.key(i).match(/^ox-day-(\d{4}-\d{2}-\d{2})$/);
+      const st = m && store.get(localStorage.key(i));
+      if (!st?.done) continue;
+      const qs = roundFor(m[1]).questions;
+      const total = st.total ?? st.answers.reduce((a, ans, j) => a + (qs[j] ? points(qs[j], ans.g) : 0), 0);
+      days.push({ day: m[1], total });
+    }
+  } catch { /* fine */ }
+  return days.sort((a, b) => a.day.localeCompare(b.day));
+}
+function playerSummary() {
+  const h = history();
+  return {
+    first: h[0]?.day ?? today.key, last: h.at(-1)?.day ?? today.key,
+    rounds: h.length, points: h.reduce((a, d) => a + d.total, 0), best: Math.max(0, ...h.map((d) => d.total)),
+    streak: streak(), bestStreak: bestStreak(),
+  };
+}
+
 /** Monday to Sunday around a date. */
 const weekOf = (k) => { const dow = (parseKey(k).getDay() + 6) % 7; return Array.from({ length: 7 }, (_, i) => shift(k, i - dow)); };
 
@@ -421,8 +445,9 @@ function reveal(i, { animate = false } = {}) {
   document.getElementById("next").onclick = () => {
     state.revealing = false;
     if (last) {
-      state.done = true; save();
+      state.done = true; state.total = total(); save();
       recordPlay(today.key, today.number, today.questions.map((_, j) => ptsAt(j)));
+      recordPlayer(playerSummary());
       results({ celebrate: true });
     } else { save(); ask(); }
   };
