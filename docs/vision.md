@@ -1,47 +1,68 @@
-# OxGuess: vision and running notes
+# OxGuess: the game, the feel, and what's next
 
-Domain: **oxguess.com** (available as of 15 Nov 2026).
+Live at **https://oxguess.com** since 15 Nov 2026. Why particular choices were made is in `decisions.md`.
 
 ## The game
 
-A daily numbers game. Five questions, each answered with a guess on a slider (or typed). You score up to
-100 per question by how close you are, so nobody bombs out. Everyone gets the same five questions each day.
+A daily numbers game for everyone. Five questions, each answered with a guess on a slider (or typed). Everyone
+gets the same five each day. You win **up to 20 whole points per question, 100 per round**, by how close you are,
+so nobody bombs out.
 
-Each day has one question from each category:
-
-| Slot | Category | Notes |
+| Slot | Category | What goes in it |
 |---|---|---|
-| 1 | **When**: a year | Plenty of data. |
-| 2 | **How big**: height, weight, or the length of an *object* | Not geographic lengths like rivers (too close to How far). Weight is in: "weigh the ox", the Moon, the Eiffel Tower. Short objects in feet are good (tennis court, baseball bat). |
-| 3 | **How far**: point to point | Fun landmark pairs beat city pairs (Wimbledon Centre Court → Court Philippe-Chatrier, not London → Paris). News-relevant pairs later, not MVP. |
-| 4 | **How many**: a count | Good category, but the data could be anything. Idea: work backwards from a number ("what is 2049?"). |
-| 5 | **Wildcard** | Rotates: speed, temperature, age, duration, money, %. Possibly double points. |
+| 1 | **When**: a year | Crisp events: first released, opened, discovered. |
+| 2 | **How big**: height, weight, length or depth of a thing | Not geographic lengths like rivers (that's How far). Labels: How tall, How heavy, How long, or plain How big. |
+| 3 | **How far**: point to point, as the crow flies | Fun landmark pairs (Wimbledon Centre Court → Court Philippe-Chatrier), at least ~100 km apart. |
+| 4 | **How many**: a count | Finished or fixed things (an ended TV series, aircraft built). No death tolls. |
+| 5 | **Wildcard** | How hot, how fast, how old, how long (time), or a weight. Same 20 points as the rest. |
 
-Every answer must be **exact and indisputable**. No "how long is a blue whale" (varies by animal). The
-prototype's "interesting fact" under each answer comes from an LLM, grounded in a source and checked.
-Volume is small: 5 a day is about 1,825 a year, so every question can be reviewed.
+Scoring: years and temperatures by distance across the slider; everything else on a log scale (2x off is about
+half marks). Prize tiers: 20 Best in show, 17+ First, 13+ Second, 8+ Third, 3+ Highly commended, else Thanks for
+entering. Slider ends are tidy figures (1/2/5 × 10ⁿ); the answer always sits 15–80% along. Metric and imperial
+toggle on measured questions (remembered; US visitors default to imperial).
 
-## Theme: the ox and the crowd
+Accuracy bar: not clearly wrong under any reasonable reading, and every answer cites a real source (Wikipedia or
+Wikidata so far, quoted as evidence in `content/`). Pin ambiguous measures in the wording ("to the tip of her torch").
 
-Named after the 1906 Plymouth fair, where about 800 people guessed the weight of an ox and the middle
-guess of the crowd landed within 1% of the true weight. (Write the story about the ox and the fair, not about
-Francis Galton, who later became known for eugenics.)
+## The feel
 
-- The whole thing is ox-themed, with a cool, friendly ox logo. Fun, warm, a bit playful.
-- Intro tells the ox story, with some graphics.
-- **The crowd ("the herd") is a sub-theme of the whole game**: how good is everyone together?
-  - Daily crowd metrics: did the herd beat the average player today? Herd guess vs answer per question.
-  - "You helped the herd today": your guess pulled the crowd average towards the answer (the herd average
-    was above the answer and you guessed below it, or the other way round).
-  - Players like playing together: the crowd histogram on each reveal is the key shared moment.
+A country fair, not a tech startup: meadow greens and barn red, the Fredoka rounded font, a cartoon ox and a 1906
+fairgoer (flat cap, moustache) as "the herd" and "you", prize rosettes, ink stamps, bunting, beige fair tickets. Dark
+mode is the fair at dusk. Category colours do the theming; no emoji in the UI chrome.
 
-## Later (from drapk.in)
+The satisfying moments, borrowed in spirit from drapk.in:
+- **Each guess:** the guess becomes a numbered fair ticket and drops into the judges' box; the timeline flag ticks
+  from your guess to the answer; "x years too early" lands; a fairground strength tester fills to your points and
+  rings the bell at 20 (bunting confetti, flash, haptics); the rosette pins on.
+- **End of round:** your score and the herd's count up, a ribbon unfurls ("You beat the herd!"), your five rosettes
+  drop in, "Round complete" is stamped and today's ticket on the week strip gets its green tick.
+- **Streaks:** a week of beige tickets: green tick for played, greyed with a dash for missed, a play button on today.
+- Sounds are synthesised (no files) with a mute toggle; everything respects reduced-motion.
 
-Streaks, friends boards, "tick off today", guest play then pick a name, log in, share grids, Add to Home
-Screen, reminders. Reuse the patterns and code from drapk.in (`Player-Chain-Blitz`): `lib/daily.ts`
-streaks, guest players stored as ordinary docs, Friends, `/stats`, end-screen flow.
+## The herd
 
-## Prototype
+The crowd is the heart of it: "Together, the crowd knew."
+- The reveal shows how the herd guessed (histogram), the herd's middle guess and its points, and "You beat X% of
+  the herd" / "Your guess pulled the herd's middle closer to the answer."
+- Results put **You vs The herd** side by side, question by question.
+- The middle guess is the median, as in 1906 (robust to silly guesses).
+- Every question starts with 15 seeded starter guesses (a crowd "hunch" near the answer, then scattered guesses
+  and the odd wild one), kept forever so the herd never jumps when real players arrive. The starter herd averages
+  about 75/100.
 
-`prototype/ballpark-v0.html` is the first playable mock (published as a private artifact,
-https://claude.ai/artifact/G7NNqaBECoMipWta7tU16c). Its crowd is simulated.
+## The story (first visit, and "The story" in the header)
+
+Five tap-through pages: the 1906 illustration (Plymouth, England); 787 tickets on a teetering balance; the guesses
+spread on a dot chart; the crowd's middle guess (1,207 lb) landing next to the ox's weight (1,198 lb); "OxGuess is
+that fair, every day" under swaying bunting. Facts from Galton's "Vox Populi", *Nature* 75 (1907). Frame it around
+the ox and the fair, not Galton.
+
+## Ideas for later
+
+- **Question factory as a skill:** one agent drafts questions from sources, a second independently re-checks every
+  answer, wording and fact; failures are dropped, not queued for a person (see `data-feasibility.md`).
+- **From drapk.in, when wanted:** names and log-in, cross-device streaks, friends boards, share cards, Add to Home
+  Screen, streak reminders by web push. Keep OxGuess simpler than drapk.in.
+- **Early-days herd:** "you're one of the first N", next-morning herd summaries, a "Founding herd" badge.
+- **Content:** news-linked distance pairs (this weekend's final venues), themed days (all five about one subject).
+- `www.oxguess.com` over HTTPS should appear once GitHub adds www to the certificate.

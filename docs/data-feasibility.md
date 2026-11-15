@@ -1,5 +1,8 @@
 # Can we get enough good questions? (data feasibility, 15 Nov 2026)
 
+**Status (15 Nov 2026):** launched with 21 days (105 questions) written and source-checked by hand-run agents
+(`content/`). The automated question factory below is the plan for keeping it going; it isn't built yet.
+
 **Short answer: yes, but not just by pulling straight from a database.** Wikidata has thousands of well-known
 numeric facts per category, enough for years of play. Around 10–20% of its values are disputed or plain
 wrong, and the most famous things are the most likely to have several competing figures. So the plan is a

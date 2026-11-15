@@ -1,0 +1,36 @@
+# Decisions log
+
+Newest first. Each entry: what was decided, and why.
+
+## 15 Nov 2026 (launch day)
+
+**Product**
+- **Name and theme: OxGuess**, after the 1906 Plymouth ox-weighing (wisdom of crowds). Chosen over Ballpark,
+  Thereabouts, Give or Take, Nearest the Pin: a real story, memorable, and it makes the crowd reveal the point.
+- **Five fixed categories a day** (When, How big, How far, How many, Wildcard). Content fits a category; the core
+  game doesn't change for one-off questions (Lake Baikal's depth went in How big, not a new "How deep").
+- **20 whole points per question, 100 per round.** The wildcard is no longer double points: simpler to read.
+- **Accuracy:** not clearly wrong under any reasonable reading, plus a real cited source for every answer; never
+  LLM memory alone. No people's heights/weights, animal sizes, death tolls or still-changing counts.
+- **No manual approval of questions.** Future content comes from an automated draft-then-verify skill.
+- **The herd = median**, with 15 seeded starter guesses per question kept forever (two steps: crowd hunch, then
+  scattered guesses plus wild ones), so early players see a lively, realistic herd and it never jumps.
+  No "sample herd" labelling.
+- **Story numbers stay historical:** guesses roughly 1,000–1,500 lb ("around 1,000", "over 1,500"); not invented
+  extremes like 400 or 3,000 lb.
+- **Reveal order:** timeline (guess → flag ticks to answer) and how far off, then the prize (strength tester,
+  points, rosette), then Next question above the fold; the herd panels, chart and fun fact in a second card below.
+- **Category label lives in the progress bar** (solid colour pill, white text); no separate chip, no "2 of 5".
+- **Look:** country fair, Fredoka/Nunito, no emoji in the chrome, green ticks, beige week tickets, the existing
+  cartoon ox as the logo (with a pale badge in dark mode).
+
+**Technical**
+- **Plain HTML/CSS/JS, no build step**, not drapk.in's Vite + React + TypeScript. OxGuess should stay simpler; switch
+  only if it grows accounts, friends and so on.
+- **Hosting:** GitHub Pages from personal `drappo13/oxguess` (public, needed for free Pages), domain at GoDaddy.
+- **Firebase via the gstatic CDN modules**, Firestore (not Realtime Database), no Analytics for now (avoids a cookie
+  banner). Herd stored as small per-question summaries (100 bins) so each player reads 5 tiny docs a day at any
+  scale. Rules allow only shaped writes (exactly +1 guess per herd write), nothing readable except herd summaries.
+- **Player record** (`players/{id}`) added for future features and querying; no log-in or cross-device streaks yet.
+- **Personal accounts only:** personal GitHub account and git identity.
+- **Clean code:** one rule set per component in the stylesheet, no stacked overrides; dead code removed as it appears.

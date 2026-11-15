@@ -34,3 +34,10 @@ when, big, far, many, wild.
 6. Structure checks: the JSON parses, there are 21 days of 5 questions in the right order, ids are unique, every
    How far answer is over 100 km, `lin` questions carry `min` and `max` with the answer between 20% and 80% of the
    range, and no question or fact contains an em-dash.
+
+## v2 (live)
+
+`rounds-v2.json` (also copied to `site/data/rounds.json`) is v1 reshuffled by `scripts/reshuffle.py`: day 1
+(15 Nov 2026) pins Lake Baikal's depth (as How big) and Isner v Mahut (wildcard); everything else is dealt randomly
+with no repeated landmark in a day and at most one space question per day. One How big weight (Tsar Bell) moved to
+the wildcard pool to keep 21 per category. The questions and sources themselves are unchanged from v1.
