@@ -31,6 +31,7 @@ site/                 the whole website (deployed as-is)
   js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries, read activity
   js/stats.js         the /stats page: players, finishes, returning, question by question (never today's answers)
   stats/index.html    oxguess.com/stats, public but unlinked and noindex
+  staging/            oxguess.com/staging: unlinked, noindex prototypes to try on a phone (now: the tape measure)
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)

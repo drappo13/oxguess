@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>OxGuess tape prototype</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/ox.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Prototype only: the tape measure guess control. Unlinked and noindex, at oxguess.com/staging. */
+    .proto-q { display: flex; flex-direction: column; gap: 6px; }
+    .proto-q .cat { font: 700 13px var(--body); color: var(--cat); text-transform: uppercase; letter-spacing: .06em; }
+    .proto-q h1 { font-size: 22px; }
+    .readout { text-align: center; font: 600 34px/1.1 var(--display); font-variant-numeric: tabular-nums; min-height: 40px; margin-top: 4px; }
+    .readout small { display: block; font: 600 13px var(--body); color: var(--muted); margin-top: 2px; }
+    .tape { position: relative; height: 104px; margin: 4px -16px 0; outline: none; }
+    .tape:focus-visible { box-shadow: inset 0 0 0 3px var(--cat); border-radius: 12px; }
+    .tape canvas { position: absolute; inset: 0; width: 100%; height: 100%;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent); }
+    .tape .scroller { position: absolute; inset: 0; overflow-x: scroll; overflow-y: hidden; scrollbar-width: none;
+      overscroll-behavior-x: contain; touch-action: pan-x; cursor: grab; }
+    .tape .scroller::-webkit-scrollbar { display: none; }
+    .tape .scroller:active { cursor: grabbing; }
+    .tape .spacer { height: 1px; }
+    .tape.locked .scroller { overflow-x: hidden; touch-action: none; cursor: default; }
+    .needle { position: absolute; left: 50%; top: 0; height: 48px; width: 3px; margin-left: -1.5px; background: var(--cat); border-radius: 2px; pointer-events: none; }
+    .needle::before { content: ""; position: absolute; top: -2px; left: 50%; margin-left: -8px; border: 8px solid transparent; border-top: 10px solid var(--cat); }
+    .tape.revealed .needle { opacity: 0; }
+    .hint { display: flex; justify-content: space-between; font: 700 12px var(--body); color: var(--muted); padding: 0 4px; }
+    .nudge { display: flex; justify-content: center; gap: 28px; align-items: center; }
+    .result { text-align: center; display: flex; flex-direction: column; gap: 4px; }
+    .result .pts { font: 600 30px var(--display); color: var(--cat); }
+    .proto-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .proto-bar .btn { font-size: 14px; padding: 8px 12px; }
+    .proto-note { font-size: 13px; color: var(--muted); text-align: center; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="screen" id="app">
+      <section class="card proto-q">
+        <span class="cat" id="cat"></span>
+        <h1 id="q"></h1>
+      </section>
+      <section class="card">
+        <div class="readout" id="readout"></div>
+        <div class="tape" id="tape" tabindex="0" role="slider" aria-label="Your guess">
+          <canvas></canvas>
+          <div class="scroller"><div class="spacer"></div></div>
+          <div class="needle"></div>
+        </div>
+        <div class="hint" id="hint"></div>
+        <div class="nudge">
+          <button class="btn round" id="minus" aria-label="A little less">−</button>
+          <button class="btn round" id="plus" aria-label="A little more">+</button>
+        </div>
+      </section>
+      <button class="btn primary big" id="lock">Lock it in</button>
+      <section class="card result" id="result" hidden>
+        <span class="pts" id="pts"></span>
+        <span id="off"></span>
+      </section>
+      <div class="proto-bar">
+        <button class="btn" id="again">Same question, new start</button>
+        <button class="btn" id="next">Next question</button>
+      </div>
+      <p class="proto-note" id="which"></p>
+    </main>
+  </div>
+  <script type="module" src="tape.js"></script>
+</body>
+</html>
