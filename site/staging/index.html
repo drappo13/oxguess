@@ -12,29 +12,36 @@
   <link rel="stylesheet" href="/styles.css">
   <style>
     /* Prototype only: the tape measure guess control. Unlinked and noindex, at oxguess.com/staging. */
+    .intro { display: flex; gap: 12px; align-items: flex-start; }
+    .intro .who { flex: none; --hair: #e6e1d8; }
+    .bubble { flex: 1; background: var(--card-soft); border: 2px solid var(--line); border-radius: 16px; padding: 10px 12px; font-weight: 700; min-height: 64px; }
+    .bubble small { display: block; color: var(--muted); font-weight: 700; font-size: 12px; margin-bottom: 2px; }
+    .intro-actions { display: flex; justify-content: flex-end; margin-top: 10px; }
     .proto-q { display: flex; flex-direction: column; gap: 6px; }
     .proto-q .cat { font: 700 13px var(--body); color: var(--cat); text-transform: uppercase; letter-spacing: .06em; }
     .proto-q h1 { font-size: 22px; }
     .readout { text-align: center; font: 600 34px/1.1 var(--display); font-variant-numeric: tabular-nums; min-height: 40px; margin-top: 4px; }
-    .readout small { display: block; font: 600 13px var(--body); color: var(--muted); margin-top: 2px; }
+    .readout-sub { text-align: center; font: 700 13px var(--body); color: var(--muted); min-height: 18px; }
     .tape { position: relative; height: 104px; margin: 4px -16px 0; outline: none; }
+    .tape.revealed { height: 206px; }
     .tape:focus-visible { box-shadow: inset 0 0 0 3px var(--cat); border-radius: 12px; }
     .tape canvas { position: absolute; inset: 0; width: 100%; height: 100%;
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
-              mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent); }
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
     .tape .scroller { position: absolute; inset: 0; overflow-x: scroll; overflow-y: hidden; scrollbar-width: none;
       overscroll-behavior-x: contain; touch-action: pan-x; cursor: grab; }
     .tape .scroller::-webkit-scrollbar { display: none; }
     .tape .scroller:active { cursor: grabbing; }
     .tape .spacer { height: 1px; }
     .tape.locked .scroller { overflow-x: hidden; touch-action: none; cursor: default; }
-    .needle { position: absolute; left: 50%; top: 0; height: 48px; width: 3px; margin-left: -1.5px; background: var(--cat); border-radius: 2px; pointer-events: none; }
+    .needle { position: absolute; left: 50%; top: 0; height: 50px; width: 3px; margin-left: -1.5px; background: var(--cat); border-radius: 2px; pointer-events: none; }
     .needle::before { content: ""; position: absolute; top: -2px; left: 50%; margin-left: -8px; border: 8px solid transparent; border-top: 10px solid var(--cat); }
     .tape.revealed .needle { opacity: 0; }
     .hint { display: flex; justify-content: space-between; font: 700 12px var(--body); color: var(--muted); padding: 0 4px; }
     .nudge { display: flex; justify-content: center; gap: 28px; align-items: center; }
     .result { text-align: center; display: flex; flex-direction: column; gap: 4px; }
     .result .pts { font: 600 30px var(--display); color: var(--cat); }
+    .result .herd-line { color: var(--muted); font-weight: 700; font-size: 14px; }
     .proto-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
     .proto-bar .btn { font-size: 14px; padding: 8px 12px; }
     .proto-note { font-size: 13px; color: var(--muted); text-align: center; }
@@ -44,31 +51,43 @@
 <body>
   <div class="wrap">
     <main class="screen" id="app">
-      <section class="card proto-q">
+      <section class="card intro-card" id="intro">
+        <div class="intro">
+          <div class="who" id="who"></div>
+          <p class="bubble"><small>Mabel, the fair's measurer</small><span id="say"></span></p>
+        </div>
+        <div class="intro-actions"><button class="btn primary" id="intro-go"></button></div>
+      </section>
+      <section class="card proto-q" id="qcard" hidden>
         <span class="cat" id="cat"></span>
         <h1 id="q"></h1>
       </section>
-      <section class="card">
+      <section class="card" id="tapecard">
         <div class="readout" id="readout"></div>
+        <div class="readout-sub" id="sub"></div>
         <div class="tape" id="tape" tabindex="0" role="slider" aria-label="Your guess">
           <canvas></canvas>
           <div class="scroller"><div class="spacer"></div></div>
           <div class="needle"></div>
         </div>
         <div class="hint" id="hint"></div>
-        <div class="nudge">
+        <div class="nudge" id="nudge">
           <button class="btn round" id="minus" aria-label="A little less">−</button>
           <button class="btn round" id="plus" aria-label="A little more">+</button>
         </div>
       </section>
-      <button class="btn primary big" id="lock">Lock it in</button>
+      <button class="btn primary big" id="lock" hidden>Lock it in</button>
       <section class="card result" id="result" hidden>
         <span class="pts" id="pts"></span>
         <span id="off"></span>
+        <span class="herd-line" id="herd-line"></span>
       </section>
       <div class="proto-bar">
-        <button class="btn" id="again">Same question, new start</button>
+        <button class="btn" id="again">Again</button>
         <button class="btn" id="next">Next question</button>
+        <button class="btn" id="start-mode"></button>
+        <button class="btn" id="units"></button>
+        <button class="btn" id="replay">Replay intro</button>
       </div>
       <p class="proto-note" id="which"></p>
     </main>
