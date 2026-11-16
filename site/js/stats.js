@@ -13,8 +13,8 @@ const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 const avg = (xs) => (xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : "–");
 const ago = (t) => { const m = Math.round((Date.now() - t) / 60000); return m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} days ago`; };
 const today = keyOf(new Date()), me = playerId();
-let hideMe = true;
-try { hideMe = localStorage.getItem("ox-stats-hide-me") !== "0"; } catch { /* fine */ }
+let hideMe = false; // counting everyone by default, you included: you're a player too
+try { hideMe = localStorage.getItem("ox-stats-hide-me") === "1"; } catch { /* fine */ }
 
 const tile = (label, value, sub = "") => `<div class="tile"><span class="label">${label}</span><b>${value}</b>${sub ? `<small>${sub}</small>` : ""}</div>`;
 
@@ -33,8 +33,10 @@ function bars(days) {
 }
 
 function render(data, bank, schedule) {
-  const guesses = data.guesses.filter((g) => !(hideMe && g.player === me));
-  const plays = data.plays.filter((p) => !(hideMe && p.player === me));
+  // Up to today only: the rules test writes to 2099 dates. Optionally without this device.
+  const keep = (r) => r.day <= today && !(hideMe && r.player === me);
+  const guesses = data.guesses.filter(keep), plays = data.plays.filter(keep);
+  const myDays = new Set(data.guesses.filter((g) => g.player === me && g.day <= today).map((g) => g.day)).size;
   const dates = Object.keys(schedule).sort(), epoch = dates[0];
   const roundFor = (k) => {
     const n = Math.round((Date.parse(k) - Date.parse(epoch)) / 86400000);
@@ -113,7 +115,7 @@ function render(data, bank, schedule) {
         <p class="muted fine">Real guesses only. The herd's guess includes the 15 starter guesses, as players see it. Today's answers show tomorrow.</p>
         ${questionDays}
       </section>
-      <label class="fine muted me-toggle"><input type="checkbox" id="hide-me" ${hideMe ? "checked" : ""}> Leave out this device's guesses (${me.slice(0, 10)}…)</label>
+      <label class="fine muted me-toggle"><input type="checkbox" id="hide-me" ${hideMe ? "checked" : ""}> Leave out this device (it played on ${myDays} day${myDays === 1 ? "" : "s"})</label>
     </main>`;
   document.getElementById("hide-me").onchange = (e) => {
     hideMe = e.target.checked;

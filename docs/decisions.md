@@ -6,7 +6,9 @@ Newest first. Each entry: what was decided, and why.
 
 - **A stats page at oxguess.com/stats**, public but unlinked and not indexed (no users to hide it from yet). It reads
   every guess and finished round since launch, so `guesses` and `plays` became readable; they hold an anonymous device
-  id and numbers only. It never shows today's answers or herd. A checkbox leaves out the viewing device's own guesses.
+  id and numbers only. It never shows today's answers or herd. It counts everyone, the owner included (leaving the
+  owner out by default hid the only returning player); a checkbox can leave out the viewing device. Rows dated after
+  today (the rules test writes to 2099) are ignored.
   Add a date window to its reads once there are thousands of guesses.
 - **Content is a bank plus a dated schedule** (`questions.json`, `schedule.json`) instead of a list of days. Moving
   or swapping a question is a one-line edit, spares and retired questions stay in the bank with their sources, and
