@@ -152,4 +152,4 @@ The LLM cost is tiny at this volume (a few thousand short calls a year).
 - Huge numbers (the weight of the Moon): log slider plus a friendlier display, or avoid?
 - Wildcard at double points: yes or no?
 - ~~How much hand-curation?~~ None: fully automatic via a skill (see step 5). Launch content: 3 weeks written
-  and source-checked up front (`content/rounds-v1.json`) to test whether the game gets traction first.
+  and source-checked up front (now in `site/data/questions.json`) to test whether the game gets traction first.

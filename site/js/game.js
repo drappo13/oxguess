@@ -148,11 +148,12 @@ export function fmtDisp(q, v, sys = system) {
   if (!imperial(q, sys)) return fmt(q, v);
   return sig3(toDisp(q, v, sys)).toLocaleString("en-GB", { maximumFractionDigits: 2 });
 }
-const suffix = (u) => (u ? (u.startsWith("°") ? "" : " ") + u : "");
-export const withUnit = (q, v, sys = system) => `${fmtDisp(q, v, sys)}${suffix(dispUnit(q, sys))}`;
+const SINGULAR = { years: "year" };
+const suffix = (u, v) => (u ? (u.startsWith("°") ? "" : " ") + (v === 1 && SINGULAR[u] ? SINGULAR[u] : u) : "");
+export const withUnit = (q, v, sys = system) => `${fmtDisp(q, v, sys)}${suffix(dispUnit(q, sys), v)}`;
 function withUnitDelta(q, d) {
   const u = UNITS[q.unit];
-  if (!imperial(q)) return `${fmt(q, d)}${suffix(q.unit)}`;
+  if (!imperial(q)) return `${fmt(q, d)}${suffix(q.unit, d)}`;
   const v = d * (u.delta ?? u.f);
   return `${sig3(v).toLocaleString("en-GB", { maximumFractionDigits: 2 })}${suffix(u.to)}`;
 }

@@ -16,6 +16,7 @@ guess was out by just 9 lb.
 | `docs/vision.md` | The game as it stands, and ideas for later |
 | `docs/decisions.md` | Dated log of product and technical decisions |
 | `docs/data-feasibility.md` | How questions are sourced and checked, and why it scales |
-| `content/` | Question sets with sources and evidence |
+| `docs/content.md` | How the launch questions were sourced and checked, and changes since |
+| `site/data/` | The question bank (`questions.json`, with sources and evidence) and the schedule (`schedule.json`) |
 | `site/` | The website: plain HTML, CSS and JavaScript, no build step |
 | `firestore.rules` | Security rules for the herd data |

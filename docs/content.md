@@ -1,7 +1,8 @@
-# OxGuess launch content
+# OxGuess content
 
-`rounds-v1.json` holds 21 days of five questions (105 in all), always in the order
-when, big, far, many, wild.
+The questions live in `site/data/questions.json` (the bank) and `site/data/schedule.json` (which five play on
+which date, in the order when, big, far, many, wild). The launch set was 105 questions written and checked as below;
+the ids (`d01-when` and so on) come from that first draft's day numbers and mean nothing now.
 
 ## Sources
 
@@ -35,9 +36,11 @@ when, big, far, many, wild.
    How far answer is over 100 km, `lin` questions carry `min` and `max` with the answer between 20% and 80% of the
    range, and no question or fact contains an em-dash.
 
-## v2 (live)
+## Changes since launch
 
-`rounds-v2.json` (also copied to `site/data/rounds.json`) is v1 reshuffled by `scripts/reshuffle.py`: day 1
-(15 Nov 2026) pins Lake Baikal's depth (as How big) and Isner v Mahut (wildcard); everything else is dealt randomly
-with no repeated landmark in a day and at most one space question per day. One How big weight (Tsar Bell) moved to
-the wildcard pool to keep 21 per category. The questions and sources themselves are unchanged from v1.
+- 15 Nov 2026: reshuffled so day 1 had Lake Baikal's depth (as How big) and Isner v Mahut (wildcard); the rest dealt
+  randomly with no repeated landmark in a day and at most one space question a day. Tsar Bell moved to the wildcards.
+- 16 Nov 2026: split into a bank and a dated schedule. Ages (How old) moved to a plain 0 to 100 years slider. Statue
+  of Unity (too obscure) and the Rubik's Cube stickers (too easy to work out) retired. Today got the Titanic and the
+  lowest recorded temperature; the CN Tower and the 747s filled the gaps, so the schedule now runs to 4 Dec, with
+  Herschel's Uranus, Angkor Wat to the Forbidden City and the Wright brothers' flight left as spares.

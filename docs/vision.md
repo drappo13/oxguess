@@ -22,7 +22,7 @@ entering. Slider ends are tidy figures (1/2/5 × 10ⁿ); the answer always sits 
 toggle on measured questions (remembered; US visitors default to imperial).
 
 Accuracy bar: not clearly wrong under any reasonable reading, and every answer cites a real source (Wikipedia or
-Wikidata so far, quoted as evidence in `content/`). Pin ambiguous measures in the wording ("to the tip of her torch").
+Wikidata so far, quoted as evidence in `site/data/questions.json`). Pin ambiguous measures in the wording ("to the tip of her torch").
 
 ## The feel
 

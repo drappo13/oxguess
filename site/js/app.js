@@ -7,9 +7,9 @@ import {
 import { loadHerds, recordGuess, recordPlay, recordPlayer } from "./herd-store.js";
 import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
-const EPOCH = "2026-11-15"; // day 1
 const app = document.getElementById("app");
-let ROUNDS = null;
+// The question bank (by id) and the schedule (date -> five ids). The first scheduled date is round 1.
+let QUESTIONS = null, SCHEDULE = null, DATES = null, EPOCH = null;
 
 // ---------- dates & storage ----------
 const pad = (n) => String(n).padStart(2, "0");
@@ -74,22 +74,25 @@ function playerSummary() {
 const weekOf = (k) => { const dow = (parseKey(k).getDay() + 6) % 7; return Array.from({ length: 7 }, (_, i) => shift(k, i - dow)); };
 
 // ---------- today's round ----------
+/** A date's five questions. Past the end of the schedule it starts again from the top. */
 function roundFor(k) {
-  const n = daysBetween(EPOCH, k), days = ROUNDS.days;
-  return { number: n + 1, questions: days[((n % days.length) + days.length) % days.length].questions };
+  const n = daysBetween(EPOCH, k);
+  const ids = SCHEDULE[k] ?? SCHEDULE[DATES[((n % DATES.length) + DATES.length) % DATES.length]];
+  return { number: n + 1, questions: ids.map((id) => QUESTIONS[id]) };
 }
 let today, state, herds = {}, herdsReady = Promise.resolve(), herdsAt = 0, sinceRead = [], screen = null;
 function load() {
   const k = todayKey();
   today = { key: k, ...roundFor(k) };
   state = store.get(dayStateKey(k), { answers: [], done: false });
-  // If today's questions changed while this device was part way through (a content update), start today afresh.
-  // A finished day is kept, so a content update never costs anyone their round or their streak.
-  if (state.v !== ROUNDS.version && state.answers.length && !state.done) {
-    state = { answers: [], done: false, v: ROUNDS.version };
+  // If today's questions have changed since this device played them (the schedule was edited), today starts
+  // afresh, finished or not: old guesses can't be scored against new questions.
+  const ids = today.questions.map((q) => q.id).join();
+  if (state.answers.length && state.ids !== ids) {
+    state = { answers: [], done: false };
     store.set(dayStateKey(k), state);
   }
-  state.v = ROUNDS.version;
+  state.ids = ids;
   herds = {};
   fetchHerds();
 }
@@ -690,7 +693,10 @@ function results({ celebrate = false } = {}) {
 // ---------- boot ----------
 async function boot() {
   try {
-    ROUNDS = await (await fetch("data/rounds.json", { cache: "no-cache" })).json();
+    const json = async (f) => (await fetch(f, { cache: "no-cache" })).json();
+    const [bank, schedule] = await Promise.all([json("data/questions.json"), json("data/schedule.json")]);
+    QUESTIONS = Object.fromEntries(bank.questions.map((q) => [q.id, q]));
+    SCHEDULE = schedule.days; DATES = Object.keys(SCHEDULE).sort(); EPOCH = DATES[0];
   } catch {
     app.innerHTML = `<main class="screen"><section class="card"><h1>The ox is having a lie-down</h1><p>Today's questions didn't load. Check your connection and refresh.</p></section></main>`;
     return;

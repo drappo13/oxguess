@@ -2,6 +2,20 @@
 
 Newest first. Each entry: what was decided, and why.
 
+## 16 Nov 2026
+
+- **Content is a bank plus a dated schedule** (`questions.json`, `schedule.json`) instead of a list of days. Moving
+  or swapping a question is a one-line edit, spares and retired questions stay in the bank with their sources, and
+  `show-schedule.mjs` prints the schedule for checking without answers. Replaces the `version` number: a device
+  notices for itself when today's question ids change.
+- **A changed day starts afresh, even if finished.** Old guesses can't be scored against new questions, so the
+  player gets the new ones (their old guesses stay in the herd for the questions that remain).
+- **Ages use a 0 to 100 years slider.** Everyone knows roughly how long people live, so a 1,000-year end looked
+  silly. Other sliders still run past what's possible (How far up to 500,000 km): most people don't know the size
+  of the Earth, and the slider shouldn't give clues.
+- **Questions should be guessable, not obscure or workable-out.** Retired: Statue of Unity (few have heard of it),
+  Rubik's Cube stickers (easy arithmetic).
+
 ## 15 Nov 2026 (launch day)
 
 **Product**

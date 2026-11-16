@@ -29,16 +29,16 @@ site/                 the whole website (deployed as-is)
   js/fx.js            sounds (Web Audio), haptics, confetti, stamps, count-ups, the ticket drop
   js/art.js           SVG art: ox head, fairgoer, rosettes, balance scale
   js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries
-  data/rounds.json    the live question schedule (copied from content/)
+  data/questions.json the question bank: every question with its source and evidence (spares and retired too)
+  data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)
-content/              question sets with sources and evidence quotes; README explains them
 scripts/
-  check-rounds.mjs    validates every question against the game rules (runs in CI before deploy)
-  reshuffle.py        builds content/rounds-v2.json from v1 (pins chosen questions to day 1)
+  check-content.mjs   validates the bank and the schedule against the game rules (runs in CI before deploy)
+  show-schedule.mjs   prints the schedule from today with slider ends and no answers, plus spares and retired
   test-rules.py       live test of the Firestore rules, on 2099 dates
   explore/            Wikidata (QLever) exploration from the feasibility study
 firestore.rules       paste into Firebase console → Firestore → Rules → Publish (no CLI here)
-docs/                 vision, decisions, data feasibility
+docs/                 vision, decisions, content (how questions were sourced and checked), data feasibility
 prototype/            the first single-file mock
 ```
 
@@ -47,9 +47,10 @@ prototype/            the first single-file mock
 - **Local preview:** `python3 -m http.server 4321 --directory site`, then `http://localhost:4321/?day=YYYY-MM-DD`.
   `?day=` only works on localhost. Localhost reads the real herd but never writes to it (with or without `?day=`).
   The browser caches modules, so after edits reload with `fetch(url, {cache: 'reload'})` or a hard refresh.
-- **Checks:** `node scripts/check-rounds.mjs` (every answer inside its slider, scores 20, bullseye reachable,
-  has a source). `python3 scripts/test-rules.py` exercises the live Firestore rules.
-- **Deploy:** push to `main` on `github.com/drappo13/oxguess` (SSH remote). GitHub Actions runs the rounds check,
+- **Checks:** `node scripts/check-content.mjs` (every answer inside its slider, scores 20, bullseye reachable,
+  has a source; the schedule has consecutive dates, five questions a day in category order, no repeats, nothing
+  retired). `python3 scripts/test-rules.py` exercises the live Firestore rules.
+- **Deploy:** push to `main` on `github.com/drappo13/oxguess` (SSH remote). GitHub Actions runs the content check,
   then publishes `site/` to Pages in about a minute. For `gh` calls use `GH_TOKEN=$(gh auth token --user drappo13)`
   (the active gh account is a different one).
 - **Checking the live site from a machine with stale DNS:** `curl --resolve oxguess.com:443:185.199.108.153 https://oxguess.com/...`.
@@ -71,7 +72,12 @@ prototype/            the first single-file mock
 
 ## How a day works
 
-- `EPOCH = 2026-11-15` is round 1; the schedule cycles through `data/rounds.json` (21 days).
+- The first date in `data/schedule.json` (2026-11-15) is round 1. Past the last date the schedule starts again
+  from the top, so add days before it runs out.
 - Every herd = 15 seeded made-up guesses (fixed per date and question, kept forever) plus real guesses.
-- Bump `version` in rounds.json when today's questions change after launch: a device with a stale in-progress
-  day gets a fresh start.
+- **Changing the questions:** edit `data/schedule.json` (move ids between dates, swap in a spare). To drop a
+  question for good, take it off the schedule and give it `"retired": "why"` in the bank rather than deleting it.
+  Never change a question's `id`: it seeds the slider range and the herd. Run `check-content.mjs` and
+  `show-schedule.mjs`. If today's questions change, a device that already played today starts today afresh
+  (its earlier guesses stay in the herd). Guesses are stored per date, so a question moved to another day gets a
+  fresh herd there.

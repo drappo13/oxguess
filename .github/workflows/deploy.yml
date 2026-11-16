@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 22
       - name: Check every question still fits the game rules
-        run: node scripts/check-rounds.mjs
+        run: node scripts/check-content.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
