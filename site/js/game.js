@@ -35,7 +35,8 @@ export function rng(seed) {
 // --- ranges ---
 // The answer sits somewhere 20–80% along the slider so the middle never gives it away.
 export function rangeFor(q) {
-  if (q.scale === "lin") return { min: q.min, max: q.max };
+  // Hand-set ends win on any scale; linear questions always have them.
+  if (q.scale === "lin" || (q.min != null && q.max != null)) return { min: q.min, max: q.max };
   const f = 0.2 + rng(hash(q.id))() * 0.6;
   if (q.scale === "year") {
     const age = THIS_YEAR - q.answer;

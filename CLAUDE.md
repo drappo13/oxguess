@@ -80,7 +80,8 @@ prototype/            the first single-file mock
 - Every herd = 15 seeded made-up guesses (fixed per date and question, kept forever) plus real guesses.
 - **Changing the questions:** edit `data/schedule.json` (move ids between dates, swap in a spare). To drop a
   question for good, take it off the schedule and give it `"retired": "why"` in the bank rather than deleting it.
-  Never change a question's `id`: it seeds the slider range and the herd. Run `check-content.mjs` and
+  To set a slider's ends by hand, give the question `min` and `max` (any scale; otherwise log and year sliders
+  are generated around the answer). Never change a question's `id`: it seeds the slider range and the herd. Run `check-content.mjs` and
   `show-schedule.mjs`. If today's questions change, a device that already played today starts today afresh
   (its earlier guesses stay in the herd). Guesses are stored per date, so a question moved to another day gets a
   fresh herd there.

@@ -270,7 +270,9 @@
         "name": "Wikipedia: Tomb of Tutankhamun",
         "url": "https://en.wikipedia.org/wiki/Tomb_of_Tutankhamun"
       },
-      "evidence": "Tutankhamun's tomb was discovered in 1922 by excavators led by Howard Carter and his patron, George Herbert, 5th Earl of Carnarvon."
+      "evidence": "Tutankhamun's tomb was discovered in 1922 by excavators led by Howard Carter and his patron, George Herbert, 5th Earl of Carnarvon.",
+      "min": 1500,
+      "max": 2026
     },
     {
       "id": "d18-when",
@@ -520,13 +522,15 @@
       "answer": 828,
       "unit": "m",
       "alt": "2,717 ft",
-      "scale": "log",
+      "scale": "lin",
       "fact": "The building has 57 elevators and 8 escalators.",
       "source": {
         "name": "Wikipedia: Burj Khalifa",
         "url": "https://en.wikipedia.org/wiki/Burj_Khalifa"
       },
-      "evidence": "Tallest skyscraper (to top of spire): 828 m (2,717 ft)"
+      "evidence": "Tallest skyscraper (to top of spire): 828 m (2,717 ft)",
+      "min": 0,
+      "max": 10000
     },
     {
       "id": "d13-big",
@@ -932,7 +936,7 @@
       "id": "d16-far",
       "cat": "far",
       "kind": null,
-      "q": "How far is it from Barcelona's Camp Nou to Real Madrid's Santiago Bernabéu Stadium, as the crow flies?",
+      "q": "How far is it from Camp Nou in Barcelona to the Santiago Bernabéu in Madrid, as the crow flies?",
       "answer": 499,
       "unit": "km",
       "alt": "310 mi",
@@ -943,7 +947,9 @@
         "url": "https://www.wikidata.org/wiki/Q159848",
         "url2": "https://www.wikidata.org/wiki/Q164027"
       },
-      "evidence": "Camp Nou (Q159848): Point(2.122778 41.380833); Bernabéu (Q164027): Point(-3.68835 40.45306). Great-circle (haversine, R = 6371.0088 km) = 499 km"
+      "evidence": "Camp Nou (Q159848): Point(2.122778 41.380833); Bernabéu (Q164027): Point(-3.68835 40.45306). Great-circle (haversine, R = 6371.0088 km) = 499 km",
+      "min": 1,
+      "max": 10000
     },
     {
       "id": "d17-far",
@@ -1156,7 +1162,9 @@
         "name": "Wikipedia: Boeing 747",
         "url": "https://en.wikipedia.org/wiki/Boeing_747"
       },
-      "evidence": "The final 747 was delivered to Atlas Air in January 2023 after a 54-year production run, with 1,574 aircraft built."
+      "evidence": "The final 747 was delivered to Atlas Air in January 2023 after a 54-year production run, with 1,574 aircraft built.",
+      "min": 1,
+      "max": 100000
     },
     {
       "id": "d09-many",

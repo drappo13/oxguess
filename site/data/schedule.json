@@ -2,10 +2,10 @@
   "days": {
     "2026-11-15": ["d20-when", "d15-wild", "d02-far", "d11-many", "d06-wild"],
     "2026-11-16": ["d16-when", "d03-big", "d05-far", "d05-many", "d07-wild"],
-    "2026-11-17": ["d05-when", "d10-big", "d01-far", "d19-many", "d11-wild"],
-    "2026-11-18": ["d17-when", "d12-big", "d11-far", "d08-many", "d03-wild"],
+    "2026-11-17": ["d17-when", "d12-big", "d16-far", "d08-many", "d11-wild"],
+    "2026-11-18": ["d05-when", "d10-big", "d11-far", "d19-many", "d03-wild"],
     "2026-11-19": ["d11-when", "d20-big", "d21-far", "d17-many", "d16-wild"],
-    "2026-11-20": ["d10-when", "d09-big", "d16-far", "d10-many", "d13-wild"],
+    "2026-11-20": ["d10-when", "d09-big", "d01-far", "d10-many", "d13-wild"],
     "2026-11-21": ["d21-when", "d14-big", "d10-far", "d16-many", "d12-wild"],
     "2026-11-22": ["d04-when", "d18-big", "d04-far", "d18-many", "d09-wild"],
     "2026-11-23": ["d06-when", "d19-big", "d08-far", "d03-many", "d08-wild"],
