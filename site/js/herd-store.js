@@ -5,7 +5,7 @@
 // itself). Every player reads five tiny docs a day however big the herd gets.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
 import {
-  getFirestore, doc, getDoc, setDoc, addDoc, collection, increment, serverTimestamp,
+  getFirestore, doc, getDoc, setDoc, addDoc, collection, increment, serverTimestamp, getDocs, query, where,
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
 export const HERD_BINS = 100;
@@ -47,6 +47,14 @@ export async function loadHerds(day, questions) {
     } catch (e) { console.warn("Herd read failed", e.code ?? e); }
   }));
   return out;
+}
+
+/** For the stats page: every guess and finished round from a date on. Throws if the rules don't allow reads. */
+export async function loadActivity(since) {
+  if (!db) throw new Error("Firestore didn't start");
+  const rows = async (name) => (await getDocs(query(collection(db, name), where("day", ">=", since)))).docs.map((d) => d.data());
+  const [guesses, plays] = await Promise.all([rows("guesses"), rows("plays")]);
+  return { guesses, plays };
 }
 
 /** Add one guess to the herd. Fire and forget: the game never waits on it or breaks without it. */

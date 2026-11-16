@@ -361,6 +361,31 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .tiers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px 12px; }
 .tiers li { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
 
+/* ---------- stats page (/stats): tiles, bars and plain tables ---------- */
+.wrap.stats { max-width: 760px; }
+.stats .brand { text-decoration: none; }
+.stats h2 small { font: 700 14px var(--body); margin-left: 6px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.tile { display: flex; flex-direction: column; padding: 12px 14px; border-radius: 14px; background: var(--card-soft); border: 2px solid var(--line); }
+.tile .label { font-size: 13px; font-weight: 700; color: var(--muted); }
+.tile b { font: 600 30px var(--display); line-height: 1.2; }
+.tile small { font-size: 12px; color: var(--muted); }
+.stats .legend i { height: 10px; }
+.stat-bars { width: 100%; height: auto; font: 700 10px var(--body); fill: var(--ink); }
+.stat-bars .day { fill: var(--muted); }
+.table-wrap { overflow-x: auto; }
+.stat-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.stat-table th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 700; padding: 4px 8px 6px; border-bottom: 2px solid var(--line); }
+.stat-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.stat-table .n { text-align: right; white-space: nowrap; }
+.stat-table td:first-child { white-space: nowrap; }
+.stat-table .q { min-width: 200px; }
+.stat-table small { color: var(--muted); }
+.cat-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--cat); margin-right: 6px; }
+.stats details { border-top: 2px solid var(--line); padding-top: 10px; }
+.stats summary { cursor: pointer; padding-bottom: 8px; }
+.me-toggle { display: flex; align-items: center; gap: 8px; justify-content: center; }
+
 /* ---------- effects layered over the page (fx.js) ---------- */
 .fx-ticket { position: fixed; z-index: 60; pointer-events: none; display: flex; align-items: stretch; white-space: nowrap; border-radius: 6px; background: var(--ticket); color: #2b2410;
   box-shadow: 0 8px 20px -8px rgba(0, 0, 0, .45), inset 0 0 0 3px var(--ticket), inset 0 0 0 4.5px color-mix(in srgb, var(--stamp) 70%, transparent); }

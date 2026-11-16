@@ -4,6 +4,10 @@ Newest first. Each entry: what was decided, and why.
 
 ## 16 Nov 2026
 
+- **A stats page at oxguess.com/stats**, public but unlinked and not indexed (no users to hide it from yet). It reads
+  every guess and finished round since launch, so `guesses` and `plays` became readable; they hold an anonymous device
+  id and numbers only. It never shows today's answers or herd. A checkbox leaves out the viewing device's own guesses.
+  Add a date window to its reads once there are thousands of guesses.
 - **Content is a bank plus a dated schedule** (`questions.json`, `schedule.json`) instead of a list of days. Moving
   or swapping a question is a one-line edit, spares and retired questions stay in the bank with their sources, and
   `show-schedule.mjs` prints the schedule for checking without answers. Replaces the `version` number: a device

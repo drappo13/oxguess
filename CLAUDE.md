@@ -28,7 +28,9 @@ site/                 the whole website (deployed as-is)
   js/game.js          rules: slider ranges, scoring (0-20 per question), units, the herd
   js/fx.js            sounds (Web Audio), haptics, confetti, stamps, count-ups, the ticket drop
   js/art.js           SVG art: ox head, fairgoer, rosettes, balance scale
-  js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries
+  js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries, read activity
+  js/stats.js         the /stats page: players, finishes, returning, question by question (never today's answers)
+  stats/index.html    oxguess.com/stats, public but unlinked and noindex
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)
@@ -65,8 +67,8 @@ prototype/            the first single-file mock
 - **Collections:**
   - `herd/{date}_{questionId}`: `{ n, b: {bin: count}, k }`, 100 bins across the slider, one guess added per write.
     The rules check exactly +1 in bin `k`.
-  - `guesses/{auto}`: one row per guess (write-only).
-  - `plays/{date}_{player}`: finished round (write-only).
+  - `guesses/{auto}`: one row per guess (readable, for /stats).
+  - `plays/{date}_{player}`: finished round (readable, for /stats).
   - `players/{id}`: summary rebuilt by the device after each round (write-only).
 - **Players** are anonymous per device (`ox-player` in localStorage). No accounts or cross-device streaks yet.
 

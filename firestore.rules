@@ -1,7 +1,8 @@
 rules_version = '2';
 // OxGuess Firestore rules. Paste into Firebase console → Firestore Database → Rules → Publish.
 // Players have no accounts yet, so the rules keep every write small and shaped: a herd summary can only
-// ever go up by exactly one guess in one bin, guesses and plays are write-only, and nothing else exists.
+// ever go up by exactly one guess in one bin, and nothing else exists. Guesses and plays can be read for the
+// stats page (oxguess.com/stats); they hold an anonymous device id and numbers, nothing about a person.
 service cloud.firestore {
   match /databases/{database}/documents {
 
@@ -23,9 +24,9 @@ service cloud.firestore {
         && request.resource.data.b[request.resource.data.k] == resource.data.b.get(request.resource.data.k, 0) + 1;
     }
 
-    // guesses/{auto}: one row per guess, for checking the herd later. Write-only.
+    // guesses/{auto}: one row per guess. Readable for the stats page.
     match /guesses/{id} {
-      allow read: if false;
+      allow read: if true;
       allow create: if request.resource.data.keys().hasOnly(['day', 'qid', 'pos', 'value', 'player', 'at'])
         && request.resource.data.day is string && request.resource.data.day.size() == 10
         && request.resource.data.qid is string && request.resource.data.qid.size() <= 24
@@ -35,9 +36,9 @@ service cloud.firestore {
         && request.resource.data.at == request.time;
     }
 
-    // plays/{date}_{player}: a finished round. Write-only for now (streaks and stats later).
+    // plays/{date}_{player}: a finished round. Readable for the stats page.
     match /plays/{id} {
-      allow read: if false;
+      allow read: if true;
       allow create, update: if id == request.resource.data.day + '_' + request.resource.data.player
         && request.resource.data.keys().hasOnly(['day', 'round', 'player', 'pts', 'total', 'at'])
         && request.resource.data.day is string && request.resource.data.day.size() == 10
