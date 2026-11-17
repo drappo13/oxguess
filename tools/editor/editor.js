@@ -15,7 +15,7 @@ const nice = (k) => dateOf(k).toLocaleDateString("en-GB", { weekday: "short", da
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const today = keyOf(new Date());
 
-let Q = [], DAYS = {}, HASH = "", saved = new Set();
+let Q = [], DAYS = {}, IDEAS = [], HASH = "", saved = new Set();
 let dirty = false, unpublished = false, report = null, reportOk = true, busy = false;
 let view = "schedule", editing = null, filter = { status: "all", cat: "", text: "" }, showPast = false;
 
@@ -49,14 +49,30 @@ function mirror(q) {
   const round = q.scale === "year" || Number.isInteger(r.min) ? Math.round : (v) => Math.round(v * 10) / 10;
   return { min: round(min), max: round(max) };
 }
-const bar = (q, r) => {
-  if (!r) return `<div class="bar" style="opacity:.35"></div>`;
-  const p = at(q, r, q.answer);
-  return `<div class="bar"><i class="mid" style="left:50%"></i>${p != null && p >= 0 && p <= 1 ? `<i style="left:${(p * 100).toFixed(1)}%"></i>` : ""}</div>`;
-};
-const mini = (q) => `<div class="ed-mini" title="Where the answer (green) sits on each slider; grey is the middle">
-  <div class="row"><span>A</span>${bar(q, rangeA(q))}</div><div class="row"><span>B</span>${bar(q, rangeB(q))}</div></div>`;
-const ends = (q, r) => (r ? `${fmt(q, r.min)} – ${fmt(q, r.max)}` : "–");
+/** Short labels for the scale drawings: 1,500 · 25k · 2.5m · 350 BC. */
+function short(q, v) {
+  if (q.scale === "year") return v < 0 ? `${-v} BC` : String(v);
+  const a = Math.abs(v), n = (x) => Number(x.toPrecision(4)).toLocaleString("en-GB");
+  return a >= 1e9 ? `${n(v / 1e9)}bn` : a >= 1e6 ? `${n(v / 1e6)}m` : a >= 1e4 ? `${n(v / 1e3)}k` : n(v);
+}
+/** A and B drawn on one shared scale, from the lower of the two low ends to the higher of the two high ends, so you
+ *  can see at a glance how differently the answer sits on each. Grey ticks are each slider's middle. */
+function pair(q, big = false) {
+  const A = rangeA(q), B = rangeB(q), rs = [A, B].filter(Boolean);
+  if (!rs.length) return `<div class="pair"><span></span><span class="muted small">No slider yet</span></div>`;
+  const log = q.scale === "log" && rs.every((r) => r.min > 0) && q.answer > 0;
+  const lo = Math.min(...rs.map((r) => r.min)), hi = Math.max(...rs.map((r) => r.max));
+  const x = (v) => { const t = log ? Math.log(v / lo) / Math.log(hi / lo) : (v - lo) / (hi - lo); return Math.max(0, Math.min(1, t)) * 100; };
+  const ax = Number.isFinite(q.answer) ? x(q.answer) : null;
+  const row = (label, r) => {
+    if (!r) return `<span class="pl">${label}</span><div class="ptrack"><span class="none">no ${label} slider</span></div>`;
+    const a = x(r.min), b = x(r.max), mid = toValue(q, r, STEPS / 2);
+    return `<span class="pl">${label}</span><div class="ptrack"><i class="seg ${label}" style="left:${a}%;width:${b - a}%"></i><i class="mid" style="left:${x(mid)}%"></i>${ax != null ? `<i class="ans" style="left:${ax}%"></i>` : ""}<span class="lo" style="left:${a}%">${esc(short(q, r.min))}</span><span class="hi" style="left:${b}%">${esc(short(q, r.max))}</span></div>`;
+  };
+  return `<div class="pair ${big ? "big" : ""}" title="A and B on one scale. Green: the answer. Grey: each slider's middle.">
+    <span></span><div class="phead">${ax != null ? `<span class="aval" style="left:${ax}%">${esc(short(q, q.answer))}</span>` : ""}</div>
+    ${row("A", A)}${row("B", B)}</div>`;
+}
 
 // ---------- top bar ----------
 function topBar() {
@@ -64,7 +80,7 @@ function topBar() {
   return `<div class="ed-bar">
     <h1>${oxHead({ size: 30 })} OxGuess questions</h1>
     <span class="ed-state ${state[0]}">${state[1]}</span>
-    <div class="ed-tabs"><button data-view="schedule" class="${view === "schedule" ? "on" : ""}">Schedule</button><button data-view="bank" class="${view === "bank" ? "on" : ""}">Bank</button></div>
+    <div class="ed-tabs"><button data-view="schedule" class="${view === "schedule" ? "on" : ""}">Schedule</button><button data-view="bank" class="${view === "bank" ? "on" : ""}">Bank</button><button data-view="ideas" class="${view === "ideas" ? "on" : ""}">Ideas (${IDEAS.length})</button></div>
     <button class="btn" id="reload" ${busy ? "disabled" : ""}>Reload</button>
     <button class="btn primary" id="save" ${!dirty || busy ? "disabled" : ""}>Save</button>
     <input id="msg" placeholder="What changed? (optional)" style="font:600 13px var(--body);padding:8px 10px;border-radius:10px;border:2px solid var(--line);min-width:180px">
@@ -84,9 +100,9 @@ function slot(d, j, locked) {
   if (!q) return `<div class="ed-slot" style="--cat:${CATS[cat].color}"><span class="ed-chip">${CATS[cat].label}</span><span class="ed-q ed-warn">${id ? `${esc(id)} isn't in the bank` : "Empty: pick a question"}</span><span></span><span></span><div class="ed-acts">${pick}</div></div>`;
   return `<div class="ed-slot" style="--cat:${CATS[cat].color}">
     <span class="ed-chip">${esc(catLabel(q))}</span>
-    <span class="ed-q"><b>${esc(q.q)}</b><br><span class="id">${esc(q.id)} · A ${esc(ends(q, rangeA(q)))}${rangeB(q) ? ` · B ${esc(ends(q, rangeB(q)))}` : ""}</span></span>
+    <span class="ed-q"><b>${esc(q.q)}</b><br><span class="id">${esc(q.id)}</span></span>
     <span class="ed-ans">${esc(fmt(q, q.answer))}</span>
-    ${mini(q)}
+    ${pair(q)}
     <div class="ed-acts"><button class="btn" data-edit="${esc(q.id)}">Edit</button>${pick}</div>
   </div>`;
 }
@@ -122,27 +138,35 @@ function bank() {
       <select id="f-cat"><option value="">Every category</option>${ORDER.map((c) => `<option value="${c}" ${filter.cat === c ? "selected" : ""}>${CATS[c].label}</option>`).join("")}</select>
       <span class="muted small">${rows.length} of ${Q.length}</span>
     </div>
-    <table class="ed-bank"><thead><tr><th>Status</th><th>Category</th><th>Question</th><th>Answer</th><th>Slider A</th><th>Slider B</th><th style="width:110px">Answer sits</th></tr></thead><tbody>
+    <table class="ed-bank"><thead><tr><th>Status</th><th>Category</th><th>Question</th><th>Answer</th><th style="width:320px">Sliders A and B</th></tr></thead><tbody>
     ${rows.map((q) => { const s = status(q); return `<tr data-edit="${esc(q.id)}" style="--cat:${CATS[q.cat].color}">
       <td class="st ${s}">${s === "scheduled" ? nice(used[q.id]) : s === "past" ? `Played ${nice(used[q.id])}` : s === "spare" ? "Spare" : "Retired"}</td>
       <td><span class="ed-chip">${esc(catLabel(q))}</span></td><td>${esc(q.q)}<br><span class="muted" style="font:600 11px ui-monospace,Menlo,monospace">${esc(q.id)}</span></td>
-      <td>${esc(fmt(q, q.answer))}</td><td>${esc(ends(q, rangeA(q)))}</td><td>${esc(ends(q, rangeB(q)))}</td><td>${mini(q)}</td></tr>`; }).join("")}
+      <td>${esc(fmt(q, q.answer))}</td><td>${pair(q)}</td></tr>`; }).join("")}
     </tbody></table>`;
 }
+
+// ---------- ideas ----------
+function ideas() {
+  return `<div class="ed-tools"><input id="idea-new" placeholder="Add an idea, then press Enter" style="flex:1;min-width:240px"><button class="btn primary" id="idea-add">Add</button>
+      <span class="muted small">Rough ideas, newest first. Saved with everything else in docs/question-ideas.md.</span></div>
+    <div class="ed-ideas">${IDEAS.map((t, i) => `<div class="ed-idea"><input data-idea="${i}" value="${esc(t)}"><button class="btn" data-idea-del="${i}">Remove</button></div>`).join("") || `<p class="muted">No ideas yet.</p>`}</div>`;
+}
+const addIdea = () => { const box = document.getElementById("idea-new"), t = box.value.trim(); if (!t) return; IDEAS.unshift(t); touch(); draw(); document.getElementById("idea-new").focus(); };
 
 // ---------- edit panel ----------
 function preview(q) {
   const one = (label, r, isB) => {
-    if (!r) return `<div class="ed-slider"><div class="top"><span>${label}</span></div><span class="muted small">${isB ? "No B slider yet." : "Set the low and high ends (even sliders need both)."}</span>${isB ? `<button class="btn" data-mirror style="align-self:flex-start">Make B by mirroring A</button>` : ""}</div>`;
+    if (!r) return `<div class="ed-slider"><span class="muted small">${isB ? "No B slider yet." : "Set the low and high ends (even sliders need both)."}</span>${isB ? `<button class="btn" data-mirror style="align-self:flex-start">Make B by mirroring A</button>` : ""}</div>`;
     const p = at(q, r, q.answer), probs = problemsOf(q, r);
-    return `<div class="ed-slider"><div class="top"><span>${label}</span><span>${p != null ? `Answer ${Math.round(p * 100)}% along · middle ${esc(fmt(q, toValue(q, r, STEPS / 2)))}` : ""}</span></div>
-      ${bar(q, r)}<div class="ends"><span>${esc(fmt(q, r.min))}</span><span>${esc(fmt(q, r.max))}</span></div>
+    return `<div class="ed-slider"><div class="top"><span>${label}: ${esc(fmt(q, r.min))} to ${esc(fmt(q, r.max))}</span><span>${p != null ? `answer ${Math.round(p * 100)}% along · middle ${esc(fmt(q, toValue(q, r, STEPS / 2)))}` : ""}</span></div>
       ${probs.map((m) => `<span class="ed-warn">${m}</span>`).join("")}</div>`;
   };
   const a = q.answer, misses = !Number.isFinite(a) ? [] : q.scale === "year" ? [a - 5, a - 20, a - 50] : q.unit === "years" ? [a + 2, a + 5, a + 10] : q.unit === "°C" ? [a + 5, a + 20, a + 50] : [a * 1.1, a * 1.5, a * 2];
   return `<div class="ed-prev"><h4>Preview</h4>
+    ${pair(q, true)}
     ${one(`Slider A${q.min == null ? " (made from the answer)" : ""}`, rangeA(q), false)}
-    ${one("Slider B (for the A/B test; players don't see it yet)", rangeB(q), true)}
+    ${one("Slider B", rangeB(q), true)}
     ${misses.length ? `<span class="ed-misses">Scoring: ${misses.map((g) => `${esc(fmt(q, Number(g.toPrecision(4))))} scores ${points(q, g)}`).join(" · ")}</span>` : ""}
   </div>`;
 }
@@ -200,7 +224,7 @@ function setField(q, k, raw) {
 // ---------- drawing and events ----------
 function draw() {
   const scroll = window.scrollY;
-  el.innerHTML = `${topBar()}${view === "schedule" ? schedule() : bank()}${editing ? panel() : ""}`;
+  el.innerHTML = `${topBar()}${view === "schedule" ? schedule() : view === "bank" ? bank() : ideas()}${editing ? panel() : ""}`;
   window.scrollTo(0, scroll);
 }
 
@@ -213,6 +237,8 @@ el.addEventListener("click", async (e) => {
   else if (t.id === "past") { showPast = !showPast; draw(); }
   else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
   else if (t.id === "save") await save();
+  else if (t.id === "idea-add") addIdea();
+  else if (t.dataset.ideaDel !== undefined) { IDEAS.splice(Number(t.dataset.ideaDel), 1); touch(); draw(); }
   else if (t.id === "publish") await publish();
   else if (t.id === "new") {
     let n = 1; while (byId()[`new-${n}`]) n++;
@@ -245,22 +271,24 @@ el.addEventListener("change", (e) => {
 });
 el.addEventListener("input", (e) => {
   const s = e.target;
+  if (s.dataset.idea !== undefined) { IDEAS[Number(s.dataset.idea)] = s.value; touch(); const st = el.querySelector(".ed-state"); if (st) { st.className = "ed-state warn"; st.textContent = "Unsaved changes"; } el.querySelector("#save").disabled = false; el.querySelector("#publish").disabled = true; return; }
   if (s.id === "f-text") { filter.text = s.value; const pos = s.selectionStart; draw(); const n = document.getElementById("f-text"); n.focus(); n.setSelectionRange(pos, pos); }
   else if (s.dataset.k && s.tagName !== "SELECT" && s.dataset.k !== "id") { const q = byId()[editing]; if (setField(q, s.dataset.k, s.value)) { touch(); document.getElementById("preview").innerHTML = preview(q); } }
 });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape" && editing) { editing = null; draw(); } if ((e.metaKey || e.ctrlKey) && e.key === "s") { e.preventDefault(); if (dirty) save(); } });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.id === "idea-new") { e.preventDefault(); addIdea(); return; } if (e.key === "Escape" && editing) { editing = null; draw(); } if ((e.metaKey || e.ctrlKey) && e.key === "s") { e.preventDefault(); if (dirty) save(); } });
 window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); });
 
 // ---------- talking to the server ----------
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; HASH = d.hash; unpublished = d.unpublished; saved = new Set(Q.map((q) => q.id));
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; HASH = d.hash; unpublished = d.unpublished; saved = new Set(Q.map((q) => q.id));
   dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
 }
 async function save() {
   busy = true; draw();
-  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, hash: HASH }) }), d = await r.json();
+  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), hash: HASH }) }), d = await r.json();
   busy = false;
   if (r.status === 409) { report = d.error; reportOk = false; draw(); return; }
   if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }

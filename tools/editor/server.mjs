@@ -1,5 +1,5 @@
 // The question editor: a small local server, no dependencies. Run `node tools/editor/server.mjs` and open
-// http://localhost:4400. It reads and writes site/data/questions.json and schedule.json, runs the content check on
+// http://localhost:4400. It reads and writes site/data/questions.json, schedule.json and docs/question-ideas.md, runs the content check on
 // every save, and Publish commits those two files and pushes, which deploys the game. Never part of the website.
 import http from "node:http";
 import fs from "node:fs/promises";
@@ -10,16 +10,20 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const PORT = Number(process.env.PORT) || 4400;
-const FILES = { questions: "site/data/questions.json", schedule: "site/data/schedule.json" };
+const FILES = { questions: "site/data/questions.json", schedule: "site/data/schedule.json", ideas: "docs/question-ideas.md" };
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json", ".png": "image/png", ".webp": "image/webp" };
 
 const run = (cmd, args) => new Promise((done) => {
   execFile(cmd, args, { cwd: ROOT }, (err, stdout, stderr) => done({ ok: !err, out: `${stdout}${stderr}`.trim() }));
 });
 const readData = async () => {
-  const [q, s] = await Promise.all(Object.values(FILES).map((f) => fs.readFile(path.join(ROOT, f), "utf8")));
-  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, hash: crypto.createHash("sha1").update(q + s).digest("hex") };
+  const [q, s, i] = await Promise.all([FILES.questions, FILES.schedule, FILES.ideas].map((f) => fs.readFile(path.join(ROOT, f), "utf8").catch(() => "")));
+  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, ideas: ideasFrom(i), hash: crypto.createHash("sha1").update(q + s + i).digest("hex") };
 };
+// Ideas live in a small Markdown file: an intro, then one "- idea" line each.
+const IDEAS_HEAD = "# Question ideas\n\nRough ideas for future questions, newest first. Not checked or sourced yet: when one becomes a real question it\nmoves into the bank (with a source) and comes off this list. Edit here, in the question editor's Ideas tab, or ask\nClaude in the chat.\n\n";
+const ideasFrom = (text) => text.split("\n").filter((l) => l.startsWith("- ")).map((l) => l.slice(2).trim()).filter(Boolean);
+const ideasText = (ideas) => `${IDEAS_HEAD}${ideas.map((i) => `- ${i.replace(/\s+/g, " ").trim()}`).join("\n")}\n`;
 // Same layout as the files have always had: 2-space JSON for the bank, one line per day for the schedule.
 const bankText = (questions) => `${JSON.stringify({ questions }, null, 2)}\n`;
 const scheduleText = (days) => `{\n  "days": {\n${Object.keys(days).sort().map((d) => `    "${d}": [${days[d].map((id) => JSON.stringify(id)).join(", ")}]`).join(",\n")}\n  }\n}\n`;
@@ -42,6 +46,7 @@ http.createServer(async (req, res) => {
       if (b.hash !== now.hash) return send(res, 409, { error: "The question files changed since you loaded them. Reload to pick up those changes, then make your edit again." });
       await fs.writeFile(path.join(ROOT, FILES.questions), bankText(b.questions));
       await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(b.days));
+      if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
       const c = await check(), after = await readData();
       return send(res, 200, { ok: c.ok, report: c.out, hash: after.hash, unpublished: Boolean(await status()) });
     }
