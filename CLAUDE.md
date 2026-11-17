@@ -36,6 +36,9 @@ site/                 the whole website (deployed as-is)
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)
+tools/editor/          the question editor (local only): `node tools/editor/server.mjs` or double-click
+                        "OxGuess editor.command", then http://localhost:4400. Save writes the data files and runs
+                        the check; Publish commits them and pushes
 scripts/
   check-content.mjs   validates the bank and the schedule against the game rules (runs in CI before deploy)
   show-schedule.mjs   prints the schedule from today with slider ends and no answers, plus spares and retired
@@ -79,7 +82,7 @@ prototype/            the first single-file mock
 - The first date in `data/schedule.json` (2026-11-15) is round 1. Past the last date the schedule starts again
   from the top, so add days before it runs out.
 - Every herd = 15 seeded made-up guesses (fixed per date and question, kept forever) plus real guesses.
-- **Changing the questions:** edit `data/schedule.json` (move ids between dates, swap in a spare). To drop a
+- **Changing the questions:** use the question editor (above), or edit `data/schedule.json` (move ids between dates, swap in a spare). To drop a
   question for good, take it off the schedule and give it `"retired": "why"` in the bank rather than deleting it.
   To set a slider's ends by hand, give the question `min` and `max` (any scale; otherwise log and year sliders
   are generated around the answer). Never change a question's `id`: it seeds the slider range and the herd. Run `check-content.mjs` and

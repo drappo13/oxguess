@@ -1,6 +1,6 @@
 // Fails the deploy if the question bank or the schedule breaks the game rules.
 // Bank: unique ids the Firestore rules accept, a known category, the answer inside its slider, scores 100,
-// bullseye reachable by dragging, and a source. Schedule: consecutive dates, five ids a day in category order,
+// bullseye reachable by dragging, a source, and slider B (if any) has both ends with the answer inside. Schedule: consecutive dates, five ids a day in category order,
 // every id in the bank and not retired, and no question scheduled twice.
 import fs from "fs";
 import { rangeFor, score, toValue, toPos, STEPS, CATS } from "../site/js/game.js";
@@ -21,6 +21,13 @@ for (const q of questions) {
   const best = Math.max(...[-2, -1, 0, 1, 2].map((k) => score(q, toValue(q, r, Math.min(STEPS, Math.max(0, p + k))))));
   if (best < 100) problems.push(`${q.id}: bullseye not reachable by dragging`);
   if (!q.source?.url) problems.push(`${q.id}: no source`);
+  // Optional second slider for the A/B test: both ends or neither, answer well inside.
+  if ((q.minB == null) !== (q.maxB == null)) problems.push(`${q.id}: slider B needs both ends`);
+  else if (q.minB != null) {
+    const pb = toPos({ ...q, min: q.minB, max: q.maxB }, { min: q.minB, max: q.maxB }, q.answer) / STEPS;
+    if (q.scale === "log" && q.minB <= 0) problems.push(`${q.id}: slider B can't start at 0 on a log scale`);
+    else if (!(pb > 0 && pb < 1)) problems.push(`${q.id}: answer outside slider B`);
+  }
 }
 
 const dates = Object.keys(days).sort(), seen = {};
