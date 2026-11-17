@@ -14,10 +14,11 @@ const shift = (k, n) => { const d = dateOf(k); d.setDate(d.getDate() + n); retur
 const nice = (k) => dateOf(k).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const today = keyOf(new Date());
+const WARN = `<svg class="warn-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="Careful"><path d="M12 3 2 21h20L12 3z" fill="var(--c-when)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.3" fill="var(--ink)"/></svg>`;
 
 let Q = [], DAYS = {}, IDEAS = [], HASH = "", saved = new Set();
 let dirty = false, live = true, report = null, reportOk = true, busy = false;
-let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false;
+let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false, showToday = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
 const dateOfId = () => { const m = {}; for (const [d, ids] of Object.entries(DAYS)) for (const id of ids) m[id] = d; return m; };
@@ -110,9 +111,12 @@ function schedule() {
   if (!dates.length) return `<p class="muted">Loading the questions…</p>`;
   const day = (d) => {
     const isToday = d === today, locked = d < today;
+    // Today is in play, so it stays folded away unless you open it on purpose.
+    if (isToday && !showToday) return `<section class="ed-day today folded"><h3>${WARN}${nice(d)} <small>Round ${dates.indexOf(d) + 1} · today, in play</small></h3>
+      <span class="note">Editing today restarts the round for anyone who has already started it.</span><button class="btn" id="today">Show today's questions</button></section>`;
     return `<section class="ed-day ${isToday ? "today" : ""} ${locked ? "past" : ""}">
-      <h3>${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today" : ""}${locked ? " · played, can't change" : ""}</small></h3>
-      ${isToday ? `<span class="note">Changing today restarts the round for anyone who has already started it.</span>` : ""}
+      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
+      ${isToday ? `<span class="note">Editing today restarts the round for anyone who has already started it.</span>` : ""}
       ${DAYS[d].map((_, j) => slot(d, j, locked)).join("")}
     </section>`;
   };
@@ -236,6 +240,7 @@ el.addEventListener("click", async (e) => {
   else if (t.dataset.edit) { editing = t.dataset.edit; draw(); }
   else if (t.id === "done") { editing = null; draw(); }
   else if (t.id === "past") { showPast = !showPast; draw(); }
+  else if (t.id === "today") { showToday = !showToday; draw(); }
   else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
   else if (t.id === "save") await save();
   else if (t.id === "idea-add") addIdea();
