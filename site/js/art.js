@@ -1,4 +1,5 @@
 // Hand-drawn-style SVG art: the ox, rosettes, the herd. All colours come from CSS tokens.
+import { rangeFor, toPos, STEPS } from "./game.js";
 
 export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {}) {
   const mouth = mood === "wow"
@@ -75,5 +76,33 @@ export function balance() {
     <circle cx="105" cy="39.5" r="5" fill="var(--c-big)" stroke="var(--art-ink)" stroke-width="2"/>
     <g class="pan-l">${pan(55)}<svg x="31" y="44" width="48" height="48" viewBox="0 0 120 120">${ox}</svg></g>
     <g class="pan-r">${pan(155)}${weight(91, 40, "?")}${weight(77, 32, "?")}${weight(63, 24, "?")}</g>
+  </svg>`;
+}
+
+// ---------- drawing the art inside other charts ----------
+/** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
+export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
+
+/** How the herd guessed: 25 bars across the slider, the herd's guess (the ox), your guess and the answer flag.
+ *  The game shows all three; the stats page leaves out "you", and hides the answer for today. */
+export function herdChart(q, h, { guess = null, showAnswer = true } = {}) {
+  const r = rangeFor(q), B = 25, bins = new Array(B).fill(0);
+  h.bins.forEach((c, k) => { bins[Math.floor((k * B) / h.bins.length)] += c; });
+  const mx = Math.max(1, ...bins), W = 320, H = 110, bw = W / B, base = H - 8;
+  const x = (v) => (toPos(q, r, v) / STEPS) * W;
+  const bars = bins.map((c, i) => {
+    const bh = (c / mx) * (H - 34);
+    return `<rect class="bar" style="--i:${i}" x="${(i * bw + 1.5).toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${(bw - 3).toFixed(1)}" height="${bh.toFixed(1)}" rx="3" fill="var(--cat)" opacity=".28"/>`;
+  }).join("");
+  const top = 26, hx = x(h.median), icon = (cx, svg) => placed(svg, cx, top - 12, 22);
+  const you = guess == null ? "" : `<line x1="${x(guess)}" x2="${x(guess)}" y1="${top}" y2="${base}" stroke="var(--ink)" stroke-width="2.5"/>${icon(x(guess), fairgoer({ size: 120 }))}`;
+  const ax = x(q.answer);
+  const answer = showAnswer ? `<line x1="${ax}" x2="${ax}" y1="${top - 18}" y2="${base}" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${ax + 1.5} ${top - 18} l11 4.5 l-11 4.5 z" fill="var(--good)"/>` : "";
+  return `<svg viewBox="-12 0 ${W + 24} ${H + 4}" role="img" aria-label="How the herd guessed">
+    ${bars}
+    <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
+    <line x1="${hx}" x2="${hx}" y1="${top}" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="3 3"/>
+    ${icon(hx, oxHead({ size: 120 }))}
+    ${you}${answer}
   </svg>`;
 }

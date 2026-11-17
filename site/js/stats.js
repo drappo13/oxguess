@@ -1,6 +1,6 @@
 // oxguess.com/stats: who's playing, who comes back, and how each round went.
 // Public but unlinked, so today's answers stay hidden until you ask for them.
-import { oxHead } from "/js/art.js";
+import { oxHead, herdChart, placed } from "/js/art.js";
 import { catLabel, points, withUnit, herd, rangeFor, toPos, CATS, STEPS, PER_QUESTION } from "/js/game.js";
 import { loadActivity, playerId } from "/js/herd-store.js";
 
@@ -21,11 +21,7 @@ let hideMe = false, showToday = false;
 try { hideMe = localStorage.getItem("ox-stats-hide-me") === "1"; } catch { /* fine */ }
 
 const tile = (l, v, s = "") => `<div class="st-tile"><span class="l">${l}</span><span class="v">${v}</span>${s ? `<span class="s">${s}</span>` : ""}</div>`;
-/** A little ox for charts, drawn in place so it scales with the SVG. */
-const ox = (x, y, r = 8) => `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) scale(${r / 9})">
-  <path d="M-6 -5 Q-14 -8 -12 -15 L-9 -7 Z M6 -5 Q14 -8 12 -15 L9 -7 Z" fill="var(--horn)" stroke="var(--art-ink)" stroke-width="1.6" stroke-linejoin="round"/>
-  <circle r="9" fill="var(--ox)" stroke="var(--art-ink)" stroke-width="1.8"/><ellipse cy="4" rx="5.4" ry="3.6" fill="var(--muzzle)"/>
-  <circle cx="-3.3" cy="-2" r="1.4" fill="var(--art-ink)"/><circle cx="3.3" cy="-2" r="1.4" fill="var(--art-ink)"/></g>`;
+const ox = (x, y, size = 16) => placed(oxHead({ size: 120 }), x, y, size);
 
 function crunch(data, bank, schedule) {
   const keep = (r) => r.day <= today && !(hideMe && r.player === me);
@@ -60,7 +56,7 @@ function crunch(data, bank, schedule) {
       const mine = gs.filter((g) => g.qid === q.id), b = {};
       for (const g of mine) { const k = Math.min(99, Math.floor((g.pos / STEPS) * 100)); b[k] = (b[k] ?? 0) + 1; }
       const h = herd(q, { n: mine.length, b }, d), hp = points(q, h.median), pts = mine.map((g) => points(q, g.value));
-      return { q, guesses: mine, median: h.median, hp, avgPts: avg(pts), beat: pct(pts.filter((x) => x < hp).length, pts.length) };
+      return { q, h, guesses: mine, median: h.median, hp, avgPts: avg(pts), beat: pct(pts.filter((x) => x < hp).length, pts.length) };
     });
     const herdScore = qs.reduce((a, x) => a + x.hp, 0), totals = ps.map((p) => p.total);
     const fresh = [...on.get(d)].filter((p) => firstDay[p] === d).length;
@@ -114,22 +110,10 @@ function scoresChart(rounds) {
     const cx = L + (j + off) * cw + cw / 2, seen = {};
     for (const t of r.totals) { const k = Math.round(t / 4); const n = (seen[k] = (seen[k] ?? 0) + 1) - 1; const dx = (n % 2 ? 1 : -1) * Math.ceil(n / 2) * 5; s += `<circle cx="${(cx + dx).toFixed(1)}" cy="${Y(t).toFixed(1)}" r="2.8" fill="var(--muted)" opacity=".55"/>`; }
     if (r.avg != null) s += `<line x1="${cx - cw * 0.3}" x2="${cx + cw * 0.3}" y1="${Y(r.avg)}" y2="${Y(r.avg)}" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>`;
-    if (r.started) s += ox(cx + cw * 0.36, Y(r.herdScore), 7);
+    if (r.started) s += ox(cx + cw * 0.36, Y(r.herdScore), 16);
     s += `<text x="${cx}" y="${B + 18}" text-anchor="middle">${dayNum(r.day)}</text>`;
   });
   return `<svg class="ch" viewBox="0 0 ${W} ${H}" role="img" aria-label="Every finished round's score by day, with the herd's score and the average">${s}</svg>`;
-}
-
-/** One question on its own slider: each guess a dot, the herd an ox, the answer a green flag. */
-function questionStrip(x, showAnswer) {
-  const q = x.q, r = rangeFor(q), W = 340, L = 10, R = W - 10, X = (pos) => L + pos * (R - L), pv = (v) => toPos(q, r, v) / STEPS;
-  let s = `<line x1="${L}" x2="${R}" y1="34" y2="34" stroke="var(--line)" stroke-width="5" stroke-linecap="round"/>`;
-  const seen = {};
-  for (const g of x.guesses) { const p = g.pos / STEPS, k = Math.round(p * 60), n = (seen[k] = (seen[k] ?? 0) + 1) - 1; s += `<circle cx="${X(p).toFixed(1)}" cy="${(24 - n * 6).toFixed(1)}" r="2.8" fill="var(--muted)" opacity=".6"/>`; }
-  if (showAnswer) { const ax = X(pv(q.answer)); s += `<line x1="${ax}" x2="${ax}" y1="6" y2="40" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${ax + 1.5} 6 l10 4 l-10 4 z" fill="var(--good)"/>`; }
-  s += ox(X(pv(x.median)), 46, 7);
-  s += `<text x="${L}" y="64">${withUnit(q, r.min)}</text><text x="${R}" y="64" text-anchor="end">${withUnit(q, r.max)}</text>`;
-  return `<svg class="ch" viewBox="0 0 ${W} 68" role="img" aria-label="${x.guesses.length} guesses on the slider${showAnswer ? ", with the answer" : ""}">${s}</svg>`;
 }
 
 function hoursChart(hours) {
@@ -155,7 +139,7 @@ function render(data, bank, schedule) {
     const isToday = r.day === today, show = !isToday || showToday;
     const rows = r.qs.map((x) => `<div class="st-q" style="--cat:${CATS[x.q.cat].color}">
         <div class="qt"><span class="chip">${catLabel(x.q)}</span><span>${x.q.q}</span></div>
-        ${questionStrip(x, show)}
+        <div class="st-hist">${herdChart(x.q, x.h, { showAnswer: show })}</div>
         <div class="nums"><span>Answer <b>${show ? withUnit(x.q, x.q.answer) : "hidden"}</b></span><span>Herd <b>${withUnit(x.q, x.median)}</b>${show ? ` · ${x.hp} pts` : ""}</span>${show ? `<span>Players avg <b>${fmt1(x.avgPts)}</b> pts</span><span>Herd beat <b>${x.beat}%</b></span>` : ""}<span>${x.guesses.length} guesses</span></div>
       </div>`).join("");
     return `<details class="st-round" ${isToday ? "open" : ""}>

@@ -414,6 +414,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 .st-q { display: grid; grid-template-columns: 1fr; gap: 4px; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
 .st-q .qt { font-size: 14px; font-weight: 700; display: flex; gap: 8px; align-items: baseline; }
 .st-q .chip { flex: none; font-size: 11px; font-weight: 800; color: var(--cat); text-transform: uppercase; letter-spacing: .06em; }
+.st-hist svg { display: block; width: 100%; height: auto; max-width: 520px; }
 .st-q .nums { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--muted); font-weight: 700; }
 .st-q .nums b { color: var(--ink); }
 .st-hide { font-size: 13px; }

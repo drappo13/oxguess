@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairgoer, balance } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
@@ -438,29 +438,6 @@ function sourceSite(url) {
     return host;
   } catch { return "the source"; }
 }
-function histogram(q, h, g) {
-  const r = rangeFor(q), B = 25, bins = new Array(B).fill(0);
-  h.bins.forEach((c, k) => { bins[Math.floor((k * B) / h.bins.length)] += c; });
-  const mx = Math.max(1, ...bins), W = 320, H = 110, bw = W / B, base = H - 8;
-  const x = (v) => (toPos(q, r, v) / STEPS) * W;
-  const bars = bins.map((c, i) => {
-    const bh = (c / mx) * (H - 34);
-    return `<rect class="bar" style="--i:${i}" x="${(i * bw + 1.5).toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${(bw - 3).toFixed(1)}" height="${bh.toFixed(1)}" rx="3" fill="var(--cat)" opacity=".28"/>`;
-  }).join("");
-  const ax = x(q.answer), gx = x(g), mx2 = x(h.median), top = 26;
-  const icon = (cx, svg) => `<svg x="${(cx - 11).toFixed(1)}" y="${top - 23}" width="22" height="22" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
-  return `<svg viewBox="-12 0 ${W + 24} ${H + 4}" role="img" aria-label="How the herd guessed">
-    ${bars}
-    <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
-    <line x1="${mx2}" x2="${mx2}" y1="${top}" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="3 3"/>
-    ${icon(mx2, oxHead({ size: 120 }))}
-    <line x1="${gx}" x2="${gx}" y1="${top}" y2="${base}" stroke="var(--ink)" stroke-width="2.5"/>
-    ${icon(gx, fairgoer({ size: 120 }))}
-    <line x1="${ax}" x2="${ax}" y1="${top - 18}" y2="${base}" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/>
-    <path d="M${ax + 1.5} ${top - 18} l11 4.5 l-11 4.5 z" fill="var(--good)"/>
-  </svg>`;
-}
-
 // The fairground strength tester: the puck flies up to your points and rings the bell at 20.
 function striker() {
   const marks = [0, 5, 10, 15, 20].map((p) => {
@@ -510,7 +487,7 @@ function reveal(i, { animate = false } = {}) {
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
-          ${histogram(q, h, a.g)}
+          ${herdChart(q, h, { guess: a.g })}
           <div class="legend"><span><i style="background:var(--good)"></i>Answer ${withUnit(q, q.answer)}</span><span>${fairgoer({ size: 14 })} You ${withUnit(q, a.g)} · ${p} pts</span><span>${oxHead({ size: 14 })} Herd ${withUnit(q, h.median)} · ${them} pts</span></div>
           <p class="herd-beat">You beat <b>${v.beat}%</b> of the herd.</p>
         </div>
