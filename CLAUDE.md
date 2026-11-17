@@ -24,15 +24,15 @@ getting close, then see how "the herd" (everyone) guessed. See `docs/vision.md` 
 site/                 the whole website (deployed as-is)
   index.html
   styles.css          tokens, then one section per screen
-  js/app.js           screens: home, story, ask, reveal, results; state and streaks (localStorage)
+  js/app.js           screens: home, story, ask, reveal (you, the answer and the herd on one line), results; state and
+                      streaks (localStorage)
   js/game.js          rules: slider ranges, scoring (0-20 per question), units, the herd
   js/fx.js            sounds (Web Audio), haptics, confetti, stamps, count-ups, the ticket drop
   js/art.js           SVG art: ox head, fairgoer, rosettes, balance scale
   js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries, read activity
   js/stats.js         the /stats page: tiles, players per day, retention and cohorts, rounds (today's answers behind a button)
   stats/index.html    oxguess.com/stats, public but unlinked and noindex
-  staging/            oxguess.com/staging: unlinked, noindex prototypes (the tape measure, a no-save game copy with
-                      proposed changes, and a before/after page at /staging/compare)
+  staging/            oxguess.com/staging: unlinked, noindex prototypes to try on a phone (now: the tape measure, parked)
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)

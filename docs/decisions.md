@@ -4,6 +4,12 @@ Newest first. Each entry: what was decided, and why.
 
 ## 17 Nov 2026
 
+- **The herd moved onto the reveal.** Its result used to sit in a card below "Next question", so most players never
+  saw it. Now the reveal plays in order: your guess, the answer flag sliding out from it, the herd's ox walking from
+  the answer to its guess, your points on the strength tester, one line saying what the herd said and who got closer,
+  then a small rosette. The herd chart (answer, you and herd lines) and "You beat X% of the herd" sit under the fact.
+  Results show each question on one line (you above, herd below, points on the left, guesses centred on their
+  markers). The share text gained blank lines and a plain oxguess.com link; it stays about your score, not the herd.
 - **A fuller stats page, styled like drapk.in/stats but simpler:** all-time and today tiles, players per day (new
   and returning), back-the-next-day and cohorts, every round's scores against the herd, and each question drawn on its
   slider. Today's answers are behind a button rather than hidden outright, since the page is unlinked. Rounds are

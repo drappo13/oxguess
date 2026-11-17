@@ -259,48 +259,49 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 
 /* ---------- the reveal ---------- */
 .q-small { font-size: 15px; font-weight: 600; }
-.rail-wrap { position: relative; height: 66px; margin: 4px 14px 0; }
+.rail-wrap { position: relative; height: 92px; margin: 4px 14px 0; }
 .rail { position: absolute; left: 0; right: 0; top: 44px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 22%, var(--line)); }
 .span-bar { position: absolute; top: 44px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 55%, transparent); }
 .you-pin { position: absolute; top: 22px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .you-pin span { order: -1; display: flex; margin-bottom: 1px; }
 .you-pin i { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); border: 3px solid var(--card); }
+/* the herd sits under the line, so it never covers you or the answer */
+.herd-pin { position: absolute; top: 41px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
+.herd-pin i { width: 14px; height: 14px; border-radius: 50%; background: var(--ox-dark); border: 3px solid var(--card); }
+.herd-pin span { display: flex; margin-top: 1px; }
 .flag { position: absolute; top: 0; z-index: 1; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .flag span { font-family: var(--display); font-weight: 700; font-size: 17px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .flag i { width: 3px; height: 26px; background: var(--good); border-radius: 2px; }
 
-.off-line { margin-top: -6px; text-align: center; font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
+.off-line { margin-top: -4px; text-align: center; font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
 
-/* the strength tester and the judges' verdict */
+/* the strength tester, your points and how the herd did */
 .judging { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
 .striker { width: 64px; height: auto; overflow: visible; }
 #bell { transform-origin: 24px 10px; transform-box: view-box; }
-.verdict { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.verdict { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .plus { font-family: var(--display); font-weight: 700; font-size: 52px; line-height: 1; color: var(--cat); font-variant-numeric: tabular-nums; }
 .plus small { font-size: 20px; color: var(--muted); }
-.tier-row { display: flex; align-items: center; gap: 8px; }
-.tier { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; }
+.duel { display: flex; align-items: center; gap: 8px; font-size: 15px; line-height: 1.35; }
+.duel svg { flex: none; }
+.duel b.win { color: var(--good); }
+.plus-row { display: flex; align-items: flex-start; gap: 6px; }
+.mini-rosette { display: flex; flex: none; margin-top: -6px; }
 
-/* then answer, you, the herd, the chart and the fact */
+/* then the fact, for anyone who scrolls */
 .later:not(.shown) { display: none; }
 .later.shown > * { animation: rise .4s ease-out both; }
 .later.shown > *:nth-child(2) { animation-delay: .12s; }
-.later.shown > *:nth-child(3) { animation-delay: .24s; }
 .later.shown .bar { animation: grow .5s cubic-bezier(.2, .9, .3, 1.2) both; animation-delay: calc(var(--i) * 18ms + .15s); transform-origin: bottom; transform-box: fill-box; }
-.nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.num { display: flex; flex-direction: column; min-width: 0; padding: 10px 14px; border-radius: 16px; background: var(--card-soft); }
-.num .k { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 800; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
-.num .v { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.2; overflow-wrap: anywhere; }
-.num .s { font-size: 13px; color: var(--muted); }
-.herd-num .k { color: var(--ox-dark); }
 .herd { display: flex; flex-direction: column; gap: 8px; }
 .herd-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .herd-head .muted { font-size: 13px; }
 .herd > svg { width: 100%; height: auto; display: block; }
+.herd .legend { justify-content: center; }
+.herd-beat { text-align: center; font-size: 15px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; }
 .legend i { display: inline-block; width: 12px; height: 4px; border-radius: 2px; margin-right: 2px; }
-.herd-line { font-size: 15px; }
 .fact { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-radius: 16px; background: color-mix(in srgb, var(--cat) 10%, var(--card)); }
 .source-chip { align-self: flex-start; display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 99px;
   font: 700 12px var(--body); color: var(--muted); text-decoration: none; background: var(--card); border: 1.5px solid var(--line); }
@@ -336,27 +337,32 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .row-q { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
 .row-q b { font-size: 15px; }
 .row-q span { color: var(--muted); overflow-wrap: anywhere; }
-.cmp { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
-.answer-head { align-self: center; display: flex; justify-content: center; align-items: center; gap: 6px; padding: 4px 14px; border-radius: 99px; background: var(--good-soft); }
-.answer-head .who, .answer-head .val { color: var(--good); }
-.answer-head .who { min-width: 0; }
-.answer-head .val { font-size: 17px; }
-.answer-head > span:empty { display: none; }
-.lane { display: flex; flex-direction: column; gap: 4px; }
-.lane-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; font-size: 13px; }
-.lane-head .who { display: inline-flex; align-items: center; gap: 5px; min-width: 74px; font-weight: 800; color: var(--muted); }
-.lane-head .val { font-family: var(--display); font-weight: 600; font-size: 15px; }
-.lane-pts { font-family: var(--display); font-weight: 700; font-size: 15px; }
-.lane-pts small { font-size: 11px; color: var(--muted); font-weight: 600; }
-.lane-track { position: relative; height: 10px; margin: 12px 6px 0; border-radius: 5px; background: var(--line); }
-.lane-track .gap { position: absolute; top: 0; bottom: 0; border-radius: 5px; }
-.lane-you .gap { background: color-mix(in srgb, var(--ink) 22%, transparent); }
-.lane-herd .gap { background: color-mix(in srgb, var(--ox) 40%, transparent); }
-.lane-track .ans { position: absolute; top: -14px; bottom: -3px; width: 2.5px; margin-left: -1.25px; border-radius: 2px; background: var(--good); }
-.lane-track .ans::after { content: ""; position: absolute; left: 2px; top: 0; border-left: 9px solid var(--good); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
-.lane-track .mark { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; border: 2px solid var(--card); }
-.lane-you .mark { background: var(--ink); }
-.lane-herd .mark { background: var(--ox); }
+/* one line per question: you above it, the herd below it, the answer as a green tick */
+.duo { display: grid; grid-template-columns: 52px 1fr; gap: 8px; }
+.duo-side { display: flex; flex-direction: column; justify-content: space-between; padding: 2px 0; }
+.duo-side span { display: flex; flex-direction: column; font-size: 12px; font-weight: 800; color: var(--muted); line-height: 1.15; }
+.duo-side b { font-family: var(--display); font-size: 17px; color: var(--ink); }
+.duo-side .herd b { color: var(--ox-dark); }
+.duo-side small { font-size: 11px; color: var(--muted); }
+.duo-track { position: relative; height: 118px; margin-right: 10px; }
+.duo-line { position: absolute; left: 0; right: 0; top: 55px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 22%, var(--line)); }
+.duo-ans { position: absolute; top: 44px; width: 4px; height: 30px; margin-left: -2px; border-radius: 2px; background: var(--good); }
+.duo-pin { position: absolute; height: 66px; display: flex; flex-direction: column; }
+.duo-pin.you { top: 0; }
+.duo-pin.herd { top: 52px; }
+.duo-pin.mid { transform: translateX(-50%); align-items: center; }
+.duo-pin.start { transform: translateX(-7px); align-items: flex-start; }
+.duo-pin.end { transform: translateX(calc(-100% + 7px)); align-items: flex-end; }
+.duo-pin .post { width: 14px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+.duo-pin .stem { width: 2.5px; flex: 1; border-radius: 2px; }
+.duo-pin .dot { width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--card); flex: none; }
+.duo-pin.you .stem, .duo-pin.you .dot { background: var(--ink); }
+.duo-pin.herd .stem, .duo-pin.herd .dot { background: var(--ox-dark); }
+.duo-lab { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.duo-lab b { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); }
+.duo-pin.herd .duo-lab b { color: var(--ox-dark); }
+.answer-pill { align-self: center; display: inline-flex; align-items: center; gap: 6px; padding: 4px 14px; border-radius: 99px; background: var(--good-soft); color: var(--good); font-weight: 700; font-size: 14px; }
+.answer-pill b { font-family: var(--display); font-size: 17px; }
 
 .tiers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px 12px; }
 .tiers li { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
