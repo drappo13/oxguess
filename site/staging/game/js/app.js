@@ -1,7 +1,7 @@
 import { oxHead, rosette, fairgoer, balance } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
-  withUnit, offBy, herd as makeHerd, SEED_GUESSES,
+  withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
 import { loadHerds, recordGuess, recordPlay, recordPlayer } from "./herd-store.js";
@@ -439,6 +439,29 @@ function sourceSite(url) {
     return host;
   } catch { return "the source"; }
 }
+function histogram(q, h, g) {
+  const r = rangeFor(q), B = 25, bins = new Array(B).fill(0);
+  h.bins.forEach((c, k) => { bins[Math.floor((k * B) / h.bins.length)] += c; });
+  const mx = Math.max(1, ...bins), W = 320, H = 110, bw = W / B, base = H - 8;
+  const x = (v) => (toPos(q, r, v) / STEPS) * W;
+  const bars = bins.map((c, i) => {
+    const bh = (c / mx) * (H - 34);
+    return `<rect class="bar" style="--i:${i}" x="${(i * bw + 1.5).toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${(bw - 3).toFixed(1)}" height="${bh.toFixed(1)}" rx="3" fill="var(--cat)" opacity=".28"/>`;
+  }).join("");
+  const ax = x(q.answer), gx = x(g), mx2 = x(h.median), top = 26;
+  const icon = (cx, svg) => `<svg x="${(cx - 11).toFixed(1)}" y="${top - 23}" width="22" height="22" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
+  return `<svg viewBox="-12 0 ${W + 24} ${H + 4}" role="img" aria-label="How the herd guessed">
+    ${bars}
+    <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
+    <line x1="${mx2}" x2="${mx2}" y1="${top}" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="3 3"/>
+    ${icon(mx2, oxHead({ size: 120 }))}
+    <line x1="${gx}" x2="${gx}" y1="${top}" y2="${base}" stroke="var(--ink)" stroke-width="2.5"/>
+    ${icon(gx, fairgoer({ size: 120 }))}
+    <line x1="${ax}" x2="${ax}" y1="${top - 18}" y2="${base}" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M${ax + 1.5} ${top - 18} l11 4.5 l-11 4.5 z" fill="var(--good)"/>
+  </svg>`;
+}
+
 // The fairground strength tester: the puck flies up to your points and rings the bell at 20.
 function striker() {
   const marks = [0, 5, 10, 15, 20].map((p) => {
@@ -457,34 +480,41 @@ function striker() {
 
 function reveal(i, { animate = false } = {}) {
   screen = "reveal";
-  const q = today.questions[i], a = state.answers[i], h = herd(q), r = rangeFor(q);
-  const p = points(q, a.g), them = points(q, h.median), last = i === today.questions.length - 1;
+  const q = today.questions[i], a = state.answers[i], h = herd(q), r = rangeFor(q), v = herdVerdict(q, h, a.g);
+  const p = points(q, a.g), them = points(q, h.median), t = tierFor(p), last = i === today.questions.length - 1;
   const gpos = toPos(q, r, a.g) / STEPS, apos = toPos(q, r, q.answer) / STEPS, hpos = toPos(q, r, h.median) / STEPS;
   // One line for the duel on this question: the herd's guess and who got closer.
   const duel = p > them ? `<b class="win">You beat the herd.</b>` : p === them ? `<b>Level with the herd.</b>` : `<b>The herd got closer.</b>`;
+  const hide = animate ? "is-hidden" : "";
   render(`
     ${progress(i, true)}
     <section class="card reveal">
       <p class="muted q-small">${q.q}</p>
       <div class="rail-wrap" aria-hidden="true">
         <div class="rail"></div>
-        <div class="span-bar" id="span" style="left:${Math.min(gpos, apos) * 100}%; width:${Math.abs(apos - gpos) * 100}%"></div>
-        <div class="herd-pin ${animate ? "is-hidden" : ""}" id="herd-pin" style="left:${hpos * 100}%"><i></i><span>${oxHead({ size: 22 })}</span></div>
+        <div class="span-bar ${hide}" id="span" style="left:${Math.min(gpos, apos) * 100}%; width:${Math.abs(apos - gpos) * 100}%"></div>
+        <div class="herd-pin ${hide}" id="herd-pin" style="left:${hpos * 100}%"><i></i><span>${oxHead({ size: 22 })}</span></div>
         <div class="you-pin" style="left:${gpos * 100}%"><i></i><span>${fairgoer({ size: 22 })}</span></div>
-        <div class="flag" id="flag" style="left:${apos * 100}%"><span id="flag-num">${withUnit(q, q.answer)}</span><i></i></div>
+        <div class="flag ${hide}" id="flag" style="left:${apos * 100}%"><span id="flag-num">${withUnit(q, q.answer)}</span><i></i></div>
       </div>
-      <p class="off-line ${animate ? "is-hidden" : ""}" id="off">${offBy(q, a.g)}</p>
+      <p class="off-line ${hide}" id="off">${offBy(q, a.g)}</p>
       <div class="judging">
         ${striker()}
         <div class="verdict">
-          <div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION} points</small></div>
-          <p class="duel ${animate ? "is-hidden" : ""}" id="duel">${oxHead({ size: 26 })}<span>The herd said <b>${withUnit(q, h.median)}</b> (${them} pts). ${duel}</span></p>
+          <div class="plus-row"><div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION} points</small></div><span class="mini-rosette ${hide}" id="rosette" title="${t.name}">${rosette(t.key, p, 34)}</span></div>
+          <p class="duel ${hide}" id="duel">${oxHead({ size: 26 })}<span>The herd said <b>${withUnit(q, h.median)}</b> (${them} pts). ${duel}</span></p>
         </div>
       </div>
     </section>
-    <button class="btn primary big ${animate ? "is-hidden" : ""}" id="next">${last ? "See how you did" : "Next question"}</button>
+    <button class="btn primary big ${hide}" id="next">${last ? "See how you did" : "Next question"}</button>
     <section class="card later ${animate ? "" : "shown"}">
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
+        <div class="herd">
+          <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
+          ${histogram(q, h, a.g)}
+          <div class="legend"><span><i style="background:var(--good)"></i>Answer ${withUnit(q, q.answer)}</span><span>${fairgoer({ size: 14 })} You ${withUnit(q, a.g)} · ${p} pts</span><span>${oxHead({ size: 14 })} Herd ${withUnit(q, h.median)} · ${them} pts</span></div>
+          <p class="herd-beat">You beat <b>${v.beat}%</b> of the herd.</p>
+        </div>
     </section>`, q.cat);
 
   const puck = document.getElementById("puck"), fill = document.getElementById("fill");
@@ -502,12 +532,20 @@ function reveal(i, { animate = false } = {}) {
   if (!animate) { setStriker(); return; }
 
   (async () => {
-    // 1. The answer flag travels from your guess to the real answer, its number ticking as it goes.
-    const flag = document.getElementById("flag"), num = document.getElementById("flag-num"), span = document.getElementById("span");
-    const travel = Math.round(450 + Math.abs(apos - gpos) * 1100);
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById("pts").textContent = "0";
+    const $ = (id) => document.getElementById(id);
+    const show = (id, scale = 1.08) => { const el = $(id); if (!el) return null; el.classList.remove("is-hidden"); pop(el, scale); return el; };
+    $("pts").textContent = "0";
+
+    // 1. Your guess sits on the line for a beat.
+    await wait(350);
+
+    // 2. The answer flag slides out from your guess to the real answer, the gap filling in behind it.
+    const flag = $("flag"), num = $("flag-num"), span = $("span");
+    if (!flag) return; // already moved on
+    flag.classList.remove("is-hidden"); span.classList.remove("is-hidden");
     if (!reduce) {
+      const travel = Math.round(450 + Math.abs(apos - gpos) * 1100);
       sfx.slide(travel);
       flag.animate([{ left: `${gpos * 100}%` }, { left: `${apos * 100}%` }], { duration: travel, easing: "cubic-bezier(.33,1,.68,1)" });
       span.animate([{ width: "0%", left: `${gpos * 100}%` }, { width: `${Math.abs(apos - gpos) * 100}%`, left: `${Math.min(gpos, apos) * 100}%` }], { duration: travel, easing: "cubic-bezier(.33,1,.68,1)" });
@@ -522,57 +560,61 @@ function reveal(i, { animate = false } = {}) {
       });
     }
     pop(num, 1.2);
-    const off = document.getElementById("off");
-    off.classList.remove("is-hidden");
-    pop(off, 1.08);
+    show("off");
+    await wait(300);
+
+    // 3. The herd's ox walks from the answer to where the herd guessed, a soft tick on each step.
+    const herdPin = show("herd-pin", 1.15);
+    if (!herdPin) return;
+    if (!reduce) {
+      const walk = Math.round(350 + Math.abs(hpos - apos) * 900), steps = Math.max(2, Math.round(walk / 170));
+      herdPin.animate([{ left: `${apos * 100}%` }, { left: `${hpos * 100}%` }], { duration: walk, easing: "cubic-bezier(.4,0,.3,1)" });
+      herdPin.querySelector("span").animate([{ transform: "translateY(0)" }, { transform: "translateY(3px)" }, { transform: "translateY(0)" }], { duration: walk / steps, iterations: steps });
+      for (let k = 0; k < steps; k++) { sfx.tick(); await wait(walk / steps); }
+    }
     await wait(200);
 
-    // 2. The strength tester: up goes the puck, the points count with it.
+    // 4. The strength tester: up goes the puck, the points count with it.
     const climb = 250 + p * 28;
+    if (!puck.isConnected) return;
     if (!reduce && p > 0) {
       sfx.whoosh(climb);
       puck.animate([{ transform: "translateY(0)" }, { transform: `translateY(${rise}px)` }], { duration: climb, easing: "cubic-bezier(.2,.8,.3,1)", fill: "forwards" });
       fill.animate([{ y: 132, height: 4 }, { y: 132 + rise, height: -rise + 4 }], { duration: climb, easing: "cubic-bezier(.2,.8,.3,1)", fill: "forwards" });
     }
-    await countUp(document.getElementById("pts"), p, climb, { sound: false });
+    await countUp($("pts"), p, climb, { sound: false });
     setStriker();
-
-    // 3. The judges' verdict.
     const plus = document.querySelector(".plus");
+    if (!plus) return;
     if (p === PER_QUESTION) {
       sfx.bell(); buzz([30, 40, 30, 40, 80]); flash();
-      document.getElementById("bell")?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-14deg)" }, { transform: "rotate(12deg)" }, { transform: "rotate(-8deg)" }, { transform: "rotate(0)" }], { duration: 700 });
+      $("bell")?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-14deg)" }, { transform: "rotate(12deg)" }, { transform: "rotate(-8deg)" }, { transform: "rotate(0)" }], { duration: 700 });
       const rect = document.querySelector(".striker").getBoundingClientRect();
       bunting({ x: rect.left + rect.width / 2, y: rect.top + 20 });
     } else if (p >= 17) { sfx.chime(); buzz([20, 30, 20]); sparkle(plus); }
     else if (p >= 8) { sfx.plink(); buzz(15); }
     else { sfx.wobble(); buzz(8); }
     pop(plus, 1.18);
-
-    // 4. The herd trots along the line from your guess to its own, then says who got closer.
     await wait(350);
-    const herdPin = document.getElementById("herd-pin");
-    if (!herdPin) return; // already moved on to the next question
-    herdPin.classList.remove("is-hidden");
-    if (!reduce) {
-      const trot = Math.round(400 + Math.abs(hpos - gpos) * 700);
-      herdPin.animate([{ left: `${gpos * 100}%` }, { left: `${hpos * 100}%` }], { duration: trot, easing: "cubic-bezier(.33,1,.68,1)" });
-      herdPin.querySelector("span").animate([{ transform: "translateY(0)" }, { transform: "translateY(-4px)" }, { transform: "translateY(0)" }], { duration: 180, iterations: Math.max(2, Math.round(trot / 180)) });
-      await wait(trot);
-    }
-    const duelEl = document.getElementById("duel");
-    if (!duelEl) return;
-    duelEl.classList.remove("is-hidden");
-    pop(duelEl, 1.06);
-    if (p > them) sfx.chime();
 
-    // 5. Then Next, with the fact underneath for anyone who scrolls.
-    await wait(400);
+    // 5. What the herd said, and who got closer.
+    if (!show("duel", 1.06)) return;
+    if (p > them) sfx.chime();
+    await wait(450);
+
+    // 6. The judges pin a rosette on it.
+    const ros = $("rosette");
+    if (!ros) return;
+    ros.classList.remove("is-hidden");
+    sfx.stamp(); buzz(12);
+    ros.animate([{ transform: "scale(.3) rotate(-30deg)", opacity: 0 }, { transform: "scale(1.2) rotate(8deg)", opacity: 1 }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.3,1.5,.5,1)" });
+    await wait(450);
+
+    // 7. Then Next, with the fact and the herd underneath for anyone who scrolls.
     const later = document.querySelector(".later");
     if (!later) return;
     later.classList.add("shown");
-    const next = document.getElementById("next");
-    next.classList.remove("is-hidden");
+    $("next")?.classList.remove("is-hidden");
   })();
 }
 
@@ -586,7 +628,7 @@ function compare(q, g, herdGuess, yp, hp) {
     const x = at(v), lab = `<span class="duo-lab">${icon}<b>${withUnit(q, v)}</b>${p} pts</span>`, post = `<span class="post">${who === "you" ? '<i class="stem"></i><i class="dot"></i>' : '<i class="dot"></i><i class="stem"></i>'}</span>`;
     return `<div class="duo-pin ${who} ${side(x)}" style="left:${x * 100}%">${who === "you" ? lab + post : post + lab}</div>`;
   };
-  return `<div class="duo-head"><span class="ans"><i class="ans-flag"></i>Answer <b>${withUnit(q, q.answer)}</b></span></div>
+  return `<div class="answer-pill"><i class="ans-flag"></i>Answer <b>${withUnit(q, q.answer)}</b></div>
     <div class="duo" aria-label="Answer ${withUnit(q, q.answer)}; you ${withUnit(q, g)}, ${yp} points; the herd ${withUnit(q, herdGuess)}, ${hp} points">
       <div class="duo-line"></div><i class="duo-ans" style="left:${at(q.answer) * 100}%"></i>
       ${pin("you", fairgoer({ size: 20 }), g, yp)}
@@ -600,8 +642,8 @@ function results({ celebrate = false } = {}) {
   const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join("");
   const s = streak();
   const beat = you > herdScore, level = you === herdScore;
-  const duelShare = beat ? "I beat the herd!" : level ? "Dead level with the herd" : "The herd beat me";
-  const share = `OxGuess · Round ${today.number} 🐂\n${grid} ${you}/${max}\nHerd ${herdScore}/${max} · ${duelShare}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\nhttps://oxguess.com/`;
+  // A blank line after the title and before the link, so it reads cleanly in a chat.
+  const share = `OxGuess · Round ${today.number} 🐂\n\n${grid} ${you}/${max}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\n\noxguess.com`;
   const headline = beat ? "You beat the herd!" : level ? "Dead level with the herd" : "The herd wins today";
   const sub = beat ? "Smarter than the crowd. Don't let it go to your head." : level ? "Great minds, and all that." : "It knows things. Tomorrow's another fair.";
   render(`
@@ -622,7 +664,7 @@ function results({ celebrate = false } = {}) {
         const q = qs[i], yp = ptsAt(i);
         return `<div class="my-rosette ${celebrate ? "pending" : ""}">${rosette(tierFor(yp).key, yp, 42)}<span>${catLabel(q)}</span></div>`;
       }).join("")}</div>
-      <button class="btn primary big" id="share">Share my score</button>
+      <button class="btn primary big" id="share">Share my rosettes</button>
       <p class="fine center" id="copied" hidden>Copied. Go on, show off.</p>
       <pre class="share-text" id="share-text" hidden>${share}</pre>
       <p class="center muted">New guesses in <b id="cd"></b></p>

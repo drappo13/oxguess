@@ -285,10 +285,20 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .duel { display: flex; align-items: center; gap: 8px; font-size: 15px; line-height: 1.35; }
 .duel svg { flex: none; }
 .duel b.win { color: var(--good); }
+.plus-row { display: flex; align-items: flex-start; gap: 6px; }
+.mini-rosette { display: flex; flex: none; margin-top: -6px; }
 
 /* then the fact, for anyone who scrolls */
 .later:not(.shown) { display: none; }
 .later.shown > * { animation: rise .4s ease-out both; }
+.later.shown > *:nth-child(2) { animation-delay: .12s; }
+.later.shown .bar { animation: grow .5s cubic-bezier(.2, .9, .3, 1.2) both; animation-delay: calc(var(--i) * 18ms + .15s); transform-origin: bottom; transform-box: fill-box; }
+.herd { display: flex; flex-direction: column; gap: 8px; }
+.herd-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.herd-head .muted { font-size: 13px; }
+.herd > svg { width: 100%; height: auto; display: block; }
+.herd .legend { justify-content: center; }
+.herd-beat { text-align: center; font-size: 15px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; }
 .legend i { display: inline-block; width: 12px; height: 4px; border-radius: 2px; margin-right: 2px; }
@@ -345,9 +355,8 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .duo-lab { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 13px; color: var(--muted); font-weight: 700; }
 .duo-lab b { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); }
 .duo-pin.herd .duo-lab b { color: var(--ox-dark); }
-.duo-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); font-weight: 700; padding-left: 40px; }
-.duo-head .ans { display: inline-flex; align-items: center; color: var(--good); }
-.duo-head .ans b { font-family: var(--display); font-size: 16px; margin-left: 4px; }
+.answer-pill { align-self: center; display: inline-flex; align-items: center; gap: 6px; margin-left: 40px; padding: 4px 14px; border-radius: 99px; background: var(--good-soft); color: var(--good); font-weight: 700; font-size: 14px; }
+.answer-pill b { font-family: var(--display); font-size: 17px; }
 
 .tiers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px 12px; }
 .tiers li { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
@@ -407,6 +416,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 
 @media (prefers-reduced-motion: reduce) {
   .hero-ox .ox, .story-hero .ox, .streak-pill, .stagger > *, .enter, .story-page, .story-dot, .story-mark, .story-bunting i,
-  .balance .beam, .balance .pan-l, .balance .pan-r, .later.shown > * { animation: none; }
+  .balance .beam, .balance .pan-l, .balance .pan-r, .later.shown > *, .later.shown .bar { animation: none; }
   .btn { transition: none; }
 }
