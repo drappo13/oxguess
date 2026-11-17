@@ -1447,7 +1447,7 @@
       "answer": 13,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "One letter is the ʻokina, which marks a glottal stop. It became an official letter in 1864.",
       "source": {
         "name": "Wikipedia: Hawaiian alphabet",
@@ -1455,7 +1455,9 @@
       },
       "evidence": "The current official Hawaiian alphabet consists of 13 letters",
       "minB": 1,
-      "maxB": 200
+      "maxB": 200,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d20-many",
