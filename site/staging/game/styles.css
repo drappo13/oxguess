@@ -327,27 +327,27 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .row-q { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
 .row-q b { font-size: 15px; }
 .row-q span { color: var(--muted); overflow-wrap: anywhere; }
-.cmp { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
-.answer-head { align-self: center; display: flex; justify-content: center; align-items: center; gap: 6px; padding: 4px 14px; border-radius: 99px; background: var(--good-soft); }
-.answer-head .who, .answer-head .val { color: var(--good); }
-.answer-head .who { min-width: 0; }
-.answer-head .val { font-size: 17px; }
-.answer-head > span:empty { display: none; }
-.lane { display: flex; flex-direction: column; gap: 4px; }
-.lane-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; font-size: 13px; }
-.lane-head .who { display: inline-flex; align-items: center; gap: 5px; min-width: 74px; font-weight: 800; color: var(--muted); }
-.lane-head .val { font-family: var(--display); font-weight: 600; font-size: 15px; }
-.lane-pts { font-family: var(--display); font-weight: 700; font-size: 15px; }
-.lane-pts small { font-size: 11px; color: var(--muted); font-weight: 600; }
-.lane-track { position: relative; height: 10px; margin: 12px 6px 0; border-radius: 5px; background: var(--line); }
-.lane-track .gap { position: absolute; top: 0; bottom: 0; border-radius: 5px; }
-.lane-you .gap { background: color-mix(in srgb, var(--ink) 22%, transparent); }
-.lane-herd .gap { background: color-mix(in srgb, var(--ox) 40%, transparent); }
-.lane-track .ans { position: absolute; top: -14px; bottom: -3px; width: 2.5px; margin-left: -1.25px; border-radius: 2px; background: var(--good); }
-.lane-track .ans::after { content: ""; position: absolute; left: 2px; top: 0; border-left: 9px solid var(--good); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
-.lane-track .mark { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; border: 2px solid var(--card); }
-.lane-you .mark { background: var(--ink); }
-.lane-herd .mark { background: var(--ox); }
+/* one line per question: you above it, the herd below it, the answer as a green tick */
+.duo { position: relative; height: 118px; margin: 0 10px; }
+.duo-line { position: absolute; left: 0; right: 0; top: 55px; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--cat) 22%, var(--line)); }
+.duo-ans { position: absolute; top: 44px; width: 4px; height: 30px; margin-left: -2px; border-radius: 2px; background: var(--good); }
+.duo-pin { position: absolute; height: 66px; display: flex; flex-direction: column; }
+.duo-pin.you { top: 0; }
+.duo-pin.herd { top: 52px; }
+.duo-pin.mid { transform: translateX(-50%); align-items: center; }
+.duo-pin.start { transform: translateX(-7px); align-items: flex-start; }
+.duo-pin.end { transform: translateX(calc(-100% + 7px)); align-items: flex-end; }
+.duo-pin .post { width: 14px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+.duo-pin .stem { width: 2.5px; flex: 1; border-radius: 2px; }
+.duo-pin .dot { width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--card); flex: none; }
+.duo-pin.you .stem, .duo-pin.you .dot { background: var(--ink); }
+.duo-pin.herd .stem, .duo-pin.herd .dot { background: var(--ox-dark); }
+.duo-lab { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 13px; color: var(--muted); font-weight: 700; }
+.duo-lab b { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--ink); }
+.duo-pin.herd .duo-lab b { color: var(--ox-dark); }
+.duo-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); font-weight: 700; padding-left: 40px; }
+.duo-head .ans { display: inline-flex; align-items: center; color: var(--good); }
+.duo-head .ans b { font-family: var(--display); font-size: 16px; margin-left: 4px; }
 
 .tiers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px 12px; }
 .tiers li { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }

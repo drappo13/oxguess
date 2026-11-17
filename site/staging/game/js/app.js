@@ -577,22 +577,21 @@ function reveal(i, { animate = false } = {}) {
 }
 
 // ---------- results ----------
-// One question on its scale, without anything overlapping: a lane for you and a lane for the herd,
-// with the answer as a green tick at the same point on both, labelled once above.
+// One question on one line: you above it, the herd below it, the answer as a green tick. Labels hug the
+// nearest edge when a guess sits near either end, so they never run off the card.
 function compare(q, g, herdGuess, yp, hp) {
-  const r = rangeFor(q), x = (v) => (toPos(q, r, v) / STEPS) * 100, ax = x(q.answer);
-  const lane = (who, icon, v, p) => {
-    const vx = x(v), lo = Math.min(vx, ax), w = Math.abs(vx - ax);
-    return `<div class="lane lane-${who}">
-      <div class="lane-head"><span class="who">${icon}</span><span class="val">${withUnit(q, v)}</span><span class="lane-pts">${p}<small> pts</small></span></div>
-      <div class="lane-track"><i class="gap" style="left:${lo}%;width:${w}%"></i><i class="ans" style="left:${ax}%"></i><i class="mark" style="left:${vx}%"></i></div>
-    </div>`;
+  const r = rangeFor(q), at = (v) => toPos(q, r, v) / STEPS;
+  const side = (x) => (x < 0.18 ? "start" : x > 0.82 ? "end" : "mid");
+  const pin = (who, icon, v, p) => {
+    const x = at(v), lab = `<span class="duo-lab">${icon}<b>${withUnit(q, v)}</b>${p} pts</span>`, post = `<span class="post">${who === "you" ? '<i class="stem"></i><i class="dot"></i>' : '<i class="dot"></i><i class="stem"></i>'}</span>`;
+    return `<div class="duo-pin ${who} ${side(x)}" style="left:${x * 100}%">${who === "you" ? lab + post : post + lab}</div>`;
   };
-  return `<div class="cmp">
-    <div class="lane-head answer-head"><span class="who"><i class="ans-flag"></i>Answer</span><span class="val">${withUnit(q, q.answer)}</span><span></span></div>
-    ${lane("you", `${fairgoer({ size: 20 })}You`, g, yp)}
-    ${lane("herd", `${oxHead({ size: 18 })}Herd`, herdGuess, hp)}
-  </div>`;
+  return `<div class="duo-head"><span class="ans"><i class="ans-flag"></i>Answer <b>${withUnit(q, q.answer)}</b></span></div>
+    <div class="duo" aria-label="Answer ${withUnit(q, q.answer)}; you ${withUnit(q, g)}, ${yp} points; the herd ${withUnit(q, herdGuess)}, ${hp} points">
+      <div class="duo-line"></div><i class="duo-ans" style="left:${at(q.answer) * 100}%"></i>
+      ${pin("you", fairgoer({ size: 20 }), g, yp)}
+      ${pin("herd", oxHead({ size: 20 }), herdGuess, hp)}
+    </div>`;
 }
 
 function results({ celebrate = false } = {}) {
