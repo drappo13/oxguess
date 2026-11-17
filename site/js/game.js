@@ -80,21 +80,23 @@ function niceRound(v, wholeAnswer) {
 
 // --- scoring (0–100) ---
 // One rule: how many times out you are, judged against the answer and never against the slider, so a wide or
-// hand-set slider can't make a question easier. Amounts are forgiving (nothing once you're 4 times out). Dates and
-// human ages, which people know better, are strict (nothing at 1.6 times out). Temperatures count from an ordinary
-// day (15°C), since 0°C isn't "none". Dates count how long ago, and dates and ages add 10 years so the last few
-// years and young ages don't become impossible. Full marks within 2% everywhere.
+// hand-set slider can't make a question easier. Full marks within 2% everywhere.
+// Amounts are forgiving: nothing once you're 3.4 times out, on a slightly bent curve that drops faster for near
+// misses and eases off further out. Temperatures use the same curve, measured from an ordinary day (15°C) because
+// 0°C isn't "none". Dates and human ages, which people know better, are strict and straight: nothing at 1.75 times
+// out, measured as how long ago or the age, each plus 10 years so recent events and young ages stay fair.
 const ratio = (a, b) => Math.max(a / b, b / a);
+const AMOUNT = { none: 3.4, bend: 0.85 }, KNOWN = { none: 1.75, bend: 1 };
 function timesOut(q, g) {
-  if (q.scale === "year") { const a = THIS_YEAR - q.answer + 10, b = THIS_YEAR - g + 10; return [b > 0 ? ratio(a, b) : Infinity, 1.6]; }
-  if (q.unit === "years") return [ratio(q.answer + 10, Math.max(0, g) + 10), 1.6];
-  if (q.unit === "°C") return [1 + Math.abs(g - q.answer) / Math.max(5, Math.abs(q.answer - 15)), 4];
-  return [g > 0 ? ratio(q.answer, g) : Infinity, 4];
+  if (q.scale === "year") { const a = THIS_YEAR - q.answer + 10, b = THIS_YEAR - g + 10; return [b > 0 ? ratio(a, b) : Infinity, KNOWN]; }
+  if (q.unit === "years") return [ratio(q.answer + 10, Math.max(0, g) + 10), KNOWN];
+  if (q.unit === "°C") return [1 + Math.abs(g - q.answer) / Math.max(5, Math.abs(q.answer - 15)), AMOUNT];
+  return [g > 0 ? ratio(q.answer, g) : Infinity, AMOUNT];
 }
 export function score(q, g) {
-  const [r, none] = timesOut(q, g);
+  const [r, { none, bend }] = timesOut(q, g);
   if (r <= 1.02) return 100;
-  return Math.max(0, Math.round(100 * (1 - Math.log10(r) / Math.log10(none))));
+  return Math.max(0, Math.round(100 * (1 - Math.min(1, Math.log10(r) / Math.log10(none)) ** bend)));
 }
 
 /** Whole points out of 20 for a guess. */

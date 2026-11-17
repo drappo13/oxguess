@@ -16,13 +16,13 @@ Newest first. Each entry: what was decided, and why.
   rescored from their guesses with the current rules, so players and the herd are always scored alike.
 - **Scoring is judged against the answer, never the slider.** Even and year sliders used to score by the slider's width,
   so a wide or hand-set slider made a question easier (the Burj Khalifa on 0 to 10,000 m gave 19 of 20 to a guess 21%
-  too tall). Now every question scores by how many times out the guess is: full marks within 2%, then a smooth
-  log curve to zero. Amounts are forgiving (zero at 4 times out). Calendar years and human ages are strict (zero at
-  1.6 times out), measured as how long ago and age, each plus 10 years so recent events and young ages stay fair.
-  Temperatures count from an ordinary day (15°C) with the forgiving curve. The steeper curve is the same formula
-  with a nearer endpoint, not a cut-off, so there's no cliff. Picked against real guesses: dates average about 11
-  points a guess, amounts about 12. Scores are recalculated from guesses, so rounds played before the change show
-  slightly different points; stored round totals keep their old values.
+  too tall). Now every question scores by how many times out the guess is, with full marks within 2%. Amounts are
+  forgiving: nothing at 3.4 times out, on a slightly bent curve (points fall faster for near misses, then ease off).
+  Temperatures use that curve measured from an ordinary day (15°C). Calendar years and human ages are strict and
+  straight: nothing at 1.75 times out, measured as how long ago and age, each plus 10 years so recent events and young
+  ages stay fair. The endpoints and bend were fitted to the owner's sense of fair scores for ten example guesses (within
+  a point on every one), after a first version (4x and 1.6x, straight) felt too kind on amounts and too harsh on dates.
+  Scores are recalculated from guesses, so earlier rounds show slightly different points; the stats page rescores too.
 
 ## 16 Nov 2026
 
