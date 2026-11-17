@@ -1,6 +1,6 @@
 // The question editor: a small local server, no dependencies. Run `node tools/editor/server.mjs` and open
-// http://localhost:4400. It reads and writes site/data/questions.json, schedule.json and docs/question-ideas.md, runs the content check on
-// every save, and Publish commits those two files and pushes, which deploys the game. Never part of the website.
+// http://localhost:4400. It reads and writes site/data/questions.json, schedule.json and docs/question-ideas.md. Save
+// runs the content check and, if it passes, commits and pushes them, which deploys the game. Never part of the website.
 import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -40,32 +40,25 @@ http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost");
   try {
     if (url.pathname === "/api/data") return send(res, 200, { ...(await readData()), unpublished: Boolean(await status()) });
+    // Save and publish in one go: write the files, run the content check, and if it passes commit and push (the
+    // game updates about a minute later). If the check fails the files are still saved, but nothing goes live.
     if (url.pathname === "/api/save" && req.method === "POST") {
       const b = await body(req), now = await readData();
       // Someone (usually Claude, from the chat) changed the files since this page loaded: don't overwrite their work.
-      if (b.hash !== now.hash) return send(res, 409, { error: "The question files changed since you loaded them. Reload to pick up those changes, then make your edit again." });
+      if (b.hash !== now.hash) return send(res, 409, { error: "The question files changed since you loaded them, so nothing was saved. Reload to pick up those changes, then make your edit again." });
       await fs.writeFile(path.join(ROOT, FILES.questions), bankText(b.questions));
       await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(b.days));
       if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
-      const c = await check(), after = await readData();
-      return send(res, 200, { ok: c.ok, report: c.out, hash: after.hash, unpublished: Boolean(await status()) });
-    }
-    if (url.pathname === "/api/publish" && req.method === "POST") {
-      const b = await body(req), c = await check();
-      if (!c.ok) return send(res, 400, { error: "The content check failed, so nothing was published.", report: c.out });
-      if (!(await status())) return send(res, 200, { ok: true, report: "Nothing to publish: the live questions already match these." });
-      const steps = [
-        ["git", ["add", "--", ...Object.values(FILES)]],
-        ["git", ["commit", "-m", (b.message || "Questions: edits from the question editor").slice(0, 200), "--", ...Object.values(FILES)]],
-        ["git", ["push", "origin", "main"]],
-      ];
-      const log = [];
-      for (const [cmd, args] of steps) {
+      const c = await check(), hash = (await readData()).hash;
+      if (!c.ok) return send(res, 200, { ok: false, live: false, hash, report: `Saved, but not published. Fix these first:\n${c.out}` });
+      if (!(await status())) return send(res, 200, { ok: true, live: true, hash, report: "Saved. Nothing new to publish: the live game already has these." });
+      const message = (b.message || "Questions: edits from the question editor").slice(0, 200), log = [];
+      for (const [cmd, args] of [["git", ["add", "--", ...Object.values(FILES)]], ["git", ["commit", "-m", message, "--", ...Object.values(FILES)]], ["git", ["push", "origin", "main"]]]) {
         const r = await run(cmd, args);
         log.push(r.out);
-        if (!r.ok) return send(res, 500, { error: `${cmd} ${args[0]} failed`, report: log.join("\n") });
+        if (!r.ok) return send(res, 200, { ok: true, live: false, hash, report: `Saved, but publishing failed at "${cmd} ${args[0]}". Try again, or ask Claude.\n${log.join("\n")}` });
       }
-      return send(res, 200, { ok: true, report: `${c.out}\nPublished. The game updates in about a minute.\n${log.filter(Boolean).join("\n")}` });
+      return send(res, 200, { ok: true, live: true, hash, report: `Saved and published. The game updates in about a minute.\n${c.out}` });
     }
     // Static: the editor itself, plus the game's own styles and rules so previews match the real thing.
     let file = url.pathname === "/" ? "tools/editor/index.html" : url.pathname.startsWith("/site/") ? url.pathname.slice(1) : `tools/editor${url.pathname}`;

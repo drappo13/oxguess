@@ -16,7 +16,7 @@ const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").
 const today = keyOf(new Date());
 
 let Q = [], DAYS = {}, IDEAS = [], HASH = "", saved = new Set();
-let dirty = false, unpublished = false, report = null, reportOk = true, busy = false;
+let dirty = false, live = true, report = null, reportOk = true, busy = false;
 let view = "schedule", editing = null, filter = { status: "all", cat: "", text: "" }, showPast = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
@@ -76,15 +76,14 @@ function pair(q, big = false) {
 
 // ---------- top bar ----------
 function topBar() {
-  const state = busy ? ["", "Working…"] : dirty ? ["warn", "Unsaved changes"] : !reportOk ? ["bad", "Saved, but the check found problems"] : unpublished ? ["warn", "Saved, not published"] : ["good", "Saved and live"];
+  const state = busy ? ["", "Saving and publishing…"] : dirty ? ["warn", "Unsaved changes"] : !reportOk ? ["bad", "Saved, not live: see below"] : !live ? ["warn", "Saved, not live yet"] : ["good", "Live"];
   return `<div class="ed-bar">
     <h1>${oxHead({ size: 30 })} OxGuess questions</h1>
     <span class="ed-state ${state[0]}">${state[1]}</span>
     <div class="ed-tabs"><button data-view="schedule" class="${view === "schedule" ? "on" : ""}">Schedule</button><button data-view="bank" class="${view === "bank" ? "on" : ""}">Bank</button><button data-view="ideas" class="${view === "ideas" ? "on" : ""}">Ideas (${IDEAS.length})</button></div>
     <button class="btn" id="reload" ${busy ? "disabled" : ""}>Reload</button>
-    <button class="btn primary" id="save" ${!dirty || busy ? "disabled" : ""}>Save</button>
     <input id="msg" placeholder="What changed? (optional)" style="font:600 13px var(--body);padding:8px 10px;border-radius:10px;border:2px solid var(--line);min-width:180px">
-    <button class="btn" id="publish" ${dirty || !unpublished || !reportOk || busy ? "disabled" : ""} title="Commit and push: the game updates in about a minute">Publish</button>
+    <button class="btn primary" id="save" ${(!dirty && live) || busy ? "disabled" : ""} title="Saves, runs the check and, if it passes, publishes: the game updates in about a minute">Save and publish</button>
   </div>${report ? `<div class="ed-report ${reportOk ? "" : "bad"}">${esc(report)}</div>` : ""}`;
 }
 
@@ -239,7 +238,6 @@ el.addEventListener("click", async (e) => {
   else if (t.id === "save") await save();
   else if (t.id === "idea-add") addIdea();
   else if (t.dataset.ideaDel !== undefined) { IDEAS.splice(Number(t.dataset.ideaDel), 1); touch(); draw(); }
-  else if (t.id === "publish") await publish();
   else if (t.id === "new") {
     let n = 1; while (byId()[`new-${n}`]) n++;
     Q.push({ id: `new-${n}`, cat: "far", kind: null, q: "", answer: null, unit: "km", alt: null, scale: "log", fact: "", source: { name: "", url: "" }, evidence: "" });
@@ -266,12 +264,12 @@ el.addEventListener("change", (e) => {
     const q = byId()[editing];
     if (!setField(q, s.dataset.k, s.value)) { s.style.borderColor = "var(--stamp)"; return; }
     s.style.borderColor = ""; touch();
-    if (s.dataset.k === "cat") draw(); else { document.getElementById("preview").innerHTML = preview(byId()[editing]); el.querySelector(".ed-state").outerHTML = `<span class="ed-state warn">Unsaved changes</span>`; el.querySelector("#save").disabled = false; el.querySelector("#publish").disabled = true; }
+    if (s.dataset.k === "cat") draw(); else { document.getElementById("preview").innerHTML = preview(byId()[editing]); el.querySelector(".ed-state").outerHTML = `<span class="ed-state warn">Unsaved changes</span>`; el.querySelector("#save").disabled = false; }
   }
 });
 el.addEventListener("input", (e) => {
   const s = e.target;
-  if (s.dataset.idea !== undefined) { IDEAS[Number(s.dataset.idea)] = s.value; touch(); const st = el.querySelector(".ed-state"); if (st) { st.className = "ed-state warn"; st.textContent = "Unsaved changes"; } el.querySelector("#save").disabled = false; el.querySelector("#publish").disabled = true; return; }
+  if (s.dataset.idea !== undefined) { IDEAS[Number(s.dataset.idea)] = s.value; touch(); const st = el.querySelector(".ed-state"); if (st) { st.className = "ed-state warn"; st.textContent = "Unsaved changes"; } el.querySelector("#save").disabled = false; return; }
   if (s.id === "f-text") { filter.text = s.value; const pos = s.selectionStart; draw(); const n = document.getElementById("f-text"); n.focus(); n.setSelectionRange(pos, pos); }
   else if (s.dataset.k && s.tagName !== "SELECT" && s.dataset.k !== "id") { const q = byId()[editing]; if (setField(q, s.dataset.k, s.value)) { touch(); document.getElementById("preview").innerHTML = preview(q); } }
 });
@@ -283,24 +281,17 @@ window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); 
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; HASH = d.hash; unpublished = d.unpublished; saved = new Set(Q.map((q) => q.id));
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; HASH = d.hash; live = !d.unpublished; saved = new Set(Q.map((q) => q.id));
   dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
 }
 async function save() {
   busy = true; draw();
-  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), hash: HASH }) }), d = await r.json();
-  busy = false;
-  if (r.status === 409) { report = d.error; reportOk = false; draw(); return; }
-  if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
-  HASH = d.hash; dirty = false; unpublished = d.unpublished; reportOk = d.ok; saved = new Set(Q.map((q) => q.id));
-  report = d.ok ? `Saved. ${d.report}` : `Saved, but fix these before publishing:\n${d.report}`; draw();
-}
-async function publish() {
-  busy = true; draw();
   const message = document.getElementById("msg")?.value.trim();
-  const r = await fetch("/api/publish", { method: "POST", body: JSON.stringify({ message: message ? `Questions: ${message}` : "" }) }), d = await r.json();
-  busy = false; reportOk = r.ok; report = r.ok ? d.report : `${d.error}\n${d.report ?? ""}`;
-  if (r.ok) unpublished = false;
+  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), hash: HASH, message: message ? `Questions: ${message}` : "" }) });
+  const d = await r.json();
+  busy = false;
+  if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
+  HASH = d.hash; dirty = false; live = d.live; reportOk = d.ok; report = d.report; saved = new Set(Q.map((q) => q.id));
   draw();
 }
 load();
