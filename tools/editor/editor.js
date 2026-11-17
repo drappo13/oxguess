@@ -14,9 +14,13 @@ const shift = (k, n) => { const d = dateOf(k); d.setDate(d.getDate() + n); retur
 const nice = (k) => dateOf(k).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const today = keyOf(new Date());
+// Your own mark for each day, clicked through in turn. Untouched is the default (what Claude filled in).
+const MARKS = { "": ["untouched", "Untouched"], doing: ["doing", "In progress"], ready: ["ready", "Ready"] }, NEXT = { "": "doing", doing: "ready", ready: "" };
+const TICK = `<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const mark = (d) => { const m = MARKS[REVIEW[d] ?? ""]; return `<button class="mark ${m[0]}" data-mark="${d}" title="Click to change: untouched, in progress, ready">${m[0] === "ready" ? TICK : ""}${m[1]}</button>`; };
 const WARN = `<svg class="warn-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="Careful"><path d="M12 3 2 21h20L12 3z" fill="var(--c-when)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.3" fill="var(--ink)"/></svg>`;
 
-let Q = [], DAYS = {}, IDEAS = [], HASH = "", saved = new Set();
+let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, HASH = "", saved = new Set();
 let dirty = false, live = true, report = null, reportOk = true, busy = false;
 let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false, showToday = false;
 
@@ -112,16 +116,18 @@ function schedule() {
   const day = (d) => {
     const isToday = d === today, locked = d < today;
     // Today is in play, so it stays folded away unless you open it on purpose.
-    if (isToday && !showToday) return `<section class="ed-day today folded"><h3>${WARN}${nice(d)} <small>Round ${dates.indexOf(d) + 1} · today, in play</small></h3>
+    if (isToday && !showToday) return `<section class="ed-day today folded"><h3>${WARN}${nice(d)} <small>Round ${dates.indexOf(d) + 1} · today, in play</small>${mark(d)}</h3>
       <span class="note">Editing today restarts the round for anyone who has already started it.</span><button class="btn" id="today">Show today's questions</button></section>`;
     return `<section class="ed-day ${isToday ? "today" : ""} ${locked ? "past" : ""}">
-      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
+      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${locked ? "" : mark(d)}${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
       ${isToday ? `<span class="note">Editing today restarts the round for anyone who has already started it.</span>` : ""}
       ${DAYS[d].map((_, j) => slot(d, j, locked)).join("")}
     </section>`;
   };
   const last = dates.at(-1);
-  return `${past.length ? `<button class="btn" id="past">${showPast ? "Hide" : "Show"} ${past.length} played day${past.length === 1 ? "" : "s"}</button>` : ""}
+  const counts = { ready: 0, doing: 0, "": 0 }; for (const d of rest) counts[REVIEW[d] ?? ""]++;
+  const summary = `<div class="ed-tools"><span class="mark ready">${TICK}Ready ${counts.ready}</span><span class="mark doing">In progress ${counts.doing}</span><span class="mark untouched">Untouched ${counts[""]}</span><span class="muted small">of ${rest.length} days to come. Click a day's mark to change it.</span></div>`;
+  return `${summary}${past.length ? `<button class="btn" id="past">${showPast ? "Hide" : "Show"} ${past.length} played day${past.length === 1 ? "" : "s"}</button>` : ""}
     ${showPast ? past.map(day).join("") : ""}
     ${rest.map(day).join("")}
     <div class="ed-tools"><button class="btn primary" id="add-day">Add ${nice(shift(last, 1))}</button>${last > today ? `<button class="btn" id="drop-day">Remove ${nice(last)}</button>` : ""}
@@ -241,6 +247,7 @@ el.addEventListener("click", async (e) => {
   else if (t.id === "done") { editing = null; draw(); }
   else if (t.id === "past") { showPast = !showPast; draw(); }
   else if (t.id === "today") { showToday = !showToday; draw(); }
+  else if (t.dataset.mark) { const d = t.dataset.mark, n = NEXT[REVIEW[d] ?? ""]; if (n) REVIEW[d] = n; else delete REVIEW[d]; touch(); draw(); }
   else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
   else if (t.id === "save") await save();
   else if (t.id === "idea-add") addIdea();
@@ -288,13 +295,13 @@ window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); 
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; HASH = d.hash; live = !d.unpublished; saved = new Set(Q.map((q) => q.id));
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; HASH = d.hash; live = !d.unpublished; saved = new Set(Q.map((q) => q.id));
   dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
 }
 async function save() {
   busy = true; draw();
   const message = document.getElementById("msg")?.value.trim();
-  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), hash: HASH, message: message ? `Questions: ${message}` : "" }) });
+  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), review: REVIEW, hash: HASH, message: message ? `Questions: ${message}` : "" }) });
   const d = await r.json();
   busy = false;
   if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
