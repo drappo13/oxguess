@@ -17,7 +17,7 @@ const today = keyOf(new Date());
 
 let Q = [], DAYS = {}, IDEAS = [], HASH = "", saved = new Set();
 let dirty = false, live = true, report = null, reportOk = true, busy = false;
-let view = "schedule", editing = null, filter = { status: "all", cat: "", text: "" }, showPast = false;
+let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
 const dateOfId = () => { const m = {}; for (const [d, ids] of Object.entries(DAYS)) for (const id of ids) m[id] = d; return m; };
@@ -127,19 +127,21 @@ function schedule() {
 // ---------- bank ----------
 function bank() {
   const used = dateOfId(), t = filter.text.toLowerCase();
-  const status = (q) => (q.retired ? "retired" : !used[q.id] ? "spare" : used[q.id] < today ? "past" : "scheduled");
-  const rows = Q.filter((q) => (filter.status === "all" || status(q) === filter.status) && (!filter.cat || q.cat === filter.cat) && (!t || `${q.id} ${q.q}`.toLowerCase().includes(t)))
-    .sort((a, b) => (used[a.id] ?? "9999").localeCompare(used[b.id] ?? "9999") || a.cat.localeCompare(b.cat) || a.id.localeCompare(b.id));
+  // Bank = everything still to come (scheduled from tomorrow, plus spares): the list you edit most.
+  const status = (q) => (q.retired ? "retired" : !used[q.id] ? "spare" : used[q.id] < today ? "played" : used[q.id] === today ? "today" : "scheduled");
+  const group = (q) => ({ spare: "bank", scheduled: "bank" })[status(q)] ?? status(q);
+  const rows = Q.filter((q) => group(q) === filter.status && (!filter.cat || q.cat === filter.cat) && (!t || `${q.id} ${q.q}`.toLowerCase().includes(t)))
+    .sort((a, b) => (used[a.id] ?? "9999").localeCompare(used[b.id] ?? "9999") || ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat) || a.id.localeCompare(b.id));
   return `<div class="ed-tools">
       <button class="btn primary" id="new">New question</button>
       <input id="f-text" placeholder="Search" value="${esc(filter.text)}">
-      <select id="f-status">${[["all", "All"], ["scheduled", "Coming up"], ["past", "Played"], ["spare", "Spare"], ["retired", "Retired"]].map(([v, l]) => `<option value="${v}" ${filter.status === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+      <select id="f-status">${[["bank", "Bank (coming up and spare)"], ["today", "Today"], ["played", "Played"], ["retired", "Retired"]].map(([v, l]) => `<option value="${v}" ${filter.status === v ? "selected" : ""}>${l}</option>`).join("")}</select>
       <select id="f-cat"><option value="">Every category</option>${ORDER.map((c) => `<option value="${c}" ${filter.cat === c ? "selected" : ""}>${CATS[c].label}</option>`).join("")}</select>
       <span class="muted small">${rows.length} of ${Q.length}</span>
     </div>
     <table class="ed-bank"><thead><tr><th>Status</th><th>Category</th><th>Question</th><th>Answer</th><th style="width:320px">Sliders A and B</th></tr></thead><tbody>
     ${rows.map((q) => { const s = status(q); return `<tr data-edit="${esc(q.id)}" style="--cat:${CATS[q.cat].color}">
-      <td class="st ${s}">${s === "scheduled" ? nice(used[q.id]) : s === "past" ? `Played ${nice(used[q.id])}` : s === "spare" ? "Spare" : "Retired"}</td>
+      <td class="st ${s}">${s === "scheduled" ? nice(used[q.id]) : s === "played" ? `Played ${nice(used[q.id])}` : s === "today" ? "Today" : s === "spare" ? "Spare" : "Retired"}</td>
       <td><span class="ed-chip">${esc(catLabel(q))}</span></td><td>${esc(q.q)}<br><span class="muted" style="font:600 11px ui-monospace,Menlo,monospace">${esc(q.id)}</span></td>
       <td>${esc(fmt(q, q.answer))}</td><td>${pair(q)}</td></tr>`; }).join("")}
     </tbody></table>`;
