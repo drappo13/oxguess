@@ -14,7 +14,9 @@
         "name": "Wikipedia: Eiffel Tower",
         "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
       },
-      "evidence": "The Eiffel Tower was the world's tallest structure when completed in 1889"
+      "evidence": "The Eiffel Tower was the world's tallest structure when completed in 1889",
+      "minB": 1780,
+      "maxB": 1940
     },
     {
       "id": "d02-when",
@@ -46,7 +48,9 @@
         "name": "Wikipedia: Penicillin",
         "url": "https://en.wikipedia.org/wiki/Penicillin"
       },
-      "evidence": "Penicillin was discovered in 1928 by the Scottish physician Alexander Fleming"
+      "evidence": "Penicillin was discovered in 1928 by the Scottish physician Alexander Fleming",
+      "minB": 1860,
+      "maxB": 2020
     },
     {
       "id": "d04-when",
@@ -62,7 +66,9 @@
         "name": "Wikipedia: Colosseum",
         "url": "https://en.wikipedia.org/wiki/Colosseum"
       },
-      "evidence": "Construction began under Emperor Vespasian (r. 69–79 AD) in 72 and was completed in AD 80 under his successor and heir, Titus"
+      "evidence": "Construction began under Emperor Vespasian (r. 69–79 AD) in 72 and was completed in AD 80 under his successor and heir, Titus",
+      "minB": -700,
+      "maxB": 2026
     },
     {
       "id": "d05-when",
@@ -94,7 +100,9 @@
         "name": "Wikipedia: Love Me Do",
         "url": "https://en.wikipedia.org/wiki/Love_Me_Do"
       },
-      "evidence": "When the single was originally released in the United Kingdom on 5 October 1962, it peaked at number 17."
+      "evidence": "When the single was originally released in the United Kingdom on 5 October 1962, it peaked at number 17.",
+      "minB": 1910,
+      "maxB": 2026
     },
     {
       "id": "d07-when",
@@ -110,7 +118,9 @@
         "name": "Wikipedia: Panama Canal",
         "url": "https://en.wikipedia.org/wiki/Panama_Canal"
       },
-      "evidence": "The US took over the project in 1904 and opened the canal in 1914."
+      "evidence": "The US took over the project in 1904 and opened the canal in 1914.",
+      "minB": 1840,
+      "maxB": 2000
     },
     {
       "id": "d08-when",
@@ -142,7 +152,9 @@
         "name": "Wikipedia: Uranus",
         "url": "https://en.wikipedia.org/wiki/Uranus"
       },
-      "evidence": "Discovery date | 13 March 1781"
+      "evidence": "Discovery date | 13 March 1781",
+      "minB": 1690,
+      "maxB": 2000
     },
     {
       "id": "d10-when",
@@ -158,7 +170,9 @@
         "name": "Wikipedia: Hagia Sophia",
         "url": "https://en.wikipedia.org/wiki/Hagia_Sophia"
       },
-      "evidence": "it was completed in AD 537, becoming the world's largest interior space"
+      "evidence": "it was completed in AD 537, becoming the world's largest interior space",
+      "minB": -350,
+      "maxB": 2026
     },
     {
       "id": "d11-when",
@@ -174,7 +188,9 @@
         "name": "Wikipedia: 1930 FIFA World Cup",
         "url": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"
       },
-      "evidence": "The 1930 FIFA World Cup was the first FIFA World Cup"
+      "evidence": "The 1930 FIFA World Cup was the first FIFA World Cup",
+      "minB": 1840,
+      "maxB": 2000
     },
     {
       "id": "d12-when",
@@ -238,7 +254,9 @@
         "name": "Wikipedia: 1896 Summer Olympics",
         "url": "https://en.wikipedia.org/wiki/1896_Summer_Olympics"
       },
-      "evidence": "were the first international Olympic Games held in modern history … Opening | Gregorian Calendar: 6 April 1896"
+      "evidence": "were the first international Olympic Games held in modern history … Opening | Gregorian Calendar: 6 April 1896",
+      "minB": 1810,
+      "maxB": 1970
     },
     {
       "id": "d16-when",
@@ -288,7 +306,9 @@
         "name": "Wikipedia: Christ the Redeemer (statue)",
         "url": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)"
       },
-      "evidence": "Construction took nine years, from 1922 to 1931"
+      "evidence": "Construction took nine years, from 1922 to 1931",
+      "minB": 1870,
+      "maxB": 2026
     },
     {
       "id": "d19-when",
@@ -352,7 +372,9 @@
         "name": "Wikipedia: Tennis court",
         "url": "https://en.wikipedia.org/wiki/Tennis_court"
       },
-      "evidence": "The court is 78 ft (23.77 m) long."
+      "evidence": "The court is 78 ft (23.77 m) long.",
+      "minB": 5,
+      "maxB": 1000
     },
     {
       "id": "d02-big",
@@ -368,7 +390,9 @@
         "name": "Wikipedia: Great Pyramid of Giza",
         "url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
       },
-      "evidence": "Initially standing at 146.6 metres (481 feet), the Great Pyramid was the world's tallest human-made structure for more than 3,700 years."
+      "evidence": "Initially standing at 146.6 metres (481 feet), the Great Pyramid was the world's tallest human-made structure for more than 3,700 years.",
+      "minB": 20,
+      "maxB": 5000
     },
     {
       "id": "d03-big",
@@ -400,7 +424,9 @@
         "name": "Wikipedia: Angel Falls",
         "url": "https://en.wikipedia.org/wiki/Angel_Falls"
       },
-      "evidence": "It is the world's tallest uninterrupted waterfall, with a height of 979 metres (3,212 ft), and a plunge of 807 m (2,648 ft)."
+      "evidence": "It is the world's tallest uninterrupted waterfall, with a height of 979 metres (3,212 ft), and a plunge of 807 m (2,648 ft).",
+      "minB": 100,
+      "maxB": 20000
     },
     {
       "id": "d05-big",
@@ -416,7 +442,9 @@
         "name": "Wikipedia: Big Ben",
         "url": "https://en.wikipedia.org/wiki/Big_Ben"
       },
-      "evidence": "The Great Bell was cast by the Whitechapel Bell Foundry and weighs 13.5 long tons (13.7 tonnes; 15.1 short tons)."
+      "evidence": "The Great Bell was cast by the Whitechapel Bell Foundry and weighs 13.5 long tons (13.7 tonnes; 15.1 short tons).",
+      "minB": 0.05,
+      "maxB": 50
     },
     {
       "id": "d06-big",
@@ -432,7 +460,9 @@
         "name": "Wikipedia: Saturn V",
         "url": "https://en.wikipedia.org/wiki/Saturn_V"
       },
-      "evidence": "Height | 111 m (363 ft)"
+      "evidence": "Height | 111 m (363 ft)",
+      "minB": 10,
+      "maxB": 2000
     },
     {
       "id": "d07-big",
@@ -448,7 +478,9 @@
         "name": "Wikipedia: Leaning Tower of Pisa",
         "url": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa"
       },
-      "evidence": "Its weight is estimated at 14,500 tonnes (16,000 short tons)."
+      "evidence": "Its weight is estimated at 14,500 tonnes (16,000 short tons).",
+      "minB": 1000,
+      "maxB": 200000
     },
     {
       "id": "d08-big",
@@ -464,7 +496,9 @@
         "name": "Wikipedia: Cricket pitch",
         "url": "https://en.wikipedia.org/wiki/Cricket_pitch"
       },
-      "evidence": "It is 22 yd (20.12 m) long (1 chain) and 10 ft (3.05 m) wide"
+      "evidence": "It is 22 yd (20.12 m) long (1 chain) and 10 ft (3.05 m) wide",
+      "minB": 5,
+      "maxB": 500
     },
     {
       "id": "d09-big",
@@ -480,7 +514,9 @@
         "name": "Wikipedia: Basketball court",
         "url": "https://en.wikipedia.org/wiki/Basketball_court"
       },
-      "evidence": "Under International Basketball Federation (FIBA) rules, the court is slightly smaller, measuring 28 by 15 meters (91.9 by 49.2 ft)."
+      "evidence": "Under International Basketball Federation (FIBA) rules, the court is slightly smaller, measuring 28 by 15 meters (91.9 by 49.2 ft).",
+      "minB": 5,
+      "maxB": 500
     },
     {
       "id": "d10-big",
@@ -496,7 +532,9 @@
         "name": "Wikipedia: Mona Lisa",
         "url": "https://en.wikipedia.org/wiki/Mona_Lisa"
       },
-      "evidence": "Dimensions | 77 cm × 53 cm (30 in × 21 in)"
+      "evidence": "Dimensions | 77 cm × 53 cm (30 in × 21 in)",
+      "minB": 2,
+      "maxB": 200
     },
     {
       "id": "d11-big",
@@ -512,7 +550,9 @@
         "name": "Wikipedia: Tsar Cannon",
         "url": "https://en.wikipedia.org/wiki/Tsar_Cannon"
       },
-      "evidence": "It is made of bronze, weighs 39,312 kilograms (86,668 lb) and has a length of 5.34 m (17.5 ft)."
+      "evidence": "It is made of bronze, weighs 39,312 kilograms (86,668 lb) and has a length of 5.34 m (17.5 ft).",
+      "minB": 5,
+      "maxB": 500
     },
     {
       "id": "d12-big",
@@ -563,7 +603,9 @@
         "name": "Wikipedia: Tenpin bowling",
         "url": "https://en.wikipedia.org/wiki/Tenpin_bowling"
       },
-      "evidence": "Tenpin bowling lanes are 60 feet (18.29 m) from the foul line to the center of the head pin (1-pin)"
+      "evidence": "Tenpin bowling lanes are 60 feet (18.29 m) from the foul line to the center of the head pin (1-pin)",
+      "minB": 2,
+      "maxB": 2000
     },
     {
       "id": "d15-big",
@@ -611,7 +653,9 @@
         "name": "Wikipedia: Sydney Harbour Bridge",
         "url": "https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge"
       },
-      "evidence": "The total weight of the steelwork of the bridge, including the arch and approach spans, is 52,800 tonnes (52,000 long tons; 58,200 short tons)"
+      "evidence": "The total weight of the steelwork of the bridge, including the arch and approach spans, is 52,800 tonnes (52,000 long tons; 58,200 short tons)",
+      "minB": 2000,
+      "maxB": 200000
     },
     {
       "id": "d18-big",
@@ -627,7 +671,9 @@
         "name": "Wikipedia: Hughes H-4 Hercules",
         "url": "https://en.wikipedia.org/wiki/Hughes_H-4_Hercules"
       },
-      "evidence": "Wingspan: 319 ft 11 in (97.51 m)"
+      "evidence": "Wingspan: 319 ft 11 in (97.51 m)",
+      "minB": 5,
+      "maxB": 1000
     },
     {
       "id": "d19-big",
@@ -643,7 +689,9 @@
         "name": "Wikipedia: Airbus A380",
         "url": "https://en.wikipedia.org/wiki/Airbus_A380"
       },
-      "evidence": "79.75 m (261.8 ft) span, 33.5° sweep"
+      "evidence": "79.75 m (261.8 ft) span, 33.5° sweep",
+      "minB": 10,
+      "maxB": 5000
     },
     {
       "id": "d20-big",
@@ -659,7 +707,9 @@
         "name": "Wikipedia: CN Tower",
         "url": "https://en.wikipedia.org/wiki/CN_Tower"
       },
-      "evidence": "The CN Tower (French: Tour CN) is a 553.3-metre-high (1,815.3 ft) communications and observation tower in Toronto, Ontario, Canada."
+      "evidence": "The CN Tower (French: Tour CN) is a 553.3-metre-high (1,815.3 ft) communications and observation tower in Toronto, Ontario, Canada.",
+      "minB": 200,
+      "maxB": 20000
     },
     {
       "id": "d21-big",
@@ -675,7 +725,9 @@
         "name": "Wikipedia: Statue of Liberty",
         "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
       },
-      "evidence": "From ground level to torch: 305 feet 1 inch (93 meters)"
+      "evidence": "From ground level to torch: 305 feet 1 inch (93 meters)",
+      "minB": 5,
+      "maxB": 1000
     },
     {
       "id": "d01-far",
@@ -692,7 +744,9 @@
         "url": "https://www.wikidata.org/wiki/Q209651",
         "url2": "https://www.wikidata.org/wiki/Q545360"
       },
-      "evidence": "Abbey Road Studios (Q209651): Point(-0.178333 51.531945); Graceland (Q545360): Point(-90.025833 35.046111). Great-circle (haversine, R = 6371.0088 km) = 7027 km"
+      "evidence": "Abbey Road Studios (Q209651): Point(-0.178333 51.531945); Graceland (Q545360): Point(-90.025833 35.046111). Great-circle (haversine, R = 6371.0088 km) = 7027 km",
+      "minB": 200,
+      "maxB": 50000
     },
     {
       "id": "d02-far",
@@ -726,7 +780,9 @@
         "url": "https://www.wikidata.org/wiki/Q43473",
         "url2": "https://www.wikidata.org/wiki/Q80290"
       },
-      "evidence": "Angkor Wat (Q43473): Point(103.866667 13.4125); Forbidden City (Q80290): Point(116.390833 39.915833). Great-circle (haversine, R = 6371.0088 km) = 3191 km"
+      "evidence": "Angkor Wat (Q43473): Point(103.866667 13.4125); Forbidden City (Q80290): Point(116.390833 39.915833). Great-circle (haversine, R = 6371.0088 km) = 3191 km",
+      "minB": 50,
+      "maxB": 10000
     },
     {
       "id": "d04-far",
@@ -743,7 +799,9 @@
         "url": "https://www.wikidata.org/wiki/Q11259",
         "url2": "https://www.wikidata.org/wiki/Q21083961"
       },
-      "evidence": "Times Square (Q11259): Point(-73.985833 40.7575); Shibuya scramble crossing (Q21083961): Point(139.700544 35.659503). Great-circle (haversine, R = 6371.0088 km) = 10848 km"
+      "evidence": "Times Square (Q11259): Point(-73.985833 40.7575); Shibuya scramble crossing (Q21083961): Point(139.700544 35.659503). Great-circle (haversine, R = 6371.0088 km) = 10848 km",
+      "minB": 200,
+      "maxB": 50000
     },
     {
       "id": "d05-far",
@@ -777,7 +835,9 @@
         "url": "https://www.wikidata.org/wiki/Q9141",
         "url2": "https://www.wikidata.org/wiki/Q513"
       },
-      "evidence": "Taj Mahal (Q9141): Point(78.041944 27.175); Mount Everest (Q513): Point(86.925 27.988056). Great-circle (haversine, R = 6371.0088 km) = 880 km"
+      "evidence": "Taj Mahal (Q9141): Point(78.041944 27.175); Mount Everest (Q513): Point(86.925 27.988056). Great-circle (haversine, R = 6371.0088 km) = 880 km",
+      "minB": 100,
+      "maxB": 10000
     },
     {
       "id": "d07-far",
@@ -794,7 +854,9 @@
         "url": "https://www.wikidata.org/wiki/Q676203",
         "url2": "https://www.wikidata.org/wiki/Q5859"
       },
-      "evidence": "Machu Picchu (Q676203): Point(-72.545556 -13.163333); Chichen Itza (Q5859): Point(-88.568611 20.683056). Great-circle (haversine, R = 6371.0088 km) = 4151 km"
+      "evidence": "Machu Picchu (Q676203): Point(-72.545556 -13.163333); Chichen Itza (Q5859): Point(-88.568611 20.683056). Great-circle (haversine, R = 6371.0088 km) = 4151 km",
+      "minB": 1000,
+      "maxB": 100000
     },
     {
       "id": "d08-far",
@@ -811,7 +873,9 @@
         "url": "https://www.wikidata.org/wiki/Q2603183",
         "url2": "https://www.wikidata.org/wiki/Q3026397"
       },
-      "evidence": "Centre Court (Q2603183): Point(-0.214056 51.433722); Court Philippe-Chatrier (Q3026397): Point(2.2492 48.84713). Great-circle (haversine, R = 6371.0088 km) = 337 km"
+      "evidence": "Centre Court (Q2603183): Point(-0.214056 51.433722); Court Philippe-Chatrier (Q3026397): Point(2.2492 48.84713). Great-circle (haversine, R = 6371.0088 km) = 337 km",
+      "minB": 10,
+      "maxB": 1000
     },
     {
       "id": "d09-far",
@@ -828,7 +892,9 @@
         "url": "https://www.wikidata.org/wiki/Q39054",
         "url2": "https://www.wikidata.org/wiki/Q2548808"
       },
-      "evidence": "Leaning Tower of Pisa (Q39054): Point(10.396624 43.72301); Sagrada Família (Q2548808): Point(2.174492 41.404528). Great-circle (haversine, R = 6371.0088 km) = 721 km"
+      "evidence": "Leaning Tower of Pisa (Q39054): Point(10.396624 43.72301); Sagrada Família (Q2548808): Point(2.174492 41.404528). Great-circle (haversine, R = 6371.0088 km) = 721 km",
+      "minB": 50,
+      "maxB": 10000
     },
     {
       "id": "d10-far",
@@ -845,7 +911,9 @@
         "url": "https://www.wikidata.org/wiki/Q765780",
         "url2": "https://www.wikidata.org/wiki/Q167245"
       },
-      "evidence": "Augusta National Golf Club (Q765780): Point(-82.02 33.5025); Old Course at St Andrews (Q167245): Point(-2.816147 56.351484). Great-circle (haversine, R = 6371.0088 km) = 6327 km"
+      "evidence": "Augusta National Golf Club (Q765780): Point(-82.02 33.5025); Old Course at St Andrews (Q167245): Point(-2.816147 56.351484). Great-circle (haversine, R = 6371.0088 km) = 6327 km",
+      "minB": 1000,
+      "maxB": 200000
     },
     {
       "id": "d11-far",
@@ -862,7 +930,11 @@
         "url": "https://www.wikidata.org/wiki/Q43278",
         "url2": "https://www.wikidata.org/wiki/Q213360"
       },
-      "evidence": "Victoria Falls (Q43278): Point(25.858055 -17.924778); Table Mountain (Q213360): Point(18.41352 -33.96216). Great-circle (haversine, R = 6371.0088 km) = 1931 km"
+      "evidence": "Victoria Falls (Q43278): Point(25.858055 -17.924778); Table Mountain (Q213360): Point(18.41352 -33.96216). Great-circle (haversine, R = 6371.0088 km) = 1931 km",
+      "minB": 100,
+      "maxB": 25000,
+      "min": 1,
+      "max": 10000
     },
     {
       "id": "d12-far",
@@ -879,7 +951,9 @@
         "url": "https://www.wikidata.org/wiki/Q48821",
         "url2": "https://www.wikidata.org/wiki/Q177477"
       },
-      "evidence": "Kennedy Space Center (Q48821): Point(-80.648611 28.524722); Baikonur Cosmodrome (Q177477): Point(63.3051 45.9648). Great-circle (haversine, R = 6371.0088 km) = 10970 km"
+      "evidence": "Kennedy Space Center (Q48821): Point(-80.648611 28.524722); Baikonur Cosmodrome (Q177477): Point(63.3051 45.9648). Great-circle (haversine, R = 6371.0088 km) = 10970 km",
+      "minB": 500,
+      "maxB": 100000
     },
     {
       "id": "d13-far",
@@ -896,7 +970,9 @@
         "url": "https://www.wikidata.org/wiki/Q39671",
         "url2": "https://www.wikidata.org/wiki/Q37200"
       },
-      "evidence": "Stonehenge (Q39671): Point(-1.826111 51.178889); Great Pyramid of Giza (Q37200): Point(31.13422 29.97915). Great-circle (haversine, R = 6371.0088 km) = 3596 km"
+      "evidence": "Stonehenge (Q39671): Point(-1.826111 51.178889); Great Pyramid of Giza (Q37200): Point(31.13422 29.97915). Great-circle (haversine, R = 6371.0088 km) = 3596 km",
+      "minB": 200,
+      "maxB": 100000
     },
     {
       "id": "d14-far",
@@ -913,7 +989,9 @@
         "url": "https://www.wikidata.org/wiki/Q4152",
         "url2": "https://www.wikidata.org/wiki/Q2313567"
       },
-      "evidence": "Neuschwanstein Castle (Q4152): Point(10.749442 47.557489); Disneyland Park (Q2313567): Point(2.776747 48.872608). Great-circle (haversine, R = 6371.0088 km) = 608 km"
+      "evidence": "Neuschwanstein Castle (Q4152): Point(10.749442 47.557489); Disneyland Park (Q2313567): Point(2.776747 48.872608). Great-circle (haversine, R = 6371.0088 km) = 608 km",
+      "minB": 10,
+      "maxB": 5000
     },
     {
       "id": "d15-far",
@@ -930,7 +1008,9 @@
         "url": "https://www.wikidata.org/wiki/Q243",
         "url2": "https://www.wikidata.org/wiki/Q10285"
       },
-      "evidence": "Eiffel Tower (Q243): Point(2.294479 48.858296); Colosseum (Q10285): Point(12.492222 41.890278). Great-circle (haversine, R = 6371.0088 km) = 1109 km"
+      "evidence": "Eiffel Tower (Q243): Point(2.294479 48.858296); Colosseum (Q10285): Point(12.492222 41.890278). Great-circle (haversine, R = 6371.0088 km) = 1109 km",
+      "minB": 100,
+      "maxB": 10000
     },
     {
       "id": "d16-far",
@@ -966,7 +1046,9 @@
         "url": "https://www.wikidata.org/wiki/Q9202",
         "url2": "https://www.wikidata.org/wiki/Q180376"
       },
-      "evidence": "Statue of Liberty (Q9202): Point(-74.044425 40.689209); Hollywood Sign (Q180376): Point(-118.321694 34.134103). Great-circle (haversine, R = 6371.0088 km) = 3936 km"
+      "evidence": "Statue of Liberty (Q9202): Point(-74.044425 40.689209); Hollywood Sign (Q180376): Point(-118.321694 34.134103). Great-circle (haversine, R = 6371.0088 km) = 3936 km",
+      "minB": 50,
+      "maxB": 20000
     },
     {
       "id": "d18-far",
@@ -983,7 +1065,9 @@
         "url": "https://www.wikidata.org/wiki/Q5788",
         "url2": "https://www.wikidata.org/wiki/Q12495"
       },
-      "evidence": "Petra (Q5788): Point(35.441944 30.328611); Burj Khalifa (Q12495): Point(55.274167 25.197222). Great-circle (haversine, R = 6371.0088 km) = 2030 km"
+      "evidence": "Petra (Q5788): Point(35.441944 30.328611); Burj Khalifa (Q12495): Point(55.274167 25.197222). Great-circle (haversine, R = 6371.0088 km) = 2030 km",
+      "minB": 100,
+      "maxB": 20000
     },
     {
       "id": "d19-far",
@@ -1000,7 +1084,9 @@
         "url": "https://www.wikidata.org/wiki/Q131013",
         "url2": "https://www.wikidata.org/wiki/Q12506"
       },
-      "evidence": "Acropolis of Athens (Q131013): Point(23.726111 37.971667); Hagia Sophia (Q12506): Point(28.98 41.008333). Great-circle (haversine, R = 6371.0088 km) = 563 km"
+      "evidence": "Acropolis of Athens (Q131013): Point(23.726111 37.971667); Hagia Sophia (Q12506): Point(28.98 41.008333). Great-circle (haversine, R = 6371.0088 km) = 563 km",
+      "minB": 20,
+      "maxB": 10000
     },
     {
       "id": "d20-far",
@@ -1017,7 +1103,9 @@
         "url": "https://www.wikidata.org/wiki/Q44440",
         "url2": "https://www.wikidata.org/wiki/Q858794"
       },
-      "evidence": "Golden Gate Bridge (Q44440): Point(-122.478611 37.819722); Old Faithful (Q858794): Point(-110.828139 44.460472). Great-circle (haversine, R = 6371.0088 km) = 1222 km"
+      "evidence": "Golden Gate Bridge (Q44440): Point(-122.478611 37.819722); Old Faithful (Q858794): Point(-110.828139 44.460472). Great-circle (haversine, R = 6371.0088 km) = 1222 km",
+      "minB": 50,
+      "maxB": 20000
     },
     {
       "id": "d21-far",
@@ -1034,7 +1122,9 @@
         "url": "https://www.wikidata.org/wiki/Q181185",
         "url2": "https://www.wikidata.org/wiki/Q1324340"
       },
-      "evidence": "Disneyland (Q181185): Point(-117.919 33.809); Magic Kingdom (Q1324340): Point(-81.581111 28.418611). Great-circle (haversine, R = 6371.0088 km) = 3493 km"
+      "evidence": "Disneyland (Q181185): Point(-117.919 33.809); Magic Kingdom (Q1324340): Point(-81.581111 28.418611). Great-circle (haversine, R = 6371.0088 km) = 3493 km",
+      "minB": 100,
+      "maxB": 10000
     },
     {
       "id": "d01-many",
@@ -1050,7 +1140,9 @@
         "name": "Wikipedia: Human skeleton",
         "url": "https://en.wikipedia.org/wiki/Human_skeleton"
       },
-      "evidence": "It is composed of around 270 bones at birth – this total decreases to around 206 bones by adulthood after some bones fuse together"
+      "evidence": "It is composed of around 270 bones at birth – this total decreases to around 206 bones by adulthood after some bones fuse together",
+      "minB": 20,
+      "maxB": 5000
     },
     {
       "id": "d02-many",
@@ -1066,7 +1158,9 @@
         "name": "Wikipedia: Piano",
         "url": "https://en.wikipedia.org/wiki/Piano"
       },
-      "evidence": "Modern pianos have a row of 88 black and white keys"
+      "evidence": "Modern pianos have a row of 88 black and white keys",
+      "minB": 1,
+      "maxB": 500
     },
     {
       "id": "d03-many",
@@ -1082,7 +1176,9 @@
         "name": "Wikipedia: Pokémon Red, Blue, and Yellow",
         "url": "https://en.wikipedia.org/wiki/Pokémon_Red,_Blue,_and_Yellow"
       },
-      "evidence": "players must trade between both games to obtain all of the original 151 Pokémon"
+      "evidence": "players must trade between both games to obtain all of the original 151 Pokémon",
+      "minB": 5,
+      "maxB": 1000
     },
     {
       "id": "d04-many",
@@ -1098,7 +1194,9 @@
         "name": "Wikipedia: 2022 FIFA World Cup",
         "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup"
       },
-      "evidence": "It was held over a reduced time frame of 29 days with 64 matches played in eight venues across five cities."
+      "evidence": "It was held over a reduced time frame of 29 days with 64 matches played in eight venues across five cities.",
+      "minB": 10,
+      "maxB": 2000
     },
     {
       "id": "d05-many",
@@ -1130,7 +1228,9 @@
         "name": "Wikipedia: Peanuts",
         "url": "https://en.wikipedia.org/wiki/Peanuts"
       },
-      "evidence": "with 17,897 strips published in all"
+      "evidence": "with 17,897 strips published in all",
+      "minB": 500,
+      "maxB": 200000
     },
     {
       "id": "d07-many",
@@ -1180,7 +1280,9 @@
         "name": "Wikipedia: Scrabble",
         "url": "https://en.wikipedia.org/wiki/Scrabble"
       },
-      "evidence": "Scrabble is played on a 15x15 board, containing 225 squares."
+      "evidence": "Scrabble is played on a 15x15 board, containing 225 squares.",
+      "minB": 10,
+      "maxB": 2000
     },
     {
       "id": "d10-many",
@@ -1196,7 +1298,9 @@
         "name": "Wikipedia: The Muppet Show",
         "url": "https://en.wikipedia.org/wiki/The_Muppet_Show"
       },
-      "evidence": "Five seasons, totalling 120 episodes, were broadcast on ATV"
+      "evidence": "Five seasons, totalling 120 episodes, were broadcast on ATV",
+      "minB": 5,
+      "maxB": 2000
     },
     {
       "id": "d11-many",
@@ -1228,7 +1332,9 @@
         "name": "Wikipedia: Monopoly (game)",
         "url": "https://en.wikipedia.org/wiki/Monopoly_(game)"
       },
-      "evidence": "The Monopoly game board consists of forty spaces containing twenty-eight properties"
+      "evidence": "The Monopoly game board consists of forty spaces containing twenty-eight properties",
+      "minB": 1,
+      "maxB": 500
     },
     {
       "id": "d13-many",
@@ -1277,7 +1383,9 @@
         "name": "Wikipedia: Tarot",
         "url": "https://en.wikipedia.org/wiki/Tarot"
       },
-      "evidence": "The 78-card tarot deck used by esotericists has two distinct parts"
+      "evidence": "The 78-card tarot deck used by esotericists has two distinct parts",
+      "minB": 10,
+      "maxB": 5000
     },
     {
       "id": "d16-many",
@@ -1309,7 +1417,9 @@
         "name": "Wikipedia: Volkswagen Beetle",
         "url": "https://en.wikipedia.org/wiki/Volkswagen_Beetle"
       },
-      "evidence": "Production | 1938–2003 21,529,464 produced"
+      "evidence": "Production | 1938–2003 21,529,464 produced",
+      "minB": 1000000,
+      "maxB": 200000000
     },
     {
       "id": "d18-many",
@@ -1325,7 +1435,9 @@
         "name": "Wikipedia: Breaking Bad",
         "url": "https://en.wikipedia.org/wiki/Breaking_Bad"
       },
-      "evidence": "concluded on September 29, 2013, after five seasons and 62 episodes"
+      "evidence": "concluded on September 29, 2013, after five seasons and 62 episodes",
+      "minB": 10,
+      "maxB": 1000
     },
     {
       "id": "d19-many",
@@ -1341,7 +1453,9 @@
         "name": "Wikipedia: Hawaiian alphabet",
         "url": "https://en.wikipedia.org/wiki/Hawaiian_alphabet"
       },
-      "evidence": "The current official Hawaiian alphabet consists of 13 letters"
+      "evidence": "The current official Hawaiian alphabet consists of 13 letters",
+      "minB": 1,
+      "maxB": 200
     },
     {
       "id": "d20-many",
@@ -1357,7 +1471,9 @@
         "name": "Wikipedia: Friends",
         "url": "https://en.wikipedia.org/wiki/Friends"
       },
-      "evidence": "No. of episodes | 236 (+ 1 special) … high-definition versions of all 236 Friends episodes were made available"
+      "evidence": "No. of episodes | 236 (+ 1 special) … high-definition versions of all 236 Friends episodes were made available",
+      "minB": 50,
+      "maxB": 10000
     },
     {
       "id": "d21-many",
@@ -1373,7 +1489,9 @@
         "name": "Wikipedia: Periodic table",
         "url": "https://en.wikipedia.org/wiki/Periodic_table"
       },
-      "evidence": "By 2010, the first 118 elements were known, thereby completing the first seven rows of the table"
+      "evidence": "By 2010, the first 118 elements were known, thereby completing the first seven rows of the table",
+      "minB": 10,
+      "maxB": 1000
     },
     {
       "id": "d01-wild",
@@ -1389,7 +1507,9 @@
         "name": "Wikipedia: Wright Flyer",
         "url": "https://en.wikipedia.org/wiki/Wright_Flyer"
       },
-      "evidence": "His flight, captured in a famous photograph, lasted 12 seconds for a total distance of 120 feet (37 m)"
+      "evidence": "His flight, captured in a famous photograph, lasted 12 seconds for a total distance of 120 feet (37 m)",
+      "minB": 2,
+      "maxB": 100
     },
     {
       "id": "d02-wild",
@@ -1441,7 +1561,9 @@
         "name": "Wikipedia: ThrustSSC",
         "url": "https://en.wikipedia.org/wiki/ThrustSSC"
       },
-      "evidence": "when it achieved a speed of 1,228 km/h (763 mph) and it became the first and only land vehicle to officially break the sound barrier"
+      "evidence": "when it achieved a speed of 1,228 km/h (763 mph) and it became the first and only land vehicle to officially break the sound barrier",
+      "minB": 200,
+      "maxB": 20000
     },
     {
       "id": "d05-wild",
@@ -1457,7 +1579,9 @@
         "name": "Wikipedia: Golf course",
         "url": "https://en.wikipedia.org/wiki/Golf_course"
       },
-      "evidence": "The hole, or cup, is always found within the green and must have a diameter of 108 millimeters (4.25 in) and a depth of at least 10 centimeters (3.94 in)."
+      "evidence": "The hole, or cup, is always found within the green and must have a diameter of 108 millimeters (4.25 in) and a depth of at least 10 centimeters (3.94 in).",
+      "minB": 2,
+      "maxB": 1000
     },
     {
       "id": "d06-wild",
@@ -1525,7 +1649,9 @@
         "name": "Wikipedia: TGV world speed record",
         "url": "https://en.wikipedia.org/wiki/TGV_world_speed_record"
       },
-      "evidence": "The top speed of 574.8 km/h (159.7 m/s, 357.2 mph) was reached"
+      "evidence": "The top speed of 574.8 km/h (159.7 m/s, 357.2 mph) was reached",
+      "minB": 20,
+      "maxB": 10000
     },
     {
       "id": "d10-wild",
@@ -1541,7 +1667,9 @@
         "name": "Wikipedia: Academy Awards",
         "url": "https://en.wikipedia.org/wiki/Academy_Awards"
       },
-      "evidence": "it is 13.5 in (34.3 cm) tall, weighs 8.5 lb (3.9 kg)"
+      "evidence": "it is 13.5 in (34.3 cm) tall, weighs 8.5 lb (3.9 kg)",
+      "minB": 0.2,
+      "maxB": 100
     },
     {
       "id": "d11-wild",
@@ -1609,7 +1737,9 @@
         "name": "Wikipedia: Formula Rossa",
         "url": "https://en.wikipedia.org/wiki/Formula_Rossa"
       },
-      "evidence": "became the fastest roller coaster in the world upon opening with a maximum speed of 240 km/h (149.1 mph)"
+      "evidence": "became the fastest roller coaster in the world upon opening with a maximum speed of 240 km/h (149.1 mph)",
+      "minB": 20,
+      "maxB": 2000
     },
     {
       "id": "d16-big",
@@ -1625,7 +1755,9 @@
         "name": "Wikipedia: Tsar Bell",
         "url": "https://en.wikipedia.org/wiki/Tsar_Bell"
       },
-      "evidence": "The bell is the largest bell in the world, weighing 201,924 kilograms (445,166 lb)"
+      "evidence": "The bell is the largest bell in the world, weighing 201,924 kilograms (445,166 lb)",
+      "minB": 20,
+      "maxB": 5000
     },
     {
       "id": "d16-wild",
@@ -1641,7 +1773,9 @@
         "name": "Wikipedia: The Lord of the Rings: The Return of the King",
         "url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King"
       },
-      "evidence": "Running time | 201 minutes"
+      "evidence": "Running time | 201 minutes",
+      "minB": 20,
+      "maxB": 5000
     },
     {
       "id": "d17-wild",
@@ -1659,7 +1793,9 @@
         "name": "Wikipedia: Venus",
         "url": "https://en.wikipedia.org/wiki/Venus"
       },
-      "evidence": "the average surface temperature is 737 K (464 °C; 867 °F)"
+      "evidence": "the average surface temperature is 737 K (464 °C; 867 °F)",
+      "minB": 330,
+      "maxB": 930
     },
     {
       "id": "d18-wild",
@@ -1693,7 +1829,9 @@
         "name": "Wikipedia: Shoaib Akhtar",
         "url": "https://en.wikipedia.org/wiki/Shoaib_Akhtar"
       },
-      "evidence": "He achieved the record of the fastest recorded bowl to date at 161.3 km/h"
+      "evidence": "He achieved the record of the fastest recorded bowl to date at 161.3 km/h",
+      "minB": 20,
+      "maxB": 2000
     },
     {
       "id": "d20-wild",
@@ -1709,7 +1847,9 @@
         "name": "Wikipedia: Marathon",
         "url": "https://en.wikipedia.org/wiki/Marathon"
       },
-      "evidence": "The marathon is a long-distance foot race with a distance of 42.195 kilometres (c. 26.22 mi)"
+      "evidence": "The marathon is a long-distance foot race with a distance of 42.195 kilometres (c. 26.22 mi)",
+      "minB": 1,
+      "maxB": 200
     },
     {
       "id": "d21-wild",
@@ -1725,7 +1865,9 @@
         "name": "Wikipedia: Usain Bolt",
         "url": "https://en.wikipedia.org/wiki/Usain_Bolt"
       },
-      "evidence": "Bolt improved upon his second 100 m world record of 9.69 with 9.58 seconds in 2009"
+      "evidence": "Bolt improved upon his second 100 m world record of 9.69 with 9.58 seconds in 2009",
+      "minB": 0.5,
+      "maxB": 100
     }
   ]
 }
