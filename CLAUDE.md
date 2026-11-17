@@ -29,9 +29,10 @@ site/                 the whole website (deployed as-is)
   js/fx.js            sounds (Web Audio), haptics, confetti, stamps, count-ups, the ticket drop
   js/art.js           SVG art: ox head, fairgoer, rosettes, balance scale
   js/herd-store.js    Firestore: read today's herds, record guesses, plays and player summaries, read activity
-  js/stats.js         the /stats page: players, finishes, returning, question by question (never today's answers)
+  js/stats.js         the /stats page: tiles, players per day, retention and cohorts, rounds (today's answers behind a button)
   stats/index.html    oxguess.com/stats, public but unlinked and noindex
-  staging/            oxguess.com/staging: unlinked, noindex prototypes to try on a phone (now: the tape measure)
+  staging/            oxguess.com/staging: unlinked, noindex prototypes (the tape measure, a no-save game copy with
+                      proposed changes, and a before/after page at /staging/compare)
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)

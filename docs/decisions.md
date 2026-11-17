@@ -4,6 +4,10 @@ Newest first. Each entry: what was decided, and why.
 
 ## 17 Nov 2026
 
+- **A fuller stats page, styled like drapk.in/stats but simpler:** all-time and today tiles, players per day (new
+  and returning), back-the-next-day and cohorts, every round's scores against the herd, and each question drawn on its
+  slider. Today's answers are behind a button rather than hidden outright, since the page is unlinked. Rounds are
+  rescored from their guesses with the current rules, so players and the herd are always scored alike.
 - **Scoring is judged against the answer, never the slider.** Even and year sliders used to score by the slider's width,
   so a wide or hand-set slider made a question easier (the Burj Khalifa on 0 to 10,000 m gave 19 of 20 to a guess 21%
   too tall). Now every question scores by how many times out the guess is: full marks within 2%, then a smooth
