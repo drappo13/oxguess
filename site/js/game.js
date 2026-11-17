@@ -78,22 +78,23 @@ function niceRound(v, wholeAnswer) {
   return Number(out.toPrecision(12));
 }
 
-// --- scoring (0–100 before the wildcard multiplier) ---
+// --- scoring (0–100) ---
+// One rule: how many times out you are, judged against the answer and never against the slider, so a wide or
+// hand-set slider can't make a question easier. Amounts are forgiving (nothing once you're 4 times out). Dates and
+// human ages, which people know better, are strict (nothing at 1.6 times out). Temperatures count from an ordinary
+// day (15°C), since 0°C isn't "none". Dates count how long ago, and dates and ages add 10 years so the last few
+// years and young ages don't become impossible. Full marks within 2% everywhere.
+const ratio = (a, b) => Math.max(a / b, b / a);
+function timesOut(q, g) {
+  if (q.scale === "year") { const a = THIS_YEAR - q.answer + 10, b = THIS_YEAR - g + 10; return [b > 0 ? ratio(a, b) : Infinity, 1.6]; }
+  if (q.unit === "years") return [ratio(q.answer + 10, Math.max(0, g) + 10), 1.6];
+  if (q.unit === "°C") return [1 + Math.abs(g - q.answer) / Math.max(5, Math.abs(q.answer - 15)), 4];
+  return [g > 0 ? ratio(q.answer, g) : Infinity, 4];
+}
 export function score(q, g) {
-  const r = rangeFor(q);
-  if (q.scale === "log") {
-    if (g <= 0) return 0;
-    const err = Math.abs(Math.log10(g / q.answer));
-    if (err <= Math.log10(1.02)) return 100;
-    return Math.max(0, Math.round(100 * (1 - err / 0.6)));
-  }
-  const frac = Math.abs(g - q.answer) / (r.max - r.min);
-  if (q.scale === "year") {
-    if (g === q.answer || frac <= 0.004) return 100;
-    return Math.max(0, Math.round(100 * (1 - frac * 4)));
-  }
-  if (frac <= 0.01) return 100;
-  return Math.max(0, Math.round(100 * (1 - frac * 4)));
+  const [r, none] = timesOut(q, g);
+  if (r <= 1.02) return 100;
+  return Math.max(0, Math.round(100 * (1 - Math.log10(r) / Math.log10(none))));
 }
 
 /** Whole points out of 20 for a guess. */

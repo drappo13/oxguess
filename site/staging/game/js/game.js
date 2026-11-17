@@ -79,22 +79,22 @@ function niceRound(v, wholeAnswer) {
 }
 
 // --- scoring (0–100) ---
-// Scored from the answer alone, never from the slider's ends, so a wide or hand-set slider can't make a question easier.
-// Quantities score by ratio: full marks within 2%, nothing once you're 4 times out. Years get a margin that grows with
-// how long ago it was (the same windows the year sliders use); temperatures and ages a fixed one in their own units.
-const yearWindow = (q) => { const age = THIS_YEAR - q.answer; return age < 150 ? 150 : age < 400 ? 300 : age < 1200 ? 1000 : 4000; };
-const SPANS = { "°C": (a) => Math.max(160, Math.abs(a) * 1.5), years: () => 100 };
+// One rule: how many times out you are, judged against the answer and never against the slider, so a wide or
+// hand-set slider can't make a question easier. Amounts are forgiving (nothing once you're 4 times out). Dates and
+// human ages, which people know better, are strict (nothing at 1.6 times out). Temperatures count from an ordinary
+// day (15°C), since 0°C isn't "none". Dates count how long ago, and dates and ages add 10 years so the last few
+// years and young ages don't become impossible. Full marks within 2% everywhere.
+const ratio = (a, b) => Math.max(a / b, b / a);
+function timesOut(q, g) {
+  if (q.scale === "year") { const a = THIS_YEAR - q.answer + 10, b = THIS_YEAR - g + 10; return [b > 0 ? ratio(a, b) : Infinity, 1.6]; }
+  if (q.unit === "years") return [ratio(q.answer + 10, Math.max(0, g) + 10), 1.6];
+  if (q.unit === "°C") return [1 + Math.abs(g - q.answer) / Math.max(5, Math.abs(q.answer - 15)), 4];
+  return [g > 0 ? ratio(q.answer, g) : Infinity, 4];
+}
 export function score(q, g) {
-  const span = q.scale === "year" ? yearWindow(q) : SPANS[q.unit]?.(q.answer);
-  if (span == null) {
-    if (g <= 0) return 0;
-    const err = Math.abs(Math.log10(g / q.answer));
-    if (err <= Math.log10(1.02)) return 100;
-    return Math.max(0, Math.round(100 * (1 - err / 0.6)));
-  }
-  const frac = Math.abs(g - q.answer) / span;
-  if (g === q.answer || frac <= (q.scale === "year" ? 0.004 : 0.01)) return 100;
-  return Math.max(0, Math.round(100 * (1 - frac * 4)));
+  const [r, none] = timesOut(q, g);
+  if (r <= 1.02) return 100;
+  return Math.max(0, Math.round(100 * (1 - Math.log10(r) / Math.log10(none))));
 }
 
 /** Whole points out of 20 for a guess. */

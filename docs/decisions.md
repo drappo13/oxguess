@@ -2,6 +2,18 @@
 
 Newest first. Each entry: what was decided, and why.
 
+## 17 Nov 2026
+
+- **Scoring is judged against the answer, never the slider.** Even and year sliders used to score by the slider's width,
+  so a wide or hand-set slider made a question easier (the Burj Khalifa on 0 to 10,000 m gave 19 of 20 to a guess 21%
+  too tall). Now every question scores by how many times out the guess is: full marks within 2%, then a smooth
+  log curve to zero. Amounts are forgiving (zero at 4 times out). Calendar years and human ages are strict (zero at
+  1.6 times out), measured as how long ago and age, each plus 10 years so recent events and young ages stay fair.
+  Temperatures count from an ordinary day (15°C) with the forgiving curve. The steeper curve is the same formula
+  with a nearer endpoint, not a cut-off, so there's no cliff. Picked against real guesses: dates average about 11
+  points a guess, amounts about 12. Scores are recalculated from guesses, so rounds played before the change show
+  slightly different points; stored round totals keep their old values.
+
 ## 16 Nov 2026
 
 - **A stats page at oxguess.com/stats**, public but unlinked and not indexed (no users to hide it from yet). It reads
