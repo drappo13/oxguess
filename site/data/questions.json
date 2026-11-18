@@ -189,9 +189,9 @@
         "url": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"
       },
       "evidence": "The 1930 FIFA World Cup was the first FIFA World Cup",
-      "minB": 1840,
+      "minB": 1850,
       "maxB": 2000,
-      "min": 1800,
+      "min": 1700,
       "max": 2000
     },
     {
@@ -693,7 +693,9 @@
       },
       "evidence": "79.75 m (261.8 ft) span, 33.5° sweep",
       "minB": 10,
-      "maxB": 5000
+      "maxB": 1000,
+      "min": 1,
+      "max": 500
     },
     {
       "id": "d20-big",
@@ -1090,7 +1092,9 @@
       },
       "evidence": "Acropolis of Athens (Q131013): Point(23.726111 37.971667); Hagia Sophia (Q12506): Point(28.98 41.008333). Great-circle (haversine, R = 6371.0088 km) = 563 km",
       "minB": 20,
-      "maxB": 10000
+      "maxB": 10000,
+      "min": 100,
+      "max": 10000
     },
     {
       "id": "d20-far",

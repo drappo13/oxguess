@@ -45,8 +45,12 @@ http.createServer(async (req, res) => {
     // game updates about a minute later). If the check fails the files are still saved, but nothing goes live.
     if (url.pathname === "/api/save" && req.method === "POST") {
       const b = await body(req), now = await readData();
-      // Someone (usually Claude, from the chat) changed the files since this page loaded: don't overwrite their work.
-      if (b.hash !== now.hash) return send(res, 409, { error: "The question files changed since you loaded them, so nothing was saved. Reload to pick up those changes, then make your edit again." });
+      // Someone (usually Claude, from the chat) changed the files since this page loaded: don't overwrite their work,
+      // but keep the refused edits in tools/editor/refused-save.json (git-ignored) so Claude can merge them in.
+      if (b.hash !== now.hash) {
+        await fs.writeFile(path.join(ROOT, "tools/editor/refused-save.json"), `${JSON.stringify(b, null, 2)}\n`);
+        return send(res, 409, { error: "The question files changed since you loaded them, so nothing was saved. Your edits are kept: ask Claude to merge them in, then Reload." });
+      }
       await fs.writeFile(path.join(ROOT, FILES.questions), bankText(b.questions));
       await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(b.days));
       if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
