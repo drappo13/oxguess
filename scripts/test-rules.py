@@ -34,6 +34,18 @@ def player(pid, rounds=3, points=180, best=72, streak=2, best_streak=3):
 check("player record saved", player("p-test"), True)
 check("cheat: player record for someone else's id", player("p-other"), False)
 check("cheat: 3 rounds but 900 points", player("p-test", points=900), False)
+def row(**extra):
+    # One guess row, as the app's addDoc writes it (an auto id, and "at" set to the server's time).
+    f = {"day": {"stringValue": "2099-01-03"}, "qid": {"stringValue": "t"}, "pos": {"integerValue": "420"},
+         "value": {"doubleValue": 12.5}, "player": {"stringValue": "p-test"}, **extra}
+    name = f"{P}/guesses/t{time.time_ns()}"
+    return {"writes": [{"update": {"name": name, "fields": f}, "currentDocument": {"exists": False},
+                        "updateTransforms": [{"fieldPath": "at", "setToServerValue": "REQUEST_TIME"}]}]}
+check("guess row, before the slider test", row(), True)
+check("guess row with slider B and its ends", row(arm={"stringValue": "B"}, lo={"integerValue": "10"}, hi={"doubleValue": 1000.5}), True)
+check("cheat: guess row on slider C", row(arm={"stringValue": "C"}), False)
+check("cheat: slider end that isn't a number", row(lo={"stringValue": "10"}), False)
+check("cheat: guess row with an extra field", row(note={"stringValue": "hi"}), False)
 ok, d = call("GET", f"{P}/herd/{HID}")
 f = d["fields"]; print("      herd:", "n =", f["n"]["integerValue"], "bins =", {k: v["integerValue"] for k, v in f["b"]["mapValue"]["fields"].items()})
 print("ALL PASS" if all(res) else "SOME FAILED")

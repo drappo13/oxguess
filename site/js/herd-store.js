@@ -1,14 +1,13 @@
 // The real herd, kept in Firestore.
 //
 // Each day's question has one small summary doc, herd/{date}_{questionId}: { n: guesses, b: { bin: count } }
-// with 100 bins across the slider. Every guess adds one to one bin (two writes: the summary and the guess
+// with 100 bins across the herd's range (game.js herdRange). Every guess adds one to one bin (two writes: the summary and the guess
 // itself). Every player reads five tiny docs a day however big the herd gets.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
 import {
   getFirestore, doc, getDoc, setDoc, addDoc, collection, increment, serverTimestamp, getDocs, query, where,
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
-
-export const HERD_BINS = 100;
+import { herdBin, toPos } from "./game.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPXZMRXSoT5muwLfckEi-wMkAXQ2gJy64",
@@ -34,7 +33,6 @@ export function playerId() {
 }
 
 const herdKey = (day, q) => `${day}_${q.id}`;
-const binOf = (pos, steps) => Math.min(HERD_BINS - 1, Math.max(0, Math.floor((pos / steps) * HERD_BINS)));
 
 /** Today's five herd summaries. Never throws; missing herds come back empty. */
 export async function loadHerds(day, questions) {
@@ -57,14 +55,16 @@ export async function loadActivity(since) {
   return { guesses, plays };
 }
 
-/** Add one guess to the herd. Fire and forget: the game never waits on it or breaks without it. */
-export function recordGuess(day, q, pos, steps, value) {
-  const bin = binOf(pos, steps);
+/** Add one guess to the herd. Fire and forget: the game never waits on it or breaks without it.
+ *  The guess row keeps the A/B arm and the ends of the slider it was made on, so the test can be read even after
+ *  a question's slider ends are edited. */
+export function recordGuess(day, q, value, arm, r) {
+  const bin = herdBin(q, day, value);
   if (!db || testing) return bin;
   const player = playerId();
   setDoc(doc(db, "herd", herdKey(day, q)), { n: increment(1), b: { [bin]: increment(1) }, k: String(bin) }, { merge: true })
     .catch((e) => console.warn("Herd write failed", e.code ?? e));
-  addDoc(collection(db, "guesses"), { day, qid: q.id, pos, value, player, at: serverTimestamp() })
+  addDoc(collection(db, "guesses"), { day, qid: q.id, pos: toPos(q, r, value), value, arm, lo: r.min, hi: r.max, player, at: serverTimestamp() })
     .catch((e) => console.warn("Guess write failed", e.code ?? e));
   return bin;
 }

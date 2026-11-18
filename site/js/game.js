@@ -55,6 +55,16 @@ export function rangeFor(q) {
   return { min: lo, max: hi };
 }
 const TIDY = [1, 2, 5, 10];
+
+// --- the A/B test of slider ends ---
+// From AB_START, a question with minB and maxB has a second slider. Each player gets A or B per question, from a
+// hash of their player id and the question, so it never needs storing, stays the same on every visit, and every
+// player sees a mix. Before AB_START, and on questions without slider B, everyone plays A. Each guess records its
+// arm and slider ends (herd-store.js).
+export const AB_START = "2026-11-19";
+const rangeB = (q) => (q.minB != null && q.maxB != null ? { min: q.minB, max: q.maxB } : null);
+export const armFor = (q, player, day) => (day >= AB_START && rangeB(q) && rng(hash(`${player}|${q.id}|ab`))() < 0.5 ? "B" : "A");
+export const sliderFor = (q, arm) => (arm === "B" && rangeB(q)) || rangeFor(q);
 function tidyDown(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const m = v / p; return Number(([...TIDY].reverse().find((t) => t <= m + 1e-9) * p).toPrecision(12)); }
 function tidyUp(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const m = v / p; return Number((TIDY.find((t) => t >= m - 1e-9) * p).toPrecision(12)); }
 
@@ -176,7 +186,9 @@ export function offBy(q, g) {
 }
 
 // --- the herd ---
-// A herd is 100 bins of guesses across the slider: a starter crowd plus every real guess from Firestore.
+// A herd is 100 bins of guesses across a range: a starter crowd plus every real guess from Firestore. Before the
+// A/B test the range is slider A. From AB_START it covers both sliders, so the same number lands in the same bin
+// whichever slider it was guessed on. Earlier days keep slider A, so their stored herds and seeds never change.
 //
 // Every question starts with SEED_GUESSES made-up fairgoers who stay in for good, so the herd never jumps
 // when real players arrive. They're made in two steps, like a real crowd: first pick where this crowd's
@@ -185,34 +197,43 @@ export function offBy(q, g) {
 // close and some days it's miles out. Seeded by date and question, so everyone sees the same crowd.
 export const SEED_GUESSES = 15;
 const BINS = 100;
-const binValue = (q, k) => toValue(q, rangeFor(q), Math.round(((k + 0.5) / BINS) * STEPS));
+export function herdRange(q, day) {
+  const a = rangeFor(q), b = day >= AB_START && rangeB(q);
+  return b ? { min: Math.min(a.min, b.min), max: Math.max(a.max, b.max) } : a;
+}
+const binAt = (pos) => Math.min(BINS - 1, Math.max(0, Math.floor((pos / STEPS) * BINS)));
+/** The herd bin a guessed value goes in on this day. */
+export const herdBin = (q, day, v) => binAt(toPos(q, herdRange(q, day), v));
+export const binValue = (q, range, k) => toValue(q, range, Math.round(((k + 0.5) / BINS) * STEPS));
 
+// Seeds are made along slider A as they always were, then placed in the day's herd range.
 function seedBins(q, day) {
-  const R = rng(hash(`${day}|${q.id}|crowd`)), bins = new Array(BINS).fill(0);
+  const R = rng(hash(`${day}|${q.id}|crowd`)), bins = new Array(BINS).fill(0), a = rangeFor(q), range = herdRange(q, day);
+  const place = range.min === a.min && range.max === a.max ? (p) => binAt(p * STEPS) : (p) => binAt(toPos(q, range, toValue(q, a, Math.round(Math.max(0, Math.min(1, p)) * STEPS))));
   const normal = () => Math.sqrt(-2 * Math.log(R() + 1e-9)) * Math.cos(2 * Math.PI * R());
-  const answerPos = toPos(q, rangeFor(q), q.answer) / STEPS;
+  const answerPos = toPos(q, a, q.answer) / STEPS;
   const hunch = answerPos + normal() * 0.07;          // step 1: where this crowd's gut lands
   const spread = 0.07 + R() * 0.1;                     // how much they disagree
   for (let i = 0; i < SEED_GUESSES; i++) {
     const p = R() < 0.12 ? R() : hunch + normal() * spread;   // step 2: each guess, plus the odd wild one
-    bins[Math.min(BINS - 1, Math.max(0, Math.floor(p * BINS)))]++;
+    bins[place(p)]++;
   }
   return bins;
 }
 
 /** real: the Firestore summary { n, b: { bin: count } } or undefined. */
 export function herd(q, real, day) {
-  const bins = seedBins(q, day);
+  const bins = seedBins(q, day), range = herdRange(q, day);
   for (const [k, c] of Object.entries(real?.b ?? {})) if (bins[k] != null) bins[k] += c;
   const n = bins.reduce((a, b) => a + b, 0);
   let acc = 0, mid = 0;
   for (let k = 0; k < BINS; k++) { acc += bins[k]; if (acc >= n / 2) { mid = k; break; } }
-  return { bins, n, median: binValue(q, mid), players: n };
+  return { bins, n, range, median: binValue(q, range, mid), players: n };
 }
 
 export function herdVerdict(q, h, g) {
   const you = points(q, g), them = points(q, h.median), raw = score(q, g);
-  const lower = h.bins.reduce((a, c, k) => a + (c && score(q, binValue(q, k)) < raw ? c : 0), 0);
+  const lower = h.bins.reduce((a, c, k) => a + (c && score(q, binValue(q, h.range, k)) < raw ? c : 0), 0);
   const beat = h.n ? Math.round((lower / h.n) * 100) : 0;
   // Did this guess pull the herd's middle towards the answer?
   const pulled = (h.median > q.answer && g < h.median) || (h.median < q.answer && g > h.median);

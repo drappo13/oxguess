@@ -1,5 +1,5 @@
 // Hand-drawn-style SVG art: the ox, rosettes, the herd. All colours come from CSS tokens.
-import { rangeFor, toPos, STEPS } from "./game.js";
+import { toPos, binValue, STEPS } from "./game.js";
 
 export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {}) {
   const mouth = mood === "wow"
@@ -85,11 +85,26 @@ export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(
 
 /** How the herd guessed: 25 bars across the slider, the herd's guess (the ox), your guess and the answer flag.
  *  The game shows all three; the stats page leaves out "you", and hides the answer for today. */
-export function herdChart(q, h, { guess = null, showAnswer = true } = {}) {
-  const r = rangeFor(q), B = 25, bins = new Array(B).fill(0);
-  h.bins.forEach((c, k) => { bins[Math.floor((k * B) / h.bins.length)] += c; });
+/** The herd drawn across range r (the player's own slider; the herd's own range by default). Guesses beyond r
+ *  are counted at that end with an arrow, and a herd middle beyond r sits at the end with an arrow too. */
+export function herdChart(q, h, { guess = null, showAnswer = true, range = h.range } = {}) {
+  const r = range, B = 25, bins = new Array(B).fill(0), beyond = [0, 0];
+  const same = r.min === h.range.min && r.max === h.range.max;
+  h.bins.forEach((c, k) => {
+    if (!c) return;
+    if (same) { bins[Math.floor((k * B) / h.bins.length)] += c; return; }
+    const v = binValue(q, h.range, k);
+    if (v < r.min) beyond[0] += c; else if (v > r.max) beyond[1] += c;
+    else bins[Math.min(B - 1, Math.floor((toPos(q, r, v) / STEPS) * B))] += c;
+  });
   const mx = Math.max(1, ...bins), W = 320, H = 110, bw = W / B, base = H - 8;
   const x = (v) => (toPos(q, r, v) / STEPS) * W;
+  const more = (side) => {
+    const n = beyond[side];
+    if (!n) return "";
+    const ex = side ? W + 6 : -6, dir = side ? 1 : -1;
+    return `<path d="M${ex} ${base - 14} l${dir * 7} 5 l${-dir * 7} 5 z" fill="var(--cat)" opacity=".7"/><text x="${ex + dir * 6}" y="${base + 11}" text-anchor="${side ? "end" : "start"}" font-size="10" font-weight="700" fill="var(--muted)" font-family="Nunito, sans-serif">+${n}</text>`;
+  };
   const bars = bins.map((c, i) => {
     const bh = (c / mx) * (H - 34);
     return `<rect class="bar" style="--i:${i}" x="${(i * bw + 1.5).toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${(bw - 3).toFixed(1)}" height="${bh.toFixed(1)}" rx="3" fill="var(--cat)" opacity=".28"/>`;
@@ -101,6 +116,7 @@ export function herdChart(q, h, { guess = null, showAnswer = true } = {}) {
   return `<svg viewBox="-12 0 ${W + 24} ${H + 4}" role="img" aria-label="How the herd guessed">
     ${bars}
     <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
+    ${more(0)}${more(1)}
     <line x1="${hx}" x2="${hx}" y1="${top}" y2="${base}" stroke="var(--ox-dark)" stroke-width="2" stroke-dasharray="3 3"/>
     ${icon(hx, oxHead({ size: 120 }))}
     ${you}${answer}

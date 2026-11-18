@@ -24,14 +24,18 @@ service cloud.firestore {
         && request.resource.data.b[request.resource.data.k] == resource.data.b.get(request.resource.data.k, 0) + 1;
     }
 
-    // guesses/{auto}: one row per guess. Readable for the stats page.
+    // guesses/{auto}: one row per guess. Readable for the stats page. arm, lo and hi (the slider test: which
+    // slider and its ends) are optional so older copies of the game still save.
     match /guesses/{id} {
       allow read: if true;
-      allow create: if request.resource.data.keys().hasOnly(['day', 'qid', 'pos', 'value', 'player', 'at'])
+      allow create: if request.resource.data.keys().hasOnly(['day', 'qid', 'pos', 'value', 'player', 'at', 'arm', 'lo', 'hi'])
         && request.resource.data.day is string && request.resource.data.day.size() == 10
         && request.resource.data.qid is string && request.resource.data.qid.size() <= 24
         && request.resource.data.pos is int && request.resource.data.pos >= 0 && request.resource.data.pos <= 1000
         && request.resource.data.value is number
+        && (!('arm' in request.resource.data) || request.resource.data.arm in ['A', 'B'])
+        && (!('lo' in request.resource.data) || request.resource.data.lo is number)
+        && (!('hi' in request.resource.data) || request.resource.data.hi is number)
         && isPlayer(request.resource.data.player)
         && request.resource.data.at == request.time;
     }

@@ -1,7 +1,7 @@
 // oxguess.com/stats: who's playing, who comes back, and how each round went.
 // Public but unlinked, so today's answers stay hidden until you ask for them.
 import { oxHead, herdChart, placed } from "/js/art.js";
-import { catLabel, points, withUnit, herd, rangeFor, toPos, CATS, STEPS, PER_QUESTION } from "/js/game.js";
+import { catLabel, points, score, withUnit, herd, herdBin, toPos, CATS, STEPS, AB_START } from "/js/game.js";
 import { loadActivity, playerId } from "/js/herd-store.js";
 
 const el = document.getElementById("stats");
@@ -54,7 +54,7 @@ function crunch(data, bank, schedule) {
     const r = roundFor(d), gs = G.filter((g) => g.day === d), ps = P.filter((p) => p.day === d);
     const qs = r.questions.map((q) => {
       const mine = gs.filter((g) => g.qid === q.id), b = {};
-      for (const g of mine) { const k = Math.min(99, Math.floor((g.pos / STEPS) * 100)); b[k] = (b[k] ?? 0) + 1; }
+      for (const g of mine) { const k = herdBin(q, d, g.value); b[k] = (b[k] ?? 0) + 1; }
       const h = herd(q, { n: mine.length, b }, d), hp = points(q, h.median), pts = mine.map((g) => points(q, g.value));
       return { q, h, guesses: mine, median: h.median, hp, avgPts: avg(pts), beat: pct(pts.filter((x) => x < hp).length, pts.length) };
     });
@@ -81,7 +81,24 @@ function crunch(data, bank, schedule) {
   for (const p of P) if (p.day >= since && msOf(p)) hours[new Date(msOf(p)).getHours()]++;
   const lastAt = Math.max(0, ...G.map(msOf));
   const myDays = new Set(data.guesses.filter((g) => g.player === me && g.day <= today).map((g) => g.day)).size;
-  return { G, P, days, players, daysPlayed, rounds, nextDay, cohorts, hours, lastAt, myDays, epoch };
+  return { G, P, days, players, daysPlayed, rounds, nextDay, cohorts, hours, lastAt, myDays, epoch, ab: abTest(G, roundFor) };
+}
+
+// The slider test: real guesses only (the starter herd never guesses), each scored 0-100 against the answer.
+// Per question, where the answer sat along each slider, so you can see whether that pulls guesses about.
+function abTest(G, roundFor) {
+  const rows = G.filter((g) => g.arm && g.day >= AB_START && (g.day < today || showToday));
+  const qs = {};
+  for (const g of rows) {
+    const q = roundFor(g.day).questions.find((x) => x.id === g.qid);
+    if (!q) continue;
+    const x = (qs[`${g.day}|${q.id}`] ??= { day: g.day, q, A: [], B: [], at: {} });
+    x[g.arm].push(score(q, g.value));
+    x.at[g.arm] ??= Math.round((toPos(q, { min: g.lo, max: g.hi }, q.answer) / STEPS) * 100);
+  }
+  const list = Object.values(qs).filter((x) => x.B.length).sort((a, b) => (a.day < b.day ? 1 : -1));
+  const arm = (k) => { const xs = list.flatMap((x) => x[k]).sort((a, b) => a - b); return { n: xs.length, avg: avg(xs), median: xs.length ? xs[Math.floor(xs.length / 2)] : null, close: pct(xs.filter((v) => v >= 50).length, xs.length) }; };
+  return { list, A: arm("A"), B: arm("B") };
 }
 
 // ---------- charts ----------
@@ -202,6 +219,17 @@ function render(data, bank, schedule) {
       ${scoresChart(c.rounds.map((r) => (r.day === today && !showToday ? { ...r, herdScore: 0, started: 0 } : r)))}
     </div>
     ${roundCards}
+
+    <h2 class="st-h">Slider test</h2>
+    <div class="st-card">
+      <h3>Slider A against slider B</h3>
+      <p class="note">Real guesses on questions with a second slider, from ${short(AB_START)}${showToday ? "" : ", today left out until you show its answers"}. Each guess scored 0 to 100 against the answer. Close = 50 or more.</p>
+      ${c.ab.list.length ? `<div class="st-tiles">${["A", "B"].map((k) => tile(`Slider ${k}`, fmt1(c.ab[k].avg), `${c.ab[k].n} guesses · median ${fmt1(c.ab[k].median)} · ${c.ab[k].close}% close`)).join("")}</div>
+      <div class="st-scroll"><table class="st-t">
+        <thead><tr><th style="text-align:left">Question</th><th>A guesses</th><th>A avg</th><th>Answer along A</th><th>B guesses</th><th>B avg</th><th>Answer along B</th></tr></thead>
+        <tbody>${c.ab.list.map((x) => `<tr><td style="text-align:left">${dayNum(x.day)} · ${catLabel(x.q)}</td><td class="dim">${x.A.length}</td><td>${fmt1(avg(x.A))}</td><td class="dim">${x.at.A ?? "–"}%</td><td class="dim">${x.B.length}</td><td>${fmt1(avg(x.B))}</td><td class="dim">${x.at.B ?? "–"}%</td></tr>`).join("")}</tbody>
+      </table></div>` : `<p class="note">No guesses on slider B yet.</p>`}
+    </div>
 
     <div class="st-two">
       <div class="st-card"><h3>When people play</h3>${hoursChart(c.hours)}<p class="note">Finished rounds by hour, last 14 days, your local time.</p></div>

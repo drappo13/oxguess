@@ -2,6 +2,22 @@
 
 Newest first. Each entry: what was decided, and why.
 
+## 18 Nov 2026
+
+- **The slider A/B test is live from 19 Nov (`AB_START` in game.js).** A question with `minB`/`maxB` has a second
+  slider. Each player gets A or B per question (a seeded random draw on player id and question id, so nothing is
+  stored and every player sees a mix; per question rather than per player so the same people are compared on both).
+  Questions without slider B always play A. A hash's last bit was tried first and rejected: it moved every player's
+  arms in lockstep.
+- **Each guess row records its arm and its slider's ends** (`arm`, `lo`, `hi`), so results stay readable after
+  slider ends are edited in the question editor. The rules accept rows with or without them.
+- **From `AB_START` the herd is binned across both sliders together**, so the same number lands in the same bin on
+  either slider. Earlier days keep slider A, so their stored herds and starter guesses are unchanged. Starter guesses
+  are still drawn along slider A.
+- **Players see the reveal on their own slider; the results screen spans both sliders,** so the herd is always on
+  each results line. On the reveal a herd guess beyond the player's slider waits at the end of the line with an arrow; the herd chart counts guesses beyond either end as "+N" with an arrow. /stats has a Slider
+  test section (real guesses only, scored 0 to 100, and where the answer sat along each slider).
+
 ## 17 Nov 2026
 
 - **The herd moved onto the reveal.** Its result used to sit in a card below "Next question", so most players never

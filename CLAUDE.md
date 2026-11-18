@@ -70,9 +70,11 @@ prototype/            the first single-file mock
 - **Firebase project `oxguess-a2a1b`** (personal Google account), Firestore in eur3. Config is in `herd-store.js`
   (public by design; the rules protect the data). No Analytics, no Auth.
 - **Collections:**
-  - `herd/{date}_{questionId}`: `{ n, b: {bin: count}, k }`, 100 bins across the slider, one guess added per write.
-    The rules check exactly +1 in bin `k`.
-  - `guesses/{auto}`: one row per guess (readable, for /stats).
+  - `herd/{date}_{questionId}`: `{ n, b: {bin: count}, k }`, 100 bins across the herd's range (slider A before
+    19 Nov; both sliders together from then, see `herdRange` in game.js), one guess added per write. The rules check
+    exactly +1 in bin `k`.
+  - `guesses/{auto}`: one row per guess (readable, for /stats), with the A/B arm and the ends of the slider it was
+    made on (`arm`, `lo`, `hi`).
   - `plays/{date}_{player}`: finished round (readable, for /stats).
   - `players/{id}`: summary rebuilt by the device after each round (write-only).
 - **Players** are anonymous per device (`ox-player` in localStorage). No accounts or cross-device streaks yet.
@@ -82,6 +84,8 @@ prototype/            the first single-file mock
 - The first date in `data/schedule.json` (2026-11-15) is round 1. Past the last date the schedule starts again
   from the top, so add days before it runs out.
 - Every herd = 15 seeded made-up guesses (fixed per date and question, kept forever) plus real guesses.
+- **Slider A/B test:** a question with `minB` and `maxB` gives each player slider A or B (per question, from their
+  player id). Testing locally: the herd and arms can't be faked on :4321, so use a stubbed `herd-store.js` server.
 - **Changing the questions:** use the question editor (above), or edit `data/schedule.json` (move ids between dates, swap in a spare). To drop a
   question for good, take it off the schedule and give it `"retired": "why"` in the bank rather than deleting it.
   To set a slider's ends by hand, give the question `min` and `max` (any scale; otherwise log and year sliders

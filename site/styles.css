@@ -269,6 +269,10 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .herd-pin { position: absolute; top: 41px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .herd-pin i { width: 14px; height: 14px; border-radius: 50%; background: var(--ox-dark); border: 3px solid var(--card); }
 .herd-pin span { display: flex; margin-top: 1px; }
+/* the herd guessed beyond this player's slider: an arrow at the end points the way */
+.herd-pin.beyond i { width: 0; height: 0; border-radius: 0; background: none; border: 8px solid transparent; margin-top: -1px; }
+.herd-pin.beyond.right i { border-left: 13px solid var(--ox-dark); border-right-width: 0; transform: translateX(5px); }
+.herd-pin.beyond.left i { border-right: 13px solid var(--ox-dark); border-left-width: 0; transform: translateX(-5px); }
 .flag { position: absolute; top: 0; z-index: 1; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .flag span { font-family: var(--display); font-weight: 700; font-size: 17px; background: var(--good); color: #fff; border-radius: 8px; padding: 1px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .flag i { width: 3px; height: 26px; background: var(--good); border-radius: 2px; }

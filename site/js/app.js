@@ -1,10 +1,10 @@
 import { oxHead, rosette, fairgoer, balance, herdChart } from "./art.js";
 import {
-  STEPS, CATS, PER_QUESTION, catLabel, catIcon, rangeFor, toValue, toPos, score, points, tierFor, TIERS,
+  STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
-import { loadHerds, recordGuess, recordPlay, recordPlayer } from "./herd-store.js";
+import { loadHerds, recordGuess, recordPlay, recordPlayer, playerId } from "./herd-store.js";
 import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
 const app = document.getElementById("app");
@@ -125,6 +125,10 @@ document.addEventListener("visibilitychange", async () => {
   if (screen === "results" && count() !== before) results();
 });
 const herd = (q) => makeHerd(q, herds[q.id], today.key);
+/** The slider this player gets for question i (A or B in the slider test), kept with the guess once made.
+ *  A guess saved without one was made before the test, on slider A. */
+const armAt = (i) => (state.answers[i] ? state.answers[i].arm ?? "A" : armFor(today.questions[i], playerId(), today.key));
+const sliderAt = (i) => sliderFor(today.questions[i], armAt(i));
 /** Wait for today's herd, but never more than 1.5s: the game must not hang on the network. */
 const settle = () => Promise.race([herdsReady, new Promise((r) => setTimeout(r, 1500))]);
 const save = () => store.set(dayStateKey(today.key), state);
@@ -337,7 +341,7 @@ function progress(i, revealed) {
 // ---------- asking ----------
 function ask() {
   screen = "ask";
-  const i = state.answers.length, q = today.questions[i], r = rangeFor(q);
+  const i = state.answers.length, q = today.questions[i], arm = armAt(i), r = sliderFor(q, arm);
   let pos = Math.round(STEPS / 2), typed = null;
   render(`
     ${progress(i, false)}
@@ -415,9 +419,9 @@ function ask() {
     const g = q.scale === "year" || Number.isInteger(q.answer) ? Math.round(clamped) : clamped;
     await settle();
     const ticketNo = SEED_GUESSES + (herds[q.id]?.n ?? 0) + 1;
-    const bin = recordGuess(today.key, q, toPos(q, r, g), STEPS, g);
+    const bin = recordGuess(today.key, q, g, arm, r);
     addLocal(q, bin); sinceRead.push([q, bin]);
-    state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo });
+    state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo, arm });
     state.revealing = true;
     save();
     // Your guess becomes a numbered fair ticket and drops into the judges' box.
@@ -456,9 +460,11 @@ function striker() {
 
 function reveal(i, { animate = false } = {}) {
   screen = "reveal";
-  const q = today.questions[i], a = state.answers[i], h = herd(q), r = rangeFor(q), v = herdVerdict(q, h, a.g);
+  const q = today.questions[i], a = state.answers[i], h = herd(q), r = sliderAt(i), v = herdVerdict(q, h, a.g);
   const p = points(q, a.g), them = points(q, h.median), t = tierFor(p), last = i === today.questions.length - 1;
   const gpos = toPos(q, r, a.g) / STEPS, apos = toPos(q, r, q.answer) / STEPS, hpos = toPos(q, r, h.median) / STEPS;
+  // The herd can land beyond this player's slider (the other slider in the test reaches further): it waits at the end.
+  const beyond = h.median < r.min ? "beyond left" : h.median > r.max ? "beyond right" : "";
   // One line for the duel on this question: the herd's guess and who got closer.
   const duel = p > them ? `<b class="win">You beat the herd.</b>` : p === them ? `<b>Level with the herd.</b>` : `<b>The herd got closer.</b>`;
   const hide = animate ? "is-hidden" : "";
@@ -469,7 +475,7 @@ function reveal(i, { animate = false } = {}) {
       <div class="rail-wrap" aria-hidden="true">
         <div class="rail"></div>
         <div class="span-bar ${hide}" id="span" style="left:${Math.min(gpos, apos) * 100}%; width:${Math.abs(apos - gpos) * 100}%"></div>
-        <div class="herd-pin ${hide}" id="herd-pin" style="left:${hpos * 100}%"><i></i><span>${oxHead({ size: 22 })}</span></div>
+        <div class="herd-pin ${beyond} ${hide}" id="herd-pin" style="left:${hpos * 100}%"><i></i><span>${oxHead({ size: 22 })}</span></div>
         <div class="you-pin" style="left:${gpos * 100}%"><i></i><span>${fairgoer({ size: 22 })}</span></div>
         <div class="flag ${hide}" id="flag" style="left:${apos * 100}%"><span id="flag-num">${withUnit(q, q.answer)}</span><i></i></div>
       </div>
@@ -487,7 +493,7 @@ function reveal(i, { animate = false } = {}) {
         <div class="fact"><p>${q.fact}</p>${q.source ? `<a class="source-chip" href="${q.source.url}" target="_blank" rel="noopener">Source: ${sourceSite(q.source.url)}</a>` : ""}</div>
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
-          ${herdChart(q, h, { guess: a.g })}
+          ${herdChart(q, h, { guess: a.g, range: r })}
           <div class="legend"><span><i style="background:var(--good)"></i>Answer ${withUnit(q, q.answer)}</span><span>${fairgoer({ size: 14 })} You ${withUnit(q, a.g)} · ${p} pts</span><span>${oxHead({ size: 14 })} Herd ${withUnit(q, h.median)} · ${them} pts</span></div>
           <p class="herd-beat">You beat <b>${v.beat}%</b> of the herd.</p>
         </div>
@@ -595,10 +601,11 @@ function reveal(i, { animate = false } = {}) {
 }
 
 // ---------- results ----------
-// One question on one line: you above it, the herd below it, the answer as a green tick. Points sit on the left
+// One question on one line: you above it, the herd below it, the answer as a green tick. The line spans the herd's
+// whole range (both sliders in the slider test), so the herd is always on it. Points sit on the left
 // with who scored them; each guess sits centred on its own marker, hugging the edge near either end of the line.
-function compare(q, g, herdGuess, yp, hp) {
-  const r = rangeFor(q), at = (v) => toPos(q, r, v) / STEPS;
+function compare(q, r, g, herdGuess, yp, hp) {
+  const at = (v) => toPos(q, r, v) / STEPS;
   const side = (x) => (x < 0.15 ? "start" : x > 0.85 ? "end" : "mid");
   const pin = (who, icon, v) => {
     const x = at(v), lab = `<span class="duo-lab">${icon}<b>${withUnit(q, v)}</b></span>`, post = `<span class="post">${who === "you" ? '<i class="stem"></i><i class="dot"></i>' : '<i class="dot"></i><i class="stem"></i>'}</span>`;
@@ -652,10 +659,10 @@ function results({ celebrate = false } = {}) {
       <h2>Question by question</h2>
       <ul class="rows">
         ${state.answers.map((a, i) => {
-          const q = qs[i], hm = herd(q).median, yp = ptsAt(i), hp = points(q, hm);
+          const q = qs[i], h = herd(q), hm = h.median, yp = ptsAt(i), hp = points(q, hm);
           return `<li style="--cat:${CATS[q.cat].color}">
             <div class="row-top">${rosette(tierFor(yp).key, yp, 30)}<div class="row-q"><b>${catLabel(q)}</b><span>${q.q}</span></div></div>
-            ${compare(q, a.g, hm, yp, hp)}
+            ${compare(q, h.range, a.g, hm, yp, hp)}
           </li>`;
         }).join("")}
       </ul>
