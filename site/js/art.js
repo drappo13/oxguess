@@ -83,6 +83,28 @@ export function balance() {
 /** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
+/** One day's scores, 0 to 100: a dot per finished round (stacked where they bunch), the herd's score as the ox,
+ *  and yours as the fairgoer, labelled You. */
+export function dayChart(scores, herdScore, you = null) {
+  const W = 320, base = 96, x = (v) => 6 + (v / 100) * (W - 12), stacks = {};
+  const dots = scores.map((v) => {
+    const k = Math.round(v / 2) * 2, n = (stacks[k] = (stacks[k] ?? 0) + 1) - 1;
+    return `<circle cx="${x(k).toFixed(1)}" cy="${(base - 5 - n * 7).toFixed(1)}" r="3.2" fill="var(--muted)" opacity=".5"/>`;
+  }).join("");
+  const top = Math.min(30, base - 12 - Math.max(0, ...Object.values(stacks)) * 7);
+  // When you and the herd scored close together, you sit a step higher so the two faces don't overlap.
+  const yTop = you != null && Math.abs(you - herdScore) < 8 ? top - 26 : top;
+  const marker = (v, svg, cls, at, label = "") => `<line x1="${x(v)}" x2="${x(v)}" y1="${at + 12}" y2="${base}" class="${cls}"/>${placed(svg, x(v), at, 22)}${label}`;
+  const youMark = you == null ? "" : marker(you, fairgoer({ size: 120 }), "dc-you", yTop, `<text x="${x(you)}" y="${yTop - 15}" text-anchor="middle" class="dc-lab">You</text>`);
+  return `<svg class="day-chart" viewBox="0 ${yTop - 28} ${W} ${base - yTop + 46}" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">
+    ${dots}
+    <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
+    ${[0, 25, 50, 75, 100].map((v) => `<text x="${x(v)}" y="${base + 14}" text-anchor="middle" class="dc-axis">${v}</text>`).join("")}
+    ${marker(herdScore, oxHead({ size: 120 }), "dc-herd", top)}
+    ${youMark}
+  </svg>`;
+}
+
 /** How the herd guessed: 25 bars across the slider, the herd's guess (the ox), your guess and the answer flag.
  *  The game shows all three; the stats page leaves out "you", and hides the answer for today. */
 /** The herd drawn across range r (the player's own slider; the herd's own range by default). Guesses beyond r

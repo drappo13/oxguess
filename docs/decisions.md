@@ -4,6 +4,22 @@ Newest first. Each entry: what was decided, and why.
 
 ## 18 Nov 2026
 
+- **One screen for the day.** Home and results repeated the score, rosettes, week tickets, streak and countdown, with a
+  tap between them. Now, once played, the day screen runs: you against the herd, your rosettes and the share button;
+  question by question, folded to who won each one (fairgoer, ox, or both for a draw), with the winner's points shaded
+  when opened; back tomorrow (why to come back, the countdown and the week); your stats (streak, best streak, days won
+  against the herd); yesterday. The story and the prizes moved into a menu top right (bunting along the top,
+  an icon for each, and a real switch for sound).
+- **Numbers live on fair props, not in grey tiles.** The countdown is two flip cards on ticket stock; the streak is
+  printed on a notched ticket, the best streak on a rosette; days won is the fairgoer and the ox facing off across a
+  tug-of-war bar; yesterday's places are a standings board. No "·" separators in the copy.
+- **Days won against the herd** count this device's finished rounds; past days use the herd's final score, looked up
+  once (five herd summaries) and kept with that day as `herdFinal`.
+- **Yesterday, for coming back:** every finished round's score on one line (the herd as the ox, you as the fairgoer),
+  the herd's and your place among them, then question by question with "the herd was on X when you played" (the herd's
+  guess is saved with each answer as `hm`). It reads yesterday's `plays` once per page load: fine at today's size, but
+  it grows with players squared, so past about 2,000 a day switch to a daily summary file. It also sits under the start
+  button, for returning players.
 - **The slider A/B test is live from 19 Nov (`AB_START` in game.js).** A question with `minB`/`maxB` has a second
   slider. Each player gets A or B per question (a seeded random draw on player id and question id, so nothing is
   stored and every player sees a mix; per question rather than per player so the same people are compared on both).

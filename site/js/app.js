@@ -1,10 +1,10 @@
-import { oxHead, rosette, fairgoer, balance, herdChart } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart, dayChart } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
-import { loadHerds, recordGuess, recordPlay, recordPlayer, playerId } from "./herd-store.js";
+import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId } from "./herd-store.js";
 import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
 const app = document.getElementById("app");
@@ -122,7 +122,7 @@ document.addEventListener("visibilitychange", async () => {
   const count = () => today.questions.map((q) => herds[q.id]?.n ?? 0).join();
   const before = count();
   fetchHerds(); await herdsReady;
-  if (screen === "results" && count() !== before) results();
+  if (screen === "home" && state.done && count() !== before) home();
 });
 const herd = (q) => makeHerd(q, herds[q.id], today.key);
 /** The slider this player gets for question i (A or B in the slider test), kept with the guess once made.
@@ -138,23 +138,51 @@ const total = () => state.answers.reduce((a, _, i) => a + ptsAt(i), 0);
 const herdTotal = () => today.questions.reduce((a, q) => a + points(q, herd(q).median), 0);
 
 // ---------- shell ----------
+// The menu (top right) holds the story, the prizes and the sound switch.
 function header() {
   const s = streak();
   return `<header class="top">
     <button class="brand" data-go="home" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
     <div class="top-right">
       ${s ? `<span class="pill streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">🔥 ${s}</span>` : ""}
-      <button class="icon-btn" id="mute" aria-label="${isMuted() ? "Turn sound on" : "Turn sound off"}">${isMuted() ? "🔇" : "🔊"}</button>
-      <button class="link" data-go="story">The story</button>
+      <div class="menu-wrap">
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="menu" id="menu" hidden>
+          <div class="menu-bunting" aria-hidden="true">${flags(9, 5)}</div>
+          <button data-go="story"><span class="mi">${oxHead({ size: 30 })}</span>The story</button>
+          <button id="prizes-open"><span class="mi">${rosette("first", "", 24)}</span>The prizes</button>
+          <button id="mute" role="switch" aria-checked="${!isMuted()}"><span class="mi speaker" aria-hidden="true">${SPEAKER}</span>Sound<span class="switch" aria-hidden="true"><i></i></span></button>
+        </div>
+      </div>
     </div>
-  </header>`;
+  </header>
+  <dialog class="sheet" id="prizes" aria-labelledby="prizes-title">
+    <h2 id="prizes-title">The prizes</h2>
+    <p class="muted">Up to ${PER_QUESTION} points a question, ${PER_QUESTION * 5} a round. The closer you get, the better the rosette.</p>
+    <ul class="tiers">${TIERS.map((t) => `<li>${rosette(t.key, t.min === PER_QUESTION ? PER_QUESTION : `${t.min}+`, 30)}<span>${t.name}</span></li>`).join("")}</ul>
+    <button class="btn" id="prizes-close">Close</button>
+  </dialog>`;
 }
+// A string of fair bunting: n flags in the category colours, sagging in the middle.
+const flags = (n, sag) => Array.from({ length: n }, (_, k) => `<i style="--k:${k}; --c:${["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"][k % 5]}; --y:${(Math.sin((k / (n - 1)) * Math.PI) * sag).toFixed(1)}px"></i>`).join("");
+const SPEAKER = `<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="wave" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="cross" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>`;
+function menu(open) {
+  const m = document.getElementById("menu"), b = document.getElementById("menu-btn");
+  if (!m) return;
+  m.hidden = !open; b.setAttribute("aria-expanded", String(open));
+}
+document.addEventListener("click", (e) => { if (!e.target.closest?.(".menu-wrap")) menu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") menu(false); });
 function render(html, cat) {
   if (cat) { app.style.setProperty("--cat", CATS[cat].color); app.dataset.cat = cat; } else { app.style.removeProperty("--cat"); delete app.dataset.cat; }
   app.innerHTML = header() + `<main class="screen">${html}</main>`;
   app.querySelectorAll("[data-go]").forEach((b) => (b.onclick = () => go(b.dataset.go)));
-  const m = document.getElementById("mute");
-  m.onclick = () => { setMuted(!isMuted()); m.textContent = isMuted() ? "🔇" : "🔊"; m.ariaLabel = isMuted() ? "Turn sound on" : "Turn sound off"; if (!isMuted()) sfx.plink(); };
+  document.getElementById("menu-btn").onclick = () => menu(document.getElementById("menu").hidden);
+  const m = document.getElementById("mute"), prizes = document.getElementById("prizes");
+  m.onclick = () => { setMuted(!isMuted()); m.setAttribute("aria-checked", String(!isMuted())); if (!isMuted()) sfx.plink(); };
+  document.getElementById("prizes-open").onclick = () => { menu(false); prizes.showModal(); };
+  document.getElementById("prizes-close").onclick = () => prizes.close();
+  prizes.onclick = (e) => { if (e.target === prizes) prizes.close(); }; // a tap outside the sheet closes it
   window.scrollTo(0, 0);
 }
 async function go(where) {
@@ -162,8 +190,7 @@ async function go(where) {
   if (where === "story") return story(0);
   if (where === "play" && !state.done && !state.revealing) return ask();
   await settle();
-  if (where === "play") return state.done ? results() : reveal(state.answers.length - 1);
-  if (where === "results") return results();
+  if (where === "play") return state.done ? home() : reveal(state.answers.length - 1);
 }
 
 // A judge's ink stamp with a tick in it.
@@ -194,51 +221,218 @@ function countdown(el) {
     if (newDay()) return clearInterval(t);
     const now = new Date(), next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
     const s = Math.max(0, Math.floor((next - now) / 1000));
-    el.textContent = `${Math.floor(s / 3600)}h ${pad(Math.floor((s % 3600) / 60))}m`;
+    const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+    el.querySelector("[data-h]").textContent = pad(h); el.querySelector("[data-m]").textContent = pad(m);
+    el.setAttribute("aria-label", `New round in ${h} hour${h === 1 ? "" : "s"} and ${m} minute${m === 1 ? "" : "s"}`);
   };
   const t = setInterval(tick, 30000); tick();
 }
 
-// ---------- home ----------
-function home() {
+// ---------- the day ----------
+// One screen for the day. Before playing: today's five and a start button. After: you against the herd and the
+// share button, question by question (folded away), tomorrow (week, streak, countdown, tomorrow's categories),
+// then yesterday. Yesterday also sits under the start button, for anyone coming back.
+function home({ celebrate = false } = {}) {
   screen = "home";
-  const qs = today.questions, done = state.done, started = state.answers.length > 0;
-  render(`
-    <section class="hero card">
+  render(state.done ? `${verdict(celebrate)}<section class="card">${questionByQuestion(todayRows())}</section>${tomorrow(celebrate)}${yourStats()}${yesterdaySlot()}`
+    : `${startCard()}${yesterdaySlot()}${weekCard()}`);
+  const cd = document.getElementById("cd"); if (cd) countdown(cd);
+  fillYesterday();
+  if (state.done) fillTally();
+  if (state.done) wireShare();
+  if (celebrate) celebrateRound();
+}
+
+function startCard() {
+  const started = state.answers.length > 0;
+  return `<section class="hero card">
       <div class="hero-ox">${oxHead({ size: 104 })}</div>
       <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
-      <h1>${done ? "All five judged" : started ? "Carry on guessing" : "Five numbers. How close can you get?"}</h1>
-      ${done
-        ? `<div class="home-score"><span class="label">You scored</span><span class="score-line"><span class="big-num">${total()}</span><small>/${MAX()}</small></span></div>`
-        : ""}
+      <h1>${started ? "Carry on guessing" : "Five numbers. How close can you get?"}</h1>
       <ol class="todays stagger">
-        ${qs.map((q, i) => {
-          const answered = i < state.answers.length;
-          const p = answered ? ptsAt(i) : null;
+        ${today.questions.map((q, i) => {
+          const answered = i < state.answers.length, p = answered ? ptsAt(i) : null;
           return `<li style="--cat:${CATS[q.cat].color}; --i:${i}" class="${answered ? "is-done" : ""}">
             <span class="dot">${catIcon(q)}</span><span>${catLabel(q)}</span>
             <span class="res">${answered ? `<span class="pts">${p}</span>${rosette(tierFor(p).key, "", 34)}` : `<span class="ring"></span>`}</span>
           </li>`;
         }).join("")}
       </ol>
-      <button class="btn primary big" data-go="${done ? "results" : "play"}">${done ? "See today's results" : started ? "Carry on" : "Start guessing"}</button>
-      ${done ? `<p class="next-round">New guesses in <b id="cd"></b></p>` : ""}
-    </section>
-    <section class="card week-card">
-      <div class="week-head"><h2>Your week at the fair</h2></div>
+      <button class="btn primary big" data-go="play">${started ? "Carry on" : "Start guessing"}</button>
+    </section>`;
+}
+function weekCard() {
+  return `<section class="card week-card">
+      <h2>Your week at the fair</h2>
       ${weekTickets(today.key)}
       <p class="streak-line">${streakLine()}</p>
-    </section>
-    <section class="card soft story-teaser">
-      <img loading="lazy" class="scene-img teaser-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
-      <div>
-        <h2>Why an ox?</h2>
-        <p>In 1906, nearly 800 people at a country fair guessed the weight of an ox. The middle guess was out by less than 1%.</p>
+    </section>`;
+}
+
+// 1 and 3: you against the herd, then share.
+function verdict(celebrate) {
+  const you = total(), herdScore = herdTotal(), max = MAX(), beat = you > herdScore, level = you === herdScore;
+  const headline = beat ? "You beat the herd!" : level ? "Dead level with the herd" : "The herd wins today";
+  const sub = beat ? "Smarter than the crowd. Don't let it go to your head." : level ? "Great minds, and all that." : "It knows things. Tomorrow's another fair.";
+  return `<section class="card results">
+      <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
+      <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
+      <div class="versus">
+        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span></div>
+        <span class="vs">vs</span>
+        <div class="side">${oxHead({ size: 46 })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
       </div>
-      <button class="btn" data-go="story">Read the story</button>
-    </section>
-  `);
-  const cd = document.getElementById("cd"); if (cd) countdown(cd);
+      <p class="results-sub">${sub}</p>
+      <div class="my-rosettes" aria-label="Your prizes">${state.answers.map((a, i) => {
+        const yp = ptsAt(i);
+        return `<span class="my-rosette ${celebrate ? "pending" : ""}">${rosette(tierFor(yp).key, yp, 42)}<span>${catLabel(today.questions[i])}</span></span>`;
+      }).join("")}</div>
+      <button class="btn primary big" id="share">Share my rosettes</button>
+      <p class="fine center" id="copied" hidden>Copied. Go on, show off.</p>
+      <pre class="share-text" id="share-text" hidden>${shareText()}</pre>
+    </section>`;
+}
+function shareText() {
+  const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join(""), s = streak();
+  // A blank line after the title and before the link, so it reads cleanly in a chat.
+  return `OxGuess Round ${today.number} 🐂\n\n${grid} ${total()}/${MAX()}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\n\noxguess.com`;
+}
+function wireShare() {
+  const share = shareText();
+  document.getElementById("share").onclick = () => {
+    const fallback = () => { document.getElementById("share-text").hidden = false; };
+    if (navigator.share && /Mobi|Android|iPhone/i.test(navigator.userAgent)) { navigator.share({ text: share }).catch(() => {}); return; }
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(share).then(() => { document.getElementById("copied").hidden = false; sfx.plink(); }, fallback);
+    else fallback();
+  };
+}
+
+// 2: question by question. Folded, who won each one (you, the herd, or both for a draw); opened, the lines.
+// rows: [{ q, g (your guess, or null if you didn't play), h (the herd), moved (an optional note) }].
+function questionByQuestion(rows, title = "Question by question") {
+  const scored = rows.map((x) => ({ ...x, yp: x.g == null ? null : points(x.q, x.g), hp: points(x.q, x.h.median) }));
+  const winner = (x) => (x.yp == null ? "herd" : x.yp > x.hp ? "you" : x.yp < x.hp ? "herd" : "draw");
+  const icon = { you: fairgoer({ size: 26 }), herd: oxHead({ size: 26 }), draw: `${fairgoer({ size: 22 })}${oxHead({ size: 22 })}` };
+  return `<details class="qbq">
+      <summary>
+        <span class="qbq-head"><h2>${title}</h2><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg></span></span>
+        <span class="winners">${scored.map((x) => {
+          const w = winner(x);
+          return `<span class="winner ${w}" style="--cat:${CATS[x.q.cat].color}" title="${w === "draw" ? "A draw" : w === "you" ? "You won this one" : "The herd won this one"}"><span class="w-icons">${icon[w]}</span><span>${catLabel(x.q)}</span></span>`;
+        }).join("")}</span>
+      </summary>
+      <ul class="rows">
+        ${scored.map((x) => `<li style="--cat:${CATS[x.q.cat].color}">
+            <div class="row-top">${x.yp == null ? `<span></span>` : rosette(tierFor(x.yp).key, x.yp, 30)}<div class="row-q"><b>${catLabel(x.q)}</b><span>${x.q.q}</span></div></div>
+            ${compare(x.q, x.h.range, x.g, x.h.median, x.yp, x.hp, winner(x))}
+            ${x.moved ?? ""}
+          </li>`).join("")}
+      </ul>
+    </details>`;
+}
+const todayRows = () => state.answers.map((a, i) => ({ q: today.questions[i], g: a.g, h: herd(today.questions[i]) }));
+
+// 4: back tomorrow. Why to come back, a countdown on ticket stock, and the week.
+function tomorrow(celebrate) {
+  return `<section class="card week-card">
+      <h2>Back tomorrow</h2>
+      <p class="back-why">The herd is still moving. Come back tomorrow to see where it finished!</p>
+      <div class="countdown" id="cd" role="timer">
+        <span class="cd-eyebrow">Next round in</span>
+        <span class="cd-cards"><span class="cd-unit"><b data-h>00</b><small>hours</small></span><span class="cd-colon" aria-hidden="true"></span><span class="cd-unit"><b data-m>00</b><small>minutes</small></span></span>
+      </div>
+      ${weekTickets(today.key, { stampToday: celebrate })}
+    </section>`;
+}
+
+// Your stats: each number printed on a fair prop. The streak on a ticket, the best streak on a rosette, and days
+// won against the herd as a head-to-head.
+function yourStats() {
+  const s = streak(), best = Math.max(s, bestStreak());
+  return `<section class="card stats-card">
+      <h2>Your stats</h2>
+      <div class="props">
+        <div class="prop"><span class="prop-ticket"><b>${s}</b></span><span class="prop-l">Day streak</span></div>
+        <div class="prop">${rosette("first", best, 58)}<span class="prop-l">Best streak</span></div>
+      </div>
+      <div class="h2h" id="tally" aria-live="polite">
+        <div class="h2h-side you">${fairgoer({ size: 44 })}<b data-you>–</b><span>You</span></div>
+        <div class="h2h-mid"><span class="h2h-l">Days won</span><span class="h2h-bar"><i class="you" data-you-bar></i><i class="herd" data-herd-bar></i></span><span class="h2h-d" data-draws></span></div>
+        <div class="h2h-side them">${oxHead({ size: 44 })}<b data-herd>–</b><span>The herd</span></div>
+      </div>
+    </section>`;
+}
+/** Days won against the herd, from every finished round on this device. Past days use the herd's final score,
+ *  looked up once and kept with that day; today uses the herd as it stands. */
+async function fillTally() {
+  let you = 0, them = 0, draws = 0;
+  for (const { day } of history()) {
+    const st = store.get(dayStateKey(day)), qs = roundFor(day).questions;
+    const mine = st.answers.reduce((t, a, j) => t + (qs[j] ? points(qs[j], a.g) : 0), 0);
+    let theirs;
+    if (day === today.key) theirs = herdTotal();
+    else {
+      if (st.herdFinal == null) {
+        const real = await loadHerds(day, qs);
+        if (Object.keys(real).length < qs.length) continue; // offline: leave this day out rather than guess
+        st.herdFinal = qs.reduce((t, q) => t + points(q, makeHerd(q, real[q.id], day).median), 0);
+        store.set(dayStateKey(day), st);
+      }
+      theirs = st.herdFinal;
+    }
+    if (mine > theirs) you++; else if (mine < theirs) them++; else draws++;
+  }
+  const el = document.getElementById("tally");
+  if (!el) return;
+  el.querySelector("[data-you]").textContent = you;
+  el.querySelector("[data-herd]").textContent = them;
+  el.querySelector("[data-you-bar]").style.flexGrow = you || (them ? 0 : 1);
+  el.querySelector("[data-herd-bar]").style.flexGrow = them || (you ? 0 : 1);
+  el.querySelector("[data-draws]").textContent = draws ? `and ${draws} drawn` : "";
+  el.classList.toggle("lead-you", you > them);
+  el.classList.toggle("lead-herd", them > you);
+}
+
+// 5: yesterday. Your guesses are on this device; the herd's final guesses are yesterday's five herd summaries, and
+// everyone's scores are yesterday's finished rounds. Read once per page load.
+let yesterdayCache = null;
+function yesterdaySlot() {
+  return shift(today.key, -1) >= EPOCH ? `<section class="card yesterday" id="yesterday" hidden></section>` : "";
+}
+const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+async function fillYesterday() {
+  const el = document.getElementById("yesterday"), y = shift(today.key, -1);
+  if (!el) return;
+  const r = roundFor(y);
+  if (yesterdayCache?.day !== y) {
+    const [real, scores] = await Promise.all([loadHerds(y, r.questions), loadScores(y)]);
+    yesterdayCache = { day: y, real, scores };
+  }
+  if (!el.isConnected) return;
+  const st = store.get(dayStateKey(y)), ids = r.questions.map((q) => q.id).join();
+  const mine = st?.done && (!st.ids || st.ids === ids) ? st.answers : null;
+  const rows = r.questions.map((q, i) => {
+    const h = makeHerd(q, yesterdayCache.real[q.id], y), a = mine?.[i];
+    const moved = a?.hm != null && withUnit(q, a.hm) !== withUnit(q, h.median) ? `<p class="y-moved">The herd was on ${withUnit(q, a.hm)} when you played.</p>` : "";
+    return { q, g: a ? a.g : null, h, moved };
+  });
+  const herdScore = rows.reduce((t, x) => t + points(x.q, x.h.median), 0);
+  const you = mine ? rows.reduce((t, x) => t + points(x.q, x.g), 0) : null;
+  const scores = yesterdayCache.scores, n = scores.length;
+  const place = (v) => 1 + scores.filter((t) => t > v).length;
+  el.innerHTML = `
+    <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
+    ${n ? dayChart(scores, herdScore, you) : ""}
+    <ol class="standings">${[
+      { who: "herd", name: "The herd", icon: oxHead({ size: 38 }), score: herdScore },
+      { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
+    ].sort((a, b) => (b.score ?? -1) - (a.score ?? -1)).map((x) => `<li class="${x.who}">
+        <span class="st-icon">${x.icon}</span>
+        <span class="st-name">${x.name}${n && x.score != null ? `<small>${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
+        <span class="st-score">${x.score == null ? "" : `<b>${x.score}</b><small>/${MAX()}</small>`}</span>
+      </li>`).join("")}</ol>
+    ${questionByQuestion(rows)}`;
+  el.hidden = false;
 }
 
 // The story as a short tap-through: one idea per page, each with its own little moment.
@@ -272,7 +466,7 @@ function storyScale(withAnswer) {
 
 function story(page = 0) {
   screen = "story";
-  const cta = state.done ? "See today's results" : "Join the herd";
+  const cta = state.done ? "Back to today" : "Join the herd";
   const pages = [
     `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
      <p class="eyebrow">Plymouth, England, 1906</p>
@@ -288,7 +482,7 @@ function story(page = 0) {
      <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's guess</small><b>1,207 lb</b></div><div class="truth"><small><i class="ans-flag"></i>The ox's weight</small><b>1,198 lb</b></div></div>
      <h1 class="story-title">Together, the crowd knew.</h1>
      <p class="story-text">The middle guess was just 9 lb out, less than 1% off the ox's real weight.</p>`,
-    `<div class="story-bunting" aria-hidden="true">${Array.from({ length: 11 }, (_, k) => `<i style="--k:${k}; --c:${["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"][k % 5]}; --y:${(Math.sin((k / 10) * Math.PI) * 14).toFixed(1)}px"></i>`).join("")}</div>
+    `<div class="story-bunting" aria-hidden="true">${flags(11, 14)}</div>
      <div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
      <h1 class="story-title">OxGuess is that fair, every day.</h1>
      <p class="story-text">Five numbers nobody knows off by heart. You'll be out on some. The herd, all of us guessing together, usually gets surprisingly close.</p>
@@ -300,8 +494,8 @@ function story(page = 0) {
       <div class="story-page" data-page="${page}">${pages[page]}</div>
       <div class="story-dots" aria-label="Page ${page + 1} of ${STORY_PAGES}">${pages.map((_, k) => `<i class="${k === page ? "on" : ""}"></i>`).join("")}</div>
       <div class="story-nav">
-        ${page > 0 ? `<button class="btn" id="story-back">Back</button>` : `<button class="link" data-go="${state.done ? "results" : "home"}">Skip</button>`}
-        <button class="btn primary big" id="story-next" ${last ? `data-go="${state.done ? "results" : "play"}"` : ""}>${last ? cta : "Next"}</button>
+        ${page > 0 ? `<button class="btn" id="story-back">Back</button>` : `<button class="link" data-go="home">Skip</button>`}
+        <button class="btn primary big" id="story-next" ${last ? `data-go="${state.done ? "home" : "play"}"` : ""}>${last ? cta : "Next"}</button>
       </div>
     </section>`);
   store.set("ox-seen-story", true);
@@ -421,7 +615,8 @@ function ask() {
     const ticketNo = SEED_GUESSES + (herds[q.id]?.n ?? 0) + 1;
     const bin = recordGuess(today.key, q, g, arm, r);
     addLocal(q, bin); sinceRead.push([q, bin]);
-    state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo, arm });
+    // hm: the herd's guess as this player saw it, for tomorrow's "the herd was on X when you played".
+    state.answers.push({ g, s: score(q, g), bin, ticket: ticketNo, arm, hm: herd(q).median });
     state.revealing = true;
     save();
     // Your guess becomes a numbered fair ticket and drops into the judges' box.
@@ -494,7 +689,7 @@ function reveal(i, { animate = false } = {}) {
         <div class="herd">
           <div class="herd-head"><h2>How the herd guessed</h2><span class="muted">${h.players.toLocaleString("en-GB")} guesses</span></div>
           ${herdChart(q, h, { guess: a.g, range: r })}
-          <div class="legend"><span><i style="background:var(--good)"></i>Answer ${withUnit(q, q.answer)}</span><span>${fairgoer({ size: 14 })} You ${withUnit(q, a.g)} · ${p} pts</span><span>${oxHead({ size: 14 })} Herd ${withUnit(q, h.median)} · ${them} pts</span></div>
+          <div class="legend"><span><i style="background:var(--good)"></i>Answer ${withUnit(q, q.answer)}</span><span>${fairgoer({ size: 14 })} You ${withUnit(q, a.g)} (${p} pts)</span><span>${oxHead({ size: 14 })} Herd ${withUnit(q, h.median)} (${them} pts)</span></div>
           <p class="herd-beat">You beat <b>${v.beat}%</b> of the herd.</p>
         </div>
     </section>`, q.cat);
@@ -508,7 +703,7 @@ function reveal(i, { animate = false } = {}) {
       state.done = true; state.total = total(); save();
       recordPlay(today.key, today.number, today.questions.map((_, j) => ptsAt(j)));
       recordPlayer(playerSummary());
-      results({ celebrate: true });
+      home({ celebrate: true });
     } else { save(); ask(); }
   };
   if (!animate) { setStriker(); return; }
@@ -600,11 +795,11 @@ function reveal(i, { animate = false } = {}) {
   })();
 }
 
-// ---------- results ----------
+// ---------- question by question lines ----------
 // One question on one line: you above it, the herd below it, the answer as a green tick. The line spans the herd's
 // whole range (both sliders in the slider test), so the herd is always on it. Points sit on the left
 // with who scored them; each guess sits centred on its own marker, hugging the edge near either end of the line.
-function compare(q, r, g, herdGuess, yp, hp) {
+function compare(q, r, g, herdGuess, yp, hp, winner) {
   const at = (v) => toPos(q, r, v) / STEPS;
   const side = (x) => (x < 0.15 ? "start" : x > 0.85 ? "end" : "mid");
   const pin = (who, icon, v) => {
@@ -612,74 +807,19 @@ function compare(q, r, g, herdGuess, yp, hp) {
     return `<div class="duo-pin ${who} ${side(x)}" style="left:${x * 100}%">${who === "you" ? lab + post : post + lab}</div>`;
   };
   return `<div class="answer-pill"><i class="ans-flag"></i>Answer <b>${withUnit(q, q.answer)}</b></div>
-    <div class="duo" aria-label="Answer ${withUnit(q, q.answer)}; you ${withUnit(q, g)}, ${yp} points; the herd ${withUnit(q, herdGuess)}, ${hp} points">
-      <div class="duo-side"><span class="you">You<b>${yp}<small> pts</small></b></span><span class="herd">Herd<b>${hp}<small> pts</small></b></span></div>
+    <div class="duo" aria-label="Answer ${withUnit(q, q.answer)}; ${g == null ? "you didn't play" : `you ${withUnit(q, g)}, ${yp} points`}; the herd ${withUnit(q, herdGuess)}, ${hp} points">
+      <div class="duo-side"><span class="you ${winner === "you" ? "won" : ""}">You<b>${g == null ? "–" : `${yp}<small> pts</small>`}</b></span><span class="herd ${winner === "herd" && g != null ? "won" : ""}">Herd<b>${hp}<small> pts</small></b></span></div>
       <div class="duo-track">
         <div class="duo-line"></div><i class="duo-ans" style="left:${at(q.answer) * 100}%"></i>
-        ${pin("you", fairgoer({ size: 20 }), g)}
+        ${g == null ? "" : pin("you", fairgoer({ size: 20 }), g)}
         ${pin("herd", oxHead({ size: 20 }), herdGuess)}
       </div>
     </div>`;
 }
 
-function results({ celebrate = false } = {}) {
-  screen = "results";
-  const qs = today.questions, you = total(), herdScore = herdTotal(), max = MAX();
-  const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join("");
-  const s = streak();
-  const beat = you > herdScore, level = you === herdScore;
-  // A blank line after the title and before the link, so it reads cleanly in a chat.
-  const share = `OxGuess · Round ${today.number} 🐂\n\n${grid} ${you}/${max}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\n\noxguess.com`;
-  const headline = beat ? "You beat the herd!" : level ? "Dead level with the herd" : "The herd wins today";
-  const sub = beat ? "Smarter than the crowd. Don't let it go to your head." : level ? "Great minds, and all that." : "It knows things. Tomorrow's another fair.";
-  render(`
-    <section class="card results">
-      <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
-      <div class="versus">
-        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span></div>
-        <span class="vs">vs</span>
-        <div class="side">${oxHead({ size: 46 })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
-      </div>
-      <p class="results-sub">${sub}</p>
-      <div class="complete" id="complete">
-        ${stampTick(`big ${celebrate ? "pending" : ""}`)}
-        <div><p class="complete-title">Round ${today.number} complete</p><p class="streak-line">${streakLine()}</p></div>
-      </div>
-      ${weekTickets(today.key, { stampToday: celebrate })}
-      <div class="my-rosettes" aria-label="Your prizes">${state.answers.map((a, i) => {
-        const q = qs[i], yp = ptsAt(i);
-        return `<div class="my-rosette ${celebrate ? "pending" : ""}">${rosette(tierFor(yp).key, yp, 42)}<span>${catLabel(q)}</span></div>`;
-      }).join("")}</div>
-      <button class="btn primary big" id="share">Share my rosettes</button>
-      <p class="fine center" id="copied" hidden>Copied. Go on, show off.</p>
-      <pre class="share-text" id="share-text" hidden>${share}</pre>
-      <p class="center muted">New guesses in <b id="cd"></b></p>
-    </section>
-    <section class="card">
-      <h2>Question by question</h2>
-      <ul class="rows">
-        ${state.answers.map((a, i) => {
-          const q = qs[i], h = herd(q), hm = h.median, yp = ptsAt(i), hp = points(q, hm);
-          return `<li style="--cat:${CATS[q.cat].color}">
-            <div class="row-top">${rosette(tierFor(yp).key, yp, 30)}<div class="row-q"><b>${catLabel(q)}</b><span>${q.q}</span></div></div>
-            ${compare(q, h.range, a.g, hm, yp, hp)}
-          </li>`;
-        }).join("")}
-      </ul>
-    </section>
-    <section class="card soft key">
-      <h2>The prizes</h2>
-      <ul class="tiers">${TIERS.map((t) => `<li>${rosette(t.key, t.min === PER_QUESTION ? PER_QUESTION : `${t.min}+`, 30)}<span>${t.name}</span></li>`).join("")}</ul>
-    </section>`);
-  countdown(document.getElementById("cd"));
-  document.getElementById("share").onclick = () => {
-    const fallback = () => { document.getElementById("share-text").hidden = false; };
-    if (navigator.share && /Mobi|Android|iPhone/i.test(navigator.userAgent)) { navigator.share({ text: share }).catch(() => {}); return; }
-    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(share).then(() => { document.getElementById("copied").hidden = false; sfx.plink(); }, fallback);
-    else fallback();
-  };
-  if (!celebrate) return;
-
+/** The first look at a finished round: the scores count up, the ribbon drops, the rosettes and today's ticket go on. */
+function celebrateRound() {
+  const you = total(), herdScore = herdTotal(), beat = you > herdScore;
   (async () => {
     await wait(250);
     await countUp(document.getElementById("you-n"), you, 900);
@@ -688,6 +828,7 @@ function results({ celebrate = false } = {}) {
     await countUp(document.getElementById("herd-n"), herdScore, 700);
     await wait(200);
     const ribbon = document.getElementById("ribbon");
+    if (!ribbon) return;
     ribbon.classList.remove("is-hidden");
     ribbon.animate([{ transform: "scaleX(.2)", opacity: 0 }, { transform: "scaleX(1.05)", opacity: 1 }, { transform: "scaleX(1)" }], { duration: 450, easing: "cubic-bezier(.3,1.4,.5,1)" });
     if (beat || you >= 80) { sfx.fanfare(); buzz([40, 60, 40, 60, 120]); bunting({ y: window.innerHeight * 0.45, count: 70, power: 1.2 }); }
@@ -699,8 +840,6 @@ function results({ celebrate = false } = {}) {
       sfx.tick(); await wait(120);
     }
     await wait(300);
-    stampIn(document.querySelector(".complete .stamp"));
-    await wait(350);
     const t = document.querySelector(".ticket.is-today .stamp");
     if (t) { stampIn(t); buzz(20); }
   })();

@@ -47,6 +47,13 @@ export async function loadHerds(day, questions) {
   return out;
 }
 
+/** Every finished round's total on one day (for yesterday's chart). Never throws; offline comes back empty. */
+export async function loadScores(day) {
+  if (!db) return [];
+  try { return (await getDocs(query(collection(db, "plays"), where("day", "==", day)))).docs.map((d) => d.data().total).filter(Number.isFinite); }
+  catch (e) { console.warn("Scores read failed", e.code ?? e); return []; }
+}
+
 /** For the stats page: every guess and finished round from a date on. Throws if the rules don't allow reads. */
 export async function loadActivity(since) {
   if (!db) throw new Error("Firestore didn't start");

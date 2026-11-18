@@ -24,7 +24,8 @@ getting close, then see how "the herd" (everyone) guessed. See `docs/vision.md` 
 site/                 the whole website (deployed as-is)
   index.html
   styles.css          tokens, then one section per screen
-  js/app.js           screens: home, story, ask, reveal (you, the answer and the herd on one line), results; state and
+  js/app.js           screens: the day (start, then you v the herd, question by question, tomorrow, yesterday), story,
+                      ask, reveal (you, the answer and the herd on one line); the menu (story, prizes, sound); state and
                       streaks (localStorage)
   js/game.js          rules: slider ranges, scoring (0-20 per question), units, the herd
   js/fx.js            sounds (Web Audio), haptics, confetti, stamps, count-ups, the ticket drop
