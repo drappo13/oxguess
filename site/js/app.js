@@ -148,7 +148,6 @@ function header() {
       <div class="menu-wrap">
         <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <div class="menu" id="menu" hidden>
-          <div class="menu-bunting" aria-hidden="true">${flags(9, 5)}</div>
           <button data-go="story"><span class="mi">${oxHead({ size: 30 })}</span>The story</button>
           <button id="prizes-open"><span class="mi">${rosette("first", "", 24)}</span>The prizes</button>
           <button id="mute" role="switch" aria-checked="${!isMuted()}"><span class="mi speaker" aria-hidden="true">${SPEAKER}</span>Sound<span class="switch" aria-hidden="true"><i></i></span></button>

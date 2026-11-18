@@ -8,8 +8,8 @@ Newest first. Each entry: what was decided, and why.
   tap between them. Now, once played, the day screen runs: you against the herd, your rosettes and the share button;
   question by question, folded to who won each one (fairgoer, ox, or both for a draw), with the winner's points shaded
   when opened; back tomorrow (why to come back, the countdown and the week); your stats (streak, best streak, days won
-  against the herd); yesterday. The story and the prizes moved into a menu top right (bunting along the top,
-  an icon for each, and a real switch for sound).
+  against the herd); yesterday. The story and the prizes moved into a menu top right (an icon for each, and a
+  real switch for sound).
 - **Numbers live on fair props, not in grey tiles.** The countdown is two flip cards on ticket stock; the streak is
   printed on a notched ticket, the best streak on a rosette; days won is the fairgoer and the ox facing off across a
   tug-of-war bar; yesterday's places are a standings board. No "·" separators in the copy.
