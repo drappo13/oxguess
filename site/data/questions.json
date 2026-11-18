@@ -1964,6 +1964,142 @@
         "url": "https://en.wikipedia.org/wiki/Oscar_Swahn"
       },
       "evidence": "At 64 years and 258 days of age, he became the oldest gold medalist ever, a record he still holds. … At the 1920 Summer Olympics, he became the oldest athlete ever to compete in the Olympics at the age of 72."
+    },
+    {
+      "id": "pop-egypt",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Egypt in 2023?",
+      "answer": 114535772,
+      "unit": "",
+      "alt": "about 115 million",
+      "scale": "log",
+      "fact": "It is the most populous country in the Arab world, and the third most populous in Africa.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Egypt"
+      },
+      "evidence": "Egypt: Population (1 July 2023) 114,535,772 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-saudi",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Saudi Arabia in 2023?",
+      "answer": 32264292,
+      "unit": "",
+      "alt": "about 32 million",
+      "scale": "log",
+      "fact": "Oil was discovered there in 1938. It is now the world's second-largest oil producer.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Saudi_Arabia"
+      },
+      "evidence": "Saudi Arabia: Population (1 July 2023) 32,264,292 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-iran",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Iran in 2023?",
+      "answer": 90608707,
+      "unit": "",
+      "alt": "about 91 million",
+      "scale": "log",
+      "fact": "Iran was known for centuries as Persia. Cyrus the Great founded the Achaemenid Empire there in the 6th century BC.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Iran"
+      },
+      "evidence": "Iran: Population (1 July 2023) 90,608,707 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-russia",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Russia in 2023?",
+      "answer": 145440500,
+      "unit": "",
+      "alt": "about 145 million",
+      "scale": "log",
+      "fact": "It is the largest country in the world, spanning eleven time zones.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Russia"
+      },
+      "evidence": "Russia: Population (1 July 2023) 145,440,500 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-brazil",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Brazil in 2023?",
+      "answer": 211140729,
+      "unit": "",
+      "alt": "about 211 million",
+      "scale": "log",
+      "fact": "It is the only Portuguese-speaking country in the Americas, and has more Portuguese speakers than any other country.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Brazil"
+      },
+      "evidence": "Brazil: Population (1 July 2023) 211,140,729 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-turkey",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Turkey in 2023?",
+      "answer": 87270501,
+      "unit": "",
+      "alt": "about 87 million",
+      "scale": "log",
+      "fact": "Istanbul is its largest city, but the capital is Ankara.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Turkey"
+      },
+      "evidence": "Turkey: Population (1 July 2023) 87,270,501 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-vietnam",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Vietnam in 2023?",
+      "answer": 100352192,
+      "unit": "",
+      "alt": "about 100 million",
+      "scale": "log",
+      "fact": "Its capital is Hanoi, but its largest city is Ho Chi Minh City.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Vietnam"
+      },
+      "evidence": "Vietnam: Population (1 July 2023) 100,352,192 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "pop-pakistan",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Pakistan in 2023?",
+      "answer": 247504495,
+      "unit": "",
+      "alt": "about 248 million",
+      "scale": "log",
+      "fact": "Its largest city is Karachi; the capital is Islamabad.",
+      "source": {
+        "name": "Wikipedia: List of countries by population (United Nations)",
+        "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+        "url2": "https://en.wikipedia.org/wiki/Pakistan"
+      },
+      "evidence": "Pakistan: Population (1 July 2023) 247,504,495 (UN World Population Prospects, 2024 revision)"
     }
   ]
 }
