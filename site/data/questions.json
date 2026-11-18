@@ -2100,6 +2100,23 @@
         "url2": "https://en.wikipedia.org/wiki/Pakistan"
       },
       "evidence": "Pakistan: Population (1 July 2023) 247,504,495 (UN World Population Prospects, 2024 revision)"
+    },
+    {
+      "id": "a4-football-pitch",
+      "cat": "many",
+      "kind": null,
+      "q": "How many sheets of A4 paper would it take to cover a football pitch of the size FIFA recommends?",
+      "answer": 114478,
+      "unit": "",
+      "alt": "about 114,000",
+      "scale": "log",
+      "fact": "An A0 sheet is exactly one square metre, and each size down is half the one before, so A4 is a sixteenth of a square metre.",
+      "source": {
+        "name": "Wikipedia: Football pitch",
+        "url": "https://en.wikipedia.org/wiki/Football_pitch",
+        "url2": "https://en.wikipedia.org/wiki/Paper_size"
+      },
+      "evidence": "FIFA recommends that the field of play measures exactly 105 metres (115 yards) long and 68 metres (74 yards) wide … Paper size: A4 is 297 mm by 210 mm. 7,140 m2 / (0.297 m x 0.210 m = 0.06237 m2) = 114,478"
     }
   ]
 }

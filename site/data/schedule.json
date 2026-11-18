@@ -19,7 +19,7 @@
     "2026-12-01": ["d13-when", "d15-big", "d13-far", "d09-many", "d16-big"],
     "2026-12-02": ["d02-when", "d04-big", "d15-far", "pop-saudi", "d17-wild"],
     "2026-12-03": ["d01-when", "d17-big", "d12-far", "d14-many", "d19-wild"],
-    "2026-12-04": ["d08-when", "d08-big", "d18-far", "d06-many", "d05-wild"],
+    "2026-12-04": ["d08-when", "d08-big", "d18-far", "a4-football-pitch", "d05-wild"],
     "2026-12-05": ["d09-when", "wadlow-height", "d03-far", "europe-pop", "calment-age"]
   }
 }
