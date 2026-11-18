@@ -1880,6 +1880,90 @@
       "evidence": "Bolt improved upon his second 100 m world record of 9.69 with 9.58 seconds in 2009",
       "minB": 0.5,
       "maxB": 100
+    },
+    {
+      "id": "wadlow-height",
+      "cat": "big",
+      "kind": "height",
+      "q": "How tall was Robert Wadlow, the tallest person in recorded history?",
+      "answer": 272,
+      "unit": "cm",
+      "alt": "8 ft 11 in",
+      "scale": "log",
+      "fact": "He kept growing all his adult life, because of an overactive pituitary gland. He died aged 22.",
+      "source": {
+        "name": "Wikipedia: Robert Wadlow",
+        "url": "https://en.wikipedia.org/wiki/Robert_Wadlow"
+      },
+      "evidence": "Robert Pershing Wadlow (February 22, 1918 – July 15, 1940) … was an American man known for being the tallest person in recorded history for whom there is irrefutable evidence. … Wadlow's height was 8 ft 11.1 in (2.72 m)"
+    },
+    {
+      "id": "europe-pop",
+      "cat": "many",
+      "kind": null,
+      "q": "According to UN estimates, how many people lived in Europe in 2023?",
+      "answer": 742000000,
+      "unit": "",
+      "alt": "742 million",
+      "scale": "log",
+      "fact": "Europe's population grew from about 100 million in 1700 to 400 million by 1900.",
+      "source": {
+        "name": "Wikipedia: Europe",
+        "url": "https://en.wikipedia.org/wiki/Europe"
+      },
+      "evidence": "The population of Europe was about 742 million in 2023 according to UN estimates."
+    },
+    {
+      "id": "uk-pms",
+      "cat": "many",
+      "kind": null,
+      "q": "Counting from Robert Walpole in 1721, how many people have been British prime minister, up to and including Andy Burnham?",
+      "answer": 59,
+      "unit": "",
+      "alt": null,
+      "scale": "log",
+      "fact": "Walpole is still the longest-serving prime minister: he led the government for over twenty years.",
+      "source": {
+        "name": "Wikipedia: List of prime ministers of the United Kingdom",
+        "url": "https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom"
+      },
+      "evidence": "The list runs from Robert Walpole (1st) to Keir Starmer (58th) and Andy Burnham (59th), each person counted once however many terms they served. Prime Minister of the United Kingdom: \"The current prime minister is Andy Burnham who has held the office since 20 July 2026.\""
+    },
+    {
+      "id": "calment-age",
+      "cat": "wild",
+      "kind": "old",
+      "q": "How old was Jeanne Calment, the oldest person whose age has ever been verified, when she died?",
+      "answer": 122,
+      "unit": "years",
+      "alt": null,
+      "scale": "lin",
+      "min": 0,
+      "max": 150,
+      "fact": "She lived in Arles, and claimed to remember selling coloured pencils to Vincent van Gogh.",
+      "source": {
+        "name": "Wikipedia: Jeanne Calment",
+        "url": "https://en.wikipedia.org/wiki/Jeanne_Calment"
+      },
+      "evidence": "Jeanne Louise Calment (21 February 1875 – 4 August 1997) was a French supercentenarian who is the oldest person in recorded history whose age has been verified, with a documented lifespan of 122 years and 164 days."
+    },
+    {
+      "id": "swahn-age",
+      "cat": "wild",
+      "kind": "old",
+      "q": "How old was Sweden's Oscar Swahn when he became the oldest person ever to win an Olympic gold medal?",
+      "answer": 64,
+      "unit": "years",
+      "alt": null,
+      "scale": "lin",
+      "min": 0,
+      "max": 100,
+      "fact": "He won it for shooting at moving deer targets. Eight years later, aged 72, he won a silver too.",
+      "source": {
+        "name": "Wikipedia: Oscar Swahn",
+        "url": "https://en.wikipedia.org/wiki/Oscar_Swahn"
+      },
+      "evidence": "At 64 years and 258 days of age, he became the oldest gold medalist ever, a record he still holds. … At the 1920 Summer Olympics, he became the oldest athlete ever to compete in the Olympics at the age of 72."
     }
   ]
 }
