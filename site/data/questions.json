@@ -190,7 +190,7 @@
       },
       "evidence": "The 1930 FIFA World Cup was the first FIFA World Cup",
       "minB": 1850,
-      "maxB": 2000,
+      "maxB": 2026,
       "min": 1700,
       "max": 2000
     },
@@ -1429,9 +1429,9 @@
       },
       "evidence": "Production | 1938–2003 21,529,464 produced",
       "minB": 1000000,
-      "maxB": 200000000,
+      "maxB": 2000000000,
       "min": 100000,
-      "max": 500000000
+      "max": 100000000
     },
     {
       "id": "d18-many",
@@ -1781,17 +1781,17 @@
       "answer": 201,
       "unit": "min",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "It won all 11 Academy Awards it was nominated for, including Best Picture. That ties the record held by Ben-Hur and Titanic.",
       "source": {
         "name": "Wikipedia: The Lord of the Rings: The Return of the King",
         "url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King"
       },
       "evidence": "Running time | 201 minutes",
-      "minB": 20,
-      "maxB": 5000,
-      "min": 60,
-      "max": 240
+      "max": 240,
+      "minB": 60,
+      "min": 1,
+      "maxB": 600
     },
     {
       "id": "d17-wild",
