@@ -97,16 +97,33 @@ function load() {
   fetchHerds();
 }
 /** Read today's herds. Guesses already sent are in the stored herd; guesses made while the read is out are
- *  added on top when it lands. A question whose read fails keeps what we had. */
-function fetchHerds() {
+ *  added on top when it lands. A question whose read fails keeps what we had, and the read is tried again (a slow or
+ *  dropped connection must not leave a player looking at the starter guesses all day). When the real herd lands
+ *  after the day screen is up, the day screen is drawn again with it. */
+function fetchHerds(attempt = 0) {
   const day = today.key;
-  sinceRead = []; herdsAt = Date.now();
+  if (!attempt) { sinceRead = []; herdsAt = Date.now(); }
+  const before = herdTotalNow();
   herdsReady = loadHerds(day, today.questions).then((fresh) => {
     if (day !== today.key) return;
     Object.assign(herds, fresh);
     for (const [q, bin] of sinceRead) if (fresh[q.id]) addLocal(q, bin);
+    sinceRead = sinceRead.filter(([q]) => !fresh[q.id]);
+    const missing = today.questions.some((q) => !fresh[q.id]);
+    if (missing && attempt < 3) setTimeout(() => { if (day === today.key) fetchHerds(attempt + 1); }, 2000 * (attempt + 1));
+    if (screen === "home" && state.done && herdTotalNow() !== before) redrawDay();
   });
 }
+const herdTotalNow = () => (today ? today.questions.map((q) => herds[q.id]?.n ?? 0).join() : "");
+/** Draw the day screen again with the latest herd, once any celebration on it has finished. */
+function redrawDay() {
+  if (celebrating) { redrawPending = true; return; }
+  const y = window.scrollY, open = [...document.querySelectorAll(".qbq")].map((d) => d.open);
+  home();
+  document.querySelectorAll(".qbq").forEach((d, i) => { d.open = open[i] ?? false; });
+  window.scrollTo(0, y);
+}
+let celebrating = false, redrawPending = false;
 function addLocal(q, bin) {
   const h = (herds[q.id] ??= { n: 0, b: {} });
   h.n += 1; h.b[bin] = (h.b[bin] ?? 0) + 1;
@@ -119,10 +136,7 @@ function newDay() {
 // Coming back to an open tab: move on to a new day, or pick up the guesses the herd has made since.
 document.addEventListener("visibilitychange", async () => {
   if (document.hidden || !today || newDay() || Date.now() - herdsAt < 60000) return;
-  const count = () => today.questions.map((q) => herds[q.id]?.n ?? 0).join();
-  const before = count();
-  fetchHerds(); await herdsReady;
-  if (screen === "home" && state.done && count() !== before) home();
+  fetchHerds();
 });
 const herd = (q) => makeHerd(q, herds[q.id], today.key);
 /** The slider this player gets for question i (A or B in the slider test), kept with the guess once made.
@@ -819,6 +833,7 @@ function compare(q, r, g, herdGuess, yp, hp, winner) {
 /** The first look at a finished round: the scores count up, the ribbon drops, the rosettes and today's ticket go on. */
 function celebrateRound() {
   const you = total(), herdScore = herdTotal(), beat = you > herdScore;
+  celebrating = true;
   (async () => {
     await wait(250);
     await countUp(document.getElementById("you-n"), you, 900);
@@ -841,7 +856,7 @@ function celebrateRound() {
     await wait(300);
     const t = document.querySelector(".ticket.is-today .stamp");
     if (t) { stampIn(t); buzz(20); }
-  })();
+  })().finally(() => { celebrating = false; if (redrawPending) { redrawPending = false; if (screen === "home") redrawDay(); } });
 }
 
 // ---------- boot ----------
@@ -858,6 +873,10 @@ async function boot() {
   const savedUnits = store.get("ox-units");
   setSystem(savedUnits ?? (/^en-(US|LR|MM)$/i.test(navigator.language) ? "imperial" : "metric"));
   load();
-  if (!store.get("ox-seen-story") && !state.answers.length) story(0); else home();
+  if (!store.get("ox-seen-story") && !state.answers.length) story(0);
+  // A finished day shows the herd, so it waits for today's herd like the reveal does (never more than 1.5s; if it is
+  // later than that, the day screen is drawn again when it lands).
+  else if (state.done) settle().then(() => home());
+  else home();
 }
 boot();
