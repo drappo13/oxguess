@@ -224,7 +224,11 @@
         "name": "Wikipedia: Gangnam Style",
         "url": "https://en.wikipedia.org/wiki/Gangnam_Style"
       },
-      "evidence": "is a K-pop song by South Korean singer Psy, released on July 15, 2012"
+      "evidence": "is a K-pop song by South Korean singer Psy, released on July 15, 2012",
+      "min": 2000,
+      "max": 2026,
+      "minB": 1980,
+      "maxB": 2020
     },
     {
       "id": "d14-when",
@@ -240,7 +244,11 @@
         "name": "Wikipedia: Star Wars (film)",
         "url": "https://en.wikipedia.org/wiki/Star_Wars_(film)"
       },
-      "evidence": "It was released in a small number of theaters in the United States on May 25, 1977, and quickly became a surprise blockbuster"
+      "evidence": "It was released in a small number of theaters in the United States on May 25, 1977, and quickly became a surprise blockbuster",
+      "min": 1950,
+      "minB": 1900,
+      "maxB": 2000,
+      "max": 2026
     },
     {
       "id": "d15-when",
@@ -510,15 +518,17 @@
       "answer": 28,
       "unit": "m",
       "alt": "91.9 ft",
-      "scale": "log",
+      "scale": "lin",
       "fact": "NBA courts are a little bigger, at 94 by 50 feet (28.7 by 15.2 m).",
       "source": {
         "name": "Wikipedia: Basketball court",
         "url": "https://en.wikipedia.org/wiki/Basketball_court"
       },
       "evidence": "Under International Basketball Federation (FIBA) rules, the court is slightly smaller, measuring 28 by 15 meters (91.9 by 49.2 ft).",
-      "minB": 5,
-      "maxB": 500
+      "maxB": 50,
+      "min": 10,
+      "max": 100,
+      "minB": 1
     },
     {
       "id": "d10-big",
@@ -535,8 +545,10 @@
         "url": "https://en.wikipedia.org/wiki/Mona_Lisa"
       },
       "evidence": "Dimensions | 77 cm × 53 cm (30 in × 21 in)",
-      "minB": 2,
-      "maxB": 200
+      "minB": 1,
+      "maxB": 300,
+      "min": 25,
+      "max": 1000
     },
     {
       "id": "d11-big",
@@ -751,8 +763,8 @@
         "url2": "https://www.wikidata.org/wiki/Q545360"
       },
       "evidence": "Abbey Road Studios (Q209651): Point(-0.178333 51.531945); Graceland (Q545360): Point(-90.025833 35.046111). Great-circle (haversine, R = 6371.0088 km) = 7027 km",
-      "minB": 200,
-      "maxB": 50000
+      "minB": 1,
+      "maxB": 25000
     },
     {
       "id": "d02-far",
@@ -806,8 +818,10 @@
         "url2": "https://www.wikidata.org/wiki/Q21083961"
       },
       "evidence": "Times Square (Q11259): Point(-73.985833 40.7575); Shibuya scramble crossing (Q21083961): Point(139.700544 35.659503). Great-circle (haversine, R = 6371.0088 km) = 10848 km",
-      "minB": 200,
-      "maxB": 50000
+      "min": 1000,
+      "max": 250000,
+      "minB": 1,
+      "maxB": 100000
     },
     {
       "id": "d05-far",
@@ -1162,15 +1176,17 @@
       "answer": 88,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "The piano was invented by Bartolomeo Cristofori in Italy in the early 18th century.",
       "source": {
         "name": "Wikipedia: Piano",
         "url": "https://en.wikipedia.org/wiki/Piano"
       },
       "evidence": "Modern pianos have a row of 88 black and white keys",
-      "minB": 1,
-      "maxB": 500
+      "maxB": 500,
+      "max": 200,
+      "min": 1,
+      "minB": 25
     },
     {
       "id": "d03-many",
@@ -1577,7 +1593,9 @@
       },
       "evidence": "when it achieved a speed of 1,228 km/h (763 mph) and it became the first and only land vehicle to officially break the sound barrier",
       "minB": 200,
-      "maxB": 20000
+      "min": 150,
+      "max": 1500,
+      "maxB": 10000
     },
     {
       "id": "d05-wild",
@@ -1682,7 +1700,9 @@
         "url": "https://en.wikipedia.org/wiki/Academy_Awards"
       },
       "evidence": "it is 13.5 in (34.3 cm) tall, weighs 8.5 lb (3.9 kg)",
-      "minB": 0.2,
+      "min": 0.1,
+      "max": 25,
+      "minB": 0.5,
       "maxB": 100
     },
     {
@@ -1984,7 +2004,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Egypt"
       },
-      "evidence": "Egypt: Population (1 July 2023) 114,535,772 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Egypt: Population (1 July 2023) 114,535,772 (UN World Population Prospects, 2024 revision)",
+      "min": 5000000,
+      "max": 1000000000,
+      "minB": 1,
+      "maxB": 500000000
     },
     {
       "id": "pop-saudi",
