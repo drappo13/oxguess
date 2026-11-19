@@ -1,0 +1,18 @@
+{
+  "short": {
+    "d11-when": "First World Cup",
+    "d19-big": "A380 wingspan",
+    "d19-far": "Athens to Istanbul",
+    "d17-many": "VW Beetles made",
+    "d16-wild": "Return of the King"
+  },
+  "findings": [
+    "<b>Guesses drift to the slider's middle.</b> On slider A the answer sat 70–84% along on four questions, and each time the median guess fell back towards the middle (only slightly on the World Cup, which people know). On B the answer sat near the middle and the median stayed with it.",
+    "<b>The VW Beetles show it most.</b> The median on slider A was exactly the slider's starting point, 3.16 million, 6.8 times too small. On B it was about 10% short of the answer."
+  ],
+  "caveats": [
+    "<b>B mostly tested \"answer near the middle\".</b> So this says more about where the answer sits than about wider or narrower ends.",
+    "<b>Knowledge still wins.</b> The Return of the King scored about the same on both sliders (people know a film's length), and Athens to Istanbul came out too far on both.",
+    "<b>B made the game easier.</b> Higher scores are what you'd expect when the slider's starting point sits near the answer. Whether that's the game you want is a separate question from whether B works."
+  ]
+}

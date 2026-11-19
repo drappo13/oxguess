@@ -1,0 +1,420 @@
+<title>OxGuess Slider Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: one narrow fair-day column. Headline numbers, then every guess per question, then why, then score. */
+:root {
+  --bg: #eef4e6;        /* meadow, as on oxguess.com */
+  --card: #ffffff;
+  --ink: #26332b;
+  --muted: #687669;
+  --line: #d9e3cf;
+  --grid: #eaf0e3;
+  --good: #2f9e57;      /* the answer, as in the game */
+  --a: #2f6fc9;         /* slider A */
+  --b: #dd6a24;         /* slider B */
+  --display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
+  --body: "Nunito", ui-rounded, system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #18211b; --card: #222d25; --ink: #eef3ea; --muted: #a2b2a5; --line: #34433a; --grid: #2a362e;
+    --good: #5fd08a; --a: #3f87e2; --b: #d9662a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #18211b; --card: #222d25; --ink: #eef3ea; --muted: #a2b2a5; --line: #34433a; --grid: #2a362e;
+  --good: #5fd08a; --a: #3f87e2; --b: #d9662a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 20px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; text-wrap: balance; }
+h1 { font-size: 34px; line-height: 1.1; }
+h2 { font-size: 22px; line-height: 1.2; }
+h3 { font-size: 17px; line-height: 1.3; }
+p { margin: 0; }
+.eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.lede { color: var(--muted); max-width: 62ch; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.sec { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.sec > p { max-width: 64ch; }
+.note { font-size: 14px; color: var(--muted); }
+
+/* headline */
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.tile .k { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.vs { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.vs .num { font-family: var(--display); font-size: 40px; font-weight: 600; line-height: 1; }
+.vs .who { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--muted); }
+.vs .arrow { color: var(--muted); font-size: 20px; }
+.tile .sub { font-size: 14px; color: var(--muted); }
+@media (max-width: 520px) { .tiles { grid-template-columns: 1fr; } }
+
+.chip { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.chip.a { background: var(--a); } .chip.b { background: var(--b); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muted); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend svg { flex: none; }
+
+/* per-question panels */
+.panels { display: flex; flex-direction: column; gap: 14px; }
+.qhead { display: flex; flex-direction: column; gap: 2px; }
+.qcat { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.qtext { font-weight: 700; }
+.chart { width: 100%; min-width: 0; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.armstats { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 6px 18px; align-items: baseline; font-size: 15px; font-variant-numeric: tabular-nums; }
+.armstats .hd { font-size: 12px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.armstats .arm { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; }
+.armstats b { font-weight: 800; }
+.armstats .off { color: var(--muted); }
+
+/* takeaways */
+.points { display: flex; flex-direction: column; gap: 10px; margin: 0; padding-left: 20px; max-width: 64ch; }
+
+/* table */
+details { font-size: 14px; }
+summary { cursor: pointer; font-weight: 800; }
+summary:focus-visible { outline: 2px solid var(--a); outline-offset: 3px; border-radius: 4px; }
+.scroll { overflow-x: auto; margin-top: 12px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 800; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* tooltip */
+.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--card); font-size: 13px; font-weight: 700;
+  padding: 6px 10px; border-radius: 10px; max-width: 240px; line-height: 1.35; opacity: 0; transition: opacity .12s; }
+.tip.on { opacity: 1; }
+.hit { cursor: default; }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <p class="eyebrow" id="eyebrow">OxGuess · slider test</p>
+    <h1>Slider A v slider B</h1>
+    <p class="lede" id="lede"></p>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="sig"></p>
+
+  <section class="sec" id="findings-sec" hidden>
+    <h2>What stands out</h2>
+    <ul class="points" id="findings"></ul>
+  </section>
+
+  <section class="sec">
+    <h2>Every guess, question by question</h2>
+    <p>Each row is one slider, drawn to scale across both sets of ends (the solid caps mark its ends). The green line is the answer. Every dot is one player's guess.</p>
+    <div class="legend">
+      <span><i class="chip a"></i>Slider A</span>
+      <span><i class="chip b"></i>Slider B</span>
+      <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/></svg>Left where the slider starts</span>
+      <span><svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true"><rect x="3.5" y="0" width="3" height="16" rx="1.5" fill="var(--ink)"/></svg>Median guess</span>
+      <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2 L11 7 L7 12 L3 7 Z" fill="var(--muted)"/></svg>Slider's starting point</span>
+    </div>
+    <div class="panels" id="panels"></div>
+  </section>
+
+  <section class="sec">
+    <h2>Guesses drift to the middle of the slider</h2>
+    <p id="drift-text"></p>
+    <div class="legend">
+      <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="var(--card)" stroke="var(--good)" stroke-width="2.5"/></svg>Answer</span>
+      <span><i class="chip a"></i>Median guess on A</span>
+      <span><i class="chip b"></i>Median guess on B</span>
+    </div>
+    <div class="card"><div class="chart" id="drift"></div></div>
+  </section>
+
+  <section class="sec">
+    <h2>Score by question</h2>
+    <p id="score-text"></p>
+    <div class="card"><div class="chart" id="scores"></div></div>
+  </section>
+
+  <section class="sec">
+    <h2>Before reading too much into it</h2>
+    <ul class="points" id="caveats"></ul>
+  </section>
+
+  <section class="card">
+    <details>
+      <summary>All the numbers</summary>
+      <div class="scroll"><table id="table"></table></div>
+    </details>
+  </section>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const DATA = __DATA__;
+const S = DATA.summary, QS = DATA.qs;
+const ARMS = ["A", "B"];
+const COL = { A: "var(--a)", B: "var(--b)" };
+const atStart = (g) => Math.abs(g[2] - 50) < 0.05;
+const r0 = (x) => Math.round(x);
+const pct = (x) => `${Math.round(x * 100)}%`;
+
+// ---- number formatting in each question's own units ----
+function fmt(q, v) {
+  if (q.scale === "year") return String(Math.round(v));
+  if (q.unit === "") {
+    if (v >= 1e9) return `${+(v / 1e9).toPrecision(3)} billion`;
+    if (v >= 1e6) return `${+(v / 1e6).toPrecision(3)} million`;
+    if (v >= 1e3) return Math.round(v).toLocaleString("en-GB");
+    return String(+v.toPrecision(3));
+  }
+  const n = v >= 100 ? Math.round(v).toLocaleString("en-GB") : String(+v.toPrecision(3));
+  return `${n} ${q.unit}`;
+}
+function fmtTick(q, v) {
+  if (q.scale === "year") return String(v);
+  if (v >= 1e9) return `${v / 1e9}bn`;
+  if (v >= 1e6) return `${v / 1e6}m`;
+  if (v >= 1e3) return `${v / 1e3}k`;
+  return String(v);
+}
+// how far out the median is, in words
+function off(q, v) {
+  if (q.scale === "year") { const d = Math.round(v - q.answer); return d === 0 ? "spot on" : `${Math.abs(d)} years ${d < 0 ? "early" : "late"}`; }
+  const r = v / q.answer;
+  if (Math.abs(r - 1) < 0.02) return "spot on";
+  if (r < 1) return r > 0.7 ? `${Math.round((1 - r) * 100)}% short` : `${(1 / r).toFixed(1)}× too small`;
+  return r < 1.5 ? `${Math.round((r - 1) * 100)}% over` : `${r.toFixed(1)}× too big`;
+}
+
+// ---- scales ----
+function scaleFor(q, x0, x1) {
+  const lo = Math.min(q.arms.A.lo, q.arms.B.lo), hi = Math.max(q.arms.A.hi, q.arms.B.hi);
+  if (q.scale === "log") {
+    const a = Math.log10(lo), b = Math.log10(hi);
+    const f = (v) => x0 + ((Math.log10(v) - a) / (b - a)) * (x1 - x0);
+    // powers of ten, plus the slider ends themselves when they aren't one
+    const ticks = new Set([lo, hi]);
+    for (let e = Math.floor(a); e <= Math.ceil(b); e++) { const t = 10 ** e; if (t >= lo && t <= hi) ticks.add(t); }
+    const sorted = [...ticks].sort((p, q) => p - q).filter((t, i, xs) => i === 0 || f(t) - f(xs[i - 1]) > 34);
+    return { f, ticks: sorted, lo, hi };
+  }
+  const f = (v) => x0 + ((v - lo) / (hi - lo)) * (x1 - x0);
+  const span = hi - lo, step = span > 250 ? 50 : 100;
+  const ticks = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) ticks.push(t);
+  return { f, ticks, lo, hi };
+}
+// slider position (0-100) -> value, for the starting point (always the middle)
+function midValue(q, a) {
+  if (q.scale === "log") return Math.sqrt(a.lo * a.hi);
+  return (a.lo + a.hi) / 2;
+}
+
+// ---- beeswarm: stack dots that would overlap, alternately above and below the track ----
+function swarm(xs, r) {
+  const placed = [], gap = r * 2 + 1.5;
+  const order = xs.map((x, i) => ({ x, i })).sort((p, q) => p.x - q.x);
+  const out = new Array(xs.length);
+  for (const p of order) {
+    for (let k = 0; ; k++) {
+      const y = k === 0 ? 0 : (k % 2 ? 1 : -1) * Math.ceil(k / 2) * gap;
+      if (!placed.some((o) => Math.hypot(o.x - p.x, o.y - y) < gap - 0.01)) { placed.push({ x: p.x, y }); out[p.i] = y; break; }
+    }
+  }
+  return out;
+}
+
+const svgNS = 'xmlns="http://www.w3.org/2000/svg"';
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+// ---- chart 1: one panel per question ----
+function panel(q, W) {
+  const L = 30, R = 16, x0 = L, x1 = W - R, sc = scaleFor(q, x0, x1), r = W < 480 ? 4.5 : 6;
+  const rows = ARMS.map((k) => {
+    const a = q.arms[k], xs = a.g.map((g) => sc.f(g[0])), ys = swarm(xs, r);
+    const ext = Math.max(16, ...ys.map(Math.abs)) + r + 10;
+    return { k, a, xs, ys, h: ext * 2 };
+  });
+  const top = 34;
+  let y = top, body = "";
+  // gridlines first, under everything
+  const totalRows = rows.reduce((s, x) => s + x.h, 0) + 8;
+  const axisY = top + totalRows + 4;
+  let grid = sc.ticks.map((t) => `<line x1="${sc.f(t)}" x2="${sc.f(t)}" y1="${top}" y2="${axisY}" stroke="var(--grid)" stroke-width="1"/>`).join("");
+  let ticks = sc.ticks.map((t) => `<text x="${sc.f(t)}" y="${axisY + 18}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--muted)">${fmtTick(q, t)}</text>`).join("");
+  for (const row of rows) {
+    const mid = y + row.h / 2, a = row.a;
+    const tx0 = sc.f(a.lo), tx1 = sc.f(a.hi), sx = sc.f(midValue(q, a));
+    body += `<text x="4" y="${mid + 6}" font-size="16" font-weight="800" fill="var(--ink)">${row.k}</text>`;
+    // the slider itself: a tinted track with solid end caps, so its ends read at a glance
+    body += `<rect x="${tx0}" y="${mid - 5}" width="${tx1 - tx0}" height="10" rx="5" fill="${COL[row.k]}" fill-opacity="0.2"/>`;
+    body += [tx0, tx1].map((x) => `<rect x="${x - 2}" y="${mid - 11}" width="4" height="22" rx="2" fill="${COL[row.k]}"/>`).join("");
+    body += `<path d="M${sx} ${mid + 8} l5.5 8 h-11 z" fill="var(--muted)"/>`;
+    // median bar
+    const mx = sc.f(a.medVal), mh = Math.max(18, Math.max(...row.ys.map(Math.abs)) + r + 6);
+    body += `<rect x="${mx - 2}" y="${mid - mh}" width="4" height="${mh * 2}" rx="2" fill="var(--ink)"/>`;
+    body += `<rect class="hit" data-tip="${esc(`Slider ${row.k} median: ${fmt(q, a.medVal)} (${off(q, a.medVal)})`)}" x="${mx - 7}" y="${mid - mh}" width="14" height="${mh * 2}" fill="transparent"/>`;
+    a.g.forEach((g, i) => {
+      const cx = row.xs[i], cy = mid + row.ys[i], start = atStart(g);
+      const fill = start ? "var(--card)" : COL[row.k], stroke = start ? COL[row.k] : "var(--card)";
+      body += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${start ? 2 : 1.5}"/>`;
+      body += `<circle class="hit" data-tip="${esc(`${fmt(q, g[0])} on slider ${row.k} · scored ${g[1]}${start ? " · left where the slider starts" : ""}`)}" cx="${cx}" cy="${cy}" r="${r + 5}" fill="transparent"/>`;
+    });
+    y += row.h + 8;
+  }
+  // answer line across both rows, label kept inside the drawing
+  const ax = sc.f(q.answer), label = `Answer ${fmt(q, q.answer)}`;
+  const anchor = ax > W - 90 ? "end" : ax < 90 ? "start" : "middle";
+  const answer = `<line x1="${ax}" x2="${ax}" y1="${top - 6}" y2="${axisY}" stroke="var(--good)" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="${ax}" y="${top - 13}" text-anchor="${anchor}" font-size="14" font-weight="800" fill="var(--ink)">${esc(label)}</text>`;
+  const axis = `<line x1="${x0}" x2="${x1}" y1="${axisY}" y2="${axisY}" stroke="var(--line)" stroke-width="1.5"/>`;
+  const H = axisY + 26;
+  return `<svg ${svgNS} viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" font-family="Nunito, sans-serif" role="img" aria-label="${esc(`${q.short}: guesses on slider A and slider B against the answer, ${fmt(q, q.answer)}`)}">${grid}${axis}${answer}${body}${ticks}</svg>`;
+}
+
+function renderPanels() {
+  const host = document.getElementById("panels");
+  host.innerHTML = QS.map((q, i) => `
+    <article class="card">
+      <div class="qhead"><span class="qcat">${S.days.length > 1 ? `${q.day.slice(8)}/${q.day.slice(5, 7)} · ` : ""}${q.cat}</span><span class="qtext">${esc(q.q)}</span></div>
+      <div class="chart" data-q="${i}"></div>
+      <div class="armstats"><span class="hd">Slider</span><span class="hd">Ends</span><span class="hd">Median guess</span>${ARMS.map((k) => { const a = q.arms[k]; return `
+        <span class="arm"><i class="chip ${k.toLowerCase()}"></i>${k}</span><span>${fmtTick(q, a.lo)} – ${fmtTick(q, a.hi)}</span><span><b>${fmt(q, a.medVal)}</b> <span class="off">${off(q, a.medVal)}</span></span>`; }).join("")}
+      </div>
+    </article>`).join("");
+}
+
+// ---- chart 2: answer position v median guess position, along the slider ----
+function drift(W) {
+  const L = W < 480 ? 26 : 30, R = 16, x0 = L, x1 = W - R, f = (p) => x0 + (p / 100) * (x1 - x0);
+  const rowH = 26, headH = 24;
+  let y = 8, out = "";
+  const pieces = [];
+  for (const q of QS) {
+    pieces.push(`<text x="0" y="${y + 16}" font-size="13" font-weight="800" fill="var(--ink)">${esc(q.short)}</text>`);
+    y += headH;
+    for (const k of ARMS) {
+      const a = q.arms[k], cy = y + rowH / 2, ax = f(a.ansPos), mx = f(a.medPos);
+      pieces.push(`<text x="4" y="${cy + 5}" font-size="13" font-weight="800" fill="var(--muted)">${k}</text>`);
+      pieces.push(`<line x1="${x0}" x2="${x1}" y1="${cy}" y2="${cy}" stroke="var(--grid)" stroke-width="6" stroke-linecap="round"/>`);
+      pieces.push(`<line x1="${ax}" x2="${mx}" y1="${cy}" y2="${cy}" stroke="${COL[k]}" stroke-width="3" stroke-linecap="round"/>`);
+      pieces.push(`<circle cx="${ax}" cy="${cy}" r="6.5" fill="var(--card)" stroke="var(--good)" stroke-width="2.5"/>`);
+      pieces.push(`<circle cx="${mx}" cy="${cy}" r="5.5" fill="${COL[k]}" stroke="var(--card)" stroke-width="2"/>`);
+      pieces.push(`<rect class="hit" data-tip="${esc(`${q.short}, slider ${k}: answer ${r0(a.ansPos)}% along, median guess ${r0(a.medPos)}% along`)}" x="${x0}" y="${y}" width="${x1 - x0}" height="${rowH}" fill="transparent"/>`);
+      y += rowH;
+    }
+    y += 6;
+  }
+  const bottom = y + 4;
+  const mid = f(50);
+  const ticks = [0, 25, 50, 75, 100].map((p) => `<line x1="${f(p)}" x2="${f(p)}" y1="8" y2="${bottom}" stroke="var(--grid)" stroke-width="1"/><text x="${f(p)}" y="${bottom + 18}" text-anchor="${p === 0 ? "start" : p === 100 ? "end" : "middle"}" font-size="12" font-weight="700" fill="var(--muted)">${p === 0 ? "Low end" : p === 100 ? "High end" : p + "%"}</text>`).join("");
+  const start = `<line x1="${mid}" x2="${mid}" y1="8" y2="${bottom}" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+  const H = bottom + 44;
+  const cap = `<text x="${mid}" y="${bottom + 36}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)">Dashed line: where every slider starts</text>`;
+  return `<svg ${svgNS} viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" font-family="Nunito, sans-serif" role="img" aria-label="Where the answer sat along each slider compared with where the median guess landed">${ticks}${start}${pieces.join("")}${cap}</svg>`;
+}
+
+// ---- chart 3: average score per question, A and B ----
+function scores(W) {
+  const narrow = W < 480, L = narrow ? 118 : 170, R = 30, x0 = L, x1 = W - R, f = (s) => x0 + (s / 100) * (x1 - x0);
+  const rowH = 32;
+  const rows = [...QS.map((q) => ({ name: q.short, A: q.arms.A.meanScore, B: q.arms.B.meanScore, nA: q.arms.A.n, nB: q.arms.B.n })),
+    { name: "All five", A: S.A.mean, B: S.B.mean, nA: S.A.n, nB: S.B.n, all: true }];
+  let y = 6, out = "";
+  for (const rw of rows) {
+    if (rw.all) { out += `<line x1="0" x2="${W}" y1="${y + 3}" y2="${y + 3}" stroke="var(--line)" stroke-width="1"/>`; y += 8; }
+    const cy = y + rowH / 2, ax = f(rw.A), bx = f(rw.B);
+    out += `<text x="0" y="${cy + 5}" font-size="${narrow ? 12 : 13}" font-weight="${rw.all ? 800 : 700}" fill="var(--ink)">${esc(rw.name)}</text>`;
+    out += `<line x1="${Math.min(ax, bx)}" x2="${Math.max(ax, bx)}" y1="${cy}" y2="${cy}" stroke="var(--line)" stroke-width="3" stroke-linecap="round"/>`;
+    const nudge = Math.abs(ax - bx) < 12 ? 5 : 0; // near-equal scores: A just above, B just below, so neither hides
+    for (const k of ARMS) {
+      const x = k === "A" ? ax : bx, v = rw[k], dy = k === "A" ? -nudge : nudge;
+      out += `<circle cx="${x}" cy="${cy + dy}" r="${rw.all ? 7 : 6}" fill="${COL[k]}" stroke="var(--card)" stroke-width="2"/>`;
+      out += `<circle class="hit" data-tip="${esc(`${rw.name}, slider ${k}: average ${v.toFixed(1)} from ${rw[`n${k}`]} guesses`)}" cx="${x}" cy="${cy + dy}" r="12" fill="transparent"/>`;
+    }
+    if (rw.all) {
+      const lo = Math.min(ax, bx), hi = Math.max(ax, bx);
+      out += `<text x="${lo - 12}" y="${cy + 5}" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink)">${r0(rw.A)}</text>`;
+      out += `<text x="${hi + 12}" y="${cy + 5}" font-size="13" font-weight="800" fill="var(--ink)">${r0(rw.B)}</text>`;
+    }
+    y += rowH;
+  }
+  const bottom = y + 4;
+  const ticks = [0, 25, 50, 75, 100].map((s) => `<line x1="${f(s)}" x2="${f(s)}" y1="4" y2="${bottom}" stroke="var(--grid)" stroke-width="1"/><text x="${f(s)}" y="${bottom + 18}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--muted)">${s}</text>`).join("");
+  const H = bottom + 26;
+  return `<svg ${svgNS} viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" font-family="Nunito, sans-serif" role="img" aria-label="Average score per question on slider A and slider B">${ticks}${out}</svg>`;
+}
+
+// ---- text bits ----
+function renderText() {
+  const fresh = QS.reduce((s, q) => s + ARMS.reduce((t, k) => t + q.arms[k].g.filter(atStart).length, 0), 0);
+  const total = S.A.n + S.B.n;
+  const ns = QS.flatMap((q) => ARMS.map((k) => q.arms[k].n));
+  const asOf = new Date(S.last).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/London" });
+  const moved = Object.fromEntries(ARMS.map((k) => { const xs = QS.flatMap((q) => q.arms[k].g.filter((g) => !atStart(g)).map((g) => g[1])); return [k, xs.reduce((a, b) => a + b, 0) / xs.length]; }));
+  const dayName = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  document.getElementById("eyebrow").textContent = S.days.length === 1 ? `OxGuess · slider test · ${dayName(S.days[0])}` : `OxGuess · slider test · ${dayName(S.days[0])} to ${dayName(S.days.at(-1))}`;
+  document.getElementById("lede").textContent =
+    `${QS.length} questions, each with two sets of slider ends. Each player got slider A or slider B at random on each question, so the same people played both. ${S.players} players, ${total} real guesses up to ${asOf} UK time on ${dayName(S.days.at(-1))} (the herd's starter guesses are left out).`;
+  document.getElementById("tiles").innerHTML = `
+    <div class="tile"><span class="k">Average score, out of 100</span>
+      <div class="vs"><span class="who"><i class="chip a"></i>A</span><span class="num">${r0(S.A.mean)}</span><span class="arrow">→</span><span class="who"><i class="chip b"></i>B</span><span class="num">${r0(S.B.mean)}</span></div>
+      <span class="sub">B up ${r0(S.diff)} points. Median ${r0(S.A.med)} on A, ${r0(S.B.med)} on B.</span></div>
+    <div class="tile"><span class="k">Guesses scoring 50 or more</span>
+      <div class="vs"><span class="who"><i class="chip a"></i>A</span><span class="num">${pct(S.A.close)}</span><span class="arrow">→</span><span class="who"><i class="chip b"></i>B</span><span class="num">${pct(S.B.close)}</span></div>
+      <span class="sub">${S.A.n} guesses on A, ${S.B.n} on B.</span></div>`;
+  document.getElementById("sig").textContent =
+    `Is it chance? Shuffling the A and B labels within each question ${S.shuffles.toLocaleString("en-GB")} times gave a gap as big as ${r0(S.diff)} points ${Math.round(S.p * S.shuffles)} times (p ≈ ${S.p.toFixed(4)}).`;
+  const along = (k) => { const xs = QS.map((q) => q.arms[k].ansPos); return `${r0(Math.min(...xs))}–${r0(Math.max(...xs))}%`; };
+  document.getElementById("drift-text").textContent =
+    `Where the answer sat along each slider, and where the herd's median guess landed. Every slider starts in the middle (the dashed line). On slider A the answer sat ${along("A")} of the way along; on slider B, ${along("B")}.`;
+  const wins = QS.filter((q) => q.arms.B.meanScore > q.arms.A.meanScore).length;
+  document.getElementById("score-text").textContent =
+    `Average score out of 100 (the game's points out of 20, times five). B scored higher on ${wins} of ${QS.length} questions.`;
+  const li = (x) => `<li>${x}</li>`;
+  document.getElementById("findings").innerHTML = DATA.notes.findings.map(li).join("");
+  document.getElementById("findings-sec").hidden = !DATA.notes.findings.length;
+  document.getElementById("caveats").innerHTML = [
+    `<b>${S.days.length === 1 ? "It's one day." : `It's ${S.days.length} days.`}</b> ${S.players} players and ${Math.min(...ns)} to ${Math.max(...ns)} guesses per slider per question. Its size could easily shift with more days.`,
+    `<b>${fresh} of ${total} guesses sat exactly where the slider starts.</b> Leave those out and A averages ${r0(moved.A)}, B ${r0(moved.B)}: a gap of ${r0(moved.B - moved.A)} points.`,
+    ...DATA.notes.caveats,
+  ].map(li).join("");
+  const rows = QS.flatMap((q) => ARMS.map((k) => { const a = q.arms[k]; return `<tr><td>${esc(q.short)} · ${k}</td><td>${fmtTick(q, a.lo)}–${fmtTick(q, a.hi)}</td><td>${r0(a.ansPos)}%</td><td>${a.n}</td><td>${esc(fmt(q, a.medVal))}</td><td>${r0(a.medPos)}%</td><td>${a.meanScore.toFixed(1)}</td><td>${a.medScore}</td><td>${pct(a.close)}</td></tr>`; }));
+  document.getElementById("table").innerHTML = `<thead><tr><th>Question · slider</th><th>Ends</th><th>Answer along</th><th>Guesses</th><th>Median guess</th><th>Median along</th><th>Avg score</th><th>Median score</th><th>Scored 50+</th></tr></thead><tbody>${rows.join("")}</tbody>`;
+}
+
+// ---- draw at the real width so text stays readable on a phone ----
+function draw() {
+  document.querySelectorAll("[data-q]").forEach((el) => { el.innerHTML = panel(QS[+el.dataset.q], Math.max(280, el.clientWidth)); });
+  const d = document.getElementById("drift"); d.innerHTML = drift(Math.max(280, d.clientWidth));
+  const s = document.getElementById("scores"); s.innerHTML = scores(Math.max(280, s.clientWidth));
+}
+
+// ---- tooltip ----
+const tip = document.getElementById("tip");
+function showTip(e) {
+  const t = e.target.closest?.(".hit");
+  if (!t) { tip.classList.remove("on"); return; }
+  tip.textContent = t.dataset.tip;
+  tip.classList.add("on");
+  const pt = e.touches ? e.touches[0] : e;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = `${Math.min(window.innerWidth - w - 8, Math.max(8, pt.clientX - w / 2))}px`;
+  tip.style.top = `${Math.max(8, pt.clientY - h - 14)}px`;
+}
+document.addEventListener("pointermove", showTip);
+document.addEventListener("pointerdown", showTip);
+document.addEventListener("scroll", () => tip.classList.remove("on"), { passive: true });
+
+renderText();
+renderPanels();
+draw();
+let last = 0;
+new ResizeObserver(() => { const w = document.querySelector(".wrap").clientWidth; if (w !== last) { last = w; draw(); } }).observe(document.querySelector(".wrap"));
+</script>

@@ -44,6 +44,8 @@ scripts/
   check-content.mjs   validates the bank and the schedule against the game rules (runs in CI before deploy)
   show-schedule.mjs   prints the schedule from today with slider ends and no answers, plus spares and retired
   test-rules.py       live test of the Firestore rules, on 2099 dates
+  slider-test/        the slider A/B test report (report.mjs, template.html, notes/ per report); run it via the
+                      `slider-test` skill in .claude/skills
   explore/            Wikidata (QLever) exploration from the feasibility study
 firestore.rules       paste into Firebase console → Firestore → Rules → Publish (no CLI here)
 docs/                 vision, decisions, content (how questions were sourced and checked), data feasibility
