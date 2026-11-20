@@ -36,6 +36,30 @@ the ids (`d01-when` and so on) come from that first draft's day numbers and mean
    How far answer is over 100 km, `lin` questions carry `min` and `max` with the answer between 20% and 80% of the
    range, and no question or fact contains an em-dash.
 
+## Slider ends
+
+Worked out on 20 Nov 2026 from the 25 sliders the owner set by hand, and used for every question set since.
+
+1. **Round, natural ends.** 1, 2, 5, 10, 20, 25, 50, 100, 150, 200, 250, 500 and so on. Low end is the honest floor
+   where there is one (1 for counts and lengths, 0 for ages and temperatures, absolute zero, the present year 2026 as
+   the top for anything recent).
+2. **Realistic for the kind of thing, but room for the clueless.** The high end is a believable ceiling for that kind
+   of thing (a film runs up to 240 minutes, a train tops out near 1,000 km/h, nowhere on Earth is over 20,000 km
+   away), and the range still holds the guesses someone with no idea would make. Don't narrow it so far that it
+   gives the answer away.
+3. **Even (`lin`) for small counts and sizes** with a floor of 1 that stay within about two orders of magnitude
+   (piano keys, episodes, letters, minutes, a court's length). **Log** for distances, heights, weights and
+   populations that span many.
+4. **A and B put the answer either side of the middle**, typically one around 20 to 45% along and the other 55 to
+   90%. Every slider starts in the middle and guesses drift towards it (the A/B test, 19 to 20 Nov), so the answer
+   should never sit near 50% on both. Up to about 90% along is fine when the realistic ceiling forces it; when it
+   can't be done honestly (a recent year can't pass 2026), both on one side is fine.
+5. **B is its own slider, not a mechanical mirror.** Often B is the wider, more open one (floor of 1, or a higher
+   ceiling) and A the tighter, realistic one, or the other way round.
+
+Years: modern things get a window ending at 2026 or a round year near it, from a sensible era start (Gangnam Style
+2000 to 2026, Star Wars 1950 to 2026); older things a few centuries (the Colosseum 500 BC to AD 1500).
+
 ## Changes since launch
 
 - 15 Nov 2026: reshuffled so day 1 had Lake Baikal's depth (as How big) and Isner v Mahut (wildcard); the rest dealt
