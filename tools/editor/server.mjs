@@ -12,16 +12,17 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const PORT = Number(process.env.PORT) || 4400;
-// review.json: your own "untouched / in progress / ready" mark for each day. Editor-only; the game never reads it.
-const FILES = { questions: "site/data/questions.json", schedule: "site/data/schedule.json", ideas: "docs/question-ideas.md", review: "tools/editor/review.json" };
+// review.json: your own "untouched / in progress / ready" mark for each day. ready.json: the questions you've marked
+// ready. Both editor-only; the game never reads them.
+const FILES = { questions: "site/data/questions.json", schedule: "site/data/schedule.json", ideas: "docs/question-ideas.md", review: "tools/editor/review.json", ready: "tools/editor/ready.json" };
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json", ".png": "image/png", ".webp": "image/webp" };
 
 const run = (cmd, args, env = {}) => new Promise((done) => {
   execFile(cmd, args, { cwd: ROOT, env: { ...process.env, ...env } }, (err, stdout, stderr) => done({ ok: !err, out: `${stdout}${stderr}`.trim() }));
 });
 const readData = async () => {
-  const [q, s, i, r] = await Promise.all([FILES.questions, FILES.schedule, FILES.ideas, FILES.review].map((f) => fs.readFile(path.join(ROOT, f), "utf8").catch(() => "")));
-  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, ideas: ideasFrom(i), review: r ? JSON.parse(r) : {}, hash: crypto.createHash("sha1").update(q + s + i + r).digest("hex") };
+  const [q, s, i, r, y] = await Promise.all([FILES.questions, FILES.schedule, FILES.ideas, FILES.review, FILES.ready].map((f) => fs.readFile(path.join(ROOT, f), "utf8").catch(() => "")));
+  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, ideas: ideasFrom(i), review: r ? JSON.parse(r) : {}, ready: y ? JSON.parse(y).ready : [], hash: crypto.createHash("sha1").update(q + s + i + r + y).digest("hex") };
 };
 // Ideas live in a small Markdown file: an intro, then one "- idea" line each.
 const IDEAS_HEAD = "# Question ideas\n\nRough ideas for future questions, newest first. Not checked or sourced yet: when one becomes a real question it\nmoves into the bank (with a source) and comes off this list. Edit here, in the question editor's Ideas tab, or ask\nClaude in the chat.\n\n";
@@ -102,6 +103,7 @@ http.createServer(async (req, res) => {
       await fs.writeFile(path.join(ROOT, FILES.questions), bankText(b.questions));
       await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(b.days));
       if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
+      if (Array.isArray(b.ready)) await fs.writeFile(path.join(ROOT, FILES.ready), `${JSON.stringify({ ready: [...new Set(b.ready.filter((id) => b.questions.some((q) => q.id === id)))].sort() }, null, 2)}\n`);
       if (b.review && typeof b.review === "object") await fs.writeFile(path.join(ROOT, FILES.review), `${JSON.stringify(Object.fromEntries(Object.entries(b.review).filter(([, v]) => v === "doing" || v === "ready").sort()), null, 2)}\n`);
       const c = await check(), hash = (await readData()).hash;
       if (!c.ok) return send(res, 200, { ok: false, hash, report: `Saved, but not published. Fix these first:\n${c.out}` });

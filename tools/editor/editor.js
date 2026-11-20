@@ -18,12 +18,14 @@ const today = keyOf(new Date());
 const MARKS = { "": ["untouched", "Untouched"], doing: ["doing", "In progress"], ready: ["ready", "Ready"] }, NEXT = { "": "doing", doing: "ready", ready: "" };
 const TICK = `<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const mark = (d) => { const m = MARKS[REVIEW[d] ?? ""]; return `<button class="mark ${m[0]}" data-mark="${d}" title="Click to change: untouched, in progress, ready">${m[0] === "ready" ? TICK : ""}${m[1]}</button>`; };
+// Your own "this question is ready" tick, per question. Click to toggle, in the bank, the schedule or the edit panel.
+const readyBtn = (id) => { const on = READY.has(id); return `<button class="qready ${on ? "on" : ""}" data-ready="${esc(id)}" title="${on ? "Ready. Click to unmark" : "Not marked ready. Click to mark it ready"}" aria-pressed="${on}">${on ? TICK : ""}</button>`; };
 const WARN = `<svg class="warn-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="Careful"><path d="M12 3 2 21h20L12 3z" fill="var(--c-when)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.3" fill="var(--ink)"/></svg>`;
 
-let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, HASH = "", saved = new Set();
+let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, READY = new Set(), HASH = "", saved = new Set();
 // unpushed: saved here but not on GitHub yet. L: the live check from /api/live (null until it answers).
 let dirty = false, unpushed = false, L = null, report = null, reportOk = true, busy = false;
-let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false, showToday = false;
+let view = "schedule", editing = null, filter = { status: "bank", cat: "", ready: "", text: "" }, showPast = false, showToday = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
 const dateOfId = () => { const m = {}; for (const [d, ids] of Object.entries(DAYS)) for (const id of ids) m[id] = d; return m; };
@@ -123,7 +125,7 @@ function slot(d, j, locked) {
   if (!q) return `<div class="ed-slot" style="--cat:${CATS[cat].color}"><span class="ed-chip">${CATS[cat].label}</span><span class="ed-q ed-warn">${id ? `${esc(id)} isn't in the bank` : "Empty: pick a question"}</span><span></span><span></span><div class="ed-acts">${pick}</div></div>`;
   return `<div class="ed-slot" style="--cat:${CATS[cat].color}">
     <span class="ed-chip">${esc(catLabel(q))}</span>
-    <span class="ed-q"><b>${esc(q.q)}</b><br><span class="id">${esc(q.id)}</span></span>
+    <span class="ed-q">${locked ? "" : readyBtn(q.id)}<span><b>${esc(q.q)}</b><br><span class="id">${esc(q.id)}</span></span></span>
     <span class="ed-ans">${esc(fmt(q, q.answer))}</span>
     ${pair(q)}
     <div class="ed-acts"><button class="btn" data-edit="${esc(q.id)}">Edit</button>${pick}</div>
@@ -137,8 +139,9 @@ function schedule() {
     // Today is in play, so it stays folded away unless you open it on purpose.
     if (isToday && !showToday) return `<section class="ed-day today folded"><h3>${WARN}${nice(d)} <small>Round ${dates.indexOf(d) + 1} · today, in play</small>${mark(d)}</h3>
       <span class="note">Editing today restarts the round for anyone who has already started it.</span><button class="btn" id="today">Show today's questions</button></section>`;
+    const n = DAYS[d].filter((id) => READY.has(id)).length;
     return `<section class="ed-day ${isToday ? "today" : ""} ${locked ? "past" : ""}">
-      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${locked ? "" : mark(d)}${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
+      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${locked ? "" : `${mark(d)}<small class="qcount ${n === DAYS[d].length ? "all" : ""}">${n} of ${DAYS[d].length} questions ready</small>`}${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
       ${isToday ? `<span class="note">Editing today restarts the round for anyone who has already started it.</span>` : ""}
       ${DAYS[d].map((_, j) => slot(d, j, locked)).join("")}
     </section>`;
@@ -159,17 +162,19 @@ function bank() {
   // Bank = everything still to come (scheduled from tomorrow, plus spares): the list you edit most.
   const status = (q) => (q.retired ? "retired" : !used[q.id] ? "spare" : used[q.id] < today ? "played" : used[q.id] === today ? "today" : "scheduled");
   const group = (q) => ({ spare: "bank", scheduled: "bank" })[status(q)] ?? status(q);
-  const rows = Q.filter((q) => group(q) === filter.status && (!filter.cat || q.cat === filter.cat) && (!t || `${q.id} ${q.q}`.toLowerCase().includes(t)))
+  const rows = Q.filter((q) => group(q) === filter.status && (!filter.cat || q.cat === filter.cat) && (!filter.ready || READY.has(q.id) === (filter.ready === "ready")) && (!t || `${q.id} ${q.q}`.toLowerCase().includes(t)))
     .sort((a, b) => (used[a.id] ?? "9999").localeCompare(used[b.id] ?? "9999") || ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat) || a.id.localeCompare(b.id));
   return `<div class="ed-tools">
       <button class="btn primary" id="new">New question</button>
       <input id="f-text" placeholder="Search" value="${esc(filter.text)}">
       <select id="f-status">${[["bank", "Bank (coming up and spare)"], ["today", "Today"], ["played", "Played"], ["retired", "Retired"]].map(([v, l]) => `<option value="${v}" ${filter.status === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+      <select id="f-ready">${[["", "Ready or not"], ["ready", "Ready"], ["not", "Not ready"]].map(([v, l]) => `<option value="${v}" ${filter.ready === v ? "selected" : ""}>${l}</option>`).join("")}</select>
       <select id="f-cat"><option value="">Every category</option>${ORDER.map((c) => `<option value="${c}" ${filter.cat === c ? "selected" : ""}>${CATS[c].label}</option>`).join("")}</select>
       <span class="muted small">${rows.length} of ${Q.length}</span>
     </div>
-    <table class="ed-bank"><thead><tr><th>Status</th><th>Category</th><th>Question</th><th>Answer</th><th style="width:320px">Sliders A and B</th></tr></thead><tbody>
+    <table class="ed-bank"><thead><tr><th>Ready</th><th>Status</th><th>Category</th><th>Question</th><th>Answer</th><th style="width:320px">Sliders A and B</th></tr></thead><tbody>
     ${rows.map((q) => { const s = status(q); return `<tr data-edit="${esc(q.id)}" style="--cat:${CATS[q.cat].color}">
+      <td>${readyBtn(q.id)}</td>
       <td class="st ${s}">${s === "scheduled" ? nice(used[q.id]) : s === "played" ? `Played ${nice(used[q.id])}` : s === "today" ? "Today" : s === "spare" ? "Spare" : "Retired"}</td>
       <td><span class="ed-chip">${esc(catLabel(q))}</span></td><td>${esc(q.q)}<br><span class="muted" style="font:600 11px ui-monospace,Menlo,monospace">${esc(q.id)}</span></td>
       <td>${esc(fmt(q, q.answer))}</td><td>${pair(q)}</td></tr>`; }).join("")}
@@ -207,7 +212,7 @@ function panel() {
   const f = (key, label, html, cls = "") => `<label class="ed-f ${cls}">${label}${html}</label>`;
   const input = (key, val, type = "text", extra = "") => `<input data-k="${key}" type="${type}" value="${esc(val)}" ${extra}>`;
   return `<div class="ed-shade" id="shade"></div><aside class="ed-panel" style="--cat:${CATS[q.cat].color}">
-    <h2><span>${isNew ? "New question" : "Edit question"}</span><button class="btn primary" id="done">Done</button></h2>
+    <h2><span>${isNew ? "New question" : "Edit question"}</span><span class="ed-ready">${readyBtn(q.id)} Ready</span><button class="btn primary" id="done">Done</button></h2>
     ${when && when <= today ? `<span class="ed-warn">Played on ${nice(when)}. Changing its answer or slider changes how that day's stored herd reads.</span>` : when ? `<span class="muted small">Scheduled for ${nice(when)}.</span>` : `<span class="muted small">Not scheduled (spare).</span>`}
     <div class="ed-grid">
       ${f("id", "Id", input("id", q.id, "text", isNew ? 'placeholder="e.g. far-sydney-uluru"' : "readonly"), "w2")}
@@ -266,6 +271,7 @@ el.addEventListener("click", async (e) => {
   else if (t.id === "done") { editing = null; draw(); }
   else if (t.id === "past") { showPast = !showPast; draw(); }
   else if (t.id === "today") { showToday = !showToday; draw(); }
+  else if (t.dataset.ready) { const id = t.dataset.ready; if (READY.has(id)) READY.delete(id); else READY.add(id); touch(); draw(); }
   else if (t.dataset.mark) { const d = t.dataset.mark, n = NEXT[REVIEW[d] ?? ""]; if (n) REVIEW[d] = n; else delete REVIEW[d]; touch(); draw(); }
   else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
   else if (t.id === "save") await save();
@@ -294,6 +300,7 @@ el.addEventListener("change", (e) => {
     if (kind) { touch(); draw(); }
   } else if (s.id === "f-status") { filter.status = s.value; draw(); }
   else if (s.id === "f-cat") { filter.cat = s.value; draw(); }
+  else if (s.id === "f-ready") { filter.ready = s.value; draw(); }
   else if (s.dataset.k) {
     const q = byId()[editing];
     if (!setField(q, s.dataset.k, s.value)) { s.style.borderColor = "var(--stamp)"; return; }
@@ -315,7 +322,7 @@ window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); 
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; HASH = d.hash; unpushed = d.unpublished; saved = new Set(Q.map((q) => q.id));
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; READY = new Set(d.ready ?? []); HASH = d.hash; unpushed = d.unpublished; saved = new Set(Q.map((q) => q.id));
   dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
   watchLive();
 }
@@ -342,7 +349,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden && !b
 async function save() {
   busy = true; draw();
   const message = document.getElementById("msg")?.value.trim();
-  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), review: REVIEW, hash: HASH, message: message ? `Questions: ${message}` : "" }) });
+  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), review: REVIEW, ready: [...READY], hash: HASH, message: message ? `Questions: ${message}` : "" }) });
   const d = await r.json();
   busy = false;
   if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
