@@ -518,17 +518,15 @@
       "answer": 28,
       "unit": "m",
       "alt": "91.9 ft",
-      "scale": "lin",
+      "scale": "log",
       "fact": "NBA courts are a little bigger, at 94 by 50 feet (28.7 by 15.2 m).",
       "source": {
         "name": "Wikipedia: Basketball court",
         "url": "https://en.wikipedia.org/wiki/Basketball_court"
       },
       "evidence": "Under International Basketball Federation (FIBA) rules, the court is slightly smaller, measuring 28 by 15 meters (91.9 by 49.2 ft).",
-      "maxB": 50,
-      "min": 10,
-      "max": 100,
-      "minB": 1
+      "minB": 5,
+      "maxB": 500
     },
     {
       "id": "d10-big",
@@ -763,8 +761,8 @@
         "url2": "https://www.wikidata.org/wiki/Q545360"
       },
       "evidence": "Abbey Road Studios (Q209651): Point(-0.178333 51.531945); Graceland (Q545360): Point(-90.025833 35.046111). Great-circle (haversine, R = 6371.0088 km) = 7027 km",
-      "minB": 1,
-      "maxB": 25000
+      "minB": 200,
+      "maxB": 50000
     },
     {
       "id": "d02-far",
@@ -2004,11 +2002,7 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Egypt"
       },
-      "evidence": "Egypt: Population (1 July 2023) 114,535,772 (UN World Population Prospects, 2024 revision)",
-      "min": 5000000,
-      "max": 1000000000,
-      "minB": 1,
-      "maxB": 500000000
+      "evidence": "Egypt: Population (1 July 2023) 114,535,772 (UN World Population Prospects, 2024 revision)"
     },
     {
       "id": "pop-saudi",
