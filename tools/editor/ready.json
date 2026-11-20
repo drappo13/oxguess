@@ -2,8 +2,13 @@
   "ready": [
     "d02-many",
     "d04-far",
+    "d05-big",
+    "d06-far",
+    "d09-wild",
     "d10-big",
     "d10-wild",
-    "d14-when"
+    "d13-when",
+    "d14-when",
+    "d18-many"
   ]
 }

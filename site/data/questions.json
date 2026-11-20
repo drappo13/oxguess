@@ -443,18 +443,20 @@
       "cat": "big",
       "kind": "weight",
       "q": "How much does Big Ben, the Great Bell in London's Elizabeth Tower, weigh?",
-      "answer": 13.7,
-      "unit": "t",
+      "answer": 13760,
+      "unit": "kg",
       "alt": "15.1 short tons",
-      "scale": "log",
+      "scale": "lin",
       "fact": "Its nickname is said to come from Sir Benjamin Hall, a tall man who oversaw its installation.",
       "source": {
         "name": "Wikipedia: Big Ben",
         "url": "https://en.wikipedia.org/wiki/Big_Ben"
       },
       "evidence": "The Great Bell was cast by the Whitechapel Bell Foundry and weighs 13.5 long tons (13.7 tonnes; 15.1 short tons).",
-      "minB": 0.05,
-      "maxB": 50
+      "minB": 1,
+      "maxB": 50000,
+      "min": 1,
+      "max": 20000
     },
     {
       "id": "d06-big",
@@ -854,8 +856,10 @@
         "url2": "https://www.wikidata.org/wiki/Q513"
       },
       "evidence": "Taj Mahal (Q9141): Point(78.041944 27.175); Mount Everest (Q513): Point(86.925 27.988056). Great-circle (haversine, R = 6371.0088 km) = 880 km",
-      "minB": 100,
-      "maxB": 10000
+      "minB": 10,
+      "maxB": 5000,
+      "min": 500,
+      "max": 5000
     },
     {
       "id": "d07-far",
@@ -1455,15 +1459,17 @@
       "answer": 62,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "Over its run the show won 110 industry awards.",
       "source": {
         "name": "Wikipedia: Breaking Bad",
         "url": "https://en.wikipedia.org/wiki/Breaking_Bad"
       },
       "evidence": "concluded on September 29, 2013, after five seasons and 62 episodes",
+      "max": 100,
+      "maxB": 250,
       "minB": 10,
-      "maxB": 1000
+      "min": 1
     },
     {
       "id": "d19-many",
@@ -1680,8 +1686,10 @@
         "url": "https://en.wikipedia.org/wiki/TGV_world_speed_record"
       },
       "evidence": "The top speed of 574.8 km/h (159.7 m/s, 357.2 mph) was reached",
-      "minB": 20,
-      "maxB": 10000
+      "min": 1,
+      "max": 1000,
+      "maxB": 2000,
+      "minB": 200
     },
     {
       "id": "d10-wild",
