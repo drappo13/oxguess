@@ -166,8 +166,10 @@ const r0 = (x) => Math.round(x);
 const pct = (x) => `${Math.round(x * 100)}%`;
 
 // ---- number formatting in each question's own units ----
+// Years before 0 read as BC, as in the game.
+const year = (v) => (v < 0 ? `${Math.abs(v)} BC` : String(v));
 function fmt(q, v) {
-  if (q.scale === "year") return String(Math.round(v));
+  if (q.scale === "year") return year(Math.round(v));
   if (q.unit === "") {
     if (v >= 1e9) return `${+(v / 1e9).toPrecision(3)} billion`;
     if (v >= 1e6) return `${+(v / 1e6).toPrecision(3)} million`;
@@ -178,7 +180,7 @@ function fmt(q, v) {
   return `${n} ${q.unit}`;
 }
 function fmtTick(q, v) {
-  if (q.scale === "year") return String(v);
+  if (q.scale === "year") return year(v);
   if (v >= 1e9) return `${v / 1e9}bn`;
   if (v >= 1e6) return `${v / 1e6}m`;
   if (v >= 1e3) return `${v / 1e3}k`;
@@ -206,7 +208,9 @@ function scaleFor(q, x0, x1) {
     return { f, ticks: sorted, lo, hi };
   }
   const f = (v) => x0 + ((v - lo) / (hi - lo)) * (x1 - x0);
-  const span = hi - lo, step = span > 250 ? 50 : 100;
+  // a round step (1, 2 or 5 times a power of ten) that gives about six ticks
+  const raw = (hi - lo) / 6, mag = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 5, 10].map((m) => m * mag).find((s) => s >= raw);
   const ticks = []; for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) ticks.push(t);
   return { f, ticks, lo, hi };
 }

@@ -1,0 +1,16 @@
+{
+  "short": {
+    "d10-when": "Hagia Sophia",
+    "d09-big": "Basketball court",
+    "d01-far": "Abbey Road to Graceland"
+  },
+  "findings": [
+    "<b>Today neither slider had the answer near the middle.</b> On each question one slider put the answer about 63% along and the other about 37% (on Abbey Road, 37% and 65%). On Thursday, B had put it near the middle.",
+    "<b>Guesses still drift to the slider's middle.</b> On five of the six sliders the median guess sat between the answer and the middle. It was strongest on Abbey Road with slider A (median 12,000 km against 7,027) and on the basketball court with slider B (40 m against 28).",
+    "<b>Read with Thursday, where the answer sits is what matters.</b> When B put the answer nearer the middle, B scored clearly higher. With the answer equally far from the middle on both, the two came out close."
+  ],
+  "caveats": [
+    "<b>Only three of today's five questions had a slider B.</b> Egypt and the Hillary question gave everyone slider A, so they're left out.",
+    "<b>Width changed too.</b> B was narrower than A on the Hagia Sophia and the court and a little wider on Abbey Road, so today doesn't separate width from where the answer sits."
+  ]
+}

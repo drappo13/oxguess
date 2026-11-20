@@ -79,7 +79,10 @@ const summary = {
   last: used.map((g) => g.at).sort().at(-1), dropped: raw.length - all.length,
 };
 const page = { summary, qs, notes: { findings: notes.findings ?? [], caveats: notes.caveats ?? [] } };
-writeFileSync(out, readFileSync(join(here, "template.html"), "utf8").replace("__DATA__", () => JSON.stringify(page)));
+// The date goes in the title, so pages for different days are told apart in the Artifacts gallery.
+const short = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+const when = days.length > 1 ? `${short(days[0])} to ${short(days.at(-1))}` : short(days[0]);
+writeFileSync(out, readFileSync(join(here, "template.html"), "utf8").replace("<title>OxGuess Slider Test</title>", `<title>OxGuess Slider Test, ${when}</title>`).replace("__DATA__", () => JSON.stringify(page)));
 
 // ---- what to check the notes against ----
 const atStart = (g) => Math.abs(g[2] - 50) < 0.05;
