@@ -1,5 +1,5 @@
 // Hand-drawn-style SVG art: the ox, rosettes, the herd. All colours come from CSS tokens.
-import { toPos, binValue, STEPS } from "./game.js";
+import { toPos, binValue, STEPS, TIERS } from "./game.js";
 
 export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {}) {
   const mouth = mood === "wow"
@@ -83,26 +83,28 @@ export function balance() {
 /** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
-/** One day's scores, 0 to 100: a dot per finished round (stacked where they bunch), the herd's score as the ox,
- *  and yours as the fairgoer, labelled You. */
-export function dayChart(scores, herdScore, you = null) {
-  const W = 320, base = 96, x = (v) => 6 + (v / 100) * (W - 12), stacks = {};
-  const dots = scores.map((v) => {
-    const k = Math.round(v / 2) * 2, n = (stacks[k] = (stacks[k] ?? 0) + 1) - 1;
-    return `<circle cx="${x(k).toFixed(1)}" cy="${(base - 5 - n * 7).toFixed(1)}" r="3.2" fill="var(--muted)" opacity=".5"/>`;
-  }).join("");
-  const top = Math.min(30, base - 12 - Math.max(0, ...Object.values(stacks)) * 7);
-  // When you and the herd scored close together, you sit a step higher so the two faces don't overlap.
-  const yTop = you != null && Math.abs(you - herdScore) < 8 ? top - 26 : top;
-  const marker = (v, svg, cls, at, label = "") => `<line x1="${x(v)}" x2="${x(v)}" y1="${at + 12}" y2="${base}" class="${cls}"/>${placed(svg, x(v), at, 22)}${label}`;
-  const youMark = you == null ? "" : marker(you, fairgoer({ size: 120 }), "dc-you", yTop, `<text x="${x(you)}" y="${yTop - 15}" text-anchor="middle" class="dc-lab">You</text>`);
-  return `<svg class="day-chart" viewBox="0 ${yTop - 28} ${W} ${base - yTop + 46}" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">
-    ${dots}
-    <line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="1.5"/>
-    ${[0, 25, 50, 75, 100].map((v) => `<text x="${x(v)}" y="${base + 14}" text-anchor="middle" class="dc-axis">${v}</text>`).join("")}
-    ${marker(herdScore, oxHead({ size: 120 }), "dc-herd", top)}
-    ${youMark}
-  </svg>`;
+/** One day's scores as a prize board: a row per rosette tier, best at the top, a token per finished round (higher
+ *  scores to the left), with the herd's ox and your fairgoer in their places. A round's tier is the question tier
+ *  at five times the points (85+ is first prize, as 17+ is for a question). */
+export function prizeBoard(scores, herdScore, you = null) {
+  const per = 5, rows = TIERS.map((t, i) => ({ t, lo: t.min * per, hi: i ? TIERS[i - 1].min * per - 1 : 100 }));
+  const tierOf = (v) => rows.find((r) => v >= r.lo);
+  const people = [
+    ...scores.map((v) => ({ v, k: "player" })),
+    { v: herdScore, k: "herd" },
+    ...(you == null ? [] : [{ v: you, k: "you" }]),
+  ].sort((a, b) => b.v - a.v || (a.k === "player") - (b.k === "player"));
+  const token = (p) => p.k === "herd" ? `<span class="pb-face herd" title="The herd: ${p.v}">${oxHead({ size: 26, title: `The herd, ${p.v}` })}</span>`
+    : p.k === "you" ? `<span class="pb-face you" title="You: ${p.v}">${fairgoer({ size: 26, title: `You, ${p.v}` })}</span>`
+    : `<span class="pb-dot" title="${p.v}"></span>`;
+  return `<ol class="prize-board" aria-label="Every round yesterday, by prize">${rows.map((r) => {
+    const here = people.filter((p) => tierOf(p.v) === r), n = here.filter((p) => p.k === "player").length;
+    return `<li class="${n ? "" : "empty"}" style="--tier: var(--r-${r.t.key}); --tier-dark: var(--r-${r.t.key}-dark)">
+      ${rosette(r.t.key, "", 30)}
+      <span class="pb-name">${r.t.name}<small>${r.lo === r.hi ? r.lo : `${r.lo}–${r.hi}`} · ${n} ${n === 1 ? "player" : "players"}</small></span>
+      <span class="pb-tokens">${here.map(token).join("")}</span>
+    </li>`;
+  }).join("")}</ol>`;
 }
 
 /** How the herd guessed: 25 bars across the slider, the herd's guess (the ox), your guess and the answer flag.

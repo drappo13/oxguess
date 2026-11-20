@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairgoer, balance, herdChart, dayChart } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart, prizeBoard } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
@@ -435,7 +435,7 @@ async function fillYesterday() {
   const place = (v) => 1 + scores.filter((t) => t > v).length;
   el.innerHTML = `
     <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
-    ${n ? dayChart(scores, herdScore, you) : ""}
+    ${n ? prizeBoard(scores, herdScore, you) : ""}
     <ol class="standings">${[
       { who: "herd", name: "The herd", icon: oxHead({ size: 38 }), score: herdScore },
       { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },

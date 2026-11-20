@@ -232,15 +232,21 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .h2h-bar .herd { background: var(--ox-dark); }
 .h2h-d { font-size: 12px; color: var(--muted); min-height: 14px; }
 
-/* yesterday: everyone's scores on one line, then the standings, then the questions */
+/* yesterday: everyone's rounds on a prize board, then the standings, then the questions */
 .yesterday { gap: 14px; }
 .y-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; }
 .y-head .dayline { justify-content: flex-start; font-size: 14px; }
-.day-chart { width: 100%; height: auto; overflow: visible; }
-.day-chart .dc-axis { font: 700 10px var(--body); fill: var(--muted); }
-.day-chart .dc-lab { font: 800 11px var(--body); fill: var(--ink); }
-.day-chart .dc-herd { stroke: var(--ox-dark); stroke-width: 2; stroke-dasharray: 3 3; }
-.day-chart .dc-you { stroke: var(--ink); stroke-width: 2.5; }
+.prize-board { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.prize-board li { display: grid; grid-template-columns: 30px minmax(92px, 34%) 1fr; align-items: center; gap: 4px 10px; padding: 4px 0; border-top: 1px dashed var(--line); }
+.prize-board li:first-child { border-top: 0; }
+.prize-board li.empty { opacity: .45; }
+.prize-board .rosette { margin: -4px 0 -10px; }
+.pb-name { display: flex; flex-direction: column; font: 600 14px/1.15 var(--display); }
+.pb-name small { font: 700 12px var(--body); color: var(--muted); }
+.pb-tokens { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; min-height: 26px; }
+.pb-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--tier); box-shadow: inset 0 0 0 1.5px var(--tier-dark); }
+.pb-face { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; margin: -2px 1px; background: var(--card); box-shadow: 0 0 0 2px var(--ox-dark); }
+.pb-face.you { box-shadow: 0 0 0 2px var(--ink); }
 .standings { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: place; }
 .standings li { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: 18px; }
 .standings li.herd { background: color-mix(in srgb, var(--ox-dark) 10%, var(--card)); }
