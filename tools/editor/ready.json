@@ -1,14 +1,20 @@
 {
   "ready": [
+    "d01-many",
     "d02-many",
     "d04-far",
     "d05-big",
+    "d05-wild",
     "d06-far",
     "d09-wild",
     "d10-big",
     "d10-wild",
     "d13-when",
     "d14-when",
-    "d18-many"
+    "d15-far",
+    "d18-many",
+    "d18-when",
+    "d21-big",
+    "pop-vietnam"
   ]
 }

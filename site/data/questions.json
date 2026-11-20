@@ -317,8 +317,10 @@
         "url": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)"
       },
       "evidence": "Construction took nine years, from 1922 to 1931",
-      "minB": 1870,
-      "maxB": 2026
+      "maxB": 2026,
+      "min": 1500,
+      "max": 2000,
+      "minB": 1800
     },
     {
       "id": "d19-when",
@@ -742,10 +744,10 @@
         "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
       },
       "evidence": "From ground level to torch: 305 feet 1 inch (93 meters)",
-      "minB": 5,
       "maxB": 1000,
       "min": 1,
-      "max": 1000
+      "minB": 10,
+      "max": 250
     },
     {
       "id": "d01-far",
@@ -1019,7 +1021,7 @@
       "id": "d15-far",
       "cat": "far",
       "kind": null,
-      "q": "How far is it from the Eiffel Tower to the Colosseum in Rome, as the crow flies?",
+      "q": "How far is it from the Eiffel Tower in Paris to the Colosseum in Rome, as the crow flies?",
       "answer": 1109,
       "unit": "km",
       "alt": "689 mi",
@@ -1031,7 +1033,7 @@
         "url2": "https://www.wikidata.org/wiki/Q10285"
       },
       "evidence": "Eiffel Tower (Q243): Point(2.294479 48.858296); Colosseum (Q10285): Point(12.492222 41.890278). Great-circle (haversine, R = 6371.0088 km) = 1109 km",
-      "minB": 100,
+      "minB": 1,
       "maxB": 10000
     },
     {
@@ -1167,8 +1169,10 @@
         "url": "https://en.wikipedia.org/wiki/Human_skeleton"
       },
       "evidence": "It is composed of around 270 bones at birth – this total decreases to around 206 bones by adulthood after some bones fuse together",
-      "minB": 20,
-      "maxB": 5000
+      "maxB": 2500,
+      "min": 1,
+      "max": 1000,
+      "minB": 25
     },
     {
       "id": "d02-many",
@@ -1616,8 +1620,10 @@
         "url": "https://en.wikipedia.org/wiki/Golf_course"
       },
       "evidence": "The hole, or cup, is always found within the green and must have a diameter of 108 millimeters (4.25 in) and a depth of at least 10 centimeters (3.94 in).",
-      "minB": 2,
-      "maxB": 1000
+      "maxB": 20,
+      "max": 50,
+      "minB": 1,
+      "min": 3
     },
     {
       "id": "d06-wild",
@@ -2112,7 +2118,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Vietnam"
       },
-      "evidence": "Vietnam: Population (1 July 2023) 100,352,192 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Vietnam: Population (1 July 2023) 100,352,192 (UN World Population Prospects, 2024 revision)",
+      "min": 1000000,
+      "max": 150000000,
+      "minB": 10000000,
+      "maxB": 1000000000
     },
     {
       "id": "pop-pakistan",
