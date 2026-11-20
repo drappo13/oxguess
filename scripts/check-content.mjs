@@ -2,6 +2,9 @@
 // Bank: unique ids the Firestore rules accept, a known category, the answer inside its slider, scores 100,
 // bullseye reachable by dragging, a source, and slider B (if any) has both ends with the answer inside. Schedule: consecutive dates, five ids a day in category order,
 // every id in the bank and not retired, and no question scheduled twice.
+// With --live (CI and the question editor run it this way): today and every day before it must match what
+// oxguess.com is serving, so a deploy can never change a round people are playing or have played. "Today" is the UK
+// date. --allow-played skips that, for a deliberate fix (say, a wrong answer today).
 import fs from "fs";
 import { rangeFor, score, toValue, toPos, STEPS, CATS } from "../site/js/game.js";
 
@@ -45,6 +48,35 @@ dates.forEach((d, i) => {
   });
 });
 
+// ---- today and the past are frozen ----
+// What a player sees or is scored against. Facts and sources can still be corrected.
+const PLAYED = ["cat", "q", "answer", "unit", "alt", "scale", "min", "max", "minB", "maxB"];
+let frozen = "";
+if (process.argv.includes("--live") && !process.argv.includes("--allow-played")) {
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+  const live = async (f) => {
+    const r = await fetch(`https://oxguess.com/data/${f}?t=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw new Error(`oxguess.com said ${r.status} for ${f}`);
+    return r.json();
+  };
+  try {
+    const [lq, ls] = await Promise.all([live("questions.json"), live("schedule.json")]);
+    const lbank = Object.fromEntries(lq.questions.map((q) => [q.id, q])), was = [];
+    for (const d of Object.keys(ls.days).filter((d) => d <= today)) {
+      const label = d === today ? `${d} (today)` : d;
+      if (JSON.stringify(days[d]) !== JSON.stringify(ls.days[d])) { was.push(`${label}: the questions changed (live: ${ls.days[d].join(", ")})`); continue; }
+      for (const id of ls.days[d]) {
+        const changed = PLAYED.filter((k) => JSON.stringify(bank[id]?.[k]) !== JSON.stringify(lbank[id]?.[k]));
+        if (changed.length) was.push(`${label}: ${id} changed (${changed.join(", ")})`);
+      }
+    }
+    if (was.length) problems.push("Today and earlier days must stay as they are live (deploy with --allow-played to override):", ...was);
+    else frozen = `, today (${today}) and earlier match the live game`;
+  } catch (e) {
+    problems.push(`Couldn't check against the live game, so not deploying: ${e.message ?? e}`);
+  }
+}
+
 if (problems.length) { console.error(problems.join("\n")); process.exit(1); }
 const spare = questions.filter((q) => !seen[q.id] && !q.retired).length;
-console.log(`${questions.length} questions, ${dates.length} days (${dates[0]} to ${dates.at(-1)}), ${spare} spare: all fine`);
+console.log(`${questions.length} questions, ${dates.length} days (${dates[0]} to ${dates.at(-1)}), ${spare} spare: all fine${frozen}`);

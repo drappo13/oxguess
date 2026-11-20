@@ -21,7 +21,8 @@ const mark = (d) => { const m = MARKS[REVIEW[d] ?? ""]; return `<button class="m
 const WARN = `<svg class="warn-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="Careful"><path d="M12 3 2 21h20L12 3z" fill="var(--c-when)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.3" fill="var(--ink)"/></svg>`;
 
 let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, HASH = "", saved = new Set();
-let dirty = false, live = true, report = null, reportOk = true, busy = false;
+// unpushed: saved here but not on GitHub yet. L: the live check from /api/live (null until it answers).
+let dirty = false, unpushed = false, L = null, report = null, reportOk = true, busy = false;
 let view = "schedule", editing = null, filter = { status: "bank", cat: "", text: "" }, showPast = false, showToday = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
@@ -81,15 +82,33 @@ function pair(q, big = false) {
 
 // ---------- top bar ----------
 function topBar() {
-  const state = busy ? ["", "Saving and publishing…"] : dirty ? ["warn", "Unsaved changes"] : !reportOk ? ["bad", "Saved, not live: see below"] : !live ? ["warn", "Saved, not live yet"] : ["good", "Live"];
+  const state = busy ? ["", "Saving and publishing…"] : dirty ? ["warn", "Unsaved changes"] : !reportOk ? ["bad", "Saved, not live: see below"] : liveBadge();
+  const retry = !busy && !dirty && !unpushed && L && !L.live && L.deploy?.current && L.deploy.conclusion === "failure";
   return `<div class="ed-bar">
     <h1>${oxHead({ size: 30 })} OxGuess questions</h1>
     <span class="ed-state ${state[0]}">${state[1]}</span>
     <div class="ed-tabs"><button data-view="schedule" class="${view === "schedule" ? "on" : ""}">Schedule</button><button data-view="bank" class="${view === "bank" ? "on" : ""}">Bank</button><button data-view="ideas" class="${view === "ideas" ? "on" : ""}">Ideas (${IDEAS.length})</button></div>
     <button class="btn" id="reload" ${busy ? "disabled" : ""}>Reload</button>
     <input id="msg" placeholder="What changed? (optional)" style="font:600 13px var(--body);padding:8px 10px;border-radius:10px;border:2px solid var(--line);min-width:180px">
-    <button class="btn primary" id="save" ${(!dirty && live) || busy ? "disabled" : ""} title="Saves, runs the check and, if it passes, publishes: the game updates in about a minute">Save and publish</button>
-  </div>${report ? `<div class="ed-report ${reportOk ? "" : "bad"}">${esc(report)}</div>` : ""}`;
+    ${retry ? `<button class="btn" id="redeploy" title="GitHub's deploy failed after the push. This runs it again.">Retry deploy</button>` : ""}
+    <button class="btn primary" id="save" ${(!dirty && !unpushed) || busy ? "disabled" : ""} title="Saves, runs the check and, if it passes, publishes: the game updates in about a minute">Save and publish</button>
+  </div>${report ? `<div class="ed-report ${reportOk ? "" : "bad"}">${esc(report)}</div>` : ""}${notLive()}`;
+}
+// The badge says what oxguess.com is actually serving, never what the push hoped for.
+function liveBadge() {
+  if (unpushed) return ["warn", "Saved, not published"];
+  if (!L) return ["", "Checking the live game…"];
+  if (L.error) return ["warn", "Can't check the live game"];
+  if (L.live) return ["good", "Live"];
+  const d = L.deploy;
+  if (d?.current && d.status !== "completed") return ["", "Going live…"];
+  if (d?.current && d.conclusion === "failure") return ["bad", "Not live: the deploy failed"];
+  return ["warn", "Not live yet"];
+}
+function notLive() {
+  if (dirty || !L || L.live || L.error || unpushed) return L?.error && !dirty ? `<div class="ed-report bad">${esc(L.error)}</div>` : "";
+  const d = L.deploy, failed = d?.current && d.conclusion === "failure";
+  return `<div class="ed-report ${failed ? "bad" : ""}">${failed ? `GitHub's deploy failed after your changes were pushed, so oxguess.com still has the old questions. Retry deploy runs it again.` : `oxguess.com doesn't have these yet.`}${L.todayChanges ? `\nGoing live will change today's round: anyone who has already played today starts again.` : ""}${d?.url ? `\nDeploy: ${d.url}` : ""}</div>`;
 }
 
 // ---------- schedule ----------
@@ -250,6 +269,7 @@ el.addEventListener("click", async (e) => {
   else if (t.dataset.mark) { const d = t.dataset.mark, n = NEXT[REVIEW[d] ?? ""]; if (n) REVIEW[d] = n; else delete REVIEW[d]; touch(); draw(); }
   else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
   else if (t.id === "save") await save();
+  else if (t.id === "redeploy") await redeploy();
   else if (t.id === "idea-add") addIdea();
   else if (t.dataset.ideaDel !== undefined) { IDEAS.splice(Number(t.dataset.ideaDel), 1); touch(); draw(); }
   else if (t.id === "new") {
@@ -295,9 +315,30 @@ window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); 
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; HASH = d.hash; live = !d.unpublished; saved = new Set(Q.map((q) => q.id));
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; HASH = d.hash; unpushed = d.unpublished; saved = new Set(Q.map((q) => q.id));
   dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
+  watchLive();
 }
+// Ask the server whether the game is live; while a deploy is on its way, ask again every 10 seconds (for up to
+// 15 minutes: Pages can take a while to serve a new copy).
+let watching = null;
+async function checkLive() {
+  L = await (await fetch("/api/live", { cache: "no-store" })).json().catch(() => ({ error: "Couldn't reach the editor's server." }));
+  if (L.live && report?.startsWith("Saved and sent")) report = "Live: the game has these now.";
+  if (!dirty && !busy) draw();
+  return L;
+}
+async function watchLive() {
+  clearTimeout(watching);
+  const until = Date.now() + 15 * 60 * 1000;
+  const tick = async () => {
+    const l = await checkLive();
+    const waiting = !l.error && !l.live && !unpushed && !(l.deploy?.current && l.deploy.conclusion === "failure");
+    if (waiting && Date.now() < until) watching = setTimeout(tick, 10000);
+  };
+  tick();
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden && !busy) watchLive(); });
 async function save() {
   busy = true; draw();
   const message = document.getElementById("msg")?.value.trim();
@@ -305,7 +346,15 @@ async function save() {
   const d = await r.json();
   busy = false;
   if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
-  HASH = d.hash; dirty = false; live = d.live; reportOk = d.ok; report = d.report; saved = new Set(Q.map((q) => q.id));
-  draw();
+  HASH = d.hash; dirty = false; unpushed = !d.ok; reportOk = d.ok; report = d.report; saved = new Set(Q.map((q) => q.id));
+  L = null; draw();
+  if (d.ok) watchLive();
+}
+async function redeploy() {
+  if (L?.todayChanges && !confirm("Going live will change today's round: anyone who has already played today starts again. Deploy anyway?")) return;
+  busy = true; draw();
+  const d = await (await fetch("/api/redeploy", { method: "POST" })).json();
+  busy = false; report = d.report; reportOk = d.ok; L = null; draw();
+  if (d.ok) setTimeout(watchLive, 5000);
 }
 load();

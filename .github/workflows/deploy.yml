@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      allow_played:
+        description: "Allow changes to today's or earlier rounds (a deliberate fix)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -25,8 +30,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check every question still fits the game rules
-        run: node scripts/check-content.mjs
+      - name: Check every question fits the game rules, and today and earlier match the live game
+        run: node scripts/check-content.mjs --live ${{ inputs.allow_played && '--allow-played' || '' }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

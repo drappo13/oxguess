@@ -1,6 +1,8 @@
 // The question editor: a small local server, no dependencies. Run `node tools/editor/server.mjs` and open
 // http://localhost:4400. It reads and writes site/data/questions.json, schedule.json and docs/question-ideas.md. Save
-// runs the content check and, if it passes, commits and pushes them, which deploys the game. Never part of the website.
+// runs the content check and, if it passes, commits and pushes them, which deploys the game. Whether the game is live
+// is never taken on trust from the push: /api/live compares oxguess.com's own data files with these and follows the
+// GitHub deploy, which can fail on GitHub's side after a good push. Never part of the website.
 import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -14,8 +16,8 @@ const PORT = Number(process.env.PORT) || 4400;
 const FILES = { questions: "site/data/questions.json", schedule: "site/data/schedule.json", ideas: "docs/question-ideas.md", review: "tools/editor/review.json" };
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json", ".png": "image/png", ".webp": "image/webp" };
 
-const run = (cmd, args) => new Promise((done) => {
-  execFile(cmd, args, { cwd: ROOT }, (err, stdout, stderr) => done({ ok: !err, out: `${stdout}${stderr}`.trim() }));
+const run = (cmd, args, env = {}) => new Promise((done) => {
+  execFile(cmd, args, { cwd: ROOT, env: { ...process.env, ...env } }, (err, stdout, stderr) => done({ ok: !err, out: `${stdout}${stderr}`.trim() }));
 });
 const readData = async () => {
   const [q, s, i, r] = await Promise.all([FILES.questions, FILES.schedule, FILES.ideas, FILES.review].map((f) => fs.readFile(path.join(ROOT, f), "utf8").catch(() => "")));
@@ -28,8 +30,43 @@ const ideasText = (ideas) => `${IDEAS_HEAD}${ideas.map((i) => `- ${i.replace(/\s
 // Same layout as the files have always had: 2-space JSON for the bank, one line per day for the schedule.
 const bankText = (questions) => `${JSON.stringify({ questions }, null, 2)}\n`;
 const scheduleText = (days) => `{\n  "days": {\n${Object.keys(days).sort().map((d) => `    "${d}": [${days[d].map((id) => JSON.stringify(id)).join(", ")}]`).join(",\n")}\n  }\n}\n`;
-const check = () => run("node", ["scripts/check-content.mjs"]);
+const check = () => run("node", ["scripts/check-content.mjs", "--live"]);
 const status = async () => (await run("git", ["status", "--porcelain", "--", ...Object.values(FILES)])).out;
+const unpushed = async () => Boolean(await status()) || (await run("git", ["rev-list", "--count", "@{u}..HEAD"])).out !== "0";
+
+// ---------- is the game live? ----------
+const SITE = "https://oxguess.com", REPO = "drappo13/oxguess";
+const ukToday = () => new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+const canon = (x) => JSON.stringify(x ?? null);
+// The live files, past any cache (Pages caches for ten minutes; a fresh query string skips it).
+const liveFile = async (f) => {
+  const r = await fetch(`${SITE}/data/${f}?t=${Date.now()}`, { cache: "no-store" });
+  if (!r.ok) throw new Error(`${SITE} said ${r.status}`);
+  return r.json();
+};
+// gh runs as the personal account (the active gh account is a different one).
+const gh = async (args) => {
+  const t = await run("gh", ["auth", "token", "--user", "drappo13"]);
+  return t.ok ? run("gh", args, { GH_TOKEN: t.out }) : t;
+};
+// The latest deploy on main, and whether it is for the commit here.
+async function lastDeploy() {
+  const [r, head] = await Promise.all([
+    gh(["api", `repos/${REPO}/actions/runs?branch=main&per_page=1`, "--jq", ".workflow_runs[0] | {id, status, conclusion, sha: .head_sha, url: .html_url}"]),
+    run("git", ["rev-parse", "HEAD"]),
+  ]);
+  if (!r.ok || !r.out) return null;
+  const d = JSON.parse(r.out);
+  return { ...d, current: d.sha === head.out };
+}
+async function liveState() {
+  const [lq, ls, here, deploy, ahead] = await Promise.all([liveFile("questions.json"), liveFile("schedule.json"), readData(), lastDeploy(), unpushed()]);
+  const live = canon(lq.questions) === canon(here.questions) && canon(ls.days) === canon(here.days);
+  // Would going live change today's round? Then anyone who has played today starts again.
+  const t = ukToday(), lb = Object.fromEntries(lq.questions.map((q) => [q.id, q])), hb = Object.fromEntries(here.questions.map((q) => [q.id, q]));
+  const ids = here.days[t] ?? [], todayChanges = !live && (canon(ls.days[t]) !== canon(here.days[t]) || ids.some((id) => canon(lb[id]) !== canon(hb[id])));
+  return { live, todayChanges, unpushed: ahead, deploy };
+}
 
 const send = (res, code, body, type = "application/json") => {
   res.writeHead(code, { "content-type": type, "cache-control": "no-store" });
@@ -40,7 +77,18 @@ const body = (req) => new Promise((done) => { let b = ""; req.on("data", (c) => 
 http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost");
   try {
-    if (url.pathname === "/api/data") return send(res, 200, { ...(await readData()), unpublished: Boolean(await status()) });
+    if (url.pathname === "/api/data") return send(res, 200, { ...(await readData()), unpublished: await unpushed() });
+    if (url.pathname === "/api/live") return send(res, 200, await liveState().catch((e) => ({ error: `Couldn't check the live game: ${e.message ?? e}` })));
+    // Run the latest deploy again after it failed on GitHub's side. It deploys what is already on GitHub.
+    if (url.pathname === "/api/redeploy" && req.method === "POST") {
+      // With changes here that GitHub hasn't got, a retry would put GitHub's older copy live: publish them instead.
+      if (await unpushed()) return send(res, 200, { ok: false, report: "You have saved changes GitHub hasn't got yet. Save and publish sends them and deploys." });
+      const d = await lastDeploy();
+      if (!d) return send(res, 200, { ok: false, report: "Couldn't reach GitHub (is gh signed in as drappo13?)." });
+      if (d.status !== "completed") return send(res, 200, { ok: true, report: "A deploy is already running." });
+      const r = await gh(["run", "rerun", String(d.id), "-R", REPO]);
+      return send(res, 200, r.ok ? { ok: true, report: "Deploying again. The game updates in about a minute." } : { ok: false, report: `GitHub refused the retry:\n${r.out}` });
+    }
     // Save and publish in one go: write the files, run the content check, and if it passes commit and push (the
     // game updates about a minute later). If the check fails the files are still saved, but nothing goes live.
     if (url.pathname === "/api/save" && req.method === "POST") {
@@ -56,15 +104,15 @@ http.createServer(async (req, res) => {
       if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
       if (b.review && typeof b.review === "object") await fs.writeFile(path.join(ROOT, FILES.review), `${JSON.stringify(Object.fromEntries(Object.entries(b.review).filter(([, v]) => v === "doing" || v === "ready").sort()), null, 2)}\n`);
       const c = await check(), hash = (await readData()).hash;
-      if (!c.ok) return send(res, 200, { ok: false, live: false, hash, report: `Saved, but not published. Fix these first:\n${c.out}` });
-      if (!(await status())) return send(res, 200, { ok: true, live: true, hash, report: "Saved. Nothing new to publish: the live game already has these." });
+      if (!c.ok) return send(res, 200, { ok: false, hash, report: `Saved, but not published. Fix these first:\n${c.out}` });
+      if (!(await unpushed())) return send(res, 200, { ok: true, hash, report: "Saved. Nothing new to send: GitHub already has these." });
       const message = (b.message || "Questions: edits from the question editor").slice(0, 200), log = [];
       for (const [cmd, args] of [["git", ["add", "--", ...Object.values(FILES)]], ["git", ["commit", "-m", message, "--", ...Object.values(FILES)]], ["git", ["push", "origin", "main"]]]) {
         const r = await run(cmd, args);
         log.push(r.out);
-        if (!r.ok) return send(res, 200, { ok: true, live: false, hash, report: `Saved, but publishing failed at "${cmd} ${args[0]}". Try again, or ask Claude.\n${log.join("\n")}` });
+        if (!r.ok) return send(res, 200, { ok: false, hash, report: `Saved, but publishing failed at "${cmd} ${args[0]}". Try again, or ask Claude.\n${log.join("\n")}` });
       }
-      return send(res, 200, { ok: true, live: true, hash, report: `Saved and published. The game updates in about a minute.\n${c.out}` });
+      return send(res, 200, { ok: true, hash, report: `Saved and sent to GitHub. Watching for the game to update (about a minute)…\n${c.out}` });
     }
     // Static: the editor itself, plus the game's own styles and rules so previews match the real thing.
     let file = url.pathname === "/" ? "tools/editor/index.html" : url.pathname.startsWith("/site/") ? url.pathname.slice(1) : `tools/editor${url.pathname}`;
