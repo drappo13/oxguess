@@ -38,8 +38,10 @@ site/                 the whole website (deployed as-is)
   data/schedule.json  date -> five question ids; the first date is round 1
   img/                ox.svg (favicon), fair-1906.webp (story illustration)
 tools/editor/          the question editor (local only): `node tools/editor/server.mjs` or double-click
-                        "OxGuess editor.command", then http://localhost:4400. "Save and publish" writes the data
-                        files, runs the check and, if it passes, commits and pushes (live in about a minute)
+                        "OxGuess editor.command", then http://localhost:4400. "Save and publish" merges your changes
+                        onto the data files (merge.mjs: edits made meanwhile, say from the chat, are kept, never a
+                        conflict), runs the check and, if it passes, commits and pushes; the badge follows it to
+                        live. Today and earlier are read-only. Unsaved edits are kept in the browser
 scripts/
   check-content.mjs   validates the bank and the schedule against the game rules (runs in CI before deploy)
   show-schedule.mjs   prints the schedule from today with slider ends and no answers, plus spares and retired

@@ -20,16 +20,32 @@ const TICK = `<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"
 const mark = (d) => { const m = MARKS[REVIEW[d] ?? ""]; return `<button class="mark ${m[0]}" data-mark="${d}" title="Click to change: untouched, in progress, ready">${m[0] === "ready" ? TICK : ""}${m[1]}</button>`; };
 // Your own "this question is ready" tick, per question. Click to toggle, in the bank, the schedule or the edit panel.
 const readyBtn = (id) => { const on = READY.has(id); return `<button class="qready ${on ? "on" : ""}" data-ready="${esc(id)}" title="${on ? "Ready. Click to unmark" : "Not marked ready. Click to mark it ready"}" aria-pressed="${on}">${on ? TICK : ""}</button>`; };
-const WARN = `<svg class="warn-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="Careful"><path d="M12 3 2 21h20L12 3z" fill="var(--c-when)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.3" fill="var(--ink)"/></svg>`;
 
-let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, READY = new Set(), HASH = "", saved = new Set();
+let Q = [], DAYS = {}, IDEAS = [], REVIEW = {}, READY = new Set(), saved = new Set();
+// BASE: the files as this page last loaded or saved them. A save sends BASE and what you have now, and the server applies
+// only your changes onto what's on disk, so a change made elsewhere meanwhile never blocks a save (merge.mjs).
+let BASE = null, draft = null, draftTimer = null;
+const snapshot = () => structuredClone({ questions: Q, days: DAYS, review: REVIEW, ready: [...READY].sort(), ideas: IDEAS.map((t) => t.trim()).filter(Boolean) });
+// Unsaved edits are kept in this browser as you go, so a closed tab or a crash never loses them.
+const DRAFT = "oxguess-editor-draft";
+const keepDraft = () => { clearTimeout(draftTimer); draftTimer = setTimeout(() => { try { localStorage.setItem(DRAFT, JSON.stringify({ at: Date.now(), base: BASE, mine: snapshot() })); } catch {} }, 400); };
+const dropDraft = () => { clearTimeout(draftTimer); try { localStorage.removeItem(DRAFT); } catch {} };
+// What players see and score against: locked for today and earlier, as the deploy check requires.
+const FROZEN = ["cat", "q", "answer", "unit", "alt", "scale", "min", "max", "minB", "maxB"];
+const frozenQ = (id) => { const d = dateOfId()[id]; return Boolean(d && d <= today); };
 // unpushed: saved here but not on GitHub yet. L: the live check from /api/live (null until it answers).
 let dirty = false, unpushed = false, L = null, report = null, reportOk = true, busy = false;
-let view = "schedule", editing = null, filter = { status: "bank", cat: "", ready: "", text: "" }, showPast = false, showToday = false;
+let view = "schedule", editing = null, filter = { status: "bank", cat: "", ready: "", text: "" }, showPast = false;
 
 const byId = () => Object.fromEntries(Q.map((q) => [q.id, q]));
 const dateOfId = () => { const m = {}; for (const [d, ids] of Object.entries(DAYS)) for (const id of ids) m[id] = d; return m; };
-const touch = () => { dirty = true; report = null; };
+const touch = () => { dirty = true; report = null; keepDraft(); };
+// Question ids in a report become buttons that open the question.
+const linkIds = (text) => {
+  const ids = Q.map((q) => q.id).sort((a, b) => b.length - a.length);
+  if (!ids.length) return esc(text);
+  return esc(text).replace(new RegExp(`(?<![\\w-])(${ids.join("|")})(?![\\w-])`, "g"), (id) => `<button class="idlink" data-edit="${id}">${id}</button>`);
+};
 
 // ---------- slider maths ----------
 const rangeA = (q) => { try { const r = rangeFor(q); return Number.isFinite(r.min) && Number.isFinite(r.max) ? r : null; } catch { return null; } };
@@ -94,7 +110,7 @@ function topBar() {
     <input id="msg" placeholder="What changed? (optional)" style="font:600 13px var(--body);padding:8px 10px;border-radius:10px;border:2px solid var(--line);min-width:180px">
     ${retry ? `<button class="btn" id="redeploy" title="GitHub's deploy failed after the push. This runs it again.">Retry deploy</button>` : ""}
     <button class="btn primary" id="save" ${(!dirty && !unpushed) || busy ? "disabled" : ""} title="Saves, runs the check and, if it passes, publishes: the game updates in about a minute">Save and publish</button>
-  </div>${report ? `<div class="ed-report ${reportOk ? "" : "bad"}">${esc(report)}</div>` : ""}${notLive()}`;
+  </div>${draft && !dirty ? `<div class="ed-report">You have unsaved edits from ${new Date(draft.at).toLocaleString("en-GB", { weekday: "short", hour: "2-digit", minute: "2-digit" })} in this browser. <button class="btn" id="draft-restore">Restore them</button> <button class="btn" id="draft-discard">Discard them</button></div>` : ""}${report ? `<div class="ed-report ${reportOk ? "" : "bad"}">${linkIds(report)}</div>` : ""}${notLive()}`;
 }
 // The badge says what oxguess.com is actually serving, never what the push hoped for.
 function liveBadge() {
@@ -134,21 +150,18 @@ function slot(d, j, locked) {
 function schedule() {
   const dates = Object.keys(DAYS).sort(), past = dates.filter((d) => d < today), rest = dates.filter((d) => d >= today);
   if (!dates.length) return `<p class="muted">Loading the questions…</p>`;
+  // Today and earlier are locked: the deploy refuses any change to a round in play or played.
   const day = (d) => {
-    const isToday = d === today, locked = d < today;
-    // Today is in play, so it stays folded away unless you open it on purpose.
-    if (isToday && !showToday) return `<section class="ed-day today folded"><h3>${WARN}${nice(d)} <small>Round ${dates.indexOf(d) + 1} · today, in play</small>${mark(d)}</h3>
-      <span class="note">Editing today restarts the round for anyone who has already started it.</span><button class="btn" id="today">Show today's questions</button></section>`;
-    const n = DAYS[d].filter((id) => READY.has(id)).length;
-    return `<section class="ed-day ${isToday ? "today" : ""} ${locked ? "past" : ""}">
-      <h3>${isToday ? WARN : ""}${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play" : ""}${locked ? " · played, can't change" : ""}</small>${locked ? "" : `${mark(d)}<small class="qcount ${n === DAYS[d].length ? "all" : ""}">${n} of ${DAYS[d].length} questions ready</small>`}${isToday ? `<button class="btn" id="today" style="margin-left:auto">Fold away</button>` : ""}</h3>
-      ${isToday ? `<span class="note">Editing today restarts the round for anyone who has already started it.</span>` : ""}
+    const isToday = d === today, locked = d <= today, n = DAYS[d].filter((id) => READY.has(id)).length;
+    return `<section class="ed-day ${isToday ? "today" : ""} ${d < today ? "past" : ""}">
+      <h3>${nice(d)} <small>Round ${dates.indexOf(d) + 1}${isToday ? " · today, in play, locked" : ""}${d < today ? " · played" : ""}</small>${locked ? "" : `${mark(d)}<small class="qcount ${n === DAYS[d].length ? "all" : ""}">${n} of ${DAYS[d].length} questions ready</small>`}</h3>
+      ${isToday ? `<span class="note">Today is in play, so it can't change here: it would restart the round for everyone who has started it. To fix a real mistake today, ask Claude.</span>` : ""}
       ${DAYS[d].map((_, j) => slot(d, j, locked)).join("")}
     </section>`;
   };
   const last = dates.at(-1);
-  const counts = { ready: 0, doing: 0, "": 0 }; for (const d of rest) counts[REVIEW[d] ?? ""]++;
-  const summary = `<div class="ed-tools"><span class="mark ready">${TICK}Ready ${counts.ready}</span><span class="mark doing">In progress ${counts.doing}</span><span class="mark untouched">Untouched ${counts[""]}</span><span class="muted small">of ${rest.length} days to come. Click a day's mark to change it.</span></div>`;
+  const coming = rest.filter((d) => d > today), counts = { ready: 0, doing: 0, "": 0 }; for (const d of coming) counts[REVIEW[d] ?? ""]++;
+  const summary = `<div class="ed-tools"><span class="mark ready">${TICK}Ready ${counts.ready}</span><span class="mark doing">In progress ${counts.doing}</span><span class="mark untouched">Untouched ${counts[""]}</span><span class="muted small">of ${coming.length} days to come. Click a day's mark to change it.</span></div>`;
   return `${summary}${past.length ? `<button class="btn" id="past">${showPast ? "Hide" : "Show"} ${past.length} played day${past.length === 1 ? "" : "s"}</button>` : ""}
     ${showPast ? past.map(day).join("") : ""}
     ${rest.map(day).join("")}
@@ -207,21 +220,22 @@ function preview(q) {
 }
 function panel() {
   const q = byId()[editing]; if (!q) return "";
-  const when = dateOfId()[q.id], isNew = !saved.has(q.id);
+  const when = dateOfId()[q.id], isNew = !saved.has(q.id), frozen = frozenQ(q.id);
+  const dis = (k) => (frozen && FROZEN.includes(k) ? " disabled" : "");
   const num = (k) => (q[k] ?? "");
   const f = (key, label, html, cls = "") => `<label class="ed-f ${cls}">${label}${html}</label>`;
-  const input = (key, val, type = "text", extra = "") => `<input data-k="${key}" type="${type}" value="${esc(val)}" ${extra}>`;
+  const input = (key, val, type = "text", extra = "") => `<input data-k="${key}" type="${type}" value="${esc(val)}" ${extra}${dis(key)}>`;
   return `<div class="ed-shade" id="shade"></div><aside class="ed-panel" style="--cat:${CATS[q.cat].color}">
     <h2><span>${isNew ? "New question" : "Edit question"}</span><span class="ed-ready">${readyBtn(q.id)} Ready</span><button class="btn primary" id="done">Done</button></h2>
-    ${when && when <= today ? `<span class="ed-warn">Played on ${nice(when)}. Changing its answer or slider changes how that day's stored herd reads.</span>` : when ? `<span class="muted small">Scheduled for ${nice(when)}.</span>` : `<span class="muted small">Not scheduled (spare).</span>`}
+    ${frozen ? `<span class="ed-warn">${when === today ? "In play today" : `Played on ${nice(when)}`}, so the question, answer and sliders are locked. The fact, source and evidence can still be corrected.</span>` : when ? `<span class="muted small">Scheduled for ${nice(when)}.</span>` : `<span class="muted small">Not scheduled (spare).</span>`}
     <div class="ed-grid">
       ${f("id", "Id", input("id", q.id, "text", isNew ? 'placeholder="e.g. far-sydney-uluru"' : "readonly"), "w2")}
-      ${f("cat", "Category", `<select data-k="cat">${ORDER.map((c) => `<option value="${c}" ${q.cat === c ? "selected" : ""}>${CATS[c].label}</option>`).join("")}</select>`)}
+      ${f("cat", "Category", `<select data-k="cat"${dis("cat")}>${ORDER.map((c) => `<option value="${c}" ${q.cat === c ? "selected" : ""}>${CATS[c].label}</option>`).join("")}</select>`)}
       ${f("kind", "Label", `<select data-k="kind">${Object.entries(KINDS).map(([k, l]) => `<option value="${k}" ${(q.kind ?? "") === k ? "selected" : ""}>${l}</option>`).join("")}</select>`)}
-      ${f("q", "Question", `<textarea data-k="q">${esc(q.q)}</textarea>`, "w4")}
+      ${f("q", "Question", `<textarea data-k="q"${dis("q")}>${esc(q.q)}</textarea>`, "w4")}
       ${f("answer", "Answer", input("answer", num("answer"), "number", 'step="any"'))}
-      ${f("unit", "Unit", `<select data-k="unit">${UNITS.map((u) => `<option value="${u}" ${(q.unit ?? "") === u ? "selected" : ""}>${u || "(count or year)"}</option>`).join("")}</select>`)}
-      ${f("scale", "Slider", `<select data-k="scale">${[["log", "Log (amounts)"], ["lin", "Even"], ["year", "Year"]].map(([v, l]) => `<option value="${v}" ${q.scale === v ? "selected" : ""}>${l}</option>`).join("")}</select>`)}
+      ${f("unit", "Unit", `<select data-k="unit"${dis("unit")}>${UNITS.map((u) => `<option value="${u}" ${(q.unit ?? "") === u ? "selected" : ""}>${u || "(count or year)"}</option>`).join("")}</select>`)}
+      ${f("scale", "Slider", `<select data-k="scale"${dis("scale")}>${[["log", "Log (amounts)"], ["lin", "Even"], ["year", "Year"]].map(([v, l]) => `<option value="${v}" ${q.scale === v ? "selected" : ""}>${l}</option>`).join("")}</select>`)}
       ${f("alt", "Imperial note", input("alt", q.alt ?? "", "text", 'placeholder="e.g. 883 ft"'))}
       ${f("min", "A low end", input("min", num("min"), "number", 'step="any" placeholder="auto"'))}
       ${f("max", "A high end", input("max", num("max"), "number", 'step="any" placeholder="auto"'))}
@@ -241,6 +255,7 @@ function panel() {
 }
 
 function setField(q, k, raw) {
+  if (frozenQ(q.id) && FROZEN.includes(k)) return false;
   const nums = ["answer", "min", "max", "minB", "maxB"];
   if (k === "id") {
     const id = raw.trim().toLowerCase();
@@ -270,10 +285,11 @@ el.addEventListener("click", async (e) => {
   else if (t.dataset.edit) { editing = t.dataset.edit; draw(); }
   else if (t.id === "done") { editing = null; draw(); }
   else if (t.id === "past") { showPast = !showPast; draw(); }
-  else if (t.id === "today") { showToday = !showToday; draw(); }
+  else if (t.id === "draft-restore") { const m = structuredClone(draft.mine); Q = m.questions; DAYS = m.days; REVIEW = m.review; READY = new Set(m.ready); IDEAS = m.ideas; BASE = draft.base; draft = null; dirty = true; report = null; draw(); }
+  else if (t.id === "draft-discard") { dropDraft(); draft = null; draw(); }
   else if (t.dataset.ready) { const id = t.dataset.ready; if (READY.has(id)) READY.delete(id); else READY.add(id); touch(); draw(); }
   else if (t.dataset.mark) { const d = t.dataset.mark, n = NEXT[REVIEW[d] ?? ""]; if (n) REVIEW[d] = n; else delete REVIEW[d]; touch(); draw(); }
-  else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) await load(); }
+  else if (t.id === "reload") { if (!dirty || confirm("Throw away your unsaved changes and reload?")) { dropDraft(); await load(); } }
   else if (t.id === "save") await save();
   else if (t.id === "redeploy") await redeploy();
   else if (t.id === "idea-add") addIdea();
@@ -288,7 +304,7 @@ el.addEventListener("click", async (e) => {
     DAYS[next] = ORDER.map((c) => { const q = Q.find((x) => x.cat === c && !used[x.id] && !x.retired); if (q) used[q.id] = next; return q?.id ?? ""; });
     touch(); draw();
   } else if (t.id === "drop-day") { const last = Object.keys(DAYS).sort().at(-1); delete DAYS[last]; touch(); draw(); }
-  else if (t.dataset.mirror !== undefined) { const q = byId()[editing], m = mirror(q); if (m) { q.minB = m.min; q.maxB = m.max; touch(); draw(); } }
+  else if (t.dataset.mirror !== undefined) { const q = byId()[editing], m = mirror(q); if (m && !frozenQ(q.id)) { q.minB = m.min; q.maxB = m.max; touch(); draw(); } }
 });
 
 el.addEventListener("change", (e) => {
@@ -322,16 +338,23 @@ window.addEventListener("beforeunload", (e) => { if (dirty) e.preventDefault(); 
 async function load() {
   busy = true; draw();
   const d = await (await fetch("/api/data", { cache: "no-store" })).json();
-  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; READY = new Set(d.ready ?? []); HASH = d.hash; unpushed = d.unpublished; saved = new Set(Q.map((q) => q.id));
-  dirty = false; busy = false; report = null; reportOk = true; editing = null; draw();
+  apply(d); unpushed = d.unpublished; report = null; reportOk = true; editing = null;
+  try { draft = JSON.parse(localStorage.getItem(DRAFT)); } catch { draft = null; }
+  busy = false; draw();
   watchLive();
+}
+// Take the files as the server has them now: they become the page's state and its BASE.
+function apply(d) {
+  Q = d.questions; DAYS = d.days; IDEAS = d.ideas ?? []; REVIEW = d.review ?? {}; READY = new Set(d.ready ?? []);
+  saved = new Set(Q.map((q) => q.id)); BASE = snapshot(); dirty = false;
+  if (editing && !saved.has(editing)) editing = null;
 }
 // Ask the server whether the game is live; while a deploy is on its way, ask again every 10 seconds (for up to
 // 15 minutes: Pages can take a while to serve a new copy).
 let watching = null;
 async function checkLive() {
   L = await (await fetch("/api/live", { cache: "no-store" })).json().catch(() => ({ error: "Couldn't reach the editor's server." }));
-  if (L.live && report?.startsWith("Saved and sent")) report = "Live: the game has these now.";
+  if (L.live && report?.startsWith("Saved and sent")) report = `Live at ${new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}: oxguess.com has these now.`;
   if (!dirty && !busy) draw();
   return L;
 }
@@ -349,11 +372,15 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden && !b
 async function save() {
   busy = true; draw();
   const message = document.getElementById("msg")?.value.trim();
-  const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ questions: Q, days: DAYS, ideas: IDEAS.map((t) => t.trim()).filter(Boolean), review: REVIEW, ready: [...READY], hash: HASH, message: message ? `Questions: ${message}` : "" }) });
-  const d = await r.json();
-  busy = false;
-  if (!r.ok) { report = d.error ?? "Save failed."; reportOk = false; draw(); return; }
-  HASH = d.hash; dirty = false; unpushed = !d.ok; reportOk = d.ok; report = d.report; saved = new Set(Q.map((q) => q.id));
+  let d;
+  try {
+    const r = await fetch("/api/save", { method: "POST", body: JSON.stringify({ base: BASE, mine: snapshot(), message: message ? `Questions: ${message}` : "" }) });
+    d = await r.json();
+    if (!r.ok || !d.data) throw new Error(d.error ?? `the editor's server said ${r.status}`);
+  } catch (e) {
+    busy = false; reportOk = false; report = `Not saved: ${e.message ?? e}. Your edits are still here (and kept in this browser), so try again.`; draw(); return;
+  }
+  busy = false; apply(d.data); dropDraft(); unpushed = !d.ok; reportOk = d.ok; report = d.report;
   L = null; draw();
   if (d.ok) watchLive();
 }

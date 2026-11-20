@@ -1,14 +1,15 @@
 // The question editor: a small local server, no dependencies. Run `node tools/editor/server.mjs` and open
 // http://localhost:4400. It reads and writes site/data/questions.json, schedule.json and docs/question-ideas.md. Save
-// runs the content check and, if it passes, commits and pushes them, which deploys the game. Whether the game is live
+// runs the content check and, if it passes, commits and pushes them, which deploys the game. A save is never refused:
+// your changes are merged onto whatever is on disk (merge.mjs). Whether the game is live
 // is never taken on trust from the push: /api/live compares oxguess.com's own data files with these and follows the
 // GitHub deploy, which can fail on GitHub's side after a good push. Never part of the website.
 import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
-import crypto from "node:crypto";
 import { execFile } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { merge } from "./merge.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const PORT = Number(process.env.PORT) || 4400;
@@ -22,7 +23,7 @@ const run = (cmd, args, env = {}) => new Promise((done) => {
 });
 const readData = async () => {
   const [q, s, i, r, y] = await Promise.all([FILES.questions, FILES.schedule, FILES.ideas, FILES.review, FILES.ready].map((f) => fs.readFile(path.join(ROOT, f), "utf8").catch(() => "")));
-  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, ideas: ideasFrom(i), review: r ? JSON.parse(r) : {}, ready: y ? JSON.parse(y).ready : [], hash: crypto.createHash("sha1").update(q + s + i + r + y).digest("hex") };
+  return { questions: JSON.parse(q).questions, days: JSON.parse(s).days, ideas: ideasFrom(i), review: r ? JSON.parse(r) : {}, ready: y ? JSON.parse(y).ready : [] };
 };
 // Ideas live in a small Markdown file: an intro, then one "- idea" line each.
 const IDEAS_HEAD = "# Question ideas\n\nRough ideas for future questions, newest first. Not checked or sourced yet: when one becomes a real question it\nmoves into the bank (with a source) and comes off this list. Edit here, in the question editor's Ideas tab, or ask\nClaude in the chat.\n\n";
@@ -90,31 +91,28 @@ http.createServer(async (req, res) => {
       const r = await gh(["run", "rerun", String(d.id), "-R", REPO]);
       return send(res, 200, r.ok ? { ok: true, report: "Deploying again. The game updates in about a minute." } : { ok: false, report: `GitHub refused the retry:\n${r.out}` });
     }
-    // Save and publish in one go: write the files, run the content check, and if it passes commit and push (the
-    // game updates about a minute later). If the check fails the files are still saved, but nothing goes live.
+    // Save and publish in one go: merge your changes onto the files, run the content check, and if it passes commit
+    // and push (the game updates about a minute later). If the check fails the files are still saved, but nothing
+    // goes live. Every answer carries the files as now saved, so the page carries on from exactly what's on disk.
     if (url.pathname === "/api/save" && req.method === "POST") {
-      const b = await body(req), now = await readData();
-      // Someone (usually Claude, from the chat) changed the files since this page loaded: don't overwrite their work,
-      // but keep the refused edits in tools/editor/refused-save.json (git-ignored) so Claude can merge them in.
-      if (b.hash !== now.hash) {
-        await fs.writeFile(path.join(ROOT, "tools/editor/refused-save.json"), `${JSON.stringify(b, null, 2)}\n`);
-        return send(res, 409, { error: "The question files changed since you loaded them, so nothing was saved. Your edits are kept: ask Claude to merge them in, then Reload." });
-      }
-      await fs.writeFile(path.join(ROOT, FILES.questions), bankText(b.questions));
-      await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(b.days));
-      if (Array.isArray(b.ideas)) await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(b.ideas));
-      if (Array.isArray(b.ready)) await fs.writeFile(path.join(ROOT, FILES.ready), `${JSON.stringify({ ready: [...new Set(b.ready.filter((id) => b.questions.some((q) => q.id === id)))].sort() }, null, 2)}\n`);
-      if (b.review && typeof b.review === "object") await fs.writeFile(path.join(ROOT, FILES.review), `${JSON.stringify(Object.fromEntries(Object.entries(b.review).filter(([, v]) => v === "doing" || v === "ready").sort()), null, 2)}\n`);
-      const c = await check(), hash = (await readData()).hash;
-      if (!c.ok) return send(res, 200, { ok: false, hash, report: `Saved, but not published. Fix these first:\n${c.out}` });
-      if (!(await unpushed())) return send(res, 200, { ok: true, hash, report: "Saved. Nothing new to send: GitHub already has these." });
+      const b = await body(req);
+      if (!b.base || !b.mine) return send(res, 400, { error: "this editor page is out of date. Copy anything you can't redo, then reload the page" });
+      const m = merge(b.base, b.mine, await readData());
+      await fs.writeFile(path.join(ROOT, FILES.questions), bankText(m.questions));
+      await fs.writeFile(path.join(ROOT, FILES.schedule), scheduleText(m.days));
+      await fs.writeFile(path.join(ROOT, FILES.ideas), ideasText(m.ideas));
+      await fs.writeFile(path.join(ROOT, FILES.ready), `${JSON.stringify({ ready: m.ready.filter((id) => m.questions.some((q) => q.id === id)).sort() }, null, 2)}\n`);
+      await fs.writeFile(path.join(ROOT, FILES.review), `${JSON.stringify(Object.fromEntries(Object.entries(m.review).filter(([, v]) => v === "doing" || v === "ready").sort()), null, 2)}\n`);
+      const c = await check(), data = await readData(), notes = m.notes.length ? `\n${m.notes.join("\n")}` : "";
+      if (!c.ok) return send(res, 200, { ok: false, data, report: `Saved here, but not published. Fix these first:\n${c.out}${notes}` });
+      if (!(await unpushed())) return send(res, 200, { ok: true, data, report: `Saved. Nothing new to send: GitHub already has these.${notes}` });
       const message = (b.message || "Questions: edits from the question editor").slice(0, 200), log = [];
       for (const [cmd, args] of [["git", ["add", "--", ...Object.values(FILES)]], ["git", ["commit", "-m", message, "--", ...Object.values(FILES)]], ["git", ["push", "origin", "main"]]]) {
         const r = await run(cmd, args);
         log.push(r.out);
-        if (!r.ok) return send(res, 200, { ok: false, hash, report: `Saved, but publishing failed at "${cmd} ${args[0]}". Try again, or ask Claude.\n${log.join("\n")}` });
+        if (!r.ok) return send(res, 200, { ok: false, data, report: `Saved, but publishing failed at "${cmd} ${args[0]}". Try again, or ask Claude.\n${log.join("\n")}` });
       }
-      return send(res, 200, { ok: true, hash, report: `Saved and sent to GitHub. Watching for the game to update (about a minute)…\n${c.out}` });
+      return send(res, 200, { ok: true, data, report: `Saved and sent to GitHub at ${new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}. Going live, usually within a minute or two…${notes}` });
     }
     // Static: the editor itself, plus the game's own styles and rules so previews match the real thing.
     let file = url.pathname === "/" ? "tools/editor/index.html" : url.pathname.startsWith("/site/") ? url.pathname.slice(1) : `tools/editor${url.pathname}`;
