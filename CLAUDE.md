@@ -59,9 +59,12 @@ prototype/            the first single-file mock
   The browser caches modules, so after edits reload with `fetch(url, {cache: 'reload'})` or a hard refresh.
 - **Checks:** `node scripts/check-content.mjs` (every answer inside its slider, scores 20, bullseye reachable,
   has a source; the schedule has consecutive dates, five questions a day in category order, no repeats, nothing
-  retired). `python3 scripts/test-rules.py` exercises the live Firestore rules.
+  retired). With `--live` (how CI and the editor run it) it also fails if today (UK date) or any earlier day differs
+  from what oxguess.com serves, so a deploy can't change a round in play; a deliberate fix runs the Deploy workflow by
+  hand with `allow_played`. `python3 scripts/test-rules.py` exercises the live Firestore rules.
 - **Deploy:** push to `main` on `github.com/drappo13/oxguess` (SSH remote). GitHub Actions runs the content check,
-  then publishes `site/` to Pages in about a minute. For `gh` calls use `GH_TOKEN=$(gh auth token --user drappo13)`
+  then publishes `site/` to Pages in about a minute. A good push isn't proof: the deploy can fail on GitHub's side
+  (it did on 19 Nov), so check the run or the live files. The editor's badge does this. For `gh` calls use `GH_TOKEN=$(gh auth token --user drappo13)`
   (the active gh account is a different one).
 - **Checking the live site from a machine with stale DNS:** `curl --resolve oxguess.com:443:185.199.108.153 https://oxguess.com/...`.
 
