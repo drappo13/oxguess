@@ -17,15 +17,20 @@ function ac() {
     return ctx;
   } catch { return null; }
 }
-function tone(freq, { at = 0, dur = 0.2, type = "sine", vol = 0.12, to = null, attack = 0.005 } = {}) {
+// One note. lp: a lowpass filter (Hz) to soften bright waves, for brass and tuba. glide: [[Hz, seconds], ...] pitch
+// points after the start, for the moo.
+function tone(freq, { at = 0, dur = 0.2, type = "sine", vol = 0.12, to = null, attack = 0.005, lp = null, glide = null, detune = 0 } = {}) {
   const c = ac(); if (!c) return;
   const t = c.currentTime + at, o = c.createOscillator(), g = c.createGain();
-  o.type = type; o.frequency.setValueAtTime(freq, t);
+  o.type = type; o.frequency.setValueAtTime(freq, t); o.detune.value = detune;
   if (to) o.frequency.exponentialRampToValueAtTime(to, t + dur);
+  for (const [f, s] of glide ?? []) o.frequency.exponentialRampToValueAtTime(f, t + s);
   g.gain.setValueAtTime(0.0001, t);
   g.gain.exponentialRampToValueAtTime(vol, t + attack);
   g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
+  let out = o;
+  if (lp) { const f = c.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = lp; f.Q.value = 0.7; out = o.connect(f); }
+  out.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
 }
 function noise({ at = 0, dur = 0.08, vol = 0.2, freq = 900 } = {}) {
   const c = ac(); if (!c) return;
@@ -37,37 +42,81 @@ function noise({ at = 0, dur = 0.08, vol = 0.2, freq = 900 } = {}) {
   src.connect(f).connect(g).connect(c.destination); src.start(t);
 }
 
-let lastTick = 0;
+// Each repeating sound has its own throttle, so the slider's ticks and a count-up never swallow each other.
+const last = {};
+const every = (key, ms) => { const n = performance.now(); if (n - (last[key] ?? 0) < ms) return false; last[key] = n; return true; };
+const semis = (f, n) => f * 2 ** (n / 12);
 export const sfx = {
-  /** A soft wooden click while dragging the slider (throttled). */
-  tick() { const n = performance.now(); if (n - lastTick < 45) return; lastTick = n; tone(1200, { dur: 0.03, type: "triangle", vol: 0.035 }); },
+  /** A soft wooden click while dragging the slider; at = how far along (0 to 1), the pitch rising with it. */
+  tick(at = 0.5) { if (every("tick", 45)) tone(700 * 2 ** at, { dur: 0.03, type: "triangle", vol: 0.035 }); },
+  /** A brighter blip as the slider passes a round number. */
+  notch() { tone(1800, { dur: 0.02, vol: 0.04 }); },
+  /** A primary button going down: a soft wooden tap. */
+  press() { noise({ dur: 0.02, vol: 0.07, freq: 1800 }); tone(220, { dur: 0.04, vol: 0.05, to: 180 }); },
+  /** The ticket punch as a guess is locked in. */
+  punch() { noise({ dur: 0.025, vol: 0.15, freq: 3000 }); },
   /** Locking in a guess: a ticket being torn and dropped in the box. */
   thunk() { noise({ dur: 0.07, vol: 0.25, freq: 600 }); tone(140, { dur: 0.12, type: "sine", vol: 0.14, to: 90 }); },
   /** The answer flag travelling along the scale. */
   slide(ms) { tone(320, { dur: ms / 1000, type: "triangle", vol: 0.03, to: 640 }); },
-  /** The strength-tester puck shooting up. */
-  whoosh(ms) { tone(180, { dur: ms / 1000, type: "sawtooth", vol: 0.02, to: 900 }); },
-  /** Ding! The bell at the top of the strength tester. */
-  bell() { [1318, 2637, 3951].forEach((f, i) => tone(f, { dur: 1.4 - i * 0.3, vol: 0.12 / (i + 1), type: "sine" })); },
-  /** A pleasant two-note chime for a good guess. */
-  chime() { tone(784, { dur: 0.25, vol: 0.1 }); tone(1046, { at: 0.09, dur: 0.35, vol: 0.1 }); },
+  /** The strength tester: one tick a point as the puck climbs, a semitone higher each time. */
+  climb(k) { tone(semis(400, k), { dur: 0.03, type: "triangle", vol: 0.04 }); },
+  /** The puck landing where it stopped. */
+  land() { tone(160, { dur: 0.12, vol: 0.14, to: 110 }); noise({ dur: 0.04, vol: 0.12, freq: 500 }); },
+  /** Ding! The bell at the top of the strength tester: bell partials (not organ harmonics) and the hammer's strike. */
+  bell() {
+    noise({ dur: 0.015, vol: 0.08, freq: 6000 });
+    [[1318, 0.12, 1.6], [2637, 0.06, 1.0], [3637, 0.04, 0.7], [7117, 0.02, 0.3]].forEach(([f, vol, dur]) => tone(f, { dur, vol }));
+  },
+  /** It nearly rang: a single faint tink. */
+  tink() { tone(1318, { dur: 0.3, vol: 0.03 }); },
+  /** A two-note chime for a good guess; each good guess in a row (run = 0, 1, 2...) chimes a tone higher. */
+  chime(run = 0) { const k = 2 * Math.min(run, 4); tone(semis(784, k), { dur: 0.25, vol: 0.1 }); tone(semis(1046, k), { at: 0.09, dur: 0.35, vol: 0.1 }); },
+  /** Ding-ding: you beat the herd on this one. */
+  ding() { tone(880, { dur: 0.25, vol: 0.12 }); tone(1100, { at: 0.08, dur: 0.25, vol: 0.12 }); },
   /** A small, kind note for a so-so guess. */
   plink() { tone(660, { dur: 0.18, vol: 0.07, type: "triangle" }); },
   /** A gentle wobble for a long way off. Never a buzzer. */
   wobble() { tone(392, { dur: 0.3, vol: 0.06, type: "triangle", to: 330 }); },
   /** The judge's stamp coming down. */
   stamp() { noise({ dur: 0.06, vol: 0.35, freq: 400 }); tone(90, { dur: 0.1, vol: 0.18, to: 60 }); },
-  /** Counting up, one blip per step (throttled). */
-  count() { const n = performance.now(); if (n - lastTick < 40) return; lastTick = n; tone(880 + Math.random() * 120, { dur: 0.04, vol: 0.03, type: "square" }); },
-  /** The end-of-round fanfare: a little brass-band flourish. */
-  fanfare() { [523, 659, 784, 1046].forEach((f, i) => tone(f, { at: i * 0.11, dur: i === 3 ? 0.6 : 0.16, type: "sawtooth", vol: 0.045 })); tone(1046, { at: 0.33, dur: 0.7, vol: 0.06 }); },
+  /** A line chalked up on the board. */
+  chalk() { noise({ dur: 0.06, vol: 0.04, freq: 5000 }); },
+  /** A rosette pinned on: a little "tk". */
+  pin() { noise({ dur: 0.015, vol: 0.12, freq: 4000 }); tone(1568, { dur: 0.03, vol: 0.05 }); },
+  /** Counting up, one blip per step; at = how far through (0 to 1). low: the herd's count, an octave down. */
+  count(at = 0, { low = false } = {}) { if (every(low ? "count-low" : "count", 40)) tone((600 + 800 * at) / (low ? 2 : 1), { dur: 0.028, vol: 0.04, type: "triangle" }); },
+  /** You won the day: the brass band's arpeggio up, C E G C, with a sweet top note underneath. */
+  fanfare() {
+    [523, 659, 784, 1047].forEach((f, i) => tone(f, { at: i * 0.09, dur: i === 3 ? 0.6 : 0.16, type: "sawtooth", vol: 0.06, lp: 2200 }));
+    tone(1047, { at: 0.27, dur: 0.7, vol: 0.05 });
+  },
+  /** The herd won the day: a good-humoured tuba, pah-PAH. */
+  oompah() { tone(98, { dur: 0.16, type: "sawtooth", vol: 0.12, lp: 400 }); tone(65, { at: 0.2, dur: 0.38, type: "sawtooth", vol: 0.12, lp: 400 }); },
+  /** Moo. Two slightly detuned reeds gliding up and down, through a closing mouth. */
+  moo() {
+    const c = ac(); if (!c) return;
+    const t = c.currentTime, f = c.createBiquadFilter(), g = c.createGain();
+    f.type = "lowpass"; f.frequency.setValueAtTime(600, t); f.frequency.linearRampToValueAtTime(1100, t + 0.3); f.frequency.linearRampToValueAtTime(500, t + 0.8);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12, t + 0.08); g.gain.setValueAtTime(0.12, t + 0.55); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.85);
+    f.connect(g).connect(c.destination);
+    for (const base of [105, 107]) {
+      const o = c.createOscillator(); o.type = "sawtooth";
+      o.frequency.setValueAtTime(base * 0.9, t); o.frequency.linearRampToValueAtTime(base * 1.19, t + 0.3); o.frequency.linearRampToValueAtTime(base * 0.95, t + 0.8);
+      o.connect(f); o.start(t); o.stop(t + 0.9);
+    }
+  },
 };
 
 // ---------- haptics ----------
 export function buzz(pattern) { try { navigator.vibrate?.(pattern); } catch { /* fine */ } }
 
 // ---------- motion helpers ----------
-export const wait = (ms) => new Promise((r) => setTimeout(r, reduced() ? 0 : ms));
+// Under reduced motion the beats still keep a little gap, so their sounds don't all land at once. hurry() makes the rest
+// of a sequence instant (a tap on the reveal).
+let hurrying = false;
+export const hurry = (on = true) => { hurrying = on; };
+export const wait = (ms) => new Promise((r) => setTimeout(r, hurrying ? 0 : reduced() ? Math.min(ms, 120) : ms));
 
 /** Count a number up inside an element, with a blip per step. */
 export function countUp(el, to, ms = 700, { from = 0, sound = true, format = (v) => String(v) } = {}) {
@@ -78,7 +127,7 @@ export function countUp(el, to, ms = 700, { from = 0, sound = true, format = (v)
     const step = (now) => {
       const p = Math.min(1, (now - t0) / ms), e = 1 - (1 - p) ** 3;
       const v = Math.round(from + (to - from) * e);
-      if (v !== last) { el.textContent = format(v); last = v; if (sound) sfx.count(); }
+      if (v !== last) { el.textContent = format(v); last = v; if (sound) sfx.count(p, sound === "low" ? { low: true } : {}); }
       if (p < 1) requestAnimationFrame(step); else resolve();
     };
     requestAnimationFrame(step);

@@ -58,7 +58,8 @@ service cloud.firestore {
       allow read: if false;
       allow create, update: if id == request.resource.data.player
         && isPlayer(request.resource.data.player)
-        && request.resource.data.keys().hasOnly(['player', 'first', 'last', 'rounds', 'points', 'best', 'streak', 'bestStreak', 'updated'])
+        && request.resource.data.keys().hasOnly(['player', 'first', 'last', 'rounds', 'points', 'best', 'streak', 'bestStreak', 'kept', 'updated'])
+        && (!('kept' in request.resource.data) || request.resource.data.kept in ['cal', 'home', 'no'])
         && isDay(request.resource.data.first) && isDay(request.resource.data.last)
         && request.resource.data.rounds is int && request.resource.data.rounds >= 1 && request.resource.data.rounds <= 100000
         && request.resource.data.points is int && request.resource.data.points >= 0 && request.resource.data.points <= request.resource.data.rounds * 100

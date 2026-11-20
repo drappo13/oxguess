@@ -5,11 +5,11 @@ import {
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
 import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId } from "./herd-store.js";
-import { sfx, buzz, wait, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
+import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
 const app = document.getElementById("app");
 // The question bank (by id) and the schedule (date -> five ids). The first scheduled date is round 1.
-let QUESTIONS = null, SCHEDULE = null, DATES = null, EPOCH = null;
+let QUESTIONS = null, SCHEDULE = null, DATES = null, EPOCH = null, TEASERS = {};
 
 // ---------- dates & storage ----------
 const pad = (n) => String(n).padStart(2, "0");
@@ -67,6 +67,8 @@ function playerSummary() {
     first: h[0]?.day ?? today.key, last: h.at(-1)?.day ?? today.key,
     rounds: h.length, points: h.reduce((a, d) => a + d.total, 0), best: Math.max(0, ...h.map((d) => d.total)),
     streak: streak(), bestStreak: bestStreak(),
+    // Whether they kept a way back: a calendar reminder, the home screen, or no thanks.
+    ...(["cal", "home", "no"].includes(store.get("ox-keep")) ? { kept: store.get("ox-keep") } : {}),
   };
 }
 
@@ -131,10 +133,12 @@ function addLocal(q, bin) {
 /** After midnight a tab left open moves on to the new day, unless a round is half played. */
 function newDay() {
   if (todayKey() === today.key || (state.answers.length && !state.done)) return false;
+  if (document.hidden) document.title = "New round · OxGuess"; // a tab left open says so, until you look
   load(); home(); return true;
 }
 // Coming back to an open tab: move on to a new day, or pick up the guesses the herd has made since.
 document.addEventListener("visibilitychange", async () => {
+  if (!document.hidden) document.title = "OxGuess";
   if (document.hidden || !today || newDay() || Date.now() - herdsAt < 60000) return;
   fetchHerds();
 });
@@ -149,6 +153,8 @@ const save = () => store.set(dayStateKey(today.key), state);
 const MAX = () => today.questions.length * PER_QUESTION;
 const ptsAt = (i) => points(today.questions[i], state.answers[i].g);
 const total = () => state.answers.reduce((a, _, i) => a + ptsAt(i), 0);
+/** How many good guesses (13+) in a row before question i: each one chimes a tone higher. */
+const goodRun = (i) => { let n = 0; for (let j = i - 1; j >= 0 && ptsAt(j) >= 13; j--) n++; return n; };
 const herdTotal = () => today.questions.reduce((a, q) => a + points(q, herd(q).median), 0);
 
 // ---------- shell ----------
@@ -156,9 +162,9 @@ const herdTotal = () => today.questions.reduce((a, q) => a + points(q, herd(q).m
 function header() {
   const s = streak();
   return `<header class="top">
-    <button class="brand" data-go="home" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
+    <button class="brand" id="brand" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
     <div class="top-right">
-      ${s ? `<span class="pill streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">🔥 ${s}</span>` : ""}
+      ${s ? `<span class="streak-pill" id="streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">${streakTicket(s)}</span>` : ""}
       <div class="menu-wrap">
         <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <div class="menu" id="menu" hidden>
@@ -185,12 +191,24 @@ function menu(open) {
   m.hidden = !open; b.setAttribute("aria-expanded", String(open));
 }
 document.addEventListener("click", (e) => { if (!e.target.closest?.(".menu-wrap")) menu(false); });
+// The main buttons give a soft wooden tap as they go down.
+document.addEventListener("pointerdown", (e) => { if (e.button === 0 && e.target.closest?.(".btn.primary:not(:disabled)")) { sfx.press(); buzz(6); } });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") menu(false); });
+let lastMoo = 0;
 function render(html, cat) {
   if (cat) { app.style.setProperty("--cat", CATS[cat].color); app.dataset.cat = cat; } else { app.style.removeProperty("--cat"); delete app.dataset.cat; }
   app.innerHTML = header() + `<main class="screen">${html}</main>`;
   app.querySelectorAll("[data-go]").forEach((b) => (b.onclick = () => go(b.dataset.go)));
   document.getElementById("menu-btn").onclick = () => menu(document.getElementById("menu").hidden);
+  // The ox in the header moos when tapped (and takes you home from anywhere else).
+  document.getElementById("brand").onclick = () => {
+    const ox = document.querySelector("#brand .ox"), now = Date.now();
+    if (now - lastMoo > 1500) {
+      lastMoo = now; sfx.moo(); buzz(10);
+      if (!reducedMotion()) ox?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-6deg)" }, { transform: "rotate(6deg)" }, { transform: "rotate(-3deg)" }, { transform: "rotate(0)" }], { duration: 500, easing: "ease-in-out" });
+    }
+    if (screen !== "home") setTimeout(() => go("home"), 180);
+  };
   const m = document.getElementById("mute"), prizes = document.getElementById("prizes");
   m.onclick = () => { setMuted(!isMuted()); m.setAttribute("aria-checked", String(!isMuted())); if (!isMuted()) sfx.plink(); };
   document.getElementById("prizes-open").onclick = () => { menu(false); prizes.showModal(); };
@@ -209,25 +227,106 @@ async function go(where) {
 // A judge's ink stamp with a tick in it.
 const stampTick = (cls = "") => `<span class="stamp ${cls}" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12.5 20.5 l5 5 l10 -11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
 
-// The week as a strip of fair tickets, stamped for each day played.
+/** The streak as a little fair ticket stub with the number printed on it (the header and the streak line). */
+function streakTicket(n, size = 34) {
+  const w = String(n).length > 2 ? 36 : 30;
+  return `<svg class="streak-ticket" width="${Math.round((size * (w + 2)) / 32)}" height="${Math.round((size * 22) / 32)}" viewBox="-1 -1 ${w + 2} 22" role="img" aria-label="${n}-day streak">
+    <path d="M3 0 H${w - 3} A3 3 0 0 1 ${w} 3 V7.5 A2.5 2.5 0 0 0 ${w} 12.5 V17 A3 3 0 0 1 ${w - 3} 20 H3 A3 3 0 0 1 0 17 V12.5 A2.5 2.5 0 0 0 0 7.5 V3 A3 3 0 0 1 3 0 Z" fill="var(--ticket)" stroke="var(--art-ink)" stroke-width="1.5"/>
+    <line x1="9" x2="9" y1="2.5" y2="17.5" stroke="var(--stamp)" stroke-width="1" stroke-dasharray="2 1.6"/>
+    <circle cx="4.6" cy="10" r="1.5" fill="var(--stamp)"/>
+    <text x="${9 + (w - 9) / 2}" y="14.2" text-anchor="middle" font-family="Fredoka, Nunito, sans-serif" font-weight="700" font-size="11" fill="#2b2410">${n}</text>
+  </svg>`;
+}
+
+// ---------- days against the herd ----------
+/** Who won a finished day: "you", "herd" or "draw"; null if it wasn't played or the herd's final score isn't known yet.
+ *  Today uses the herd as it stands; a past day uses the herd's final score, looked up once and kept with that day. */
+function dayResult(d) {
+  const st = store.get(dayStateKey(d));
+  if (!st?.done) return null;
+  const qs = roundFor(d).questions;
+  const mine = st.total ?? st.answers.reduce((t, a, j) => t + (qs[j] ? points(qs[j], a.g) : 0), 0);
+  const theirs = d === today.key ? herdTotal() : st.herdFinal;
+  if (theirs == null) return null;
+  return mine > theirs ? "you" : mine < theirs ? "herd" : "draw";
+}
+/** Look up the herd's final score, once, for every finished past day that hasn't got one. True if any were added. */
+async function settleHerdFinals() {
+  let added = false;
+  for (const { day } of history()) {
+    const st = store.get(dayStateKey(day));
+    if (day === today.key || st.herdFinal != null) continue;
+    const qs = roundFor(day).questions, real = await loadHerds(day, qs);
+    if (Object.keys(real).length < qs.length) continue; // offline: leave it for another time rather than guess
+    st.herdFinal = qs.reduce((t, q) => t + points(q, makeHerd(q, real[q.id], day).median), 0);
+    store.set(dayStateKey(day), st); added = true;
+  }
+  return added;
+}
+/** A played day's stamp says who won it: the fairgoer (you), the ox (the herd) or both; a plain tick until it's known. */
+const resultStamp = (res, pending) => res
+  ? `<span class="stamp face ${res}${pending ? " pending" : ""}" aria-hidden="true">${res === "you" ? fairgoer({ size: 24 }) : res === "herd" ? oxHead({ size: 24 }) : `${fairgoer({ size: 17 })}${oxHead({ size: 17 })}`}</span>`
+  : stampTick(pending ? "pending" : "");
+
+// The week as a strip of fair tickets, stamped for each day played with who won it. Once today's played, tomorrow's
+// ticket is outlined with the streak it would make.
 function weekTickets(k, { stampToday = false } = {}) {
-  const letters = ["M", "T", "W", "T", "F", "S", "S"];
+  const letters = ["M", "T", "W", "T", "F", "S", "S"], playedToday = playedOn(k);
   return `<div class="tickets" aria-label="Your week">${weekOf(k).map((d, i) => {
     const played = playedOn(d), isToday = d === k, future = d > k, missed = !played && !future && !isToday;
-    const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}`;
-    const mark = played ? stampTick(isToday && stampToday ? "pending" : "") : missed ? `<i class="miss-mark" aria-hidden="true"></i>` : isToday ? `<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8 L16 12 L10 16 Z"/></svg>` : "";
+    const next = future && playedToday && d === shift(k, 1), res = played ? dayResult(d) : null;
+    const cls = `ticket ${played ? "played" : missed ? "missed" : future ? "future" : "today"}${isToday ? " is-today" : ""}${next ? " next" : ""}`;
+    const mark = played ? resultStamp(res, isToday && stampToday) : missed ? `<i class="miss-mark" aria-hidden="true"></i>`
+      : isToday ? `<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8 L16 12 L10 16 Z"/></svg>`
+      : next ? `<small class="next-l">Day ${streak() + 1}</small>` : "";
+    const won = { you: ", you beat the herd", herd: ", the herd won", draw: ", level with the herd" }[res] ?? "";
     return isToday && !played
       ? `<button class="${cls}" data-go="play" aria-label="Play today's round"><b>${letters[i]}</b>${mark}</button>`
-      : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : ""}"><b>${letters[i]}</b>${mark}</span>`;
+      : `<span class="${cls}" title="${prettyDate(d)}${missed ? ", missed" : won}"><b>${letters[i]}</b>${mark}</span>`;
   }).join("")}</div>`;
 }
-function streakLine() {
-  const s = streak(), best = bestStreak(), playedToday = playedOn(today.key);
-  if (!s) return "Play today to start a streak.";
-  if (!playedToday) return `🔥 ${s}-day streak. Play today to keep it going.`;
-  const sub = best > s ? `Your best is ${best} days` : s > 1 ? "Your best yet" : "";
-  return `<span class="streak-main">🔥 <b>${s}-day streak</b></span>${sub ? `<span class="streak-sub">${sub}</span>` : ""}`;
+/** This week against the herd, and on a played Sunday, who took the week. */
+function seriesLine(k) {
+  const res = weekOf(k).filter((d) => d <= k).map(dayResult).filter(Boolean);
+  if (!res.length) return "";
+  const you = res.filter((r) => r === "you").length, herd = res.filter((r) => r === "herd").length;
+  const sunday = weekOf(k)[6] === k && playedOn(k);
+  const end = !sunday ? "" : you > herd ? " You won the week!" : herd > you ? " The herd takes the week." : " The week's a draw.";
+  return `This week: <b>You ${you}</b>, <b>The herd ${herd}</b>.${end}`;
 }
+/** All time, from every finished round on this device. */
+function allTimeLine() {
+  const h = history(), week = weekOf(today.key);
+  if (h.length < 2 || h.every(({ day }) => week.includes(day))) return ""; // the week line already says it all
+  const res = h.map(({ day }) => dayResult(day)).filter(Boolean);
+  const you = res.filter((r) => r === "you").length, herd = res.filter((r) => r === "herd").length, best = Math.max(streak(), bestStreak());
+  return `All time: you've won ${you} ${you === 1 ? "day" : "days"} to the herd's ${herd}. Best streak ${best} ${best === 1 ? "day" : "days"}.`;
+}
+
+// Streak prizes along the way.
+const MILESTONES = [[3, "Day tripper"], [7, "A week at the fair"], [30, "Season ticket"]];
+const WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+function streakLine() {
+  const s = streak(), playedToday = playedOn(today.key);
+  if (!s) return "Play today to start a streak.";
+  if (!playedToday) return `<span class="streak-main">${streakTicket(s, 26)}<span><b>${s}-day streak.</b> Play today to keep it going.</span></span>`;
+  const hit = MILESTONES.find(([n]) => n === s), next = MILESTONES.find(([n]) => n > s);
+  const sub = s === 1 ? "Come back tomorrow for a 2-day streak."
+    : hit ? `You've earned ${hit[1]}!`
+    : next ? `${WORDS[next[0] - s] ?? next[0] - s} more ${next[0] - s === 1 ? "day" : "days"} for ${next[1]}.` : "";
+  return `<span class="streak-main">${streakTicket(s, 26)}<b>${s}-day streak</b></span>${sub ? `<span class="streak-sub">${sub}</span>` : ""}`;
+}
+/** Draw the week strip, the series and the all-time line again (once the herd's past finals have been looked up). */
+function refreshWeek() {
+  if (celebrating) { weekPending = true; return; }
+  const t = document.querySelector(".week-card .tickets"), s = document.getElementById("series"), a = document.getElementById("alltime");
+  if (t) t.outerHTML = weekTickets(today.key);
+  if (s) { s.innerHTML = seriesLine(today.key); s.hidden = !s.innerHTML; }
+  if (a) { a.textContent = allTimeLine(); a.hidden = !a.textContent; }
+  document.querySelectorAll(".week-card [data-go]").forEach((b) => (b.onclick = () => go(b.dataset.go)));
+}
+let weekPending = false;
+
 function countdown(el) {
   const tick = () => {
     if (!document.body.contains(el)) return clearInterval(t);
@@ -242,18 +341,22 @@ function countdown(el) {
 }
 
 // ---------- the day ----------
-// One screen for the day. Before playing: today's five and a start button. After: you against the herd and the
-// share button, question by question (folded away), tomorrow (week, streak, countdown, tomorrow's categories),
-// then yesterday. Yesterday also sits under the start button, for anyone coming back.
+// One screen for the day. Before playing: yesterday's results on a chalkboard, today's five and a start button, the
+// week, then yesterday in full (folded). After: you against the herd (tonight's placing, share, and on your first rounds
+// "same time tomorrow?"), question by question (folded), back tomorrow (countdown, tomorrow's programme, the week
+// against the herd, the streak), then yesterday (folded).
 function home({ celebrate = false } = {}) {
   screen = "home";
-  render(state.done ? `${verdict(celebrate)}<section class="card">${questionByQuestion(todayRows())}</section>${tomorrow(celebrate)}${yourStats()}${yesterdaySlot()}`
-    : `${startCard()}${yesterdaySlot()}${weekCard()}`);
+  render(state.done
+    ? `${verdict(celebrate)}<section class="card">${questionByQuestion(todayRows())}</section>${tomorrow(celebrate)}${yesterdaySlot()}`
+    : `${slateSlot()}${startCard()}${weekCard()}${yesterdaySlot()}`);
   const cd = document.getElementById("cd"); if (cd) countdown(cd);
   fillYesterday();
-  if (state.done) fillTally();
-  if (state.done) wireShare();
-  if (celebrate) celebrateRound();
+  fillTurnstile();
+  if (state.done) { wireShare(); wireKeep(); }
+  const rem = document.getElementById("remind"); if (rem) rem.onclick = () => remindMe(rem);
+  settleHerdFinals().then((added) => { if (added) refreshWeek(); });
+  if (celebrate) celebrateRound(); else if (state.done) { fillPlacing(); showKeep(); }
 }
 
 function startCard() {
@@ -272,12 +375,23 @@ function startCard() {
         }).join("")}
       </ol>
       <button class="btn primary big" data-go="play">${started ? "Carry on" : "Start guessing"}</button>
+      <p class="turnstile" id="turnstile" hidden></p>
     </section>`;
+}
+/** "143 through the gate today": everyone who has guessed today's first question, from the herd already loaded. */
+function fillTurnstile() {
+  herdsReady.then(() => {
+    const el = document.getElementById("turnstile"), n = herds[today.questions[0].id]?.n ?? 0;
+    if (!el || n < 5) return;
+    el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M4.2 7.5l5.2 3M14.6 13.5l5.2 3M4.2 16.5l5.2-3M14.6 10.5l5.2-3"/></svg><span><b>${n.toLocaleString("en-GB")}</b> through the gate today</span>`;
+    el.hidden = false;
+  });
 }
 function weekCard() {
   return `<section class="card week-card">
       <h2>Your week at the fair</h2>
       ${weekTickets(today.key)}
+      <p class="series" id="series" ${seriesLine(today.key) ? "" : "hidden"}>${seriesLine(today.key)}</p>
       <p class="streak-line">${streakLine()}</p>
     </section>`;
 }
@@ -287,15 +401,19 @@ function verdict(celebrate) {
   const you = total(), herdScore = herdTotal(), max = MAX(), beat = you > herdScore, level = you === herdScore;
   const headline = beat ? "You beat the herd!" : level ? "Dead level with the herd" : "The herd wins today";
   const sub = beat ? "Smarter than the crowd. Don't let it go to your head." : level ? "Great minds, and all that." : "It knows things. Tomorrow's another fair.";
+  const moment = roundMoment(you, beat);
   return `<section class="card results">
       <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
       <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
       <div class="versus">
-        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span></div>
+        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span>
+          ${moment.pb ? `<span class="pb-stamp" id="pb" ${celebrate ? "hidden" : ""}>Personal best</span>` : ""}</div>
         <span class="vs">vs</span>
-        <div class="side">${oxHead({ size: 46 })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
+        <div class="side">${oxHead({ size: 46, mood: beat ? "wow" : "happy" })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
       </div>
       <p class="results-sub">${sub}</p>
+      ${moment.note ? `<p class="judges-note" id="note" ${celebrate ? "hidden" : ""}>${moment.note}</p>` : ""}
+      <p class="placing" id="placing" hidden></p>
       <div class="my-rosettes" aria-label="Your prizes">${state.answers.map((a, i) => {
         const yp = ptsAt(i);
         return `<span class="my-rosette ${celebrate ? "pending" : ""}">${rosette(tierFor(yp).key, yp, 42)}<span>${catLabel(today.questions[i])}</span></span>`;
@@ -303,12 +421,36 @@ function verdict(celebrate) {
       <button class="btn primary big" id="share">Share my rosettes</button>
       <p class="fine center" id="copied" hidden>Copied. Go on, show off.</p>
       <pre class="share-text" id="share-text" hidden>${shareText()}</pre>
+      ${keepTicket()}
     </section>`;
 }
+/** At most one special moment a round: a personal best, else a first Best in show, else beating the herd first go. */
+function roundMoment(you, beat) {
+  const before = history().filter((d) => d.day !== today.key);
+  if (before.length && you > Math.max(...before.map((d) => d.total))) return { pb: true };
+  const firstBest = state.answers.some((_, i) => ptsAt(i) === PER_QUESTION) && !before.some(({ day }) => {
+    const st = store.get(dayStateKey(day)), qs = roundFor(day).questions;
+    return st.answers.some((a, j) => qs[j] && points(qs[j], a.g) === PER_QUESTION);
+  });
+  if (firstBest) return { note: "Your first Best in show. The judges are impressed." };
+  if (!before.length && beat) return { note: "Beat the herd on your first go. Beginner's luck?" };
+  return {};
+}
+/** Tonight's placing among everyone who has finished today, so far. Final placings are tomorrow morning's chalkboard. */
+async function fillPlacing() {
+  const scores = await loadScores(today.key), el = document.getElementById("placing");
+  if (!el) return;
+  const you = total(), n = scores.length + 1, place = 1 + scores.filter((t) => t > you).length;
+  if (n < 2) return;
+  el.innerHTML = n < 10 ? `Early days: <b>${ordinal(place)} of ${n}</b> so far.` : `You're <b>${ordinal(place)} of ${n}</b> so far. Final placings go up in the morning.`;
+  el.hidden = false;
+  if (!reducedMotion()) el.animate([{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }], { duration: 300, easing: "ease-out" });
+}
 function shareText() {
-  const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join(""), s = streak();
+  const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join(""), s = streak(), d = total() - herdTotal();
+  const herdLine = d > 0 ? `Beat the herd by ${d} 🐄` : d < 0 ? `The herd won by ${-d} 🐄` : "Level with the herd 🐄";
   // A blank line after the title and before the link, so it reads cleanly in a chat.
-  return `OxGuess Round ${today.number} 🐂\n\n${grid} ${total()}/${MAX()}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\n\noxguess.com`;
+  return `OxGuess Round ${today.number} 🐂\n\n${grid} ${total()}/${MAX()}\n${herdLine}${s > 1 ? `\n🔥 ${s}-day streak` : ""}\n\noxguess.com`;
 }
 function wireShare() {
   const share = shareText();
@@ -318,6 +460,74 @@ function wireShare() {
     if (navigator.clipboard?.writeText) navigator.clipboard.writeText(share).then(() => { document.getElementById("copied").hidden = false; sfx.plink(); }, fallback);
     else fallback();
   };
+}
+
+// ---------- same time tomorrow? ----------
+// On your first two rounds, an "admit one" ticket offers a calendar reminder at the time you played (to the next quarter
+// hour) or the ox on your home screen. Either choice, or "Not for me", and it never shows again.
+const standalone = () => window.matchMedia?.("(display-mode: standalone)").matches || navigator.standalone === true;
+let installPrompt = null;
+window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+/** Tomorrow at the time you're playing now, to the next quarter hour. */
+function reminderTime() {
+  const t = new Date(); t.setSeconds(0, 0); t.setMinutes(Math.ceil((t.getMinutes() + 1) / 15) * 15); t.setDate(t.getDate() + 1);
+  return t;
+}
+const clock = (t) => (t.getMinutes() === 0 && t.getHours() % 12 === 0 ? (t.getHours() ? "noon" : "midnight") : `${t.getHours() % 12 || 12}:${pad(t.getMinutes())}${t.getHours() < 12 ? "am" : "pm"}`);
+function keepTicket() {
+  if (store.get("ox-keep") || history().length > 2) return "";
+  return `<div class="keep" id="keep" hidden>
+      <div class="keep-ticket">
+        <span class="keep-admit">Admit one · tomorrow</span>
+        <h3>Same time tomorrow?</h3>
+        <p>Five new numbers every day. Pop a reminder in your calendar, or keep the ox on your home screen.</p>
+        <div class="keep-stubs">
+          <button class="stub-btn" id="keep-cal">Remind me at ${clock(reminderTime())}</button>
+          ${standalone() ? "" : `<button class="stub-btn" id="keep-home">Add to Home Screen</button>`}
+        </div>
+        <p class="keep-how" id="keep-how" hidden></p>
+        <span class="keep-done" id="keep-done" hidden>Pencilled in</span>
+      </div>
+      <button class="link" id="keep-no">Not for me</button>
+    </div>`;
+}
+function wireKeep() {
+  const keep = document.getElementById("keep");
+  if (!keep) return;
+  const done = (choice) => { store.set("ox-keep", choice); recordPlayer(playerSummary()); };
+  document.getElementById("keep-cal").onclick = () => { remindMe(); done("cal"); stampIn(document.getElementById("keep-done")); buzz(12); };
+  const home = document.getElementById("keep-home");
+  if (home) home.onclick = async () => {
+    done("home");
+    if (installPrompt) { installPrompt.prompt(); installPrompt = null; return; }
+    const how = document.getElementById("keep-how");
+    how.textContent = /iPhone|iPad/i.test(navigator.userAgent) ? "Tap the Share button, then Add to Home Screen." : "Open your browser's menu, then Add to Home Screen (or Install).";
+    how.hidden = false;
+  };
+  document.getElementById("keep-no").onclick = () => {
+    done("no");
+    if (reducedMotion()) { keep.remove(); return; }
+    keep.animate([{ opacity: 1, maxHeight: `${keep.offsetHeight}px` }, { opacity: 0, maxHeight: "0px" }], { duration: 260, easing: "ease-in" }).onfinish = () => keep.remove();
+  };
+}
+function showKeep() {
+  const keep = document.getElementById("keep");
+  if (!keep || !keep.hidden) return;
+  keep.hidden = false;
+  if (!reducedMotion()) keep.querySelector(".keep-ticket").animate([{ transform: "translateY(-14px)", clipPath: "inset(0 0 100% 0)" }, { transform: "none", clipPath: "inset(0 0 0 0)" }], { duration: 360, easing: "cubic-bezier(.2,.9,.3,1.1)" });
+}
+/** A daily calendar reminder (an .ics file every calendar app opens) at the time you played today. */
+function remindMe(btn) {
+  const t = reminderTime(), d = (x) => `${x.getFullYear()}${pad(x.getMonth() + 1)}${pad(x.getDate())}T${pad(x.getHours())}${pad(x.getMinutes())}00`;
+  const now = new Date(), utc = now.toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//OxGuess//Reminder//EN", "BEGIN:VEVENT", `UID:oxguess-${now.getTime()}@oxguess.com`, `DTSTAMP:${utc}`,
+    `DTSTART:${d(t)}`, "DURATION:PT5M", "RRULE:FREQ=DAILY", "SUMMARY:OxGuess: five new numbers", "DESCRIPTION:Today's round is up. https://oxguess.com", "URL:https://oxguess.com",
+    "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:OxGuess: five new numbers", "TRIGGER:PT0M", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "oxguess-reminder.ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  sfx.pin();
+  if (btn) btn.textContent = `Reminder set for ${clock(t)}`;
 }
 
 // 2: question by question. Folded, who won each one (you, the herd, or both for a draw); opened, the lines.
@@ -345,72 +555,40 @@ function questionByQuestion(rows, title = "Question by question") {
 }
 const todayRows = () => state.answers.map((a, i) => ({ q: today.questions[i], g: a.g, h: herd(today.questions[i]) }));
 
-// 4: back tomorrow. Why to come back, a countdown on ticket stock, and the week.
+// 4: back tomorrow. Why to come back, a countdown on ticket stock, tomorrow's programme, and the week against the herd.
 function tomorrow(celebrate) {
+  const teaser = teaserFor(shift(today.key, 1)), series = seriesLine(today.key), all = allTimeLine();
   return `<section class="card week-card">
       <h2>Back tomorrow</h2>
-      <p class="back-why">The herd is still moving. Come back tomorrow to see where it finished!</p>
+      <p class="back-why">Final placings go up in the morning, with five new numbers.</p>
       <div class="countdown" id="cd" role="timer">
         <span class="cd-eyebrow">Next round in</span>
         <span class="cd-cards"><span class="cd-unit"><b data-h>00</b><small>hours</small></span><span class="cd-colon" aria-hidden="true"></span><span class="cd-unit"><b data-m>00</b><small>minutes</small></span></span>
       </div>
+      ${teaser ? `<p class="teaser">On tomorrow's programme: ${teaser}.</p>` : ""}
       ${weekTickets(today.key, { stampToday: celebrate })}
+      <p class="series" id="series" ${series ? "" : "hidden"}>${series}</p>
+      <p class="streak-line">${streakLine()}</p>
+      <p class="alltime" id="alltime" ${all ? "" : "hidden"}>${all}</p>
+      ${store.get("ox-keep") === "cal" ? "" : `<button class="link remind" id="remind">Remind me tomorrow</button>`}
     </section>`;
 }
-
-// Your stats: each number printed on a fair prop. The streak on a ticket, the best streak on a rosette, and days
-// won against the herd as a head-to-head.
-function yourStats() {
-  const s = streak(), best = Math.max(s, bestStreak());
-  return `<section class="card stats-card">
-      <h2>Your stats</h2>
-      <div class="props">
-        <div class="prop"><span class="prop-ticket"><b>${s}</b></span><span class="prop-l">Day streak</span></div>
-        <div class="prop">${rosette("first", best, 58)}<span class="prop-l">Best streak</span></div>
-      </div>
-      <div class="h2h" id="tally" aria-live="polite">
-        <div class="h2h-side you">${fairgoer({ size: 44 })}<b data-you>–</b><span>You</span></div>
-        <div class="h2h-mid"><span class="h2h-l">Days won</span><span class="h2h-bar"><i class="you" data-you-bar></i><i class="herd" data-herd-bar></i></span><span class="h2h-d" data-draws></span></div>
-        <div class="h2h-side them">${oxHead({ size: 44 })}<b data-herd>–</b><span>The herd</span></div>
-      </div>
-    </section>`;
-}
-/** Days won against the herd, from every finished round on this device. Past days use the herd's final score,
- *  looked up once and kept with that day; today uses the herd as it stands. */
-async function fillTally() {
-  let you = 0, them = 0, draws = 0;
-  for (const { day } of history()) {
-    const st = store.get(dayStateKey(day)), qs = roundFor(day).questions;
-    const mine = st.answers.reduce((t, a, j) => t + (qs[j] ? points(qs[j], a.g) : 0), 0);
-    let theirs;
-    if (day === today.key) theirs = herdTotal();
-    else {
-      if (st.herdFinal == null) {
-        const real = await loadHerds(day, qs);
-        if (Object.keys(real).length < qs.length) continue; // offline: leave this day out rather than guess
-        st.herdFinal = qs.reduce((t, q) => t + points(q, makeHerd(q, real[q.id], day).median), 0);
-        store.set(dayStateKey(day), st);
-      }
-      theirs = st.herdFinal;
-    }
-    if (mine > theirs) you++; else if (mine < theirs) them++; else draws++;
-  }
-  const el = document.getElementById("tally");
-  if (!el) return;
-  el.querySelector("[data-you]").textContent = you;
-  el.querySelector("[data-herd]").textContent = them;
-  el.querySelector("[data-you-bar]").style.flexGrow = you || (them ? 0 : 1);
-  el.querySelector("[data-herd-bar]").style.flexGrow = them || (you ? 0 : 1);
-  el.querySelector("[data-draws]").textContent = draws ? `and ${draws} drawn` : "";
-  el.classList.toggle("lead-you", you > them);
-  el.classList.toggle("lead-herd", them > you);
+/** Tomorrow's programme: two vague hints from tomorrow's questions (site/data/teasers.json), far and wildcard first. */
+function teaserFor(day) {
+  const qs = roundFor(day).questions, order = [2, 4, 1, 3, 0];
+  const hints = order.map((i) => TEASERS[qs[i]?.id]).filter(Boolean).slice(0, 2);
+  return hints.length === 2 ? `${hints[0]}, and ${hints[1]}` : hints[0] ?? "";
 }
 
 // 5: yesterday. Your guesses are on this device; the herd's final guesses are yesterday's five herd summaries, and
-// everyone's scores are yesterday's finished rounds. Read once per page load.
+// everyone's scores are yesterday's finished rounds. Read once per page load. Before you play today, yesterday's result
+// also goes up on a chalkboard above the start card.
 let yesterdayCache = null;
 function yesterdaySlot() {
   return shift(today.key, -1) >= EPOCH ? `<section class="card yesterday" id="yesterday" hidden></section>` : "";
+}
+function slateSlot() {
+  return shift(today.key, -1) >= EPOCH ? `<section class="slate" id="slate" hidden aria-live="polite"></section>` : "";
 }
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 async function fillYesterday() {
@@ -431,26 +609,61 @@ async function fillYesterday() {
   });
   const herdScore = rows.reduce((t, x) => t + points(x.q, x.h.median), 0);
   const you = mine ? rows.reduce((t, x) => t + points(x.q, x.g), 0) : null;
-  const scores = yesterdayCache.scores, n = scores.length;
-  const place = (v) => 1 + scores.filter((t) => t > v).length;
-  el.innerHTML = `
-    <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
-    ${n ? prizeBoard(scores, herdScore, you) : ""}
-    <ol class="standings">${[
-      { who: "herd", name: "The herd", icon: oxHead({ size: 38 }), score: herdScore },
-      { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
-    ].sort((a, b) => (b.score ?? -1) - (a.score ?? -1)).map((x) => `<li class="${x.who}">
-        <span class="st-icon">${x.icon}</span>
-        <span class="st-name">${x.name}${n && x.score != null ? `<small>${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
-        <span class="st-score">${x.score == null ? "" : `<b>${x.score}</b><small>/${MAX()}</small>`}</span>
-      </li>`).join("")}</ol>
-    ${questionByQuestion(rows)}`;
+  const others = yesterdayCache.scores, all = you == null ? others : [...others, you], n = all.length;
+  const place = (v) => 1 + all.filter((t) => t > v).length;
+  el.innerHTML = `<details class="y-fold">
+      <summary>
+        <span class="y-sum"><h2>Yesterday</h2><span class="y-line">${you != null && n ? `You came ${ordinal(place(you))} of ${n} · ` : ""}Herd ${herdScore}</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg></span>
+      </summary>
+      <div class="y-body">
+        <p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p>
+        ${n ? prizeBoard(others, herdScore, you) : ""}
+        <ol class="standings">${[
+          { who: "herd", name: "The herd", icon: oxHead({ size: 38 }), score: herdScore },
+          { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
+        ].sort((a, b) => (b.score ?? -1) - (a.score ?? -1)).map((x) => `<li class="${x.who}">
+            <span class="st-icon">${x.icon}</span>
+            <span class="st-name">${x.name}${n && x.score != null ? `<small>${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
+            <span class="st-score">${x.score == null ? "" : `<b>${x.score}</b><small>/${MAX()}</small>`}</span>
+          </li>`).join("")}</ol>
+        ${questionByQuestion(rows)}
+      </div>
+    </details>`;
   el.hidden = false;
+  fillSlate({ you, herdScore, n, place: you == null ? null : place(you) });
+}
+/** The morning chalkboard: yesterday's final placing, chalked up line by line. */
+function fillSlate({ you, herdScore, n, place }) {
+  const el = document.getElementById("slate");
+  if (!el || state.answers.length) return;
+  const d = you == null ? null : you - herdScore;
+  const lines = you == null
+    ? [`The herd scored ${herdScore} yesterday.`, "Fancy your chances today?"]
+    : [n > 1 ? `You came <b class="chalk-n" id="slate-place">${ordinal(place)}</b> of ${n}.` : `You scored ${you}.`,
+      d > 0 ? `The herd scored ${herdScore}. You beat it by ${d}.` : d < 0 ? `The herd scored ${herdScore} and pipped you by ${-d}.` : `The herd scored ${herdScore} too. Dead level.`];
+  el.innerHTML = `<div class="slate-board">
+      <span class="slate-icon">${you == null ? oxHead({ size: 40 }) : rosette(tierFor(Math.round(you / today.questions.length)).key, you, 44)}</span>
+      <div class="slate-text"><span class="slate-title">Yesterday's results</span>${lines.map((l) => `<p class="chalk">${l}</p>`).join("")}</div>
+    </div>
+    <button class="slate-link" id="slate-open">See the board</button>`;
+  el.hidden = false;
+  document.getElementById("slate-open").onclick = () => {
+    const y = document.querySelector("#yesterday details");
+    if (y) { y.open = true; y.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" }); }
+  };
+  if (reducedMotion()) return;
+  el.querySelectorAll(".chalk, .slate-title").forEach((c, k) => {
+    c.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 300, delay: 120 + k * 90, easing: "ease-out", fill: "backwards" });
+    setTimeout(() => sfx.chalk(), 120 + k * 90);
+  });
+  const pn = document.getElementById("slate-place");
+  if (pn) setTimeout(() => countUp(pn, place, 600, { from: n, sound: "low", format: ordinal }), 300);
 }
 
 // The story as a short tap-through: one idea per page, each with its own little moment.
 const STORY_PAGES = 5;
-function storyScale(withAnswer) {
+function storyScale(withAnswer, mine = null) {
   // 787 tickets, drawn as 70 dots: a loose bell around the middle, two lonely guesses around 1,000 lb and one
   // past 1,500. Seeded so everyone sees the same crowd.
   const R = (() => { let t = 1906; return () => ((t = (t * 16807) % 2147483647) / 2147483647); })();
@@ -474,11 +687,16 @@ function storyScale(withAnswer) {
       <g class="story-mark crowd"><line x1="${x(1207)}" x2="${x(1207)}" y1="30" y2="124" stroke="var(--ox-dark)" stroke-width="2.5" stroke-dasharray="3 4"/>
         <svg x="${x(1207) + 4}" y="22" width="24" height="24" viewBox="0 0 120 120">${oxHead({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>
       <g class="story-mark truth"><line x1="${x(1198)}" x2="${x(1198)}" y1="4" y2="126" stroke="var(--good)" stroke-width="3" stroke-linecap="round"/><path d="M${x(1198) - 1.5} 4 l-14 6 l14 6 z" fill="var(--good)"/></g>` : ""}
+    ${mine == null ? "" : `<g class="story-you"><line x1="${x(mine)}" x2="${x(mine)}" y1="62" y2="124" stroke="var(--ink)" stroke-width="2"/><circle cx="${x(mine)}" cy="124" r="5" fill="var(--stamp)" stroke="var(--card)" stroke-width="1.5"/>
+      <svg x="${x(mine) - 11}" y="40" width="22" height="22" viewBox="0 0 120 120">${fairgoer({ size: 120 }).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg></g>`}
   </svg>`;
 }
 
-function story(page = 0) {
+// Your own go at the ox, on page 3; it joins the 787 on page 4.
+const STORY_LO = 900, STORY_HI = 1600;
+function story(page = 0, dir = 0) {
   screen = "story";
+  const mine = store.get("ox-story-guess");
   const cta = state.done ? "Back to today" : "Join the herd";
   const pages = [
     `<img class="scene-img" src="img/fair-1906.webp" width="1672" height="941" alt="A crowd at a 1906 country fair leaning on a pen around a prize ox with a first-prize rosette, beside a sign reading Guess the weight, 6d a go">
@@ -489,12 +707,16 @@ function story(page = 0) {
      <h1 class="story-title">787 people had a go.</h1>
      <p class="story-text">Farmers and butchers, and plenty who'd never weighed anything bigger than a sack of flour.</p>`,
     `${storyScale(false)}
-     <h1 class="story-title">The guesses were all over the place.</h1>
-     <p class="story-text">Some said around 1,000 lb. Some said over 1,500. Nobody was sure.</p>`,
-    `${storyScale(true)}
+     <h1 class="story-title">Your go. How heavy was the ox?</h1>
+     <p class="story-text">The guesses were all over the place, from around 1,000 lb to over 1,500.</p>
+     <div class="story-try" style="--cat: var(--c-far)">
+       <output id="story-g">${(mine ?? 1250).toLocaleString("en-GB")} lb</output>
+       <input type="range" id="story-slider" min="${STORY_LO}" max="${STORY_HI}" step="5" value="${mine ?? 1250}" aria-label="Your guess at the ox's weight">
+     </div>`,
+    `${storyScale(true, mine)}
      <div class="story-vs"><div><small>${oxHead({ size: 16 })} The crowd's guess</small><b>1,207 lb</b></div><div class="truth"><small><i class="ans-flag"></i>The ox's weight</small><b>1,198 lb</b></div></div>
      <h1 class="story-title">Together, the crowd knew.</h1>
-     <p class="story-text">The middle guess was just 9 lb out, less than 1% off the ox's real weight.</p>`,
+     <p class="story-text">${mine == null ? "" : `You said ${mine.toLocaleString("en-GB")} lb. `}The crowd's middle guess was just 9 lb out, less than 1% off.${mine != null && Math.abs(mine - 1198) < 9 ? " You were even closer. Don't tell the herd." : ""}</p>`,
     `<div class="story-bunting" aria-hidden="true">${flags(11, 14)}</div>
      <div class="story-hero">${oxHead({ size: 96 })}${fairgoer({ size: 56 })}</div>
      <h1 class="story-title">OxGuess is that fair, every day.</h1>
@@ -513,14 +735,24 @@ function story(page = 0) {
     </section>`);
   store.set("ox-seen-story", true);
   const nextBtn = document.getElementById("story-next");
-  if (!last) nextBtn.onclick = () => { sfx.tick(); story(page + 1); };
-  const back = document.getElementById("story-back"); if (back) back.onclick = () => story(page - 1);
-  // Swipe left and right between pages.
+  // Pages turn in the direction you're going.
+  const pg = document.querySelector(".story-page");
+  if (dir && !reducedMotion()) pg.animate([{ opacity: 0, transform: `translateX(${dir * 40}px)` }, { opacity: 1, transform: "none" }], { duration: 280, easing: "cubic-bezier(.2,.9,.3,1)" });
+  // Page 3: have a go. Whatever the slider says when you press Next is your guess.
+  const try_ = document.getElementById("story-slider");
+  if (try_) {
+    const out = document.getElementById("story-g");
+    try_.oninput = () => { out.value = `${Number(try_.value).toLocaleString("en-GB")} lb`; sfx.tick((try_.value - STORY_LO) / (STORY_HI - STORY_LO)); };
+  }
+  const forward = () => { if (try_) { store.set("ox-story-guess", Number(try_.value)); sfx.thunk(); } else sfx.tick(); story(page + 1, 1); };
+  if (!last) nextBtn.onclick = forward;
+  const back = document.getElementById("story-back"); if (back) back.onclick = () => story(page - 1, -1);
+  // Swipe left and right between pages (not while dragging the slider).
   const el = document.getElementById("story"); let x0 = null;
-  el.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
+  el.addEventListener("pointerdown", (e) => { x0 = e.target.closest("input") ? null : e.clientX; });
   el.addEventListener("pointerup", (e) => {
     if (x0 == null) return; const dx = e.clientX - x0; x0 = null;
-    if (dx < -50 && !last) story(page + 1); else if (dx > 50 && page > 0) story(page - 1);
+    if (dx < -50 && !last) forward(); else if (dx > 50 && page > 0) story(page - 1, -1);
   });
   // Each page's moment.
   if (page === 1) {
@@ -532,17 +764,39 @@ function story(page = 0) {
       t.animate([{ transform: "translateY(-60px) rotate(-20deg)", opacity: 0 }, { transform: "translateY(0) rotate(8deg)", opacity: 1, offset: 0.6 }, { transform: "translateY(26px) rotate(0) scale(.5)", opacity: 0 }], { duration: 700, easing: "ease-in" }).onfinish = () => t.remove();
     }, k * 170);
   }
-  if (page === 3) setTimeout(() => { sfx.chime(); pop(document.querySelector(".story-vs .truth"), 1.1); }, 1300);
+  if (page === 3) {
+    const you = document.querySelector(".story-you");
+    if (you && !reducedMotion()) you.animate([{ transform: "translateY(-40px)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 420, delay: 150, easing: "cubic-bezier(.3,1.4,.5,1)", fill: "backwards" });
+    setTimeout(() => sfx.pin(), 450);
+    setTimeout(() => { sfx.chime(); pop(document.querySelector(".story-vs .truth"), 1.1); }, 1300);
+  }
 }
 
-// Five segments; the current question's segment opens into a pill naming its category.
+// Five segments; the current question's segment opens into a pill naming its category. The segment just finished fills
+// in from the left as the next question arrives.
 function progress(i, revealed) {
   return `<div class="progress" aria-label="Question ${i + 1} of ${today.questions.length}">${today.questions.map((q, j) => {
-    const state = j < i || (j === i && revealed) ? "done" : "";
+    const state = j < i || (j === i && revealed) ? `done${j === i - 1 && !revealed ? " just-done" : ""}` : "";
     return j === i
       ? `<span class="current ${state}" style="--cat:${CATS[q.cat].color}">${catLabel(q)}</span>`
       : `<span class="${state}" style="--cat:${CATS[q.cat].color}"></span>`;
   }).join("")}</div>`;
+}
+
+// ---------- moving between screens ----------
+const reducedMotion = () => window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+/** The card slides off to the left (or fades, under reduced motion) before the next screen comes in. */
+async function leave() {
+  const m = app.querySelector(".screen");
+  if (!m) return;
+  const out = reducedMotion() ? [{ opacity: 1 }, { opacity: 0 }] : [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(-24px)" }];
+  await m.animate(out, { duration: reducedMotion() ? 120 : 140, easing: "cubic-bezier(.4,0,1,1)", fill: "forwards" }).finished.catch(() => {});
+}
+/** ...and the new card comes in from the right. */
+function arrive(el) {
+  if (!el) return;
+  const from = reducedMotion() ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: "translateX(24px)" }, { opacity: 1, transform: "none" }];
+  el.animate(from, { duration: reducedMotion() ? 150 : 260, easing: "cubic-bezier(.2,.9,.3,1.1)" });
 }
 
 // ---------- asking ----------
@@ -552,7 +806,7 @@ function ask() {
   let pos = Math.round(STEPS / 2), typed = null;
   render(`
     ${progress(i, false)}
-    <section class="card ask enter">
+    <section class="card ask">
       <h1 class="question">${q.q}</h1>
       <div class="readout">
         <input id="guess" inputmode="decimal" autocomplete="off" aria-label="Your guess">
@@ -569,6 +823,9 @@ function ask() {
       <button class="btn primary big" id="lock">Lock it in</button>
     </section>`, q.cat);
 
+  arrive(document.querySelector(".ask"));
+  const pill = document.querySelector(".progress .current");
+  if (i > 0 && pill && !reducedMotion()) { pill.animate([{ transform: "scale(1.2)" }, { transform: "none" }], { duration: 260, easing: "cubic-bezier(.3,1.6,.5,1)" }); sfx.tick(0.8); }
   const slider = document.getElementById("slider"), input = document.getElementById("guess");
   const current = () => (typed ?? toValue(q, r, pos));
   const fit = () => { input.style.width = `${Math.max(2, input.value.length + 0.6)}ch`; };
@@ -581,7 +838,7 @@ function ask() {
   show();
   const unitsBtn = document.getElementById("units");
   if (unitsBtn) unitsBtn.onclick = () => { setSystem(getSystem() === "metric" ? "imperial" : "metric"); store.set("ox-units", getSystem()); sfx.tick(); show(); };
-  slider.oninput = () => { pos = +slider.value; typed = null; show(); sfx.tick(); buzz(3); };
+  slider.oninput = () => { pos = +slider.value; typed = null; show(); sfx.tick(pos / STEPS); };
   const nudge = (d) => {
     if (q.scale === "log") {
       // Step along until the shown number changes (several slider steps can round to the same figure).
@@ -594,7 +851,7 @@ function ask() {
       typed = Math.max(r.min, Math.min(r.max, fromDisp(q, dv)));
       pos = toPos(q, r, typed);
     }
-    show(); sfx.tick(); pop(input, 1.06);
+    show(); sfx.tick(pos / STEPS); pop(input, 1.06);
   };
   // Tap to nudge once; hold to keep going, faster the longer you hold. Keyboard presses still click.
   const holdable = (btn, d) => {
@@ -717,10 +974,15 @@ function reveal(i, { animate = false } = {}) {
       recordPlay(today.key, today.number, today.questions.map((_, j) => ptsAt(j)));
       recordPlayer(playerSummary());
       home({ celebrate: true });
-    } else { save(); ask(); }
+    } else { save(); leave().then(ask); }
   };
   if (!animate) { setStriker(); return; }
 
+  // Tap the card to hurry: every animation jumps to its end and the rest of the sequence plays at once.
+  let hurried = false;
+  const card = document.querySelector(".reveal");
+  card.onclick = () => { if (hurried) return; hurried = true; hurry(); card.getAnimations({ subtree: true }).forEach((a) => a.finish()); };
+  card.querySelector(".rail-wrap").animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: "cubic-bezier(.2,.9,.3,1)" });
   (async () => {
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     const $ = (id) => document.getElementById(id);
@@ -728,21 +990,21 @@ function reveal(i, { animate = false } = {}) {
     $("pts").textContent = "0";
 
     // 1. Your guess sits on the line for a beat.
-    await wait(350);
+    await wait(250);
 
     // 2. The answer flag slides out from your guess to the real answer, the gap filling in behind it.
     const flag = $("flag"), num = $("flag-num"), span = $("span");
     if (!flag) return; // already moved on
     flag.classList.remove("is-hidden"); span.classList.remove("is-hidden");
-    if (!reduce) {
-      const travel = Math.round(450 + Math.abs(apos - gpos) * 1100);
+    if (!reduce && !hurried) {
+      const travel = Math.min(1100, Math.round(400 + Math.abs(apos - gpos) * 800));
       sfx.slide(travel);
       flag.animate([{ left: `${gpos * 100}%` }, { left: `${apos * 100}%` }], { duration: travel, easing: "cubic-bezier(.33,1,.68,1)" });
       span.animate([{ width: "0%", left: `${gpos * 100}%` }, { width: `${Math.abs(apos - gpos) * 100}%`, left: `${Math.min(gpos, apos) * 100}%` }], { duration: travel, easing: "cubic-bezier(.33,1,.68,1)" });
       const t0 = performance.now(), from = toPos(q, r, a.g), to = toPos(q, r, q.answer);
       await new Promise((done) => {
         const step = (now) => {
-          const k = Math.min(1, (now - t0) / travel), e = 1 - (1 - k) ** 3;
+          const k = hurried ? 1 : Math.min(1, (now - t0) / travel), e = 1 - (1 - k) ** 3;
           num.textContent = withUnit(q, k < 1 ? toValue(q, r, Math.round(from + (to - from) * e)) : q.answer);
           if (k < 1) requestAnimationFrame(step); else done();
         };
@@ -756,56 +1018,62 @@ function reveal(i, { animate = false } = {}) {
     // 3. The herd's ox walks from the answer to where the herd guessed, a soft tick on each step.
     const herdPin = show("herd-pin", 1.15);
     if (!herdPin) return;
-    if (!reduce) {
-      const walk = Math.round(350 + Math.abs(hpos - apos) * 900), steps = Math.max(2, Math.round(walk / 170));
+    if (!reduce && !hurried) {
+      const walk = Math.round(300 + Math.abs(hpos - apos) * 600), steps = Math.max(2, Math.round(walk / 170));
       herdPin.animate([{ left: `${apos * 100}%` }, { left: `${hpos * 100}%` }], { duration: walk, easing: "cubic-bezier(.4,0,.3,1)" });
       herdPin.querySelector("span").animate([{ transform: "translateY(0)" }, { transform: "translateY(3px)" }, { transform: "translateY(0)" }], { duration: walk / steps, iterations: steps });
-      for (let k = 0; k < steps; k++) { sfx.tick(); await wait(walk / steps); }
+      for (let k = 0; k < steps && !hurried; k++) { sfx.tick(0.2); await wait(walk / steps); }
     }
     await wait(200);
 
-    // 4. The strength tester: up goes the puck, the points count with it.
+    // 4. The strength tester: up goes the puck, a tick a point, each a semitone higher, and the points count with it.
     const climb = 250 + p * 28;
     if (!puck.isConnected) return;
-    if (!reduce && p > 0) {
-      sfx.whoosh(climb);
+    if (!reduce && !hurried && p > 0) {
       puck.animate([{ transform: "translateY(0)" }, { transform: `translateY(${rise}px)` }], { duration: climb, easing: "cubic-bezier(.2,.8,.3,1)", fill: "forwards" });
       fill.animate([{ y: 132, height: 4 }, { y: 132 + rise, height: -rise + 4 }], { duration: climb, easing: "cubic-bezier(.2,.8,.3,1)", fill: "forwards" });
+      for (let k = 1; k <= p; k++) setTimeout(() => { if (!hurried) sfx.climb(k); }, climb * (1 - (1 - k / p) ** 0.6) - 20);
     }
-    await countUp($("pts"), p, climb, { sound: false });
+    await countUp($("pts"), p, hurried ? 0 : climb, { sound: false });
     setStriker();
     const plus = document.querySelector(".plus");
     if (!plus) return;
+    const run = goodRun(i);
     if (p === PER_QUESTION) {
-      sfx.bell(); buzz([30, 40, 30, 40, 80]); flash();
+      sfx.bell(); buzz([40, 30, 80]); flash();
       $("bell")?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-14deg)" }, { transform: "rotate(12deg)" }, { transform: "rotate(-8deg)" }, { transform: "rotate(0)" }], { duration: 700 });
       const rect = document.querySelector(".striker").getBoundingClientRect();
       bunting({ x: rect.left + rect.width / 2, y: rect.top + 20 });
-    } else if (p >= 17) { sfx.chime(); buzz([20, 30, 20]); sparkle(plus); }
-    else if (p >= 8) { sfx.plink(); buzz(15); }
+    } else if (p === PER_QUESTION - 1) {
+      // A whisker off: the bell trembles but doesn't ring.
+      sfx.land(); sfx.tink(); buzz([20, 30, 20]);
+      $("bell")?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-4deg)" }, { transform: "rotate(4deg)" }, { transform: "rotate(-3deg)" }, { transform: "rotate(0)" }], { duration: 300 });
+      $("off").textContent = "A whisker off the bell!";
+    } else if (p >= 13) { sfx.land(); sfx.chime(run); buzz([20, 30, 20]); if (p >= 17) sparkle(plus); }
+    else if (p >= 8) { sfx.land(); sfx.plink(); buzz(15); }
     else { sfx.wobble(); buzz(8); }
     pop(plus, 1.18);
-    await wait(350);
+    await wait(300);
 
-    // 5. What the herd said, and who got closer.
+    // 5. What the herd said, and who got closer: ding-ding if it was you.
     if (!show("duel", 1.06)) return;
-    if (p > them) sfx.chime();
-    await wait(450);
+    if (p > them) { sfx.ding(); buzz(15); }
+    await wait(300);
 
     // 6. The judges pin a rosette on it.
     const ros = $("rosette");
     if (!ros) return;
     ros.classList.remove("is-hidden");
-    sfx.stamp(); buzz(12);
+    sfx.pin(); buzz(10);
     ros.animate([{ transform: "scale(.3) rotate(-30deg)", opacity: 0 }, { transform: "scale(1.2) rotate(8deg)", opacity: 1 }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.3,1.5,.5,1)" });
-    await wait(450);
+    await wait(300);
 
     // 7. Then Next, with the fact and the herd underneath for anyone who scrolls.
     const later = document.querySelector(".later");
     if (!later) return;
     later.classList.add("shown");
     $("next")?.classList.remove("is-hidden");
-  })();
+  })().finally(() => hurry(false));
 }
 
 // ---------- question by question lines ----------
@@ -830,33 +1098,55 @@ function compare(q, r, g, herdGuess, yp, hp, winner) {
     </div>`;
 }
 
-/** The first look at a finished round: the scores count up, the ribbon drops, the rosettes and today's ticket go on. */
+/** The first look at a finished round: the scores count up, the ribbon drops, the rosettes go on, today's ticket is
+ *  stamped with who won and the streak ticket hops up a number. Then tonight's placing, and "same time tomorrow?". */
 function celebrateRound() {
-  const you = total(), herdScore = herdTotal(), beat = you > herdScore;
+  const you = total(), herdScore = herdTotal(), beat = you > herdScore, s = streak();
+  const pill = document.getElementById("streak-pill");
+  if (pill) { if (s > 1) pill.innerHTML = streakTicket(s - 1); else pill.hidden = true; }
   celebrating = true;
   (async () => {
     await wait(250);
     await countUp(document.getElementById("you-n"), you, 900);
     pop(document.getElementById("you-n"), 1.15);
     await wait(250);
-    await countUp(document.getElementById("herd-n"), herdScore, 700);
+    await countUp(document.getElementById("herd-n"), herdScore, 700, { sound: "low" });
     await wait(200);
     const ribbon = document.getElementById("ribbon");
     if (!ribbon) return;
     ribbon.classList.remove("is-hidden");
     ribbon.animate([{ transform: "scaleX(.2)", opacity: 0 }, { transform: "scaleX(1.05)", opacity: 1 }, { transform: "scaleX(1)" }], { duration: 450, easing: "cubic-bezier(.3,1.4,.5,1)" });
-    if (beat || you >= 80) { sfx.fanfare(); buzz([40, 60, 40, 60, 120]); bunting({ y: window.innerHeight * 0.45, count: 70, power: 1.2 }); }
-    else { sfx.chime(); }
+    // The brass band when you win; a good-humoured tuba when the herd does.
+    if (beat) { sfx.fanfare(); buzz([40, 30, 80]); bunting({ y: window.innerHeight * 0.45, count: 70, power: 1.2 }); }
+    else if (you === herdScore || you >= 80) sfx.chime();
+    else sfx.oompah();
     await wait(350);
     for (const t of document.querySelectorAll(".my-rosette")) {
       t.classList.remove("pending");
       t.animate([{ transform: "scale(.3) rotate(-25deg)", opacity: 0 }, { transform: "scale(1.12) rotate(4deg)", opacity: 1 }, { transform: "none" }], { duration: 380, easing: "cubic-bezier(.3,1.5,.5,1)" });
-      sfx.tick(); await wait(120);
+      sfx.pin(); await wait(120);
     }
+    const pb = document.getElementById("pb"), note = document.getElementById("note");
+    if (pb) { await wait(250); stampIn(pb); buzz(20); }
+    if (note) { await wait(200); note.hidden = false; pop(note, 1.04); sfx.chime(); }
     await wait(300);
     const t = document.querySelector(".ticket.is-today .stamp");
     if (t) { stampIn(t); buzz(20); }
-  })().finally(() => { celebrating = false; if (redrawPending) { redrawPending = false; if (screen === "home") redrawDay(); } });
+    await wait(350);
+    if (pill) {
+      pill.hidden = false; pill.innerHTML = streakTicket(s);
+      if (!reducedMotion()) pill.animate([{ transform: "none" }, { transform: "translateY(-6px) rotate(-6deg)" }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.3,1.6,.5,1)" });
+      sfx.tick(0.9);
+    }
+    await wait(400);
+    fillPlacing();
+    await wait(600);
+    showKeep();
+  })().finally(() => {
+    celebrating = false;
+    if (weekPending) { weekPending = false; refreshWeek(); }
+    if (redrawPending) { redrawPending = false; if (screen === "home") redrawDay(); }
+  });
 }
 
 // ---------- boot ----------
@@ -864,6 +1154,7 @@ async function boot() {
   try {
     const json = async (f) => (await fetch(f, { cache: "no-cache" })).json();
     const [bank, schedule] = await Promise.all([json("data/questions.json"), json("data/schedule.json")]);
+    TEASERS = await json("data/teasers.json").catch(() => ({})); // optional: tomorrow's programme
     QUESTIONS = Object.fromEntries(bank.questions.map((q) => [q.id, q]));
     SCHEDULE = schedule.days; DATES = Object.keys(SCHEDULE).sort(); EPOCH = DATES[0];
   } catch {

@@ -21,8 +21,8 @@ export function oxHead({ size = 64, mood = "happy", title = "OxGuess ox" } = {})
   <ellipse cx="47" cy="84" rx="4.5" ry="3.2" fill="var(--art-ink)"/>
   <ellipse cx="73" cy="84" rx="4.5" ry="3.2" fill="var(--art-ink)"/>
   ${mouth}
-  <circle cx="44" cy="54" r="5.5" fill="var(--art-ink)"/><circle cx="76" cy="54" r="5.5" fill="var(--art-ink)"/>
-  <circle cx="45.8" cy="52.2" r="1.8" fill="#fff"/><circle cx="77.8" cy="52.2" r="1.8" fill="#fff"/>
+  <g class="eyes"><circle cx="44" cy="54" r="5.5" fill="var(--art-ink)"/><circle cx="76" cy="54" r="5.5" fill="var(--art-ink)"/>
+  <circle cx="45.8" cy="52.2" r="1.8" fill="#fff"/><circle cx="77.8" cy="52.2" r="1.8" fill="#fff"/></g>
   <ellipse cx="36" cy="66" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
   <ellipse cx="84" cy="66" rx="5" ry="3" fill="var(--cheek)" opacity=".55"/>
 </svg>`;

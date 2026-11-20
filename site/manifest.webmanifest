@@ -1,0 +1,14 @@
+{
+  "name": "OxGuess",
+  "short_name": "OxGuess",
+  "description": "A daily guessing game. Five numbers, one slider, and a herd of fellow guessers.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#eef4e6",
+  "theme_color": "#eef4e6",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

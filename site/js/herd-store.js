@@ -47,10 +47,13 @@ export async function loadHerds(day, questions) {
   return out;
 }
 
-/** Every finished round's total on one day (for yesterday's chart). Never throws; offline comes back empty. */
+/** Every other player's finished-round total on one day (for placings and yesterday's board): this device's own round
+ *  is left out, so a placing is "1 + everyone above you, of everyone else + you" whether or not your write has landed.
+ *  Never throws; offline comes back empty. */
 export async function loadScores(day) {
   if (!db) return [];
-  try { return (await getDocs(query(collection(db, "plays"), where("day", "==", day)))).docs.map((d) => d.data().total).filter(Number.isFinite); }
+  const mine = `${day}_${playerId()}`;
+  try { return (await getDocs(query(collection(db, "plays"), where("day", "==", day)))).docs.filter((d) => d.id !== mine).map((d) => d.data().total).filter(Number.isFinite); }
   catch (e) { console.warn("Scores read failed", e.code ?? e); return []; }
 }
 
