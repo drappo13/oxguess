@@ -271,11 +271,9 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .yesterday { gap: 14px; }
 .y-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; }
 .y-head .dayline { justify-content: flex-start; font-size: 14px; }
-/* yesterday's scores, like the stats page's: one swarm of dots up the score, each in its rosette's colour */
+/* yesterday's scores, like the stats page's: one swarm of dots up the score, each in its rosette's colour, with the herd and you as bigger dots */
 .score-chart { width: 100%; height: auto; overflow: visible; }
 .score-chart .sc-axis { font: 700 11px var(--body); fill: var(--muted); }
-.score-chart .sc-herd { stroke: var(--ox-dark); stroke-width: 1.5; stroke-dasharray: 3 3; }
-.score-chart .sc-you { stroke: var(--ink); stroke-width: 1.5; }
 .standings { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: place; }
 .standings li { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: 18px; }
 .standings li.herd { background: color-mix(in srgb, var(--ox-dark) 10%, var(--card)); }
