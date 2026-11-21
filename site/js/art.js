@@ -108,27 +108,25 @@ export function prizeBoard(scores, herdScore, you = null) {
 }
 
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
-/** Yesterday's result on the morning chalkboard: the scores in big chalk and one headline. Beat the herd and a rosette
- *  is pinned to the corner, carrying your placing if it's a good one (purple if you came first); otherwise a good
- *  placing (top half) is circled in chalk.
- *  Numbers carry data-count (and data-from, data-ord) so fx.chalkUp can count them up. */
+/** Yesterday's result on the morning chalkboard: the scores in big chalk, a headline (you against the herd), your placing
+ *  on its own line when it's a good one (top half), and a rosette pinned to the corner for a top-20 finish, carrying
+ *  your place (purple for first). "Full results" (data-more) leads to yesterday's card. Numbers carry data-count (and
+ *  data-from, data-ord) so fx.chalkUp can count them up. */
 export function chalkboard({ you = null, herd, n = 0, place = null }) {
-  const d = you == null ? null : you - herd, won = d > 0, top = you != null && n > 1 && place <= Math.ceil(n / 2);
-  const head = you == null ? "You missed it" : won ? "You beat the herd!" : d === 0 ? "Dead level!" : d >= -5 ? "The herd just pipped you" : "The herd won this one";
-  const by = `by ${d} ${d === 1 ? "point" : "points"}`;
-  const sub = you == null ? "Your turn today." : won ? (top ? `${ordinal(place)} of ${n}, ${by}.` : `${by[0].toUpperCase()}${by.slice(1)}.`) : d === 0 ? "Great minds." : "Revenge today?";
-  const num = (v, from = 0) => `<b data-count="${v}" data-from="${from}">${v}</b>`;
-  return `<div class="slate-board ${won ? "won" : ""}">
+  const d = you == null ? null : you - herd, top = you != null && n > 1 && place <= Math.ceil(n / 2), pts = (k) => `${k} ${k === 1 ? "point" : "points"}`;
+  const head = you == null ? "You missed it" : d > 0 ? `You beat the herd by ${pts(d)}!` : d === 0 ? "Dead level with the herd!" : d >= -5 ? `The herd pipped you by ${pts(-d)}` : "The herd won this one";
+  const sub = top ? `You came <b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b> of ${n}.`
+    : you == null ? "Your turn today." : d > 0 ? "Nicely done." : d === 0 ? "Great minds." : "Revenge today?";
+  const num = (v) => `<b data-count="${v}" data-from="0">${v}</b>`;
+  return `<div class="slate-board ${d > 0 ? "won" : ""}">
       <span class="slate-title">Yesterday's results</span>
-      <div class="slate-main">
-        <div class="slate-scores">
-          ${you == null ? "" : `<span class="slate-score mine">${fairgoer({ size: 30 })}${num(you)}</span><span class="slate-vs">v</span>`}
-          <span class="slate-score theirs">${oxHead({ size: 30 })}${num(herd)}</span>
-        </div>
-        ${top && !won ? `<span class="slate-place"><b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b><small>of ${n}</small></span>` : ""}
+      <div class="slate-scores">
+        ${you == null ? "" : `<span class="slate-score mine">${fairgoer({ size: 30 })}${num(you)}</span><span class="slate-vs">v</span>`}
+        <span class="slate-score theirs">${oxHead({ size: 30 })}${num(herd)}</span>
       </div>
-      <p class="slate-head"><b>${head}</b> <span>${sub}</span></p>
-      ${won ? `<span class="slate-rosette">${rosette(place === 1 ? "best" : "first", top ? ordinal(place) : "", 50)}</span>` : ""}
+      <p class="slate-head"><b>${head}</b><span>${sub}</span></p>
+      <button class="slate-more" data-more>Full results <span aria-hidden="true">&rarr;</span></button>
+      ${top && place <= 20 ? `<span class="slate-rosette">${rosette(place === 1 ? "best" : "first", ordinal(place), 50)}</span>` : ""}
     </div>`;
 }
 

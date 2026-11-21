@@ -664,9 +664,10 @@ async function fillYesterday() {
 function fillSlate({ you, herdScore, n, place }) {
   const el = document.getElementById("slate");
   if (!el || state.answers.length) return;
-  el.innerHTML = `${chalkboard({ you, herd: herdScore, n, place })}<button class="slate-link" id="slate-open">See the board</button>`;
+  el.innerHTML = chalkboard({ you, herd: herdScore, n, place });
   el.hidden = false;
-  document.getElementById("slate-open").onclick = () => {
+  // "Full results": down to yesterday's card, opened.
+  el.querySelector("[data-more]").onclick = () => {
     const y = document.querySelector("#yesterday details");
     if (y) { y.open = true; y.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" }); }
   };
