@@ -179,8 +179,8 @@ function header() {
   return `<header class="top">
     <button class="brand" id="brand" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
     <div class="top-right">
-      ${bis ? `<span class="pill bis-pill" id="bis-pill" role="img" aria-label="${bis} Best in show${bis === 1 ? "" : "s"}, all time" title="${bis} Best in show${bis === 1 ? "" : "s"}, all time">${rosette("best", "", 20)}<b>${bis}</b></span>` : ""}
-      ${s ? `<span class="pill streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">🔥 ${s}</span>` : ""}
+      ${bis ? `<button class="pill bis-pill" id="bis-pill" data-tip="bis" aria-label="${pillTip("bis")}">${rosette("best", "", 20)}<b>${bis}</b></button>` : ""}
+      ${s ? `<button class="pill streak-pill" data-tip="streak" aria-label="${pillTip("streak")}">🔥 ${s}</button>` : ""}
       <div class="menu-wrap">
         <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <div class="menu" id="menu" hidden>
@@ -215,6 +215,17 @@ function menu(open) {
   m.hidden = !open; b.setAttribute("aria-expanded", String(open));
 }
 document.addEventListener("click", (e) => { if (!e.target.closest?.(".menu-wrap")) menu(false); });
+// Tap a header pill for a little bubble saying what it counts; it goes by itself, or on the next tap anywhere.
+const pillTip = (k) => { const n = k === "bis" ? bestInShows() : streak(); return k === "bis" ? `${n} Best in show rosette${n === 1 ? "" : "s"}, all time` : `${n}-day streak`; };
+let tipTimer;
+document.addEventListener("click", (e) => {
+  const pill = e.target.closest?.("[data-tip]");
+  document.querySelectorAll(".pill-tip").forEach((t) => t.remove());
+  clearTimeout(tipTimer);
+  if (!pill) return;
+  pill.insertAdjacentHTML("beforeend", `<span class="pill-tip" role="status">${pillTip(pill.dataset.tip)}</span>`);
+  tipTimer = setTimeout(() => pill.querySelector(".pill-tip")?.remove(), 2400);
+});
 // iOS Safari only shows :active (the button sinking, the slider knob squishing) once the page listens for touches.
 document.addEventListener("touchstart", () => {}, { passive: true });
 // The main buttons give a soft wooden tap as they go down.
@@ -887,11 +898,11 @@ function reveal(i, { animate = false } = {}) {
         <div class="you-pin" style="left:${gpos * 100}%"><i></i><span>${fairgoer({ size: 22 })}</span></div>
         <div class="flag ${hide}" id="flag" style="left:${apos * 100}%"><span id="flag-num">${withUnit(q, q.answer)}</span><i></i></div>
       </div>
-      <p class="off-line ${hide}" id="off">${offBy(q, a.g)}</p>
+      <p class="off-line ${hide}" id="off">${offBy(q, a.g)}${p === PER_QUESTION - 1 ? `<small class="whisker ${hide ? "" : "shown"}" id="whisker">A whisker off the bell!</small>` : ""}</p>
       <div class="judging">
         ${striker()}
         <div class="verdict">
-          <div class="plus-row"><div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION} points</small></div><span class="mini-rosette ${hide}" id="rosette" title="${t.name}">${rosette(t.key, p, 34)}</span></div>
+          <div class="plus-row"><div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION}<span class="pts-word"> points</span></small></div><span class="mini-rosette ${hide}" id="rosette" title="${t.name}">${rosette(t.key, p, 34)}</span></div>
           <p class="duel ${hide}" id="duel">${oxHead({ size: 26 })}<span>The herd said <b>${withUnit(q, h.median)}</b> (${them} pts). ${duel}</span></p>
         </div>
       </div>
@@ -987,7 +998,7 @@ function reveal(i, { animate = false } = {}) {
       // A whisker off: the bell trembles but doesn't ring.
       sfx.land(); sfx.tink(); buzz([20, 30, 20]);
       $("bell")?.animate([{ transform: "rotate(0)" }, { transform: "rotate(-4deg)" }, { transform: "rotate(4deg)" }, { transform: "rotate(-3deg)" }, { transform: "rotate(0)" }], { duration: 300 });
-      $("off").textContent = `${offBy(q, a.g)} · A whisker off the bell!`;
+      $("whisker").classList.add("shown"); pop($("whisker"), 1.12);
     } else if (p >= 13) { sfx.land(); sfx.chime(run); buzz([20, 30, 20]); if (p >= 17) sparkle(plus); }
     else if (p >= 8) { sfx.land(); sfx.plink(); buzz(15); }
     else { sfx.wobble(); buzz(8); }

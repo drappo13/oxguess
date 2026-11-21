@@ -23,6 +23,9 @@ Nothing is pushed, and the live game and your question editor are untouched.
    - A rosette swings onto the corner for a top-20 finish, carrying your place (purple for 1st).
 2. **Best in show counter.**
    - A pill in the header (purple rosette and your all-time number of 20s), next to the 🔥 streak.
+   - Tap either pill for a little bubble: "2 Best in show rosettes, all time" / "1-day streak". The streak pill
+     glows a soft yellow now and then (it used to pulse a ring outwards).
+   - On narrow phones the header tightens up so both pills and the menu fit, even at three digits.
    - At the end of a round, each 20 rosette wiggles and flies up into the counter, which ticks up and pops.
 3. **One badge a round.** A gold "Personal best" badge on its own row under the scores (from your second round on),
    else "Your first Best in show", else "Beat the herd first go". Never more than one.
@@ -40,7 +43,9 @@ Nothing is pushed, and the live game and your question editor are untouched.
 11. **Strength tester:**
     - A tick per point as the puck climbs, landing with a thunk.
     - Ding-ding at 20.
-    - At 19 the bell trembles: "A whisker off the bell!"
+    - At 19 the bell trembles: "A whisker off the bell!" on its own line under how far off you were.
+    - On a narrow phone the score stays on one line ("+13 / 20"), dropping the word "points", with the rosette beside
+      it (this was already broken on the live site at about 360px wide).
 12. **Sounds for good guesses:**
     - Ding-ding when you beat the herd on a question.
     - The chime climbs for a run of good guesses.
