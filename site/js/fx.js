@@ -10,7 +10,8 @@ export function setMuted(m) { muted = m; try { localStorage.setItem("ox-muted", 
 // ---------- sound ----------
 let ctx = null;
 function ac() {
-  if (muted) return null;
+  // Nothing before the first tap: browsers keep audio locked until then, and a queue of sounds would burst out at once.
+  if (muted || navigator.userActivation?.hasBeenActive === false) return null;
   try {
     ctx ??= new (window.AudioContext || window.webkitAudioContext)();
     if (ctx.state === "suspended") ctx.resume();
@@ -49,12 +50,8 @@ const semis = (f, n) => f * 2 ** (n / 12);
 export const sfx = {
   /** A soft wooden click while dragging the slider; at = how far along (0 to 1), the pitch rising with it. */
   tick(at = 0.5) { if (every("tick", 45)) tone(700 * 2 ** at, { dur: 0.03, type: "triangle", vol: 0.035 }); },
-  /** A brighter blip as the slider passes a round number. */
-  notch() { tone(1800, { dur: 0.02, vol: 0.04 }); },
   /** A primary button going down: a soft wooden tap. */
   press() { noise({ dur: 0.02, vol: 0.07, freq: 1800 }); tone(220, { dur: 0.04, vol: 0.05, to: 180 }); },
-  /** The ticket punch as a guess is locked in. */
-  punch() { noise({ dur: 0.025, vol: 0.15, freq: 3000 }); },
   /** Locking in a guess: a ticket being torn and dropped in the box. */
   thunk() { noise({ dur: 0.07, vol: 0.25, freq: 600 }); tone(140, { dur: 0.12, type: "sine", vol: 0.14, to: 90 }); },
   /** The answer flag travelling along the scale. */
@@ -92,16 +89,19 @@ export const sfx = {
     tone(1047, { at: 0.27, dur: 0.7, vol: 0.05 });
   },
   /** The herd won the day: a good-humoured tuba, pah-PAH. */
-  oompah() { tone(98, { dur: 0.16, type: "sawtooth", vol: 0.12, lp: 400 }); tone(65, { at: 0.2, dur: 0.38, type: "sawtooth", vol: 0.12, lp: 400 }); },
+  oompah() { tone(196, { dur: 0.16, type: "sawtooth", vol: 0.1, lp: 900 }); tone(131, { at: 0.2, dur: 0.38, type: "sawtooth", vol: 0.1, lp: 900 }); },
   /** Moo. Two slightly detuned reeds gliding up and down, through a closing mouth. */
   moo() {
     const c = ac(); if (!c) return;
     const t = c.currentTime, f = c.createBiquadFilter(), g = c.createGain();
-    f.type = "lowpass"; f.frequency.setValueAtTime(600, t); f.frequency.linearRampToValueAtTime(1100, t + 0.3); f.frequency.linearRampToValueAtTime(500, t + 0.8);
+    f.type = "lowpass"; f.Q.value = 3; f.frequency.setValueAtTime(600, t); f.frequency.linearRampToValueAtTime(1100, t + 0.3); f.frequency.linearRampToValueAtTime(500, t + 0.8);
     g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12, t + 0.08); g.gain.setValueAtTime(0.12, t + 0.55); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.85);
     f.connect(g).connect(c.destination);
+    // A slow vibrato, so it lows rather than buzzes.
+    const lfo = c.createOscillator(), depth = c.createGain();
+    lfo.frequency.value = 5.5; depth.gain.value = 3; lfo.connect(depth); lfo.start(t); lfo.stop(t + 0.9);
     for (const base of [105, 107]) {
-      const o = c.createOscillator(); o.type = "sawtooth";
+      const o = c.createOscillator(); o.type = "sawtooth"; depth.connect(o.frequency);
       o.frequency.setValueAtTime(base * 0.9, t); o.frequency.linearRampToValueAtTime(base * 1.19, t + 0.3); o.frequency.linearRampToValueAtTime(base * 0.95, t + 0.8);
       o.connect(f); o.start(t); o.stop(t + 0.9);
     }

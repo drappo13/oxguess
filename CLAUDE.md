@@ -36,7 +36,9 @@ site/                 the whole website (deployed as-is)
   staging/            oxguess.com/staging: unlinked, noindex prototypes to try on a phone (now: the tape measure, parked)
   data/questions.json the question bank: every question with its source and evidence (spares and retired too)
   data/schedule.json  date -> five question ids; the first date is round 1
-  img/                ox.svg (favicon), fair-1906.webp (story illustration)
+  data/teasers.json   question id -> a vague hint for "On tomorrow's programme" (never the answer); optional
+  manifest.webmanifest  Add to Home Screen (icons in img/icon-192.png, icon-512.png)
+  img/                ox.svg (favicon), fair-1906.webp (story illustration), app icons
 tools/editor/          the question editor (local only): `node tools/editor/server.mjs` or double-click
                         "OxGuess editor.command", then http://localhost:4400. "Save and publish" merges your changes
                         onto the data files (merge.mjs: edits made meanwhile, say from the chat, are kept, never a
@@ -84,7 +86,8 @@ prototype/            the first single-file mock
   - `guesses/{auto}`: one row per guess (readable, for /stats), with the A/B arm and the ends of the slider it was
     made on (`arm`, `lo`, `hi`).
   - `plays/{date}_{player}`: finished round (readable, for /stats).
-  - `players/{id}`: summary rebuilt by the device after each round (write-only).
+  - `players/{id}`: summary rebuilt by the device after each round (write-only), with `kept` when they took a way
+    back (`cal` reminder, `home` screen, or `no`).
 - **Players** are anonymous per device (`ox-player` in localStorage). No accounts or cross-device streaks yet.
 
 ## How a day works
