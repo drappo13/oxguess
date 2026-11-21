@@ -5,7 +5,7 @@ import {
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
 import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId, testing } from "./herd-store.js";
-import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
+import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket, flyTo } from "./fx.js";
 
 const app = document.getElementById("app");
 // The question bank (by id) and the schedule (date -> five ids). The first scheduled date is round 1.
@@ -44,6 +44,19 @@ function bestStreak() {
   let best = 0, run = 0, prev = null;
   for (const d of days) { run = prev && shift(prev, 1) === d ? run + 1 : 1; best = Math.max(best, run); prev = d; }
   return best;
+}
+/** Every Best in show (a question scored 20) on this device, ever. */
+function bestInShows() {
+  let n = 0;
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const m = localStorage.key(i).match(/^ox-day-(\d{4}-\d{2}-\d{2})$/), st = m && store.get(localStorage.key(i));
+      if (!st?.answers) continue;
+      const qs = roundFor(m[1]).questions;
+      n += st.answers.filter((a, j) => qs[j] && points(qs[j], a.g) === PER_QUESTION).length;
+    }
+  } catch { /* fine */ }
+  return n;
 }
 /** Every finished day on this device, with its total, for the player record. */
 function history() {
@@ -159,10 +172,11 @@ const herdTotal = () => today.questions.reduce((a, q) => a + points(q, herd(q).m
 // ---------- shell ----------
 // The menu (top right) holds the story, the prizes and the sound switch.
 function header() {
-  const s = streak();
+  const s = streak(), bis = bestInShows();
   return `<header class="top">
     <button class="brand" id="brand" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
     <div class="top-right">
+      ${bis ? `<span class="bis-pill" id="bis-pill" title="${bis} Best in show${bis === 1 ? "" : "s"}, all time">${rosette("best", "", 24)}<b>${bis}</b></span>` : ""}
       ${s ? `<span class="streak-pill" id="streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">${streakTicket(s)}</span>` : ""}
       <div class="menu-wrap">
         <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -406,7 +420,7 @@ function verdict(celebrate) {
         <div class="side">${oxHead({ size: 46, mood: beat ? "wow" : "happy" })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
       </div>
       <p class="results-sub">${sub}</p>
-      ${moment.note ? `<p class="judges-note" id="note" ${celebrate ? "hidden" : ""}>${moment.note}</p>` : ""}
+      ${moment.note ? `<div class="moment-wrap"><span class="moment ${moment.note.kind}" id="note" ${celebrate ? "hidden" : ""}>${moment.note.icon}<span><b>${moment.note.title}</b><small>${moment.note.sub}</small></span></span></div>` : ""}
       <p class="placing" id="placing" hidden></p>
       <div class="my-rosettes" aria-label="Your prizes">${state.answers.map((a, i) => {
         const yp = ptsAt(i);
@@ -426,8 +440,8 @@ function roundMoment(you, beat) {
     const st = store.get(dayStateKey(day)), qs = roundFor(day).questions;
     return st.answers.some((a, j) => qs[j] && points(qs[j], a.g) === PER_QUESTION);
   });
-  if (firstBest) return { note: "Your first Best in show. The judges are impressed." };
-  if (!before.length && beat) return { note: "Beat the herd on your first go. Beginner's luck?" };
+  if (firstBest) return { note: { kind: "best", icon: rosette("best", "", 34), title: "Your first Best in show", sub: "The judges are impressed." } };
+  if (!before.length && beat) return { note: { kind: "first", icon: oxHead({ size: 34, mood: "wow" }), title: "Beat the herd first go", sub: "Beginner's luck?" } };
   return {};
 }
 /** A day's finished-round totals, kept on this device: a past day's for good (they're final), today's for five minutes.
@@ -1118,6 +1132,9 @@ function celebrateRound() {
   const you = total(), herdScore = herdTotal(), beat = you > herdScore, s = streak();
   const pill = document.getElementById("streak-pill");
   if (pill) { if (s > 1) pill.innerHTML = streakTicket(s - 1); else pill.hidden = true; }
+  // Today's Best in shows join the all-time count at the end, one at a time.
+  const bisPill = document.getElementById("bis-pill"), bisNow = bestInShows(), bisToday = state.answers.filter((_, i) => ptsAt(i) === PER_QUESTION).length;
+  if (bisPill && bisToday) bisPill.querySelector("b").textContent = bisNow - bisToday; // a first one lands on a 0
   celebrating = true;
   (async () => {
     await wait(250);
@@ -1135,10 +1152,28 @@ function celebrateRound() {
     else if (you === herdScore || you >= 80) sfx.chime();
     else sfx.oompah();
     await wait(350);
-    for (const t of document.querySelectorAll(".my-rosette")) {
+    const rosEls = [...document.querySelectorAll(".my-rosette")];
+    for (const t of rosEls) {
       t.classList.remove("pending");
       t.animate([{ transform: "scale(.3) rotate(-25deg)", opacity: 0 }, { transform: "scale(1.12) rotate(4deg)", opacity: 1 }, { transform: "none" }], { duration: 380, easing: "cubic-bezier(.3,1.5,.5,1)" });
       sfx.pin(); await wait(120);
+    }
+    // Each Best in show wiggles, then flies up to the all-time counter in the header, which ticks up as it lands.
+    if (bisPill && bisToday) {
+      await wait(250);
+      let n = bisNow - bisToday;
+      const landings = [];
+      for (const [i, el] of rosEls.entries()) {
+        if (ptsAt(i) !== PER_QUESTION) continue;
+        el.animate([{ transform: "none" }, { transform: "scale(1.18) rotate(-12deg)" }, { transform: "scale(1.18) rotate(10deg)" }, { transform: "scale(1.1) rotate(-6deg)" }, { transform: "none" }], { duration: 380, easing: "ease-in-out" });
+        await wait(300);
+        landings.push(flyTo(el.querySelector(".rosette"), bisPill, rosette("best", "", 40)).then(() => {
+          n++; bisPill.querySelector("b").textContent = n; pop(bisPill, 1.35); sfx.chime(n - (bisNow - bisToday) - 1); buzz(15);
+          bisPill.animate([{ filter: "drop-shadow(0 0 0 transparent)" }, { filter: "drop-shadow(0 0 7px var(--r-best))" }, { filter: "drop-shadow(0 0 0 transparent)" }], { duration: 600, easing: "ease-out" });
+        }));
+        await wait(260);
+      }
+      await Promise.all(landings);
     }
     const pb = document.getElementById("pb"), note = document.getElementById("note");
     if (pb) { await wait(250); stampIn(pb); buzz(20); }
@@ -1178,7 +1213,8 @@ async function boot() {
   const savedUnits = store.get("ox-units");
   setSystem(savedUnits ?? (/^en-(US|LR|MM)$/i.test(navigator.language) ? "imperial" : "metric"));
   load();
-  if (!store.get("ox-seen-story") && !state.answers.length) story(0);
+  // ?story opens the story straight away (the review page links to it).
+  if ((!store.get("ox-seen-story") && !state.answers.length) || new URLSearchParams(location.search).has("story")) story(0);
   // A finished day shows the herd, so it waits for today's herd like the reveal does (never more than 1.5s; if it is
   // later than that, the day screen is drawn again when it lands).
   else if (state.done) settle().then(() => home());

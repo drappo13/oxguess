@@ -197,6 +197,26 @@ export function sparkle(el) {
   bunting({ x: r.left + r.width / 2, y: r.top + r.height / 2, count: 14, power: 0.45 });
 }
 
+// ---------- a prize flying to its counter ----------
+/** A copy of a prize (html) arcs from where it was won up to its counter, shrinking as it lands. */
+export function flyTo(fromEl, toEl, html, ms = 650) {
+  return new Promise((done) => {
+    if (reduced() || !fromEl || !toEl) return done();
+    const a = fromEl.getBoundingClientRect(), b = toEl.getBoundingClientRect();
+    const f = document.createElement("div");
+    f.className = "fx-fly"; f.innerHTML = html;
+    document.body.appendChild(f);
+    const w = f.offsetWidth, h = f.offsetHeight;
+    f.style.left = `${a.left + a.width / 2 - w / 2}px`; f.style.top = `${a.top + a.height / 2 - h / 2}px`;
+    const dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
+    f.animate([
+      { transform: "translate(0, 0) scale(1) rotate(0)", opacity: 1 },
+      { transform: `translate(${dx * 0.35}px, ${dy * 0.35 - 50}px) scale(1.2) rotate(-18deg)`, opacity: 1, offset: 0.45 },
+      { transform: `translate(${dx}px, ${dy}px) scale(.4) rotate(12deg)`, opacity: 0.9 },
+    ], { duration: ms, easing: "cubic-bezier(.45,.05,.4,1)", fill: "forwards" }).onfinish = () => { f.remove(); done(); };
+  });
+}
+
 // ---------- your ticket into the judges' box ----------
 // In 1906 every guess was a numbered sixpenny ticket. Each locked-in guess becomes one and drops in the box.
 const BOX_SVG = `<svg viewBox="0 0 120 92" aria-hidden="true">
