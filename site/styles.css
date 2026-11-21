@@ -267,21 +267,15 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 /* a top-20 finish: a rosette pinned over the corner of the board, with your place on it */
 .slate-rosette { position: absolute; top: -18px; right: -10px; transform: rotate(8deg); transform-origin: 50% 10%; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .35)); }
 
-/* yesterday: everyone's rounds on a tower of scores, then the standings, then the questions */
+/* yesterday: everyone's scores on a chart, then the standings, then the questions */
 .yesterday { gap: 14px; }
 .y-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; }
 .y-head .dayline { justify-content: flex-start; font-size: 14px; }
-/* the tower: a row every 5 points, 100 at the top, a dot per round in its rosette's colour */
-.tower { display: flex; flex-direction: column; }
-.tw-row { display: grid; grid-template-columns: 26px 5px 1fr; align-items: center; column-gap: 8px; min-height: 13px; }
-.tw-axis { font: 700 11px var(--body); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
-.tw-strip { align-self: stretch; background: var(--tier); }
-.tw-row:first-child .tw-strip { border-radius: 3px 3px 0 0; }
-.tw-row:last-child .tw-strip { border-radius: 0 0 3px 3px; }
-.tw-dots { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; padding: 1px 0; }
-.tw-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--tier); box-shadow: inset 0 0 0 1.5px var(--tier-dark); }
-.tw-face { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; margin: 0 2px; background: var(--card); box-shadow: 0 0 0 2px var(--ox-dark); }
-.tw-face.you { box-shadow: 0 0 0 2px var(--ink); }
+/* yesterday's scores standing up: the score up the left, a dot per round in its rosette's colour */
+.score-chart { width: 100%; height: auto; overflow: visible; }
+.score-chart .sc-axis { font: 700 10px var(--body); fill: var(--muted); }
+.score-chart .sc-herd { stroke: var(--ox-dark); stroke-width: 2; stroke-dasharray: 3 3; }
+.score-chart .sc-you { stroke: var(--ink); stroke-width: 2.5; }
 .standings { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: place; }
 .standings li { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: 18px; }
 .standings li.herd { background: color-mix(in srgb, var(--ox-dark) 10%, var(--card)); }
@@ -455,7 +449,10 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .versus .vs { margin-top: 22px; font-family: var(--display); color: var(--muted); }
 .results-sub { text-align: center; font-family: var(--display); font-weight: 500; font-size: 18px; text-wrap: pretty; }
 /* a personal best: a gold badge with a little rosette, under your score */
-.pb-badge { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 3px 10px 3px 4px; border-radius: 99px; white-space: nowrap;
+/* on its own row under the scores (so they stay level), beneath your side */
+.pb-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; margin-top: -10px; }
+.pb-row .pb-badge { grid-column: 1; justify-self: center; }
+.pb-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px 3px 4px; border-radius: 99px; white-space: nowrap;
   font: 800 12px var(--body); color: #4a3a12; background: color-mix(in srgb, var(--r-first) 28%, var(--card)); border: 2px solid var(--r-first-dark); }
 .pb-badge .rosette { margin: -4px 0 -8px; }
 /* a one-off moment (first Best in show, beating the herd first go) as a badge with its prize on it */

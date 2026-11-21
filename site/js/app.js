@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairgoer, balance, herdChart, scoreTower, chalkboard } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart, scoreChart, chalkboard } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
@@ -335,10 +335,11 @@ function verdict(celebrate) {
       <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
       <div class="versus">
         <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span>
-          ${moment.pb ? `<span class="pb-badge" id="pb" ${celebrate ? "hidden" : ""}>${rosette("first", "", 22)}Personal best</span>` : ""}</div>
+</div>
         <span class="vs">vs</span>
         <div class="side">${oxHead({ size: 46, mood: beat ? "wow" : "happy" })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
       </div>
+      ${moment.pb ? `<div class="pb-row"><span class="pb-badge" id="pb" ${celebrate ? "hidden" : ""}>${rosette("first", "", 22)}Personal best</span></div>` : ""}
       <p class="results-sub">${sub}</p>
       ${moment.note ? `<div class="moment-wrap"><span class="moment ${moment.note.kind}" id="note" ${celebrate ? "hidden" : ""}>${moment.note.icon}<span><b>${moment.note.title}</b><small>${moment.note.sub}</small></span></span></div>` : ""}
       <div class="my-rosettes" aria-label="Your prizes">${state.answers.map((a, i) => {
@@ -401,8 +402,10 @@ function wireShare() {
 const standalone = () => window.matchMedia?.("(display-mode: standalone)").matches || navigator.standalone === true;
 let installPrompt = null;
 window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+// On hold (21 Nov): switched off until we come back to it.
+const SHOW_HOME_SCREEN = false;
 function keepTicket() {
-  if (store.get("ox-keep") || history().length > 2 || standalone()) return "";
+  if (!SHOW_HOME_SCREEN || store.get("ox-keep") || history().length > 2 || standalone()) return "";
   return `<div class="keep" id="keep" hidden>
       <div class="keep-ticket">
         <span class="keep-admit">Admit one · every day</span>
@@ -576,7 +579,7 @@ async function fillYesterday() {
   const place = (v) => 1 + all.filter((t) => t > v).length, joint = (v) => all.filter((t) => t === v).length > 1 ? "joint " : "";
   el.innerHTML = `
     <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
-    ${n ? scoreTower(others, herdScore, you) : ""}
+    ${n ? scoreChart(others, herdScore, you) : ""}
     <ol class="standings">${[
       { who: "herd", name: "The herd", icon: oxHead({ size: 38 }), score: herdScore },
       { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
@@ -1055,7 +1058,6 @@ function celebrateRound() {
         await wait(300);
         landings.push(flyTo(el.querySelector(".rosette"), bisPill, rosette("best", "", 40)).then(() => {
           n++; bisPill.querySelector("b").textContent = n; pop(bisPill, 1.35); sfx.chime(n - (bisNow - bisToday) - 1); buzz(15);
-          bisPill.animate([{ filter: "drop-shadow(0 0 0 transparent)" }, { filter: "drop-shadow(0 0 7px var(--r-best))" }, { filter: "drop-shadow(0 0 0 transparent)" }], { duration: 600, easing: "ease-out" });
         }));
         await wait(260);
       }

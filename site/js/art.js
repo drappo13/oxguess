@@ -83,32 +83,37 @@ export function balance() {
 /** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
-/** One day's scores as a tower: a row for every 5 points, 100 at the top, and every finished round a dot in its row,
- *  coloured by the rosette its score would win (a round's tier is the question tier at five times the points), with a
- *  strip of those colours down the side. The herd's ox and your fairgoer sit in their rows. */
-export function scoreTower(scores, herdScore, you = null) {
-  const band = (v) => Math.min(20, Math.floor(v / 5)), tierOf = (b) => TIERS.find((t) => b * 5 >= t.min * 5);
-  const people = [...scores.map((v) => ({ v, k: "player" })), { v: herdScore, k: "herd" }, ...(you == null ? [] : [{ v: you, k: "you" }])]
-    .sort((a, b) => b.v - a.v || (a.k === "player") - (b.k === "player"));
-  const mark = (p) => p.k === "herd" ? `<span class="tw-face herd" title="The herd: ${p.v}">${oxHead({ size: 22, title: `The herd, ${p.v}` })}</span>`
-    : p.k === "you" ? `<span class="tw-face you" title="You: ${p.v}">${fairgoer({ size: 22, title: `You, ${p.v}` })}</span>`
-    : `<i class="tw-dot" title="${p.v}"></i>`;
-  return `<div class="tower" role="img" aria-label="Every finished round yesterday, by score">${Array.from({ length: 21 }, (_, k) => 20 - k).map((b) => {
-    const t = tierOf(b);
-    return `<div class="tw-row" style="--tier: var(--r-${t.key}); --tier-dark: var(--r-${t.key}-dark)" title="${t.name}">
-      <span class="tw-axis">${b % 2 === 0 ? b * 5 : ""}</span><i class="tw-strip"></i>
-      <span class="tw-dots">${people.filter((p) => band(p.v) === b).map(mark).join("")}</span></div>`;
-  }).join("")}</div>`;
+/** One day's scores, standing up: the score runs up the left from 0 to 100, every finished round is a dot at its
+ *  score (to the nearest 2, stacked along where they bunch), coloured by the rosette that score would win (a round's
+ *  tier is the question tier at five times the points). The herd's score is a dashed line across with the ox at the end,
+ *  yours a solid one with the fairgoer. */
+export function scoreChart(scores, herdScore, you = null) {
+  const W = 320, ax = 30, y = (v) => 10 + (100 - v) * 3, stacks = {}, tierOf = (v) => TIERS.find((t) => v >= t.min * 5);
+  for (const v of scores) { const k = Math.round(v / 2) * 2; stacks[k] = (stacks[k] ?? 0) + 1; }
+  const step = Math.min(7, (W - ax - 70) / Math.max(1, ...Object.values(stacks))), seen = {};
+  const dots = [...scores].sort((a, b) => b - a).map((v) => {
+    const k = Math.round(v / 2) * 2, n = (seen[k] = (seen[k] ?? 0) + 1) - 1, t = tierOf(v);
+    return `<circle cx="${(ax + 8 + n * step).toFixed(1)}" cy="${y(k)}" r="3.2" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".9"><title>${v}</title></circle>`;
+  }).join("");
+  // When you and the herd scored close together, your face sits a step in so the two don't overlap.
+  const line = (v, cls, svg, x) => `<line x1="${ax}" x2="${x - 13}" y1="${y(v)}" y2="${y(v)}" class="${cls}"/>${placed(svg, x, y(v), 22)}`;
+  return `<svg class="score-chart" viewBox="0 0 ${W} 322" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">
+    <line x1="${ax}" x2="${ax}" y1="${y(100)}" y2="${y(0)}" stroke="var(--line)" stroke-width="1.5"/>
+    ${Array.from({ length: 11 }, (_, k) => k * 10).map((v) => `<line x1="${ax - 4}" x2="${ax}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1.5"/><text x="${ax - 8}" y="${y(v) + 3.5}" text-anchor="end" class="sc-axis">${v}</text>`).join("")}
+    ${dots}
+    ${line(herdScore, "sc-herd", oxHead({ size: 120 }), W - 14)}
+    ${you == null ? "" : line(you, "sc-you", fairgoer({ size: 120 }), Math.abs(you - herdScore) < 8 ? W - 42 : W - 14)}
+  </svg>`;
 }
 
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 /** Yesterday's result on the morning chalkboard: the scores in big chalk, a headline (you against the herd), then your
- *  placing when it's a good one (top half; "joint" when others scored the same) beside the way to the full results, and a rosette pinned to the corner for a top-20 finish, carrying
- *  your place (purple for first). "Full results" (data-more) leads to yesterday's card. Numbers carry data-count (and
+ *  placing when it's a good one (top half; "joint" when others scored the same) beside "More" (the full results), and a rosette pinned to the corner for a top-20 finish, carrying
+ *  your place (purple for first). "More" (data-more) leads to yesterday's card. Numbers carry data-count (and
  *  data-from, data-ord) so fx.chalkUp can count them up. */
 export function chalkboard({ you = null, herd, n = 0, place = null, tied = false }) {
   const d = you == null ? null : you - herd, top = you != null && n > 1 && place <= Math.ceil(n / 2), pts = (k) => `${k} ${k === 1 ? "point" : "points"}`;
-  const head = you == null ? "You missed it" : d > 0 ? `You beat the herd by ${pts(d)}!` : d === 0 ? "Dead level with the herd!" : d >= -5 ? `The herd pipped you by ${pts(-d)}` : "The herd won this one";
+  const head = you == null ? "You missed out on the fun!" : d > 0 ? `You beat the herd by ${pts(d)}!` : d === 0 ? "Dead level with the herd!" : d >= -5 ? `The herd pipped you by ${pts(-d)}` : "The herd won this one";
   const sub = top ? `${tied ? "Joint" : "You came"} <b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b> of ${n}`
     : you == null ? "Your turn today." : d > 0 ? "Nicely done." : d === 0 ? "Great minds." : "Revenge today?";
   const num = (v) => `<b data-count="${v}" data-from="0">${v}</b>`;
@@ -119,7 +124,7 @@ export function chalkboard({ you = null, herd, n = 0, place = null, tied = false
         <span class="slate-score theirs">${oxHead({ size: 30 })}${num(herd)}</span>
       </div>
       <p class="slate-head">${head}</p>
-      <div class="slate-foot"><span>${sub}</span><button class="slate-more" data-more>Full results <span aria-hidden="true">&rarr;</span></button></div>
+      <div class="slate-foot"><span>${sub}</span><button class="slate-more" data-more>More <span aria-hidden="true">&rarr;</span></button></div>
       ${top && place <= 20 ? `<span class="slate-rosette">${rosette(place === 1 ? "best" : "first", ordinal(place), 50)}</span>` : ""}
     </div>`;
 }

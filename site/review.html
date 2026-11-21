@@ -39,6 +39,7 @@
     .rv-status.drop { color: var(--stamp); }
     .rv-status.keep { color: var(--good); }
     .rv-status.change { color: #9a7410; }
+    .rv-status.hold { color: var(--muted); }
     .rv-dropped { opacity: .7; }
     .rv-out { white-space: pre-wrap; font-size: 13px; background: var(--card); border: 2px dashed var(--line); border-radius: 12px; padding: 10px; }
   </style>
@@ -46,7 +47,7 @@
 <body>
 <main class="rv" id="rv"></main>
 <script type="module">
-import { oxHead, rosette, fairgoer, chalkboard, scoreTower } from "./js/art.js";
+import { oxHead, rosette, fairgoer, chalkboard, scoreChart } from "./js/art.js";
 import { sfx, countUp, stampIn, pop, bunting, flash, flyTo, chalkUp, sparkle } from "./js/fx.js";
 
 // A copy of the game's streak ticket (app.js keeps its own; this page is throwaway).
@@ -62,9 +63,13 @@ const face = (r) => `<span class="stamp face ${r}">${r === "you" ? fairgoer({ si
 const play = `<svg class="play-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M10 8 L16 12 L10 16 Z"/></svg>`;
 const week = (cells) => `<div class="tickets">${cells.map(([l, cls, mark]) => `<span class="ticket ${cls}"><b>${l}</b>${mark}</span>`).join("")}</div>`;
 
+const MOMENTS = [
+  `<span class="moment best">${rosette("best", "", 34)}<span><b>Your first Best in show</b><small>The judges are impressed.</small></span></span>`,
+  `<span class="moment first">${oxHead({ size: 34, mood: "wow" })}<span><b>Beat the herd first go</b><small>Beginner's luck?</small></span></span>`,
+];
 // Each change: what it is, why, a demo (html + optional wiring), and its tag.
 const ITEMS = [
-  { id: "slate", decided: "change", tag: "come back", title: "Morning chalkboard (redesigned)", why: "Before you play, yesterday's result chalked up above the start card: the scores in big chalk (yours in yellow), a headline (\"You beat the herd by 7 points!\"), your placing beside \"Full results\" on one line when it's in the top half (\"joint\" if others scored the same), and a rosette swinging onto the corner for a top-20 finish, with your place on it (purple for 1st). \"Full results\" in the corner scrolls down to yesterday's card and opens it. Six versions below, including a tie with the herd; the button chalks them up again.",
+  { id: "slate", decided: "change", tag: "come back", title: "Morning chalkboard (redesigned)", why: "Before you play, yesterday's result chalked up above the start card: the scores in big chalk (yours in yellow), a headline (\"You beat the herd by 7 points!\"), your placing beside \"More\" on one line when it's in the top half (\"joint\" if others scored the same), and a rosette swinging onto the corner for a top-20 finish, with your place on it (purple for 1st). \"More\" scrolls down to yesterday's full results. Six versions below, including a tie with the herd; the button chalks them up again.",
     html: `${[{ you: 92, herd: 77, n: 112, place: 1 }, { you: 84, herd: 77, n: 112, place: 14 }, { you: 77, herd: 77, n: 112, place: 31, tied: true }, { you: 74, herd: 77, n: 112, place: 40 }, { you: 31, herd: 73, n: 112, place: 93 }, { you: null, herd: 74 }]
       .map((x) => `<section class="slate">${chalkboard(x)}</section>`).join("")}<div class="rv-row"><button class="btn" data-act="chalk">Chalk them up again</button></div>`,
     wire: (d) => d.querySelectorAll(".slate").forEach((b) => chalkUp(b)),
@@ -78,7 +83,7 @@ const ITEMS = [
       <p class="series">This week: <b>You 4</b>, <b>The herd 2</b>. You won the week!</p>` },
   { id: "teaser", decided: "drop", tag: "come back", title: "Tomorrow's programme", why: "A vague hint at two of tomorrow's questions, under the countdown. Written per question in teasers.json; never the answer.",
     html: `<p class="teaser">On tomorrow's programme: two very busy crossings, and a little gold man.</p><p class="teaser">On tomorrow's programme: a monument to love and the roof of the world, plus a train in a hurry.</p>` },
-  { id: "keep", decided: "change", tag: "come back", title: "The ox on your home screen (changed)", why: "Calendar reminder dropped, as you asked. An ADMIT ONE ticket under Share, on your first two rounds only: Add to Home Screen. On Android it installs straight away. On iPhone it shows the two taps (Share, then Add to Home Screen). Your question answered: on iPhone a home-screen app has its own storage, so it would start as a new player; tapping the button now packs your progress into the page's address, which the home screen saves, and the app takes it in the first time it opens, so your streak and history come with you. Android shares storage anyway.",
+  { id: "keep", decided: "hold", tag: "come back", title: "The ox on your home screen (changed)", why: "Calendar reminder dropped, as you asked. An ADMIT ONE ticket under Share, on your first two rounds only: Add to Home Screen. On Android it installs straight away. On iPhone it shows the two taps (Share, then Add to Home Screen). Your question answered: on iPhone a home-screen app has its own storage, so it would start as a new player; tapping the button now packs your progress into the page's address, which the home screen saves, and the app takes it in the first time it opens, so your streak and history come with you. Android shares storage anyway.",
     html: `<div class="keep"><div class="keep-ticket"><span class="keep-admit">Admit one · every day</span><h3>Keep the ox on your home screen</h3><p>One tap to tomorrow's five. Your streak comes too.</p>
       <div class="keep-stubs"><button class="stub-btn" data-act="howto">Add to Home Screen</button></div>
       <p class="keep-how" hidden>Tap the Share button, then Add to Home Screen.</p></div><button class="link">Not for me</button></div>`,
@@ -91,8 +96,8 @@ const ITEMS = [
       <p class="streak-line"><span class="streak-main">${streakTicket(2, 26)}<b>2-day streak</b></span><span class="streak-sub">One more day and you're a Day tripper.</span></p>
       <p class="streak-line"><span class="streak-main">${streakTicket(5, 26)}<b>5-day streak</b></span><span class="streak-sub">Two more days for a whole week at the fair.</span></p>`,
     act: { hop: (d) => { const p = d.querySelector("#rv-streak"), n = Number(p.textContent.trim()) + 1; p.innerHTML = streakTicket(n); p.animate([{ transform: "rotate(-6deg)" }, { transform: "translateY(-6px) rotate(-12deg)" }, { transform: "rotate(-6deg)" }], { duration: 420, easing: "cubic-bezier(.3,1.6,.5,1)" }); sfx.tick(0.9); } } },
-  { id: "bis", decided: "keep", tag: "come back", title: "Best in show counter, and rosettes flying to it (new)", why: "All-time Best in shows (questions scored 20) as a purple rosette and a number, next to the streak ticket. At the end of a round, each Best in show rosette wiggles and a copy flies up into the counter, which ticks up, pops and glows as it lands, with a chime that rises for each one. A first ever lands on a 0.",
-    html: `<div class="rv-mini-head"><span class="brand">${oxHead({ size: 34 })}<span>OxGuess</span></span><span class="rv-row" style="gap:12px"><span class="bis-pill" id="rv-bis">${rosette("best", "", 24)}<b>3</b></span><span class="streak-pill">${streakTicket(4)}</span></span></div>
+  { id: "bis", decided: "keep", tag: "come back", title: "Best in show counter, and rosettes flying to it (new)", why: "All-time Best in shows (questions scored 20) as a purple rosette and a number, next to the streak ticket. At the end of a round, each Best in show rosette wiggles and a copy flies up into the counter, which ticks up and pops as it lands, with a chime that rises for each one. A first ever lands on a 0.",
+    html: `<div class="rv-mini-head"><span class="brand">${oxHead({ size: 34 })}<span>OxGuess</span></span><span class="rv-row" style="gap:10px"><span class="pill bis-pill" id="rv-bis">${rosette("best", "", 20)}<b>3</b></span><span class="pill">🔥 4</span></span></div>
       <div class="my-rosettes" id="rv-ros">${[20, 16, 14, 20, 9].map((p, i) => `<span class="my-rosette" data-p="${p}">${rosette(p === 20 ? "best" : p >= 13 ? "second" : "third", p, 42)}<span>${["When", "How tall", "How far", "How many", "Wildcard"][i]}</span></span>`).join("")}</div>
       <div class="rv-row"><button class="btn" data-act="bis">Finish a round with two Best in shows</button></div>`,
     act: { bis: async (d) => {
@@ -104,19 +109,18 @@ const ITEMS = [
         await wait(300);
         landings.push(flyTo(el.querySelector(".rosette"), pill, rosette("best", "", 40)).then(() => {
           n++; b.textContent = n; pop(pill, 1.35); sfx.chime(n - start - 1);
-          pill.animate([{ filter: "drop-shadow(0 0 0 transparent)" }, { filter: "drop-shadow(0 0 7px var(--r-best))" }, { filter: "drop-shadow(0 0 0 transparent)" }], { duration: 600, easing: "ease-out" });
         }));
         await wait(260);
       }
       await Promise.all(landings);
     } } },
-  { id: "moment", decided: "keep", tag: "feel", title: "One-off moments as badges (new design)", why: "Your first Best in show, or beating the herd on your first go: once ever, as a badge with its prize, instead of the italic line. Never more than one a round.",
-    html: `<div class="moment-wrap"><span class="moment best" id="rv-m1">${rosette("best", "", 34)}<span><b>Your first Best in show</b><small>The judges are impressed.</small></span></span></div>
-      <div class="moment-wrap"><span class="moment first" id="rv-m2">${oxHead({ size: 34, mood: "wow" })}<span><b>Beat the herd first go</b><small>Beginner's luck?</small></span></span></div>
-      <div class="rv-row"><button class="btn" data-act="m">Show them arriving</button></div>`,
-    act: { m: (d) => { ["#rv-m1", "#rv-m2"].forEach((s, k) => setTimeout(() => { pop(d.querySelector(s), 1.08); sfx.chime(); }, k * 500)); } } },
-  { id: "pb", decided: "change", tag: "feel", title: "Personal best badge (redesigned)", why: "No more red ink across the score: a gold badge with a little rosette, under your score, springing in with a sparkle when a round beats your best (from your second round on).",
-    html: `<div class="versus" style="max-width:320px;margin:0 auto"><div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num">84</span><small>/100</small></span><span class="who">You</span><span class="pb-badge" id="rv-pb">${rosette("first", "", 22)}Personal best</span></div><span class="vs">vs</span><div class="side">${oxHead({ size: 46, mood: "wow" })}<span class="score-line"><span class="big-num">77</span><small>/100</small></span><span class="who">The herd</span></div></div>
+  { id: "moment", decided: "keep", tag: "feel", title: "One-off moments as badges", why: "Only ever one badge a round, never two: a personal best wins, then your first Best in show, then beating the herd on your first go. Each first only ever happens once. Switch between them below.",
+    html: `<div class="moment-wrap" id="rv-m"></div><div class="rv-row"><button class="btn" data-act="m">Show the other one</button></div>`,
+    wire: (d) => { d.dataset.k = 0; d.querySelector("#rv-m").innerHTML = MOMENTS[0]; },
+    act: { m: (d) => { const k = (Number(d.dataset.k) + 1) % MOMENTS.length; d.dataset.k = k; const m = d.querySelector("#rv-m"); m.innerHTML = MOMENTS[k]; pop(m.firstElementChild, 1.08); sfx.chime(); } } },
+  { id: "pb", decided: "change", tag: "feel", title: "Personal best badge (redesigned)", why: "A gold badge with a little rosette on its own row under the scores (so the two scores stay level), beneath your side, springing in with a sparkle when a round beats your best (from your second round on).",
+    html: `<div class="versus" style="max-width:320px;margin:0 auto"><div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num">84</span><small>/100</small></span><span class="who">You</span></div><span class="vs">vs</span><div class="side">${oxHead({ size: 46, mood: "wow" })}<span class="score-line"><span class="big-num">77</span><small>/100</small></span><span class="who">The herd</span></div></div>
+      <div class="pb-row" style="max-width:320px;margin:0 auto"><span class="pb-badge" id="rv-pb">${rosette("first", "", 22)}Personal best</span></div>
       <div class="rv-row"><button class="btn" data-act="pb">Show it arriving</button></div>`,
     act: { pb: (d) => { const b = d.querySelector("#rv-pb"); sfx.pin(); sfx.chime(2); b.animate([{ transform: "scale(.3)", opacity: 0 }, { transform: "scale(1.15)", opacity: 1 }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.3,1.5,.5,1)" }); sparkle(b); } } },
   { id: "gate", decided: "drop", tag: "come back", title: "Through the gate", why: "How many have guessed today, under the start button (from the herd already loaded, no extra reads).",
@@ -133,8 +137,8 @@ const ITEMS = [
       const qs = ["How far is it from Times Square in New York to Shibuya Crossing in Tokyo?", "How many keys does a standard modern piano have?", "How much does an Oscar statuette weigh?", "In what year was the original Star Wars film first released?", "How tall is Leonardo da Vinci's Mona Lisa painting?"];
       const cats = [["How far", "var(--c-far)"], ["How many", "var(--c-many)"], ["Wildcard", "var(--c-wild)"], ["When", "var(--c-when)"], ["How tall", "var(--c-big)"]];
       const q = d.querySelector("#rv-q"), i = Number(q.dataset.i ?? -1) + 1, k = i % 5;
-      await q.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(-12px)" }], { duration: 150, easing: "cubic-bezier(.55,0,1,.45)", fill: "forwards" }).finished;
-      q.textContent = qs[k]; q.dataset.i = i;
+      const out = q.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(-12px)" }], { duration: 150, easing: "cubic-bezier(.55,0,1,.45)", fill: "forwards" });
+      await out.finished; q.textContent = qs[k]; q.dataset.i = i; out.cancel(); // the game draws a new card; here the same one is reused
       q.animate([{ opacity: 0, transform: "translateX(16px)" }, { opacity: 1, transform: "none" }], { duration: 240, easing: "cubic-bezier(.22,.61,.36,1)" });
       const p = d.querySelector("#rv-prog"), segs = ["When", "How tall", "How far", "How many", "Wildcard"], cur = (k + 1) % 5 || 0, ci = [2, 3, 4, 0, 1][k];
       p.innerHTML = segs.map((s, j) => j < ci ? `<span class="done ${j === ci - 1 ? "just-done" : ""}" style="--cat:${["var(--c-when)", "var(--c-big)", "var(--c-far)", "var(--c-many)", "var(--c-wild)"][j]}"></span>` : j === ci ? `<span class="current" style="--cat:${cats[k][1]}">${cats[k][0]}</span>` : "<span></span>").join("");
@@ -164,8 +168,8 @@ const ITEMS = [
   { id: "story", decided: "drop", tag: "feel", title: "The story: have a go yourself", why: "Page 3 is now \"Your go. How heavy was the ox?\" with a slider, before you see the crowd. Page 4 drops your guess among the 787 and tells you how far out you were. Pages slide the way you're going.",
     html: `<div class="rv-row"><a class="btn" href="/?story=1" target="_blank" data-act="story">Open the story in a new tab</a></div><p class="muted" style="margin:0">Or in the game: menu, then The story.</p>`,
     act: { story: () => { try { localStorage.removeItem("ox-story-guess"); } catch {} } } },
-  { id: "prizeboard", decided: "change", tag: "come back", title: "Yesterday's scores as a tower (redesigned)", why: "Kept vertical and themed, but every player is a dot again: a row every 5 points, 100 at the top, each dot coloured by the rosette its score would win, with a strip of those colours down the side instead of the rosettes. The ox and you sit in your rows. (Sample data below.)",
-    html: `<section class="card">${scoreTower((() => { let t = 7; const r = () => ((t = (t * 16807) % 2147483647) / 2147483647); return Array.from({ length: 110 }, () => Math.max(4, Math.min(98, Math.round(56 + Math.sqrt(-2 * Math.log(r() + 1e-9)) * Math.cos(2 * Math.PI * r()) * 16)))); })(), 66, 72)}</section>` },
+  { id: "prizeboard", decided: "change", tag: "come back", title: "Yesterday's scores, standing up (redesigned)", why: "The real chart again, not tiers: every player a dot at their actual score, with the score running up an axis on the left from 0 to 100. Each dot is coloured by the rosette its score would win. The herd is a dashed line across with the ox at the end, you a solid one with your face. (Sample data below.)",
+    html: `<section class="card">${scoreChart((() => { let t = 7; const r = () => ((t = (t * 16807) % 2147483647) / 2147483647); return Array.from({ length: 110 }, () => Math.max(4, Math.min(98, Math.round(56 + Math.sqrt(-2 * Math.log(r() + 1e-9)) * Math.cos(2 * Math.PI * r()) * 16)))); })(), 66, 81)}</section>` },
 ];
 
 // ---- drawing, verdicts and notes (kept in this browser) ----
@@ -173,9 +177,9 @@ const KEY = "ox-review", saved = (() => { try { return JSON.parse(localStorage.g
 const keep = () => { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch {} };
 const el = document.getElementById("rv");
 el.innerHTML = `<section class="rv-intro"><h1>Review the changes</h1><p>One card per change. Try each, then Keep, Change or Drop, and add a note if you like. Turn your sound up. Your verdicts stay in this browser; "Copy my verdicts" at the bottom puts them on your clipboard to paste back to Claude.</p></section>
-  ${ITEMS.map((it, i) => { const v = saved[it.id]?.v ?? it.decided, dropped = it.decided === "drop"; return `<section class="card rv-item ${dropped ? "rv-dropped" : ""}" data-id="${it.id}">
+  ${ITEMS.map((it, i) => { const v = saved[it.id]?.v ?? it.decided, dropped = it.decided === "drop" || it.decided === "hold"; return `<section class="card rv-item ${dropped ? "rv-dropped" : ""}" data-id="${it.id}">
     <h2><span class="n">${i + 1}</span>${it.title}<span class="tag ${it.tag === "feel" ? "feel" : ""}">${it.tag === "feel" ? "Feel" : "Come back"}</span></h2>
-    ${it.decided ? `<p class="rv-status ${it.decided}">${{ drop: "Dropped on your review: taken out of the game.", keep: "Kept on your review.", change: "Changed after your review: this is the new version." }[it.decided]}</p>` : ""}
+    ${it.decided ? `<p class="rv-status ${it.decided}">${{ drop: "Dropped on your review: taken out of the game.", keep: "Kept on your review.", change: "Changed after your review: this is the new version.", hold: "On hold: switched off in the game for now; we'll come back to it." }[it.decided]}</p>` : ""}
     ${dropped ? "" : `<p class="rv-why">${it.why}</p><div class="rv-demo">${it.html}</div>`}
     <div class="rv-verdict">${["keep", "change", "drop"].map((x) => `<button data-v="${x}" class="${v === x ? "on" : ""}">${{ keep: "Keep", change: "Change", drop: "Drop" }[x]}</button>`).join("")}</div>
     <textarea class="rv-note" placeholder="Notes (optional)">${saved[it.id]?.note ?? ""}</textarea>
