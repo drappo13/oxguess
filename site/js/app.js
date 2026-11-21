@@ -215,14 +215,15 @@ function menu(open) {
   m.hidden = !open; b.setAttribute("aria-expanded", String(open));
 }
 document.addEventListener("click", (e) => { if (!e.target.closest?.(".menu-wrap")) menu(false); });
-// Tap a header pill for a little bubble saying what it counts; it goes by itself, or on the next tap anywhere.
-const pillTip = (k) => { const n = k === "bis" ? bestInShows() : streak(); return k === "bis" ? `${n} Best in show rosette${n === 1 ? "" : "s"}, all time` : `${n}-day streak`; };
+// Tap a header pill for a little bubble saying what it counts; it goes by itself, on a second tap of the same pill, or
+// on a tap anywhere else.
+const pillTip = (k) => { const n = k === "bis" ? bestInShows() : streak(); return k === "bis" ? `${n} Best In Show rosette${n === 1 ? "" : "s"}, all time` : `${n}-day streak`; };
 let tipTimer;
 document.addEventListener("click", (e) => {
-  const pill = e.target.closest?.("[data-tip]");
+  const pill = e.target.closest?.("[data-tip]"), open = pill?.querySelector(".pill-tip");
   document.querySelectorAll(".pill-tip").forEach((t) => t.remove());
   clearTimeout(tipTimer);
-  if (!pill) return;
+  if (!pill || open) return;
   pill.insertAdjacentHTML("beforeend", `<span class="pill-tip" role="status">${pillTip(pill.dataset.tip)}</span>`);
   tipTimer = setTimeout(() => pill.querySelector(".pill-tip")?.remove(), 2400);
 });
