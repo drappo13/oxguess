@@ -302,18 +302,20 @@ function home({ celebrate = false } = {}) {
   if (celebrate) celebrateRound(); else if (state.done) showKeep();
 }
 
+// Today's card, kept short so the start button sits above the fold: bunting, the ox, the date, one line, then today's five
+// as little category tokens (each answered one becomes its rosette, with the points) and the button.
 function startCard() {
   const started = state.answers.length > 0;
   return `<section class="hero card">
-      <div class="hero-ox">${oxHead({ size: 104 })}</div>
+      <div class="story-bunting" aria-hidden="true">${flags(9, 8)}</div>
+      <div class="hero-ox">${oxHead({ size: 72 })}</div>
       <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
-      <h1>${started ? "Carry on guessing" : "Five numbers. How close can you get?"}</h1>
-      <ol class="todays stagger">
+      <h1>${started ? "Carry on guessing" : "Five numbers. Can you beat the herd?"}</h1>
+      <ol class="todays stagger" aria-label="Today's five">
         ${today.questions.map((q, i) => {
           const answered = i < state.answers.length, p = answered ? ptsAt(i) : null;
-          return `<li style="--cat:${CATS[q.cat].color}; --i:${i}" class="${answered ? "is-done" : ""}">
-            <span class="dot">${catIcon(q)}</span><span>${catLabel(q)}</span>
-            <span class="res">${answered ? `<span class="pts">${p}</span>${rosette(tierFor(p).key, "", 34)}` : `<span class="ring"></span>`}</span>
+          return `<li style="--cat:${CATS[q.cat].color}; --i:${i}; --r:${[-6, 4, -3, 5, -4][i]}deg" title="${catLabel(q)}" aria-label="${catLabel(q)}${answered ? `: ${p} points` : ""}">
+            ${answered ? rosette(tierFor(p).key, p, 40) : `<span class="tok" aria-hidden="true">${catIcon(q)}</span>`}
           </li>`;
         }).join("")}
       </ol>

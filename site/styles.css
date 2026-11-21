@@ -157,23 +157,24 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .stagger > * { animation: rise .42s cubic-bezier(.2, .9, .3, 1.15) both; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
 
 /* ---------- home ---------- */
-.hero { align-items: center; text-align: center; }
-.hero .btn { width: 100%; }
-.hero-ox { margin-top: -4px; }
+.hero { align-items: center; text-align: center; gap: 10px; padding-top: 0; overflow: hidden; }
+.hero .story-bunting { align-self: stretch; height: 30px; margin: 0 6px -12px; }
+.hero .story-bunting i { width: 17px; height: 20px; }
+.hero .btn { width: 100%; position: relative; overflow: hidden; }
+/* Every few seconds a glint runs across the start button. */
+.hero .btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, .32) 50%, transparent 65%); transform: translateX(-110%); animation: glint 4.2s ease-in-out 1.6s infinite; pointer-events: none; }
 .hero-ox .ox { animation: bob 3.2s ease-in-out infinite; }
 /* Now and then the ox blinks. */
 .hero-ox .eyes { transform-box: view-box; transform-origin: 60px 54px; animation: blink 5.7s ease-in-out 1.2s infinite; }
+.hero h1 { font-size: 24px; }
 .dayline { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--ink); }
 .round-badge { font: 800 11px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); border-radius: 6px; padding: 2px 7px; transform: rotate(-3deg); }
 
-.todays { list-style: none; padding: 0; margin: 0; width: 100%; display: flex; flex-direction: column; gap: 8px; text-align: left; }
-.todays li { display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 10px; padding: 8px 12px 8px 8px; border-radius: 14px; background: var(--card-soft); font-weight: 700; }
-.todays li.is-done { background: color-mix(in srgb, var(--cat) 9%, var(--card-soft)); }
-.todays .dot { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--cat) 22%, transparent); font-size: 19px; }
-.todays .res { display: inline-flex; align-items: center; gap: 6px; font-family: var(--display); font-weight: 600; }
-.todays .pts { font-family: var(--display); font-weight: 700; font-size: 20px; }
-.todays .rosette { margin: -8px 0 -12px; }
-.todays .ring { width: 26px; height: 26px; border-radius: 50%; border: 2px dashed var(--line); }
+.todays { list-style: none; padding: 0; margin: 2px 0 4px; display: flex; justify-content: center; gap: 10px; }
+.todays li { width: 44px; height: 44px; display: grid; place-items: center; }
+.todays .tok { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 21px; transform: rotate(var(--r));
+  background: color-mix(in srgb, var(--cat) 24%, var(--card)); border: 2px solid color-mix(in srgb, var(--cat) 60%, transparent); }
+.todays .rosette { margin-top: 6px; transform: rotate(var(--r)); }
 
 /* your week: beige tiles; a green tick for played, greyed with a dash for missed, a play button for today */
 .week-card { gap: 12px; }
@@ -609,6 +610,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 :root[data-theme="dark"] .scene-img { filter: brightness(.88) saturate(.95); }
 
 /* ---------- motion ---------- */
+@keyframes glint { 0% { transform: translateX(-110%); } 30%, 100% { transform: translateX(110%); } }
 @keyframes fill-in { from { background-size: 0% 100%; } }
 @keyframes blink { 0%, 60%, 63%, 93%, 96%, 98%, 100% { transform: none; } 61.5%, 94.5%, 97% { transform: scaleY(.1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
@@ -624,7 +626,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 @keyframes pan-r { 0% { transform: translateY(-8px); } 30% { transform: translateY(5.2px); } 55% { transform: translateY(-2.6px); } 78% { transform: translateY(1px); } 100% { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .streak-pill, .stagger > *, .story-page, .story-dot, .story-mark, .story-bunting i, .menu, .cd-colon::before, .cd-colon::after,
+  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .streak-pill, .stagger > *, .story-page, .story-dot, .story-mark, .story-bunting i, .hero .btn::after, .menu, .cd-colon::before, .cd-colon::after,
   .balance .beam, .balance .pan-l, .balance .pan-r, .later.shown > *, .later.shown .bar, .progress .just-done { animation: none; }
   .btn { transition: none; }
   .btn:active { transform: translateY(2px); }
