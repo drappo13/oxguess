@@ -60,10 +60,13 @@ export const sfx = {
   climb(k) { tone(semis(400, k), { dur: 0.03, type: "triangle", vol: 0.04 }); },
   /** The puck landing where it stopped. */
   land() { tone(160, { dur: 0.12, vol: 0.14, to: 110 }); noise({ dur: 0.04, vol: 0.12, freq: 500 }); },
-  /** Ding! The bell at the top of the strength tester: bell partials (not organ harmonics) and the hammer's strike. */
+  /** Ding-ding! The bell at the top of the strength tester, struck twice: bell partials (not organ harmonics) and the
+   *  hammer's strike, the second ring a touch softer. */
   bell() {
-    noise({ dur: 0.015, vol: 0.08, freq: 6000 });
-    [[1318, 0.12, 1.6], [2637, 0.06, 1.0], [3637, 0.04, 0.7], [7117, 0.02, 0.3]].forEach(([f, vol, dur]) => tone(f, { dur, vol }));
+    for (const [at, k] of [[0, 1], [0.3, 0.8]]) {
+      noise({ at, dur: 0.015, vol: 0.08 * k, freq: 6000 });
+      [[1318, 0.12, 1.6], [2637, 0.06, 1.0], [3637, 0.04, 0.7], [7117, 0.02, 0.3]].forEach(([f, vol, dur]) => tone(f, { at, dur, vol: vol * k }));
+    }
   },
   /** It nearly rang: a single faint tink. */
   tink() { tone(1318, { dur: 0.3, vol: 0.03 }); },
@@ -112,11 +115,8 @@ export const sfx = {
 export function buzz(pattern) { try { navigator.vibrate?.(pattern); } catch { /* fine */ } }
 
 // ---------- motion helpers ----------
-// Under reduced motion the beats still keep a little gap, so their sounds don't all land at once. hurry() makes the rest
-// of a sequence instant (a tap on the reveal).
-let hurrying = false;
-export const hurry = (on = true) => { hurrying = on; };
-export const wait = (ms) => new Promise((r) => setTimeout(r, hurrying ? 0 : reduced() ? Math.min(ms, 120) : ms));
+// Under reduced motion the beats still keep a little gap, so their sounds don't all land at once.
+export const wait = (ms) => new Promise((r) => setTimeout(r, reduced() ? Math.min(ms, 120) : ms));
 
 /** Count a number up inside an element, with a blip per step. */
 export function countUp(el, to, ms = 700, { from = 0, sound = true, format = (v) => String(v) } = {}) {
@@ -235,6 +235,7 @@ export function flyTo(fromEl, toEl, html, ms = 650) {
       { transform: `translate(${dx * 0.35}px, ${dy * 0.35 - 50}px) scale(1.2) rotate(-18deg)`, opacity: 1, offset: 0.45 },
       { transform: `translate(${dx}px, ${dy}px) scale(.4) rotate(12deg)`, opacity: 0.9 },
     ], { duration: ms, easing: "cubic-bezier(.45,.05,.4,1)", fill: "forwards" }).onfinish = () => { f.remove(); done(); };
+    setTimeout(() => { f.remove(); done(); }, ms + 400); // a background tab pauses animations: never wait for ever
   });
 }
 

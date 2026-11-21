@@ -92,13 +92,12 @@ a { color: inherit; }
 .brand { display: flex; align-items: center; gap: 8px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); }
 .brand span { font-family: var(--display); font-weight: 700; font-size: 25px; letter-spacing: -0.01em; }
 .top-right { display: flex; align-items: center; gap: 10px; }
-/* the streak: a little ticket stub with the number printed on it, set at a slight angle */
-.streak-pill { display: grid; transform: rotate(-6deg); }
+.pill { font-weight: 800; font-size: 14px; background: var(--card); border: 2px solid var(--line); border-radius: 99px; padding: 3px 11px; }
+.streak-pill { animation: warm 2.4s ease-in-out infinite; }
 /* all-time Best in shows: a little purple rosette and the count */
-.bis-pill { display: inline-flex; align-items: center; gap: 3px; font: 700 17px var(--display); color: var(--ink); }
-.bis-pill .rosette { margin: -4px 0 -8px; }
+.bis-pill { display: inline-flex; align-items: center; gap: 4px; padding-left: 5px; }
+.bis-pill .rosette { margin: -5px 0 -9px; }
 .fx-fly { position: fixed; z-index: 60; pointer-events: none; }
-.streak-ticket { display: block; overflow: visible; }
 .link { background: none; border: 0; color: var(--muted); font: 700 14px var(--body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 6px 2px; }
 .icon-btn { background: none; border: 0; font-size: 18px; cursor: pointer; padding: 4px; line-height: 1; }
 /* the menu: the story, the prizes and the sound switch */
@@ -177,10 +176,6 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .todays .pts { font-family: var(--display); font-weight: 700; font-size: 20px; }
 .todays .rosette { margin: -8px 0 -12px; }
 .todays .ring { width: 26px; height: 26px; border-radius: 50%; border: 2px dashed var(--line); }
-/* how many are through the gate today, under the start button */
-.turnstile { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: -4px; font-size: 14px; color: var(--muted); }
-.turnstile svg { width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
-.turnstile b { color: var(--ink); font-variant-numeric: tabular-nums; }
 
 /* your week: beige tiles; a green tick for played, greyed with a dash for missed, a play button for today */
 .week-card { gap: 12px; }
@@ -190,34 +185,20 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
   background: var(--ticket); border: 2px solid color-mix(in srgb, var(--ticket) 70%, var(--ink)); color: #4a3a12; font: 700 13px var(--display); }
 .ticket b { font: 700 13px/16px var(--display); }
 .ticket .stamp { width: 24px; height: 24px; transform: none; }
-/* a played day is stamped with who won it: you (the fairgoer), the herd (the ox), or both for a draw */
-.ticket .stamp.face { display: flex; align-items: center; justify-content: center; width: auto; height: 26px; color: inherit; }
-.ticket .stamp.face.draw svg + svg { margin-left: -5px; }
-.ticket .stamp.face svg { background: none; }
-.ticket.missed { background: color-mix(in srgb, var(--ticket) 45%, #9a9a90); border-color: color-mix(in srgb, var(--ticket) 30%, #8a8a80); color: #4f4c40; }
-.ticket.today { background: color-mix(in srgb, var(--ticket) 70%, #fff); border-color: var(--stamp); color: #4a3a12; }
+.ticket.missed, .ticket.today { background: color-mix(in srgb, var(--ticket) 45%, #9a9a90); border-color: color-mix(in srgb, var(--ticket) 30%, #8a8a80); color: #4f4c40; }
 .ticket.missed { filter: saturate(.6); }
-.ticket.missed b { opacity: .85; }
+.ticket.missed b, .ticket.today b { opacity: .85; }
 .ticket.future { border-color: transparent; opacity: .35; }
-/* tomorrow, once today's played: outlined, with the streak it would make */
-.ticket.next { opacity: 1; background: transparent; border: 2px dashed color-mix(in srgb, var(--stamp) 70%, transparent); color: var(--stamp); }
-.ticket .next-l { font: 800 10px/1.1 var(--body); text-align: center; }
-.ticket.today { cursor: pointer; animation: breathe 3.2s ease-in-out infinite; }
+.ticket.today { cursor: pointer; }
 .ticket.today:hover { filter: brightness(1.04); }
 .ticket.today:focus-visible { outline: 3px solid var(--stamp); outline-offset: 2px; }
 .ticket .miss-mark { width: 12px; height: 3px; border-radius: 2px; background: color-mix(in srgb, #4f4c40 55%, transparent); }
 .play-icon { width: 22px; height: 22px; }
 .play-icon circle, .play-icon path { fill: none; stroke: var(--c-big); stroke-width: 2; stroke-linejoin: round; }
 .ticket.today:hover .play-icon { transform: scale(1.08); }
-.streak-line { display: flex; flex-direction: column; gap: 2px; font-size: 15px; }
-.streak-main { display: inline-flex; align-items: center; gap: 8px; }
-.streak-main .streak-ticket { transform: rotate(-6deg); flex: none; }
+.streak-line { display: flex; flex-direction: column; gap: 1px; font-size: 15px; }
 .streak-sub { font-size: 14px; color: var(--muted); }
-/* this week against the herd, and all time */
-.series { font-size: 15px; margin-top: -2px; }
-.teaser { font-size: 15px; font-style: italic; text-align: center; color: var(--muted); text-wrap: pretty; margin-top: -4px; }
-.remind { align-self: center; margin-top: -6px; }
-/* back tomorrow: why, then the countdown as two flip cards on ticket stock, tomorrow's programme, then the week */
+/* back tomorrow: why, then the countdown as two flip cards on ticket stock, then the week */
 .back-why { font-size: 14px; margin-top: -8px; color: var(--muted); }
 .countdown { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 4px 0 2px; }
 .cd-eyebrow { font: 800 12px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--stamp); }
@@ -231,6 +212,34 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .cd-unit small { font: 800 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .cd-colon { display: flex; flex-direction: column; justify-content: center; gap: 12px; height: 68px; }
 .cd-colon::before, .cd-colon::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: color-mix(in srgb, var(--ticket) 55%, var(--ink)); animation: tick 2s steps(1) infinite; }
+
+/* your stats: each number printed on a fair prop */
+.props { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.prop { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; padding: 16px 10px 14px; border-radius: 18px; background: var(--card-soft); }
+.prop .rosette { margin: -4px 0 -6px; }
+.prop-l { font-size: 14px; font-weight: 800; color: var(--muted); }
+/* a fair ticket: notched ends, a dashed print border, the number stamped on slightly askew */
+.prop-ticket { position: relative; display: grid; place-items: center; width: 100px; height: 64px; transform: rotate(-4deg); background: var(--ticket);
+  -webkit-mask: radial-gradient(circle 9px at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle 9px at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+  border-radius: 6px; margin-bottom: 4px; }
+.prop-ticket::before { content: ""; position: absolute; inset: 6px 14px; border: 1.5px dashed color-mix(in srgb, var(--ticket) 50%, var(--ink)); border-radius: 4px; }
+.prop-ticket b { position: relative; font: 700 36px/1 var(--display); color: #4a3a12; }
+/* days won: you and the herd face off across a tug-of-war bar */
+.h2h { display: grid; grid-template-columns: 76px 1fr 76px; align-items: center; gap: 8px; padding: 14px 12px; border-radius: 18px; background: var(--card-soft); }
+.h2h-side { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.h2h-side b { font: 700 34px/1.05 var(--display); }
+.h2h-side.them b { color: var(--ox-dark); }
+.h2h-side span { font-size: 13px; font-weight: 800; color: var(--muted); }
+.h2h-side svg { transition: transform .3s; }
+.h2h.lead-you .h2h-side.you svg, .h2h.lead-herd .h2h-side.them svg { transform: scale(1.12) rotate(-4deg); }
+.h2h-mid { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; }
+.h2h-l { font: 800 12px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.h2h-bar { display: flex; gap: 3px; width: 100%; height: 12px; }
+.h2h-bar i { flex: 1 1 0; min-width: 6px; border-radius: 99px; transition: flex-grow .6s cubic-bezier(.3, 1, .5, 1); }
+.h2h-bar .you { background: var(--ink); }
+.h2h-bar .herd { background: var(--ox-dark); }
+.h2h-d { font-size: 12px; color: var(--muted); min-height: 14px; }
 
 /* the morning chalkboard: yesterday's final placing, above the start card */
 .slate { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
@@ -258,28 +267,21 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 /* a top-20 finish: a rosette pinned over the corner of the board, with your place on it */
 .slate-rosette { position: absolute; top: -18px; right: -10px; transform: rotate(8deg); transform-origin: 50% 10%; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .35)); }
 
-/* yesterday: folded to one line; opened, everyone's rounds on a prize board, the standings, then the questions */
+/* yesterday: everyone's rounds on a tower of scores, then the standings, then the questions */
 .yesterday { gap: 14px; }
-.y-fold > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.y-fold > summary::-webkit-details-marker { display: none; }
-.y-sum { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.y-line { font-size: 14px; font-weight: 700; color: var(--muted); }
-.y-fold .chev { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--card-soft); border: 2px solid var(--line); transition: transform .25s; flex: none; }
-.y-fold .chev svg { width: 20px; height: 20px; fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.y-fold[open] .chev { transform: rotate(180deg); }
-.y-body { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
-.y-body > .dayline { justify-content: flex-start; font-size: 14px; }
-.prize-board { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
-.prize-board li { display: grid; grid-template-columns: 30px minmax(92px, 34%) 1fr; align-items: center; gap: 4px 10px; padding: 4px 0; border-top: 1px dashed var(--line); }
-.prize-board li:first-child { border-top: 0; }
-.prize-board li.empty { opacity: .45; }
-.prize-board .rosette { margin: -4px 0 -10px; }
-.pb-name { display: flex; flex-direction: column; font: 600 14px/1.15 var(--display); }
-.pb-name small { font: 700 12px var(--body); color: var(--muted); }
-.pb-tokens { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; min-height: 26px; }
-.pb-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--tier); box-shadow: inset 0 0 0 1.5px var(--tier-dark); }
-.pb-face { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; margin: -2px 1px; background: var(--card); box-shadow: 0 0 0 2px var(--ox-dark); }
-.pb-face.you { box-shadow: 0 0 0 2px var(--ink); }
+.y-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; }
+.y-head .dayline { justify-content: flex-start; font-size: 14px; }
+/* the tower: a row every 5 points, 100 at the top, a dot per round in its rosette's colour */
+.tower { display: flex; flex-direction: column; }
+.tw-row { display: grid; grid-template-columns: 26px 5px 1fr; align-items: center; column-gap: 8px; min-height: 13px; }
+.tw-axis { font: 700 11px var(--body); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.tw-strip { align-self: stretch; background: var(--tier); }
+.tw-row:first-child .tw-strip { border-radius: 3px 3px 0 0; }
+.tw-row:last-child .tw-strip { border-radius: 0 0 3px 3px; }
+.tw-dots { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; padding: 1px 0; }
+.tw-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--tier); box-shadow: inset 0 0 0 1.5px var(--tier-dark); }
+.tw-face { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; margin: 0 2px; background: var(--card); box-shadow: 0 0 0 2px var(--ox-dark); }
+.tw-face.you { box-shadow: 0 0 0 2px var(--ink); }
 .standings { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: place; }
 .standings li { display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: 18px; }
 .standings li.herd { background: color-mix(in srgb, var(--ox-dark) 10%, var(--card)); }
@@ -303,9 +305,6 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .story-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: width .2s; }
 .story-dots i.on { width: 22px; border-radius: 4px; background: var(--c-big); }
 .story-nav { display: flex; align-items: center; gap: 12px; }
-/* page 3: your own go at the ox */
-.story-try { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 4px; }
-.story-try output { font: 700 30px var(--display); font-variant-numeric: tabular-nums; }
 .story-nav .btn.primary { flex: 1; }
 
 /* page 2: the balance teeters while the ticket count rolls up */
@@ -326,9 +325,7 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .story-mark { animation: rise .5s cubic-bezier(.3, 1.4, .5, 1) both; }
 .story-mark.crowd { animation-delay: .3s; }
 .story-mark.truth { animation-delay: .9s; }
-.story-vs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
-.story-vs > .you { grid-column: 1 / -1; flex-direction: row; align-items: center; }
-.story-vs > .you b { color: var(--ink); }
+.story-vs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
 .story-vs > div { display: flex; flex-direction: column; justify-content: space-between; gap: 4px; min-width: 0; padding: 8px 12px; border-radius: 14px; background: var(--card-soft); }
 .story-vs small { display: inline-flex; align-items: flex-start; gap: 4px; font-weight: 800; font-size: 12px; color: var(--muted); }
 .story-vs small > svg, .story-vs small > i { flex: none; margin-top: 1px; }
@@ -457,11 +454,10 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .versus .side:not(.you) .big-num { color: var(--ox-dark); }
 .versus .vs { margin-top: 22px; font-family: var(--display); color: var(--muted); }
 .results-sub { text-align: center; font-family: var(--display); font-weight: 500; font-size: 18px; text-wrap: pretty; }
-.versus .side.you { position: relative; }
-/* a personal best: red ink stamped across your score */
-.pb-stamp { position: absolute; top: 46px; left: 50%; translate: -50% 0; transform: rotate(-8deg); white-space: nowrap; pointer-events: none;
-  font: 800 12px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--stamp); border: 2.5px solid var(--stamp); border-radius: 6px; padding: 2px 7px;
-  background: color-mix(in srgb, var(--card) 70%, transparent); mix-blend-mode: multiply; }
+/* a personal best: a gold badge with a little rosette, under your score */
+.pb-badge { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 3px 10px 3px 4px; border-radius: 99px; white-space: nowrap;
+  font: 800 12px var(--body); color: #4a3a12; background: color-mix(in srgb, var(--r-first) 28%, var(--card)); border: 2px solid var(--r-first-dark); }
+.pb-badge .rosette { margin: -4px 0 -8px; }
 /* a one-off moment (first Best in show, beating the herd first go) as a badge with its prize on it */
 .moment-wrap { display: flex; justify-content: center; margin-top: -4px; }
 .moment { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 8px; border-radius: 99px; text-align: left;
@@ -471,9 +467,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .moment > span { display: flex; flex-direction: column; line-height: 1.15; }
 .moment b { font: 600 16px var(--display); }
 .moment small { font-size: 13px; color: var(--muted); }
-.placing { text-align: center; font-size: 15px; color: var(--muted); margin-top: -6px; text-wrap: pretty; }
-.placing b { color: var(--ink); }
-/* same time tomorrow? an "admit one" ticket with stubs to tear off */
+/* the ox on your home screen: an "admit one" ticket with a stub to tear off */
 .keep { display: flex; flex-direction: column; align-items: center; gap: 4px; overflow: hidden; }
 .keep-ticket { position: relative; width: 100%; display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 14px; text-align: center; color: #3d3216;
   background: var(--ticket); border-radius: 10px;
@@ -488,7 +482,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
   border-radius: 8px; padding: 8px 10px; cursor: pointer; transition: transform .18s cubic-bezier(.3,1.6,.5,1); }
 .stub-btn:active { transform: translateY(2px) scale(.97); transition-duration: .08s; }
 .keep-how { font-weight: 700; }
-.keep-done { position: absolute; right: 14px; top: 10px; transform: rotate(-8deg); font: 800 12px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--stamp); border: 2.5px solid var(--stamp); border-radius: 6px; padding: 2px 7px; }
 .my-rosettes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 .my-rosette { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
 .my-rosette.pending { opacity: 0; }
@@ -626,7 +619,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 @keyframes blink { 0%, 60%, 63%, 93%, 96%, 98%, 100% { transform: none; } 61.5%, 94.5%, 97% { transform: scaleY(.1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
 @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-4px) rotate(2deg); } }
-@keyframes breathe { 0%, 100% { transform: none; } 50% { transform: scale(1.03); } }
+@keyframes warm { 0%, 100% { box-shadow: 0 0 0 0 rgba(232, 120, 40, 0); } 50% { box-shadow: 0 0 0 4px rgba(232, 120, 40, .14); } }
 @keyframes menu-in { from { opacity: 0; transform: scale(.92) translateY(-4px); } to { opacity: 1; transform: none; } }
 @keyframes tick { 50% { opacity: .35; } }
 @keyframes grow { from { transform: scaleY(0); } to { transform: none; } }
@@ -637,7 +630,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 @keyframes pan-r { 0% { transform: translateY(-8px); } 30% { transform: translateY(5.2px); } 55% { transform: translateY(-2.6px); } 78% { transform: translateY(1px); } 100% { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .ticket.today, .stagger > *, .enter, .story-page, .story-dot, .story-mark, .story-bunting i, .menu, .cd-colon::before, .cd-colon::after,
+  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .streak-pill, .stagger > *, .enter, .story-page, .story-dot, .story-mark, .story-bunting i, .menu, .cd-colon::before, .cd-colon::after,
   .balance .beam, .balance .pan-l, .balance .pan-r, .later.shown > *, .later.shown .bar, .progress .just-done { animation: none; }
   .btn { transition: none; }
   .btn:active { transform: translateY(2px); }

@@ -83,28 +83,22 @@ export function balance() {
 /** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
-/** One day's scores as a prize board: a row per rosette tier, best at the top, a token per finished round (higher
- *  scores to the left), with the herd's ox and your fairgoer in their places. A round's tier is the question tier
- *  at five times the points (85+ is first prize, as 17+ is for a question). */
-export function prizeBoard(scores, herdScore, you = null) {
-  const per = 5, rows = TIERS.map((t, i) => ({ t, lo: t.min * per, hi: i ? TIERS[i - 1].min * per - 1 : 100 }));
-  const tierOf = (v) => rows.find((r) => v >= r.lo);
-  const people = [
-    ...scores.map((v) => ({ v, k: "player" })),
-    { v: herdScore, k: "herd" },
-    ...(you == null ? [] : [{ v: you, k: "you" }]),
-  ].sort((a, b) => b.v - a.v || (a.k === "player") - (b.k === "player"));
-  const token = (p) => p.k === "herd" ? `<span class="pb-face herd" title="The herd: ${p.v}">${oxHead({ size: 26, title: `The herd, ${p.v}` })}</span>`
-    : p.k === "you" ? `<span class="pb-face you" title="You: ${p.v}">${fairgoer({ size: 26, title: `You, ${p.v}` })}</span>`
-    : `<span class="pb-dot" title="${p.v}"></span>`;
-  return `<ol class="prize-board" aria-label="Every round yesterday, by prize">${rows.map((r) => {
-    const here = people.filter((p) => tierOf(p.v) === r), n = here.filter((p) => p.k === "player").length;
-    return `<li class="${n ? "" : "empty"}" style="--tier: var(--r-${r.t.key}); --tier-dark: var(--r-${r.t.key}-dark)">
-      ${rosette(r.t.key, "", 30)}
-      <span class="pb-name">${r.t.name}<small>${r.lo === r.hi ? r.lo : `${r.lo}–${r.hi}`} · ${n} ${n === 1 ? "player" : "players"}</small></span>
-      <span class="pb-tokens">${here.map(token).join("")}</span>
-    </li>`;
-  }).join("")}</ol>`;
+/** One day's scores as a tower: a row for every 5 points, 100 at the top, and every finished round a dot in its row,
+ *  coloured by the rosette its score would win (a round's tier is the question tier at five times the points), with a
+ *  strip of those colours down the side. The herd's ox and your fairgoer sit in their rows. */
+export function scoreTower(scores, herdScore, you = null) {
+  const band = (v) => Math.min(20, Math.floor(v / 5)), tierOf = (b) => TIERS.find((t) => b * 5 >= t.min * 5);
+  const people = [...scores.map((v) => ({ v, k: "player" })), { v: herdScore, k: "herd" }, ...(you == null ? [] : [{ v: you, k: "you" }])]
+    .sort((a, b) => b.v - a.v || (a.k === "player") - (b.k === "player"));
+  const mark = (p) => p.k === "herd" ? `<span class="tw-face herd" title="The herd: ${p.v}">${oxHead({ size: 22, title: `The herd, ${p.v}` })}</span>`
+    : p.k === "you" ? `<span class="tw-face you" title="You: ${p.v}">${fairgoer({ size: 22, title: `You, ${p.v}` })}</span>`
+    : `<i class="tw-dot" title="${p.v}"></i>`;
+  return `<div class="tower" role="img" aria-label="Every finished round yesterday, by score">${Array.from({ length: 21 }, (_, k) => 20 - k).map((b) => {
+    const t = tierOf(b);
+    return `<div class="tw-row" style="--tier: var(--r-${t.key}); --tier-dark: var(--r-${t.key}-dark)" title="${t.name}">
+      <span class="tw-axis">${b % 2 === 0 ? b * 5 : ""}</span><i class="tw-strip"></i>
+      <span class="tw-dots">${people.filter((p) => band(p.v) === b).map(mark).join("")}</span></div>`;
+  }).join("")}</div>`;
 }
 
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
