@@ -4,7 +4,7 @@ import {
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
-import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId } from "./herd-store.js";
+import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId, testing } from "./herd-store.js";
 import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket } from "./fx.js";
 
 const app = document.getElementById("app");
@@ -15,8 +15,7 @@ let QUESTIONS = null, SCHEDULE = null, DATES = null, EPOCH = null, TEASERS = {};
 const pad = (n) => String(n).padStart(2, "0");
 const keyOf = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 function todayKey() {
-  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  const p = local ? new URLSearchParams(location.search).get("day") : null;
+  const p = testing ? new URLSearchParams(location.search).get("day") : null;
   return p && /^\d{4}-\d{2}-\d{2}$/.test(p) ? p : keyOf(new Date());
 }
 const parseKey = (k) => { const [y, m, d] = k.split("-").map(Number); return new Date(y, m - 1, d); };
