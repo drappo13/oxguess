@@ -967,9 +967,12 @@ function reveal(i, { animate = false } = {}) {
     await wait(300);
 
     // 3. The herd's ox walks from the answer to where the herd guessed, a soft tick on each step.
-    const herdPin = show("herd-pin", 1.15);
+    // (Its pop keeps the pin centred on its spot: a plain scale would knock it half its width sideways.)
+    const herdPin = $("herd-pin");
     if (!herdPin) return;
+    herdPin.classList.remove("is-hidden");
     if (!reduce) {
+      herdPin.animate([{ transform: "translateX(-50%) scale(1)" }, { transform: "translateX(-50%) scale(1.15)" }, { transform: "translateX(-50%) scale(1)" }], { duration: 360, easing: "cubic-bezier(.3,1.6,.5,1)" });
       const walk = Math.round(350 + Math.abs(hpos - apos) * 900), steps = Math.max(2, Math.round(walk / 170));
       herdPin.animate([{ left: `${apos * 100}%` }, { left: `${hpos * 100}%` }], { duration: walk, easing: "cubic-bezier(.4,0,.3,1)" });
       herdPin.querySelector("span").animate([{ transform: "translateY(0)" }, { transform: "translateY(3px)" }, { transform: "translateY(0)" }], { duration: walk / steps, iterations: steps });
