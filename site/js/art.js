@@ -97,13 +97,16 @@ export function scoreChart(scores, herdScore, you = null) {
   let dots = "", faces = "";
   for (const row of Object.values(rows)) {
     row.sort((a, b) => b.w - a.w || b.v - a.v);
-    let right = -row[0].w / 2, left = -row[0].w / 2;
+    let right = 0, left = 0;
+    const xs = row.map((it, n) => {
+      if (n === 0) { right = left = it.w / 2; return 0; }
+      if (n % 2) { const x = right + GAP + it.w / 2; right += GAP + it.w; return x; }
+      const x = -(left + GAP + it.w / 2); left += GAP + it.w; return x;
+    });
+    // A very busy row squeezes in rather than spilling past the chart's edges.
+    const room = (W - L - 8) / 2, squeeze = Math.min(1, room / Math.max(right, left));
     row.forEach((it, n) => {
-      let x;
-      if (n === 0) { x = cx; right = left = it.w / 2; }
-      else if (n % 2) { x = cx + right + GAP + it.w / 2; right += GAP + it.w; }
-      else { x = cx - left - GAP - it.w / 2; left += GAP + it.w; }
-      const y = Y(Math.round(it.v / 4) * 4);
+      const x = cx + xs[n] * squeeze, y = Y(Math.round(it.v / 4) * 4);
       if (!it.k) { const t = tierOf(it.v); dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${DOT / 2}" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".8"><title>${it.v}</title></circle>`; }
       else faces += `<g><title>${it.k === "herd" ? "The herd" : "You"}: ${it.v}</title><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${FACE / 2}" fill="var(--card)" stroke="${it.k === "herd" ? "var(--ox-dark)" : "var(--ink)"}" stroke-width="2"/>${placed(it.k === "herd" ? oxHead({ size: 120 }) : fairgoer({ size: 120 }), x, y, FACE - 5)}</g>`;
     });
@@ -112,7 +115,7 @@ export function scoreChart(scores, herdScore, you = null) {
   return `<svg class="score-chart" viewBox="0 0 ${W} 208" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">${grid}${dots}${faces}</svg>`;
 }
 
-const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+export const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 /** Yesterday's result on the morning chalkboard: the scores in big chalk, a headline (you against the herd), then your
  *  placing when it's a good one (top half; "joint" when others scored the same) beside "More" (the full results), and a rosette pinned to the corner for a top-20 finish, carrying
  *  your place (purple for first). "More" (data-more) leads to yesterday's card. Numbers carry data-count (and

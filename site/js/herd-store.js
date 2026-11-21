@@ -23,7 +23,7 @@ try { db = getFirestore(initializeApp(firebaseConfig)); } catch (e) { console.wa
 
 /** Local previews are for testing: they read the herd but never add to it (with or without ?day=). That includes a
  *  preview opened on a phone over the home network (192.168.x.x and the like). */
-export const testing = /^(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)$/.test(location.hostname);
+export const testing = /^(localhost|127\.0\.0\.1|\[::1\]|[\w-]+\.local|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)$/.test(location.hostname);
 
 export function playerId() {
   try {

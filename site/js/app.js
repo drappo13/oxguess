@@ -1,4 +1,4 @@
-import { oxHead, rosette, fairgoer, balance, herdChart, scoreChart, chalkboard } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart, scoreChart, chalkboard, ordinal } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
@@ -45,14 +45,15 @@ function bestStreak() {
   for (const d of days) { run = prev && shift(prev, 1) === d ? run + 1 : 1; best = Math.max(best, run); prev = d; }
   return best;
 }
-/** Every Best in show (a question scored 20) on this device, ever. */
+/** Every Best in show (a question scored 20) in a finished round on this device, ever. */
 function bestInShows() {
   let n = 0;
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const m = localStorage.key(i).match(/^ox-day-(\d{4}-\d{2}-\d{2})$/), st = m && store.get(localStorage.key(i));
-      if (!st?.answers) continue;
+      if (!st?.done || !st.answers) continue; // a round in progress mustn't give a 20 away before its reveal
       const qs = roundFor(m[1]).questions;
+      if (st.ids && st.ids !== qs.map((q) => q.id).join()) continue; // that day's questions have since changed
       n += st.answers.filter((a, j) => qs[j] && points(qs[j], a.g) === PER_QUESTION).length;
     }
   } catch { /* fine */ }
@@ -148,6 +149,8 @@ function newDay() {
   if (document.hidden) document.title = "New round ready! OxGuess"; // a tab left open says so, until you look
   load(); home(); return true;
 }
+// A tab left open moves on at midnight whichever screen it's on (and says so in its title).
+setInterval(() => { if (document.hidden && today) newDay(); }, 60000);
 // Coming back to an open tab: move on to a new day, or pick up the guesses the herd has made since.
 document.addEventListener("visibilitychange", async () => {
   if (!document.hidden) document.title = "OxGuess";
@@ -176,7 +179,7 @@ function header() {
   return `<header class="top">
     <button class="brand" id="brand" aria-label="OxGuess home">${oxHead({ size: 40 })}<span>OxGuess</span></button>
     <div class="top-right">
-      ${bis ? `<span class="pill bis-pill" id="bis-pill" title="${bis} Best in show${bis === 1 ? "" : "s"}, all time">${rosette("best", "", 20)}<b>${bis}</b></span>` : ""}
+      ${bis ? `<span class="pill bis-pill" id="bis-pill" role="img" aria-label="${bis} Best in show${bis === 1 ? "" : "s"}, all time" title="${bis} Best in show${bis === 1 ? "" : "s"}, all time">${rosette("best", "", 20)}<b>${bis}</b></span>` : ""}
       ${s ? `<span class="pill streak-pill" title="${s} day${s === 1 ? "" : "s"} in a row">🔥 ${s}</span>` : ""}
       <div class="menu-wrap">
         <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -365,11 +368,11 @@ function roundMoment(you, beat) {
   if (!before.length && beat) return { note: { kind: "first", icon: oxHead({ size: 34, mood: "wow" }), title: "Beat the herd first go", sub: "Beginner's luck?" } };
   return {};
 }
-/** A day's finished-round totals, kept on this device: a past day's for good (they're final), today's for five minutes.
- *  Every view would otherwise read every one of the day's plays. */
+/** A day's finished-round totals, kept on this device so every view doesn't read every play: yesterday's for an hour
+ *  (late players are still finishing it), older days' for good. */
 async function scoresFor(day) {
   const key = `ox-scores-${day}`, kept = store.get(key);
-  if (kept && (day < today.key || Date.now() - kept.at < 5 * 60 * 1000)) return kept.scores;
+  if (kept && (day < shift(today.key, -1) || Date.now() - kept.at < 60 * 60 * 1000)) return kept.scores;
   const scores = await loadScores(day);
   if (scores.length) {
     store.set(key, { at: Date.now(), scores });
@@ -377,8 +380,6 @@ async function scoresFor(day) {
   }
   return scores;
 }
-/** In the top half: your placing. Otherwise nobody needs telling they came 93rd. */
-const topHalf = (place, n) => n > 1 && place <= Math.ceil(n / 2);
 function shareText() {
   const grid = state.answers.map((_, i) => tierFor(ptsAt(i)).short).join(""), s = streak(), d = total() - herdTotal();
   const herdLine = d > 0 ? `Beat the herd by ${d} 🐂` : d < 0 ? `Herd: ${herdTotal()} 🐂` : "Level with the herd 🐂";
@@ -450,13 +451,23 @@ function carryOver() {
     window.history.replaceState(null, "", `/?carry=${packed}`); // window.: history() here is your past rounds
   } catch { /* fine: the home screen just starts afresh */ }
 }
-/** The first time the home-screen app opens, take in the progress it was saved with, without overwriting anything. */
+/** The first time the home-screen app opens, take in the progress it was saved with, without overwriting anything.
+ *  Only known settings, and only values of the right shape: a link is untrusted, and what it carries is drawn later. */
 function importCarried() {
   const packed = new URLSearchParams(location.search).get("carry");
   if (!packed) return;
+  const num = (x) => x == null || Number.isFinite(x);
+  const ok = {
+    day: (v) => { const st = JSON.parse(v); return st && typeof st === "object" && Array.isArray(st.answers) && st.answers.length <= 10 && st.answers.every((a) => a && Number.isFinite(a.g) && num(a.hm) && num(a.s) && num(a.bin) && num(a.ticket) && (a.arm == null || a.arm === "A" || a.arm === "B")) && (st.done == null || typeof st.done === "boolean") && num(st.total) && num(st.herdFinal) && (st.ids == null || /^[a-z0-9,-]{1,200}$/.test(st.ids)); },
+    player: (v) => /^"[a-z0-9-]{6,40}"$/i.test(v),
+    flag: (v) => ["true", "false", "\"metric\"", "\"imperial\"", "\"home\"", "\"no\"", "\"1\"", "\"0\"", "1", "0"].includes(v),
+  };
+  const check = (k, v) => /^ox-day-\d{4}-\d{2}-\d{2}$/.test(k) ? ok.day(v) : k === "ox-player" ? ok.player(v) : /^ox-(seen-story|units|keep|muted)$/.test(k) ? ok.flag(v) : false;
   try {
     const kept = JSON.parse(decodeURIComponent(escape(atob(packed.replace(/-/g, "+").replace(/_/g, "/")))));
-    for (const [k, v] of Object.entries(kept)) if (/^ox-/.test(k) && localStorage.getItem(k) == null) localStorage.setItem(k, v);
+    for (const [k, v] of Object.entries(kept)) {
+      try { if (typeof v === "string" && localStorage.getItem(k) == null && check(k, v)) localStorage.setItem(k, v); } catch { /* skip that one */ }
+    }
   } catch { /* a mangled address: start afresh */ }
   window.history.replaceState(null, "", "/");
 }
@@ -554,10 +565,10 @@ let yesterdayCache = null;
 function yesterdaySlot() {
   return shift(today.key, -1) >= EPOCH ? `<section class="card yesterday" id="yesterday" hidden></section>` : "";
 }
+// Before you've started today: an empty board holds the space, so the start button doesn't move when it fills.
 function slateSlot() {
-  return shift(today.key, -1) >= EPOCH ? `<section class="slate" id="slate" hidden aria-live="polite"></section>` : "";
+  return shift(today.key, -1) >= EPOCH && !state.answers.length ? `<section class="slate" id="slate"><div class="slate-board is-empty"><span class="slate-title">Yesterday's results</span></div></section>` : "";
 }
-const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
 async function fillYesterday() {
   const el = document.getElementById("yesterday"), y = shift(today.key, -1);
   if (!el) return;
@@ -577,7 +588,8 @@ async function fillYesterday() {
   const herdScore = rows.reduce((t, x) => t + points(x.q, x.h.median), 0);
   const you = mine ? rows.reduce((t, x) => t + points(x.q, x.g), 0) : null;
   const others = yesterdayCache.scores, all = you == null ? others : [...others, you], n = all.length;
-  const place = (v) => 1 + all.filter((t) => t > v).length, joint = (v) => all.filter((t) => t === v).length > 1 ? "joint " : "";
+  // Joint: sharing a score with another player, or (for you and the herd) with each other.
+  const place = (v) => 1 + all.filter((t) => t > v).length, joint = (v) => all.filter((t) => t === v).length > 1 || v === herdScore;
   el.innerHTML = `
     <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
     ${n ? scoreChart(others, herdScore, you) : ""}
@@ -586,12 +598,12 @@ async function fillYesterday() {
       { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
     ].sort((a, b) => (b.score ?? -1) - (a.score ?? -1)).map((x) => `<li class="${x.who}">
         <span class="st-icon">${x.icon}</span>
-        <span class="st-name">${x.name}${n && x.score != null ? `<small>${joint(x.score)}${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
+        <span class="st-name">${x.name}${n && x.score != null ? `<small>${(x.who === "herd" ? all.includes(x.score) : joint(x.score)) ? "joint " : ""}${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
         <span class="st-score">${x.score == null ? "" : `<b>${x.score}</b><small>/${MAX()}</small>`}</span>
       </li>`).join("")}</ol>
     ${questionByQuestion(rows)}`;
   el.hidden = false;
-  fillSlate({ you, herdScore, n, place: you == null ? null : place(you), tied: you != null && !!joint(you) });
+  fillSlate({ you, herdScore, n, place: you == null ? null : place(you), tied: you != null && joint(you) });
 }
 /** The morning chalkboard: yesterday's final placing, chalked up line by line. */
 function fillSlate({ you, herdScore, n, place, tied }) {
@@ -600,10 +612,7 @@ function fillSlate({ you, herdScore, n, place, tied }) {
   el.innerHTML = chalkboard({ you, herd: herdScore, n, place, tied });
   el.hidden = false;
   // "Full results": down to yesterday's card, opened.
-  el.querySelector("[data-more]").onclick = () => {
-    const y = document.querySelector("#yesterday details");
-    if (y) { y.open = true; y.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" }); }
-  };
+  el.querySelector("[data-more]").onclick = () => document.getElementById("yesterday")?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
   chalkUp(el);
 }
 
@@ -898,7 +907,7 @@ function reveal(i, { animate = false } = {}) {
       recordPlay(today.key, today.number, today.questions.map((_, j) => ptsAt(j)));
       recordPlayer(playerSummary());
       home({ celebrate: true });
-    } else { save(); leave().then(ask); }
+    } else if (screen === "reveal") { screen = "leaving"; save(); leave().then(() => { if (screen === "leaving") ask(); }); }
   };
   if (!animate) { setStriker(); return; }
 
@@ -1078,13 +1087,14 @@ function celebrateRound() {
     showKeep();
   })().finally(() => {
     celebrating = false;
+    if (bisPill?.isConnected) { bisPill.hidden = false; bisPill.querySelector("b").textContent = bisNow; }
     if (redrawPending) { redrawPending = false; if (screen === "home") redrawDay(); }
   });
 }
 
 // ---------- boot ----------
 async function boot() {
-  importCarried();
+  if (SHOW_HOME_SCREEN && standalone()) importCarried();
   try {
     const json = async (f) => (await fetch(f, { cache: "no-cache" })).json();
     const [bank, schedule] = await Promise.all([json("data/questions.json"), json("data/schedule.json")]);

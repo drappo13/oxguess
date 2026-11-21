@@ -56,6 +56,8 @@ export const sfx = {
   thunk() { noise({ dur: 0.07, vol: 0.25, freq: 600 }); tone(140, { dur: 0.12, type: "sine", vol: 0.14, to: 90 }); },
   /** The answer flag travelling along the scale. */
   slide(ms) { tone(320, { dur: ms / 1000, type: "triangle", vol: 0.03, to: 640 }); },
+  /** A rising whoosh (the staging tape measure's intro uses it). */
+  whoosh(ms) { tone(180, { dur: ms / 1000, type: "sawtooth", vol: 0.02, to: 900 }); },
   /** The strength tester: one tick a point as the puck climbs, a semitone higher each time. */
   climb(k) { tone(semis(400, k), { dur: 0.03, type: "triangle", vol: 0.04 }); },
   /** The puck landing where it stopped. */
