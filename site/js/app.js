@@ -191,7 +191,7 @@ function header() {
       </div>
     </div>
   </header>
-  <dialog class="sheet" id="prizes" aria-labelledby="prizes-title">
+  <dialog class="sheet" id="prizes" aria-labelledby="prizes-title" tabindex="-1">
     <h2 id="prizes-title">The prizes</h2>
     <p class="muted">Up to ${PER_QUESTION} points a question, ${PER_QUESTION * 5} a round. The closer you get, the better the rosette.</p>
     <ul class="tiers">${TIERS.map((t) => `<li>${rosette(t.key, t.min === PER_QUESTION ? PER_QUESTION : `${t.min}+`, 30)}<span>${t.name}</span></li>`).join("")}</ul>
@@ -260,7 +260,8 @@ function render(html, cat) {
   };
   const m = document.getElementById("mute"), prizes = document.getElementById("prizes");
   m.onclick = () => { setMuted(!isMuted()); m.setAttribute("aria-checked", String(!isMuted())); if (!isMuted()) sfx.plink(); };
-  document.getElementById("prizes-open").onclick = () => { menu(false); prizes.showModal(); };
+  // The sheet takes the focus itself, so Close doesn't open with a focus ring on it.
+  document.getElementById("prizes-open").onclick = () => { menu(false); prizes.showModal(); prizes.focus(); };
   document.getElementById("prizes-close").onclick = () => prizes.close();
   prizes.onclick = (e) => { if (e.target === prizes) prizes.close(); }; // a tap outside the sheet closes it
 }
