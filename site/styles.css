@@ -158,15 +158,16 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 
 /* ---------- home ---------- */
 .hero { align-items: center; text-align: center; gap: 10px; padding-top: 0; overflow: hidden; }
-.hero .story-bunting { align-self: stretch; height: 30px; margin: 0 6px -12px; }
-.hero .story-bunting i { width: 17px; height: 20px; }
+.bunting-line { align-self: stretch; width: auto; height: 34px; margin: 0 4px -14px; color: color-mix(in srgb, var(--ink) 45%, transparent); overflow: visible; }
+.bunting-line path[style] { transform-box: fill-box; transform-origin: 50% 0; --y: 0px; animation: sway 2.8s ease-in-out infinite; animation-delay: calc(var(--k) * -0.27s); }
 .hero .btn { width: 100%; position: relative; overflow: hidden; }
 /* Every few seconds a glint runs across the start button. */
 .hero .btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, .32) 50%, transparent 65%); transform: translateX(-110%); animation: glint 4.2s ease-in-out 1.6s infinite; pointer-events: none; }
 .hero-ox .ox { animation: bob 3.2s ease-in-out infinite; }
 /* Now and then the ox blinks. */
 .hero-ox .eyes { transform-box: view-box; transform-origin: 60px 54px; animation: blink 5.7s ease-in-out 1.2s infinite; }
-.hero h1 { font-size: 24px; }
+.hero h1 { font-size: min(24px, 6.4vw); }
+.hero h1 span { display: block; white-space: nowrap; }
 .dayline { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--ink); }
 .round-badge { font: 800 11px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); border-radius: 6px; padding: 2px 7px; transform: rotate(-3deg); }
 
@@ -626,7 +627,7 @@ table.st-cohort { border-collapse: separate; border-spacing: 3px; font-size: 12.
 @keyframes pan-r { 0% { transform: translateY(-8px); } 30% { transform: translateY(5.2px); } 55% { transform: translateY(-2.6px); } 78% { transform: translateY(1px); } 100% { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .streak-pill, .stagger > *, .story-page, .story-dot, .story-mark, .story-bunting i, .hero .btn::after, .menu, .cd-colon::before, .cd-colon::after,
+  .hero-ox .ox, .hero-ox .eyes, .story-hero .ox, .streak-pill, .stagger > *, .story-page, .story-dot, .story-mark, .story-bunting i, .bunting-line path, .hero .btn::after, .menu, .cd-colon::before, .cd-colon::after,
   .balance .beam, .balance .pan-l, .balance .pan-r, .later.shown > *, .later.shown .bar, .progress .just-done { animation: none; }
   .btn { transition: none; }
   .btn:active { transform: translateY(2px); }

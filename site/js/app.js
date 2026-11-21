@@ -200,6 +200,14 @@ function header() {
 }
 // A string of fair bunting: n flags in the category colours, sagging in the middle.
 const flags = (n, sag) => Array.from({ length: n }, (_, k) => `<i style="--k:${k}; --c:${["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"][k % 5]}; --y:${(Math.sin((k / (n - 1)) * Math.PI) * sag).toFixed(1)}px"></i>`).join("");
+// The same bunting drawn as one SVG, each flag hung from the wire it sits on (tilted to its slope), for today's card.
+function buntingLine(n = 9, sag = 7) {
+  const W = 320, cols = ["var(--c-big)", "var(--c-when)", "var(--c-far)", "var(--tent-a)", "var(--c-many)"];
+  const y = (t) => 3 + 4 * sag * t * (1 - t), slope = (t) => (Math.atan((4 * sag * (1 - 2 * t)) / W) * 180) / Math.PI;
+  const flag = (k) => { const t = (k + 0.5) / n, x = W * t;
+    return `<g transform="translate(${x.toFixed(1)} ${y(t).toFixed(1)}) rotate(${slope(t).toFixed(1)})"><path d="M-9 0H9L0 20Z" fill="${cols[k % 5]}" style="--k:${k}"/></g>`; };
+  return `<svg class="bunting-line" viewBox="0 0 ${W} 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 3Q${W / 2} ${3 + 2 * sag} ${W} 3" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke"/>${Array.from({ length: n }, (_, k) => flag(k)).join("")}</svg>`;
+}
 const SPEAKER = `<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="wave" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="cross" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>`;
 function menu(open) {
   const m = document.getElementById("menu"), b = document.getElementById("menu-btn");
@@ -307,10 +315,10 @@ function home({ celebrate = false } = {}) {
 function startCard() {
   const started = state.answers.length > 0;
   return `<section class="hero card">
-      <div class="story-bunting" aria-hidden="true">${flags(9, 8)}</div>
+      ${buntingLine()}
       <div class="hero-ox">${oxHead({ size: 72 })}</div>
       <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
-      <h1>${started ? "Carry on guessing" : "Five numbers. Can you beat the herd?"}</h1>
+      <h1>${started ? "Carry on guessing" : "<span>Five questions.</span> <span>Can you beat the herd?</span>"}</h1>
       <ol class="todays stagger" aria-label="Today's five">
         ${today.questions.map((q, i) => {
           const answered = i < state.answers.length, p = answered ? ptsAt(i) : null;

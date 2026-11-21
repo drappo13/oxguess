@@ -46,7 +46,7 @@ Nothing is pushed, and the live game and your question editor are untouched.
     - The chime climbs for a run of good guesses.
     - Rosettes pin on with a "tk".
 13. **End of round:** brass when you beat the herd, and a cheerful tuba when it beats you.
-14. **Today's card, shorter:** bunting along the top, a smaller ox, "Five numbers. Can you beat the herd?", today's five
+14. **Today's card, shorter:** bunting along the top, a smaller ox, "Five questions. / Can you beat the herd?" (two lines), today's five
     as little category tokens (each turns into its rosette once answered), and a start button with a glint. The button
     sits above the fold on a phone.
 15. **The ox:** it blinks on the start card, looks impressed when you win, and moos when you tap it in the header.
