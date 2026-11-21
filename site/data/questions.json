@@ -15,8 +15,10 @@
         "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
       },
       "evidence": "The Eiffel Tower was the world's tallest structure when completed in 1889",
-      "minB": 1780,
-      "maxB": 1940
+      "minB": 1750,
+      "maxB": 1950,
+      "min": 1850,
+      "max": 2000
     },
     {
       "id": "d02-when",
@@ -32,7 +34,11 @@
         "name": "Wikipedia: Toy Story",
         "url": "https://en.wikipedia.org/wiki/Toy_Story"
       },
-      "evidence": "Toy Story premiered at the El Capitan Theatre in Los Angeles on November 19, 1995"
+      "evidence": "Toy Story premiered at the El Capitan Theatre in Los Angeles on November 19, 1995",
+      "min": 1980,
+      "max": 2026,
+      "minB": 1950,
+      "maxB": 2010
     },
     {
       "id": "d03-when",
@@ -49,8 +55,10 @@
         "url": "https://en.wikipedia.org/wiki/Penicillin"
       },
       "evidence": "Penicillin was discovered in 1928 by the Scottish physician Alexander Fleming",
-      "minB": 1860,
-      "maxB": 2020
+      "minB": 1900,
+      "maxB": 2026,
+      "min": 1850,
+      "max": 1950
     },
     {
       "id": "d04-when",
@@ -67,8 +75,10 @@
         "url": "https://en.wikipedia.org/wiki/Colosseum"
       },
       "evidence": "Construction began under Emperor Vespasian (r. 69–79 AD) in 72 and was completed in AD 80 under his successor and heir, Titus",
-      "minB": -700,
-      "maxB": 2026
+      "minB": -1000,
+      "maxB": 500,
+      "min": -500,
+      "max": 1500
     },
     {
       "id": "d05-when",
@@ -84,7 +94,11 @@
         "name": "Wikipedia: Tokyo Disneyland",
         "url": "https://en.wikipedia.org/wiki/Tokyo_Disneyland"
       },
-      "evidence": "It was the first Disney park to be built outside the United States and it opened on April 15, 1983."
+      "evidence": "It was the first Disney park to be built outside the United States and it opened on April 15, 1983.",
+      "min": 1950,
+      "max": 2026,
+      "minB": 1900,
+      "maxB": 2000
     },
     {
       "id": "d06-when",
@@ -119,8 +133,10 @@
         "url": "https://en.wikipedia.org/wiki/Panama_Canal"
       },
       "evidence": "The US took over the project in 1904 and opened the canal in 1914.",
-      "minB": 1840,
-      "maxB": 2000
+      "minB": 1800,
+      "maxB": 1950,
+      "min": 1850,
+      "max": 2000
     },
     {
       "id": "d08-when",
@@ -136,7 +152,11 @@
         "name": "Wikipedia: Pac-Man",
         "url": "https://en.wikipedia.org/wiki/Pac-Man"
       },
-      "evidence": "Pac-Man, originally titled Puck Man in Japan, is a 1980 maze"
+      "evidence": "Pac-Man, originally titled Puck Man in Japan, is a 1980 maze",
+      "min": 1950,
+      "max": 2026,
+      "minB": 1900,
+      "maxB": 2000
     },
     {
       "id": "d09-when",
@@ -153,8 +173,10 @@
         "url": "https://en.wikipedia.org/wiki/Uranus"
       },
       "evidence": "Discovery date | 13 March 1781",
-      "minB": 1690,
-      "maxB": 2000
+      "minB": 1700,
+      "maxB": 2000,
+      "min": 1550,
+      "max": 1850
     },
     {
       "id": "d10-when",
@@ -208,7 +230,11 @@
         "name": "Wikipedia: IPhone (1st generation)",
         "url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
       },
-      "evidence": "it was officially announced on January 9, 2007, and was released in the United States on June 29, 2007."
+      "evidence": "it was officially announced on January 9, 2007, and was released in the United States on June 29, 2007.",
+      "min": 1980,
+      "max": 2020,
+      "minB": 2000,
+      "maxB": 2026
     },
     {
       "id": "d13-when",
@@ -265,8 +291,10 @@
         "url": "https://en.wikipedia.org/wiki/1896_Summer_Olympics"
       },
       "evidence": "were the first international Olympic Games held in modern history … Opening | Gregorian Calendar: 6 April 1896",
-      "minB": 1810,
-      "maxB": 1970
+      "minB": 1800,
+      "maxB": 1950,
+      "min": 1850,
+      "max": 2000
     },
     {
       "id": "d16-when",
@@ -336,7 +364,11 @@
         "name": "Wikipedia: Terracotta Army",
         "url": "https://en.wikipedia.org/wiki/Terracotta_Army"
       },
-      "evidence": "The Terracotta Army was discovered on 29 March 1974 by a group of farmers"
+      "evidence": "The Terracotta Army was discovered on 29 March 1974 by a group of farmers",
+      "min": 1850,
+      "max": 2000,
+      "minB": 1950,
+      "maxB": 2026
     },
     {
       "id": "d20-when",
@@ -368,7 +400,11 @@
         "name": "Wikipedia: Wordle",
         "url": "https://en.wikipedia.org/wiki/Wordle"
       },
-      "evidence": "Originally developed as a personal project for Wardle and his partner, Wordle was publicly released in October 2021."
+      "evidence": "Originally developed as a personal project for Wardle and his partner, Wordle was publicly released in October 2021.",
+      "min": 2000,
+      "max": 2026,
+      "minB": 2010,
+      "maxB": 2026
     },
     {
       "id": "d01-big",
@@ -378,15 +414,17 @@
       "answer": 23.77,
       "unit": "m",
       "alt": "78 ft",
-      "scale": "log",
+      "scale": "lin",
       "fact": "Courts come in four main surfaces: clay, hard, grass and carpet. The size is fixed by the ITF's annual Rules of Tennis.",
       "source": {
         "name": "Wikipedia: Tennis court",
         "url": "https://en.wikipedia.org/wiki/Tennis_court"
       },
       "evidence": "The court is 78 ft (23.77 m) long.",
-      "minB": 5,
-      "maxB": 1000
+      "minB": 1,
+      "maxB": 30,
+      "min": 10,
+      "max": 50
     },
     {
       "id": "d02-big",
@@ -437,8 +475,10 @@
         "url": "https://en.wikipedia.org/wiki/Angel_Falls"
       },
       "evidence": "It is the world's tallest uninterrupted waterfall, with a height of 979 metres (3,212 ft), and a plunge of 807 m (2,648 ft).",
-      "minB": 100,
-      "maxB": 20000
+      "minB": 200,
+      "maxB": 20000,
+      "min": 50,
+      "max": 2000
     },
     {
       "id": "d05-big",
@@ -475,8 +515,10 @@
         "url": "https://en.wikipedia.org/wiki/Saturn_V"
       },
       "evidence": "Height | 111 m (363 ft)",
-      "minB": 10,
-      "maxB": 2000
+      "minB": 20,
+      "maxB": 2000,
+      "min": 10,
+      "max": 500
     },
     {
       "id": "d07-big",
@@ -494,7 +536,9 @@
       },
       "evidence": "Its weight is estimated at 14,500 tonnes (16,000 short tons).",
       "minB": 1000,
-      "maxB": 200000
+      "maxB": 1000000,
+      "min": 100,
+      "max": 100000
     },
     {
       "id": "d08-big",
@@ -504,15 +548,17 @@
       "answer": 20.12,
       "unit": "m",
       "alt": "22 yd",
-      "scale": "log",
+      "scale": "lin",
       "fact": "The length is exactly one chain, an old surveyor's measure introduced in 1620. It was already the rule in the first known Laws of Cricket in 1744.",
       "source": {
         "name": "Wikipedia: Cricket pitch",
         "url": "https://en.wikipedia.org/wiki/Cricket_pitch"
       },
       "evidence": "It is 22 yd (20.12 m) long (1 chain) and 10 ft (3.05 m) wide",
-      "minB": 5,
-      "maxB": 500
+      "minB": 1,
+      "maxB": 30,
+      "min": 10,
+      "max": 50
     },
     {
       "id": "d09-big",
@@ -568,7 +614,9 @@
       },
       "evidence": "It is made of bronze, weighs 39,312 kilograms (86,668 lb) and has a length of 5.34 m (17.5 ft).",
       "minB": 5,
-      "maxB": 500
+      "maxB": 1000,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d12-big",
@@ -637,7 +685,11 @@
         "name": "Wikipedia: Mount Rushmore",
         "url": "https://en.wikipedia.org/wiki/Mount_Rushmore"
       },
-      "evidence": "The sculpture features 60-foot-tall (18 m) depictions of the heads of four United States presidents"
+      "evidence": "The sculpture features 60-foot-tall (18 m) depictions of the heads of four United States presidents",
+      "min": 1,
+      "max": 100,
+      "minB": 5,
+      "maxB": 200
     },
     {
       "id": "d15-wild",
@@ -688,8 +740,10 @@
         "url": "https://en.wikipedia.org/wiki/Hughes_H-4_Hercules"
       },
       "evidence": "Wingspan: 319 ft 11 in (97.51 m)",
-      "minB": 5,
-      "maxB": 1000
+      "minB": 20,
+      "maxB": 1000,
+      "min": 10,
+      "max": 200
     },
     {
       "id": "d19-big",
@@ -726,8 +780,10 @@
         "url": "https://en.wikipedia.org/wiki/CN_Tower"
       },
       "evidence": "The CN Tower (French: Tour CN) is a 553.3-metre-high (1,815.3 ft) communications and observation tower in Toronto, Ontario, Canada.",
-      "minB": 200,
-      "maxB": 20000
+      "minB": 100,
+      "maxB": 5000,
+      "min": 50,
+      "max": 1000
     },
     {
       "id": "d21-big",
@@ -917,8 +973,10 @@
         "url2": "https://www.wikidata.org/wiki/Q2548808"
       },
       "evidence": "Leaning Tower of Pisa (Q39054): Point(10.396624 43.72301); Sagrada Família (Q2548808): Point(2.174492 41.404528). Great-circle (haversine, R = 6371.0088 km) = 721 km",
-      "minB": 50,
-      "maxB": 10000
+      "minB": 200,
+      "maxB": 10000,
+      "min": 10,
+      "max": 2000
     },
     {
       "id": "d10-far",
@@ -976,8 +1034,10 @@
         "url2": "https://www.wikidata.org/wiki/Q177477"
       },
       "evidence": "Kennedy Space Center (Q48821): Point(-80.648611 28.524722); Baikonur Cosmodrome (Q177477): Point(63.3051 45.9648). Great-circle (haversine, R = 6371.0088 km) = 10970 km",
-      "minB": 500,
-      "maxB": 100000
+      "minB": 2000,
+      "maxB": 200000,
+      "min": 500,
+      "max": 20000
     },
     {
       "id": "d13-far",
@@ -995,8 +1055,10 @@
         "url2": "https://www.wikidata.org/wiki/Q37200"
       },
       "evidence": "Stonehenge (Q39671): Point(-1.826111 51.178889); Great Pyramid of Giza (Q37200): Point(31.13422 29.97915). Great-circle (haversine, R = 6371.0088 km) = 3596 km",
-      "minB": 200,
-      "maxB": 100000
+      "minB": 1000,
+      "maxB": 100000,
+      "min": 100,
+      "max": 10000
     },
     {
       "id": "d14-far",
@@ -1090,8 +1152,10 @@
         "url2": "https://www.wikidata.org/wiki/Q12495"
       },
       "evidence": "Petra (Q5788): Point(35.441944 30.328611); Burj Khalifa (Q12495): Point(55.274167 25.197222). Great-circle (haversine, R = 6371.0088 km) = 2030 km",
-      "minB": 100,
-      "maxB": 20000
+      "minB": 500,
+      "maxB": 50000,
+      "min": 100,
+      "max": 10000
     },
     {
       "id": "d19-far",
@@ -1130,8 +1194,10 @@
         "url2": "https://www.wikidata.org/wiki/Q858794"
       },
       "evidence": "Golden Gate Bridge (Q44440): Point(-122.478611 37.819722); Old Faithful (Q858794): Point(-110.828139 44.460472). Great-circle (haversine, R = 6371.0088 km) = 1222 km",
-      "minB": 50,
-      "maxB": 20000
+      "minB": 200,
+      "maxB": 20000,
+      "min": 10,
+      "max": 5000
     },
     {
       "id": "d21-far",
@@ -1220,15 +1286,17 @@
       "answer": 64,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "It ran from 20 November to 18 December, outside the usual World Cup months of May, June and July.",
       "source": {
         "name": "Wikipedia: 2022 FIFA World Cup",
         "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup"
       },
       "evidence": "It was held over a reduced time frame of 29 days with 64 matches played in eight venues across five cities.",
-      "minB": 10,
-      "maxB": 2000
+      "minB": 20,
+      "maxB": 250,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d05-many",
@@ -1306,15 +1374,17 @@
       "answer": 225,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "American architect Alfred Mosher Butts invented the game in 1931.",
       "source": {
         "name": "Wikipedia: Scrabble",
         "url": "https://en.wikipedia.org/wiki/Scrabble"
       },
       "evidence": "Scrabble is played on a 15x15 board, containing 225 squares.",
-      "minB": 10,
-      "maxB": 2000
+      "minB": 1,
+      "maxB": 300,
+      "min": 1,
+      "max": 1000
     },
     {
       "id": "d10-many",
@@ -1358,7 +1428,7 @@
       "answer": 40,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "Twenty-eight of the spaces are properties: 22 streets, four railroads and two utilities.",
       "source": {
         "name": "Wikipedia: Monopoly (game)",
@@ -1366,7 +1436,9 @@
       },
       "evidence": "The Monopoly game board consists of forty spaces containing twenty-eight properties",
       "minB": 1,
-      "maxB": 500
+      "maxB": 60,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d13-many",
@@ -1393,13 +1465,17 @@
       "answer": 14,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "The word comes from the Italian sonetto, meaning \"little song\".",
       "source": {
         "name": "Wikipedia: Sonnet",
         "url": "https://en.wikipedia.org/wiki/Sonnet"
       },
-      "evidence": "A sonnet is a fixed poetic form with a structure traditionally consisting of fourteen lines adhering to a set rhyming scheme."
+      "evidence": "A sonnet is a fixed poetic form with a structure traditionally consisting of fourteen lines adhering to a set rhyming scheme.",
+      "min": 1,
+      "max": 50,
+      "minB": 1,
+      "maxB": 20
     },
     {
       "id": "d15-many",
@@ -1409,15 +1485,17 @@
       "answer": 78,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "The deck has two parts: 22 trump cards called the Major Arcana, and the suit cards called the Minor Arcana.",
       "source": {
         "name": "Wikipedia: Tarot",
         "url": "https://en.wikipedia.org/wiki/Tarot"
       },
       "evidence": "The 78-card tarot deck used by esotericists has two distinct parts",
-      "minB": 10,
-      "maxB": 5000
+      "minB": 20,
+      "maxB": 250,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d16-many",
@@ -1427,13 +1505,17 @@
       "answer": 12,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "The last Apollo Moon landing was Apollo 17, in December 1972.",
       "source": {
         "name": "Wikipedia: Apollo program",
         "url": "https://en.wikipedia.org/wiki/Apollo_program"
       },
-      "evidence": "In these six spaceflights, twelve people walked on the Moon."
+      "evidence": "In these six spaceflights, twelve people walked on the Moon.",
+      "min": 1,
+      "max": 50,
+      "minB": 1,
+      "maxB": 20
     },
     {
       "id": "d17-many",
@@ -1565,7 +1647,9 @@
         "name": "Wikipedia: Gold",
         "url": "https://en.wikipedia.org/wiki/Gold"
       },
-      "evidence": "Melting point | 1337.33 K (1064.18 °C, 1947.52 °F)"
+      "evidence": "Melting point | 1337.33 K (1064.18 °C, 1947.52 °F)",
+      "minB": 0,
+      "maxB": 1500
     },
     {
       "id": "d03-wild",
@@ -1675,7 +1759,9 @@
       },
       "evidence": "Mary Wollstonecraft Shelley (née Godwin; 30 August 1797 – 1 February 1851) … Frankenstein; or, The Modern Prometheus, published on 1 January 1818",
       "min": 0,
-      "max": 100
+      "max": 100,
+      "minB": 0,
+      "maxB": 35
     },
     {
       "id": "d09-wild",
@@ -1777,15 +1863,17 @@
       "answer": 240,
       "unit": "km/h",
       "alt": "149 mph",
-      "scale": "log",
+      "scale": "lin",
       "fact": "Riders reach top speed just 4.9 seconds after launch.",
       "source": {
         "name": "Wikipedia: Formula Rossa",
         "url": "https://en.wikipedia.org/wiki/Formula_Rossa"
       },
       "evidence": "became the fastest roller coaster in the world upon opening with a maximum speed of 240 km/h (149.1 mph)",
-      "minB": 20,
-      "maxB": 2000
+      "minB": 100,
+      "maxB": 500,
+      "min": 1,
+      "max": 300
     },
     {
       "id": "d16-big",
@@ -1803,7 +1891,9 @@
       },
       "evidence": "The bell is the largest bell in the world, weighing 201,924 kilograms (445,166 lb)",
       "minB": 20,
-      "maxB": 5000
+      "maxB": 10000,
+      "min": 10,
+      "max": 500
     },
     {
       "id": "d16-wild",
@@ -1842,8 +1932,8 @@
         "url": "https://en.wikipedia.org/wiki/Venus"
       },
       "evidence": "the average surface temperature is 737 K (464 °C; 867 °F)",
-      "minB": 330,
-      "maxB": 930
+      "minB": 200,
+      "maxB": 1000
     },
     {
       "id": "d18-wild",
@@ -1861,7 +1951,9 @@
       },
       "evidence": "Steven Paul Jobs (February 24, 1955 – October 5, 2011) … as a business partnership in Jobs's parents' Crist Drive home on April 1, 1976.",
       "min": 0,
-      "max": 100
+      "max": 100,
+      "minB": 0,
+      "maxB": 35
     },
     {
       "id": "d19-wild",
@@ -1871,15 +1963,17 @@
       "answer": 161.3,
       "unit": "km/h",
       "alt": "100.2 mph",
-      "scale": "log",
+      "scale": "lin",
       "fact": "His nickname was the \"Rawalpindi Express\".",
       "source": {
         "name": "Wikipedia: Shoaib Akhtar",
         "url": "https://en.wikipedia.org/wiki/Shoaib_Akhtar"
       },
       "evidence": "He achieved the record of the fastest recorded bowl to date at 161.3 km/h",
-      "minB": 20,
-      "maxB": 2000
+      "minB": 100,
+      "maxB": 300,
+      "min": 1,
+      "max": 200
     },
     {
       "id": "d20-wild",
@@ -1896,8 +1990,10 @@
         "url": "https://en.wikipedia.org/wiki/Marathon"
       },
       "evidence": "The marathon is a long-distance foot race with a distance of 42.195 kilometres (c. 26.22 mi)",
-      "minB": 1,
-      "maxB": 200
+      "minB": 10,
+      "maxB": 250,
+      "min": 1,
+      "max": 100
     },
     {
       "id": "d21-wild",
@@ -1907,15 +2003,17 @@
       "answer": 9.58,
       "unit": "s",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "It was the biggest improvement in the record since electronic timing began.",
       "source": {
         "name": "Wikipedia: Usain Bolt",
         "url": "https://en.wikipedia.org/wiki/Usain_Bolt"
       },
       "evidence": "Bolt improved upon his second 100 m world record of 9.69 with 9.58 seconds in 2009",
-      "minB": 0.5,
-      "maxB": 100
+      "minB": 5,
+      "maxB": 25,
+      "min": 1,
+      "max": 15
     },
     {
       "id": "wadlow-height",
@@ -1925,13 +2023,17 @@
       "answer": 272,
       "unit": "cm",
       "alt": "8 ft 11 in",
-      "scale": "log",
+      "scale": "lin",
       "fact": "He kept growing all his adult life, because of an overactive pituitary gland. He died aged 22.",
       "source": {
         "name": "Wikipedia: Robert Wadlow",
         "url": "https://en.wikipedia.org/wiki/Robert_Wadlow"
       },
-      "evidence": "Robert Pershing Wadlow (February 22, 1918 – July 15, 1940) … was an American man known for being the tallest person in recorded history for whom there is irrefutable evidence. … Wadlow's height was 8 ft 11.1 in (2.72 m)"
+      "evidence": "Robert Pershing Wadlow (February 22, 1918 – July 15, 1940) … was an American man known for being the tallest person in recorded history for whom there is irrefutable evidence. … Wadlow's height was 8 ft 11.1 in (2.72 m)",
+      "min": 100,
+      "max": 500,
+      "minB": 0,
+      "maxB": 400
     },
     {
       "id": "europe-pop",
@@ -1947,7 +2049,11 @@
         "name": "Wikipedia: Europe",
         "url": "https://en.wikipedia.org/wiki/Europe"
       },
-      "evidence": "The population of Europe was about 742 million in 2023 according to UN estimates."
+      "evidence": "The population of Europe was about 742 million in 2023 according to UN estimates.",
+      "min": 10000000,
+      "max": 2000000000,
+      "minB": 100000000,
+      "maxB": 10000000000
     },
     {
       "id": "uk-pms",
@@ -1981,7 +2087,9 @@
         "name": "Wikipedia: Jeanne Calment",
         "url": "https://en.wikipedia.org/wiki/Jeanne_Calment"
       },
-      "evidence": "Jeanne Louise Calment (21 February 1875 – 4 August 1997) was a French supercentenarian who is the oldest person in recorded history whose age has been verified, with a documented lifespan of 122 years and 164 days."
+      "evidence": "Jeanne Louise Calment (21 February 1875 – 4 August 1997) was a French supercentenarian who is the oldest person in recorded history whose age has been verified, with a documented lifespan of 122 years and 164 days.",
+      "minB": 80,
+      "maxB": 200
     },
     {
       "id": "swahn-age",
@@ -2033,7 +2141,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Saudi_Arabia"
       },
-      "evidence": "Saudi Arabia: Population (1 July 2023) 32,264,292 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Saudi Arabia: Population (1 July 2023) 32,264,292 (UN World Population Prospects, 2024 revision)",
+      "min": 1000000,
+      "max": 100000000,
+      "minB": 10000000,
+      "maxB": 1000000000
     },
     {
       "id": "pop-iran",
@@ -2050,7 +2162,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Iran"
       },
-      "evidence": "Iran: Population (1 July 2023) 90,608,707 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Iran: Population (1 July 2023) 90,608,707 (UN World Population Prospects, 2024 revision)",
+      "min": 1000000,
+      "max": 200000000,
+      "minB": 20000000,
+      "maxB": 1000000000
     },
     {
       "id": "pop-russia",
@@ -2067,7 +2183,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Russia"
       },
-      "evidence": "Russia: Population (1 July 2023) 145,440,500 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Russia: Population (1 July 2023) 145,440,500 (UN World Population Prospects, 2024 revision)",
+      "min": 10000000,
+      "max": 250000000,
+      "minB": 20000000,
+      "maxB": 2000000000
     },
     {
       "id": "pop-brazil",
@@ -2156,7 +2276,11 @@
         "url": "https://en.wikipedia.org/wiki/Football_pitch",
         "url2": "https://en.wikipedia.org/wiki/Paper_size"
       },
-      "evidence": "FIFA recommends that the field of play measures exactly 105 metres (115 yards) long and 68 metres (74 yards) wide … Paper size: A4 is 297 mm by 210 mm. 7,140 m2 / (0.297 m x 0.210 m = 0.06237 m2) = 114,478"
+      "evidence": "FIFA recommends that the field of play measures exactly 105 metres (115 yards) long and 68 metres (74 yards) wide … Paper size: A4 is 297 mm by 210 mm. 7,140 m2 / (0.297 m x 0.210 m = 0.06237 m2) = 114,478",
+      "min": 1000,
+      "max": 1000000,
+      "minB": 10000,
+      "maxB": 10000000
     }
   ]
 }
