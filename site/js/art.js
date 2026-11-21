@@ -84,35 +84,41 @@ export function balance() {
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
 /** One day's scores, drawn like the stats page's: the score up the left (0 to 100, light lines across at every 25), and
- *  every finished round a dot in one swarm that spreads out either side of the middle where scores bunch, as wide as it
- *  needs, each dot coloured by the rosette its score would win (a round's tier is the question tier at five times the
- *  points). The herd and you are bigger dots in the swarm, the ox and the fairgoer, at the middle of your rows. */
+ *  every finished round a small dot at its own score, coloured by the rosette its score would win (a round's tier is the
+ *  question tier at five times the points). The dots scatter loosely, wider where scores bunch, with a little seeded
+ *  wobble so nothing lines up in rows (the same scores always draw the same).
+ *  The herd and you are bigger dots, the ox and the fairgoer, placed first in the middle. */
 export function scoreChart(scores, herdScore, you = null) {
   const W = 320, T = 14, B = 194, L = 28, cx = L + 4 + (W - L - 4) / 2, Y = (v) => B - (v / 100) * (B - T), tierOf = (v) => TIERS.find((t) => v >= t.min * 5);
-  const DOT = 7, FACE = 24, GAP = 1;
-  const items = [...scores.map((v) => ({ v, w: DOT })), { v: herdScore, w: FACE, k: "herd" }, ...(you == null ? [] : [{ v: you, w: FACE, k: "you" }])];
-  // Each row (4 points high) fills outwards from the middle, the faces first, then the dots, alternating right and left.
-  const rows = {};
-  for (const it of items) (rows[Math.round(it.v / 4)] ??= []).push(it);
-  let dots = "", faces = "";
-  for (const row of Object.values(rows)) {
-    row.sort((a, b) => b.w - a.w || b.v - a.v);
-    let right = 0, left = 0;
-    const xs = row.map((it, n) => {
-      if (n === 0) { right = left = it.w / 2; return 0; }
-      if (n % 2) { const x = right + GAP + it.w / 2; right += GAP + it.w; return x; }
-      const x = -(left + GAP + it.w / 2); left += GAP + it.w; return x;
-    });
-    // A very busy row squeezes in rather than spilling past the chart's edges.
-    const room = (W - L - 8) / 2, squeeze = Math.min(1, room / Math.max(right, left));
-    row.forEach((it, n) => {
-      const x = cx + xs[n] * squeeze, y = Y(Math.round(it.v / 4) * 4);
-      if (!it.k) { const t = tierOf(it.v); dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${DOT / 2}" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".8"><title>${it.v}</title></circle>`; }
-      else faces += `<g><title>${it.k === "herd" ? "The herd" : "You"}: ${it.v}</title><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${FACE / 2}" fill="var(--card)" stroke="${it.k === "herd" ? "var(--ox-dark)" : "var(--ink)"}" stroke-width="2"/>${placed(it.k === "herd" ? oxHead({ size: 120 }) : fairgoer({ size: 120 }), x, y, FACE - 5)}</g>`;
-    });
+  const R = 2.5, FACE = 24, GAP = 2, room = (W - L - 8) / 2;
+  let seed = 1 + scores.length * 7919 + herdScore * 31;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const faces = [{ v: herdScore, k: "herd" }, ...(you == null ? [] : [{ v: you, k: "you" }])];
+  const down = [];
+  faces.forEach((f, n) => {
+    const near = n && Math.abs(Y(f.v) - Y(faces[0].v)) < FACE;
+    f.x = near ? FACE / 2 + 1 : 0; if (near) faces[0].x = -(FACE / 2 + 1);
+    f.y = Y(f.v);
+  });
+  faces.forEach((f) => down.push({ x: f.x, y: f.y, r: FACE / 2 }));
+  // Each dot drops at a random spot across a band as wide as its scores are busy (like a violin), trying again where it
+  // would overlap, and sliding out to the nearest gap only if the band is full.
+  const busy = (v) => scores.filter((t) => Math.abs(t - v) <= 3).length;
+  const dots = scores.map((v) => ({ v, y: Y(v) + (rand() - 0.5) * 5 }));
+  const clear = (x, y) => down.every((o) => (o.x - x) ** 2 + (o.y - y) ** 2 >= (o.r + R + GAP) ** 2);
+  for (const d of dots) {
+    const w = Math.min(room, 10 + busy(d.v) * 3.2);
+    for (let k = 0; k < 40 && d.x == null; k++) { const x = (rand() * 2 - 1) * w; if (clear(x, d.y)) d.x = x; }
+    for (let k = 0; d.x == null; k++) { const x = (k % 2 ? 1 : -1) * Math.ceil(k / 2) * 1.5; if (clear(x, d.y)) d.x = x; }
+    down.push({ x: d.x, y: d.y, r: R });
   }
+  // A very busy day squeezes in rather than spilling past the chart's edges.
+  const squeeze = Math.min(1, room / Math.max(1, ...down.map((o) => Math.abs(o.x) + o.r)));
+  const X = (x) => (cx + x * squeeze).toFixed(1);
+  const dotSvg = dots.map((d) => { const t = tierOf(d.v); return `<circle cx="${X(d.x)}" cy="${d.y.toFixed(1)}" r="${R}" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".7"><title>${d.v}</title></circle>`; }).join("");
+  const faceSvg = faces.map((f) => `<g><title>${f.k === "herd" ? "The herd" : "You"}: ${f.v}</title><circle cx="${X(f.x)}" cy="${f.y.toFixed(1)}" r="${FACE / 2}" fill="var(--card)" stroke="${f.k === "herd" ? "var(--ox-dark)" : "var(--ink)"}" stroke-width="2"/>${placed(f.k === "herd" ? oxHead({ size: 120 }) : fairgoer({ size: 120 }), +X(f.x), f.y, FACE - 5)}</g>`).join("");
   const grid = [0, 25, 50, 75, 100].map((v) => `<line x1="${L}" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" class="sc-axis">${v}</text>`).join("");
-  return `<svg class="score-chart" viewBox="0 0 ${W} 208" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">${grid}${dots}${faces}</svg>`;
+  return `<svg class="score-chart" viewBox="0 0 ${W} 208" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">${grid}${dotSvg}${faceSvg}</svg>`;
 }
 
 export const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
