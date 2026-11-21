@@ -83,27 +83,21 @@ export function balance() {
 /** One of the 120x120 drawings above, placed inside another SVG and centred on (cx, cy). */
 export const placed = (svg, cx, cy, size) => `<svg x="${(cx - size / 2).toFixed(1)}" y="${(cy - size / 2).toFixed(1)}" width="${size}" height="${size}" viewBox="0 0 120 120" overflow="visible">${svg.replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>`;
 
-/** One day's scores, standing up: the score runs up the left from 0 to 100, every finished round is a dot at its
- *  score (to the nearest 2, stacked along where they bunch), coloured by the rosette that score would win (a round's
- *  tier is the question tier at five times the points). The herd's score is a dashed line across with the ox at the end,
- *  yours a solid one with the fairgoer. */
+/** One day's scores, drawn like the stats page's: the score up the left (0 to 100, light lines across at every 25), every
+ *  finished round a dot in one swarm that spreads out either side of the middle where scores bunch, each dot coloured by
+ *  the rosette its score would win (a round's tier is the question tier at five times the points). The herd's score is
+ *  a dashed line with the ox at the right; yours a solid line with the fairgoer at the left. */
 export function scoreChart(scores, herdScore, you = null) {
-  const W = 320, ax = 30, y = (v) => 10 + (100 - v) * 3, stacks = {}, tierOf = (v) => TIERS.find((t) => v >= t.min * 5);
-  for (const v of scores) { const k = Math.round(v / 2) * 2; stacks[k] = (stacks[k] ?? 0) + 1; }
-  const step = Math.min(7, (W - ax - 70) / Math.max(1, ...Object.values(stacks))), seen = {};
-  const dots = [...scores].sort((a, b) => b - a).map((v) => {
-    const k = Math.round(v / 2) * 2, n = (seen[k] = (seen[k] ?? 0) + 1) - 1, t = tierOf(v);
-    return `<circle cx="${(ax + 8 + n * step).toFixed(1)}" cy="${y(k)}" r="3.2" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".9"><title>${v}</title></circle>`;
+  const W = 320, T = 12, B = 192, L = 28, cx = L + (W - L) / 2, Y = (v) => B - (v / 100) * (B - T), tierOf = (v) => TIERS.find((t) => v >= t.min * 5);
+  const seen = {};
+  const dots = [...scores].sort((a, b) => a - b).map((v) => {
+    const k = Math.round(v / 3), n = (seen[k] = (seen[k] ?? 0) + 1) - 1, dx = (n % 2 ? 1 : -1) * Math.ceil(n / 2) * 6, t = tierOf(v);
+    return `<circle cx="${(cx + dx).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="3" fill="var(--r-${t.key})" stroke="var(--r-${t.key}-dark)" stroke-width=".8"><title>${v}</title></circle>`;
   }).join("");
-  // When you and the herd scored close together, your face sits a step in so the two don't overlap.
-  const line = (v, cls, svg, x) => `<line x1="${ax}" x2="${x - 13}" y1="${y(v)}" y2="${y(v)}" class="${cls}"/>${placed(svg, x, y(v), 22)}`;
-  return `<svg class="score-chart" viewBox="0 0 ${W} 322" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">
-    <line x1="${ax}" x2="${ax}" y1="${y(100)}" y2="${y(0)}" stroke="var(--line)" stroke-width="1.5"/>
-    ${Array.from({ length: 11 }, (_, k) => k * 10).map((v) => `<line x1="${ax - 4}" x2="${ax}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1.5"/><text x="${ax - 8}" y="${y(v) + 3.5}" text-anchor="end" class="sc-axis">${v}</text>`).join("")}
-    ${dots}
-    ${line(herdScore, "sc-herd", oxHead({ size: 120 }), W - 14)}
-    ${you == null ? "" : line(you, "sc-you", fairgoer({ size: 120 }), Math.abs(you - herdScore) < 8 ? W - 42 : W - 14)}
-  </svg>`;
+  const grid = [0, 25, 50, 75, 100].map((v) => `<line x1="${L}" x2="${W - 4}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" class="sc-axis">${v}</text>`).join("");
+  const herdLine = `<line x1="${L + 34}" x2="${W - 26}" y1="${Y(herdScore)}" y2="${Y(herdScore)}" class="sc-herd"/>${placed(oxHead({ size: 120 }), W - 14, Y(herdScore), 20)}`;
+  const youLine = you == null ? "" : `<line x1="${L + 26}" x2="${W - 34}" y1="${Y(you)}" y2="${Y(you)}" class="sc-you"/>${placed(fairgoer({ size: 120 }), L + 14, Y(you), 20)}`;
+  return `<svg class="score-chart" viewBox="0 0 ${W} 206" role="img" aria-label="Every score yesterday, with the herd's${you == null ? "" : " and yours"}">${grid}${dots}${herdLine}${youLine}</svg>`;
 }
 
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;

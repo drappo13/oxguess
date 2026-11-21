@@ -326,7 +326,7 @@ function weekCard() {
 
 // 1 and 3: you against the herd, then share.
 function verdict(celebrate) {
-  const you = total(), herdScore = herdTotal(), max = MAX(), beat = you > herdScore, level = you === herdScore;
+  const you = total(), herdScore = herdTotal(), beat = you > herdScore, level = you === herdScore;
   const headline = beat ? "You beat the herd!" : level ? "Dead level with the herd" : "The herd wins today";
   const sub = beat ? "Smarter than the crowd. Don't let it go to your head." : level ? "Great minds, and all that." : "It knows things. Tomorrow's another fair.";
   const moment = roundMoment(you, beat);
@@ -334,10 +334,10 @@ function verdict(celebrate) {
       <p class="dayline"><span>${prettyDate(today.key)}</span><span class="round-badge">Round ${today.number}</span></p>
       <div class="ribbon-wrap"><div class="ribbon ${beat ? "win" : ""} ${celebrate ? "is-hidden" : ""}" id="ribbon">${headline}</div></div>
       <div class="versus">
-        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span><small>/${max}</small></span><span class="who">You</span>
+        <div class="side you">${fairgoer({ size: 46 })}<span class="score-line"><span class="big-num" id="you-n">${celebrate ? 0 : you}</span></span><span class="who">You</span>
 </div>
         <span class="vs">vs</span>
-        <div class="side">${oxHead({ size: 46, mood: beat ? "wow" : "happy" })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span><small>/${max}</small></span><span class="who">The herd</span></div>
+        <div class="side">${oxHead({ size: 46, mood: beat ? "wow" : "happy" })}<span class="score-line"><span class="big-num" id="herd-n">${celebrate ? 0 : herdScore}</span></span><span class="who">The herd</span></div>
       </div>
       ${moment.pb ? `<div class="pb-row"><span class="pb-badge" id="pb" ${celebrate ? "hidden" : ""}>${rosette("first", "", 22)}Personal best</span></div>` : ""}
       <p class="results-sub">${sub}</p>
