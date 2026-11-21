@@ -1,112 +1,73 @@
-# Testing the delight pass (branch `delight`, not live)
+# Testing the delight pass (branch `delight`, local only)
 
-Everything is on the local branch `delight` in `~/projects/oxguess-delight`. Nothing is pushed, and the live game
-and your question editor are untouched.
+Everything is on the local branch `delight` in `~/projects/oxguess-delight`, served at http://localhost:4322.
+Nothing is pushed, and the live game and your question editor are untouched.
 
-## Opening it
+## How to test
 
-- **On the Mac:** http://localhost:4322 (the "oxguess-delight" preview).
-  - In Chrome, devtools' phone view (iPhone size) is closest to the real thing.
-  - Turn the sound on: the menu, then Sound.
-- **On your phone:** try `http://192.168.0.62:4322` on the same wifi. I couldn't reach that address from here, so
-  it may be blocked; if so, use the Mac.
-  - Local addresses never write to the real herd or plays, so test freely.
-- **Pretend it's another day:** add `?day=2026-11-22` (works only on local addresses).
-- **Be a brand-new player:** a private window. Or in the console, `localStorage.clear()`, then reload.
-- **Haptics:** Android only. iPhones don't vibrate for web pages.
+- **Open the game:** http://localhost:4322. Turn the sound on in the menu.
+- **Pretend it's another day:** add `?day=2026-11-21`.
+- **Be a new player:** use a private window, or run `localStorage.clear()` in the console and reload.
+- **Review page:** http://localhost:4322/review.html shows each change on its own card, with your decisions recorded.
+  Delete it before shipping.
+- **Local addresses never write to the real herd** (localhost, 127.0.0.1, [::1], *.local, 192.168.x.x and the like).
 
-## The changes, and how to see each
+## What's in
 
-### Coming back (the retention work)
-
-1. **Morning chalkboard.**
-   - **What changed:** yesterday's result, chalked up above the start card before you play.
-   - **To see it:** play a day, then open the next day (`?day=` the day after), unplayed.
-   - In the top half it says "You came 14th of 112" and the number counts. Otherwise it leads with the herd ("You
-     scored 31. The herd scored 73. It usually does.").
-   - "See the board" opens yesterday below.
-2. **Tonight's placing.**
-   - **What changed:** "You're 14th of 112 so far. Final placings go up in the morning." under the scores. It only
-     shows in the top half; otherwise just "Final placings go up in the morning."
-   - **To see it:** play today's real date (other players' rounds are needed).
-3. **The week against the herd.**
-   - **What changed:**
-     - Each played ticket is stamped with the fairgoer (you won the day), the ox (the herd won) or both.
-     - "This week: You 1, The herd 2" under the strip.
-     - On a played Sunday, who took the week.
-     - Once today's done, tomorrow's ticket is dashed and labelled "Day 3".
-   - **To see it:** play two or three days in a row with `?day=`.
-4. **Tomorrow's programme.**
-   - **What changed:** "On tomorrow's programme: two very busy crossings, and a little gold man." in Back tomorrow.
-   - The hints are in `site/data/teasers.json`, one vague line per question, and never the answer.
-5. **"Same time tomorrow?"**
-   - **What changed:** an ADMIT ONE ticket under Share, on your first two rounds only. It comes in after the
-     celebration.
-     - "Remind me at 8:15am" adds a daily calendar event at the time you played (8am if you played late at night).
-       On iPhone it should open Add to Calendar.
-     - "Add to Home Screen" installs on Android, or shows the iPhone steps.
-     - "Not for me" hides it for good.
-   - Later rounds get a small "Remind me tomorrow" link instead.
-   - **To see it:** a new player (private window), finish a round.
-6. **The share text names the herd.** "Beat the herd by 6 🐂", or "Herd: 73 🐂" when it won.
-7. **The streak as a ticket.**
-   - **What changed:**
-     - The 🔥 in the header is now a drawn ticket stub.
-     - It hops up a number at the end of a round.
-     - Milestones: Day tripper (3 days), a week at the fair (7), Season ticket (30), e.g. "One more day and you're a
-       Day tripper."
-8. **Through the gate.** "143 through the gate today" under the start button (today's real date only).
-9. **Tab title.** A tab left open overnight changes its title to "New round · OxGuess".
-10. **A slimmer finished screen.**
-    - The separate Your stats card is gone.
-    - Yesterday folds to one line: "Yesterday · You came 9th of 42 · Herd 66". Tap it for the full prize board.
-
-### Inside the round (the feel)
-
-11. **Buttons.** They sink a little and spring back; the big ones give a soft wooden tap.
-12. **Moving between questions.**
-    - Each question slides out left and the next slides in.
-    - The finished progress segment fills in, and the next category pill pops.
-13. **The slider.** The tick rises in pitch as you drag right, and the knob squishes while held.
-14. **The strength tester.**
-    - One tick a point as the puck climbs, each a semitone higher, landing with a thunk.
-    - The bell at 20 is a proper bell now.
-    - At 19 it trembles: "A whisker off the bell!"
-15. **Sounds for good guesses.**
+1. **Morning chalkboard** above the start card, before you've played.
+   - Yesterday's scores in big chalk, with yours in yellow.
+   - One headline: "You beat the herd by 7 points!" / "The herd pipped you by 3 points" / "The herd won this one" /
+     "Dead level with the herd!" / "You missed out on the fun!".
+   - Your placing when you're in the top half ("You came 14th of 112", or "Joint 31st of 112"), with "More →" on
+     the same line. More scrolls down to Yesterday.
+   - A rosette swings onto the corner for a top-20 finish, carrying your place (purple for 1st).
+2. **Best in show counter.**
+   - A pill in the header (purple rosette and your all-time number of 20s), next to the 🔥 streak.
+   - At the end of a round, each 20 rosette wiggles and flies up into the counter, which ticks up and pops.
+3. **One badge a round.** A gold "Personal best" badge on its own row under the scores (from your second round on),
+   else "Your first Best in show", else "Beat the herd first go". Never more than one.
+4. **Results card:** the /100 is gone from both big scores.
+5. **Share text** adds "Beat the herd by 7 🐂", or "Herd: 77 🐂" when the herd won.
+6. **Yesterday's chart**, drawn like the stats page's.
+   - The score runs up the left, with light lines at 0, 25, 50, 75 and 100.
+   - Every player is a dot in one swarm, coloured by the rosette their score would win.
+   - The ox and you are bigger dots inside it.
+7. **Tab title:** a tab left open past midnight says "New round ready! OxGuess".
+8. **Buttons** sink and spring back, and the big ones give a soft tap.
+9. **Moving between questions:** the card fades a short way left and the next drifts in. The progress bar fills, and
+   the header stays still.
+10. **Slider:** the tick rises in pitch as you drag right, and the knob squishes while held.
+11. **Strength tester:**
+    - A tick per point as the puck climbs, landing with a thunk.
+    - Ding-ding at 20.
+    - At 19 the bell trembles: "A whisker off the bell!"
+12. **Sounds for good guesses:**
     - Ding-ding when you beat the herd on a question.
-    - The chime steps up a tone with each good guess (13+) in a row.
-    - Rosettes pin on with a little "tk".
-16. **Tap to hurry.** Tap the card during a reveal and it jumps to the end. The reveal is also about a second
-    quicker per question.
-17. **End of the round.**
-    - A brass-band flourish when you beat the herd; a good-humoured tuba ("pah-PAH") when it beats you.
-    - A red "Personal best" stamp when you beat your best round (needs two or more rounds).
-    - Or a one-off note:
-      - "Your first Best in show. The judges are impressed."
-      - "Beat the herd on your first go. Beginner's luck?"
-18. **The ox.**
-    - It blinks on the start card now and then.
-    - It looks impressed on the results when you win.
-    - Tap the ox in the header: it moos.
-19. **The story.**
-    - Page 3 is now "Your go. How heavy was the ox?" with a slider, before you see anyone else's guess.
-    - Page 4 drops your guess in among the 787: "You were 112 lb out."
-    - Pages slide the way you're going.
-    - **To see it:** menu, then The story.
-20. **Yesterday's chart as a prize board** (from earlier this week): a row per rosette tier, a token per player.
+    - The chime climbs for a run of good guesses.
+    - Rosettes pin on with a "tk".
+13. **End of round:** brass when you beat the herd, and a cheerful tuba when it beats you.
+14. **The ox:** it blinks on the start card, looks impressed when you win, and moos when you tap it in the header.
+
+## Dropped or on hold (originals kept)
+
+- **Dropped:**
+  - Tonight's placing.
+  - The week against the herd: the original ticks and the Your stats card stay.
+  - Tomorrow's teaser.
+  - The calendar reminder.
+  - The streak ticket: the 🔥 stays.
+  - The gate count.
+  - Folding Yesterday.
+  - Tap to hurry: the reveal keeps its original timings.
+  - The interactive story.
+- **On hold:** Add to Home Screen.
+  - The card and the iPhone progress carry-over are built but switched off (`SHOW_HOME_SCREEN` in app.js).
+  - The home-screen tags are left out of index.html until it's switched back on. On iPhone a full-screen
+    home-screen app has its own storage, and without the carry-over it would open as a new player.
 
 ## Before it goes live
 
-- **Paste the rules first:** `firestore.rules` from this branch, in the Firebase console (Firestore, then Rules,
-  then Publish). The only change lets the player summary record `kept` (calendar, home screen or no thanks). If the
-  new code goes live first, player summaries won't save until the rules are in.
-- **Reads:** a day's scores are now kept on the device (a past day's for good, today's for five minutes) instead of
-  being read on every view. If the game keeps growing, the next step is one summary document per day of score
-  counts, like the herd's.
-- **To ship:** merge `delight` into `main` and push. Today and earlier days are unaffected (the deploy check guards
-  that).
-- **Not built, and why:**
-  - A sixth question: both reviewers said no, because the round isn't where people drop off.
-  - A prize case and a guessing-style line: more clutter than pull for now.
-  - A crowd murmur: synthesised noise sounds like static.
-  - Story drop-off tracking: needs a new collection and a rules change.
+- Nothing in this set needs a Firestore rules change while the home-screen card is off. `firestore.rules` on this
+  branch already allows the `kept` field for when it returns.
+- Delete `site/review.html` and the plan docs you don't want to keep.
+- **To ship:** merge `delight` into `main` and push. The deploy check guards today and earlier days.
