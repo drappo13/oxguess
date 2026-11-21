@@ -902,7 +902,7 @@ function reveal(i, { animate = false } = {}) {
       <div class="judging">
         ${striker()}
         <div class="verdict">
-          <div class="plus-row"><div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION}<span class="pts-word"> points</span></small></div><span class="mini-rosette ${hide}" id="rosette" title="${t.name}">${rosette(t.key, p, 34)}</span></div>
+          <div class="plus-row"><span class="mini-rosette ${hide}" id="rosette" title="${t.name}">${rosette(t.key, p, 34)}</span><div class="plus"><span>+</span><span id="pts">${p}</span><small> / ${PER_QUESTION}<span class="pts-word"> points</span></small></div></div>
           <p class="duel ${hide}" id="duel">${oxHead({ size: 26 })}<span>The herd said <b>${withUnit(q, h.median)}</b> (${them} pts). ${duel}</span></p>
         </div>
       </div>

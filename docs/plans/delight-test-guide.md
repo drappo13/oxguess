@@ -44,8 +44,8 @@ Nothing is pushed, and the live game and your question editor are untouched.
     - A tick per point as the puck climbs, landing with a thunk.
     - Ding-ding at 20.
     - At 19 the bell trembles: "A whisker off the bell!" on its own line under how far off you were.
-    - On a narrow phone the score stays on one line ("+13 / 20"), dropping the word "points", with the rosette beside
-      it (this was already broken on the live site at about 360px wide).
+    - The rosette sits on the left of the score. On a narrow phone the score stays on one line ("+13 / 20"), dropping "points"
+      (it wrapped badly on the live site at about 360px wide).
 12. **Sounds for good guesses:**
     - Ding-ding when you beat the herd on a question.
     - The chime climbs for a run of good guesses.

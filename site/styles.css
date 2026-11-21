@@ -418,13 +418,14 @@ input[type=range]:focus-visible { outline: 3px solid var(--cat); outline-offset:
 .verdict { display: flex; flex-direction: column; gap: 8px; min-width: 0; container-type: inline-size; }
 .plus { font-family: var(--display); font-weight: 700; font-size: 52px; line-height: 1; color: var(--cat); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .plus small { font-size: 20px; color: var(--muted); }
-/* On a narrow phone the score stays on one line: "points" goes, and the rosette stays beside it. */
-@container (max-width: 220px) { .plus .pts-word { display: none; } }
+/* On a narrow phone the score stays on one line: "points" goes rather than wrapping. */
+@container (max-width: 222px) { .plus .pts-word { display: none; } }
 .duel { display: flex; align-items: center; gap: 8px; font-size: 15px; line-height: 1.35; }
 .duel svg { flex: none; }
 .duel b.win { color: var(--good); }
-.plus-row { display: flex; align-items: flex-start; gap: 6px; }
-.mini-rosette { display: flex; flex: none; margin-top: -6px; }
+/* the rosette pinned on the left, then the points */
+.plus-row { display: flex; align-items: center; gap: 8px; }
+.mini-rosette { display: flex; flex: none; margin-bottom: -8px; }
 
 /* then the fact, for anyone who scrolls */
 .later:not(.shown) { display: none; }
