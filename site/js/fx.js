@@ -203,7 +203,7 @@ const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st
  *  finish, the rosette swings onto the corner with a sparkle. */
 export function chalkUp(root) {
   if (!root || reduced()) return;
-  [...root.querySelectorAll(".slate-title, .slate-score, .slate-head b, .slate-head span")].forEach((c, k) => {
+  [...root.querySelectorAll(".slate-title, .slate-score, .slate-head, .slate-foot")].forEach((c, k) => {
     c.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 -10% 0 0)" }], { duration: 320, delay: 100 + k * 110, easing: "ease-out", fill: "backwards" });
     setTimeout(() => sfx.chalk(), 100 + k * 110);
   });

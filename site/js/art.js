@@ -102,14 +102,14 @@ export function scoreTower(scores, herdScore, you = null) {
 }
 
 const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
-/** Yesterday's result on the morning chalkboard: the scores in big chalk, a headline (you against the herd), your placing
- *  on its own line when it's a good one (top half), and a rosette pinned to the corner for a top-20 finish, carrying
+/** Yesterday's result on the morning chalkboard: the scores in big chalk, a headline (you against the herd), then your
+ *  placing when it's a good one (top half; "joint" when others scored the same) beside the way to the full results, and a rosette pinned to the corner for a top-20 finish, carrying
  *  your place (purple for first). "Full results" (data-more) leads to yesterday's card. Numbers carry data-count (and
  *  data-from, data-ord) so fx.chalkUp can count them up. */
-export function chalkboard({ you = null, herd, n = 0, place = null }) {
+export function chalkboard({ you = null, herd, n = 0, place = null, tied = false }) {
   const d = you == null ? null : you - herd, top = you != null && n > 1 && place <= Math.ceil(n / 2), pts = (k) => `${k} ${k === 1 ? "point" : "points"}`;
   const head = you == null ? "You missed it" : d > 0 ? `You beat the herd by ${pts(d)}!` : d === 0 ? "Dead level with the herd!" : d >= -5 ? `The herd pipped you by ${pts(-d)}` : "The herd won this one";
-  const sub = top ? `You came <b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b> of ${n}.`
+  const sub = top ? `${tied ? "Joint" : "You came"} <b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b> of ${n}`
     : you == null ? "Your turn today." : d > 0 ? "Nicely done." : d === 0 ? "Great minds." : "Revenge today?";
   const num = (v) => `<b data-count="${v}" data-from="0">${v}</b>`;
   return `<div class="slate-board ${d > 0 ? "won" : ""}">
@@ -118,8 +118,8 @@ export function chalkboard({ you = null, herd, n = 0, place = null }) {
         ${you == null ? "" : `<span class="slate-score mine">${fairgoer({ size: 30 })}${num(you)}</span><span class="slate-vs">v</span>`}
         <span class="slate-score theirs">${oxHead({ size: 30 })}${num(herd)}</span>
       </div>
-      <p class="slate-head"><b>${head}</b><span>${sub}</span></p>
-      <button class="slate-more" data-more>Full results <span aria-hidden="true">&rarr;</span></button>
+      <p class="slate-head">${head}</p>
+      <div class="slate-foot"><span>${sub}</span><button class="slate-more" data-more>Full results <span aria-hidden="true">&rarr;</span></button></div>
       ${top && place <= 20 ? `<span class="slate-rosette">${rosette(place === 1 ? "best" : "first", ordinal(place), 50)}</span>` : ""}
     </div>`;
 }

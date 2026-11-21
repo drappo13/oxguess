@@ -573,7 +573,7 @@ async function fillYesterday() {
   const herdScore = rows.reduce((t, x) => t + points(x.q, x.h.median), 0);
   const you = mine ? rows.reduce((t, x) => t + points(x.q, x.g), 0) : null;
   const others = yesterdayCache.scores, all = you == null ? others : [...others, you], n = all.length;
-  const place = (v) => 1 + all.filter((t) => t > v).length;
+  const place = (v) => 1 + all.filter((t) => t > v).length, joint = (v) => all.filter((t) => t === v).length > 1 ? "joint " : "";
   el.innerHTML = `
     <div class="y-head"><h2>Yesterday</h2><p class="dayline"><span>${prettyDate(y)}</span><span class="round-badge">Round ${r.number}</span></p></div>
     ${n ? scoreTower(others, herdScore, you) : ""}
@@ -582,18 +582,18 @@ async function fillYesterday() {
       { who: "you", name: "You", icon: fairgoer({ size: 38 }), score: you },
     ].sort((a, b) => (b.score ?? -1) - (a.score ?? -1)).map((x) => `<li class="${x.who}">
         <span class="st-icon">${x.icon}</span>
-        <span class="st-name">${x.name}${n && x.score != null ? `<small>${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
+        <span class="st-name">${x.name}${n && x.score != null ? `<small>${joint(x.score)}${ordinal(place(x.score))} of ${n} players</small>` : x.score == null ? `<small>You missed this one</small>` : ""}</span>
         <span class="st-score">${x.score == null ? "" : `<b>${x.score}</b><small>/${MAX()}</small>`}</span>
       </li>`).join("")}</ol>
     ${questionByQuestion(rows)}`;
   el.hidden = false;
-  fillSlate({ you, herdScore, n, place: you == null ? null : place(you) });
+  fillSlate({ you, herdScore, n, place: you == null ? null : place(you), tied: you != null && !!joint(you) });
 }
 /** The morning chalkboard: yesterday's final placing, chalked up line by line. */
-function fillSlate({ you, herdScore, n, place }) {
+function fillSlate({ you, herdScore, n, place, tied }) {
   const el = document.getElementById("slate");
   if (!el || state.answers.length) return;
-  el.innerHTML = chalkboard({ you, herd: herdScore, n, place });
+  el.innerHTML = chalkboard({ you, herd: herdScore, n, place, tied });
   el.hidden = false;
   // "Full results": down to yesterday's card, opened.
   el.querySelector("[data-more]").onclick = () => {

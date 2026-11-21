@@ -257,13 +257,13 @@ svg.ox, svg.fairgoer { flex: none; overflow: visible; background: radial-gradien
 .slate-score.mine b { color: #ffe58a; }
 .slate-score.theirs b { color: #f3c29a; }
 .slate-vs { font: 600 15px var(--display); color: color-mix(in srgb, #f1ecdf 55%, transparent); }
-.slate-head { margin: 0; display: flex; flex-direction: column; gap: 2px; font: 500 16px/1.3 var(--display); }
-.slate-head > b { font-weight: 700; font-size: 19px; }
-.slate-board.won .slate-head > b { color: #ffe58a; }
-.slate-head > span { color: color-mix(in srgb, #f1ecdf 78%, transparent); }
-.slate-head > span b { color: #ffe58a; font-weight: 700; }
-.slate-more { align-self: flex-end; margin: -2px -4px -4px 0; padding: 4px; background: none; border: 0; cursor: pointer;
-  font: 600 14px var(--display); color: color-mix(in srgb, #f1ecdf 70%, transparent); text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 4px; }
+.slate-head { margin: 0; font: 700 16px/1.25 var(--display); }
+.slate-board.won .slate-head { color: #ffe58a; }
+/* your placing, and the way to the full results, on one line */
+.slate-foot { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: -4px; font: 500 13px/1.3 var(--display); color: color-mix(in srgb, #f1ecdf 78%, transparent); }
+.slate-foot b { color: #ffe58a; font-weight: 700; }
+.slate-more { flex: none; padding: 2px 0; background: none; border: 0; cursor: pointer;
+  font: 600 13px var(--display); color: color-mix(in srgb, #f1ecdf 70%, transparent); text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 4px; }
 /* a top-20 finish: a rosette pinned over the corner of the board, with your place on it */
 .slate-rosette { position: absolute; top: -18px; right: -10px; transform: rotate(8deg); transform-origin: 50% 10%; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .35)); }
 
