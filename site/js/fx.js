@@ -197,6 +197,27 @@ export function sparkle(el) {
   bunting({ x: r.left + r.width / 2, y: r.top + r.height / 2, count: 14, power: 0.45 });
 }
 
+// ---------- the morning chalkboard ----------
+const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+/** Chalk the board up (art.chalkboard): each line written in left to right, the numbers counting, then, if you won, the
+ *  rosette swings onto the corner with a sparkle. */
+export function chalkUp(root) {
+  if (!root || reduced()) return;
+  [...root.querySelectorAll(".slate-title, .slate-score, .slate-place, .slate-head")].forEach((c, k) => {
+    c.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 -10% 0 0)" }], { duration: 320, delay: 100 + k * 110, easing: "ease-out", fill: "backwards" });
+    setTimeout(() => sfx.chalk(), 100 + k * 110);
+  });
+  root.querySelectorAll("[data-count]").forEach((b, k) => setTimeout(() => countUp(b, Number(b.dataset.count), 650,
+    { from: Number(b.dataset.from), sound: "low", format: "ord" in b.dataset ? ordinal : String }), 200 + k * 110));
+  const ros = root.querySelector(".slate-rosette");
+  if (ros) setTimeout(() => {
+    ros.animate([{ transform: "rotate(-50deg) scale(.3)", opacity: 0 }, { transform: "rotate(14deg) scale(1.1)", opacity: 1, offset: 0.6 }, { transform: "rotate(-4deg)" }, { transform: "rotate(8deg)" }],
+      { duration: 700, easing: "cubic-bezier(.3,1.4,.5,1)", fill: "backwards" });
+    sfx.pin(); buzz(12);
+    setTimeout(() => { sfx.chime(); sparkle(ros); }, 300);
+  }, 900);
+}
+
 // ---------- a prize flying to its counter ----------
 /** A copy of a prize (html) arcs from where it was won up to its counter, shrinking as it lands. */
 export function flyTo(fromEl, toEl, html, ms = 650) {

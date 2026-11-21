@@ -1,11 +1,11 @@
-import { oxHead, rosette, fairgoer, balance, herdChart, prizeBoard } from "./art.js";
+import { oxHead, rosette, fairgoer, balance, herdChart, prizeBoard, chalkboard } from "./art.js";
 import {
   STEPS, CATS, PER_QUESTION, catLabel, catIcon, armFor, sliderFor, toValue, toPos, score, points, tierFor, TIERS,
   withUnit, offBy, herd as makeHerd, herdVerdict, SEED_GUESSES,
   setSystem, getSystem, convertible, dispUnit, unitPair, toDisp, fromDisp, fmtDisp,
 } from "./game.js";
 import { loadHerds, loadScores, recordGuess, recordPlay, recordPlayer, playerId, testing } from "./herd-store.js";
-import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket, flyTo } from "./fx.js";
+import { sfx, buzz, wait, hurry, countUp, stampIn, pop, flash, bunting, sparkle, isMuted, setMuted, dropTicket, flyTo, chalkUp } from "./fx.js";
 
 const app = document.getElementById("app");
 // The question bank (by id) and the schedule (date -> five ids). The first scheduled date is round 1.
@@ -664,29 +664,13 @@ async function fillYesterday() {
 function fillSlate({ you, herdScore, n, place }) {
   const el = document.getElementById("slate");
   if (!el || state.answers.length) return;
-  const d = you == null ? null : you - herdScore;
-  const lines = you == null
-    ? [`The herd scored ${herdScore} yesterday.`, "Fancy your chances today?"]
-    : !topHalf(place, n) && d < 0 ? [`You scored ${you}.`, `The herd scored ${herdScore}. It usually does.`]
-    : [topHalf(place, n) ? `You came <b class="chalk-n" id="slate-place">${ordinal(place)}</b> of ${n}.` : `You scored ${you}.`,
-      d > 0 ? `The herd scored ${herdScore}. You beat it by ${d}.` : d < -5 ? `The herd scored ${herdScore}, ${-d} ahead of you.` : d < 0 ? `The herd scored ${herdScore} and pipped you by ${-d}.` : `The herd scored ${herdScore} too. Dead level.`];
-  el.innerHTML = `<div class="slate-board">
-      <span class="slate-icon">${you == null ? oxHead({ size: 40 }) : fairgoer({ size: 40 })}</span>
-      <div class="slate-text"><span class="slate-title">Yesterday's results</span>${lines.map((l) => `<p class="chalk">${l}</p>`).join("")}</div>
-    </div>
-    <button class="slate-link" id="slate-open">See the board</button>`;
+  el.innerHTML = `${chalkboard({ you, herd: herdScore, n, place })}<button class="slate-link" id="slate-open">See the board</button>`;
   el.hidden = false;
   document.getElementById("slate-open").onclick = () => {
     const y = document.querySelector("#yesterday details");
     if (y) { y.open = true; y.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" }); }
   };
-  if (reducedMotion()) return;
-  el.querySelectorAll(".chalk, .slate-title").forEach((c, k) => {
-    c.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 300, delay: 120 + k * 90, easing: "ease-out", fill: "backwards" });
-    setTimeout(() => sfx.chalk(), 120 + k * 90);
-  });
-  const pn = document.getElementById("slate-place");
-  if (pn) setTimeout(() => countUp(pn, place, 600, { from: n, sound: "low", format: ordinal }), 300);
+  chalkUp(el);
 }
 
 // The story as a short tap-through: one idea per page, each with its own little moment.

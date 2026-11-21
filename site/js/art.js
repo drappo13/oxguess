@@ -107,6 +107,31 @@ export function prizeBoard(scores, herdScore, you = null) {
   }).join("")}</ol>`;
 }
 
+const ordinal = (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+/** Yesterday's result on the morning chalkboard: the scores in big chalk and one headline. Beat the herd and a rosette
+ *  is pinned to the corner, carrying your placing if it's a good one (purple if you came first); otherwise a good
+ *  placing (top half) is circled in chalk.
+ *  Numbers carry data-count (and data-from, data-ord) so fx.chalkUp can count them up. */
+export function chalkboard({ you = null, herd, n = 0, place = null }) {
+  const d = you == null ? null : you - herd, won = d > 0, top = you != null && n > 1 && place <= Math.ceil(n / 2);
+  const head = you == null ? "You missed it" : won ? "You beat the herd!" : d === 0 ? "Dead level!" : d >= -5 ? "The herd just pipped you" : "The herd won this one";
+  const by = `by ${d} ${d === 1 ? "point" : "points"}`;
+  const sub = you == null ? "Your turn today." : won ? (top ? `${ordinal(place)} of ${n}, ${by}.` : `${by[0].toUpperCase()}${by.slice(1)}.`) : d === 0 ? "Great minds." : "Revenge today?";
+  const num = (v, from = 0) => `<b data-count="${v}" data-from="${from}">${v}</b>`;
+  return `<div class="slate-board ${won ? "won" : ""}">
+      <span class="slate-title">Yesterday's results</span>
+      <div class="slate-main">
+        <div class="slate-scores">
+          ${you == null ? "" : `<span class="slate-score mine">${fairgoer({ size: 30 })}${num(you)}</span><span class="slate-vs">v</span>`}
+          <span class="slate-score theirs">${oxHead({ size: 30 })}${num(herd)}</span>
+        </div>
+        ${top && !won ? `<span class="slate-place"><b data-count="${place}" data-from="${n}" data-ord>${ordinal(place)}</b><small>of ${n}</small></span>` : ""}
+      </div>
+      <p class="slate-head"><b>${head}</b> <span>${sub}</span></p>
+      ${won ? `<span class="slate-rosette">${rosette(place === 1 ? "best" : "first", top ? ordinal(place) : "", 50)}</span>` : ""}
+    </div>`;
+}
+
 /** How the herd guessed: 25 bars across the slider, the herd's guess (the ox), your guess and the answer flag.
  *  The game shows all three; the stats page leaves out "you", and hides the answer for today. */
 /** The herd drawn across range r (the player's own slider; the herd's own range by default). Guesses beyond r

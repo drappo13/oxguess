@@ -41,8 +41,8 @@
 <body>
 <main class="rv" id="rv"></main>
 <script type="module">
-import { oxHead, rosette, fairgoer } from "./js/art.js";
-import { sfx, countUp, stampIn, pop, bunting, flash, flyTo } from "./js/fx.js";
+import { oxHead, rosette, fairgoer, chalkboard } from "./js/art.js";
+import { sfx, countUp, stampIn, pop, bunting, flash, flyTo, chalkUp } from "./js/fx.js";
 
 // A copy of the game's streak ticket (app.js keeps its own; this page is throwaway).
 function streakTicket(n, size = 38) {
@@ -56,14 +56,14 @@ const stampTick = `<span class="stamp" aria-hidden="true"><svg viewBox="0 0 40 4
 const face = (r) => `<span class="stamp face ${r}">${r === "you" ? fairgoer({ size: 24 }) : r === "herd" ? oxHead({ size: 24 }) : fairgoer({ size: 17 }) + oxHead({ size: 17 })}</span>`;
 const play = `<svg class="play-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M10 8 L16 12 L10 16 Z"/></svg>`;
 const week = (cells) => `<div class="tickets">${cells.map(([l, cls, mark]) => `<span class="ticket ${cls}"><b>${l}</b>${mark}</span>`).join("")}</div>`;
-const slate = (icon, lines) => `<section class="slate"><div class="slate-board"><span class="slate-icon">${icon}</span><div class="slate-text"><span class="slate-title">Yesterday's results</span>${lines.map((l) => `<p class="chalk">${l}</p>`).join("")}</div></div><button class="slate-link">See the board</button></section>`;
-const chalkIn = (root) => root.querySelectorAll(".chalk, .slate-title").forEach((c, k) => { c.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 300, delay: 120 + k * 90, easing: "ease-out", fill: "backwards" }); setTimeout(() => sfx.chalk(), 120 + k * 90); });
 
 // Each change: what it is, why, a demo (html + optional wiring), and its tag.
 const ITEMS = [
-  { id: "slate", tag: "come back", title: "Morning chalkboard", why: "Before you play, yesterday's result is chalked up above the start card. It pays off \"final placings in the morning\". Top half sees their placing; everyone else is led by the herd.",
-    html: `${slate(fairgoer({ size: 40 }), ['You came <b id="sl-n">14th</b> of 112.', "The herd scored 74. You beat it by 6."])}${slate(fairgoer({ size: 40 }), ["You scored 31.", "The herd scored 73. It usually does."])}${slate(oxHead({ size: 40 }), ["The herd scored 74 yesterday.", "Fancy your chances today?"])}<div class="rv-row"><button class="btn" data-act="chalk">Chalk it up again</button></div>`,
-    act: { chalk: (d) => { chalkIn(d); countUp(d.querySelector("#sl-n"), 14, 600, { from: 112, sound: "low", format: (n) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th"}` }); } } },
+  { id: "slate", tag: "come back", title: "Morning chalkboard (redesigned)", why: "Before you play, yesterday's result chalked up above the start card: the scores in big chalk (yours in yellow), one headline, your placing circled when it's a good one, and a rosette swinging onto the corner when you beat the herd (purple and marked 1st if you came top). Five versions below; press the button to chalk them up again.",
+    html: `${[{ you: 92, herd: 77, n: 112, place: 1 }, { you: 84, herd: 77, n: 112, place: 14 }, { you: 74, herd: 77, n: 112, place: 40 }, { you: 31, herd: 73, n: 112, place: 93 }, { you: null, herd: 74 }]
+      .map((x) => `<section class="slate">${chalkboard(x)}</section>`).join("")}<div class="rv-row"><button class="btn" data-act="chalk">Chalk them up again</button></div>`,
+    wire: (d) => d.querySelectorAll(".slate").forEach((b) => chalkUp(b)),
+    act: { chalk: (d) => d.querySelectorAll(".slate").forEach((b, k) => setTimeout(() => chalkUp(b), k * 250)) } },
   { id: "placing", tag: "come back", title: "Tonight's placing", why: "Under the scores on the results card. Top half only; others just see \"Final placings go up in the morning.\"",
     html: `<p class="placing">You're <b>14th of 112</b> so far. Final placings go up in the morning.</p><p class="placing">Early days: <b>3rd of 7</b> so far.</p><p class="placing">Final placings go up in the morning.</p>` },
   { id: "week", tag: "come back", title: "The week against the herd", why: "Each played ticket is stamped with who won the day (you, the ox, or both). A series line underneath, a verdict on Sunday. Tomorrow's ticket dashed with the streak it would make. Today's ticket (unplayed) gently breathes and is the brightest.",
