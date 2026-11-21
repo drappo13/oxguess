@@ -217,6 +217,7 @@ function render(html, cat) {
   const head = header(), main = app.querySelector("main.screen");
   window.scrollTo(0, 0);
   if (main && head === lastHeader) {
+    menu(false); // the header stays, so close its menu as a fresh one would be
     main.outerHTML = `<main class="screen">${html}</main>`;
     app.querySelectorAll("main [data-go]").forEach((b) => (b.onclick = () => go(b.dataset.go)));
     return;
