@@ -689,7 +689,7 @@
       "min": 1,
       "max": 100,
       "minB": 5,
-      "maxB": 200
+      "maxB": 300
     },
     {
       "id": "d15-wild",
@@ -1043,7 +1043,7 @@
       "id": "d13-far",
       "cat": "far",
       "kind": null,
-      "q": "How far is it from Stonehenge to the Great Pyramid of Giza, as the crow flies?",
+      "q": "How far is it from Stonehenge to the Great Pyramid of Giza?",
       "answer": 3596,
       "unit": "km",
       "alt": "2,234 mi",
@@ -1058,7 +1058,7 @@
       "minB": 1000,
       "maxB": 100000,
       "min": 100,
-      "max": 10000
+      "max": 25000
     },
     {
       "id": "d14-far",
@@ -2079,12 +2079,12 @@
       "id": "calment-age",
       "cat": "wild",
       "kind": "old",
-      "q": "How old was Jeanne Calment, the oldest person whose age has ever been verified, when she died?",
+      "q": "How old was Jeanne Calment, the oldest person ever, when she died?",
       "answer": 122,
       "unit": "years",
       "alt": null,
       "scale": "lin",
-      "min": 0,
+      "min": 90,
       "max": 150,
       "fact": "She lived in Arles, and claimed to remember selling coloured pencils to Vincent van Gogh.",
       "source": {
@@ -2092,7 +2092,7 @@
         "url": "https://en.wikipedia.org/wiki/Jeanne_Calment"
       },
       "evidence": "Jeanne Louise Calment (21 February 1875 – 4 August 1997) was a French supercentenarian who is the oldest person in recorded history whose age has been verified, with a documented lifespan of 122 years and 164 days.",
-      "minB": 80,
+      "minB": 100,
       "maxB": 200
     },
     {
@@ -2104,14 +2104,16 @@
       "unit": "years",
       "alt": null,
       "scale": "lin",
-      "min": 0,
       "max": 100,
       "fact": "He won it for shooting at moving deer targets. Eight years later, aged 72, he won a silver too.",
       "source": {
         "name": "Wikipedia: Oscar Swahn",
         "url": "https://en.wikipedia.org/wiki/Oscar_Swahn"
       },
-      "evidence": "At 64 years and 258 days of age, he became the oldest gold medalist ever, a record he still holds. … At the 1920 Summer Olympics, he became the oldest athlete ever to compete in the Olympics at the age of 72."
+      "evidence": "At 64 years and 258 days of age, he became the oldest gold medalist ever, a record he still holds. … At the 1920 Summer Olympics, he became the oldest athlete ever to compete in the Olympics at the age of 72.",
+      "minB": 1,
+      "maxB": 80,
+      "min": 30
     },
     {
       "id": "pop-egypt",
@@ -2168,8 +2170,8 @@
       },
       "evidence": "Iran: Population (1 July 2023) 90,608,707 (UN World Population Prospects, 2024 revision)",
       "min": 1000000,
-      "max": 200000000,
-      "minB": 20000000,
+      "max": 250000000,
+      "minB": 10000000,
       "maxB": 1000000000
     },
     {
@@ -2365,10 +2367,10 @@
         "url": "https://en.wikipedia.org/wiki/Moon"
       },
       "evidence": "The mean distance of the Moon from the Earth is 384401 km. (Infobox semi-major axis 384,399 km; periapsis 362,600 km, apoapsis 405,400 km.)",
-      "min": 1000,
-      "max": 1000000,
+      "max": 10000000,
       "minB": 10000,
-      "maxB": 100000000
+      "maxB": 100000000,
+      "min": 10000
     },
     {
       "id": "far-tdf-2025",

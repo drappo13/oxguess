@@ -1,6 +1,7 @@
 {
   "ready": [
     "a4-football-pitch",
+    "calment-age",
     "d01-big",
     "d01-many",
     "d02-many",
@@ -14,15 +15,21 @@
     "d09-wild",
     "d10-big",
     "d10-wild",
+    "d13-far",
     "d13-when",
     "d14-when",
+    "d15-big",
     "d15-far",
     "d18-many",
     "d18-when",
     "d21-big",
     "d21-far",
     "d21-when",
+    "far-chunnel",
+    "far-moon",
     "pop-brazil",
-    "pop-vietnam"
+    "pop-iran",
+    "pop-vietnam",
+    "swahn-age"
   ]
 }
