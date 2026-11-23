@@ -403,7 +403,7 @@
       "evidence": "Originally developed as a personal project for Wardle and his partner, Wordle was publicly released in October 2021.",
       "min": 2000,
       "max": 2026,
-      "minB": 2010,
+      "minB": 2016,
       "maxB": 2026
     },
     {
@@ -1336,17 +1336,21 @@
       "id": "d07-many",
       "cat": "many",
       "kind": null,
-      "q": "How many African countries are members of the United Nations?",
+      "q": "How many countries (UN members) are there in Africa?",
       "answer": 54,
       "unit": "",
       "alt": null,
-      "scale": "log",
+      "scale": "lin",
       "fact": "All 54 are also members of the African Union.",
       "source": {
         "name": "Wikipedia: List of sovereign states and dependent territories in Africa",
         "url": "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
       },
-      "evidence": "It lists 56 sovereign states (54 of which are member states of the United Nations)"
+      "evidence": "It lists 56 sovereign states (54 of which are member states of the United Nations)",
+      "min": 1,
+      "max": 100,
+      "minB": 20,
+      "maxB": 200
     },
     {
       "id": "d08-many",
