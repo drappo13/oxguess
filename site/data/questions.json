@@ -2451,6 +2451,151 @@
       "max": 1000000000,
       "minB": 10000000,
       "maxB": 10000000000
+    },
+    {
+      "id": "pints-wembley",
+      "cat": "many",
+      "kind": null,
+      "q": "How many pints would it take to fill the bowl of London's Wembley Stadium to the brim?",
+      "answer": 2004535766,
+      "unit": "",
+      "alt": "about 2 billion",
+      "scale": "log",
+      "fact": "Building it took 90,000 m³ of concrete and 23,000 tonnes of steel.",
+      "source": {
+        "name": "Wikipedia: Wembley Stadium",
+        "url": "https://en.wikipedia.org/wiki/Wembley_Stadium",
+        "url2": "https://en.wikipedia.org/wiki/Pint"
+      },
+      "evidence": "The bowl volume is listed at 1,139,100 m3 … The imperial pint is … 568.26125 millilitres. 1,139,100,000 L / 0.56826125 L = 2,004,535,766",
+      "min": 1000000,
+      "max": 10000000000,
+      "minB": 100000000,
+      "maxB": 1000000000000
+    },
+    {
+      "id": "sun-earth-mass",
+      "cat": "many",
+      "kind": null,
+      "q": "How many Earths would it take to match the mass of the Sun?",
+      "answer": 330000,
+      "unit": "",
+      "alt": "about 330,000",
+      "scale": "log",
+      "fact": "The Sun holds about 99.86% of all the mass in the Solar System.",
+      "source": {
+        "name": "Wikipedia: Sun",
+        "url": "https://en.wikipedia.org/wiki/Sun"
+      },
+      "evidence": "The Sun's mass is around 330,000 times that of Earth, making up about 99.86% of the total mass of the Solar System.",
+      "min": 100,
+      "max": 1000000,
+      "minB": 1000,
+      "maxB": 1000000000
+    },
+    {
+      "id": "pennies-shard",
+      "cat": "many",
+      "kind": null,
+      "q": "How many 1p coins, stacked one on top of another, would it take to reach the top of London's Shard?",
+      "answer": 187636,
+      "unit": "",
+      "alt": "about 188,000",
+      "scale": "log",
+      "fact": "Pennies made since 1992 are copper-plated steel, a little thicker than the old bronze ones (1.65 mm against 1.52 mm).",
+      "source": {
+        "name": "Wikipedia: Penny (British decimal coin)",
+        "url": "https://en.wikipedia.org/wiki/Penny_(British_decimal_coin)",
+        "url2": "https://en.wikipedia.org/wiki/The_Shard"
+      },
+      "evidence": "Penny thickness: (Steel) 1.65 mm. The Shard: Standing 309.6 metres high. 309.6 m / 0.00165 m = 187,636",
+      "min": 1000,
+      "max": 1000000,
+      "minB": 10000,
+      "maxB": 100000000
+    },
+    {
+      "id": "pitches-central-park",
+      "cat": "many",
+      "kind": null,
+      "q": "How many football (soccer) pitches would fit inside New York's Central Park?",
+      "answer": 478,
+      "unit": "",
+      "alt": "about 480",
+      "scale": "log",
+      "fact": "It gets an estimated 42 million visits a year, the most of any city park in the United States.",
+      "source": {
+        "name": "Wikipedia: Central Park",
+        "url": "https://en.wikipedia.org/wiki/Central_Park",
+        "url2": "https://en.wikipedia.org/wiki/Football_pitch"
+      },
+      "evidence": "containing 843 acres (3.41 km2) … FIFA recommends that the field of play measures exactly 105 metres long and 68 metres wide. 843 acres = 3,411,500 m2 / 7,140 m2 = 478",
+      "min": 10,
+      "max": 1000,
+      "minB": 50,
+      "maxB": 100000
+    },
+    {
+      "id": "litres-niagara",
+      "cat": "many",
+      "kind": null,
+      "q": "On average, how many litres of water go over Niagara Falls every second?",
+      "answer": 2400000,
+      "unit": "",
+      "alt": "about 2.4 million",
+      "scale": "log",
+      "fact": "In summer at least 2,800 m³ a second goes over, about 90% of it over the Horseshoe Falls.",
+      "source": {
+        "name": "Wikipedia: Niagara Falls",
+        "url": "https://en.wikipedia.org/wiki/Niagara_Falls"
+      },
+      "evidence": "The average annual flow rate is 2,400 m3/s. (1 m3 = 1,000 litres, so 2,400,000 litres a second.)",
+      "min": 1000,
+      "max": 10000000,
+      "minB": 100000,
+      "maxB": 10000000000
+    },
+    {
+      "id": "eiffels-everest",
+      "cat": "many",
+      "kind": null,
+      "q": "How many Eiffel Towers, stacked on top of each other, would it take to reach the summit of Mount Everest?",
+      "answer": 26.8,
+      "unit": "",
+      "alt": "about 27",
+      "scale": "log",
+      "fact": "The tower grew 6 metres in 2022, when a digital radio antenna was fixed to the top.",
+      "source": {
+        "name": "Wikipedia: Eiffel Tower",
+        "url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+        "url2": "https://en.wikipedia.org/wiki/Mount_Everest"
+      },
+      "evidence": "The tower is 330 m tall (since the antenna of 15 March 2022). Everest: the new official height is 8,848.86 m. 8,848.86 / 330 = 26.8",
+      "min": 1,
+      "max": 100,
+      "minB": 5,
+      "maxB": 1000
+    },
+    {
+      "id": "wembleys-loch-ness",
+      "cat": "many",
+      "kind": null,
+      "q": "How many Wembley Stadiums could you fill with the water in Scotland's Loch Ness?",
+      "answer": 6587,
+      "unit": "",
+      "alt": "about 6,600",
+      "scale": "log",
+      "fact": "Loch Ness holds more water than all the lakes in England and Wales put together.",
+      "source": {
+        "name": "Wikipedia: Loch Ness",
+        "url": "https://en.wikipedia.org/wiki/Loch_Ness",
+        "url2": "https://en.wikipedia.org/wiki/Wembley_Stadium"
+      },
+      "evidence": "Loch Ness volume 1.8 cu mi (7.5 km3). Wembley: the bowl volume is listed at 1,139,100 m3. 7.50 billion m3 / 1,139,100 m3 = 6,587",
+      "min": 10,
+      "max": 20000,
+      "minB": 100,
+      "maxB": 1000000
     }
   ]
 }
