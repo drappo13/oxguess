@@ -1,5 +1,6 @@
 {
   "ready": [
+    "a4-football-pitch",
     "d01-big",
     "d01-many",
     "d02-many",
@@ -21,6 +22,7 @@
     "d21-big",
     "d21-far",
     "d21-when",
+    "pop-brazil",
     "pop-vietnam"
   ]
 }

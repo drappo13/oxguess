@@ -2195,7 +2195,7 @@
     },
     {
       "id": "pop-brazil",
-      "cat": "many",
+      "cat": "big",
       "kind": null,
       "q": "What is the population of Brazil?",
       "answer": 211140729,
@@ -2208,7 +2208,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Brazil"
       },
-      "evidence": "Brazil: Population (1 July 2023) 211,140,729 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Brazil: Population (1 July 2023) 211,140,729 (UN World Population Prospects, 2024 revision)",
+      "max": 500000000,
+      "minB": 10000000,
+      "maxB": 5000000000,
+      "min": 1000000
     },
     {
       "id": "pop-turkey",
@@ -2269,7 +2273,7 @@
       "id": "a4-football-pitch",
       "cat": "many",
       "kind": null,
-      "q": "How many sheets of A4 paper would it take to cover a football pitch of the size FIFA recommends?",
+      "q": "How many sheets of A4 paper would it take to cover a football (soccer) pitch?",
       "answer": 114478,
       "unit": "",
       "alt": "about 114,000",
@@ -2281,10 +2285,170 @@
         "url2": "https://en.wikipedia.org/wiki/Paper_size"
       },
       "evidence": "FIFA recommends that the field of play measures exactly 105 metres (115 yards) long and 68 metres (74 yards) wide … Paper size: A4 is 297 mm by 210 mm. 7,140 m2 / (0.297 m x 0.210 m = 0.06237 m2) = 114,478",
+      "min": 100,
+      "minB": 1000,
+      "max": 10000000,
+      "maxB": 100000000
+    },
+    {
+      "id": "far-golden-gate",
+      "cat": "far",
+      "kind": null,
+      "q": "How far is it from one end of San Francisco's Golden Gate Bridge to the other, including the approach spans?",
+      "answer": 2737,
+      "unit": "m",
+      "alt": "8,981 ft",
+      "scale": "log",
+      "fact": "When it opened in 1937, its 1,280 m main span was the longest of any suspension bridge in the world, a record it held until 1964.",
+      "source": {
+        "name": "Wikipedia: Golden Gate Bridge",
+        "url": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+      },
+      "evidence": "The total length of the Golden Gate Bridge from abutment to abutment is 8,981 feet (2,737 m).",
+      "min": 100,
+      "max": 10000,
+      "minB": 500,
+      "maxB": 50000
+    },
+    {
+      "id": "far-chunnel",
+      "cat": "far",
+      "kind": null,
+      "q": "How far do trains travel through the Channel Tunnel, from its entrance in England to its exit in France?",
+      "answer": 50.46,
+      "unit": "km",
+      "alt": "31.35 mi",
+      "scale": "log",
+      "fact": "Its 37.9 km undersea section is the longest underwater stretch of any tunnel in the world.",
+      "source": {
+        "name": "Wikipedia: Channel Tunnel",
+        "url": "https://en.wikipedia.org/wiki/Channel_Tunnel"
+      },
+      "evidence": "The Channel Tunnel is a 50.46-kilometre railway tunnel beneath the English Channel which connects Folkestone in the United Kingdom with Coquelles",
+      "min": 1,
+      "max": 200,
+      "minB": 10,
+      "maxB": 1000
+    },
+    {
+      "id": "far-manhattan",
+      "cat": "far",
+      "kind": null,
+      "q": "How far is it from the southern tip of Manhattan island to its northern tip?",
+      "answer": 21.6,
+      "unit": "km",
+      "alt": "13.4 mi",
+      "scale": "log",
+      "fact": "It is only about 3.7 km (2.3 miles) wide at 14th Street.",
+      "source": {
+        "name": "Wikipedia: Manhattan",
+        "url": "https://en.wikipedia.org/wiki/Manhattan"
+      },
+      "evidence": "The island is about 13.4 miles (21.6 km) from north to south",
+      "min": 1,
+      "max": 100,
+      "minB": 5,
+      "maxB": 1000
+    },
+    {
+      "id": "far-moon",
+      "cat": "far",
+      "kind": null,
+      "q": "On average, how far is the Moon from the Earth?",
+      "answer": 384400,
+      "unit": "km",
+      "alt": "238,900 mi",
+      "scale": "log",
+      "fact": "Its orbit isn't a perfect circle: it swings between roughly 363,000 km and 405,000 km from Earth.",
+      "source": {
+        "name": "Wikipedia: Moon",
+        "url": "https://en.wikipedia.org/wiki/Moon"
+      },
+      "evidence": "The mean distance of the Moon from the Earth is 384401 km. (Infobox semi-major axis 384,399 km; periapsis 362,600 km, apoapsis 405,400 km.)",
       "min": 1000,
       "max": 1000000,
       "minB": 10000,
+      "maxB": 100000000
+    },
+    {
+      "id": "far-tdf-2025",
+      "cat": "far",
+      "kind": null,
+      "q": "How far did the riders race in total over the 21 stages of the 2025 Tour de France?",
+      "answer": 3301.9,
+      "unit": "km",
+      "alt": "2,051.7 mi",
+      "scale": "log",
+      "fact": "Tadej Pogačar won it, his fourth Tour de France victory.",
+      "source": {
+        "name": "Wikipedia: 2025 Tour de France",
+        "url": "https://en.wikipedia.org/wiki/2025_Tour_de_France"
+      },
+      "evidence": "Distance 3,301.9 km (2,051.7 mi)",
+      "min": 100,
+      "max": 10000,
+      "minB": 500,
+      "maxB": 50000
+    },
+    {
+      "id": "far-geo",
+      "cat": "far",
+      "kind": null,
+      "q": "How high above the equator do geostationary satellites, such as TV satellites, orbit?",
+      "answer": 35786,
+      "unit": "km",
+      "alt": "22,236 mi",
+      "scale": "log",
+      "fact": "At that height a satellite circles once a day, keeping pace with the Earth's spin, so it seems to hang still in the sky.",
+      "source": {
+        "name": "Wikipedia: Geostationary orbit",
+        "url": "https://en.wikipedia.org/wiki/Geostationary_orbit"
+      },
+      "evidence": "a circular geosynchronous orbit 35,786 km (22,236 mi) in altitude above Earth's equator",
+      "min": 100,
+      "max": 100000,
+      "minB": 1000,
       "maxB": 10000000
+    },
+    {
+      "id": "far-mars-2003",
+      "cat": "far",
+      "kind": null,
+      "q": "How far was Mars from the Earth at its closest approach in 2003?",
+      "answer": 55760000,
+      "unit": "km",
+      "alt": "about 34.6 million mi",
+      "scale": "log",
+      "fact": "That was the nearest Mars had come in almost 60,000 years.",
+      "source": {
+        "name": "Wikipedia: Orbit of Mars",
+        "url": "https://en.wikipedia.org/wiki/Orbit_of_Mars"
+      },
+      "evidence": "in 2003 the minimum distance was 55.76 million km, nearer than any such encounter in almost 60,000 years",
+      "min": 100000,
+      "max": 200000000,
+      "minB": 1000000,
+      "maxB": 10000000000
+    },
+    {
+      "id": "far-sun",
+      "cat": "far",
+      "kind": null,
+      "q": "On average, how far is the Earth from the Sun?",
+      "answer": 149597871,
+      "unit": "km",
+      "alt": "about 93 million mi",
+      "scale": "log",
+      "fact": "Sunlight takes about 8 minutes and 19 seconds to reach us.",
+      "source": {
+        "name": "Wikipedia: Astronomical unit",
+        "url": "https://en.wikipedia.org/wiki/Astronomical_unit"
+      },
+      "evidence": "1 astronomical unit = 149,597,870.700 kilometres (exactly), approximately the average Earth-Sun distance; sunlight travels for 8 minutes and 19 seconds before reaching Earth",
+      "min": 1000000,
+      "max": 1000000000,
+      "minB": 10000000,
+      "maxB": 10000000000
     }
   ]
 }
