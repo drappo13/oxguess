@@ -133,10 +133,10 @@
         "url": "https://en.wikipedia.org/wiki/Panama_Canal"
       },
       "evidence": "The US took over the project in 1904 and opened the canal in 1914.",
-      "minB": 1800,
-      "maxB": 1950,
+      "minB": 1775,
+      "maxB": 1975,
       "min": 1850,
-      "max": 2000
+      "max": 2026
     },
     {
       "id": "d08-when",
@@ -422,9 +422,9 @@
       },
       "evidence": "The court is 78 ft (23.77 m) long.",
       "minB": 1,
-      "maxB": 30,
-      "min": 10,
-      "max": 50
+      "max": 100,
+      "min": 1,
+      "maxB": 50
     },
     {
       "id": "d02-big",
@@ -1203,7 +1203,7 @@
       "id": "d21-far",
       "cat": "far",
       "kind": null,
-      "q": "How far is it from the original Disneyland in California to the Magic Kingdom at Walt Disney World in Florida, as the crow flies?",
+      "q": "How far is it from Disneyland, California to Disneyland, Florida?",
       "answer": 3493,
       "unit": "km",
       "alt": "2,170 mi",
@@ -1215,10 +1215,10 @@
         "url2": "https://www.wikidata.org/wiki/Q1324340"
       },
       "evidence": "Disneyland (Q181185): Point(-117.919 33.809); Magic Kingdom (Q1324340): Point(-81.581111 28.418611). Great-circle (haversine, R = 6371.0088 km) = 3493 km",
-      "minB": 100,
-      "maxB": 10000,
+      "minB": 500,
+      "max": 10000,
       "min": 1,
-      "max": 10000
+      "maxB": 30000
     },
     {
       "id": "d01-many",
@@ -1684,10 +1684,10 @@
         "url": "https://en.wikipedia.org/wiki/ThrustSSC"
       },
       "evidence": "when it achieved a speed of 1,228 km/h (763 mph) and it became the first and only land vehicle to officially break the sound barrier",
-      "minB": 200,
-      "min": 150,
-      "max": 1500,
-      "maxB": 10000
+      "min": 100,
+      "max": 2000,
+      "maxB": 10000,
+      "minB": 200
     },
     {
       "id": "d05-wild",
