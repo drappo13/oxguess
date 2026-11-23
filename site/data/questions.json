@@ -2477,7 +2477,7 @@
       "id": "sun-earth-mass",
       "cat": "many",
       "kind": null,
-      "q": "How many Earths would it take to match the mass of the Sun?",
+      "q": "How many times more heavy is the Sun than the Earth?",
       "answer": 330000,
       "unit": "",
       "alt": "about 330,000",
@@ -2489,7 +2489,7 @@
       },
       "evidence": "The Sun's mass is around 330,000 times that of Earth, making up about 99.86% of the total mass of the Solar System.",
       "min": 100,
-      "max": 1000000,
+      "max": 100000000,
       "minB": 1000,
       "maxB": 1000000000
     },
