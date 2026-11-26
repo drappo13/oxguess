@@ -475,10 +475,10 @@
         "url": "https://en.wikipedia.org/wiki/Angel_Falls"
       },
       "evidence": "It is the world's tallest uninterrupted waterfall, with a height of 979 metres (3,212 ft), and a plunge of 807 m (2,648 ft).",
-      "minB": 200,
       "maxB": 20000,
-      "min": 50,
-      "max": 2000
+      "max": 1000,
+      "min": 1,
+      "minB": 75
     },
     {
       "id": "d05-big",
@@ -1284,21 +1284,21 @@
       "id": "d04-many",
       "cat": "many",
       "kind": null,
-      "q": "How many matches were played at the 2022 FIFA World Cup in Qatar?",
-      "answer": 64,
+      "q": "How many matches were played at the 2026 FIFA World Cup in the USA, Canada and Mexico?",
+      "answer": 104,
       "unit": "",
       "alt": null,
       "scale": "lin",
-      "fact": "It ran from 20 November to 18 December, outside the usual World Cup months of May, June and July.",
+      "fact": "Spain won it, beating the defending champions Argentina 1–0 after extra time in the final.",
       "source": {
-        "name": "Wikipedia: 2022 FIFA World Cup",
-        "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup"
+        "name": "Wikipedia: 2026 FIFA World Cup",
+        "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup"
       },
-      "evidence": "It was held over a reduced time frame of 29 days with 64 matches played in eight venues across five cities.",
-      "minB": 20,
+      "evidence": "The total number of matches played increased from 64 to 104 … Spain won the final against defending champion Argentina 1–0 after extra time.",
+      "minB": 1,
       "maxB": 250,
       "min": 1,
-      "max": 100
+      "max": 150
     },
     {
       "id": "d05-many",
@@ -2516,7 +2516,7 @@
       },
       "evidence": "Penny thickness: (Steel) 1.65 mm. The Shard: Standing 309.6 metres high. 309.6 m / 0.00165 m = 187,636",
       "min": 1000,
-      "max": 1000000,
+      "max": 10000000,
       "minB": 10000,
       "maxB": 100000000
     },
