@@ -504,7 +504,7 @@
       "id": "d06-big",
       "cat": "big",
       "kind": "height",
-      "q": "How tall was NASA's Saturn V Moon rocket?",
+      "q": "How tall was the Saturn V, the rocket that launched Neil Armstrong's Apollo 11 mission to the Moon?",
       "answer": 111,
       "unit": "m",
       "alt": "363 ft",
@@ -2418,7 +2418,7 @@
       "id": "far-mars-2003",
       "cat": "far",
       "kind": null,
-      "q": "How far was Mars from the Earth at its closest approach in 2003?",
+      "q": "What's the closest Mars has ever come to Earth in recorded history (August 2003)?",
       "answer": 55760000,
       "unit": "km",
       "alt": "about 34.6 million mi",
@@ -2472,7 +2472,7 @@
       "evidence": "The bowl volume is listed at 1,139,100 m3 … The imperial pint is … 568.26125 millilitres. 1,139,100,000 L / 0.56826125 L = 2,004,535,766",
       "min": 1000000,
       "max": 10000000000,
-      "minB": 100000000,
+      "minB": 10000000,
       "maxB": 1000000000000
     },
     {
