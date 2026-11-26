@@ -15,10 +15,10 @@
         "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
       },
       "evidence": "The Eiffel Tower was the world's tallest structure when completed in 1889",
-      "minB": 1750,
-      "maxB": 1950,
-      "min": 1850,
-      "max": 2000
+      "minB": 1800,
+      "maxB": 2026,
+      "min": 1700,
+      "max": 1950
     },
     {
       "id": "d02-when",
@@ -712,8 +712,8 @@
       "cat": "big",
       "kind": "weight",
       "q": "How much does the steelwork of the Sydney Harbour Bridge weigh, arch and approach spans included?",
-      "answer": 52800,
-      "unit": "t",
+      "answer": 52800000,
+      "unit": "kg",
       "alt": "58,200 short tons",
       "scale": "log",
       "fact": "Locals call it \"the Coathanger\" because of its arch.",
@@ -722,8 +722,10 @@
         "url": "https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge"
       },
       "evidence": "The total weight of the steelwork of the bridge, including the arch and approach spans, is 52,800 tonnes (52,000 long tons; 58,200 short tons)",
-      "minB": 2000,
-      "maxB": 200000
+      "maxB": 10000000000,
+      "min": 1000,
+      "max": 1000000000,
+      "minB": 100000
     },
     {
       "id": "d18-big",
@@ -2316,7 +2318,7 @@
       "id": "far-chunnel",
       "cat": "far",
       "kind": null,
-      "q": "How far do trains travel through the Channel Tunnel, from its entrance in England to its exit in France?",
+      "q": "How long is the Channel Tunnel, from its entrance in England to its exit in France?",
       "answer": 50.46,
       "unit": "km",
       "alt": "31.35 mi",
@@ -2596,6 +2598,89 @@
       "max": 20000,
       "minB": 100,
       "maxB": 1000000
+    },
+    {
+      "id": "huang-days-out",
+      "cat": "wild",
+      "kind": "time",
+      "q": "In November 2026, Jensen Huang resigned as Nvidia's CEO. How many days later did Nvidia's board reinstate him?",
+      "answer": 11,
+      "unit": "days",
+      "alt": null,
+      "scale": "lin",
+      "fact": "An open letter asking Nvidia's board to bring him back drew more than 178,000 signatures within four days.",
+      "source": {
+        "name": "Wikipedia: Jensen Huang scandal",
+        "url": "https://en.wikipedia.org/wiki/Jensen_Huang_scandal",
+        "url2": "https://www.cnn.com/2026/11/23/business/live-news/jensen-huang-reinstated-as-ceo-of-nvidia"
+      },
+      "evidence": "Outcome: Jensen Huang resigned as CEO, president, and board member of Nvidia before being reinstated to all three positions 11 days later. (Resignation announced 12 Nov; reinstatement announced 23 Nov.)",
+      "min": 1,
+      "max": 30,
+      "minB": 1,
+      "maxB": 15
+    },
+    {
+      "id": "anthropic-ipo-open",
+      "cat": "wild",
+      "kind": null,
+      "q": "When Anthropic's shares started trading on the Nasdaq on 19 November 2026, how much was the company worth at the opening price, in US dollars?",
+      "answer": 2000000000000,
+      "unit": "dollars",
+      "alt": "about $2 trillion",
+      "scale": "log",
+      "fact": "The IPO raised about $81 billion, the most any company has ever raised by going public.",
+      "source": {
+        "name": "Wikipedia: Initial public offering of Anthropic",
+        "url": "https://en.wikipedia.org/wiki/Initial_public_offering_of_Anthropic",
+        "url2": "https://fortune.com/2026/11/19/anthropic-ipo-first-day-trading-nasdaq-record-valuation/"
+      },
+      "evidence": "When market opened the shares began trading at $111.50 giving the company a valuation of $2 trillion. The price dropped throughout the day and closed at $97.",
+      "min": 1000000000,
+      "max": 10000000000000,
+      "minB": 100000000000,
+      "maxB": 100000000000000
+    },
+    {
+      "id": "scrabble-top-move",
+      "cat": "wild",
+      "kind": null,
+      "q": "What is the highest score ever made with a single move in a Scrabble tournament?",
+      "answer": 392,
+      "unit": "points",
+      "alt": null,
+      "scale": "log",
+      "fact": "It was CAZIQUES, played by Karl Khoshnaw in 1982.",
+      "source": {
+        "name": "Wikipedia: Scrabble (records)",
+        "url": "https://en.wikipedia.org/wiki/Scrabble"
+      },
+      "evidence": "Highest single play: NWL club 365 (QUIXOTRY, Michael Cresta, 2006), NWL tournament 311; CSW tournament 392 (CAZIQUES) by Karl Khoshnaw, 1982.",
+      "min": 1,
+      "max": 1000,
+      "minB": 50,
+      "maxB": 5000
+    },
+    {
+      "id": "scrabble-max-move",
+      "cat": "wild",
+      "kind": null,
+      "q": "In theory, what is the highest score anyone has found for a single legal move in Scrabble?",
+      "answer": 1786,
+      "unit": "points",
+      "alt": null,
+      "scale": "log",
+      "fact": "The move plays OXYPHENBUTAZONE and makes seven other words at the same time.",
+      "source": {
+        "name": "Wikipedia: Scrabble",
+        "url": "https://en.wikipedia.org/wiki/Scrabble",
+        "url2": "https://blog.woogles.io/posts/2024-05-27-new-theoretical-highest-play-discovered/"
+      },
+      "evidence": "The highest reported score for a single play is 1,786 points, with OXYPHENBUTAZONE and seven other words created simultaneously.",
+      "min": 10,
+      "max": 5000,
+      "minB": 100,
+      "maxB": 100000
     }
   ]
 }
