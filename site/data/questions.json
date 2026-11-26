@@ -963,7 +963,7 @@
       "id": "d09-far",
       "cat": "far",
       "kind": null,
-      "q": "How far is it from the Leaning Tower of Pisa to the Sagrada Família in Barcelona, as the crow flies?",
+      "q": "How far is it from the Leaning Tower of Pisa to the Sagrada Família in Barcelona?",
       "answer": 721,
       "unit": "km",
       "alt": "448 mi",
@@ -2220,7 +2220,7 @@
     },
     {
       "id": "pop-turkey",
-      "cat": "many",
+      "cat": "big",
       "kind": null,
       "q": "What is the population of Turkey?",
       "answer": 87270501,
@@ -2233,7 +2233,11 @@
         "url": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
         "url2": "https://en.wikipedia.org/wiki/Turkey"
       },
-      "evidence": "Turkey: Population (1 July 2023) 87,270,501 (UN World Population Prospects, 2024 revision)"
+      "evidence": "Turkey: Population (1 July 2023) 87,270,501 (UN World Population Prospects, 2024 revision)",
+      "min": 1000000,
+      "max": 1000000000,
+      "minB": 10000000,
+      "maxB": 1000000000
     },
     {
       "id": "pop-vietnam",
@@ -2430,9 +2434,9 @@
       },
       "evidence": "in 2003 the minimum distance was 55.76 million km, nearer than any such encounter in almost 60,000 years",
       "min": 100000,
-      "max": 200000000,
       "minB": 1000000,
-      "maxB": 10000000000
+      "max": 1000000000000,
+      "maxB": 500000000
     },
     {
       "id": "far-sun",
