@@ -55,9 +55,9 @@
         "url": "https://en.wikipedia.org/wiki/Penicillin"
       },
       "evidence": "Penicillin was discovered in 1928 by the Scottish physician Alexander Fleming",
-      "minB": 1900,
+      "minB": 1850,
       "maxB": 2026,
-      "min": 1850,
+      "min": 1800,
       "max": 1950
     },
     {

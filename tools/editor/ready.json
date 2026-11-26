@@ -8,6 +8,7 @@
     "d02-many",
     "d02-when",
     "d02-wild",
+    "d03-when",
     "d04-big",
     "d04-far",
     "d04-wild",
@@ -34,6 +35,7 @@
     "d21-far",
     "d21-when",
     "far-chunnel",
+    "far-golden-gate",
     "far-mars-2003",
     "far-moon",
     "huang-days-out",
@@ -43,6 +45,7 @@
     "pop-iran",
     "pop-turkey",
     "pop-vietnam",
+    "scrabble-top-move",
     "sun-earth-mass",
     "swahn-age",
     "wadlow-height"
