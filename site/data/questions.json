@@ -2603,7 +2603,7 @@
       "id": "huang-days-out",
       "cat": "wild",
       "kind": "time",
-      "q": "In November 2026, Jensen Huang resigned as Nvidia's CEO. How many days later did Nvidia's board reinstate him?",
+      "q": "How many days after Jensen Huang resigned as Nvidia's CEO in 2026 did the board reinstate him?",
       "answer": 11,
       "unit": "days",
       "alt": null,
@@ -2616,9 +2616,9 @@
       },
       "evidence": "Outcome: Jensen Huang resigned as CEO, president, and board member of Nvidia before being reinstated to all three positions 11 days later. (Resignation announced 12 Nov; reinstatement announced 23 Nov.)",
       "min": 1,
-      "max": 30,
-      "minB": 1,
-      "maxB": 15
+      "max": 100,
+      "maxB": 50,
+      "minB": 1
     },
     {
       "id": "anthropic-ipo-open",
