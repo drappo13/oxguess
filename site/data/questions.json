@@ -175,8 +175,8 @@
       "evidence": "Discovery date | 13 March 1781",
       "minB": 1700,
       "maxB": 2000,
-      "min": 1550,
-      "max": 1850
+      "min": 1500,
+      "max": 1950
     },
     {
       "id": "d10-when",
@@ -2681,6 +2681,46 @@
       "max": 5000,
       "minB": 100,
       "maxB": 100000
+    },
+    {
+      "id": "trump-x-followers",
+      "cat": "many",
+      "kind": null,
+      "q": "As of November 2026, how many followers does Donald Trump have on X (formerly Twitter)?",
+      "answer": 111700000,
+      "unit": "",
+      "alt": "about 112 million",
+      "scale": "log",
+      "fact": "The most-followed account on X belongs to its owner, Elon Musk, with over 241 million followers.",
+      "source": {
+        "name": "Wikipedia: List of most-followed X accounts",
+        "url": "https://en.wikipedia.org/wiki/List_of_most-followed_X_accounts"
+      },
+      "evidence": "@realDonaldTrump | Donald Trump | 111.7 (followers, millions), list as of November 2026",
+      "min": 1000000,
+      "max": 500000000,
+      "minB": 10000000,
+      "maxB": 5000000000
+    },
+    {
+      "id": "insta-most-liked",
+      "cat": "many",
+      "kind": null,
+      "q": "Lionel Messi's photo celebrating the 2022 World Cup win is the most-liked Instagram post ever. As of November 2026, how many likes does it have?",
+      "answer": 74400000,
+      "unit": "",
+      "alt": "about 74 million",
+      "scale": "log",
+      "fact": "In second place is a plain photo of an egg, posted in January 2019, with about 60 million likes.",
+      "source": {
+        "name": "Wikipedia: List of most-liked Instagram posts",
+        "url": "https://en.wikipedia.org/wiki/List_of_most-liked_Instagram_posts"
+      },
+      "evidence": "1 | @leomessi | Lionel Messi | Celebrating winning the 2022 FIFA World Cup | 74.4 (likes, millions) | December 18, 2022. 2 | @world_record_egg | An egg | 60.2 | January 4, 2019",
+      "min": 1000000,
+      "max": 200000000,
+      "minB": 5000000,
+      "maxB": 2000000000
     }
   ]
 }
